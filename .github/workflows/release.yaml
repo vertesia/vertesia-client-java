@@ -1,0 +1,99 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Release version, for example v1.2.3
+        required: true
+        type: string
+      development_version:
+        description: Next development version, for example 1.2.4-SNAPSHOT
+        required: true
+        type: string
+      prerelease:
+        description: Mark the GitHub Release as a prerelease
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate version
+        id: version
+        shell: bash
+        run: |
+          version="${{ inputs.version }}"
+          if [[ ! "$version" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "Version must be semver with a leading v, for example v1.2.3" >&2
+            exit 1
+          fi
+          development_version="${{ inputs.development_version }}"
+          if [[ ! "$development_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?-SNAPSHOT$ ]]; then
+            echo "development_version must be semver ending in -SNAPSHOT, for example 1.2.4-SNAPSHOT" >&2
+            exit 1
+          fi
+          if git rev-parse "$version" >/dev/null 2>&1; then
+            echo "Tag $version already exists" >&2
+            exit 1
+          fi
+          package_version="${version#v}"
+          spec_version="$(python3 -c 'import json; print(json.load(open("spec/vertesia-openapi.json"))["info"]["version"])')"
+          if [[ "$spec_version" != "$package_version" ]]; then
+            echo "OpenAPI spec info.version is $spec_version, want $package_version" >&2
+            exit 1
+          fi
+          configured_version="$(awk -F': ' '/artifactVersion:/ {print $2}' openapi-generator-config.yaml | tr -d '\"')"
+          if [[ "$configured_version" != "$package_version" ]]; then
+            echo "openapi-generator-config.yaml artifactVersion is $configured_version, want $package_version" >&2
+            exit 1
+          fi
+          pom_version="$(python3 -c 'import xml.etree.ElementTree as ET; root=ET.parse("pom.xml").getroot(); ns={"m":"http://maven.apache.org/POM/4.0.0"}; print(root.find("m:version", ns).text)')"
+          expected_pom_version="${package_version}-SNAPSHOT"
+          if [[ "$pom_version" != "$expected_pom_version" ]]; then
+            echo "pom.xml version is $pom_version, want $expected_pom_version" >&2
+            exit 1
+          fi
+          echo "tag=$version" >> "$GITHUB_OUTPUT"
+          echo "package_version=$package_version" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Prepare Maven release
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mvn -B release:prepare \
+            -DreleaseVersion="${{ steps.version.outputs.package_version }}" \
+            -DdevelopmentVersion="${{ inputs.development_version }}" \
+            -Dtag="${{ steps.version.outputs.tag }}" \
+            -DpreparationGoals=validate
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          prerelease_flag=""
+          if [[ "${{ inputs.prerelease }}" == "true" ]]; then
+            prerelease_flag="--prerelease"
+          fi
+          gh release create "${{ steps.version.outputs.tag }}" \
+            --title "${{ steps.version.outputs.tag }}" \
+            --generate-notes \
+            $prerelease_flag
