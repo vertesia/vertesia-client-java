@@ -46,7 +46,7 @@
         <commons-lang3-version>3.20.0</commons-lang3-version>
         <kotlin-stdlib-version>2.2.21</kotlin-stdlib-version>
         <jackson-databind-nullable-version>0.2.10</jackson-databind-nullable-version>
-        <jakarta-annotation-version>1.3.5</jakarta-annotation-version>
+        <jakarta-annotation-version>3.0.0</jakarta-annotation-version>
         <jakarta.ws.rs-api-version>2.1.6</jakarta.ws.rs-api-version>
         <junit-version>5.14.2</junit-version>
         <spotless-maven-plugin.version>3.5.1</spotless-maven-plugin.version>
