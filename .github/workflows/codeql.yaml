@@ -1,0 +1,47 @@
+name: CodeQL
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "24 4 * * 1"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
+
+jobs:
+  analyze:
+    name: Analyze Java
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      security-events: write # Upload CodeQL results to GitHub code scanning.
+    env:
+      VERTESIA_LIVE_TESTS: "0"
+    steps:
+      - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-java@c1e323688fd81a25caa38c78aa6df2d33d3e20d9 # v4
+        with:
+          distribution: temurin
+          java-version: "17"
+          cache: maven
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4
+        with:
+          languages: java-kotlin
+          build-mode: manual
+
+      - name: Build
+        run: mvn -B -DskipTests package
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@7c1e4cf0b20d7c1872b26569c00ba908797a59bf # v4
