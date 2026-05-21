@@ -1,8 +1,8 @@
-# Vertesia Java SDK
+# Vertesia Java Client
 
-Java SDK for the Vertesia API.
+Java client for the Vertesia API.
 
-The SDK combines a small hand-written facade with OpenAPI-generated API and model classes. Application code should usually start with `VertesiaClient`; the generated APIs and models remain available under `io.vertesia.api` and `io.vertesia.model`.
+The client combines a small hand-written facade with OpenAPI-generated API and model classes. Application code should usually start with `VertesiaClient`; the generated APIs and models remain available under `io.vertesia.api` and `io.vertesia.model`.
 
 ## Installation
 
@@ -105,7 +105,7 @@ python3 scripts/patch_forward_compat_validation.py
 mvn -B spotless:apply test
 ```
 
-The internal Studio workflow syncs generated Java source and `spec/` into this repository after the OpenAPI spec is validated on `main`. Hand-written SDK files, tests, workflows, README, LICENSE, NOTICE, `.env.example`, and generator config are protected by `.openapi-generator-ignore`.
+The internal Studio workflow syncs generated Java source and `spec/` into this repository after the OpenAPI spec is validated on `main`. Hand-written client files, tests, workflows, README, LICENSE, NOTICE, `.env.example`, and generator config are protected by `.openapi-generator-ignore`.
 
 ## Tests
 
@@ -183,3 +183,14 @@ mvn -B release:perform
 ```
 
 `release:prepare` runs `clean verify`, which includes the Spotless and Enforcer checks. `release:perform` runs `deploy`, so Maven repository credentials and deployment configuration must be available before publishing.
+
+The release workflow can upload release artifacts to Maven Central Portal. It requires these GitHub secrets:
+
+```text
+MAVEN_CENTRAL_USERNAME
+MAVEN_CENTRAL_PASSWORD
+MAVEN_GPG_PRIVATE_KEY
+MAVEN_GPG_PASSPHRASE
+```
+
+By default, the workflow uploads and waits for Central validation, but leaves the deployment unpublished for manual review in the Central Portal. Set `maven_central_auto_publish` when dispatching the workflow to publish automatically after validation.

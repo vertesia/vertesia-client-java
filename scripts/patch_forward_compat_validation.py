@@ -3,7 +3,7 @@
 
 OpenAPI Generator's Gson Java client validates response payloads before
 deserialization. Some generated validators reject any future response field,
-which is too strict for a public SDK talking to a newer Vertesia server.
+which is too strict for a public client talking to a newer Vertesia server.
 
 This patch keeps required-field and type validation, but removes the generated
 block that throws only because a JSON object contains fields unknown to this
