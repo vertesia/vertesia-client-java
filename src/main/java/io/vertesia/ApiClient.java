@@ -30,7 +30,6 @@ import java.security.GeneralSecurityException;
 import java.security.KeyStore;
 import java.security.SecureRandom;
 import java.security.cert.Certificate;
-import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.text.DateFormat;
 import java.time.LocalDate;
@@ -253,15 +252,20 @@ public class ApiClient {
     }
 
     /**
-     * Configure whether to verify certificate and hostname when making https requests.
-     * Default to true.
-     * NOTE: Do NOT set to false in production code, otherwise you would face multiple types of cryptographic attacks.
+     * Configure whether to verify certificate and hostname when making https requests. Default to true.
+     * Disabling TLS verification is not supported. To trust a private certificate authority, use
+     * {@link #setSslCaCert(InputStream)}.
      *
-     * @param verifyingSsl True to verify TLS/SSL connection
+     * @param verifyingSsl must be true to verify TLS/SSL connections
      * @return ApiClient
+     * @throws IllegalArgumentException if verifyingSsl is false
      */
     public ApiClient setVerifyingSsl(boolean verifyingSsl) {
-        this.verifyingSsl = verifyingSsl;
+        if (!verifyingSsl) {
+            throw new IllegalArgumentException(
+                    "Disabling TLS/SSL verification is not supported. Use setSslCaCert(...) to trust a custom CA certificate.");
+        }
+        this.verifyingSsl = true;
         applySslSettings();
         return this;
     }
@@ -1655,73 +1659,48 @@ public class ApiClient {
      */
     protected void applySslSettings() {
         try {
+            if (!verifyingSsl) {
+                throw new IllegalStateException("Disabling TLS/SSL verification is not supported.");
+            }
+
             TrustManager[] trustManagers;
             HostnameVerifier hostnameVerifier;
-            if (!verifyingSsl) {
-                trustManagers =
-                        new TrustManager[] {
-                            new X509TrustManager() {
-                                @Override
-                                public void checkClientTrusted(
-                                        java.security.cert.X509Certificate[] chain, String authType)
-                                        throws CertificateException {}
 
-                                @Override
-                                public void checkServerTrusted(
-                                        java.security.cert.X509Certificate[] chain, String authType)
-                                        throws CertificateException {}
+            TrustManagerFactory trustManagerFactory =
+                    TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
 
-                                @Override
-                                public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-                                    return new java.security.cert.X509Certificate[] {};
-                                }
-                            }
-                        };
+            if (sslCaCert == null) {
+                trustManagerFactory.init((KeyStore) null);
+            } else {
+                char[] password = null; // Any password will work.
+                CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
+                Collection<? extends Certificate> certificates =
+                        certificateFactory.generateCertificates(sslCaCert);
+                if (certificates.isEmpty()) {
+                    throw new IllegalArgumentException(
+                            "expected non-empty set of trusted certificates");
+                }
+                KeyStore caKeyStore = newEmptyKeyStore(password);
+                int index = 0;
+                for (Certificate certificate : certificates) {
+                    String certificateAlias = "ca" + (index++);
+                    caKeyStore.setCertificateEntry(certificateAlias, certificate);
+                }
+                trustManagerFactory.init(caKeyStore);
+            }
+            trustManagers = trustManagerFactory.getTrustManagers();
+            if (tlsServerName != null && !tlsServerName.isEmpty()) {
                 hostnameVerifier =
                         new HostnameVerifier() {
                             @Override
                             public boolean verify(String hostname, SSLSession session) {
-                                return true;
+                                // Verify the certificate against tlsServerName instead of the
+                                // actual hostname
+                                return OkHostnameVerifier.INSTANCE.verify(tlsServerName, session);
                             }
                         };
             } else {
-                TrustManagerFactory trustManagerFactory =
-                        TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
-
-                if (sslCaCert == null) {
-                    trustManagerFactory.init((KeyStore) null);
-                } else {
-                    char[] password = null; // Any password will work.
-                    CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
-                    Collection<? extends Certificate> certificates =
-                            certificateFactory.generateCertificates(sslCaCert);
-                    if (certificates.isEmpty()) {
-                        throw new IllegalArgumentException(
-                                "expected non-empty set of trusted certificates");
-                    }
-                    KeyStore caKeyStore = newEmptyKeyStore(password);
-                    int index = 0;
-                    for (Certificate certificate : certificates) {
-                        String certificateAlias = "ca" + (index++);
-                        caKeyStore.setCertificateEntry(certificateAlias, certificate);
-                    }
-                    trustManagerFactory.init(caKeyStore);
-                }
-                trustManagers = trustManagerFactory.getTrustManagers();
-                if (tlsServerName != null && !tlsServerName.isEmpty()) {
-                    hostnameVerifier =
-                            new HostnameVerifier() {
-                                @Override
-                                public boolean verify(String hostname, SSLSession session) {
-                                    // Verify the certificate against tlsServerName instead of the
-                                    // actual hostname
-                                    return OkHostnameVerifier.INSTANCE.verify(
-                                            tlsServerName, session);
-                                }
-                            };
-                } else {
-                    hostnameVerifier = OkHostnameVerifier.INSTANCE;
-                }
+                hostnameVerifier = OkHostnameVerifier.INSTANCE;
             }
 
             SSLContext sslContext = SSLContext.getInstance("TLS");

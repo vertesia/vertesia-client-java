@@ -2,6 +2,8 @@ package io.vertesia;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import io.vertesia.model.AccountProjectsResponse;
 import io.vertesia.model.AccountType;
@@ -57,6 +59,19 @@ class GeneratedCompatibilityTest {
                 ContentObjectStatus.fromValue("future-status"));
         assertEquals(
                 AccountType.UNKNOWN_DEFAULT_OPEN_API, AccountType.fromValue("future-account-type"));
+    }
+
+    @Test
+    void generatedClientRejectsDisabledTlsVerification() {
+        ApiClient client = new ApiClient();
+
+        IllegalArgumentException error =
+                assertThrows(IllegalArgumentException.class, () -> client.setVerifyingSsl(false));
+
+        assertEquals(
+                "Disabling TLS/SSL verification is not supported. Use setSslCaCert(...) to trust a custom CA certificate.",
+                error.getMessage());
+        assertTrue(client.isVerifyingSsl());
     }
 
     @Test

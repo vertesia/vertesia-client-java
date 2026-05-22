@@ -29,6 +29,14 @@ jobs:
           changed_files="$(git diff --name-only "$BASE_SHA" "$HEAD_SHA")"
 
           generated_changes="$(echo "$changed_files" | grep -E '^(src/main/java/io/vertesia/(api|auth|model)/|src/main/java/io/vertesia/(ApiCallback|ApiClient|ApiException|ApiResponse|Configuration|GzipRequestInterceptor|JSON|Pair|ProgressRequestBody|ProgressResponseBody|ServerConfiguration|ServerVariable|StringUtil)\.java|spec/|\.openapi-generator/)' || true)"
+          api_client_change="$(echo "$generated_changes" | grep -x 'src/main/java/io/vertesia/ApiClient.java' || true)"
+          if [[ -n "$api_client_change" ]]; then
+            if ! echo "$changed_files" | grep -qx 'scripts/patch_generated_security.py'; then
+              echo "Generated ApiClient.java changes must be captured in scripts/patch_generated_security.py." >&2
+              exit 1
+            fi
+            generated_changes="$(echo "$generated_changes" | grep -vx 'src/main/java/io/vertesia/ApiClient.java' || true)"
+          fi
           if [[ -n "$generated_changes" ]]; then
             echo "Generated OpenAPI files are updated only by internal generation automation." >&2
             echo "Move hand-written client changes outside generated paths, or let the sync automation regenerate them." >&2

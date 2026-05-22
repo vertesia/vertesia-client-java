@@ -102,6 +102,7 @@ To regenerate locally:
 ```sh
 openapi-generator generate -c openapi-generator-config.yaml
 python3 scripts/patch_forward_compat_validation.py
+python3 scripts/patch_generated_security.py
 mvn -B spotless:apply test
 ```
 
