@@ -31,31 +31,31 @@ import java.util.Objects;
 /**
  * BulkObjectCreateResultFailedInner
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BulkObjectCreateResultFailedInner {
     public static final String SERIALIZED_NAME_EXTERNAL_ID = "external_id";
 
     @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
-    @javax.annotation.Nullable private String externalId;
+    @jakarta.annotation.Nullable private String externalId;
 
     public static final String SERIALIZED_NAME_INDEX = "index";
 
     @SerializedName(SERIALIZED_NAME_INDEX)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal index;
 
     public static final String SERIALIZED_NAME_ERROR = "error";
 
     @SerializedName(SERIALIZED_NAME_ERROR)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String error;
 
     public BulkObjectCreateResultFailedInner() {}
 
     public BulkObjectCreateResultFailedInner externalId(
-            @javax.annotation.Nullable String externalId) {
+            @jakarta.annotation.Nullable String externalId) {
         this.externalId = externalId;
         return this;
     }
@@ -64,15 +64,15 @@ public class BulkObjectCreateResultFailedInner {
      * Get externalId
      * @return externalId
      */
-    @javax.annotation.Nullable public String getExternalId() {
+    @jakarta.annotation.Nullable public String getExternalId() {
         return externalId;
     }
 
-    public void setExternalId(@javax.annotation.Nullable String externalId) {
+    public void setExternalId(@jakarta.annotation.Nullable String externalId) {
         this.externalId = externalId;
     }
 
-    public BulkObjectCreateResultFailedInner index(@javax.annotation.Nonnull BigDecimal index) {
+    public BulkObjectCreateResultFailedInner index(@jakarta.annotation.Nonnull BigDecimal index) {
         this.index = index;
         return this;
     }
@@ -81,16 +81,16 @@ public class BulkObjectCreateResultFailedInner {
      * Get index
      * @return index
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getIndex() {
         return index;
     }
 
-    public void setIndex(@javax.annotation.Nonnull BigDecimal index) {
+    public void setIndex(@jakarta.annotation.Nonnull BigDecimal index) {
         this.index = index;
     }
 
-    public BulkObjectCreateResultFailedInner error(@javax.annotation.Nonnull String error) {
+    public BulkObjectCreateResultFailedInner error(@jakarta.annotation.Nonnull String error) {
         this.error = error;
         return this;
     }
@@ -99,12 +99,12 @@ public class BulkObjectCreateResultFailedInner {
      * Get error
      * @return error
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getError() {
         return error;
     }
 
-    public void setError(@javax.annotation.Nonnull String error) {
+    public void setError(@jakarta.annotation.Nonnull String error) {
         this.error = error;
     }
 

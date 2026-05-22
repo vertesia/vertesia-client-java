@@ -32,29 +32,29 @@ import java.util.Objects;
 /**
  * CreateUserGroupPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateUserGroupPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public CreateUserGroupPayload() {}
 
-    public CreateUserGroupPayload name(@javax.annotation.Nonnull String name) {
+    public CreateUserGroupPayload name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -63,16 +63,16 @@ public class CreateUserGroupPayload {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public CreateUserGroupPayload description(@javax.annotation.Nullable String description) {
+    public CreateUserGroupPayload description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -81,15 +81,15 @@ public class CreateUserGroupPayload {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public CreateUserGroupPayload tags(@javax.annotation.Nullable List<String> tags) {
+    public CreateUserGroupPayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -106,11 +106,11 @@ public class CreateUserGroupPayload {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 

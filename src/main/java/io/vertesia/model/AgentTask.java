@@ -36,7 +36,7 @@ import java.util.Objects;
 /**
  * Agent task information for workflow history UI representation. This is separate from the analytics AgentEvent types. Consistent with WorkflowTask naming convention.  Currently represents tool calls, but designed to be extensible for other task types (LLM calls, checkpoints, etc.)
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AgentTask {
@@ -108,24 +108,24 @@ public class AgentTask {
     public static final String SERIALIZED_NAME_TASK_TYPE = "taskType";
 
     @SerializedName(SERIALIZED_NAME_TASK_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TaskTypeEnum taskType;
 
     public static final String SERIALIZED_NAME_TOOL_NAME = "toolName";
 
     @SerializedName(SERIALIZED_NAME_TOOL_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String toolName;
 
     public static final String SERIALIZED_NAME_TOOL_USE_ID = "toolUseId";
 
     @SerializedName(SERIALIZED_NAME_TOOL_USE_ID)
-    @javax.annotation.Nullable private String toolUseId;
+    @jakarta.annotation.Nullable private String toolUseId;
 
     public static final String SERIALIZED_NAME_TOOL_RUN_ID = "toolRunId";
 
     @SerializedName(SERIALIZED_NAME_TOOL_RUN_ID)
-    @javax.annotation.Nullable private String toolRunId;
+    @jakarta.annotation.Nullable private String toolRunId;
 
     /**
      * Gets or Sets toolType
@@ -189,27 +189,27 @@ public class AgentTask {
     public static final String SERIALIZED_NAME_TOOL_TYPE = "toolType";
 
     @SerializedName(SERIALIZED_NAME_TOOL_TYPE)
-    @javax.annotation.Nullable private ToolTypeEnum toolType;
+    @jakarta.annotation.Nullable private ToolTypeEnum toolType;
 
     public static final String SERIALIZED_NAME_ITERATION = "iteration";
 
     @SerializedName(SERIALIZED_NAME_ITERATION)
-    @javax.annotation.Nullable private BigDecimal iteration;
+    @jakarta.annotation.Nullable private BigDecimal iteration;
 
     public static final String SERIALIZED_NAME_SCHEDULED_AT = "scheduled_at";
 
     @SerializedName(SERIALIZED_NAME_SCHEDULED_AT)
-    @javax.annotation.Nullable private String scheduledAt;
+    @jakarta.annotation.Nullable private String scheduledAt;
 
     public static final String SERIALIZED_NAME_STARTED_AT = "started_at";
 
     @SerializedName(SERIALIZED_NAME_STARTED_AT)
-    @javax.annotation.Nullable private String startedAt;
+    @jakarta.annotation.Nullable private String startedAt;
 
     public static final String SERIALIZED_NAME_COMPLETED_AT = "completed_at";
 
     @SerializedName(SERIALIZED_NAME_COMPLETED_AT)
-    @javax.annotation.Nullable private String completedAt;
+    @jakarta.annotation.Nullable private String completedAt;
 
     /**
      * Gets or Sets status
@@ -277,48 +277,48 @@ public class AgentTask {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private StatusEnum status;
 
     public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
 
     @SerializedName(SERIALIZED_NAME_PARAMETERS)
-    @javax.annotation.Nullable private Map<String, Object> parameters = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> parameters = new HashMap<>();
 
     public static final String SERIALIZED_NAME_RESULT = "result";
 
     @SerializedName(SERIALIZED_NAME_RESULT)
-    @javax.annotation.Nullable private String result;
+    @jakarta.annotation.Nullable private String result;
 
     public static final String SERIALIZED_NAME_ERROR = "error";
 
     @SerializedName(SERIALIZED_NAME_ERROR)
-    @javax.annotation.Nullable private AgentTaskError error;
+    @jakarta.annotation.Nullable private AgentTaskError error;
 
     public static final String SERIALIZED_NAME_RETRIES = "retries";
 
     @SerializedName(SERIALIZED_NAME_RETRIES)
-    @javax.annotation.Nullable private BigDecimal retries;
+    @jakarta.annotation.Nullable private BigDecimal retries;
 
     public static final String SERIALIZED_NAME_ACTIVE_TOOLS = "activeTools";
 
     @SerializedName(SERIALIZED_NAME_ACTIVE_TOOLS)
-    @javax.annotation.Nullable private List<String> activeTools = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> activeTools = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_AVAILABLE_SKILLS = "availableSkills";
 
     @SerializedName(SERIALIZED_NAME_AVAILABLE_SKILLS)
-    @javax.annotation.Nullable private List<String> availableSkills = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> availableSkills = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_RUN_ID = "runId";
 
     @SerializedName(SERIALIZED_NAME_RUN_ID)
-    @javax.annotation.Nullable private String runId;
+    @jakarta.annotation.Nullable private String runId;
 
     public static final String SERIALIZED_NAME_WORKSTREAM_ID = "workstreamId";
 
     @SerializedName(SERIALIZED_NAME_WORKSTREAM_ID)
-    @javax.annotation.Nullable private String workstreamId;
+    @jakarta.annotation.Nullable private String workstreamId;
 
     /**
      * Signal direction for signal tasks
@@ -378,21 +378,21 @@ public class AgentTask {
     public static final String SERIALIZED_NAME_DIRECTION = "direction";
 
     @SerializedName(SERIALIZED_NAME_DIRECTION)
-    @javax.annotation.Nullable private DirectionEnum direction;
+    @jakarta.annotation.Nullable private DirectionEnum direction;
 
     public static final String SERIALIZED_NAME_FINISH_REASON = "finish_reason";
 
     @SerializedName(SERIALIZED_NAME_FINISH_REASON)
-    @javax.annotation.Nullable private String finishReason;
+    @jakarta.annotation.Nullable private String finishReason;
 
     public static final String SERIALIZED_NAME_WARNINGS = "warnings";
 
     @SerializedName(SERIALIZED_NAME_WARNINGS)
-    @javax.annotation.Nullable private List<String> warnings = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> warnings = new ArrayList<>();
 
     public AgentTask() {}
 
-    public AgentTask taskType(@javax.annotation.Nonnull TaskTypeEnum taskType) {
+    public AgentTask taskType(@jakarta.annotation.Nonnull TaskTypeEnum taskType) {
         this.taskType = taskType;
         return this;
     }
@@ -401,16 +401,16 @@ public class AgentTask {
      * Type discriminator for future task types
      * @return taskType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TaskTypeEnum getTaskType() {
         return taskType;
     }
 
-    public void setTaskType(@javax.annotation.Nonnull TaskTypeEnum taskType) {
+    public void setTaskType(@jakarta.annotation.Nonnull TaskTypeEnum taskType) {
         this.taskType = taskType;
     }
 
-    public AgentTask toolName(@javax.annotation.Nonnull String toolName) {
+    public AgentTask toolName(@jakarta.annotation.Nonnull String toolName) {
         this.toolName = toolName;
         return this;
     }
@@ -419,16 +419,16 @@ public class AgentTask {
      * Tool-specific fields
      * @return toolName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getToolName() {
         return toolName;
     }
 
-    public void setToolName(@javax.annotation.Nonnull String toolName) {
+    public void setToolName(@jakarta.annotation.Nonnull String toolName) {
         this.toolName = toolName;
     }
 
-    public AgentTask toolUseId(@javax.annotation.Nullable String toolUseId) {
+    public AgentTask toolUseId(@jakarta.annotation.Nullable String toolUseId) {
         this.toolUseId = toolUseId;
         return this;
     }
@@ -437,15 +437,15 @@ public class AgentTask {
      * Get toolUseId
      * @return toolUseId
      */
-    @javax.annotation.Nullable public String getToolUseId() {
+    @jakarta.annotation.Nullable public String getToolUseId() {
         return toolUseId;
     }
 
-    public void setToolUseId(@javax.annotation.Nullable String toolUseId) {
+    public void setToolUseId(@jakarta.annotation.Nullable String toolUseId) {
         this.toolUseId = toolUseId;
     }
 
-    public AgentTask toolRunId(@javax.annotation.Nullable String toolRunId) {
+    public AgentTask toolRunId(@jakarta.annotation.Nullable String toolRunId) {
         this.toolRunId = toolRunId;
         return this;
     }
@@ -454,15 +454,15 @@ public class AgentTask {
      * Get toolRunId
      * @return toolRunId
      */
-    @javax.annotation.Nullable public String getToolRunId() {
+    @jakarta.annotation.Nullable public String getToolRunId() {
         return toolRunId;
     }
 
-    public void setToolRunId(@javax.annotation.Nullable String toolRunId) {
+    public void setToolRunId(@jakarta.annotation.Nullable String toolRunId) {
         this.toolRunId = toolRunId;
     }
 
-    public AgentTask toolType(@javax.annotation.Nullable ToolTypeEnum toolType) {
+    public AgentTask toolType(@jakarta.annotation.Nullable ToolTypeEnum toolType) {
         this.toolType = toolType;
         return this;
     }
@@ -471,15 +471,15 @@ public class AgentTask {
      * Get toolType
      * @return toolType
      */
-    @javax.annotation.Nullable public ToolTypeEnum getToolType() {
+    @jakarta.annotation.Nullable public ToolTypeEnum getToolType() {
         return toolType;
     }
 
-    public void setToolType(@javax.annotation.Nullable ToolTypeEnum toolType) {
+    public void setToolType(@jakarta.annotation.Nullable ToolTypeEnum toolType) {
         this.toolType = toolType;
     }
 
-    public AgentTask iteration(@javax.annotation.Nullable BigDecimal iteration) {
+    public AgentTask iteration(@jakarta.annotation.Nullable BigDecimal iteration) {
         this.iteration = iteration;
         return this;
     }
@@ -488,15 +488,15 @@ public class AgentTask {
      * Get iteration
      * @return iteration
      */
-    @javax.annotation.Nullable public BigDecimal getIteration() {
+    @jakarta.annotation.Nullable public BigDecimal getIteration() {
         return iteration;
     }
 
-    public void setIteration(@javax.annotation.Nullable BigDecimal iteration) {
+    public void setIteration(@jakarta.annotation.Nullable BigDecimal iteration) {
         this.iteration = iteration;
     }
 
-    public AgentTask scheduledAt(@javax.annotation.Nullable String scheduledAt) {
+    public AgentTask scheduledAt(@jakarta.annotation.Nullable String scheduledAt) {
         this.scheduledAt = scheduledAt;
         return this;
     }
@@ -505,15 +505,15 @@ public class AgentTask {
      * Execution details
      * @return scheduledAt
      */
-    @javax.annotation.Nullable public String getScheduledAt() {
+    @jakarta.annotation.Nullable public String getScheduledAt() {
         return scheduledAt;
     }
 
-    public void setScheduledAt(@javax.annotation.Nullable String scheduledAt) {
+    public void setScheduledAt(@jakarta.annotation.Nullable String scheduledAt) {
         this.scheduledAt = scheduledAt;
     }
 
-    public AgentTask startedAt(@javax.annotation.Nullable String startedAt) {
+    public AgentTask startedAt(@jakarta.annotation.Nullable String startedAt) {
         this.startedAt = startedAt;
         return this;
     }
@@ -522,15 +522,15 @@ public class AgentTask {
      * Get startedAt
      * @return startedAt
      */
-    @javax.annotation.Nullable public String getStartedAt() {
+    @jakarta.annotation.Nullable public String getStartedAt() {
         return startedAt;
     }
 
-    public void setStartedAt(@javax.annotation.Nullable String startedAt) {
+    public void setStartedAt(@jakarta.annotation.Nullable String startedAt) {
         this.startedAt = startedAt;
     }
 
-    public AgentTask completedAt(@javax.annotation.Nullable String completedAt) {
+    public AgentTask completedAt(@jakarta.annotation.Nullable String completedAt) {
         this.completedAt = completedAt;
         return this;
     }
@@ -539,15 +539,15 @@ public class AgentTask {
      * Get completedAt
      * @return completedAt
      */
-    @javax.annotation.Nullable public String getCompletedAt() {
+    @jakarta.annotation.Nullable public String getCompletedAt() {
         return completedAt;
     }
 
-    public void setCompletedAt(@javax.annotation.Nullable String completedAt) {
+    public void setCompletedAt(@jakarta.annotation.Nullable String completedAt) {
         this.completedAt = completedAt;
     }
 
-    public AgentTask status(@javax.annotation.Nonnull StatusEnum status) {
+    public AgentTask status(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
         return this;
     }
@@ -556,16 +556,16 @@ public class AgentTask {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
+    public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
     }
 
-    public AgentTask parameters(@javax.annotation.Nullable Map<String, Object> parameters) {
+    public AgentTask parameters(@jakarta.annotation.Nullable Map<String, Object> parameters) {
         this.parameters = parameters;
         return this;
     }
@@ -582,15 +582,15 @@ public class AgentTask {
      * Tool data
      * @return parameters
      */
-    @javax.annotation.Nullable public Map<String, Object> getParameters() {
+    @jakarta.annotation.Nullable public Map<String, Object> getParameters() {
         return parameters;
     }
 
-    public void setParameters(@javax.annotation.Nullable Map<String, Object> parameters) {
+    public void setParameters(@jakarta.annotation.Nullable Map<String, Object> parameters) {
         this.parameters = parameters;
     }
 
-    public AgentTask result(@javax.annotation.Nullable String result) {
+    public AgentTask result(@jakarta.annotation.Nullable String result) {
         this.result = result;
         return this;
     }
@@ -599,15 +599,15 @@ public class AgentTask {
      * Get result
      * @return result
      */
-    @javax.annotation.Nullable public String getResult() {
+    @jakarta.annotation.Nullable public String getResult() {
         return result;
     }
 
-    public void setResult(@javax.annotation.Nullable String result) {
+    public void setResult(@jakarta.annotation.Nullable String result) {
         this.result = result;
     }
 
-    public AgentTask error(@javax.annotation.Nullable AgentTaskError error) {
+    public AgentTask error(@jakarta.annotation.Nullable AgentTaskError error) {
         this.error = error;
         return this;
     }
@@ -616,15 +616,15 @@ public class AgentTask {
      * Get error
      * @return error
      */
-    @javax.annotation.Nullable public AgentTaskError getError() {
+    @jakarta.annotation.Nullable public AgentTaskError getError() {
         return error;
     }
 
-    public void setError(@javax.annotation.Nullable AgentTaskError error) {
+    public void setError(@jakarta.annotation.Nullable AgentTaskError error) {
         this.error = error;
     }
 
-    public AgentTask retries(@javax.annotation.Nullable BigDecimal retries) {
+    public AgentTask retries(@jakarta.annotation.Nullable BigDecimal retries) {
         this.retries = retries;
         return this;
     }
@@ -633,15 +633,15 @@ public class AgentTask {
      * Number of activity retries
      * @return retries
      */
-    @javax.annotation.Nullable public BigDecimal getRetries() {
+    @jakarta.annotation.Nullable public BigDecimal getRetries() {
         return retries;
     }
 
-    public void setRetries(@javax.annotation.Nullable BigDecimal retries) {
+    public void setRetries(@jakarta.annotation.Nullable BigDecimal retries) {
         this.retries = retries;
     }
 
-    public AgentTask activeTools(@javax.annotation.Nullable List<String> activeTools) {
+    public AgentTask activeTools(@jakarta.annotation.Nullable List<String> activeTools) {
         this.activeTools = activeTools;
         return this;
     }
@@ -658,15 +658,15 @@ public class AgentTask {
      * Active tools for this LLM call
      * @return activeTools
      */
-    @javax.annotation.Nullable public List<String> getActiveTools() {
+    @jakarta.annotation.Nullable public List<String> getActiveTools() {
         return activeTools;
     }
 
-    public void setActiveTools(@javax.annotation.Nullable List<String> activeTools) {
+    public void setActiveTools(@jakarta.annotation.Nullable List<String> activeTools) {
         this.activeTools = activeTools;
     }
 
-    public AgentTask availableSkills(@javax.annotation.Nullable List<String> availableSkills) {
+    public AgentTask availableSkills(@jakarta.annotation.Nullable List<String> availableSkills) {
         this.availableSkills = availableSkills;
         return this;
     }
@@ -683,15 +683,15 @@ public class AgentTask {
      * Available skills for this LLM call
      * @return availableSkills
      */
-    @javax.annotation.Nullable public List<String> getAvailableSkills() {
+    @jakarta.annotation.Nullable public List<String> getAvailableSkills() {
         return availableSkills;
     }
 
-    public void setAvailableSkills(@javax.annotation.Nullable List<String> availableSkills) {
+    public void setAvailableSkills(@jakarta.annotation.Nullable List<String> availableSkills) {
         this.availableSkills = availableSkills;
     }
 
-    public AgentTask runId(@javax.annotation.Nullable String runId) {
+    public AgentTask runId(@jakarta.annotation.Nullable String runId) {
         this.runId = runId;
         return this;
     }
@@ -700,15 +700,15 @@ public class AgentTask {
      * Temporal run ID that produced this task.
      * @return runId
      */
-    @javax.annotation.Nullable public String getRunId() {
+    @jakarta.annotation.Nullable public String getRunId() {
         return runId;
     }
 
-    public void setRunId(@javax.annotation.Nullable String runId) {
+    public void setRunId(@jakarta.annotation.Nullable String runId) {
         this.runId = runId;
     }
 
-    public AgentTask workstreamId(@javax.annotation.Nullable String workstreamId) {
+    public AgentTask workstreamId(@jakarta.annotation.Nullable String workstreamId) {
         this.workstreamId = workstreamId;
         return this;
     }
@@ -717,15 +717,15 @@ public class AgentTask {
      * Workstream tracking
      * @return workstreamId
      */
-    @javax.annotation.Nullable public String getWorkstreamId() {
+    @jakarta.annotation.Nullable public String getWorkstreamId() {
         return workstreamId;
     }
 
-    public void setWorkstreamId(@javax.annotation.Nullable String workstreamId) {
+    public void setWorkstreamId(@jakarta.annotation.Nullable String workstreamId) {
         this.workstreamId = workstreamId;
     }
 
-    public AgentTask direction(@javax.annotation.Nullable DirectionEnum direction) {
+    public AgentTask direction(@jakarta.annotation.Nullable DirectionEnum direction) {
         this.direction = direction;
         return this;
     }
@@ -734,15 +734,15 @@ public class AgentTask {
      * Signal direction for signal tasks
      * @return direction
      */
-    @javax.annotation.Nullable public DirectionEnum getDirection() {
+    @jakarta.annotation.Nullable public DirectionEnum getDirection() {
         return direction;
     }
 
-    public void setDirection(@javax.annotation.Nullable DirectionEnum direction) {
+    public void setDirection(@jakarta.annotation.Nullable DirectionEnum direction) {
         this.direction = direction;
     }
 
-    public AgentTask finishReason(@javax.annotation.Nullable String finishReason) {
+    public AgentTask finishReason(@jakarta.annotation.Nullable String finishReason) {
         this.finishReason = finishReason;
         return this;
     }
@@ -751,15 +751,15 @@ public class AgentTask {
      * LLM stop reason for llm_call tasks (e.g., \&quot;stop\&quot;, \&quot;length\&quot;, \&quot;tool_use\&quot;)
      * @return finishReason
      */
-    @javax.annotation.Nullable public String getFinishReason() {
+    @jakarta.annotation.Nullable public String getFinishReason() {
         return finishReason;
     }
 
-    public void setFinishReason(@javax.annotation.Nullable String finishReason) {
+    public void setFinishReason(@jakarta.annotation.Nullable String finishReason) {
         this.finishReason = finishReason;
     }
 
-    public AgentTask warnings(@javax.annotation.Nullable List<String> warnings) {
+    public AgentTask warnings(@jakarta.annotation.Nullable List<String> warnings) {
         this.warnings = warnings;
         return this;
     }
@@ -776,11 +776,11 @@ public class AgentTask {
      * Warnings about the task outcome (e.g. unexpected model behavior).
      * @return warnings
      */
-    @javax.annotation.Nullable public List<String> getWarnings() {
+    @jakarta.annotation.Nullable public List<String> getWarnings() {
         return warnings;
     }
 
-    public void setWarnings(@javax.annotation.Nullable List<String> warnings) {
+    public void setWarnings(@jakarta.annotation.Nullable List<String> warnings) {
         this.warnings = warnings;
     }
 

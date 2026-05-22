@@ -36,174 +36,174 @@ import java.util.Objects;
 /**
  * NodeDefinition
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class NodeDefinition {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ProcessNodeType type;
 
     public static final String SERIALIZED_NAME_TOOL = "tool";
 
     @SerializedName(SERIALIZED_NAME_TOOL)
-    @javax.annotation.Nullable private String tool;
+    @jakarta.annotation.Nullable private String tool;
 
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
-    @javax.annotation.Nullable private String interaction;
+    @jakarta.annotation.Nullable private String interaction;
 
     public static final String SERIALIZED_NAME_PROCESS = "process";
 
     @SerializedName(SERIALIZED_NAME_PROCESS)
-    @javax.annotation.Nullable private String process;
+    @jakarta.annotation.Nullable private String process;
 
     public static final String SERIALIZED_NAME_PROCESS_DEFINITION = "process_definition";
 
     @SerializedName(SERIALIZED_NAME_PROCESS_DEFINITION)
-    @javax.annotation.Nullable private ProcessDefinitionBody processDefinition;
+    @jakarta.annotation.Nullable private ProcessDefinitionBody processDefinition;
 
     public static final String SERIALIZED_NAME_PROCESS_VERSION = "process_version";
 
     @SerializedName(SERIALIZED_NAME_PROCESS_VERSION)
-    @javax.annotation.Nullable private BigDecimal processVersion;
+    @jakarta.annotation.Nullable private BigDecimal processVersion;
 
     public static final String SERIALIZED_NAME_RUN_TYPE = "run_type";
 
     @SerializedName(SERIALIZED_NAME_RUN_TYPE)
-    @javax.annotation.Nullable private ProcessNodeRunType runType;
+    @jakarta.annotation.Nullable private ProcessNodeRunType runType;
 
     public static final String SERIALIZED_NAME_RETURNS = "returns";
 
     @SerializedName(SERIALIZED_NAME_RETURNS)
-    @javax.annotation.Nullable private ProcessNodeReturnsDefinition returns;
+    @jakarta.annotation.Nullable private ProcessNodeReturnsDefinition returns;
 
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema resultSchema;
+    @jakarta.annotation.Nullable private JSONSchema resultSchema;
 
     public static final String SERIALIZED_NAME_PROMPT = "prompt";
 
     @SerializedName(SERIALIZED_NAME_PROMPT)
-    @javax.annotation.Nullable private String prompt;
+    @jakarta.annotation.Nullable private String prompt;
 
     public static final String SERIALIZED_NAME_INPUT = "input";
 
     @SerializedName(SERIALIZED_NAME_INPUT)
-    @javax.annotation.Nullable private Map<String, Object> input = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> input = new HashMap<>();
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nullable private Map<String, Object> config = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> config = new HashMap<>();
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nullable private String title;
+    @jakarta.annotation.Nullable private String title;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_HUMAN_DESCRIPTION = "human_description";
 
     @SerializedName(SERIALIZED_NAME_HUMAN_DESCRIPTION)
-    @javax.annotation.Nullable private String humanDescription;
+    @jakarta.annotation.Nullable private String humanDescription;
 
     public static final String SERIALIZED_NAME_WRITES = "writes";
 
     @SerializedName(SERIALIZED_NAME_WRITES)
-    @javax.annotation.Nullable private List<String> writes = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> writes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SKIPPABLE = "skippable";
 
     @SerializedName(SERIALIZED_NAME_SKIPPABLE)
-    @javax.annotation.Nullable private Boolean skippable;
+    @jakarta.annotation.Nullable private Boolean skippable;
 
     public static final String SERIALIZED_NAME_MAX_RETRIES = "max_retries";
 
     @SerializedName(SERIALIZED_NAME_MAX_RETRIES)
-    @javax.annotation.Nullable private BigDecimal maxRetries;
+    @jakarta.annotation.Nullable private BigDecimal maxRetries;
 
     public static final String SERIALIZED_NAME_TRANSITIONS = "transitions";
 
     @SerializedName(SERIALIZED_NAME_TRANSITIONS)
-    @javax.annotation.Nullable private List<TransitionDefinition> transitions = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<TransitionDefinition> transitions = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TOOLS = "tools";
 
     @SerializedName(SERIALIZED_NAME_TOOLS)
-    @javax.annotation.Nullable private List<String> tools = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tools = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nullable private String model;
+    @jakarta.annotation.Nullable private String model;
 
     public static final String SERIALIZED_NAME_TASK = "task";
 
     @SerializedName(SERIALIZED_NAME_TASK)
-    @javax.annotation.Nullable private HumanTaskDefinition task;
+    @jakarta.annotation.Nullable private HumanTaskDefinition task;
 
     public static final String SERIALIZED_NAME_FOREACH = "foreach";
 
     @SerializedName(SERIALIZED_NAME_FOREACH)
-    @javax.annotation.Nullable private String foreach;
+    @jakarta.annotation.Nullable private String foreach;
 
     public static final String SERIALIZED_NAME_AS = "as";
 
     @SerializedName(SERIALIZED_NAME_AS)
-    @javax.annotation.Nullable private String as;
+    @jakarta.annotation.Nullable private String as;
 
     public static final String SERIALIZED_NAME_ITEM_ID = "item_id";
 
     @SerializedName(SERIALIZED_NAME_ITEM_ID)
-    @javax.annotation.Nullable private String itemId;
+    @jakarta.annotation.Nullable private String itemId;
 
     public static final String SERIALIZED_NAME_NODE = "node";
 
     @SerializedName(SERIALIZED_NAME_NODE)
-    @javax.annotation.Nullable private NodeDefinition node;
+    @jakarta.annotation.Nullable private NodeDefinition node;
 
     public static final String SERIALIZED_NAME_MAX_CONCURRENCY = "max_concurrency";
 
     @SerializedName(SERIALIZED_NAME_MAX_CONCURRENCY)
-    @javax.annotation.Nullable private BigDecimal maxConcurrency;
+    @jakarta.annotation.Nullable private BigDecimal maxConcurrency;
 
     public static final String SERIALIZED_NAME_COLLECT = "collect";
 
     @SerializedName(SERIALIZED_NAME_COLLECT)
-    @javax.annotation.Nullable private NodeDefinitionCollect collect;
+    @jakarta.annotation.Nullable private NodeDefinitionCollect collect;
 
     public static final String SERIALIZED_NAME_FAILURE_POLICY = "failure_policy";
 
     @SerializedName(SERIALIZED_NAME_FAILURE_POLICY)
-    @javax.annotation.Nullable private ParallelFailurePolicy failurePolicy;
+    @jakarta.annotation.Nullable private ParallelFailurePolicy failurePolicy;
 
     public static final String SERIALIZED_NAME_JOIN = "join";
 
     @SerializedName(SERIALIZED_NAME_JOIN)
-    @javax.annotation.Nullable private BranchJoinPolicy join;
+    @jakarta.annotation.Nullable private BranchJoinPolicy join;
 
     public static final String SERIALIZED_NAME_BRANCHES = "branches";
 
     @SerializedName(SERIALIZED_NAME_BRANCHES)
-    @javax.annotation.Nullable private List<NodeDefinitionBranchesInner> branches = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<NodeDefinitionBranchesInner> branches = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @javax.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
 
     public NodeDefinition() {}
 
-    public NodeDefinition type(@javax.annotation.Nonnull ProcessNodeType type) {
+    public NodeDefinition type(@jakarta.annotation.Nonnull ProcessNodeType type) {
         this.type = type;
         return this;
     }
@@ -212,16 +212,16 @@ public class NodeDefinition {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ProcessNodeType getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull ProcessNodeType type) {
+    public void setType(@jakarta.annotation.Nonnull ProcessNodeType type) {
         this.type = type;
     }
 
-    public NodeDefinition tool(@javax.annotation.Nullable String tool) {
+    public NodeDefinition tool(@jakarta.annotation.Nullable String tool) {
         this.tool = tool;
         return this;
     }
@@ -230,15 +230,15 @@ public class NodeDefinition {
      * Get tool
      * @return tool
      */
-    @javax.annotation.Nullable public String getTool() {
+    @jakarta.annotation.Nullable public String getTool() {
         return tool;
     }
 
-    public void setTool(@javax.annotation.Nullable String tool) {
+    public void setTool(@jakarta.annotation.Nullable String tool) {
         this.tool = tool;
     }
 
-    public NodeDefinition interaction(@javax.annotation.Nullable String interaction) {
+    public NodeDefinition interaction(@jakarta.annotation.Nullable String interaction) {
         this.interaction = interaction;
         return this;
     }
@@ -247,15 +247,15 @@ public class NodeDefinition {
      * Get interaction
      * @return interaction
      */
-    @javax.annotation.Nullable public String getInteraction() {
+    @jakarta.annotation.Nullable public String getInteraction() {
         return interaction;
     }
 
-    public void setInteraction(@javax.annotation.Nullable String interaction) {
+    public void setInteraction(@jakarta.annotation.Nullable String interaction) {
         this.interaction = interaction;
     }
 
-    public NodeDefinition process(@javax.annotation.Nullable String process) {
+    public NodeDefinition process(@jakarta.annotation.Nullable String process) {
         this.process = process;
         return this;
     }
@@ -264,16 +264,16 @@ public class NodeDefinition {
      * Get process
      * @return process
      */
-    @javax.annotation.Nullable public String getProcess() {
+    @jakarta.annotation.Nullable public String getProcess() {
         return process;
     }
 
-    public void setProcess(@javax.annotation.Nullable String process) {
+    public void setProcess(@jakarta.annotation.Nullable String process) {
         this.process = process;
     }
 
     public NodeDefinition processDefinition(
-            @javax.annotation.Nullable ProcessDefinitionBody processDefinition) {
+            @jakarta.annotation.Nullable ProcessDefinitionBody processDefinition) {
         this.processDefinition = processDefinition;
         return this;
     }
@@ -282,16 +282,16 @@ public class NodeDefinition {
      * Get processDefinition
      * @return processDefinition
      */
-    @javax.annotation.Nullable public ProcessDefinitionBody getProcessDefinition() {
+    @jakarta.annotation.Nullable public ProcessDefinitionBody getProcessDefinition() {
         return processDefinition;
     }
 
     public void setProcessDefinition(
-            @javax.annotation.Nullable ProcessDefinitionBody processDefinition) {
+            @jakarta.annotation.Nullable ProcessDefinitionBody processDefinition) {
         this.processDefinition = processDefinition;
     }
 
-    public NodeDefinition processVersion(@javax.annotation.Nullable BigDecimal processVersion) {
+    public NodeDefinition processVersion(@jakarta.annotation.Nullable BigDecimal processVersion) {
         this.processVersion = processVersion;
         return this;
     }
@@ -300,15 +300,15 @@ public class NodeDefinition {
      * Get processVersion
      * @return processVersion
      */
-    @javax.annotation.Nullable public BigDecimal getProcessVersion() {
+    @jakarta.annotation.Nullable public BigDecimal getProcessVersion() {
         return processVersion;
     }
 
-    public void setProcessVersion(@javax.annotation.Nullable BigDecimal processVersion) {
+    public void setProcessVersion(@jakarta.annotation.Nullable BigDecimal processVersion) {
         this.processVersion = processVersion;
     }
 
-    public NodeDefinition runType(@javax.annotation.Nullable ProcessNodeRunType runType) {
+    public NodeDefinition runType(@jakarta.annotation.Nullable ProcessNodeRunType runType) {
         this.runType = runType;
         return this;
     }
@@ -317,15 +317,16 @@ public class NodeDefinition {
      * Get runType
      * @return runType
      */
-    @javax.annotation.Nullable public ProcessNodeRunType getRunType() {
+    @jakarta.annotation.Nullable public ProcessNodeRunType getRunType() {
         return runType;
     }
 
-    public void setRunType(@javax.annotation.Nullable ProcessNodeRunType runType) {
+    public void setRunType(@jakarta.annotation.Nullable ProcessNodeRunType runType) {
         this.runType = runType;
     }
 
-    public NodeDefinition returns(@javax.annotation.Nullable ProcessNodeReturnsDefinition returns) {
+    public NodeDefinition returns(
+            @jakarta.annotation.Nullable ProcessNodeReturnsDefinition returns) {
         this.returns = returns;
         return this;
     }
@@ -334,15 +335,15 @@ public class NodeDefinition {
      * Get returns
      * @return returns
      */
-    @javax.annotation.Nullable public ProcessNodeReturnsDefinition getReturns() {
+    @jakarta.annotation.Nullable public ProcessNodeReturnsDefinition getReturns() {
         return returns;
     }
 
-    public void setReturns(@javax.annotation.Nullable ProcessNodeReturnsDefinition returns) {
+    public void setReturns(@jakarta.annotation.Nullable ProcessNodeReturnsDefinition returns) {
         this.returns = returns;
     }
 
-    public NodeDefinition resultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public NodeDefinition resultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
         return this;
     }
@@ -351,15 +352,15 @@ public class NodeDefinition {
      * Optional JSON Schema for structured output produced by interaction and agent nodes. When omitted, the process engine derives a schema from &#x60;writes&#x60; and the process context schema.
      * @return resultSchema
      */
-    @javax.annotation.Nullable public JSONSchema getResultSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getResultSchema() {
         return resultSchema;
     }
 
-    public void setResultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public void setResultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
     }
 
-    public NodeDefinition prompt(@javax.annotation.Nullable String prompt) {
+    public NodeDefinition prompt(@jakarta.annotation.Nullable String prompt) {
         this.prompt = prompt;
         return this;
     }
@@ -368,15 +369,15 @@ public class NodeDefinition {
      * Get prompt
      * @return prompt
      */
-    @javax.annotation.Nullable public String getPrompt() {
+    @jakarta.annotation.Nullable public String getPrompt() {
         return prompt;
     }
 
-    public void setPrompt(@javax.annotation.Nullable String prompt) {
+    public void setPrompt(@jakarta.annotation.Nullable String prompt) {
         this.prompt = prompt;
     }
 
-    public NodeDefinition input(@javax.annotation.Nullable Map<String, Object> input) {
+    public NodeDefinition input(@jakarta.annotation.Nullable Map<String, Object> input) {
         this.input = input;
         return this;
     }
@@ -393,15 +394,15 @@ public class NodeDefinition {
      * Get input
      * @return input
      */
-    @javax.annotation.Nullable public Map<String, Object> getInput() {
+    @jakarta.annotation.Nullable public Map<String, Object> getInput() {
         return input;
     }
 
-    public void setInput(@javax.annotation.Nullable Map<String, Object> input) {
+    public void setInput(@jakarta.annotation.Nullable Map<String, Object> input) {
         this.input = input;
     }
 
-    public NodeDefinition config(@javax.annotation.Nullable Map<String, Object> config) {
+    public NodeDefinition config(@jakarta.annotation.Nullable Map<String, Object> config) {
         this.config = config;
         return this;
     }
@@ -418,15 +419,15 @@ public class NodeDefinition {
      * Get config
      * @return config
      */
-    @javax.annotation.Nullable public Map<String, Object> getConfig() {
+    @jakarta.annotation.Nullable public Map<String, Object> getConfig() {
         return config;
     }
 
-    public void setConfig(@javax.annotation.Nullable Map<String, Object> config) {
+    public void setConfig(@jakarta.annotation.Nullable Map<String, Object> config) {
         this.config = config;
     }
 
-    public NodeDefinition title(@javax.annotation.Nullable String title) {
+    public NodeDefinition title(@jakarta.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -435,15 +436,15 @@ public class NodeDefinition {
      * Get title
      * @return title
      */
-    @javax.annotation.Nullable public String getTitle() {
+    @jakarta.annotation.Nullable public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nullable String title) {
+    public void setTitle(@jakarta.annotation.Nullable String title) {
         this.title = title;
     }
 
-    public NodeDefinition description(@javax.annotation.Nullable String description) {
+    public NodeDefinition description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -452,15 +453,15 @@ public class NodeDefinition {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public NodeDefinition humanDescription(@javax.annotation.Nullable String humanDescription) {
+    public NodeDefinition humanDescription(@jakarta.annotation.Nullable String humanDescription) {
         this.humanDescription = humanDescription;
         return this;
     }
@@ -469,15 +470,15 @@ public class NodeDefinition {
      * End-user-facing explanation of what this node does. Authored by the process designer (often an LLM) in plain language — one or two sentences — and rendered in run observability so a human reading the run can understand why this node exists without reading the config. Distinct from &#x60;description&#x60;, which is developer-facing.
      * @return humanDescription
      */
-    @javax.annotation.Nullable public String getHumanDescription() {
+    @jakarta.annotation.Nullable public String getHumanDescription() {
         return humanDescription;
     }
 
-    public void setHumanDescription(@javax.annotation.Nullable String humanDescription) {
+    public void setHumanDescription(@jakarta.annotation.Nullable String humanDescription) {
         this.humanDescription = humanDescription;
     }
 
-    public NodeDefinition writes(@javax.annotation.Nullable List<String> writes) {
+    public NodeDefinition writes(@jakarta.annotation.Nullable List<String> writes) {
         this.writes = writes;
         return this;
     }
@@ -494,15 +495,15 @@ public class NodeDefinition {
      * Get writes
      * @return writes
      */
-    @javax.annotation.Nullable public List<String> getWrites() {
+    @jakarta.annotation.Nullable public List<String> getWrites() {
         return writes;
     }
 
-    public void setWrites(@javax.annotation.Nullable List<String> writes) {
+    public void setWrites(@jakarta.annotation.Nullable List<String> writes) {
         this.writes = writes;
     }
 
-    public NodeDefinition skippable(@javax.annotation.Nullable Boolean skippable) {
+    public NodeDefinition skippable(@jakarta.annotation.Nullable Boolean skippable) {
         this.skippable = skippable;
         return this;
     }
@@ -511,15 +512,15 @@ public class NodeDefinition {
      * Get skippable
      * @return skippable
      */
-    @javax.annotation.Nullable public Boolean getSkippable() {
+    @jakarta.annotation.Nullable public Boolean getSkippable() {
         return skippable;
     }
 
-    public void setSkippable(@javax.annotation.Nullable Boolean skippable) {
+    public void setSkippable(@jakarta.annotation.Nullable Boolean skippable) {
         this.skippable = skippable;
     }
 
-    public NodeDefinition maxRetries(@javax.annotation.Nullable BigDecimal maxRetries) {
+    public NodeDefinition maxRetries(@jakarta.annotation.Nullable BigDecimal maxRetries) {
         this.maxRetries = maxRetries;
         return this;
     }
@@ -528,16 +529,16 @@ public class NodeDefinition {
      * Get maxRetries
      * @return maxRetries
      */
-    @javax.annotation.Nullable public BigDecimal getMaxRetries() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxRetries() {
         return maxRetries;
     }
 
-    public void setMaxRetries(@javax.annotation.Nullable BigDecimal maxRetries) {
+    public void setMaxRetries(@jakarta.annotation.Nullable BigDecimal maxRetries) {
         this.maxRetries = maxRetries;
     }
 
     public NodeDefinition transitions(
-            @javax.annotation.Nullable List<TransitionDefinition> transitions) {
+            @jakarta.annotation.Nullable List<TransitionDefinition> transitions) {
         this.transitions = transitions;
         return this;
     }
@@ -554,15 +555,16 @@ public class NodeDefinition {
      * Get transitions
      * @return transitions
      */
-    @javax.annotation.Nullable public List<TransitionDefinition> getTransitions() {
+    @jakarta.annotation.Nullable public List<TransitionDefinition> getTransitions() {
         return transitions;
     }
 
-    public void setTransitions(@javax.annotation.Nullable List<TransitionDefinition> transitions) {
+    public void setTransitions(
+            @jakarta.annotation.Nullable List<TransitionDefinition> transitions) {
         this.transitions = transitions;
     }
 
-    public NodeDefinition tools(@javax.annotation.Nullable List<String> tools) {
+    public NodeDefinition tools(@jakarta.annotation.Nullable List<String> tools) {
         this.tools = tools;
         return this;
     }
@@ -579,15 +581,15 @@ public class NodeDefinition {
      * Get tools
      * @return tools
      */
-    @javax.annotation.Nullable public List<String> getTools() {
+    @jakarta.annotation.Nullable public List<String> getTools() {
         return tools;
     }
 
-    public void setTools(@javax.annotation.Nullable List<String> tools) {
+    public void setTools(@jakarta.annotation.Nullable List<String> tools) {
         this.tools = tools;
     }
 
-    public NodeDefinition model(@javax.annotation.Nullable String model) {
+    public NodeDefinition model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
@@ -596,15 +598,15 @@ public class NodeDefinition {
      * Model id override for this node. If unset, falls back to the process run&#39;s &#x60;config.model&#x60;, then to the project&#39;s default. Useful when a specific node needs heavier reasoning (e.g. Opus for legal flagging) while the rest of the process uses a cheaper default.
      * @return model
      */
-    @javax.annotation.Nullable public String getModel() {
+    @jakarta.annotation.Nullable public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nullable String model) {
+    public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
     }
 
-    public NodeDefinition task(@javax.annotation.Nullable HumanTaskDefinition task) {
+    public NodeDefinition task(@jakarta.annotation.Nullable HumanTaskDefinition task) {
         this.task = task;
         return this;
     }
@@ -613,15 +615,15 @@ public class NodeDefinition {
      * Get task
      * @return task
      */
-    @javax.annotation.Nullable public HumanTaskDefinition getTask() {
+    @jakarta.annotation.Nullable public HumanTaskDefinition getTask() {
         return task;
     }
 
-    public void setTask(@javax.annotation.Nullable HumanTaskDefinition task) {
+    public void setTask(@jakarta.annotation.Nullable HumanTaskDefinition task) {
         this.task = task;
     }
 
-    public NodeDefinition foreach(@javax.annotation.Nullable String foreach) {
+    public NodeDefinition foreach(@jakarta.annotation.Nullable String foreach) {
         this.foreach = foreach;
         return this;
     }
@@ -630,15 +632,15 @@ public class NodeDefinition {
      * Get foreach
      * @return foreach
      */
-    @javax.annotation.Nullable public String getForeach() {
+    @jakarta.annotation.Nullable public String getForeach() {
         return foreach;
     }
 
-    public void setForeach(@javax.annotation.Nullable String foreach) {
+    public void setForeach(@jakarta.annotation.Nullable String foreach) {
         this.foreach = foreach;
     }
 
-    public NodeDefinition as(@javax.annotation.Nullable String as) {
+    public NodeDefinition as(@jakarta.annotation.Nullable String as) {
         this.as = as;
         return this;
     }
@@ -647,15 +649,15 @@ public class NodeDefinition {
      * Get as
      * @return as
      */
-    @javax.annotation.Nullable public String getAs() {
+    @jakarta.annotation.Nullable public String getAs() {
         return as;
     }
 
-    public void setAs(@javax.annotation.Nullable String as) {
+    public void setAs(@jakarta.annotation.Nullable String as) {
         this.as = as;
     }
 
-    public NodeDefinition itemId(@javax.annotation.Nullable String itemId) {
+    public NodeDefinition itemId(@jakarta.annotation.Nullable String itemId) {
         this.itemId = itemId;
         return this;
     }
@@ -664,15 +666,15 @@ public class NodeDefinition {
      * Get itemId
      * @return itemId
      */
-    @javax.annotation.Nullable public String getItemId() {
+    @jakarta.annotation.Nullable public String getItemId() {
         return itemId;
     }
 
-    public void setItemId(@javax.annotation.Nullable String itemId) {
+    public void setItemId(@jakarta.annotation.Nullable String itemId) {
         this.itemId = itemId;
     }
 
-    public NodeDefinition node(@javax.annotation.Nullable NodeDefinition node) {
+    public NodeDefinition node(@jakarta.annotation.Nullable NodeDefinition node) {
         this.node = node;
         return this;
     }
@@ -681,15 +683,15 @@ public class NodeDefinition {
      * Get node
      * @return node
      */
-    @javax.annotation.Nullable public NodeDefinition getNode() {
+    @jakarta.annotation.Nullable public NodeDefinition getNode() {
         return node;
     }
 
-    public void setNode(@javax.annotation.Nullable NodeDefinition node) {
+    public void setNode(@jakarta.annotation.Nullable NodeDefinition node) {
         this.node = node;
     }
 
-    public NodeDefinition maxConcurrency(@javax.annotation.Nullable BigDecimal maxConcurrency) {
+    public NodeDefinition maxConcurrency(@jakarta.annotation.Nullable BigDecimal maxConcurrency) {
         this.maxConcurrency = maxConcurrency;
         return this;
     }
@@ -698,15 +700,15 @@ public class NodeDefinition {
      * Get maxConcurrency
      * @return maxConcurrency
      */
-    @javax.annotation.Nullable public BigDecimal getMaxConcurrency() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxConcurrency() {
         return maxConcurrency;
     }
 
-    public void setMaxConcurrency(@javax.annotation.Nullable BigDecimal maxConcurrency) {
+    public void setMaxConcurrency(@jakarta.annotation.Nullable BigDecimal maxConcurrency) {
         this.maxConcurrency = maxConcurrency;
     }
 
-    public NodeDefinition collect(@javax.annotation.Nullable NodeDefinitionCollect collect) {
+    public NodeDefinition collect(@jakarta.annotation.Nullable NodeDefinitionCollect collect) {
         this.collect = collect;
         return this;
     }
@@ -715,16 +717,16 @@ public class NodeDefinition {
      * Get collect
      * @return collect
      */
-    @javax.annotation.Nullable public NodeDefinitionCollect getCollect() {
+    @jakarta.annotation.Nullable public NodeDefinitionCollect getCollect() {
         return collect;
     }
 
-    public void setCollect(@javax.annotation.Nullable NodeDefinitionCollect collect) {
+    public void setCollect(@jakarta.annotation.Nullable NodeDefinitionCollect collect) {
         this.collect = collect;
     }
 
     public NodeDefinition failurePolicy(
-            @javax.annotation.Nullable ParallelFailurePolicy failurePolicy) {
+            @jakarta.annotation.Nullable ParallelFailurePolicy failurePolicy) {
         this.failurePolicy = failurePolicy;
         return this;
     }
@@ -733,15 +735,15 @@ public class NodeDefinition {
      * Get failurePolicy
      * @return failurePolicy
      */
-    @javax.annotation.Nullable public ParallelFailurePolicy getFailurePolicy() {
+    @jakarta.annotation.Nullable public ParallelFailurePolicy getFailurePolicy() {
         return failurePolicy;
     }
 
-    public void setFailurePolicy(@javax.annotation.Nullable ParallelFailurePolicy failurePolicy) {
+    public void setFailurePolicy(@jakarta.annotation.Nullable ParallelFailurePolicy failurePolicy) {
         this.failurePolicy = failurePolicy;
     }
 
-    public NodeDefinition join(@javax.annotation.Nullable BranchJoinPolicy join) {
+    public NodeDefinition join(@jakarta.annotation.Nullable BranchJoinPolicy join) {
         this.join = join;
         return this;
     }
@@ -750,16 +752,16 @@ public class NodeDefinition {
      * Get join
      * @return join
      */
-    @javax.annotation.Nullable public BranchJoinPolicy getJoin() {
+    @jakarta.annotation.Nullable public BranchJoinPolicy getJoin() {
         return join;
     }
 
-    public void setJoin(@javax.annotation.Nullable BranchJoinPolicy join) {
+    public void setJoin(@jakarta.annotation.Nullable BranchJoinPolicy join) {
         this.join = join;
     }
 
     public NodeDefinition branches(
-            @javax.annotation.Nullable List<NodeDefinitionBranchesInner> branches) {
+            @jakarta.annotation.Nullable List<NodeDefinitionBranchesInner> branches) {
         this.branches = branches;
         return this;
     }
@@ -776,15 +778,16 @@ public class NodeDefinition {
      * Get branches
      * @return branches
      */
-    @javax.annotation.Nullable public List<NodeDefinitionBranchesInner> getBranches() {
+    @jakarta.annotation.Nullable public List<NodeDefinitionBranchesInner> getBranches() {
         return branches;
     }
 
-    public void setBranches(@javax.annotation.Nullable List<NodeDefinitionBranchesInner> branches) {
+    public void setBranches(
+            @jakarta.annotation.Nullable List<NodeDefinitionBranchesInner> branches) {
         this.branches = branches;
     }
 
-    public NodeDefinition metadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    public NodeDefinition metadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -801,11 +804,11 @@ public class NodeDefinition {
      * Get metadata
      * @return metadata
      */
-    @javax.annotation.Nullable public Map<String, Object> getMetadata() {
+    @jakarta.annotation.Nullable public Map<String, Object> getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 

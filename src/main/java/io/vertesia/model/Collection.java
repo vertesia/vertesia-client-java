@@ -37,127 +37,127 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * Collection
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class Collection {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public static final String SERIALIZED_NAME_DYNAMIC = "dynamic";
 
     @SerializedName(SERIALIZED_NAME_DYNAMIC)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean dynamic;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private CollectionStatus status;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private ContentObjectTypeRef type;
+    @jakarta.annotation.Nullable private ContentObjectTypeRef type;
 
     public static final String SERIALIZED_NAME_SKIP_HEAD_SYNC = "skip_head_sync";
 
     @SerializedName(SERIALIZED_NAME_SKIP_HEAD_SYNC)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean skipHeadSync;
 
     public static final String SERIALIZED_NAME_PARENTS = "parents";
 
     @SerializedName(SERIALIZED_NAME_PARENTS)
-    @javax.annotation.Nullable private List<String> parents;
+    @jakarta.annotation.Nullable private List<String> parents;
 
     public static final String SERIALIZED_NAME_TABLE_LAYOUT = "table_layout";
 
     @SerializedName(SERIALIZED_NAME_TABLE_LAYOUT)
-    @javax.annotation.Nullable private List<ColumnLayout> tableLayout = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<ColumnLayout> tableLayout = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ALLOWED_TYPES = "allowed_types";
 
     @SerializedName(SERIALIZED_NAME_ALLOWED_TYPES)
-    @javax.annotation.Nullable private List<String> allowedTypes = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> allowedTypes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @javax.annotation.Nullable private Map<String, Object> query = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> query = new HashMap<>();
 
     public static final String SERIALIZED_NAME_SECURITY = "security";
 
     @SerializedName(SERIALIZED_NAME_SECURITY)
-    @javax.annotation.Nullable private Map<String, List<String>> security = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, List<String>> security = new HashMap<>();
 
     public static final String SERIALIZED_NAME_SENSITIVITY = "sensitivity";
 
     @SerializedName(SERIALIZED_NAME_SENSITIVITY)
-    @javax.annotation.Nullable private BigDecimal sensitivity;
+    @jakarta.annotation.Nullable private BigDecimal sensitivity;
 
     public static final String SERIALIZED_NAME_COMPARTMENTS = "compartments";
 
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
-    @javax.annotation.Nullable private List<String> compartments = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SHARED_PROPERTIES = "shared_properties";
 
     @SerializedName(SERIALIZED_NAME_SHARED_PROPERTIES)
-    @javax.annotation.Nullable private List<String> sharedProperties = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> sharedProperties = new ArrayList<>();
 
     public Collection() {}
 
-    public Collection id(@javax.annotation.Nonnull String id) {
+    public Collection id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -166,16 +166,16 @@ public class Collection {
      * Unique identifier for the object
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public Collection name(@javax.annotation.Nonnull String name) {
+    public Collection name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -184,16 +184,16 @@ public class Collection {
      * Human-readable name or title
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public Collection description(@javax.annotation.Nullable String description) {
+    public Collection description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -202,15 +202,15 @@ public class Collection {
      * Optional detailed description of the object
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public Collection tags(@javax.annotation.Nullable List<String> tags) {
+    public Collection tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -227,15 +227,15 @@ public class Collection {
      * Optional array of categorization tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public Collection updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public Collection updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -244,16 +244,16 @@ public class Collection {
      * Identifier of the user who last modified the object
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public Collection createdBy(@javax.annotation.Nonnull String createdBy) {
+    public Collection createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -262,16 +262,16 @@ public class Collection {
      * Identifier of the user who created the object
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public Collection createdAt(@javax.annotation.Nonnull String createdAt) {
+    public Collection createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -280,16 +280,16 @@ public class Collection {
      * ISO timestamp of when the object was created
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Collection updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public Collection updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -298,16 +298,16 @@ public class Collection {
      * ISO timestamp of when the object was last updated
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public Collection dynamic(@javax.annotation.Nonnull Boolean dynamic) {
+    public Collection dynamic(@jakarta.annotation.Nonnull Boolean dynamic) {
         this.dynamic = dynamic;
         return this;
     }
@@ -316,16 +316,16 @@ public class Collection {
      * A flag to indicate if the collection is dynamic or static. If the collection is dynamic, the members are determined by a query using the query field. If the collection is static, the members are explicitly defined using the members array.
      * @return dynamic
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getDynamic() {
         return dynamic;
     }
 
-    public void setDynamic(@javax.annotation.Nonnull Boolean dynamic) {
+    public void setDynamic(@jakarta.annotation.Nonnull Boolean dynamic) {
         this.dynamic = dynamic;
     }
 
-    public Collection status(@javax.annotation.Nonnull CollectionStatus status) {
+    public Collection status(@jakarta.annotation.Nonnull CollectionStatus status) {
         this.status = status;
         return this;
     }
@@ -334,16 +334,16 @@ public class Collection {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public CollectionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull CollectionStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull CollectionStatus status) {
         this.status = status;
     }
 
-    public Collection type(@javax.annotation.Nullable ContentObjectTypeRef type) {
+    public Collection type(@jakarta.annotation.Nullable ContentObjectTypeRef type) {
         this.type = type;
         return this;
     }
@@ -352,15 +352,15 @@ public class Collection {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public ContentObjectTypeRef getType() {
+    @jakarta.annotation.Nullable public ContentObjectTypeRef getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable ContentObjectTypeRef type) {
+    public void setType(@jakarta.annotation.Nullable ContentObjectTypeRef type) {
         this.type = type;
     }
 
-    public Collection skipHeadSync(@javax.annotation.Nonnull Boolean skipHeadSync) {
+    public Collection skipHeadSync(@jakarta.annotation.Nonnull Boolean skipHeadSync) {
         this.skipHeadSync = skipHeadSync;
         return this;
     }
@@ -369,16 +369,16 @@ public class Collection {
      * A flag to indicate whether to track and sync member HEAD revisions.  The default is to sync HEAD revisions for collection members (skip_head_sync: false)
      * @return skipHeadSync
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getSkipHeadSync() {
         return skipHeadSync;
     }
 
-    public void setSkipHeadSync(@javax.annotation.Nonnull Boolean skipHeadSync) {
+    public void setSkipHeadSync(@jakarta.annotation.Nonnull Boolean skipHeadSync) {
         this.skipHeadSync = skipHeadSync;
     }
 
-    public Collection parents(@javax.annotation.Nullable List<String> parents) {
+    public Collection parents(@jakarta.annotation.Nullable List<String> parents) {
         this.parents = parents;
         return this;
     }
@@ -395,15 +395,15 @@ public class Collection {
      * The parent collections if any. A collection can have multiple parents.
      * @return parents
      */
-    @javax.annotation.Nullable public List<String> getParents() {
+    @jakarta.annotation.Nullable public List<String> getParents() {
         return parents;
     }
 
-    public void setParents(@javax.annotation.Nullable List<String> parents) {
+    public void setParents(@jakarta.annotation.Nullable List<String> parents) {
         this.parents = parents;
     }
 
-    public Collection tableLayout(@javax.annotation.Nullable List<ColumnLayout> tableLayout) {
+    public Collection tableLayout(@jakarta.annotation.Nullable List<ColumnLayout> tableLayout) {
         this.tableLayout = tableLayout;
         return this;
     }
@@ -420,15 +420,15 @@ public class Collection {
      * The table layout to use for the collection. The layout defined in the type could serve as a fallback if not defined here.
      * @return tableLayout
      */
-    @javax.annotation.Nullable public List<ColumnLayout> getTableLayout() {
+    @jakarta.annotation.Nullable public List<ColumnLayout> getTableLayout() {
         return tableLayout;
     }
 
-    public void setTableLayout(@javax.annotation.Nullable List<ColumnLayout> tableLayout) {
+    public void setTableLayout(@jakarta.annotation.Nullable List<ColumnLayout> tableLayout) {
         this.tableLayout = tableLayout;
     }
 
-    public Collection allowedTypes(@javax.annotation.Nullable List<String> allowedTypes) {
+    public Collection allowedTypes(@jakarta.annotation.Nullable List<String> allowedTypes) {
         this.allowedTypes = allowedTypes;
         return this;
     }
@@ -445,15 +445,15 @@ public class Collection {
      * The allowed types for the collection.
      * @return allowedTypes
      */
-    @javax.annotation.Nullable public List<String> getAllowedTypes() {
+    @jakarta.annotation.Nullable public List<String> getAllowedTypes() {
         return allowedTypes;
     }
 
-    public void setAllowedTypes(@javax.annotation.Nullable List<String> allowedTypes) {
+    public void setAllowedTypes(@jakarta.annotation.Nullable List<String> allowedTypes) {
         this.allowedTypes = allowedTypes;
     }
 
-    public Collection properties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public Collection properties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
         return this;
     }
@@ -470,15 +470,15 @@ public class Collection {
      * Get properties
      * @return properties
      */
-    @javax.annotation.Nullable public Map<String, Object> getProperties() {
+    @jakarta.annotation.Nullable public Map<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public void setProperties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
     }
 
-    public Collection query(@javax.annotation.Nullable Map<String, Object> query) {
+    public Collection query(@jakarta.annotation.Nullable Map<String, Object> query) {
         this.query = query;
         return this;
     }
@@ -495,15 +495,15 @@ public class Collection {
      * Get query
      * @return query
      */
-    @javax.annotation.Nullable public Map<String, Object> getQuery() {
+    @jakarta.annotation.Nullable public Map<String, Object> getQuery() {
         return query;
     }
 
-    public void setQuery(@javax.annotation.Nullable Map<String, Object> query) {
+    public void setQuery(@jakarta.annotation.Nullable Map<String, Object> query) {
         this.query = query;
     }
 
-    public Collection security(@javax.annotation.Nullable Map<String, List<String>> security) {
+    public Collection security(@jakarta.annotation.Nullable Map<String, List<String>> security) {
         this.security = security;
         return this;
     }
@@ -520,15 +520,15 @@ public class Collection {
      * Get security
      * @return security
      */
-    @javax.annotation.Nullable public Map<String, List<String>> getSecurity() {
+    @jakarta.annotation.Nullable public Map<String, List<String>> getSecurity() {
         return security;
     }
 
-    public void setSecurity(@javax.annotation.Nullable Map<String, List<String>> security) {
+    public void setSecurity(@jakarta.annotation.Nullable Map<String, List<String>> security) {
         this.security = security;
     }
 
-    public Collection sensitivity(@javax.annotation.Nullable BigDecimal sensitivity) {
+    public Collection sensitivity(@jakarta.annotation.Nullable BigDecimal sensitivity) {
         this.sensitivity = sensitivity;
         return this;
     }
@@ -537,15 +537,15 @@ public class Collection {
      * BLP sensitivity level — propagated to member documents (max across collections)
      * @return sensitivity
      */
-    @javax.annotation.Nullable public BigDecimal getSensitivity() {
+    @jakarta.annotation.Nullable public BigDecimal getSensitivity() {
         return sensitivity;
     }
 
-    public void setSensitivity(@javax.annotation.Nullable BigDecimal sensitivity) {
+    public void setSensitivity(@jakarta.annotation.Nullable BigDecimal sensitivity) {
         this.sensitivity = sensitivity;
     }
 
-    public Collection compartments(@javax.annotation.Nullable List<String> compartments) {
+    public Collection compartments(@jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
         return this;
     }
@@ -562,15 +562,15 @@ public class Collection {
      * Compartments — propagated to member documents (union across collections)
      * @return compartments
      */
-    @javax.annotation.Nullable public List<String> getCompartments() {
+    @jakarta.annotation.Nullable public List<String> getCompartments() {
         return compartments;
     }
 
-    public void setCompartments(@javax.annotation.Nullable List<String> compartments) {
+    public void setCompartments(@jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
     }
 
-    public Collection sharedProperties(@javax.annotation.Nullable List<String> sharedProperties) {
+    public Collection sharedProperties(@jakarta.annotation.Nullable List<String> sharedProperties) {
         this.sharedProperties = sharedProperties;
         return this;
     }
@@ -587,11 +587,11 @@ public class Collection {
      * List of property names from the collection&#39;s properties that should be shared with (injected into) member objects. These properties will be propagated to all members of this collection and merged as arrays.
      * @return sharedProperties
      */
-    @javax.annotation.Nullable public List<String> getSharedProperties() {
+    @jakarta.annotation.Nullable public List<String> getSharedProperties() {
         return sharedProperties;
     }
 
-    public void setSharedProperties(@javax.annotation.Nullable List<String> sharedProperties) {
+    public void setSharedProperties(@jakarta.annotation.Nullable List<String> sharedProperties) {
         this.sharedProperties = sharedProperties;
     }
 

@@ -33,101 +33,101 @@ import java.util.Objects;
 /**
  * Summary view of a data store (for listings).
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataStoreItem {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DataStoreStatus status;
 
     public static final String SERIALIZED_NAME_SCHEMA_VERSION = "schema_version";
 
     @SerializedName(SERIALIZED_NAME_SCHEMA_VERSION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String schemaVersion;
 
     public static final String SERIALIZED_NAME_TABLE_COUNT = "table_count";
 
     @SerializedName(SERIALIZED_NAME_TABLE_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal tableCount;
 
     public static final String SERIALIZED_NAME_TOTAL_ROWS = "total_rows";
 
     @SerializedName(SERIALIZED_NAME_TOTAL_ROWS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal totalRows;
 
     public static final String SERIALIZED_NAME_STORAGE_BYTES = "storage_bytes";
 
     @SerializedName(SERIALIZED_NAME_STORAGE_BYTES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal storageBytes;
 
     public static final String SERIALIZED_NAME_LAST_IMPORT_AT = "last_import_at";
 
     @SerializedName(SERIALIZED_NAME_LAST_IMPORT_AT)
-    @javax.annotation.Nullable private String lastImportAt;
+    @jakarta.annotation.Nullable private String lastImportAt;
 
     public static final String SERIALIZED_NAME_VERSION_COUNT = "version_count";
 
     @SerializedName(SERIALIZED_NAME_VERSION_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal versionCount;
 
     public DataStoreItem() {}
 
-    public DataStoreItem id(@javax.annotation.Nonnull String id) {
+    public DataStoreItem id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -136,16 +136,16 @@ public class DataStoreItem {
      * Unique identifier for the object
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public DataStoreItem name(@javax.annotation.Nonnull String name) {
+    public DataStoreItem name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -154,16 +154,16 @@ public class DataStoreItem {
      * Human-readable name or title
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public DataStoreItem description(@javax.annotation.Nullable String description) {
+    public DataStoreItem description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -172,15 +172,15 @@ public class DataStoreItem {
      * Optional detailed description of the object
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public DataStoreItem tags(@javax.annotation.Nonnull List<String> tags) {
+    public DataStoreItem tags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -197,16 +197,16 @@ public class DataStoreItem {
      * Tags for organization
      * @return tags
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nonnull List<String> tags) {
+    public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
     }
 
-    public DataStoreItem updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public DataStoreItem updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -215,16 +215,16 @@ public class DataStoreItem {
      * Identifier of the user who last modified the object
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public DataStoreItem createdBy(@javax.annotation.Nonnull String createdBy) {
+    public DataStoreItem createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -233,16 +233,16 @@ public class DataStoreItem {
      * Identifier of the user who created the object
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public DataStoreItem createdAt(@javax.annotation.Nonnull String createdAt) {
+    public DataStoreItem createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -251,16 +251,16 @@ public class DataStoreItem {
      * ISO timestamp of when the object was created
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public DataStoreItem updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public DataStoreItem updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -269,16 +269,16 @@ public class DataStoreItem {
      * ISO timestamp of when the object was last updated
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public DataStoreItem status(@javax.annotation.Nonnull DataStoreStatus status) {
+    public DataStoreItem status(@jakarta.annotation.Nonnull DataStoreStatus status) {
         this.status = status;
         return this;
     }
@@ -287,16 +287,16 @@ public class DataStoreItem {
      * Current status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DataStoreStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull DataStoreStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull DataStoreStatus status) {
         this.status = status;
     }
 
-    public DataStoreItem schemaVersion(@javax.annotation.Nonnull String schemaVersion) {
+    public DataStoreItem schemaVersion(@jakarta.annotation.Nonnull String schemaVersion) {
         this.schemaVersion = schemaVersion;
         return this;
     }
@@ -305,16 +305,16 @@ public class DataStoreItem {
      * Current schema version
      * @return schemaVersion
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSchemaVersion() {
         return schemaVersion;
     }
 
-    public void setSchemaVersion(@javax.annotation.Nonnull String schemaVersion) {
+    public void setSchemaVersion(@jakarta.annotation.Nonnull String schemaVersion) {
         this.schemaVersion = schemaVersion;
     }
 
-    public DataStoreItem tableCount(@javax.annotation.Nonnull BigDecimal tableCount) {
+    public DataStoreItem tableCount(@jakarta.annotation.Nonnull BigDecimal tableCount) {
         this.tableCount = tableCount;
         return this;
     }
@@ -323,16 +323,16 @@ public class DataStoreItem {
      * Number of tables
      * @return tableCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTableCount() {
         return tableCount;
     }
 
-    public void setTableCount(@javax.annotation.Nonnull BigDecimal tableCount) {
+    public void setTableCount(@jakarta.annotation.Nonnull BigDecimal tableCount) {
         this.tableCount = tableCount;
     }
 
-    public DataStoreItem totalRows(@javax.annotation.Nonnull BigDecimal totalRows) {
+    public DataStoreItem totalRows(@jakarta.annotation.Nonnull BigDecimal totalRows) {
         this.totalRows = totalRows;
         return this;
     }
@@ -341,16 +341,16 @@ public class DataStoreItem {
      * Total rows across all tables
      * @return totalRows
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTotalRows() {
         return totalRows;
     }
 
-    public void setTotalRows(@javax.annotation.Nonnull BigDecimal totalRows) {
+    public void setTotalRows(@jakarta.annotation.Nonnull BigDecimal totalRows) {
         this.totalRows = totalRows;
     }
 
-    public DataStoreItem storageBytes(@javax.annotation.Nonnull BigDecimal storageBytes) {
+    public DataStoreItem storageBytes(@jakarta.annotation.Nonnull BigDecimal storageBytes) {
         this.storageBytes = storageBytes;
         return this;
     }
@@ -359,16 +359,16 @@ public class DataStoreItem {
      * Storage size in bytes
      * @return storageBytes
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getStorageBytes() {
         return storageBytes;
     }
 
-    public void setStorageBytes(@javax.annotation.Nonnull BigDecimal storageBytes) {
+    public void setStorageBytes(@jakarta.annotation.Nonnull BigDecimal storageBytes) {
         this.storageBytes = storageBytes;
     }
 
-    public DataStoreItem lastImportAt(@javax.annotation.Nullable String lastImportAt) {
+    public DataStoreItem lastImportAt(@jakarta.annotation.Nullable String lastImportAt) {
         this.lastImportAt = lastImportAt;
         return this;
     }
@@ -377,15 +377,15 @@ public class DataStoreItem {
      * Last import timestamp
      * @return lastImportAt
      */
-    @javax.annotation.Nullable public String getLastImportAt() {
+    @jakarta.annotation.Nullable public String getLastImportAt() {
         return lastImportAt;
     }
 
-    public void setLastImportAt(@javax.annotation.Nullable String lastImportAt) {
+    public void setLastImportAt(@jakarta.annotation.Nullable String lastImportAt) {
         this.lastImportAt = lastImportAt;
     }
 
-    public DataStoreItem versionCount(@javax.annotation.Nonnull BigDecimal versionCount) {
+    public DataStoreItem versionCount(@jakarta.annotation.Nonnull BigDecimal versionCount) {
         this.versionCount = versionCount;
         return this;
     }
@@ -394,12 +394,12 @@ public class DataStoreItem {
      * Number of versions stored
      * @return versionCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getVersionCount() {
         return versionCount;
     }
 
-    public void setVersionCount(@javax.annotation.Nonnull BigDecimal versionCount) {
+    public void setVersionCount(@jakarta.annotation.Nonnull BigDecimal versionCount) {
         this.versionCount = versionCount;
     }
 

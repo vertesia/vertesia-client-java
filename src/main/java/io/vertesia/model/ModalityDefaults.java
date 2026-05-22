@@ -30,23 +30,23 @@ import java.util.Objects;
 /**
  * Modality-specific default model overrides. These override the base default when specific input modalities are detected.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ModalityDefaults {
     public static final String SERIALIZED_NAME_IMAGE = "image";
 
     @SerializedName(SERIALIZED_NAME_IMAGE)
-    @javax.annotation.Nullable private ModelDefault image;
+    @jakarta.annotation.Nullable private ModelDefault image;
 
     public static final String SERIALIZED_NAME_VIDEO = "video";
 
     @SerializedName(SERIALIZED_NAME_VIDEO)
-    @javax.annotation.Nullable private ModelDefault video;
+    @jakarta.annotation.Nullable private ModelDefault video;
 
     public ModalityDefaults() {}
 
-    public ModalityDefaults image(@javax.annotation.Nullable ModelDefault image) {
+    public ModalityDefaults image(@jakarta.annotation.Nullable ModelDefault image) {
         this.image = image;
         return this;
     }
@@ -55,15 +55,15 @@ public class ModalityDefaults {
      * Override for inputs containing images
      * @return image
      */
-    @javax.annotation.Nullable public ModelDefault getImage() {
+    @jakarta.annotation.Nullable public ModelDefault getImage() {
         return image;
     }
 
-    public void setImage(@javax.annotation.Nullable ModelDefault image) {
+    public void setImage(@jakarta.annotation.Nullable ModelDefault image) {
         this.image = image;
     }
 
-    public ModalityDefaults video(@javax.annotation.Nullable ModelDefault video) {
+    public ModalityDefaults video(@jakarta.annotation.Nullable ModelDefault video) {
         this.video = video;
         return this;
     }
@@ -72,11 +72,11 @@ public class ModalityDefaults {
      * Override for inputs containing video (requires video-capable model)
      * @return video
      */
-    @javax.annotation.Nullable public ModelDefault getVideo() {
+    @jakarta.annotation.Nullable public ModelDefault getVideo() {
         return video;
     }
 
-    public void setVideo(@javax.annotation.Nullable ModelDefault video) {
+    public void setVideo(@jakarta.annotation.Nullable ModelDefault video) {
         this.video = video;
     }
 

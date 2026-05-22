@@ -33,20 +33,20 @@ import java.util.Objects;
 /**
  * PromptImprovementResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromptImprovementResponse {
     public static final String SERIALIZED_NAME_RESULT = "result";
 
     @SerializedName(SERIALIZED_NAME_RESULT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<CompletionResult> result = new ArrayList<>();
 
     public PromptImprovementResponse() {}
 
     public PromptImprovementResponse result(
-            @javax.annotation.Nonnull List<CompletionResult> result) {
+            @jakarta.annotation.Nonnull List<CompletionResult> result) {
         this.result = result;
         return this;
     }
@@ -63,12 +63,12 @@ public class PromptImprovementResponse {
      * Get result
      * @return result
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<CompletionResult> getResult() {
         return result;
     }
 
-    public void setResult(@javax.annotation.Nonnull List<CompletionResult> result) {
+    public void setResult(@jakarta.annotation.Nonnull List<CompletionResult> result) {
         this.result = result;
     }
 

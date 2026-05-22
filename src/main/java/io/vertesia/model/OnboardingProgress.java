@@ -30,38 +30,38 @@ import java.util.Objects;
 /**
  * OnboardingProgress
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OnboardingProgress {
     public static final String SERIALIZED_NAME_INTERACTIONS = "interactions";
 
     @SerializedName(SERIALIZED_NAME_INTERACTIONS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean interactions;
 
     public static final String SERIALIZED_NAME_PROMPTS = "prompts";
 
     @SerializedName(SERIALIZED_NAME_PROMPTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean prompts;
 
     public static final String SERIALIZED_NAME_ENVIRONMENTS = "environments";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean environments;
 
     public static final String SERIALIZED_NAME_DEFAULT_ENVIRONMENT_DEFINED =
             "default_environment_defined";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT_ENVIRONMENT_DEFINED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean defaultEnvironmentDefined;
 
     public OnboardingProgress() {}
 
-    public OnboardingProgress interactions(@javax.annotation.Nonnull Boolean interactions) {
+    public OnboardingProgress interactions(@jakarta.annotation.Nonnull Boolean interactions) {
         this.interactions = interactions;
         return this;
     }
@@ -70,16 +70,16 @@ public class OnboardingProgress {
      * Get interactions
      * @return interactions
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getInteractions() {
         return interactions;
     }
 
-    public void setInteractions(@javax.annotation.Nonnull Boolean interactions) {
+    public void setInteractions(@jakarta.annotation.Nonnull Boolean interactions) {
         this.interactions = interactions;
     }
 
-    public OnboardingProgress prompts(@javax.annotation.Nonnull Boolean prompts) {
+    public OnboardingProgress prompts(@jakarta.annotation.Nonnull Boolean prompts) {
         this.prompts = prompts;
         return this;
     }
@@ -88,16 +88,16 @@ public class OnboardingProgress {
      * Get prompts
      * @return prompts
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getPrompts() {
         return prompts;
     }
 
-    public void setPrompts(@javax.annotation.Nonnull Boolean prompts) {
+    public void setPrompts(@jakarta.annotation.Nonnull Boolean prompts) {
         this.prompts = prompts;
     }
 
-    public OnboardingProgress environments(@javax.annotation.Nonnull Boolean environments) {
+    public OnboardingProgress environments(@jakarta.annotation.Nonnull Boolean environments) {
         this.environments = environments;
         return this;
     }
@@ -106,17 +106,17 @@ public class OnboardingProgress {
      * Get environments
      * @return environments
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getEnvironments() {
         return environments;
     }
 
-    public void setEnvironments(@javax.annotation.Nonnull Boolean environments) {
+    public void setEnvironments(@jakarta.annotation.Nonnull Boolean environments) {
         this.environments = environments;
     }
 
     public OnboardingProgress defaultEnvironmentDefined(
-            @javax.annotation.Nonnull Boolean defaultEnvironmentDefined) {
+            @jakarta.annotation.Nonnull Boolean defaultEnvironmentDefined) {
         this.defaultEnvironmentDefined = defaultEnvironmentDefined;
         return this;
     }
@@ -125,13 +125,13 @@ public class OnboardingProgress {
      * Get defaultEnvironmentDefined
      * @return defaultEnvironmentDefined
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getDefaultEnvironmentDefined() {
         return defaultEnvironmentDefined;
     }
 
     public void setDefaultEnvironmentDefined(
-            @javax.annotation.Nonnull Boolean defaultEnvironmentDefined) {
+            @jakarta.annotation.Nonnull Boolean defaultEnvironmentDefined) {
         this.defaultEnvironmentDefined = defaultEnvironmentDefined;
     }
 

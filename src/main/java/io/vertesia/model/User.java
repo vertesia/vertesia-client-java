@@ -36,63 +36,63 @@ import java.util.Objects;
 /**
  * User
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class User {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
 
     @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String externalId;
 
     public static final String SERIALIZED_NAME_EMAIL = "email";
 
     @SerializedName(SERIALIZED_NAME_EMAIL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String email;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_USERNAME = "username";
 
     @SerializedName(SERIALIZED_NAME_USERNAME)
-    @javax.annotation.Nullable private String username;
+    @jakarta.annotation.Nullable private String username;
 
     public static final String SERIALIZED_NAME_PICTURE = "picture";
 
     @SerializedName(SERIALIZED_NAME_PICTURE)
-    @javax.annotation.Nullable private String picture;
+    @jakarta.annotation.Nullable private String picture;
 
     public static final String SERIALIZED_NAME_LANGUAGE = "language";
 
     @SerializedName(SERIALIZED_NAME_LANGUAGE)
-    @javax.annotation.Nullable private String language;
+    @jakarta.annotation.Nullable private String language;
 
     public static final String SERIALIZED_NAME_PHONE = "phone";
 
     @SerializedName(SERIALIZED_NAME_PHONE)
-    @javax.annotation.Nullable private String phone;
+    @jakarta.annotation.Nullable private String phone;
 
     public static final String SERIALIZED_NAME_SIGN_IN_PROVIDER = "sign_in_provider";
 
     @SerializedName(SERIALIZED_NAME_SIGN_IN_PROVIDER)
-    @javax.annotation.Nullable private String signInProvider;
+    @jakarta.annotation.Nullable private String signInProvider;
 
     public static final String SERIALIZED_NAME_LAST_SELECTED_ACCOUNT = "last_selected_account";
 
     @SerializedName(SERIALIZED_NAME_LAST_SELECTED_ACCOUNT)
-    @javax.annotation.Nullable private String lastSelectedAccount;
+    @jakarta.annotation.Nullable private String lastSelectedAccount;
 
     /**
      * Gets or Sets source
@@ -152,31 +152,31 @@ public class User {
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nullable private SourceEnum source;
+    @jakarta.annotation.Nullable private SourceEnum source;
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nullable private String updatedBy;
+    @jakarta.annotation.Nullable private String updatedBy;
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
 
     public static final String SERIALIZED_NAME_CLEARANCE = "clearance";
 
     @SerializedName(SERIALIZED_NAME_CLEARANCE)
-    @javax.annotation.Nullable private BigDecimal clearance;
+    @jakarta.annotation.Nullable private BigDecimal clearance;
 
     public static final String SERIALIZED_NAME_COMPARTMENTS = "compartments";
 
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
-    @javax.annotation.Nullable private List<String> compartments = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
     public User() {}
 
-    public User id(@javax.annotation.Nonnull String id) {
+    public User id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -185,16 +185,16 @@ public class User {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public User externalId(@javax.annotation.Nonnull String externalId) {
+    public User externalId(@jakarta.annotation.Nonnull String externalId) {
         this.externalId = externalId;
         return this;
     }
@@ -203,16 +203,16 @@ public class User {
      * Get externalId
      * @return externalId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getExternalId() {
         return externalId;
     }
 
-    public void setExternalId(@javax.annotation.Nonnull String externalId) {
+    public void setExternalId(@jakarta.annotation.Nonnull String externalId) {
         this.externalId = externalId;
     }
 
-    public User email(@javax.annotation.Nonnull String email) {
+    public User email(@jakarta.annotation.Nonnull String email) {
         this.email = email;
         return this;
     }
@@ -221,16 +221,16 @@ public class User {
      * Get email
      * @return email
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(@javax.annotation.Nonnull String email) {
+    public void setEmail(@jakarta.annotation.Nonnull String email) {
         this.email = email;
     }
 
-    public User name(@javax.annotation.Nonnull String name) {
+    public User name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -239,16 +239,16 @@ public class User {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public User username(@javax.annotation.Nullable String username) {
+    public User username(@jakarta.annotation.Nullable String username) {
         this.username = username;
         return this;
     }
@@ -257,15 +257,15 @@ public class User {
      * Get username
      * @return username
      */
-    @javax.annotation.Nullable public String getUsername() {
+    @jakarta.annotation.Nullable public String getUsername() {
         return username;
     }
 
-    public void setUsername(@javax.annotation.Nullable String username) {
+    public void setUsername(@jakarta.annotation.Nullable String username) {
         this.username = username;
     }
 
-    public User picture(@javax.annotation.Nullable String picture) {
+    public User picture(@jakarta.annotation.Nullable String picture) {
         this.picture = picture;
         return this;
     }
@@ -274,15 +274,15 @@ public class User {
      * Get picture
      * @return picture
      */
-    @javax.annotation.Nullable public String getPicture() {
+    @jakarta.annotation.Nullable public String getPicture() {
         return picture;
     }
 
-    public void setPicture(@javax.annotation.Nullable String picture) {
+    public void setPicture(@jakarta.annotation.Nullable String picture) {
         this.picture = picture;
     }
 
-    public User language(@javax.annotation.Nullable String language) {
+    public User language(@jakarta.annotation.Nullable String language) {
         this.language = language;
         return this;
     }
@@ -291,15 +291,15 @@ public class User {
      * Get language
      * @return language
      */
-    @javax.annotation.Nullable public String getLanguage() {
+    @jakarta.annotation.Nullable public String getLanguage() {
         return language;
     }
 
-    public void setLanguage(@javax.annotation.Nullable String language) {
+    public void setLanguage(@jakarta.annotation.Nullable String language) {
         this.language = language;
     }
 
-    public User phone(@javax.annotation.Nullable String phone) {
+    public User phone(@jakarta.annotation.Nullable String phone) {
         this.phone = phone;
         return this;
     }
@@ -308,15 +308,15 @@ public class User {
      * Get phone
      * @return phone
      */
-    @javax.annotation.Nullable public String getPhone() {
+    @jakarta.annotation.Nullable public String getPhone() {
         return phone;
     }
 
-    public void setPhone(@javax.annotation.Nullable String phone) {
+    public void setPhone(@jakarta.annotation.Nullable String phone) {
         this.phone = phone;
     }
 
-    public User signInProvider(@javax.annotation.Nullable String signInProvider) {
+    public User signInProvider(@jakarta.annotation.Nullable String signInProvider) {
         this.signInProvider = signInProvider;
         return this;
     }
@@ -325,15 +325,15 @@ public class User {
      * Get signInProvider
      * @return signInProvider
      */
-    @javax.annotation.Nullable public String getSignInProvider() {
+    @jakarta.annotation.Nullable public String getSignInProvider() {
         return signInProvider;
     }
 
-    public void setSignInProvider(@javax.annotation.Nullable String signInProvider) {
+    public void setSignInProvider(@jakarta.annotation.Nullable String signInProvider) {
         this.signInProvider = signInProvider;
     }
 
-    public User lastSelectedAccount(@javax.annotation.Nullable String lastSelectedAccount) {
+    public User lastSelectedAccount(@jakarta.annotation.Nullable String lastSelectedAccount) {
         this.lastSelectedAccount = lastSelectedAccount;
         return this;
     }
@@ -342,15 +342,15 @@ public class User {
      * Get lastSelectedAccount
      * @return lastSelectedAccount
      */
-    @javax.annotation.Nullable public String getLastSelectedAccount() {
+    @jakarta.annotation.Nullable public String getLastSelectedAccount() {
         return lastSelectedAccount;
     }
 
-    public void setLastSelectedAccount(@javax.annotation.Nullable String lastSelectedAccount) {
+    public void setLastSelectedAccount(@jakarta.annotation.Nullable String lastSelectedAccount) {
         this.lastSelectedAccount = lastSelectedAccount;
     }
 
-    public User source(@javax.annotation.Nullable SourceEnum source) {
+    public User source(@jakarta.annotation.Nullable SourceEnum source) {
         this.source = source;
         return this;
     }
@@ -359,15 +359,15 @@ public class User {
      * Get source
      * @return source
      */
-    @javax.annotation.Nullable public SourceEnum getSource() {
+    @jakarta.annotation.Nullable public SourceEnum getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nullable SourceEnum source) {
+    public void setSource(@jakarta.annotation.Nullable SourceEnum source) {
         this.source = source;
     }
 
-    public User updatedBy(@javax.annotation.Nullable String updatedBy) {
+    public User updatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -376,15 +376,15 @@ public class User {
      * Get updatedBy
      * @return updatedBy
      */
-    @javax.annotation.Nullable public String getUpdatedBy() {
+    @jakarta.annotation.Nullable public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nullable String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public User properties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public User properties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
         return this;
     }
@@ -401,15 +401,15 @@ public class User {
      * Custom properties for dynamic permission matching
      * @return properties
      */
-    @javax.annotation.Nullable public Map<String, Object> getProperties() {
+    @jakarta.annotation.Nullable public Map<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public void setProperties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
     }
 
-    public User clearance(@javax.annotation.Nullable BigDecimal clearance) {
+    public User clearance(@jakarta.annotation.Nullable BigDecimal clearance) {
         this.clearance = clearance;
         return this;
     }
@@ -418,15 +418,15 @@ public class User {
      * BLP clearance level — determines max document sensitivity the user can access
      * @return clearance
      */
-    @javax.annotation.Nullable public BigDecimal getClearance() {
+    @jakarta.annotation.Nullable public BigDecimal getClearance() {
         return clearance;
     }
 
-    public void setClearance(@javax.annotation.Nullable BigDecimal clearance) {
+    public void setClearance(@jakarta.annotation.Nullable BigDecimal clearance) {
         this.clearance = clearance;
     }
 
-    public User compartments(@javax.annotation.Nullable List<String> compartments) {
+    public User compartments(@jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
         return this;
     }
@@ -443,11 +443,11 @@ public class User {
      * Compartments the user belongs to — restricts access to documents in matching compartments
      * @return compartments
      */
-    @javax.annotation.Nullable public List<String> getCompartments() {
+    @jakarta.annotation.Nullable public List<String> getCompartments() {
         return compartments;
     }
 
-    public void setCompartments(@javax.annotation.Nullable List<String> compartments) {
+    public void setCompartments(@jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
     }
 

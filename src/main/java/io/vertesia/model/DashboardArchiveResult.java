@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * DashboardArchiveResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DashboardArchiveResult {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DashboardStatus status;
 
     public DashboardArchiveResult() {}
 
-    public DashboardArchiveResult id(@javax.annotation.Nonnull String id) {
+    public DashboardArchiveResult id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -57,16 +57,16 @@ public class DashboardArchiveResult {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public DashboardArchiveResult status(@javax.annotation.Nonnull DashboardStatus status) {
+    public DashboardArchiveResult status(@jakarta.annotation.Nonnull DashboardStatus status) {
         this.status = status;
         return this;
     }
@@ -75,12 +75,12 @@ public class DashboardArchiveResult {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DashboardStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull DashboardStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull DashboardStatus status) {
         this.status = status;
     }
 

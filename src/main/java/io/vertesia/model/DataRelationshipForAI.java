@@ -30,42 +30,42 @@ import java.util.Objects;
 /**
  * Simplified relationship representation for AI agents.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataRelationshipForAI {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_FROM = "from";
 
     @SerializedName(SERIALIZED_NAME_FROM)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String from;
 
     public static final String SERIALIZED_NAME_TO = "to";
 
     @SerializedName(SERIALIZED_NAME_TO)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String to;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DataRelationshipType type;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public DataRelationshipForAI() {}
 
-    public DataRelationshipForAI name(@javax.annotation.Nonnull String name) {
+    public DataRelationshipForAI name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -74,16 +74,16 @@ public class DataRelationshipForAI {
      * Relationship name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public DataRelationshipForAI from(@javax.annotation.Nonnull String from) {
+    public DataRelationshipForAI from(@jakarta.annotation.Nonnull String from) {
         this.from = from;
         return this;
     }
@@ -92,16 +92,16 @@ public class DataRelationshipForAI {
      * Source in \&quot;table.column\&quot; format
      * @return from
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getFrom() {
         return from;
     }
 
-    public void setFrom(@javax.annotation.Nonnull String from) {
+    public void setFrom(@jakarta.annotation.Nonnull String from) {
         this.from = from;
     }
 
-    public DataRelationshipForAI to(@javax.annotation.Nonnull String to) {
+    public DataRelationshipForAI to(@jakarta.annotation.Nonnull String to) {
         this.to = to;
         return this;
     }
@@ -110,16 +110,16 @@ public class DataRelationshipForAI {
      * Target in \&quot;table.column\&quot; format
      * @return to
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTo() {
         return to;
     }
 
-    public void setTo(@javax.annotation.Nonnull String to) {
+    public void setTo(@jakarta.annotation.Nonnull String to) {
         this.to = to;
     }
 
-    public DataRelationshipForAI type(@javax.annotation.Nonnull DataRelationshipType type) {
+    public DataRelationshipForAI type(@jakarta.annotation.Nonnull DataRelationshipType type) {
         this.type = type;
         return this;
     }
@@ -128,16 +128,16 @@ public class DataRelationshipForAI {
      * Relationship type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DataRelationshipType getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull DataRelationshipType type) {
+    public void setType(@jakarta.annotation.Nonnull DataRelationshipType type) {
         this.type = type;
     }
 
-    public DataRelationshipForAI description(@javax.annotation.Nullable String description) {
+    public DataRelationshipForAI description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -146,11 +146,11 @@ public class DataRelationshipForAI {
      * Description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 

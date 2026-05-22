@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * Theme overrides for the CompositeApp.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppThemeOverrides {
     public static final String SERIALIZED_NAME_DISABLE_DARK_MODE = "disableDarkMode";
 
     @SerializedName(SERIALIZED_NAME_DISABLE_DARK_MODE)
-    @javax.annotation.Nullable private Boolean disableDarkMode;
+    @jakarta.annotation.Nullable private Boolean disableDarkMode;
 
     public CompositeAppThemeOverrides() {}
 
     public CompositeAppThemeOverrides disableDarkMode(
-            @javax.annotation.Nullable Boolean disableDarkMode) {
+            @jakarta.annotation.Nullable Boolean disableDarkMode) {
         this.disableDarkMode = disableDarkMode;
         return this;
     }
@@ -51,11 +51,11 @@ public class CompositeAppThemeOverrides {
      * When true, forces light mode and disables dark mode (defaults to false)
      * @return disableDarkMode
      */
-    @javax.annotation.Nullable public Boolean getDisableDarkMode() {
+    @jakarta.annotation.Nullable public Boolean getDisableDarkMode() {
         return disableDarkMode;
     }
 
-    public void setDisableDarkMode(@javax.annotation.Nullable Boolean disableDarkMode) {
+    public void setDisableDarkMode(@jakarta.annotation.Nullable Boolean disableDarkMode) {
         this.disableDarkMode = disableDarkMode;
     }
 

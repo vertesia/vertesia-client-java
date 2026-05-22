@@ -84,7 +84,7 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call createApiKeyCall(
-            @javax.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
+            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -141,7 +141,7 @@ public class ApiKeysApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createApiKeyValidateBeforeCall(
-            @javax.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
+            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'createOrUpdateApiKeyPayload' is set
@@ -169,7 +169,7 @@ public class ApiKeysApi {
      * </table>
      */
     public ApiKeyWithValue createApiKey(
-            @javax.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload)
+            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload)
             throws ApiException {
         ApiResponse<ApiKeyWithValue> localVarResp =
                 createApiKeyWithHttpInfo(createOrUpdateApiKeyPayload);
@@ -192,7 +192,7 @@ public class ApiKeysApi {
      * </table>
      */
     public ApiResponse<ApiKeyWithValue> createApiKeyWithHttpInfo(
-            @javax.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload)
+            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createApiKeyValidateBeforeCall(createOrUpdateApiKeyPayload, null);
@@ -217,7 +217,7 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call createApiKeyAsync(
-            @javax.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
+            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
             final ApiCallback<ApiKeyWithValue> _callback)
             throws ApiException {
 
@@ -244,7 +244,7 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call deleteApiKeyCall(
-            @javax.annotation.Nonnull String keyId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -304,7 +304,7 @@ public class ApiKeysApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteApiKeyValidateBeforeCall(
-            @javax.annotation.Nonnull String keyId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'keyId' is set
         if (keyId == null) {
@@ -330,7 +330,7 @@ public class ApiKeysApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteOperationResult deleteApiKey(@javax.annotation.Nonnull String keyId)
+    public DeleteOperationResult deleteApiKey(@jakarta.annotation.Nonnull String keyId)
             throws ApiException {
         ApiResponse<DeleteOperationResult> localVarResp = deleteApiKeyWithHttpInfo(keyId);
         return localVarResp.getData();
@@ -352,7 +352,7 @@ public class ApiKeysApi {
      * </table>
      */
     public ApiResponse<DeleteOperationResult> deleteApiKeyWithHttpInfo(
-            @javax.annotation.Nonnull String keyId) throws ApiException {
+            @jakarta.annotation.Nonnull String keyId) throws ApiException {
         okhttp3.Call localVarCall = deleteApiKeyValidateBeforeCall(keyId, null);
         Type localVarReturnType = new TypeToken<DeleteOperationResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -375,7 +375,7 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call deleteApiKeyAsync(
-            @javax.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nonnull String keyId,
             final ApiCallback<DeleteOperationResult> _callback)
             throws ApiException {
 
@@ -402,8 +402,8 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call getApiKeyCall(
-            @javax.annotation.Nonnull String keyId,
-            @javax.annotation.Nullable Boolean withValue,
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nullable Boolean withValue,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -468,8 +468,8 @@ public class ApiKeysApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getApiKeyValidateBeforeCall(
-            @javax.annotation.Nonnull String keyId,
-            @javax.annotation.Nullable Boolean withValue,
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nullable Boolean withValue,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'keyId' is set
@@ -498,7 +498,8 @@ public class ApiKeysApi {
      * </table>
      */
     public ApiKeyReadResponse getApiKey(
-            @javax.annotation.Nonnull String keyId, @javax.annotation.Nullable Boolean withValue)
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nullable Boolean withValue)
             throws ApiException {
         ApiResponse<ApiKeyReadResponse> localVarResp = getApiKeyWithHttpInfo(keyId, withValue);
         return localVarResp.getData();
@@ -521,7 +522,8 @@ public class ApiKeysApi {
      * </table>
      */
     public ApiResponse<ApiKeyReadResponse> getApiKeyWithHttpInfo(
-            @javax.annotation.Nonnull String keyId, @javax.annotation.Nullable Boolean withValue)
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nullable Boolean withValue)
             throws ApiException {
         okhttp3.Call localVarCall = getApiKeyValidateBeforeCall(keyId, withValue, null);
         Type localVarReturnType = new TypeToken<ApiKeyReadResponse>() {}.getType();
@@ -546,8 +548,8 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call getApiKeyAsync(
-            @javax.annotation.Nonnull String keyId,
-            @javax.annotation.Nullable Boolean withValue,
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nullable Boolean withValue,
             final ApiCallback<ApiKeyReadResponse> _callback)
             throws ApiException {
 
@@ -573,7 +575,7 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call getApiKeyTokenCall(
-            @javax.annotation.Nonnull String keyId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -633,7 +635,7 @@ public class ApiKeysApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getApiKeyTokenValidateBeforeCall(
-            @javax.annotation.Nonnull String keyId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'keyId' is set
         if (keyId == null) {
@@ -659,7 +661,7 @@ public class ApiKeysApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AuthTokenResponse getApiKeyToken(@javax.annotation.Nonnull String keyId)
+    public AuthTokenResponse getApiKeyToken(@jakarta.annotation.Nonnull String keyId)
             throws ApiException {
         ApiResponse<AuthTokenResponse> localVarResp = getApiKeyTokenWithHttpInfo(keyId);
         return localVarResp.getData();
@@ -681,7 +683,7 @@ public class ApiKeysApi {
      * </table>
      */
     public ApiResponse<AuthTokenResponse> getApiKeyTokenWithHttpInfo(
-            @javax.annotation.Nonnull String keyId) throws ApiException {
+            @jakarta.annotation.Nonnull String keyId) throws ApiException {
         okhttp3.Call localVarCall = getApiKeyTokenValidateBeforeCall(keyId, null);
         Type localVarReturnType = new TypeToken<AuthTokenResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -704,7 +706,8 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call getApiKeyTokenAsync(
-            @javax.annotation.Nonnull String keyId, final ApiCallback<AuthTokenResponse> _callback)
+            @jakarta.annotation.Nonnull String keyId,
+            final ApiCallback<AuthTokenResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getApiKeyTokenValidateBeforeCall(keyId, _callback);
@@ -729,7 +732,7 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call listApiKeysCall(
-            @javax.annotation.Nullable String level, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String level, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -789,7 +792,7 @@ public class ApiKeysApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listApiKeysValidateBeforeCall(
-            @javax.annotation.Nullable String level, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String level, final ApiCallback _callback)
             throws ApiException {
         return listApiKeysCall(level, _callback);
     }
@@ -809,7 +812,7 @@ public class ApiKeysApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<ApiKey> listApiKeys(@javax.annotation.Nullable String level) throws ApiException {
+    public List<ApiKey> listApiKeys(@jakarta.annotation.Nullable String level) throws ApiException {
         ApiResponse<List<ApiKey>> localVarResp = listApiKeysWithHttpInfo(level);
         return localVarResp.getData();
     }
@@ -830,7 +833,7 @@ public class ApiKeysApi {
      * </table>
      */
     public ApiResponse<List<ApiKey>> listApiKeysWithHttpInfo(
-            @javax.annotation.Nullable String level) throws ApiException {
+            @jakarta.annotation.Nullable String level) throws ApiException {
         okhttp3.Call localVarCall = listApiKeysValidateBeforeCall(level, null);
         Type localVarReturnType = new TypeToken<List<ApiKey>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -853,7 +856,7 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call listApiKeysAsync(
-            @javax.annotation.Nullable String level, final ApiCallback<List<ApiKey>> _callback)
+            @jakarta.annotation.Nullable String level, final ApiCallback<List<ApiKey>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listApiKeysValidateBeforeCall(level, _callback);
@@ -879,8 +882,8 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call updateApiKeyCall(
-            @javax.annotation.Nonnull String keyId,
-            @javax.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -941,8 +944,8 @@ public class ApiKeysApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateApiKeyValidateBeforeCall(
-            @javax.annotation.Nonnull String keyId,
-            @javax.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'keyId' is set
@@ -977,8 +980,8 @@ public class ApiKeysApi {
      * </table>
      */
     public ApiKey updateApiKey(
-            @javax.annotation.Nonnull String keyId,
-            @javax.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload)
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload)
             throws ApiException {
         ApiResponse<ApiKey> localVarResp =
                 updateApiKeyWithHttpInfo(keyId, createOrUpdateApiKeyPayload);
@@ -1002,8 +1005,8 @@ public class ApiKeysApi {
      * </table>
      */
     public ApiResponse<ApiKey> updateApiKeyWithHttpInfo(
-            @javax.annotation.Nonnull String keyId,
-            @javax.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload)
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateApiKeyValidateBeforeCall(keyId, createOrUpdateApiKeyPayload, null);
@@ -1029,8 +1032,8 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call updateApiKeyAsync(
-            @javax.annotation.Nonnull String keyId,
-            @javax.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
             final ApiCallback<ApiKey> _callback)
             throws ApiException {
 

@@ -31,38 +31,38 @@ import java.util.Objects;
 /**
  * StartProjectReindexPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class StartProjectReindexPayload {
     public static final String SERIALIZED_NAME_SHARD_SIZE = "shard_size";
 
     @SerializedName(SERIALIZED_NAME_SHARD_SIZE)
-    @javax.annotation.Nullable private BigDecimal shardSize;
+    @jakarta.annotation.Nullable private BigDecimal shardSize;
 
     public static final String SERIALIZED_NAME_PARALLEL_SHARD_COUNT = "parallel_shard_count";
 
     @SerializedName(SERIALIZED_NAME_PARALLEL_SHARD_COUNT)
-    @javax.annotation.Nullable private BigDecimal parallelShardCount;
+    @jakarta.annotation.Nullable private BigDecimal parallelShardCount;
 
     public static final String SERIALIZED_NAME_CONCURRENCY = "concurrency";
 
     @SerializedName(SERIALIZED_NAME_CONCURRENCY)
-    @javax.annotation.Nullable private BigDecimal concurrency;
+    @jakarta.annotation.Nullable private BigDecimal concurrency;
 
     public static final String SERIALIZED_NAME_BULK_SIZE_BYTES = "bulk_size_bytes";
 
     @SerializedName(SERIALIZED_NAME_BULK_SIZE_BYTES)
-    @javax.annotation.Nullable private BigDecimal bulkSizeBytes;
+    @jakarta.annotation.Nullable private BigDecimal bulkSizeBytes;
 
     public static final String SERIALIZED_NAME_BULK_CONCURRENCY = "bulk_concurrency";
 
     @SerializedName(SERIALIZED_NAME_BULK_CONCURRENCY)
-    @javax.annotation.Nullable private BigDecimal bulkConcurrency;
+    @jakarta.annotation.Nullable private BigDecimal bulkConcurrency;
 
     public StartProjectReindexPayload() {}
 
-    public StartProjectReindexPayload shardSize(@javax.annotation.Nullable BigDecimal shardSize) {
+    public StartProjectReindexPayload shardSize(@jakarta.annotation.Nullable BigDecimal shardSize) {
         this.shardSize = shardSize;
         return this;
     }
@@ -71,16 +71,16 @@ public class StartProjectReindexPayload {
      * Get shardSize
      * @return shardSize
      */
-    @javax.annotation.Nullable public BigDecimal getShardSize() {
+    @jakarta.annotation.Nullable public BigDecimal getShardSize() {
         return shardSize;
     }
 
-    public void setShardSize(@javax.annotation.Nullable BigDecimal shardSize) {
+    public void setShardSize(@jakarta.annotation.Nullable BigDecimal shardSize) {
         this.shardSize = shardSize;
     }
 
     public StartProjectReindexPayload parallelShardCount(
-            @javax.annotation.Nullable BigDecimal parallelShardCount) {
+            @jakarta.annotation.Nullable BigDecimal parallelShardCount) {
         this.parallelShardCount = parallelShardCount;
         return this;
     }
@@ -89,16 +89,16 @@ public class StartProjectReindexPayload {
      * Get parallelShardCount
      * @return parallelShardCount
      */
-    @javax.annotation.Nullable public BigDecimal getParallelShardCount() {
+    @jakarta.annotation.Nullable public BigDecimal getParallelShardCount() {
         return parallelShardCount;
     }
 
-    public void setParallelShardCount(@javax.annotation.Nullable BigDecimal parallelShardCount) {
+    public void setParallelShardCount(@jakarta.annotation.Nullable BigDecimal parallelShardCount) {
         this.parallelShardCount = parallelShardCount;
     }
 
     public StartProjectReindexPayload concurrency(
-            @javax.annotation.Nullable BigDecimal concurrency) {
+            @jakarta.annotation.Nullable BigDecimal concurrency) {
         this.concurrency = concurrency;
         return this;
     }
@@ -107,16 +107,16 @@ public class StartProjectReindexPayload {
      * Get concurrency
      * @return concurrency
      */
-    @javax.annotation.Nullable public BigDecimal getConcurrency() {
+    @jakarta.annotation.Nullable public BigDecimal getConcurrency() {
         return concurrency;
     }
 
-    public void setConcurrency(@javax.annotation.Nullable BigDecimal concurrency) {
+    public void setConcurrency(@jakarta.annotation.Nullable BigDecimal concurrency) {
         this.concurrency = concurrency;
     }
 
     public StartProjectReindexPayload bulkSizeBytes(
-            @javax.annotation.Nullable BigDecimal bulkSizeBytes) {
+            @jakarta.annotation.Nullable BigDecimal bulkSizeBytes) {
         this.bulkSizeBytes = bulkSizeBytes;
         return this;
     }
@@ -125,16 +125,16 @@ public class StartProjectReindexPayload {
      * Get bulkSizeBytes
      * @return bulkSizeBytes
      */
-    @javax.annotation.Nullable public BigDecimal getBulkSizeBytes() {
+    @jakarta.annotation.Nullable public BigDecimal getBulkSizeBytes() {
         return bulkSizeBytes;
     }
 
-    public void setBulkSizeBytes(@javax.annotation.Nullable BigDecimal bulkSizeBytes) {
+    public void setBulkSizeBytes(@jakarta.annotation.Nullable BigDecimal bulkSizeBytes) {
         this.bulkSizeBytes = bulkSizeBytes;
     }
 
     public StartProjectReindexPayload bulkConcurrency(
-            @javax.annotation.Nullable BigDecimal bulkConcurrency) {
+            @jakarta.annotation.Nullable BigDecimal bulkConcurrency) {
         this.bulkConcurrency = bulkConcurrency;
         return this;
     }
@@ -143,11 +143,11 @@ public class StartProjectReindexPayload {
      * Get bulkConcurrency
      * @return bulkConcurrency
      */
-    @javax.annotation.Nullable public BigDecimal getBulkConcurrency() {
+    @jakarta.annotation.Nullable public BigDecimal getBulkConcurrency() {
         return bulkConcurrency;
     }
 
-    public void setBulkConcurrency(@javax.annotation.Nullable BigDecimal bulkConcurrency) {
+    public void setBulkConcurrency(@jakarta.annotation.Nullable BigDecimal bulkConcurrency) {
         this.bulkConcurrency = bulkConcurrency;
     }
 

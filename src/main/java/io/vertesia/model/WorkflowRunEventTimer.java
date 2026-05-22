@@ -30,28 +30,28 @@ import java.util.Objects;
 /**
  * WorkflowRunEventTimer
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WorkflowRunEventTimer {
     public static final String SERIALIZED_NAME_TIMER_ID = "timerId";
 
     @SerializedName(SERIALIZED_NAME_TIMER_ID)
-    @javax.annotation.Nullable private String timerId;
+    @jakarta.annotation.Nullable private String timerId;
 
     public static final String SERIALIZED_NAME_DURATION = "duration";
 
     @SerializedName(SERIALIZED_NAME_DURATION)
-    @javax.annotation.Nullable private String duration;
+    @jakarta.annotation.Nullable private String duration;
 
     public static final String SERIALIZED_NAME_SUMMARY = "summary";
 
     @SerializedName(SERIALIZED_NAME_SUMMARY)
-    @javax.annotation.Nullable private String summary;
+    @jakarta.annotation.Nullable private String summary;
 
     public WorkflowRunEventTimer() {}
 
-    public WorkflowRunEventTimer timerId(@javax.annotation.Nullable String timerId) {
+    public WorkflowRunEventTimer timerId(@jakarta.annotation.Nullable String timerId) {
         this.timerId = timerId;
         return this;
     }
@@ -60,15 +60,15 @@ public class WorkflowRunEventTimer {
      * Get timerId
      * @return timerId
      */
-    @javax.annotation.Nullable public String getTimerId() {
+    @jakarta.annotation.Nullable public String getTimerId() {
         return timerId;
     }
 
-    public void setTimerId(@javax.annotation.Nullable String timerId) {
+    public void setTimerId(@jakarta.annotation.Nullable String timerId) {
         this.timerId = timerId;
     }
 
-    public WorkflowRunEventTimer duration(@javax.annotation.Nullable String duration) {
+    public WorkflowRunEventTimer duration(@jakarta.annotation.Nullable String duration) {
         this.duration = duration;
         return this;
     }
@@ -77,15 +77,15 @@ public class WorkflowRunEventTimer {
      * Get duration
      * @return duration
      */
-    @javax.annotation.Nullable public String getDuration() {
+    @jakarta.annotation.Nullable public String getDuration() {
         return duration;
     }
 
-    public void setDuration(@javax.annotation.Nullable String duration) {
+    public void setDuration(@jakarta.annotation.Nullable String duration) {
         this.duration = duration;
     }
 
-    public WorkflowRunEventTimer summary(@javax.annotation.Nullable String summary) {
+    public WorkflowRunEventTimer summary(@jakarta.annotation.Nullable String summary) {
         this.summary = summary;
         return this;
     }
@@ -94,11 +94,11 @@ public class WorkflowRunEventTimer {
      * Get summary
      * @return summary
      */
-    @javax.annotation.Nullable public String getSummary() {
+    @jakarta.annotation.Nullable public String getSummary() {
         return summary;
     }
 
-    public void setSummary(@javax.annotation.Nullable String summary) {
+    public void setSummary(@jakarta.annotation.Nullable String summary) {
         this.summary = summary;
     }
 

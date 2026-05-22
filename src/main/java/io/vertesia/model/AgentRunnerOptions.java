@@ -33,53 +33,53 @@ import java.util.Objects;
 /**
  * Configuration options for Agent Runner functionality. These options control how interactions are exposed and executed in the Agent Runner.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AgentRunnerOptions {
     public static final String SERIALIZED_NAME_IS_AGENT = "is_agent";
 
     @SerializedName(SERIALIZED_NAME_IS_AGENT)
-    @javax.annotation.Nullable private Boolean isAgent;
+    @jakarta.annotation.Nullable private Boolean isAgent;
 
     public static final String SERIALIZED_NAME_IS_TOOL = "is_tool";
 
     @SerializedName(SERIALIZED_NAME_IS_TOOL)
-    @javax.annotation.Nullable private Boolean isTool;
+    @jakarta.annotation.Nullable private Boolean isTool;
 
     public static final String SERIALIZED_NAME_IS_SKILL = "is_skill";
 
     @SerializedName(SERIALIZED_NAME_IS_SKILL)
-    @javax.annotation.Nullable private Boolean isSkill;
+    @jakarta.annotation.Nullable private Boolean isSkill;
 
     public static final String SERIALIZED_NAME_CONTEXT_TRIGGERS = "context_triggers";
 
     @SerializedName(SERIALIZED_NAME_CONTEXT_TRIGGERS)
-    @javax.annotation.Nullable private SkillContextTriggers contextTriggers;
+    @jakarta.annotation.Nullable private SkillContextTriggers contextTriggers;
 
     public static final String SERIALIZED_NAME_SKILL_PRIORITY = "skill_priority";
 
     @SerializedName(SERIALIZED_NAME_SKILL_PRIORITY)
-    @javax.annotation.Nullable private BigDecimal skillPriority;
+    @jakarta.annotation.Nullable private BigDecimal skillPriority;
 
     public static final String SERIALIZED_NAME_TOOL_NAMES = "tool_names";
 
     @SerializedName(SERIALIZED_NAME_TOOL_NAMES)
-    @javax.annotation.Nullable private List<String> toolNames = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> toolNames = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SEARCH_SCOPE = "search_scope";
 
     @SerializedName(SERIALIZED_NAME_SEARCH_SCOPE)
-    @javax.annotation.Nullable private AgentSearchScope searchScope;
+    @jakarta.annotation.Nullable private AgentSearchScope searchScope;
 
     public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
-    @javax.annotation.Nullable private String collectionId;
+    @jakarta.annotation.Nullable private String collectionId;
 
     public AgentRunnerOptions() {}
 
-    public AgentRunnerOptions isAgent(@javax.annotation.Nullable Boolean isAgent) {
+    public AgentRunnerOptions isAgent(@jakarta.annotation.Nullable Boolean isAgent) {
         this.isAgent = isAgent;
         return this;
     }
@@ -88,15 +88,15 @@ public class AgentRunnerOptions {
      * Whether this interaction is an agent (executable in Agent Runner).
      * @return isAgent
      */
-    @javax.annotation.Nullable public Boolean getIsAgent() {
+    @jakarta.annotation.Nullable public Boolean getIsAgent() {
         return isAgent;
     }
 
-    public void setIsAgent(@javax.annotation.Nullable Boolean isAgent) {
+    public void setIsAgent(@jakarta.annotation.Nullable Boolean isAgent) {
         this.isAgent = isAgent;
     }
 
-    public AgentRunnerOptions isTool(@javax.annotation.Nullable Boolean isTool) {
+    public AgentRunnerOptions isTool(@jakarta.annotation.Nullable Boolean isTool) {
         this.isTool = isTool;
         return this;
     }
@@ -105,15 +105,15 @@ public class AgentRunnerOptions {
      * Whether this interaction is available as a tool (sub-agent).
      * @return isTool
      */
-    @javax.annotation.Nullable public Boolean getIsTool() {
+    @jakarta.annotation.Nullable public Boolean getIsTool() {
         return isTool;
     }
 
-    public void setIsTool(@javax.annotation.Nullable Boolean isTool) {
+    public void setIsTool(@jakarta.annotation.Nullable Boolean isTool) {
         this.isTool = isTool;
     }
 
-    public AgentRunnerOptions isSkill(@javax.annotation.Nullable Boolean isSkill) {
+    public AgentRunnerOptions isSkill(@jakarta.annotation.Nullable Boolean isSkill) {
         this.isSkill = isSkill;
         return this;
     }
@@ -122,16 +122,16 @@ public class AgentRunnerOptions {
      * Whether this interaction is a skill (provides instructions without execution). Skills are injected into the agent&#39;s context based on context_triggers.
      * @return isSkill
      */
-    @javax.annotation.Nullable public Boolean getIsSkill() {
+    @jakarta.annotation.Nullable public Boolean getIsSkill() {
         return isSkill;
     }
 
-    public void setIsSkill(@javax.annotation.Nullable Boolean isSkill) {
+    public void setIsSkill(@jakarta.annotation.Nullable Boolean isSkill) {
         this.isSkill = isSkill;
     }
 
     public AgentRunnerOptions contextTriggers(
-            @javax.annotation.Nullable SkillContextTriggers contextTriggers) {
+            @jakarta.annotation.Nullable SkillContextTriggers contextTriggers) {
         this.contextTriggers = contextTriggers;
         return this;
     }
@@ -140,16 +140,16 @@ public class AgentRunnerOptions {
      * Context triggers for auto-injection of this skill. Only used when is_skill is true.
      * @return contextTriggers
      */
-    @javax.annotation.Nullable public SkillContextTriggers getContextTriggers() {
+    @jakarta.annotation.Nullable public SkillContextTriggers getContextTriggers() {
         return contextTriggers;
     }
 
     public void setContextTriggers(
-            @javax.annotation.Nullable SkillContextTriggers contextTriggers) {
+            @jakarta.annotation.Nullable SkillContextTriggers contextTriggers) {
         this.contextTriggers = contextTriggers;
     }
 
-    public AgentRunnerOptions skillPriority(@javax.annotation.Nullable BigDecimal skillPriority) {
+    public AgentRunnerOptions skillPriority(@jakarta.annotation.Nullable BigDecimal skillPriority) {
         this.skillPriority = skillPriority;
         return this;
     }
@@ -158,15 +158,15 @@ public class AgentRunnerOptions {
      * Injection priority for skills (higher &#x3D; more likely to be selected when multiple match). Only used when is_skill is true.
      * @return skillPriority
      */
-    @javax.annotation.Nullable public BigDecimal getSkillPriority() {
+    @jakarta.annotation.Nullable public BigDecimal getSkillPriority() {
         return skillPriority;
     }
 
-    public void setSkillPriority(@javax.annotation.Nullable BigDecimal skillPriority) {
+    public void setSkillPriority(@jakarta.annotation.Nullable BigDecimal skillPriority) {
         this.skillPriority = skillPriority;
     }
 
-    public AgentRunnerOptions toolNames(@javax.annotation.Nullable List<String> toolNames) {
+    public AgentRunnerOptions toolNames(@jakarta.annotation.Nullable List<String> toolNames) {
         this.toolNames = toolNames;
         return this;
     }
@@ -183,15 +183,16 @@ public class AgentRunnerOptions {
      * Array of default tool names available to this agent. For interactions: defines default tools. For execution payloads: you can use + and - to add or remove from default, if no sign, then list replaces default.
      * @return toolNames
      */
-    @javax.annotation.Nullable public List<String> getToolNames() {
+    @jakarta.annotation.Nullable public List<String> getToolNames() {
         return toolNames;
     }
 
-    public void setToolNames(@javax.annotation.Nullable List<String> toolNames) {
+    public void setToolNames(@jakarta.annotation.Nullable List<String> toolNames) {
         this.toolNames = toolNames;
     }
 
-    public AgentRunnerOptions searchScope(@javax.annotation.Nullable AgentSearchScope searchScope) {
+    public AgentRunnerOptions searchScope(
+            @jakarta.annotation.Nullable AgentSearchScope searchScope) {
         this.searchScope = searchScope;
         return this;
     }
@@ -200,15 +201,15 @@ public class AgentRunnerOptions {
      * On which scope should the search be applied by the search_tool. Only supports &#39;collection&#39; scope or undefined for now.
      * @return searchScope
      */
-    @javax.annotation.Nullable public AgentSearchScope getSearchScope() {
+    @jakarta.annotation.Nullable public AgentSearchScope getSearchScope() {
         return searchScope;
     }
 
-    public void setSearchScope(@javax.annotation.Nullable AgentSearchScope searchScope) {
+    public void setSearchScope(@jakarta.annotation.Nullable AgentSearchScope searchScope) {
         this.searchScope = searchScope;
     }
 
-    public AgentRunnerOptions collectionId(@javax.annotation.Nullable String collectionId) {
+    public AgentRunnerOptions collectionId(@jakarta.annotation.Nullable String collectionId) {
         this.collectionId = collectionId;
         return this;
     }
@@ -217,11 +218,11 @@ public class AgentRunnerOptions {
      * The ID of the collection to restrict agent operations to. When specified, the agent&#39;s search and retrieval operations are limited to documents within this collection&#39;.
      * @return collectionId
      */
-    @javax.annotation.Nullable public String getCollectionId() {
+    @jakarta.annotation.Nullable public String getCollectionId() {
         return collectionId;
     }
 
-    public void setCollectionId(@javax.annotation.Nullable String collectionId) {
+    public void setCollectionId(@jakarta.annotation.Nullable String collectionId) {
         this.collectionId = collectionId;
     }
 

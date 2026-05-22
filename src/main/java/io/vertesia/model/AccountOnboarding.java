@@ -31,25 +31,25 @@ import java.util.Objects;
 /**
  * AccountOnboarding
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AccountOnboarding {
     public static final String SERIALIZED_NAME_COMPLETED = "completed";
 
     @SerializedName(SERIALIZED_NAME_COMPLETED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean completed;
 
     public static final String SERIALIZED_NAME_COMPLETED_AT = "completed_at";
 
     @SerializedName(SERIALIZED_NAME_COMPLETED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime completedAt;
 
     public AccountOnboarding() {}
 
-    public AccountOnboarding completed(@javax.annotation.Nonnull Boolean completed) {
+    public AccountOnboarding completed(@jakarta.annotation.Nonnull Boolean completed) {
         this.completed = completed;
         return this;
     }
@@ -58,16 +58,16 @@ public class AccountOnboarding {
      * Get completed
      * @return completed
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getCompleted() {
         return completed;
     }
 
-    public void setCompleted(@javax.annotation.Nonnull Boolean completed) {
+    public void setCompleted(@jakarta.annotation.Nonnull Boolean completed) {
         this.completed = completed;
     }
 
-    public AccountOnboarding completedAt(@javax.annotation.Nonnull OffsetDateTime completedAt) {
+    public AccountOnboarding completedAt(@jakarta.annotation.Nonnull OffsetDateTime completedAt) {
         this.completedAt = completedAt;
         return this;
     }
@@ -76,12 +76,12 @@ public class AccountOnboarding {
      * Get completedAt
      * @return completedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getCompletedAt() {
         return completedAt;
     }
 
-    public void setCompletedAt(@javax.annotation.Nonnull OffsetDateTime completedAt) {
+    public void setCompletedAt(@jakarta.annotation.Nonnull OffsetDateTime completedAt) {
         this.completedAt = completedAt;
     }
 

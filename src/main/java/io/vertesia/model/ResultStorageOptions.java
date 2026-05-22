@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * Options for storing inference results to cloud storage
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ResultStorageOptions {
     public static final String SERIALIZED_NAME_PATH = "path";
 
     @SerializedName(SERIALIZED_NAME_PATH)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String path;
 
     public ResultStorageOptions() {}
 
-    public ResultStorageOptions path(@javax.annotation.Nonnull String path) {
+    public ResultStorageOptions path(@jakarta.annotation.Nonnull String path) {
         this.path = path;
         return this;
     }
@@ -51,12 +51,12 @@ public class ResultStorageOptions {
      * Full storage path for the result (e.g., \&quot;pages/doc123/page-1.md\&quot;)
      * @return path
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getPath() {
         return path;
     }
 
-    public void setPath(@javax.annotation.Nonnull String path) {
+    public void setPath(@jakarta.annotation.Nonnull String path) {
         this.path = path;
     }
 

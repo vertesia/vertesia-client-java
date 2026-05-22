@@ -31,35 +31,35 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * InteractionExecutionError
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InteractionExecutionError {
     public static final String SERIALIZED_NAME_CODE = "code";
 
     @SerializedName(SERIALIZED_NAME_CODE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String code;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String message;
 
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    @javax.annotation.Nullable private Object data = null;
+    @jakarta.annotation.Nullable private Object data = null;
 
     public static final String SERIALIZED_NAME_RETRYABLE = "retryable";
 
     @SerializedName(SERIALIZED_NAME_RETRYABLE)
-    @javax.annotation.Nullable private Boolean retryable;
+    @jakarta.annotation.Nullable private Boolean retryable;
 
     public InteractionExecutionError() {}
 
-    public InteractionExecutionError code(@javax.annotation.Nonnull String code) {
+    public InteractionExecutionError code(@jakarta.annotation.Nonnull String code) {
         this.code = code;
         return this;
     }
@@ -68,16 +68,16 @@ public class InteractionExecutionError {
      * Get code
      * @return code
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCode() {
         return code;
     }
 
-    public void setCode(@javax.annotation.Nonnull String code) {
+    public void setCode(@jakarta.annotation.Nonnull String code) {
         this.code = code;
     }
 
-    public InteractionExecutionError message(@javax.annotation.Nonnull String message) {
+    public InteractionExecutionError message(@jakarta.annotation.Nonnull String message) {
         this.message = message;
         return this;
     }
@@ -86,16 +86,16 @@ public class InteractionExecutionError {
      * Get message
      * @return message
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nonnull String message) {
+    public void setMessage(@jakarta.annotation.Nonnull String message) {
         this.message = message;
     }
 
-    public InteractionExecutionError data(@javax.annotation.Nullable Object data) {
+    public InteractionExecutionError data(@jakarta.annotation.Nullable Object data) {
         this.data = data;
         return this;
     }
@@ -104,15 +104,15 @@ public class InteractionExecutionError {
      * Get data
      * @return data
      */
-    @javax.annotation.Nullable public Object getData() {
+    @jakarta.annotation.Nullable public Object getData() {
         return data;
     }
 
-    public void setData(@javax.annotation.Nullable Object data) {
+    public void setData(@jakarta.annotation.Nullable Object data) {
         this.data = data;
     }
 
-    public InteractionExecutionError retryable(@javax.annotation.Nullable Boolean retryable) {
+    public InteractionExecutionError retryable(@jakarta.annotation.Nullable Boolean retryable) {
         this.retryable = retryable;
         return this;
     }
@@ -121,11 +121,11 @@ public class InteractionExecutionError {
      * Get retryable
      * @return retryable
      */
-    @javax.annotation.Nullable public Boolean getRetryable() {
+    @jakarta.annotation.Nullable public Boolean getRetryable() {
         return retryable;
     }
 
-    public void setRetryable(@javax.annotation.Nullable Boolean retryable) {
+    public void setRetryable(@jakarta.annotation.Nullable Boolean retryable) {
         this.retryable = retryable;
     }
 

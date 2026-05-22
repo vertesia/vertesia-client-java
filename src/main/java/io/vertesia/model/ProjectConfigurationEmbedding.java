@@ -31,40 +31,40 @@ import java.util.Objects;
 /**
  * ProjectConfigurationEmbedding
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProjectConfigurationEmbedding {
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @javax.annotation.Nullable private String environment;
+    @jakarta.annotation.Nullable private String environment;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean enabled;
 
     public static final String SERIALIZED_NAME_DIMENSIONS = "dimensions";
 
     @SerializedName(SERIALIZED_NAME_DIMENSIONS)
-    @javax.annotation.Nullable private BigDecimal dimensions;
+    @jakarta.annotation.Nullable private BigDecimal dimensions;
 
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
-    @javax.annotation.Nullable private BigDecimal maxTokens;
+    @jakarta.annotation.Nullable private BigDecimal maxTokens;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nullable private String model;
+    @jakarta.annotation.Nullable private String model;
 
     public ProjectConfigurationEmbedding() {}
 
     public ProjectConfigurationEmbedding environment(
-            @javax.annotation.Nullable String environment) {
+            @jakarta.annotation.Nullable String environment) {
         this.environment = environment;
         return this;
     }
@@ -73,15 +73,15 @@ public class ProjectConfigurationEmbedding {
      * Get environment
      * @return environment
      */
-    @javax.annotation.Nullable public String getEnvironment() {
+    @jakarta.annotation.Nullable public String getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@javax.annotation.Nullable String environment) {
+    public void setEnvironment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
     }
 
-    public ProjectConfigurationEmbedding enabled(@javax.annotation.Nonnull Boolean enabled) {
+    public ProjectConfigurationEmbedding enabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -90,17 +90,17 @@ public class ProjectConfigurationEmbedding {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
     }
 
     public ProjectConfigurationEmbedding dimensions(
-            @javax.annotation.Nullable BigDecimal dimensions) {
+            @jakarta.annotation.Nullable BigDecimal dimensions) {
         this.dimensions = dimensions;
         return this;
     }
@@ -109,16 +109,16 @@ public class ProjectConfigurationEmbedding {
      * Get dimensions
      * @return dimensions
      */
-    @javax.annotation.Nullable public BigDecimal getDimensions() {
+    @jakarta.annotation.Nullable public BigDecimal getDimensions() {
         return dimensions;
     }
 
-    public void setDimensions(@javax.annotation.Nullable BigDecimal dimensions) {
+    public void setDimensions(@jakarta.annotation.Nullable BigDecimal dimensions) {
         this.dimensions = dimensions;
     }
 
     public ProjectConfigurationEmbedding maxTokens(
-            @javax.annotation.Nullable BigDecimal maxTokens) {
+            @jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
         return this;
     }
@@ -127,15 +127,15 @@ public class ProjectConfigurationEmbedding {
      * Get maxTokens
      * @return maxTokens
      */
-    @javax.annotation.Nullable public BigDecimal getMaxTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxTokens() {
         return maxTokens;
     }
 
-    public void setMaxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public void setMaxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
     }
 
-    public ProjectConfigurationEmbedding model(@javax.annotation.Nullable String model) {
+    public ProjectConfigurationEmbedding model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
@@ -144,11 +144,11 @@ public class ProjectConfigurationEmbedding {
      * Get model
      * @return model
      */
-    @javax.annotation.Nullable public String getModel() {
+    @jakarta.annotation.Nullable public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nullable String model) {
+    public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
     }
 

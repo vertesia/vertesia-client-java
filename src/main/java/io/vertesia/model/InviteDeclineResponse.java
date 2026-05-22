@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * InviteDeclineResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InviteDeclineResponse {
@@ -91,12 +91,12 @@ public class InviteDeclineResponse {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private StatusEnum status;
 
     public InviteDeclineResponse() {}
 
-    public InviteDeclineResponse status(@javax.annotation.Nonnull StatusEnum status) {
+    public InviteDeclineResponse status(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
         return this;
     }
@@ -105,12 +105,12 @@ public class InviteDeclineResponse {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
+    public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
     }
 

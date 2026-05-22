@@ -32,84 +32,85 @@ import java.util.Objects;
 /**
  * Payload for rendering markdown to PDF or DOCX. Either object_id OR content must be provided.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RenderMarkdownPayload {
     public static final String SERIALIZED_NAME_FORMAT = "format";
 
     @SerializedName(SERIALIZED_NAME_FORMAT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private MarkdownRenditionFormat format;
 
     public static final String SERIALIZED_NAME_OBJECT_ID = "object_id";
 
     @SerializedName(SERIALIZED_NAME_OBJECT_ID)
-    @javax.annotation.Nullable private String objectId;
+    @jakarta.annotation.Nullable private String objectId;
 
     public static final String SERIALIZED_NAME_CONTENT = "content";
 
     @SerializedName(SERIALIZED_NAME_CONTENT)
-    @javax.annotation.Nullable private String content;
+    @jakarta.annotation.Nullable private String content;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nullable private String title;
+    @jakarta.annotation.Nullable private String title;
 
     public static final String SERIALIZED_NAME_TEMPLATE_URL = "template_url";
 
     @SerializedName(SERIALIZED_NAME_TEMPLATE_URL)
-    @javax.annotation.Nullable private String templateUrl;
+    @jakarta.annotation.Nullable private String templateUrl;
 
     public static final String SERIALIZED_NAME_TEMPLATE_LOGO_URL = "template_logo_url";
 
     @SerializedName(SERIALIZED_NAME_TEMPLATE_LOGO_URL)
-    @javax.annotation.Nullable private String templateLogoUrl;
+    @jakarta.annotation.Nullable private String templateLogoUrl;
 
     public static final String SERIALIZED_NAME_TEMPLATE_PATH = "template_path";
 
     @SerializedName(SERIALIZED_NAME_TEMPLATE_PATH)
-    @javax.annotation.Nullable private String templatePath;
+    @jakarta.annotation.Nullable private String templatePath;
 
     public static final String SERIALIZED_NAME_LOGO_PATH = "logo_path";
 
     @SerializedName(SERIALIZED_NAME_LOGO_PATH)
-    @javax.annotation.Nullable private String logoPath;
+    @jakarta.annotation.Nullable private String logoPath;
 
     public static final String SERIALIZED_NAME_USE_DEFAULT_TEMPLATE = "use_default_template";
 
     @SerializedName(SERIALIZED_NAME_USE_DEFAULT_TEMPLATE)
-    @javax.annotation.Nullable private Boolean useDefaultTemplate;
+    @jakarta.annotation.Nullable private Boolean useDefaultTemplate;
 
     public static final String SERIALIZED_NAME_PANDOC_OPTIONS = "pandoc_options";
 
     @SerializedName(SERIALIZED_NAME_PANDOC_OPTIONS)
-    @javax.annotation.Nullable private List<String> pandocOptions = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> pandocOptions = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ARTIFACT_RUN_ID = "artifact_run_id";
 
     @SerializedName(SERIALIZED_NAME_ARTIFACT_RUN_ID)
-    @javax.annotation.Nullable private String artifactRunId;
+    @jakarta.annotation.Nullable private String artifactRunId;
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @javax.annotation.Nullable private PdfRenderingMetadata metadata;
+    @jakarta.annotation.Nullable private PdfRenderingMetadata metadata;
 
     public static final String SERIALIZED_NAME_TEMPLATE_DATA_SOURCE = "template_data_source";
 
     @SerializedName(SERIALIZED_NAME_TEMPLATE_DATA_SOURCE)
-    @javax.annotation.Nullable private String templateDataSource;
+    @jakarta.annotation.Nullable private String templateDataSource;
 
     public static final String SERIALIZED_NAME_OUTPUT_PATH = "output_path";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT_PATH)
-    @javax.annotation.Nullable private String outputPath;
+    @jakarta.annotation.Nullable private String outputPath;
 
     public RenderMarkdownPayload() {}
 
-    public RenderMarkdownPayload format(@javax.annotation.Nonnull MarkdownRenditionFormat format) {
+    public RenderMarkdownPayload format(
+            @jakarta.annotation.Nonnull MarkdownRenditionFormat format) {
         this.format = format;
         return this;
     }
@@ -118,16 +119,16 @@ public class RenderMarkdownPayload {
      * Output format
      * @return format
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public MarkdownRenditionFormat getFormat() {
         return format;
     }
 
-    public void setFormat(@javax.annotation.Nonnull MarkdownRenditionFormat format) {
+    public void setFormat(@jakarta.annotation.Nonnull MarkdownRenditionFormat format) {
         this.format = format;
     }
 
-    public RenderMarkdownPayload objectId(@javax.annotation.Nullable String objectId) {
+    public RenderMarkdownPayload objectId(@jakarta.annotation.Nullable String objectId) {
         this.objectId = objectId;
         return this;
     }
@@ -136,15 +137,15 @@ public class RenderMarkdownPayload {
      * Object ID to render (mutually exclusive with content)
      * @return objectId
      */
-    @javax.annotation.Nullable public String getObjectId() {
+    @jakarta.annotation.Nullable public String getObjectId() {
         return objectId;
     }
 
-    public void setObjectId(@javax.annotation.Nullable String objectId) {
+    public void setObjectId(@jakarta.annotation.Nullable String objectId) {
         this.objectId = objectId;
     }
 
-    public RenderMarkdownPayload content(@javax.annotation.Nullable String content) {
+    public RenderMarkdownPayload content(@jakarta.annotation.Nullable String content) {
         this.content = content;
         return this;
     }
@@ -153,15 +154,15 @@ public class RenderMarkdownPayload {
      * Inline markdown content to render (mutually exclusive with object_id)
      * @return content
      */
-    @javax.annotation.Nullable public String getContent() {
+    @jakarta.annotation.Nullable public String getContent() {
         return content;
     }
 
-    public void setContent(@javax.annotation.Nullable String content) {
+    public void setContent(@jakarta.annotation.Nullable String content) {
         this.content = content;
     }
 
-    public RenderMarkdownPayload title(@javax.annotation.Nullable String title) {
+    public RenderMarkdownPayload title(@jakarta.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -170,15 +171,15 @@ public class RenderMarkdownPayload {
      * Document title (used for filename when using inline content)
      * @return title
      */
-    @javax.annotation.Nullable public String getTitle() {
+    @jakarta.annotation.Nullable public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nullable String title) {
+    public void setTitle(@jakarta.annotation.Nullable String title) {
         this.title = title;
     }
 
-    public RenderMarkdownPayload templateUrl(@javax.annotation.Nullable String templateUrl) {
+    public RenderMarkdownPayload templateUrl(@jakarta.annotation.Nullable String templateUrl) {
         this.templateUrl = templateUrl;
         return this;
     }
@@ -187,16 +188,16 @@ public class RenderMarkdownPayload {
      * URL to a template file for pandoc (DOCX reference doc or LaTeX template)
      * @return templateUrl
      */
-    @javax.annotation.Nullable public String getTemplateUrl() {
+    @jakarta.annotation.Nullable public String getTemplateUrl() {
         return templateUrl;
     }
 
-    public void setTemplateUrl(@javax.annotation.Nullable String templateUrl) {
+    public void setTemplateUrl(@jakarta.annotation.Nullable String templateUrl) {
         this.templateUrl = templateUrl;
     }
 
     public RenderMarkdownPayload templateLogoUrl(
-            @javax.annotation.Nullable String templateLogoUrl) {
+            @jakarta.annotation.Nullable String templateLogoUrl) {
         this.templateLogoUrl = templateLogoUrl;
         return this;
     }
@@ -205,15 +206,15 @@ public class RenderMarkdownPayload {
      * Optional logo URL for template variable &#x60;logo-path&#x60; (studio-hosted URL)
      * @return templateLogoUrl
      */
-    @javax.annotation.Nullable public String getTemplateLogoUrl() {
+    @jakarta.annotation.Nullable public String getTemplateLogoUrl() {
         return templateLogoUrl;
     }
 
-    public void setTemplateLogoUrl(@javax.annotation.Nullable String templateLogoUrl) {
+    public void setTemplateLogoUrl(@jakarta.annotation.Nullable String templateLogoUrl) {
         this.templateLogoUrl = templateLogoUrl;
     }
 
-    public RenderMarkdownPayload templatePath(@javax.annotation.Nullable String templatePath) {
+    public RenderMarkdownPayload templatePath(@jakarta.annotation.Nullable String templatePath) {
         this.templatePath = templatePath;
         return this;
     }
@@ -222,15 +223,15 @@ public class RenderMarkdownPayload {
      * Template file via artifact:/store: protocol (takes precedence over template_url)
      * @return templatePath
      */
-    @javax.annotation.Nullable public String getTemplatePath() {
+    @jakarta.annotation.Nullable public String getTemplatePath() {
         return templatePath;
     }
 
-    public void setTemplatePath(@javax.annotation.Nullable String templatePath) {
+    public void setTemplatePath(@jakarta.annotation.Nullable String templatePath) {
         this.templatePath = templatePath;
     }
 
-    public RenderMarkdownPayload logoPath(@javax.annotation.Nullable String logoPath) {
+    public RenderMarkdownPayload logoPath(@jakarta.annotation.Nullable String logoPath) {
         this.logoPath = logoPath;
         return this;
     }
@@ -239,16 +240,16 @@ public class RenderMarkdownPayload {
      * Logo file via artifact:/store: protocol (takes precedence over template_logo_url)
      * @return logoPath
      */
-    @javax.annotation.Nullable public String getLogoPath() {
+    @jakarta.annotation.Nullable public String getLogoPath() {
         return logoPath;
     }
 
-    public void setLogoPath(@javax.annotation.Nullable String logoPath) {
+    public void setLogoPath(@jakarta.annotation.Nullable String logoPath) {
         this.logoPath = logoPath;
     }
 
     public RenderMarkdownPayload useDefaultTemplate(
-            @javax.annotation.Nullable Boolean useDefaultTemplate) {
+            @jakarta.annotation.Nullable Boolean useDefaultTemplate) {
         this.useDefaultTemplate = useDefaultTemplate;
         return this;
     }
@@ -257,16 +258,16 @@ public class RenderMarkdownPayload {
      * Use Vertesia default template if no template_url provided (default: true for pdf)
      * @return useDefaultTemplate
      */
-    @javax.annotation.Nullable public Boolean getUseDefaultTemplate() {
+    @jakarta.annotation.Nullable public Boolean getUseDefaultTemplate() {
         return useDefaultTemplate;
     }
 
-    public void setUseDefaultTemplate(@javax.annotation.Nullable Boolean useDefaultTemplate) {
+    public void setUseDefaultTemplate(@jakarta.annotation.Nullable Boolean useDefaultTemplate) {
         this.useDefaultTemplate = useDefaultTemplate;
     }
 
     public RenderMarkdownPayload pandocOptions(
-            @javax.annotation.Nullable List<String> pandocOptions) {
+            @jakarta.annotation.Nullable List<String> pandocOptions) {
         this.pandocOptions = pandocOptions;
         return this;
     }
@@ -283,15 +284,15 @@ public class RenderMarkdownPayload {
      * Additional pandoc command-line options
      * @return pandocOptions
      */
-    @javax.annotation.Nullable public List<String> getPandocOptions() {
+    @jakarta.annotation.Nullable public List<String> getPandocOptions() {
         return pandocOptions;
     }
 
-    public void setPandocOptions(@javax.annotation.Nullable List<String> pandocOptions) {
+    public void setPandocOptions(@jakarta.annotation.Nullable List<String> pandocOptions) {
         this.pandocOptions = pandocOptions;
     }
 
-    public RenderMarkdownPayload artifactRunId(@javax.annotation.Nullable String artifactRunId) {
+    public RenderMarkdownPayload artifactRunId(@jakarta.annotation.Nullable String artifactRunId) {
         this.artifactRunId = artifactRunId;
         return this;
     }
@@ -300,16 +301,16 @@ public class RenderMarkdownPayload {
      * Run ID for resolving artifact: and image: URLs
      * @return artifactRunId
      */
-    @javax.annotation.Nullable public String getArtifactRunId() {
+    @jakarta.annotation.Nullable public String getArtifactRunId() {
         return artifactRunId;
     }
 
-    public void setArtifactRunId(@javax.annotation.Nullable String artifactRunId) {
+    public void setArtifactRunId(@jakarta.annotation.Nullable String artifactRunId) {
         this.artifactRunId = artifactRunId;
     }
 
     public RenderMarkdownPayload metadata(
-            @javax.annotation.Nullable PdfRenderingMetadata metadata) {
+            @jakarta.annotation.Nullable PdfRenderingMetadata metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -318,16 +319,16 @@ public class RenderMarkdownPayload {
      * Document metadata for PDF footer/header
      * @return metadata
      */
-    @javax.annotation.Nullable public PdfRenderingMetadata getMetadata() {
+    @jakarta.annotation.Nullable public PdfRenderingMetadata getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@javax.annotation.Nullable PdfRenderingMetadata metadata) {
+    public void setMetadata(@jakarta.annotation.Nullable PdfRenderingMetadata metadata) {
         this.metadata = metadata;
     }
 
     public RenderMarkdownPayload templateDataSource(
-            @javax.annotation.Nullable String templateDataSource) {
+            @jakarta.annotation.Nullable String templateDataSource) {
         this.templateDataSource = templateDataSource;
         return this;
     }
@@ -336,15 +337,15 @@ public class RenderMarkdownPayload {
      * Source reference for auto-wired template data: &#x60;store:&lt;objectId&gt;&#x60; or &#x60;artifact:&lt;path-to-json&gt;&#x60;
      * @return templateDataSource
      */
-    @javax.annotation.Nullable public String getTemplateDataSource() {
+    @jakarta.annotation.Nullable public String getTemplateDataSource() {
         return templateDataSource;
     }
 
-    public void setTemplateDataSource(@javax.annotation.Nullable String templateDataSource) {
+    public void setTemplateDataSource(@jakarta.annotation.Nullable String templateDataSource) {
         this.templateDataSource = templateDataSource;
     }
 
-    public RenderMarkdownPayload outputPath(@javax.annotation.Nullable String outputPath) {
+    public RenderMarkdownPayload outputPath(@jakarta.annotation.Nullable String outputPath) {
         this.outputPath = outputPath;
         return this;
     }
@@ -353,11 +354,11 @@ public class RenderMarkdownPayload {
      * Custom upload path for the rendered output
      * @return outputPath
      */
-    @javax.annotation.Nullable public String getOutputPath() {
+    @jakarta.annotation.Nullable public String getOutputPath() {
         return outputPath;
     }
 
-    public void setOutputPath(@javax.annotation.Nullable String outputPath) {
+    public void setOutputPath(@jakarta.annotation.Nullable String outputPath) {
         this.outputPath = outputPath;
     }
 

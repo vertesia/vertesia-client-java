@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * GroqOptions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GroqOptions {
@@ -94,28 +94,28 @@ public class GroqOptions {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OptionIdEnum optionId;
 
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
-    @javax.annotation.Nullable private BigDecimal maxTokens;
+    @jakarta.annotation.Nullable private BigDecimal maxTokens;
 
     public static final String SERIALIZED_NAME_TEMPERATURE = "temperature";
 
     @SerializedName(SERIALIZED_NAME_TEMPERATURE)
-    @javax.annotation.Nullable private BigDecimal temperature;
+    @jakarta.annotation.Nullable private BigDecimal temperature;
 
     public static final String SERIALIZED_NAME_TOP_P = "top_p";
 
     @SerializedName(SERIALIZED_NAME_TOP_P)
-    @javax.annotation.Nullable private BigDecimal topP;
+    @jakarta.annotation.Nullable private BigDecimal topP;
 
     public static final String SERIALIZED_NAME_STOP_SEQUENCE = "stop_sequence";
 
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
-    @javax.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
     /**
      * Gets or Sets reasoningFormat
@@ -177,12 +177,12 @@ public class GroqOptions {
     public static final String SERIALIZED_NAME_REASONING_FORMAT = "reasoning_format";
 
     @SerializedName(SERIALIZED_NAME_REASONING_FORMAT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ReasoningFormatEnum reasoningFormat;
 
     public GroqOptions() {}
 
-    public GroqOptions optionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public GroqOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -191,16 +191,16 @@ public class GroqOptions {
      * Get optionId
      * @return optionId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
-    public GroqOptions maxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public GroqOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
         return this;
     }
@@ -209,15 +209,15 @@ public class GroqOptions {
      * Get maxTokens
      * @return maxTokens
      */
-    @javax.annotation.Nullable public BigDecimal getMaxTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxTokens() {
         return maxTokens;
     }
 
-    public void setMaxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public void setMaxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
     }
 
-    public GroqOptions temperature(@javax.annotation.Nullable BigDecimal temperature) {
+    public GroqOptions temperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
         return this;
     }
@@ -226,15 +226,15 @@ public class GroqOptions {
      * Get temperature
      * @return temperature
      */
-    @javax.annotation.Nullable public BigDecimal getTemperature() {
+    @jakarta.annotation.Nullable public BigDecimal getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(@javax.annotation.Nullable BigDecimal temperature) {
+    public void setTemperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
     }
 
-    public GroqOptions topP(@javax.annotation.Nullable BigDecimal topP) {
+    public GroqOptions topP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
         return this;
     }
@@ -243,15 +243,15 @@ public class GroqOptions {
      * Get topP
      * @return topP
      */
-    @javax.annotation.Nullable public BigDecimal getTopP() {
+    @jakarta.annotation.Nullable public BigDecimal getTopP() {
         return topP;
     }
 
-    public void setTopP(@javax.annotation.Nullable BigDecimal topP) {
+    public void setTopP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
     }
 
-    public GroqOptions stopSequence(@javax.annotation.Nullable List<String> stopSequence) {
+    public GroqOptions stopSequence(@jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
         return this;
     }
@@ -268,16 +268,16 @@ public class GroqOptions {
      * Get stopSequence
      * @return stopSequence
      */
-    @javax.annotation.Nullable public List<String> getStopSequence() {
+    @jakarta.annotation.Nullable public List<String> getStopSequence() {
         return stopSequence;
     }
 
-    public void setStopSequence(@javax.annotation.Nullable List<String> stopSequence) {
+    public void setStopSequence(@jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
     }
 
     public GroqOptions reasoningFormat(
-            @javax.annotation.Nonnull ReasoningFormatEnum reasoningFormat) {
+            @jakarta.annotation.Nonnull ReasoningFormatEnum reasoningFormat) {
         this.reasoningFormat = reasoningFormat;
         return this;
     }
@@ -286,12 +286,13 @@ public class GroqOptions {
      * Get reasoningFormat
      * @return reasoningFormat
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ReasoningFormatEnum getReasoningFormat() {
         return reasoningFormat;
     }
 
-    public void setReasoningFormat(@javax.annotation.Nonnull ReasoningFormatEnum reasoningFormat) {
+    public void setReasoningFormat(
+            @jakarta.annotation.Nonnull ReasoningFormatEnum reasoningFormat) {
         this.reasoningFormat = reasoningFormat;
     }
 

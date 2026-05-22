@@ -30,29 +30,29 @@ import java.util.Objects;
 /**
  * BulkUploadUrlsPayloadFilesInner
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BulkUploadUrlsPayloadFilesInner {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
 
     @SerializedName(SERIALIZED_NAME_MIME_TYPE)
-    @javax.annotation.Nullable private String mimeType;
+    @jakarta.annotation.Nullable private String mimeType;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nullable private String id;
+    @jakarta.annotation.Nullable private String id;
 
     public BulkUploadUrlsPayloadFilesInner() {}
 
-    public BulkUploadUrlsPayloadFilesInner name(@javax.annotation.Nonnull String name) {
+    public BulkUploadUrlsPayloadFilesInner name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -61,16 +61,16 @@ public class BulkUploadUrlsPayloadFilesInner {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public BulkUploadUrlsPayloadFilesInner mimeType(@javax.annotation.Nullable String mimeType) {
+    public BulkUploadUrlsPayloadFilesInner mimeType(@jakarta.annotation.Nullable String mimeType) {
         this.mimeType = mimeType;
         return this;
     }
@@ -79,15 +79,15 @@ public class BulkUploadUrlsPayloadFilesInner {
      * Get mimeType
      * @return mimeType
      */
-    @javax.annotation.Nullable public String getMimeType() {
+    @jakarta.annotation.Nullable public String getMimeType() {
         return mimeType;
     }
 
-    public void setMimeType(@javax.annotation.Nullable String mimeType) {
+    public void setMimeType(@jakarta.annotation.Nullable String mimeType) {
         this.mimeType = mimeType;
     }
 
-    public BulkUploadUrlsPayloadFilesInner id(@javax.annotation.Nullable String id) {
+    public BulkUploadUrlsPayloadFilesInner id(@jakarta.annotation.Nullable String id) {
         this.id = id;
         return this;
     }
@@ -96,11 +96,11 @@ public class BulkUploadUrlsPayloadFilesInner {
      * Get id
      * @return id
      */
-    @javax.annotation.Nullable public String getId() {
+    @jakarta.annotation.Nullable public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nullable String id) {
+    public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
     }
 

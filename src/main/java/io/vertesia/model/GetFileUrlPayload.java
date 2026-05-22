@@ -31,20 +31,20 @@ import java.util.Objects;
 /**
  * GetFileUrlPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GetFileUrlPayload {
     public static final String SERIALIZED_NAME_FILE = "file";
 
     @SerializedName(SERIALIZED_NAME_FILE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String _file;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     /**
      * Gets or Sets disposition
@@ -104,11 +104,11 @@ public class GetFileUrlPayload {
     public static final String SERIALIZED_NAME_DISPOSITION = "disposition";
 
     @SerializedName(SERIALIZED_NAME_DISPOSITION)
-    @javax.annotation.Nullable private DispositionEnum disposition;
+    @jakarta.annotation.Nullable private DispositionEnum disposition;
 
     public GetFileUrlPayload() {}
 
-    public GetFileUrlPayload _file(@javax.annotation.Nonnull String _file) {
+    public GetFileUrlPayload _file(@jakarta.annotation.Nonnull String _file) {
         this._file = _file;
         return this;
     }
@@ -117,16 +117,16 @@ public class GetFileUrlPayload {
      * Get _file
      * @return _file
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getFile() {
         return _file;
     }
 
-    public void setFile(@javax.annotation.Nonnull String _file) {
+    public void setFile(@jakarta.annotation.Nonnull String _file) {
         this._file = _file;
     }
 
-    public GetFileUrlPayload name(@javax.annotation.Nullable String name) {
+    public GetFileUrlPayload name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -135,15 +135,15 @@ public class GetFileUrlPayload {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public GetFileUrlPayload disposition(@javax.annotation.Nullable DispositionEnum disposition) {
+    public GetFileUrlPayload disposition(@jakarta.annotation.Nullable DispositionEnum disposition) {
         this.disposition = disposition;
         return this;
     }
@@ -152,11 +152,11 @@ public class GetFileUrlPayload {
      * Get disposition
      * @return disposition
      */
-    @javax.annotation.Nullable public DispositionEnum getDisposition() {
+    @jakarta.annotation.Nullable public DispositionEnum getDisposition() {
         return disposition;
     }
 
-    public void setDisposition(@javax.annotation.Nullable DispositionEnum disposition) {
+    public void setDisposition(@jakarta.annotation.Nullable DispositionEnum disposition) {
         this.disposition = disposition;
     }
 

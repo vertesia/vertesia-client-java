@@ -31,19 +31,19 @@ import java.util.Objects;
 /**
  * RateLimitRequestResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RateLimitRequestResponse {
     public static final String SERIALIZED_NAME_DELAY_MS = "delay_ms";
 
     @SerializedName(SERIALIZED_NAME_DELAY_MS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal delayMs;
 
     public RateLimitRequestResponse() {}
 
-    public RateLimitRequestResponse delayMs(@javax.annotation.Nonnull BigDecimal delayMs) {
+    public RateLimitRequestResponse delayMs(@jakarta.annotation.Nonnull BigDecimal delayMs) {
         this.delayMs = delayMs;
         return this;
     }
@@ -52,12 +52,12 @@ public class RateLimitRequestResponse {
      * Get delayMs
      * @return delayMs
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getDelayMs() {
         return delayMs;
     }
 
-    public void setDelayMs(@javax.annotation.Nonnull BigDecimal delayMs) {
+    public void setDelayMs(@jakarta.annotation.Nonnull BigDecimal delayMs) {
         this.delayMs = delayMs;
     }
 

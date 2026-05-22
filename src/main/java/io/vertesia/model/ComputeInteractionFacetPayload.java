@@ -33,24 +33,25 @@ import java.util.Objects;
 /**
  * ComputeInteractionFacetPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ComputeInteractionFacetPayload {
     public static final String SERIALIZED_NAME_FACETS = "facets";
 
     @SerializedName(SERIALIZED_NAME_FACETS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<FacetSpec> facets = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @javax.annotation.Nullable private InteractionSearchQuery query;
+    @jakarta.annotation.Nullable private InteractionSearchQuery query;
 
     public ComputeInteractionFacetPayload() {}
 
-    public ComputeInteractionFacetPayload facets(@javax.annotation.Nonnull List<FacetSpec> facets) {
+    public ComputeInteractionFacetPayload facets(
+            @jakarta.annotation.Nonnull List<FacetSpec> facets) {
         this.facets = facets;
         return this;
     }
@@ -67,17 +68,17 @@ public class ComputeInteractionFacetPayload {
      * Get facets
      * @return facets
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<FacetSpec> getFacets() {
         return facets;
     }
 
-    public void setFacets(@javax.annotation.Nonnull List<FacetSpec> facets) {
+    public void setFacets(@jakarta.annotation.Nonnull List<FacetSpec> facets) {
         this.facets = facets;
     }
 
     public ComputeInteractionFacetPayload query(
-            @javax.annotation.Nullable InteractionSearchQuery query) {
+            @jakarta.annotation.Nullable InteractionSearchQuery query) {
         this.query = query;
         return this;
     }
@@ -86,11 +87,11 @@ public class ComputeInteractionFacetPayload {
      * Get query
      * @return query
      */
-    @javax.annotation.Nullable public InteractionSearchQuery getQuery() {
+    @jakarta.annotation.Nullable public InteractionSearchQuery getQuery() {
         return query;
     }
 
-    public void setQuery(@javax.annotation.Nullable InteractionSearchQuery query) {
+    public void setQuery(@jakarta.annotation.Nullable InteractionSearchQuery query) {
         this.query = query;
     }
 

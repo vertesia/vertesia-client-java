@@ -36,14 +36,14 @@ import java.util.Objects;
 /**
  * AppManifestData
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AppManifestData {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     /**
@@ -106,36 +106,36 @@ public class AppManifestData {
     public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
     @SerializedName(SERIALIZED_NAME_VISIBILITY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private VisibilityEnum visibility;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String title;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String description;
 
     public static final String SERIALIZED_NAME_PUBLISHER = "publisher";
 
     @SerializedName(SERIALIZED_NAME_PUBLISHER)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String publisher;
 
     public static final String SERIALIZED_NAME_ICON = "icon";
 
     @SerializedName(SERIALIZED_NAME_ICON)
-    @javax.annotation.Nullable private String icon;
+    @jakarta.annotation.Nullable private String icon;
 
     public static final String SERIALIZED_NAME_COLOR = "color";
 
     @SerializedName(SERIALIZED_NAME_COLOR)
-    @javax.annotation.Nullable private String color;
+    @jakarta.annotation.Nullable private String color;
 
     /**
      * Gets or Sets status
@@ -197,63 +197,63 @@ public class AppManifestData {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private StatusEnum status;
 
     public static final String SERIALIZED_NAME_UI = "ui";
 
     @SerializedName(SERIALIZED_NAME_UI)
-    @javax.annotation.Nullable private AppUIConfig ui;
+    @jakarta.annotation.Nullable private AppUIConfig ui;
 
     public static final String SERIALIZED_NAME_TOOL_COLLECTIONS = "tool_collections";
 
     @SerializedName(SERIALIZED_NAME_TOOL_COLLECTIONS)
-    @javax.annotation.Nullable private List<ToolCollectionObject> toolCollections = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<ToolCollectionObject> toolCollections = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_OAUTH_PROVIDERS = "oauth_providers";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_PROVIDERS)
-    @javax.annotation.Nullable private Map<String, MCPOAuthConfig> oauthProviders;
+    @jakarta.annotation.Nullable private Map<String, MCPOAuthConfig> oauthProviders;
 
     public static final String SERIALIZED_NAME_INTERACTIONS = "interactions";
 
     @SerializedName(SERIALIZED_NAME_INTERACTIONS)
-    @javax.annotation.Nullable private String interactions;
+    @jakarta.annotation.Nullable private String interactions;
 
     public static final String SERIALIZED_NAME_SETTINGS_SCHEMA = "settings_schema";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_SETTINGS_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema settingsSchema;
+    @jakarta.annotation.Nullable private JSONSchema settingsSchema;
 
     public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
 
     @SerializedName(SERIALIZED_NAME_CAPABILITIES)
-    @javax.annotation.Nullable private List<AppCapabilities> capabilities = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<AppCapabilities> capabilities = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ENDPOINT = "endpoint";
 
     @SerializedName(SERIALIZED_NAME_ENDPOINT)
-    @javax.annotation.Nullable private String endpoint;
+    @jakarta.annotation.Nullable private String endpoint;
 
     public static final String SERIALIZED_NAME_ENDPOINT_OVERRIDES = "endpoint_overrides";
 
     @SerializedName(SERIALIZED_NAME_ENDPOINT_OVERRIDES)
-    @javax.annotation.Nullable private Map<String, String> endpointOverrides;
+    @jakarta.annotation.Nullable private Map<String, String> endpointOverrides;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nullable private String version;
+    @jakarta.annotation.Nullable private String version;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public AppManifestData() {}
 
-    public AppManifestData name(@javax.annotation.Nonnull String name) {
+    public AppManifestData name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -262,16 +262,16 @@ public class AppManifestData {
      * The name of the app, used as the id in the system. Must be in kebab case (e.g. my-app).
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public AppManifestData visibility(@javax.annotation.Nonnull VisibilityEnum visibility) {
+    public AppManifestData visibility(@jakarta.annotation.Nonnull VisibilityEnum visibility) {
         this.visibility = visibility;
         return this;
     }
@@ -280,16 +280,16 @@ public class AppManifestData {
      * Visibility level of the app: - \&quot;public\&quot;: visible to all accounts - \&quot;private\&quot;: visible only to the owning account - \&quot;vertesia\&quot;: visible only to Vertesia team members (any project)
      * @return visibility
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public VisibilityEnum getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(@javax.annotation.Nonnull VisibilityEnum visibility) {
+    public void setVisibility(@jakarta.annotation.Nonnull VisibilityEnum visibility) {
         this.visibility = visibility;
     }
 
-    public AppManifestData title(@javax.annotation.Nonnull String title) {
+    public AppManifestData title(@jakarta.annotation.Nonnull String title) {
         this.title = title;
         return this;
     }
@@ -298,16 +298,16 @@ public class AppManifestData {
      * Get title
      * @return title
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nonnull String title) {
+    public void setTitle(@jakarta.annotation.Nonnull String title) {
         this.title = title;
     }
 
-    public AppManifestData description(@javax.annotation.Nonnull String description) {
+    public AppManifestData description(@jakarta.annotation.Nonnull String description) {
         this.description = description;
         return this;
     }
@@ -316,16 +316,16 @@ public class AppManifestData {
      * Get description
      * @return description
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nonnull String description) {
+    public void setDescription(@jakarta.annotation.Nonnull String description) {
         this.description = description;
     }
 
-    public AppManifestData publisher(@javax.annotation.Nonnull String publisher) {
+    public AppManifestData publisher(@jakarta.annotation.Nonnull String publisher) {
         this.publisher = publisher;
         return this;
     }
@@ -334,16 +334,16 @@ public class AppManifestData {
      * Get publisher
      * @return publisher
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getPublisher() {
         return publisher;
     }
 
-    public void setPublisher(@javax.annotation.Nonnull String publisher) {
+    public void setPublisher(@jakarta.annotation.Nonnull String publisher) {
         this.publisher = publisher;
     }
 
-    public AppManifestData icon(@javax.annotation.Nullable String icon) {
+    public AppManifestData icon(@jakarta.annotation.Nullable String icon) {
         this.icon = icon;
         return this;
     }
@@ -352,15 +352,15 @@ public class AppManifestData {
      * A svg icon for the app.
      * @return icon
      */
-    @javax.annotation.Nullable public String getIcon() {
+    @jakarta.annotation.Nullable public String getIcon() {
         return icon;
     }
 
-    public void setIcon(@javax.annotation.Nullable String icon) {
+    public void setIcon(@jakarta.annotation.Nullable String icon) {
         this.icon = icon;
     }
 
-    public AppManifestData color(@javax.annotation.Nullable String color) {
+    public AppManifestData color(@jakarta.annotation.Nullable String color) {
         this.color = color;
         return this;
     }
@@ -369,15 +369,15 @@ public class AppManifestData {
      * A color name to be used as the color of the app card (e.g. blue, red, green, etc.) If not specified a random color will be picked.
      * @return color
      */
-    @javax.annotation.Nullable public String getColor() {
+    @jakarta.annotation.Nullable public String getColor() {
         return color;
     }
 
-    public void setColor(@javax.annotation.Nullable String color) {
+    public void setColor(@jakarta.annotation.Nullable String color) {
         this.color = color;
     }
 
-    public AppManifestData status(@javax.annotation.Nonnull StatusEnum status) {
+    public AppManifestData status(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
         return this;
     }
@@ -386,16 +386,16 @@ public class AppManifestData {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
+    public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
     }
 
-    public AppManifestData ui(@javax.annotation.Nullable AppUIConfig ui) {
+    public AppManifestData ui(@jakarta.annotation.Nullable AppUIConfig ui) {
         this.ui = ui;
         return this;
     }
@@ -404,16 +404,16 @@ public class AppManifestData {
      * The UI configuration of the app. If not specified and the app \&quot;ui\&quot; is in the app capabilities  then the ui configuration will be fetched from the endpoint property.
      * @return ui
      */
-    @javax.annotation.Nullable public AppUIConfig getUi() {
+    @jakarta.annotation.Nullable public AppUIConfig getUi() {
         return ui;
     }
 
-    public void setUi(@javax.annotation.Nullable AppUIConfig ui) {
+    public void setUi(@jakarta.annotation.Nullable AppUIConfig ui) {
         this.ui = ui;
     }
 
     public AppManifestData toolCollections(
-            @javax.annotation.Nullable List<ToolCollectionObject> toolCollections) {
+            @jakarta.annotation.Nullable List<ToolCollectionObject> toolCollections) {
         this.toolCollections = toolCollections;
         return this;
     }
@@ -430,17 +430,17 @@ public class AppManifestData {
      * A list of tool collections endpoints to be used by this app. Prefer using endpoint over tool_collections.
      * @return toolCollections
      */
-    @javax.annotation.Nullable public List<ToolCollectionObject> getToolCollections() {
+    @jakarta.annotation.Nullable public List<ToolCollectionObject> getToolCollections() {
         return toolCollections;
     }
 
     public void setToolCollections(
-            @javax.annotation.Nullable List<ToolCollectionObject> toolCollections) {
+            @jakarta.annotation.Nullable List<ToolCollectionObject> toolCollections) {
         this.toolCollections = toolCollections;
     }
 
     public AppManifestData oauthProviders(
-            @javax.annotation.Nullable Map<String, MCPOAuthConfig> oauthProviders) {
+            @jakarta.annotation.Nullable Map<String, MCPOAuthConfig> oauthProviders) {
         this.oauthProviders = oauthProviders;
         return this;
     }
@@ -457,16 +457,16 @@ public class AppManifestData {
      * Named OAuth providers shared across multiple MCP tool collections. Keys must be kebab-case identifiers. Each value is an MCPOAuthConfig blueprint. Collections reference a provider via MCPToolCollectionObject.oauth_provider. One OAuth provider is created per provider at install time; all referencing collections share that app via AppInstallation.provider_bindings.
      * @return oauthProviders
      */
-    @javax.annotation.Nullable public Map<String, MCPOAuthConfig> getOauthProviders() {
+    @jakarta.annotation.Nullable public Map<String, MCPOAuthConfig> getOauthProviders() {
         return oauthProviders;
     }
 
     public void setOauthProviders(
-            @javax.annotation.Nullable Map<String, MCPOAuthConfig> oauthProviders) {
+            @jakarta.annotation.Nullable Map<String, MCPOAuthConfig> oauthProviders) {
         this.oauthProviders = oauthProviders;
     }
 
-    public AppManifestData interactions(@javax.annotation.Nullable String interactions) {
+    public AppManifestData interactions(@jakarta.annotation.Nullable String interactions) {
         this.interactions = interactions;
         return this;
     }
@@ -475,16 +475,16 @@ public class AppManifestData {
      * An URL providing interactions definitions in JSON format. The URL must provide 2 endpoints: 1. GET URL - must return a JSON array with the list of interactions (as AppInteractionRef[]) 2. GET URL/{interaction_name} - must return the full interaction definition for the specified interaction. This feature is for advanced composition of interactions. Prefer using endpoint.
      * @return interactions
      */
-    @javax.annotation.Nullable public String getInteractions() {
+    @jakarta.annotation.Nullable public String getInteractions() {
         return interactions;
     }
 
-    public void setInteractions(@javax.annotation.Nullable String interactions) {
+    public void setInteractions(@jakarta.annotation.Nullable String interactions) {
         this.interactions = interactions;
     }
 
     @Deprecated
-    public AppManifestData settingsSchema(@javax.annotation.Nullable JSONSchema settingsSchema) {
+    public AppManifestData settingsSchema(@jakarta.annotation.Nullable JSONSchema settingsSchema) {
         this.settingsSchema = settingsSchema;
         return this;
     }
@@ -495,17 +495,17 @@ public class AppManifestData {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nullable public JSONSchema getSettingsSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getSettingsSchema() {
         return settingsSchema;
     }
 
     @Deprecated
-    public void setSettingsSchema(@javax.annotation.Nullable JSONSchema settingsSchema) {
+    public void setSettingsSchema(@jakarta.annotation.Nullable JSONSchema settingsSchema) {
         this.settingsSchema = settingsSchema;
     }
 
     public AppManifestData capabilities(
-            @javax.annotation.Nullable List<AppCapabilities> capabilities) {
+            @jakarta.annotation.Nullable List<AppCapabilities> capabilities) {
         this.capabilities = capabilities;
         return this;
     }
@@ -522,15 +522,15 @@ public class AppManifestData {
      * Describe the capabiltities of this app - which kind of contributions it provides.
      * @return capabilities
      */
-    @javax.annotation.Nullable public List<AppCapabilities> getCapabilities() {
+    @jakarta.annotation.Nullable public List<AppCapabilities> getCapabilities() {
         return capabilities;
     }
 
-    public void setCapabilities(@javax.annotation.Nullable List<AppCapabilities> capabilities) {
+    public void setCapabilities(@jakarta.annotation.Nullable List<AppCapabilities> capabilities) {
         this.capabilities = capabilities;
     }
 
-    public AppManifestData endpoint(@javax.annotation.Nullable String endpoint) {
+    public AppManifestData endpoint(@jakarta.annotation.Nullable String endpoint) {
         this.endpoint = endpoint;
         return this;
     }
@@ -539,16 +539,16 @@ public class AppManifestData {
      * The app endpoint URL This URL should return a JSON object describing the contributions provided by the app. The object shape must satisfies AppPackage interface. The endpoint must support GET method and a &#x60;scope&#x60; parameter to filter which resources are included in the returned AppPackage: The supported scope values are: - ui - tools - interactions - types - processes - settings - all (the default if no scope is provided)  You can also use comma-separated values to combine scopes (e.g. \&quot;ui,tools\&quot;).  Example:  - ?scope&#x3D;ui,tools - returns only the UI configuration
      * @return endpoint
      */
-    @javax.annotation.Nullable public String getEndpoint() {
+    @jakarta.annotation.Nullable public String getEndpoint() {
         return endpoint;
     }
 
-    public void setEndpoint(@javax.annotation.Nullable String endpoint) {
+    public void setEndpoint(@jakarta.annotation.Nullable String endpoint) {
         this.endpoint = endpoint;
     }
 
     public AppManifestData endpointOverrides(
-            @javax.annotation.Nullable Map<String, String> endpointOverrides) {
+            @jakarta.annotation.Nullable Map<String, String> endpointOverrides) {
         this.endpointOverrides = endpointOverrides;
         return this;
     }
@@ -565,16 +565,16 @@ public class AppManifestData {
      * Optional endpoint overrides keyed by environment name. When resolving the app endpoint, if the current environment name matches a key, the corresponding URL is used instead of the main &#x60;endpoint&#x60;. Only dev environment names are allowed as keys (starting with \&quot;desktop-\&quot; or \&quot;dev-\&quot;).
      * @return endpointOverrides
      */
-    @javax.annotation.Nullable public Map<String, String> getEndpointOverrides() {
+    @jakarta.annotation.Nullable public Map<String, String> getEndpointOverrides() {
         return endpointOverrides;
     }
 
     public void setEndpointOverrides(
-            @javax.annotation.Nullable Map<String, String> endpointOverrides) {
+            @jakarta.annotation.Nullable Map<String, String> endpointOverrides) {
         this.endpointOverrides = endpointOverrides;
     }
 
-    public AppManifestData version(@javax.annotation.Nullable String version) {
+    public AppManifestData version(@jakarta.annotation.Nullable String version) {
         this.version = version;
         return this;
     }
@@ -583,15 +583,15 @@ public class AppManifestData {
      * Optional app version string (e.g. \&quot;1.0.0\&quot;) — informational.
      * @return version
      */
-    @javax.annotation.Nullable public String getVersion() {
+    @jakarta.annotation.Nullable public String getVersion() {
         return version;
     }
 
-    public void setVersion(@javax.annotation.Nullable String version) {
+    public void setVersion(@jakarta.annotation.Nullable String version) {
         this.version = version;
     }
 
-    public AppManifestData tags(@javax.annotation.Nullable List<String> tags) {
+    public AppManifestData tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -608,11 +608,11 @@ public class AppManifestData {
      * Free-form tags used for classification and filtering. Platform apps carry &#x60;\&quot;system\&quot;&#x60; so UIs can skip install/uninstall/manage-permission controls that don&#39;t apply to synthetic installations.
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 

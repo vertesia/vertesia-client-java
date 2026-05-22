@@ -34,118 +34,118 @@ import java.util.Objects;
 /**
  * OAuthClient
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OAuthClient {
     public static final String SERIALIZED_NAME_CLIENT_NAME = "client_name";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String clientName;
 
     public static final String SERIALIZED_NAME_CLIENT_TYPE = "client_type";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OAuthClientType clientType;
 
     public static final String SERIALIZED_NAME_REDIRECT_URIS = "redirect_uris";
 
     @SerializedName(SERIALIZED_NAME_REDIRECT_URIS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> redirectUris = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_GRANT_TYPES = "grant_types";
 
     @SerializedName(SERIALIZED_NAME_GRANT_TYPES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<OAuthGrantType> grantTypes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_RESPONSE_TYPES = "response_types";
 
     @SerializedName(SERIALIZED_NAME_RESPONSE_TYPES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<OAuthResponseType> responseTypes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TOKEN_ENDPOINT_AUTH_METHOD =
             "token_endpoint_auth_method";
 
     @SerializedName(SERIALIZED_NAME_TOKEN_ENDPOINT_AUTH_METHOD)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OAuthTokenEndpointAuthMethod tokenEndpointAuthMethod;
 
     public static final String SERIALIZED_NAME_ALLOWED_SCOPES = "allowed_scopes";
 
     @SerializedName(SERIALIZED_NAME_ALLOWED_SCOPES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> allowedScopes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DEFAULT_SCOPES = "default_scopes";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT_SCOPES)
-    @javax.annotation.Nullable private List<String> defaultScopes = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> defaultScopes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_REGISTRATION_SOURCE = "registration_source";
 
     @SerializedName(SERIALIZED_NAME_REGISTRATION_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OAuthRegistrationSource registrationSource;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OAuthClientStatus status;
 
     public static final String SERIALIZED_NAME_PROJECT_BINDING_MODE = "project_binding_mode";
 
     @SerializedName(SERIALIZED_NAME_PROJECT_BINDING_MODE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OAuthProjectBindingMode projectBindingMode;
 
     public static final String SERIALIZED_NAME_FIXED_PROJECT_ID = "fixed_project_id";
 
     @SerializedName(SERIALIZED_NAME_FIXED_PROJECT_ID)
-    @javax.annotation.Nullable private String fixedProjectId;
+    @jakarta.annotation.Nullable private String fixedProjectId;
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @javax.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nullable private String createdBy;
+    @jakarta.annotation.Nullable private String createdBy;
 
     public static final String SERIALIZED_NAME_CLIENT_SECRET_CONFIGURED =
             "client_secret_configured";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_SECRET_CONFIGURED)
-    @javax.annotation.Nullable private Boolean clientSecretConfigured;
+    @jakarta.annotation.Nullable private Boolean clientSecretConfigured;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public static final String SERIALIZED_NAME_CLIENT_ID = "client_id";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String clientId;
 
     public OAuthClient() {}
 
-    public OAuthClient clientName(@javax.annotation.Nonnull String clientName) {
+    public OAuthClient clientName(@jakarta.annotation.Nonnull String clientName) {
         this.clientName = clientName;
         return this;
     }
@@ -154,16 +154,16 @@ public class OAuthClient {
      * Get clientName
      * @return clientName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getClientName() {
         return clientName;
     }
 
-    public void setClientName(@javax.annotation.Nonnull String clientName) {
+    public void setClientName(@jakarta.annotation.Nonnull String clientName) {
         this.clientName = clientName;
     }
 
-    public OAuthClient clientType(@javax.annotation.Nonnull OAuthClientType clientType) {
+    public OAuthClient clientType(@jakarta.annotation.Nonnull OAuthClientType clientType) {
         this.clientType = clientType;
         return this;
     }
@@ -172,16 +172,16 @@ public class OAuthClient {
      * Get clientType
      * @return clientType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OAuthClientType getClientType() {
         return clientType;
     }
 
-    public void setClientType(@javax.annotation.Nonnull OAuthClientType clientType) {
+    public void setClientType(@jakarta.annotation.Nonnull OAuthClientType clientType) {
         this.clientType = clientType;
     }
 
-    public OAuthClient redirectUris(@javax.annotation.Nonnull List<String> redirectUris) {
+    public OAuthClient redirectUris(@jakarta.annotation.Nonnull List<String> redirectUris) {
         this.redirectUris = redirectUris;
         return this;
     }
@@ -198,16 +198,16 @@ public class OAuthClient {
      * Get redirectUris
      * @return redirectUris
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getRedirectUris() {
         return redirectUris;
     }
 
-    public void setRedirectUris(@javax.annotation.Nonnull List<String> redirectUris) {
+    public void setRedirectUris(@jakarta.annotation.Nonnull List<String> redirectUris) {
         this.redirectUris = redirectUris;
     }
 
-    public OAuthClient grantTypes(@javax.annotation.Nonnull List<OAuthGrantType> grantTypes) {
+    public OAuthClient grantTypes(@jakarta.annotation.Nonnull List<OAuthGrantType> grantTypes) {
         this.grantTypes = grantTypes;
         return this;
     }
@@ -224,17 +224,17 @@ public class OAuthClient {
      * Get grantTypes
      * @return grantTypes
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<OAuthGrantType> getGrantTypes() {
         return grantTypes;
     }
 
-    public void setGrantTypes(@javax.annotation.Nonnull List<OAuthGrantType> grantTypes) {
+    public void setGrantTypes(@jakarta.annotation.Nonnull List<OAuthGrantType> grantTypes) {
         this.grantTypes = grantTypes;
     }
 
     public OAuthClient responseTypes(
-            @javax.annotation.Nonnull List<OAuthResponseType> responseTypes) {
+            @jakarta.annotation.Nonnull List<OAuthResponseType> responseTypes) {
         this.responseTypes = responseTypes;
         return this;
     }
@@ -251,17 +251,18 @@ public class OAuthClient {
      * Get responseTypes
      * @return responseTypes
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<OAuthResponseType> getResponseTypes() {
         return responseTypes;
     }
 
-    public void setResponseTypes(@javax.annotation.Nonnull List<OAuthResponseType> responseTypes) {
+    public void setResponseTypes(
+            @jakarta.annotation.Nonnull List<OAuthResponseType> responseTypes) {
         this.responseTypes = responseTypes;
     }
 
     public OAuthClient tokenEndpointAuthMethod(
-            @javax.annotation.Nonnull OAuthTokenEndpointAuthMethod tokenEndpointAuthMethod) {
+            @jakarta.annotation.Nonnull OAuthTokenEndpointAuthMethod tokenEndpointAuthMethod) {
         this.tokenEndpointAuthMethod = tokenEndpointAuthMethod;
         return this;
     }
@@ -270,17 +271,17 @@ public class OAuthClient {
      * Get tokenEndpointAuthMethod
      * @return tokenEndpointAuthMethod
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OAuthTokenEndpointAuthMethod getTokenEndpointAuthMethod() {
         return tokenEndpointAuthMethod;
     }
 
     public void setTokenEndpointAuthMethod(
-            @javax.annotation.Nonnull OAuthTokenEndpointAuthMethod tokenEndpointAuthMethod) {
+            @jakarta.annotation.Nonnull OAuthTokenEndpointAuthMethod tokenEndpointAuthMethod) {
         this.tokenEndpointAuthMethod = tokenEndpointAuthMethod;
     }
 
-    public OAuthClient allowedScopes(@javax.annotation.Nonnull List<String> allowedScopes) {
+    public OAuthClient allowedScopes(@jakarta.annotation.Nonnull List<String> allowedScopes) {
         this.allowedScopes = allowedScopes;
         return this;
     }
@@ -297,16 +298,16 @@ public class OAuthClient {
      * Get allowedScopes
      * @return allowedScopes
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getAllowedScopes() {
         return allowedScopes;
     }
 
-    public void setAllowedScopes(@javax.annotation.Nonnull List<String> allowedScopes) {
+    public void setAllowedScopes(@jakarta.annotation.Nonnull List<String> allowedScopes) {
         this.allowedScopes = allowedScopes;
     }
 
-    public OAuthClient defaultScopes(@javax.annotation.Nullable List<String> defaultScopes) {
+    public OAuthClient defaultScopes(@jakarta.annotation.Nullable List<String> defaultScopes) {
         this.defaultScopes = defaultScopes;
         return this;
     }
@@ -323,16 +324,16 @@ public class OAuthClient {
      * Get defaultScopes
      * @return defaultScopes
      */
-    @javax.annotation.Nullable public List<String> getDefaultScopes() {
+    @jakarta.annotation.Nullable public List<String> getDefaultScopes() {
         return defaultScopes;
     }
 
-    public void setDefaultScopes(@javax.annotation.Nullable List<String> defaultScopes) {
+    public void setDefaultScopes(@jakarta.annotation.Nullable List<String> defaultScopes) {
         this.defaultScopes = defaultScopes;
     }
 
     public OAuthClient registrationSource(
-            @javax.annotation.Nonnull OAuthRegistrationSource registrationSource) {
+            @jakarta.annotation.Nonnull OAuthRegistrationSource registrationSource) {
         this.registrationSource = registrationSource;
         return this;
     }
@@ -341,17 +342,17 @@ public class OAuthClient {
      * Get registrationSource
      * @return registrationSource
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OAuthRegistrationSource getRegistrationSource() {
         return registrationSource;
     }
 
     public void setRegistrationSource(
-            @javax.annotation.Nonnull OAuthRegistrationSource registrationSource) {
+            @jakarta.annotation.Nonnull OAuthRegistrationSource registrationSource) {
         this.registrationSource = registrationSource;
     }
 
-    public OAuthClient status(@javax.annotation.Nonnull OAuthClientStatus status) {
+    public OAuthClient status(@jakarta.annotation.Nonnull OAuthClientStatus status) {
         this.status = status;
         return this;
     }
@@ -360,17 +361,17 @@ public class OAuthClient {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OAuthClientStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull OAuthClientStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull OAuthClientStatus status) {
         this.status = status;
     }
 
     public OAuthClient projectBindingMode(
-            @javax.annotation.Nonnull OAuthProjectBindingMode projectBindingMode) {
+            @jakarta.annotation.Nonnull OAuthProjectBindingMode projectBindingMode) {
         this.projectBindingMode = projectBindingMode;
         return this;
     }
@@ -379,17 +380,17 @@ public class OAuthClient {
      * Get projectBindingMode
      * @return projectBindingMode
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OAuthProjectBindingMode getProjectBindingMode() {
         return projectBindingMode;
     }
 
     public void setProjectBindingMode(
-            @javax.annotation.Nonnull OAuthProjectBindingMode projectBindingMode) {
+            @jakarta.annotation.Nonnull OAuthProjectBindingMode projectBindingMode) {
         this.projectBindingMode = projectBindingMode;
     }
 
-    public OAuthClient fixedProjectId(@javax.annotation.Nullable String fixedProjectId) {
+    public OAuthClient fixedProjectId(@jakarta.annotation.Nullable String fixedProjectId) {
         this.fixedProjectId = fixedProjectId;
         return this;
     }
@@ -398,15 +399,15 @@ public class OAuthClient {
      * Get fixedProjectId
      * @return fixedProjectId
      */
-    @javax.annotation.Nullable public String getFixedProjectId() {
+    @jakarta.annotation.Nullable public String getFixedProjectId() {
         return fixedProjectId;
     }
 
-    public void setFixedProjectId(@javax.annotation.Nullable String fixedProjectId) {
+    public void setFixedProjectId(@jakarta.annotation.Nullable String fixedProjectId) {
         this.fixedProjectId = fixedProjectId;
     }
 
-    public OAuthClient metadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    public OAuthClient metadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -423,15 +424,15 @@ public class OAuthClient {
      * Get metadata
      * @return metadata
      */
-    @javax.annotation.Nullable public Map<String, Object> getMetadata() {
+    @jakarta.annotation.Nullable public Map<String, Object> getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 
-    public OAuthClient createdBy(@javax.annotation.Nullable String createdBy) {
+    public OAuthClient createdBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -440,16 +441,16 @@ public class OAuthClient {
      * Get createdBy
      * @return createdBy
      */
-    @javax.annotation.Nullable public String getCreatedBy() {
+    @jakarta.annotation.Nullable public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
     }
 
     public OAuthClient clientSecretConfigured(
-            @javax.annotation.Nullable Boolean clientSecretConfigured) {
+            @jakarta.annotation.Nullable Boolean clientSecretConfigured) {
         this.clientSecretConfigured = clientSecretConfigured;
         return this;
     }
@@ -458,16 +459,16 @@ public class OAuthClient {
      * Get clientSecretConfigured
      * @return clientSecretConfigured
      */
-    @javax.annotation.Nullable public Boolean getClientSecretConfigured() {
+    @jakarta.annotation.Nullable public Boolean getClientSecretConfigured() {
         return clientSecretConfigured;
     }
 
     public void setClientSecretConfigured(
-            @javax.annotation.Nullable Boolean clientSecretConfigured) {
+            @jakarta.annotation.Nullable Boolean clientSecretConfigured) {
         this.clientSecretConfigured = clientSecretConfigured;
     }
 
-    public OAuthClient createdAt(@javax.annotation.Nonnull String createdAt) {
+    public OAuthClient createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -476,16 +477,16 @@ public class OAuthClient {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public OAuthClient updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public OAuthClient updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -494,16 +495,16 @@ public class OAuthClient {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public OAuthClient clientId(@javax.annotation.Nonnull String clientId) {
+    public OAuthClient clientId(@jakarta.annotation.Nonnull String clientId) {
         this.clientId = clientId;
         return this;
     }
@@ -512,12 +513,12 @@ public class OAuthClient {
      * Get clientId
      * @return clientId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getClientId() {
         return clientId;
     }
 
-    public void setClientId(@javax.annotation.Nonnull String clientId) {
+    public void setClientId(@jakarta.annotation.Nonnull String clientId) {
         this.clientId = clientId;
     }
 

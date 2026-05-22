@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * WorkflowExecutionStartResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WorkflowExecutionStartResult {
     public static final String SERIALIZED_NAME_RUN_ID = "run_id";
 
     @SerializedName(SERIALIZED_NAME_RUN_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String runId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflow_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String workflowId;
 
     public WorkflowExecutionStartResult() {}
 
-    public WorkflowExecutionStartResult runId(@javax.annotation.Nonnull String runId) {
+    public WorkflowExecutionStartResult runId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
         return this;
     }
@@ -57,16 +57,16 @@ public class WorkflowExecutionStartResult {
      * Get runId
      * @return runId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRunId() {
         return runId;
     }
 
-    public void setRunId(@javax.annotation.Nonnull String runId) {
+    public void setRunId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
     }
 
-    public WorkflowExecutionStartResult workflowId(@javax.annotation.Nonnull String workflowId) {
+    public WorkflowExecutionStartResult workflowId(@jakarta.annotation.Nonnull String workflowId) {
         this.workflowId = workflowId;
         return this;
     }
@@ -75,12 +75,12 @@ public class WorkflowExecutionStartResult {
      * Get workflowId
      * @return workflowId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getWorkflowId() {
         return workflowId;
     }
 
-    public void setWorkflowId(@javax.annotation.Nonnull String workflowId) {
+    public void setWorkflowId(@jakarta.annotation.Nonnull String workflowId) {
         this.workflowId = workflowId;
     }
 

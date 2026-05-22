@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * Simplified foreign key representation for AI agents.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataForeignKeyForAI {
     public static final String SERIALIZED_NAME_COLUMN = "column";
 
     @SerializedName(SERIALIZED_NAME_COLUMN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String column;
 
     public static final String SERIALIZED_NAME_REFERENCES = "references";
 
     @SerializedName(SERIALIZED_NAME_REFERENCES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String references;
 
     public DataForeignKeyForAI() {}
 
-    public DataForeignKeyForAI column(@javax.annotation.Nonnull String column) {
+    public DataForeignKeyForAI column(@jakarta.annotation.Nonnull String column) {
         this.column = column;
         return this;
     }
@@ -57,16 +57,16 @@ public class DataForeignKeyForAI {
      * Column name
      * @return column
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getColumn() {
         return column;
     }
 
-    public void setColumn(@javax.annotation.Nonnull String column) {
+    public void setColumn(@jakarta.annotation.Nonnull String column) {
         this.column = column;
     }
 
-    public DataForeignKeyForAI references(@javax.annotation.Nonnull String references) {
+    public DataForeignKeyForAI references(@jakarta.annotation.Nonnull String references) {
         this.references = references;
         return this;
     }
@@ -75,12 +75,12 @@ public class DataForeignKeyForAI {
      * Reference in \&quot;table.column\&quot; format
      * @return references
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getReferences() {
         return references;
     }
 
-    public void setReferences(@javax.annotation.Nonnull String references) {
+    public void setReferences(@jakarta.annotation.Nonnull String references) {
         this.references = references;
     }
 

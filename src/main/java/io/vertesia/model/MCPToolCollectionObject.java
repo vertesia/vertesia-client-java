@@ -33,20 +33,20 @@ import java.util.Objects;
 /**
  * MCP tool collection configuration (requires name, description, and namespace)
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class MCPToolCollectionObject {
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String url;
 
     public static final String SERIALIZED_NAME_AUTH = "auth";
 
     @SerializedName(SERIALIZED_NAME_AUTH)
-    @javax.annotation.Nullable private ToolCollectionAuthType auth;
+    @jakarta.annotation.Nullable private ToolCollectionAuthType auth;
 
     /**
      * Gets or Sets type
@@ -104,56 +104,56 @@ public class MCPToolCollectionObject {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String description;
 
     public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
 
     @SerializedName(SERIALIZED_NAME_NAMESPACE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String namespace;
 
     public static final String SERIALIZED_NAME_OAUTH_APP = "oauth_app";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_APP)
-    @javax.annotation.Nullable private String oauthApp;
+    @jakarta.annotation.Nullable private String oauthApp;
 
     public static final String SERIALIZED_NAME_OAUTH_CONFIG = "oauth_config";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_CONFIG)
-    @javax.annotation.Nullable private MCPOAuthConfig oauthConfig;
+    @jakarta.annotation.Nullable private MCPOAuthConfig oauthConfig;
 
     public static final String SERIALIZED_NAME_OAUTH_PROVIDER = "oauth_provider";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_PROVIDER)
-    @javax.annotation.Nullable private String oauthProvider;
+    @jakarta.annotation.Nullable private String oauthProvider;
 
     public static final String SERIALIZED_NAME_OAUTH_SCOPES = "oauth_scopes";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_SCOPES)
-    @javax.annotation.Nullable private List<String> oauthScopes = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> oauthScopes = new ArrayList<>();
 
     public MCPToolCollectionObject() {}
 
-    public MCPToolCollectionObject url(@javax.annotation.Nonnull String url) {
+    public MCPToolCollectionObject url(@jakarta.annotation.Nonnull String url) {
         this.url = url;
         return this;
     }
@@ -162,16 +162,16 @@ public class MCPToolCollectionObject {
      * The URL endpoint for the tool collection
      * @return url
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nonnull String url) {
+    public void setUrl(@jakarta.annotation.Nonnull String url) {
         this.url = url;
     }
 
-    public MCPToolCollectionObject auth(@javax.annotation.Nullable ToolCollectionAuthType auth) {
+    public MCPToolCollectionObject auth(@jakarta.annotation.Nullable ToolCollectionAuthType auth) {
         this.auth = auth;
         return this;
     }
@@ -180,15 +180,15 @@ public class MCPToolCollectionObject {
      * Optional authentication type required for this tool collection
      * @return auth
      */
-    @javax.annotation.Nullable public ToolCollectionAuthType getAuth() {
+    @jakarta.annotation.Nullable public ToolCollectionAuthType getAuth() {
         return auth;
     }
 
-    public void setAuth(@javax.annotation.Nullable ToolCollectionAuthType auth) {
+    public void setAuth(@jakarta.annotation.Nullable ToolCollectionAuthType auth) {
         this.auth = auth;
     }
 
-    public MCPToolCollectionObject type(@javax.annotation.Nonnull TypeEnum type) {
+    public MCPToolCollectionObject type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -197,16 +197,16 @@ public class MCPToolCollectionObject {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public MCPToolCollectionObject id(@javax.annotation.Nonnull String id) {
+    public MCPToolCollectionObject id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -215,16 +215,16 @@ public class MCPToolCollectionObject {
      * Stable identifier for this collection. Used to key oauth_bindings on AppInstallation — protects against collection renames. Required for new manifests.
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public MCPToolCollectionObject name(@javax.annotation.Nonnull String name) {
+    public MCPToolCollectionObject name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -233,16 +233,16 @@ public class MCPToolCollectionObject {
      * Name for the tool collection. Human-readable label for the collection. Used in UI.
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public MCPToolCollectionObject description(@javax.annotation.Nonnull String description) {
+    public MCPToolCollectionObject description(@jakarta.annotation.Nonnull String description) {
         this.description = description;
         return this;
     }
@@ -251,16 +251,16 @@ public class MCPToolCollectionObject {
      * Description for the tool collection. Helps users understand what tools this collection provides.
      * @return description
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nonnull String description) {
+    public void setDescription(@jakarta.annotation.Nonnull String description) {
         this.description = description;
     }
 
-    public MCPToolCollectionObject namespace(@javax.annotation.Nonnull String namespace) {
+    public MCPToolCollectionObject namespace(@jakarta.annotation.Nonnull String namespace) {
         this.namespace = namespace;
         return this;
     }
@@ -269,16 +269,16 @@ public class MCPToolCollectionObject {
      * Prefix to use for tool names from this collection. Provides clean, readable tool names (e.g., \&quot;jira\&quot; instead of \&quot;https://mcp.atlassian.com/v1/mcp\&quot;)
      * @return namespace
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getNamespace() {
         return namespace;
     }
 
-    public void setNamespace(@javax.annotation.Nonnull String namespace) {
+    public void setNamespace(@jakarta.annotation.Nonnull String namespace) {
         this.namespace = namespace;
     }
 
-    public MCPToolCollectionObject oauthApp(@javax.annotation.Nullable String oauthApp) {
+    public MCPToolCollectionObject oauthApp(@jakarta.annotation.Nullable String oauthApp) {
         this.oauthApp = oauthApp;
         return this;
     }
@@ -287,16 +287,16 @@ public class MCPToolCollectionObject {
      * Reference to an OAuth provider name for this collection (legacy / manual path). When set, uses the OAuth provider&#39;s config (endpoints, client_id, client_secret) instead of MCP dynamic client registration or random fallback. The referenced OAuth provider must exist in the same project.
      * @return oauthApp
      */
-    @javax.annotation.Nullable public String getOauthApp() {
+    @jakarta.annotation.Nullable public String getOauthApp() {
         return oauthApp;
     }
 
-    public void setOauthApp(@javax.annotation.Nullable String oauthApp) {
+    public void setOauthApp(@jakarta.annotation.Nullable String oauthApp) {
         this.oauthApp = oauthApp;
     }
 
     public MCPToolCollectionObject oauthConfig(
-            @javax.annotation.Nullable MCPOAuthConfig oauthConfig) {
+            @jakarta.annotation.Nullable MCPOAuthConfig oauthConfig) {
         this.oauthConfig = oauthConfig;
         return this;
     }
@@ -305,15 +305,16 @@ public class MCPToolCollectionObject {
      * Install-time OAuth provisioning blueprint. When present, the platform auto-creates an OAuth provider at install time using these values merged with any user-supplied required_at_install params. The created app is recorded in AppInstallation.oauth_bindings. Mutually exclusive with oauth_provider.
      * @return oauthConfig
      */
-    @javax.annotation.Nullable public MCPOAuthConfig getOauthConfig() {
+    @jakarta.annotation.Nullable public MCPOAuthConfig getOauthConfig() {
         return oauthConfig;
     }
 
-    public void setOauthConfig(@javax.annotation.Nullable MCPOAuthConfig oauthConfig) {
+    public void setOauthConfig(@jakarta.annotation.Nullable MCPOAuthConfig oauthConfig) {
         this.oauthConfig = oauthConfig;
     }
 
-    public MCPToolCollectionObject oauthProvider(@javax.annotation.Nullable String oauthProvider) {
+    public MCPToolCollectionObject oauthProvider(
+            @jakarta.annotation.Nullable String oauthProvider) {
         this.oauthProvider = oauthProvider;
         return this;
     }
@@ -322,16 +323,16 @@ public class MCPToolCollectionObject {
      * Reference to a key in AppManifestData.oauth_providers. When set, this collection shares the named provider&#39;s OAuth provider configuration. Mutually exclusive with oauth_config and oauth_app. Requires auth: \&quot;oauth\&quot; to be set.
      * @return oauthProvider
      */
-    @javax.annotation.Nullable public String getOauthProvider() {
+    @jakarta.annotation.Nullable public String getOauthProvider() {
         return oauthProvider;
     }
 
-    public void setOauthProvider(@javax.annotation.Nullable String oauthProvider) {
+    public void setOauthProvider(@jakarta.annotation.Nullable String oauthProvider) {
         this.oauthProvider = oauthProvider;
     }
 
     public MCPToolCollectionObject oauthScopes(
-            @javax.annotation.Nullable List<String> oauthScopes) {
+            @jakarta.annotation.Nullable List<String> oauthScopes) {
         this.oauthScopes = oauthScopes;
         return this;
     }
@@ -348,11 +349,11 @@ public class MCPToolCollectionObject {
      * Additional OAuth scopes for this collection when using a shared oauth_provider. These are merged (union) with the provider&#39;s default_scopes at install time. Only valid when oauth_provider is set.
      * @return oauthScopes
      */
-    @javax.annotation.Nullable public List<String> getOauthScopes() {
+    @jakarta.annotation.Nullable public List<String> getOauthScopes() {
         return oauthScopes;
     }
 
-    public void setOauthScopes(@javax.annotation.Nullable List<String> oauthScopes) {
+    public void setOauthScopes(@jakarta.annotation.Nullable List<String> oauthScopes) {
         this.oauthScopes = oauthScopes;
     }
 

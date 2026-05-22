@@ -33,35 +33,35 @@ import java.util.Objects;
 /**
  * HumanTaskDefinition
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class HumanTaskDefinition {
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String title;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_ASSIGNEE = "assignee";
 
     @SerializedName(SERIALIZED_NAME_ASSIGNEE)
-    @javax.annotation.Nullable private String assignee;
+    @jakarta.annotation.Nullable private String assignee;
 
     public static final String SERIALIZED_NAME_FIELDS = "fields";
 
     @SerializedName(SERIALIZED_NAME_FIELDS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<TaskField> fields = new ArrayList<>();
 
     public HumanTaskDefinition() {}
 
-    public HumanTaskDefinition title(@javax.annotation.Nonnull String title) {
+    public HumanTaskDefinition title(@jakarta.annotation.Nonnull String title) {
         this.title = title;
         return this;
     }
@@ -70,16 +70,16 @@ public class HumanTaskDefinition {
      * Get title
      * @return title
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nonnull String title) {
+    public void setTitle(@jakarta.annotation.Nonnull String title) {
         this.title = title;
     }
 
-    public HumanTaskDefinition description(@javax.annotation.Nullable String description) {
+    public HumanTaskDefinition description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -88,15 +88,15 @@ public class HumanTaskDefinition {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public HumanTaskDefinition assignee(@javax.annotation.Nullable String assignee) {
+    public HumanTaskDefinition assignee(@jakarta.annotation.Nullable String assignee) {
         this.assignee = assignee;
         return this;
     }
@@ -105,15 +105,15 @@ public class HumanTaskDefinition {
      * Who owns the task. Either a group reference (&#x60;group:&lt;name&gt;&#x60;) or a concrete user id. Leave unset to make the task available to anyone who can see the inbox. &#x60;role:&lt;name&gt;&#x60; is not supported — use &#x60;group:&lt;name&gt;&#x60; instead.
      * @return assignee
      */
-    @javax.annotation.Nullable public String getAssignee() {
+    @jakarta.annotation.Nullable public String getAssignee() {
         return assignee;
     }
 
-    public void setAssignee(@javax.annotation.Nullable String assignee) {
+    public void setAssignee(@jakarta.annotation.Nullable String assignee) {
         this.assignee = assignee;
     }
 
-    public HumanTaskDefinition fields(@javax.annotation.Nonnull List<TaskField> fields) {
+    public HumanTaskDefinition fields(@jakarta.annotation.Nonnull List<TaskField> fields) {
         this.fields = fields;
         return this;
     }
@@ -130,12 +130,12 @@ public class HumanTaskDefinition {
      * Get fields
      * @return fields
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<TaskField> getFields() {
         return fields;
     }
 
-    public void setFields(@javax.annotation.Nonnull List<TaskField> fields) {
+    public void setFields(@jakarta.annotation.Nonnull List<TaskField> fields) {
         this.fields = fields;
     }
 

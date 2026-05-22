@@ -35,67 +35,67 @@ import java.util.Objects;
 /**
  * AppInstallationListEntry
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AppInstallationListEntry {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String project;
 
     public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
     @SerializedName(SERIALIZED_NAME_SETTINGS)
-    @javax.annotation.Nullable private Map<String, Object> settings = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> settings = new HashMap<>();
 
     public static final String SERIALIZED_NAME_TOOL_ALLOWLIST = "tool_allowlist";
 
     @SerializedName(SERIALIZED_NAME_TOOL_ALLOWLIST)
-    @javax.annotation.Nullable private List<String> toolAllowlist = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> toolAllowlist = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_OAUTH_BINDINGS = "oauth_bindings";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_BINDINGS)
-    @javax.annotation.Nullable private List<AppInstallationOAuthBinding> oauthBindings = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<AppInstallationOAuthBinding> oauthBindings = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PROVIDER_BINDINGS = "provider_bindings";
 
     @SerializedName(SERIALIZED_NAME_PROVIDER_BINDINGS)
-    @javax.annotation.Nullable private List<AppInstallationProviderBinding> providerBindings = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<AppInstallationProviderBinding> providerBindings = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public static final String SERIALIZED_NAME_MANIFEST = "manifest";
 
     @SerializedName(SERIALIZED_NAME_MANIFEST)
-    @javax.annotation.Nullable private AppManifest manifest;
+    @jakarta.annotation.Nullable private AppManifest manifest;
 
     public static final String SERIALIZED_NAME_OAUTH_COLLECTION_IDS = "oauth_collection_ids";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_COLLECTION_IDS)
-    @javax.annotation.Nullable private List<String> oauthCollectionIds = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> oauthCollectionIds = new ArrayList<>();
 
     public AppInstallationListEntry() {}
 
-    public AppInstallationListEntry id(@javax.annotation.Nonnull String id) {
+    public AppInstallationListEntry id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -104,16 +104,16 @@ public class AppInstallationListEntry {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public AppInstallationListEntry project(@javax.annotation.Nonnull String project) {
+    public AppInstallationListEntry project(@jakarta.annotation.Nonnull String project) {
         this.project = project;
         return this;
     }
@@ -122,17 +122,17 @@ public class AppInstallationListEntry {
      * Get project
      * @return project
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nonnull String project) {
+    public void setProject(@jakarta.annotation.Nonnull String project) {
         this.project = project;
     }
 
     public AppInstallationListEntry settings(
-            @javax.annotation.Nullable Map<String, Object> settings) {
+            @jakarta.annotation.Nullable Map<String, Object> settings) {
         this.settings = settings;
         return this;
     }
@@ -149,16 +149,16 @@ public class AppInstallationListEntry {
      * Get settings
      * @return settings
      */
-    @javax.annotation.Nullable public Map<String, Object> getSettings() {
+    @jakarta.annotation.Nullable public Map<String, Object> getSettings() {
         return settings;
     }
 
-    public void setSettings(@javax.annotation.Nullable Map<String, Object> settings) {
+    public void setSettings(@jakarta.annotation.Nullable Map<String, Object> settings) {
         this.settings = settings;
     }
 
     public AppInstallationListEntry toolAllowlist(
-            @javax.annotation.Nullable List<String> toolAllowlist) {
+            @jakarta.annotation.Nullable List<String> toolAllowlist) {
         this.toolAllowlist = toolAllowlist;
         return this;
     }
@@ -175,16 +175,16 @@ public class AppInstallationListEntry {
      * Admin-managed allowlist of tool names permitted for this installation. When undefined, all tools from the app are permitted. When set, only listed tool names are available for agent configuration and execution.
      * @return toolAllowlist
      */
-    @javax.annotation.Nullable public List<String> getToolAllowlist() {
+    @jakarta.annotation.Nullable public List<String> getToolAllowlist() {
         return toolAllowlist;
     }
 
-    public void setToolAllowlist(@javax.annotation.Nullable List<String> toolAllowlist) {
+    public void setToolAllowlist(@jakarta.annotation.Nullable List<String> toolAllowlist) {
         this.toolAllowlist = toolAllowlist;
     }
 
     public AppInstallationListEntry oauthBindings(
-            @javax.annotation.Nullable List<AppInstallationOAuthBinding> oauthBindings) {
+            @jakarta.annotation.Nullable List<AppInstallationOAuthBinding> oauthBindings) {
         this.oauthBindings = oauthBindings;
         return this;
     }
@@ -202,17 +202,17 @@ public class AppInstallationListEntry {
      * OAuth bindings created at install time via oauth_config provisioning. Maps collection identity (id or name) → OAuth provider ObjectId. Used by the runtime to resolve the correct OAuth provider without relying on manifest names.
      * @return oauthBindings
      */
-    @javax.annotation.Nullable public List<AppInstallationOAuthBinding> getOauthBindings() {
+    @jakarta.annotation.Nullable public List<AppInstallationOAuthBinding> getOauthBindings() {
         return oauthBindings;
     }
 
     public void setOauthBindings(
-            @javax.annotation.Nullable List<AppInstallationOAuthBinding> oauthBindings) {
+            @jakarta.annotation.Nullable List<AppInstallationOAuthBinding> oauthBindings) {
         this.oauthBindings = oauthBindings;
     }
 
     public AppInstallationListEntry providerBindings(
-            @javax.annotation.Nullable List<AppInstallationProviderBinding> providerBindings) {
+            @jakarta.annotation.Nullable List<AppInstallationProviderBinding> providerBindings) {
         this.providerBindings = providerBindings;
         return this;
     }
@@ -230,16 +230,16 @@ public class AppInstallationListEntry {
      * OAuth bindings created at install time via oauth_providers provisioning. Maps provider key → OAuth provider ObjectId. Multiple collections sharing the same provider all resolve to the same OAuth provider.
      * @return providerBindings
      */
-    @javax.annotation.Nullable public List<AppInstallationProviderBinding> getProviderBindings() {
+    @jakarta.annotation.Nullable public List<AppInstallationProviderBinding> getProviderBindings() {
         return providerBindings;
     }
 
     public void setProviderBindings(
-            @javax.annotation.Nullable List<AppInstallationProviderBinding> providerBindings) {
+            @jakarta.annotation.Nullable List<AppInstallationProviderBinding> providerBindings) {
         this.providerBindings = providerBindings;
     }
 
-    public AppInstallationListEntry createdAt(@javax.annotation.Nonnull String createdAt) {
+    public AppInstallationListEntry createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -248,16 +248,16 @@ public class AppInstallationListEntry {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public AppInstallationListEntry updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public AppInstallationListEntry updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -266,16 +266,16 @@ public class AppInstallationListEntry {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public AppInstallationListEntry manifest(@javax.annotation.Nullable AppManifest manifest) {
+    public AppInstallationListEntry manifest(@jakarta.annotation.Nullable AppManifest manifest) {
         this.manifest = manifest;
         return this;
     }
@@ -284,16 +284,16 @@ public class AppInstallationListEntry {
      * Get manifest
      * @return manifest
      */
-    @javax.annotation.Nullable public AppManifest getManifest() {
+    @jakarta.annotation.Nullable public AppManifest getManifest() {
         return manifest;
     }
 
-    public void setManifest(@javax.annotation.Nullable AppManifest manifest) {
+    public void setManifest(@jakarta.annotation.Nullable AppManifest manifest) {
         this.manifest = manifest;
     }
 
     public AppInstallationListEntry oauthCollectionIds(
-            @javax.annotation.Nullable List<String> oauthCollectionIds) {
+            @jakarta.annotation.Nullable List<String> oauthCollectionIds) {
         this.oauthCollectionIds = oauthCollectionIds;
         return this;
     }
@@ -310,11 +310,12 @@ public class AppInstallationListEntry {
      * Get oauthCollectionIds
      * @return oauthCollectionIds
      */
-    @javax.annotation.Nullable public List<String> getOauthCollectionIds() {
+    @jakarta.annotation.Nullable public List<String> getOauthCollectionIds() {
         return oauthCollectionIds;
     }
 
-    public void setOauthCollectionIds(@javax.annotation.Nullable List<String> oauthCollectionIds) {
+    public void setOauthCollectionIds(
+            @jakarta.annotation.Nullable List<String> oauthCollectionIds) {
         this.oauthCollectionIds = oauthCollectionIds;
     }
 

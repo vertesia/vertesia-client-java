@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * EmbeddingsApiTextInput
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EmbeddingsApiTextInput {
@@ -91,28 +91,28 @@ public class EmbeddingsApiTextInput {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_TEXT = "text";
 
     @SerializedName(SERIALIZED_NAME_TEXT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String text;
 
     public static final String SERIALIZED_NAME_TASK_TYPE = "task_type";
 
     @SerializedName(SERIALIZED_NAME_TASK_TYPE)
-    @javax.annotation.Nullable private EmbeddingTaskType taskType;
+    @jakarta.annotation.Nullable private EmbeddingTaskType taskType;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nullable private String title;
+    @jakarta.annotation.Nullable private String title;
 
     public EmbeddingsApiTextInput() {}
 
-    public EmbeddingsApiTextInput type(@javax.annotation.Nonnull TypeEnum type) {
+    public EmbeddingsApiTextInput type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -121,16 +121,16 @@ public class EmbeddingsApiTextInput {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public EmbeddingsApiTextInput text(@javax.annotation.Nonnull String text) {
+    public EmbeddingsApiTextInput text(@jakarta.annotation.Nonnull String text) {
         this.text = text;
         return this;
     }
@@ -139,16 +139,17 @@ public class EmbeddingsApiTextInput {
      * Get text
      * @return text
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getText() {
         return text;
     }
 
-    public void setText(@javax.annotation.Nonnull String text) {
+    public void setText(@jakarta.annotation.Nonnull String text) {
         this.text = text;
     }
 
-    public EmbeddingsApiTextInput taskType(@javax.annotation.Nullable EmbeddingTaskType taskType) {
+    public EmbeddingsApiTextInput taskType(
+            @jakarta.annotation.Nullable EmbeddingTaskType taskType) {
         this.taskType = taskType;
         return this;
     }
@@ -157,15 +158,15 @@ public class EmbeddingsApiTextInput {
      * Get taskType
      * @return taskType
      */
-    @javax.annotation.Nullable public EmbeddingTaskType getTaskType() {
+    @jakarta.annotation.Nullable public EmbeddingTaskType getTaskType() {
         return taskType;
     }
 
-    public void setTaskType(@javax.annotation.Nullable EmbeddingTaskType taskType) {
+    public void setTaskType(@jakarta.annotation.Nullable EmbeddingTaskType taskType) {
         this.taskType = taskType;
     }
 
-    public EmbeddingsApiTextInput title(@javax.annotation.Nullable String title) {
+    public EmbeddingsApiTextInput title(@jakarta.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -174,11 +175,11 @@ public class EmbeddingsApiTextInput {
      * Get title
      * @return title
      */
-    @javax.annotation.Nullable public String getTitle() {
+    @jakarta.annotation.Nullable public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nullable String title) {
+    public void setTitle(@jakarta.annotation.Nullable String title) {
         this.title = title;
     }
 

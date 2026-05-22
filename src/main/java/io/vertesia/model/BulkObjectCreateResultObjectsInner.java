@@ -30,24 +30,24 @@ import java.util.Objects;
 /**
  * BulkObjectCreateResultObjectsInner
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BulkObjectCreateResultObjectsInner {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_EXTERNAL_ID = "external_id";
 
     @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
-    @javax.annotation.Nullable private String externalId;
+    @jakarta.annotation.Nullable private String externalId;
 
     public BulkObjectCreateResultObjectsInner() {}
 
-    public BulkObjectCreateResultObjectsInner id(@javax.annotation.Nonnull String id) {
+    public BulkObjectCreateResultObjectsInner id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -56,17 +56,17 @@ public class BulkObjectCreateResultObjectsInner {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
     public BulkObjectCreateResultObjectsInner externalId(
-            @javax.annotation.Nullable String externalId) {
+            @jakarta.annotation.Nullable String externalId) {
         this.externalId = externalId;
         return this;
     }
@@ -75,11 +75,11 @@ public class BulkObjectCreateResultObjectsInner {
      * Get externalId
      * @return externalId
      */
-    @javax.annotation.Nullable public String getExternalId() {
+    @jakarta.annotation.Nullable public String getExternalId() {
         return externalId;
     }
 
-    public void setExternalId(@javax.annotation.Nullable String externalId) {
+    public void setExternalId(@jakarta.annotation.Nullable String externalId) {
         this.externalId = externalId;
     }
 

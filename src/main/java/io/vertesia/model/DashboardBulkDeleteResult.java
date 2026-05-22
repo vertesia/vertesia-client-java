@@ -31,25 +31,25 @@ import java.util.Objects;
 /**
  * DashboardBulkDeleteResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DashboardBulkDeleteResult {
     public static final String SERIALIZED_NAME_DELETED = "deleted";
 
     @SerializedName(SERIALIZED_NAME_DELETED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal deleted;
 
     public static final String SERIALIZED_NAME_FAILED = "failed";
 
     @SerializedName(SERIALIZED_NAME_FAILED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal failed;
 
     public DashboardBulkDeleteResult() {}
 
-    public DashboardBulkDeleteResult deleted(@javax.annotation.Nonnull BigDecimal deleted) {
+    public DashboardBulkDeleteResult deleted(@jakarta.annotation.Nonnull BigDecimal deleted) {
         this.deleted = deleted;
         return this;
     }
@@ -58,16 +58,16 @@ public class DashboardBulkDeleteResult {
      * Get deleted
      * @return deleted
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(@javax.annotation.Nonnull BigDecimal deleted) {
+    public void setDeleted(@jakarta.annotation.Nonnull BigDecimal deleted) {
         this.deleted = deleted;
     }
 
-    public DashboardBulkDeleteResult failed(@javax.annotation.Nonnull BigDecimal failed) {
+    public DashboardBulkDeleteResult failed(@jakarta.annotation.Nonnull BigDecimal failed) {
         this.failed = failed;
         return this;
     }
@@ -76,12 +76,12 @@ public class DashboardBulkDeleteResult {
      * Get failed
      * @return failed
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getFailed() {
         return failed;
     }
 
-    public void setFailed(@javax.annotation.Nonnull BigDecimal failed) {
+    public void setFailed(@jakarta.annotation.Nonnull BigDecimal failed) {
         this.failed = failed;
     }
 

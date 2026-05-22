@@ -32,7 +32,7 @@ import java.util.Objects;
 /**
  * EmbeddingsApiAudioInput
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EmbeddingsApiAudioInput {
@@ -92,28 +92,28 @@ public class EmbeddingsApiAudioInput {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private EmbeddingsApiSource source;
 
     public static final String SERIALIZED_NAME_START_SEC = "start_sec";
 
     @SerializedName(SERIALIZED_NAME_START_SEC)
-    @javax.annotation.Nullable private BigDecimal startSec;
+    @jakarta.annotation.Nullable private BigDecimal startSec;
 
     public static final String SERIALIZED_NAME_LENGTH_SEC = "length_sec";
 
     @SerializedName(SERIALIZED_NAME_LENGTH_SEC)
-    @javax.annotation.Nullable private BigDecimal lengthSec;
+    @jakarta.annotation.Nullable private BigDecimal lengthSec;
 
     public EmbeddingsApiAudioInput() {}
 
-    public EmbeddingsApiAudioInput type(@javax.annotation.Nonnull TypeEnum type) {
+    public EmbeddingsApiAudioInput type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -122,16 +122,16 @@ public class EmbeddingsApiAudioInput {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public EmbeddingsApiAudioInput source(@javax.annotation.Nonnull EmbeddingsApiSource source) {
+    public EmbeddingsApiAudioInput source(@jakarta.annotation.Nonnull EmbeddingsApiSource source) {
         this.source = source;
         return this;
     }
@@ -140,16 +140,16 @@ public class EmbeddingsApiAudioInput {
      * Get source
      * @return source
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public EmbeddingsApiSource getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nonnull EmbeddingsApiSource source) {
+    public void setSource(@jakarta.annotation.Nonnull EmbeddingsApiSource source) {
         this.source = source;
     }
 
-    public EmbeddingsApiAudioInput startSec(@javax.annotation.Nullable BigDecimal startSec) {
+    public EmbeddingsApiAudioInput startSec(@jakarta.annotation.Nullable BigDecimal startSec) {
         this.startSec = startSec;
         return this;
     }
@@ -158,15 +158,15 @@ public class EmbeddingsApiAudioInput {
      * Get startSec
      * @return startSec
      */
-    @javax.annotation.Nullable public BigDecimal getStartSec() {
+    @jakarta.annotation.Nullable public BigDecimal getStartSec() {
         return startSec;
     }
 
-    public void setStartSec(@javax.annotation.Nullable BigDecimal startSec) {
+    public void setStartSec(@jakarta.annotation.Nullable BigDecimal startSec) {
         this.startSec = startSec;
     }
 
-    public EmbeddingsApiAudioInput lengthSec(@javax.annotation.Nullable BigDecimal lengthSec) {
+    public EmbeddingsApiAudioInput lengthSec(@jakarta.annotation.Nullable BigDecimal lengthSec) {
         this.lengthSec = lengthSec;
         return this;
     }
@@ -175,11 +175,11 @@ public class EmbeddingsApiAudioInput {
      * Get lengthSec
      * @return lengthSec
      */
-    @javax.annotation.Nullable public BigDecimal getLengthSec() {
+    @jakarta.annotation.Nullable public BigDecimal getLengthSec() {
         return lengthSec;
     }
 
-    public void setLengthSec(@javax.annotation.Nullable BigDecimal lengthSec) {
+    public void setLengthSec(@jakarta.annotation.Nullable BigDecimal lengthSec) {
         this.lengthSec = lengthSec;
     }
 

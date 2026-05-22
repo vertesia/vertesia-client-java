@@ -36,58 +36,58 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * ComplexCollectionSearchQuery
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ComplexCollectionSearchQuery {
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private String parent;
+    @jakarta.annotation.Nullable private String parent;
 
     public static final String SERIALIZED_NAME_DYNAMIC = "dynamic";
 
     @SerializedName(SERIALIZED_NAME_DYNAMIC)
-    @javax.annotation.Nullable private Boolean dynamic;
+    @jakarta.annotation.Nullable private Boolean dynamic;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private CollectionStatus status;
+    @jakarta.annotation.Nullable private CollectionStatus status;
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nullable private BigDecimal limit;
+    @jakarta.annotation.Nullable private BigDecimal limit;
 
     public static final String SERIALIZED_NAME_OFFSET = "offset";
 
     @SerializedName(SERIALIZED_NAME_OFFSET)
-    @javax.annotation.Nullable private BigDecimal offset;
+    @jakarta.annotation.Nullable private BigDecimal offset;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private String type;
+    @jakarta.annotation.Nullable private String type;
 
     public static final String SERIALIZED_NAME_TYPES = "types";
 
     @SerializedName(SERIALIZED_NAME_TYPES)
-    @javax.annotation.Nullable private List<String> types = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> types = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_MATCH = "match";
 
     @SerializedName(SERIALIZED_NAME_MATCH)
-    @javax.annotation.Nullable private Map<String, Object> match = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> match = new HashMap<>();
 
     public ComplexCollectionSearchQuery() {}
 
-    public ComplexCollectionSearchQuery parent(@javax.annotation.Nullable String parent) {
+    public ComplexCollectionSearchQuery parent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
         return this;
     }
@@ -96,15 +96,15 @@ public class ComplexCollectionSearchQuery {
      * Get parent
      * @return parent
      */
-    @javax.annotation.Nullable public String getParent() {
+    @jakarta.annotation.Nullable public String getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable String parent) {
+    public void setParent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
     }
 
-    public ComplexCollectionSearchQuery dynamic(@javax.annotation.Nullable Boolean dynamic) {
+    public ComplexCollectionSearchQuery dynamic(@jakarta.annotation.Nullable Boolean dynamic) {
         this.dynamic = dynamic;
         return this;
     }
@@ -113,15 +113,16 @@ public class ComplexCollectionSearchQuery {
      * Get dynamic
      * @return dynamic
      */
-    @javax.annotation.Nullable public Boolean getDynamic() {
+    @jakarta.annotation.Nullable public Boolean getDynamic() {
         return dynamic;
     }
 
-    public void setDynamic(@javax.annotation.Nullable Boolean dynamic) {
+    public void setDynamic(@jakarta.annotation.Nullable Boolean dynamic) {
         this.dynamic = dynamic;
     }
 
-    public ComplexCollectionSearchQuery status(@javax.annotation.Nullable CollectionStatus status) {
+    public ComplexCollectionSearchQuery status(
+            @jakarta.annotation.Nullable CollectionStatus status) {
         this.status = status;
         return this;
     }
@@ -130,15 +131,15 @@ public class ComplexCollectionSearchQuery {
      * Get status
      * @return status
      */
-    @javax.annotation.Nullable public CollectionStatus getStatus() {
+    @jakarta.annotation.Nullable public CollectionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable CollectionStatus status) {
+    public void setStatus(@jakarta.annotation.Nullable CollectionStatus status) {
         this.status = status;
     }
 
-    public ComplexCollectionSearchQuery limit(@javax.annotation.Nullable BigDecimal limit) {
+    public ComplexCollectionSearchQuery limit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -147,15 +148,15 @@ public class ComplexCollectionSearchQuery {
      * Get limit
      * @return limit
      */
-    @javax.annotation.Nullable public BigDecimal getLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nullable BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
     }
 
-    public ComplexCollectionSearchQuery offset(@javax.annotation.Nullable BigDecimal offset) {
+    public ComplexCollectionSearchQuery offset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
         return this;
     }
@@ -164,15 +165,15 @@ public class ComplexCollectionSearchQuery {
      * Get offset
      * @return offset
      */
-    @javax.annotation.Nullable public BigDecimal getOffset() {
+    @jakarta.annotation.Nullable public BigDecimal getOffset() {
         return offset;
     }
 
-    public void setOffset(@javax.annotation.Nullable BigDecimal offset) {
+    public void setOffset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
     }
 
-    public ComplexCollectionSearchQuery name(@javax.annotation.Nullable String name) {
+    public ComplexCollectionSearchQuery name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -181,15 +182,15 @@ public class ComplexCollectionSearchQuery {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public ComplexCollectionSearchQuery type(@javax.annotation.Nullable String type) {
+    public ComplexCollectionSearchQuery type(@jakarta.annotation.Nullable String type) {
         this.type = type;
         return this;
     }
@@ -198,15 +199,15 @@ public class ComplexCollectionSearchQuery {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public String getType() {
+    @jakarta.annotation.Nullable public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable String type) {
+    public void setType(@jakarta.annotation.Nullable String type) {
         this.type = type;
     }
 
-    public ComplexCollectionSearchQuery types(@javax.annotation.Nullable List<String> types) {
+    public ComplexCollectionSearchQuery types(@jakarta.annotation.Nullable List<String> types) {
         this.types = types;
         return this;
     }
@@ -223,16 +224,16 @@ public class ComplexCollectionSearchQuery {
      * Get types
      * @return types
      */
-    @javax.annotation.Nullable public List<String> getTypes() {
+    @jakarta.annotation.Nullable public List<String> getTypes() {
         return types;
     }
 
-    public void setTypes(@javax.annotation.Nullable List<String> types) {
+    public void setTypes(@jakarta.annotation.Nullable List<String> types) {
         this.types = types;
     }
 
     public ComplexCollectionSearchQuery match(
-            @javax.annotation.Nullable Map<String, Object> match) {
+            @jakarta.annotation.Nullable Map<String, Object> match) {
         this.match = match;
         return this;
     }
@@ -249,11 +250,11 @@ public class ComplexCollectionSearchQuery {
      * Get match
      * @return match
      */
-    @javax.annotation.Nullable public Map<String, Object> getMatch() {
+    @jakarta.annotation.Nullable public Map<String, Object> getMatch() {
         return match;
     }
 
-    public void setMatch(@javax.annotation.Nullable Map<String, Object> match) {
+    public void setMatch(@jakarta.annotation.Nullable Map<String, Object> match) {
         this.match = match;
     }
 

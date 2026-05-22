@@ -30,18 +30,18 @@ import java.util.Objects;
 /**
  * SetObjectEmbeddingsResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class SetObjectEmbeddingsResponse {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private Embedding type;
+    @jakarta.annotation.Nullable private Embedding type;
 
     public SetObjectEmbeddingsResponse() {}
 
-    public SetObjectEmbeddingsResponse type(@javax.annotation.Nullable Embedding type) {
+    public SetObjectEmbeddingsResponse type(@jakarta.annotation.Nullable Embedding type) {
         this.type = type;
         return this;
     }
@@ -50,11 +50,11 @@ public class SetObjectEmbeddingsResponse {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public Embedding getType() {
+    @jakarta.annotation.Nullable public Embedding getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable Embedding type) {
+    public void setType(@jakarta.annotation.Nullable Embedding type) {
         this.type = type;
     }
 

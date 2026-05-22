@@ -33,30 +33,30 @@ import java.util.Objects;
 /**
  * Embedding
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class Embedding {
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String model;
 
     public static final String SERIALIZED_NAME_VALUES = "values";
 
     @SerializedName(SERIALIZED_NAME_VALUES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<BigDecimal> values = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ETAG = "etag";
 
     @SerializedName(SERIALIZED_NAME_ETAG)
-    @javax.annotation.Nullable private String etag;
+    @jakarta.annotation.Nullable private String etag;
 
     public Embedding() {}
 
-    public Embedding model(@javax.annotation.Nonnull String model) {
+    public Embedding model(@jakarta.annotation.Nonnull String model) {
         this.model = model;
         return this;
     }
@@ -65,16 +65,16 @@ public class Embedding {
      * Get model
      * @return model
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nonnull String model) {
+    public void setModel(@jakarta.annotation.Nonnull String model) {
         this.model = model;
     }
 
-    public Embedding values(@javax.annotation.Nonnull List<BigDecimal> values) {
+    public Embedding values(@jakarta.annotation.Nonnull List<BigDecimal> values) {
         this.values = values;
         return this;
     }
@@ -91,16 +91,16 @@ public class Embedding {
      * Get values
      * @return values
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<BigDecimal> getValues() {
         return values;
     }
 
-    public void setValues(@javax.annotation.Nonnull List<BigDecimal> values) {
+    public void setValues(@jakarta.annotation.Nonnull List<BigDecimal> values) {
         this.values = values;
     }
 
-    public Embedding etag(@javax.annotation.Nullable String etag) {
+    public Embedding etag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
         return this;
     }
@@ -109,11 +109,11 @@ public class Embedding {
      * Get etag
      * @return etag
      */
-    @javax.annotation.Nullable public String getEtag() {
+    @jakarta.annotation.Nullable public String getEtag() {
         return etag;
     }
 
-    public void setEtag(@javax.annotation.Nullable String etag) {
+    public void setEtag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
     }
 

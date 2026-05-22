@@ -34,43 +34,43 @@ import java.util.Objects;
 /**
  * RunAnalyticsResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RunAnalyticsResult {
     public static final String SERIALIZED_NAME_DATE = "date";
 
     @SerializedName(SERIALIZED_NAME_DATE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String date;
 
     public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
 
     @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String timestamp;
 
     public static final String SERIALIZED_NAME_GROUP = "group";
 
     @SerializedName(SERIALIZED_NAME_GROUP)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String group;
 
     public static final String SERIALIZED_NAME_COUNT = "count";
 
     @SerializedName(SERIALIZED_NAME_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal count;
 
     public static final String SERIALIZED_NAME_EXECUTION_TIME = "execution_time";
 
     @SerializedName(SERIALIZED_NAME_EXECUTION_TIME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private RunAnalyticsResultExecutionTime executionTime;
 
     public RunAnalyticsResult() {}
 
-    public RunAnalyticsResult date(@javax.annotation.Nonnull String date) {
+    public RunAnalyticsResult date(@jakarta.annotation.Nonnull String date) {
         this.date = date;
         return this;
     }
@@ -79,16 +79,16 @@ public class RunAnalyticsResult {
      * Get date
      * @return date
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDate() {
         return date;
     }
 
-    public void setDate(@javax.annotation.Nonnull String date) {
+    public void setDate(@jakarta.annotation.Nonnull String date) {
         this.date = date;
     }
 
-    public RunAnalyticsResult timestamp(@javax.annotation.Nonnull String timestamp) {
+    public RunAnalyticsResult timestamp(@jakarta.annotation.Nonnull String timestamp) {
         this.timestamp = timestamp;
         return this;
     }
@@ -97,16 +97,16 @@ public class RunAnalyticsResult {
      * Get timestamp
      * @return timestamp
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(@javax.annotation.Nonnull String timestamp) {
+    public void setTimestamp(@jakarta.annotation.Nonnull String timestamp) {
         this.timestamp = timestamp;
     }
 
-    public RunAnalyticsResult group(@javax.annotation.Nonnull String group) {
+    public RunAnalyticsResult group(@jakarta.annotation.Nonnull String group) {
         this.group = group;
         return this;
     }
@@ -115,16 +115,16 @@ public class RunAnalyticsResult {
      * Get group
      * @return group
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getGroup() {
         return group;
     }
 
-    public void setGroup(@javax.annotation.Nonnull String group) {
+    public void setGroup(@jakarta.annotation.Nonnull String group) {
         this.group = group;
     }
 
-    public RunAnalyticsResult count(@javax.annotation.Nonnull BigDecimal count) {
+    public RunAnalyticsResult count(@jakarta.annotation.Nonnull BigDecimal count) {
         this.count = count;
         return this;
     }
@@ -133,17 +133,17 @@ public class RunAnalyticsResult {
      * Get count
      * @return count
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCount() {
         return count;
     }
 
-    public void setCount(@javax.annotation.Nonnull BigDecimal count) {
+    public void setCount(@jakarta.annotation.Nonnull BigDecimal count) {
         this.count = count;
     }
 
     public RunAnalyticsResult executionTime(
-            @javax.annotation.Nonnull RunAnalyticsResultExecutionTime executionTime) {
+            @jakarta.annotation.Nonnull RunAnalyticsResultExecutionTime executionTime) {
         this.executionTime = executionTime;
         return this;
     }
@@ -152,13 +152,13 @@ public class RunAnalyticsResult {
      * Get executionTime
      * @return executionTime
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public RunAnalyticsResultExecutionTime getExecutionTime() {
         return executionTime;
     }
 
     public void setExecutionTime(
-            @javax.annotation.Nonnull RunAnalyticsResultExecutionTime executionTime) {
+            @jakarta.annotation.Nonnull RunAnalyticsResultExecutionTime executionTime) {
         this.executionTime = executionTime;
     }
 

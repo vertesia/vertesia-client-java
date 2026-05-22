@@ -91,7 +91,8 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call createAppCall(
-            @javax.annotation.Nonnull AppManifestData appManifestData, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull AppManifestData appManifestData,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -147,7 +148,8 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createAppValidateBeforeCall(
-            @javax.annotation.Nonnull AppManifestData appManifestData, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull AppManifestData appManifestData,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'appManifestData' is set
         if (appManifestData == null) {
@@ -173,7 +175,7 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AppManifest createApp(@javax.annotation.Nonnull AppManifestData appManifestData)
+    public AppManifest createApp(@jakarta.annotation.Nonnull AppManifestData appManifestData)
             throws ApiException {
         ApiResponse<AppManifest> localVarResp = createAppWithHttpInfo(appManifestData);
         return localVarResp.getData();
@@ -195,7 +197,7 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppManifest> createAppWithHttpInfo(
-            @javax.annotation.Nonnull AppManifestData appManifestData) throws ApiException {
+            @jakarta.annotation.Nonnull AppManifestData appManifestData) throws ApiException {
         okhttp3.Call localVarCall = createAppValidateBeforeCall(appManifestData, null);
         Type localVarReturnType = new TypeToken<AppManifest>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -218,7 +220,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call createAppAsync(
-            @javax.annotation.Nonnull AppManifestData appManifestData,
+            @jakarta.annotation.Nonnull AppManifestData appManifestData,
             final ApiCallback<AppManifest> _callback)
             throws ApiException {
 
@@ -244,7 +246,8 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call deleteAppCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -301,7 +304,8 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteAppValidateBeforeCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException(
@@ -326,7 +330,7 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public CountResult deleteApp(@javax.annotation.Nonnull String id) throws ApiException {
+    public CountResult deleteApp(@jakarta.annotation.Nonnull String id) throws ApiException {
         ApiResponse<CountResult> localVarResp = deleteAppWithHttpInfo(id);
         return localVarResp.getData();
     }
@@ -346,7 +350,7 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<CountResult> deleteAppWithHttpInfo(@javax.annotation.Nonnull String id)
+    public ApiResponse<CountResult> deleteAppWithHttpInfo(@jakarta.annotation.Nonnull String id)
             throws ApiException {
         okhttp3.Call localVarCall = deleteAppValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<CountResult>() {}.getType();
@@ -370,7 +374,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call deleteAppAsync(
-            @javax.annotation.Nonnull String id, final ApiCallback<CountResult> _callback)
+            @jakarta.annotation.Nonnull String id, final ApiCallback<CountResult> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = deleteAppValidateBeforeCall(id, _callback);
@@ -395,7 +399,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getAppInstallationByNameCall(
-            @javax.annotation.Nonnull String name, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String name, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -455,7 +459,7 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAppInstallationByNameValidateBeforeCall(
-            @javax.annotation.Nonnull String name, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String name, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -482,7 +486,7 @@ public class AppsApi {
      * </table>
      */
     public AppInstallationWithManifest getAppInstallationByName(
-            @javax.annotation.Nonnull String name) throws ApiException {
+            @jakarta.annotation.Nonnull String name) throws ApiException {
         ApiResponse<AppInstallationWithManifest> localVarResp =
                 getAppInstallationByNameWithHttpInfo(name);
         return localVarResp.getData();
@@ -504,7 +508,7 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppInstallationWithManifest> getAppInstallationByNameWithHttpInfo(
-            @javax.annotation.Nonnull String name) throws ApiException {
+            @jakarta.annotation.Nonnull String name) throws ApiException {
         okhttp3.Call localVarCall = getAppInstallationByNameValidateBeforeCall(name, null);
         Type localVarReturnType = new TypeToken<AppInstallationWithManifest>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -527,7 +531,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getAppInstallationByNameAsync(
-            @javax.annotation.Nonnull String name,
+            @jakarta.annotation.Nonnull String name,
             final ApiCallback<AppInstallationWithManifest> _callback)
             throws ApiException {
 
@@ -553,7 +557,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getDefaultAppPackageCall(
-            @javax.annotation.Nullable String scope, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String scope, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -613,7 +617,7 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDefaultAppPackageValidateBeforeCall(
-            @javax.annotation.Nullable String scope, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String scope, final ApiCallback _callback)
             throws ApiException {
         return getDefaultAppPackageCall(scope, _callback);
     }
@@ -633,7 +637,7 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AppPackage getDefaultAppPackage(@javax.annotation.Nullable String scope)
+    public AppPackage getDefaultAppPackage(@jakarta.annotation.Nullable String scope)
             throws ApiException {
         ApiResponse<AppPackage> localVarResp = getDefaultAppPackageWithHttpInfo(scope);
         return localVarResp.getData();
@@ -655,7 +659,7 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppPackage> getDefaultAppPackageWithHttpInfo(
-            @javax.annotation.Nullable String scope) throws ApiException {
+            @jakarta.annotation.Nullable String scope) throws ApiException {
         okhttp3.Call localVarCall = getDefaultAppPackageValidateBeforeCall(scope, null);
         Type localVarReturnType = new TypeToken<AppPackage>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -678,7 +682,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getDefaultAppPackageAsync(
-            @javax.annotation.Nullable String scope, final ApiCallback<AppPackage> _callback)
+            @jakarta.annotation.Nullable String scope, final ApiCallback<AppPackage> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getDefaultAppPackageValidateBeforeCall(scope, _callback);
@@ -703,7 +707,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getProjectsForInstalledAppCall(
-            @javax.annotation.Nonnull String appName, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String appName, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -763,7 +767,7 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProjectsForInstalledAppValidateBeforeCall(
-            @javax.annotation.Nonnull String appName, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String appName, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'appName' is set
         if (appName == null) {
@@ -790,7 +794,7 @@ public class AppsApi {
      * </table>
      */
     public AppInstallationWithManifest getProjectsForInstalledApp(
-            @javax.annotation.Nonnull String appName) throws ApiException {
+            @jakarta.annotation.Nonnull String appName) throws ApiException {
         ApiResponse<AppInstallationWithManifest> localVarResp =
                 getProjectsForInstalledAppWithHttpInfo(appName);
         return localVarResp.getData();
@@ -812,7 +816,7 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppInstallationWithManifest> getProjectsForInstalledAppWithHttpInfo(
-            @javax.annotation.Nonnull String appName) throws ApiException {
+            @jakarta.annotation.Nonnull String appName) throws ApiException {
         okhttp3.Call localVarCall = getProjectsForInstalledAppValidateBeforeCall(appName, null);
         Type localVarReturnType = new TypeToken<AppInstallationWithManifest>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -835,7 +839,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getProjectsForInstalledAppAsync(
-            @javax.annotation.Nonnull String appName,
+            @jakarta.annotation.Nonnull String appName,
             final ApiCallback<AppInstallationWithManifest> _callback)
             throws ApiException {
 
@@ -862,7 +866,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getStudioToolsPackageCall(
-            @javax.annotation.Nullable String scope, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String scope, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -922,7 +926,7 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getStudioToolsPackageValidateBeforeCall(
-            @javax.annotation.Nullable String scope, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String scope, final ApiCallback _callback)
             throws ApiException {
         return getStudioToolsPackageCall(scope, _callback);
     }
@@ -942,7 +946,7 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AppPackage getStudioToolsPackage(@javax.annotation.Nullable String scope)
+    public AppPackage getStudioToolsPackage(@jakarta.annotation.Nullable String scope)
             throws ApiException {
         ApiResponse<AppPackage> localVarResp = getStudioToolsPackageWithHttpInfo(scope);
         return localVarResp.getData();
@@ -964,7 +968,7 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppPackage> getStudioToolsPackageWithHttpInfo(
-            @javax.annotation.Nullable String scope) throws ApiException {
+            @jakarta.annotation.Nullable String scope) throws ApiException {
         okhttp3.Call localVarCall = getStudioToolsPackageValidateBeforeCall(scope, null);
         Type localVarReturnType = new TypeToken<AppPackage>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -987,7 +991,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getStudioToolsPackageAsync(
-            @javax.annotation.Nullable String scope, final ApiCallback<AppPackage> _callback)
+            @jakarta.annotation.Nullable String scope, final ApiCallback<AppPackage> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getStudioToolsPackageValidateBeforeCall(scope, _callback);
@@ -1012,7 +1016,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call installAppCall(
-            @javax.annotation.Nonnull AppInstallationPayload appInstallationPayload,
+            @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1069,7 +1073,7 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call installAppValidateBeforeCall(
-            @javax.annotation.Nonnull AppInstallationPayload appInstallationPayload,
+            @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'appInstallationPayload' is set
@@ -1097,7 +1101,7 @@ public class AppsApi {
      * </table>
      */
     public AppInstallation installApp(
-            @javax.annotation.Nonnull AppInstallationPayload appInstallationPayload)
+            @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload)
             throws ApiException {
         ApiResponse<AppInstallation> localVarResp = installAppWithHttpInfo(appInstallationPayload);
         return localVarResp.getData();
@@ -1119,7 +1123,7 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppInstallation> installAppWithHttpInfo(
-            @javax.annotation.Nonnull AppInstallationPayload appInstallationPayload)
+            @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload)
             throws ApiException {
         okhttp3.Call localVarCall = installAppValidateBeforeCall(appInstallationPayload, null);
         Type localVarReturnType = new TypeToken<AppInstallation>() {}.getType();
@@ -1143,7 +1147,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call installAppAsync(
-            @javax.annotation.Nonnull AppInstallationPayload appInstallationPayload,
+            @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload,
             final ApiCallback<AppInstallation> _callback)
             throws ApiException {
 
@@ -1309,8 +1313,8 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call listAppInstallationProjectsCall(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable String id,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable String id,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1375,8 +1379,8 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAppInstallationProjectsValidateBeforeCall(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable String id,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable String id,
             final ApiCallback _callback)
             throws ApiException {
         return listAppInstallationProjectsCall(name, id, _callback);
@@ -1399,7 +1403,7 @@ public class AppsApi {
      * </table>
      */
     public List<ProjectRef> listAppInstallationProjects(
-            @javax.annotation.Nullable String name, @javax.annotation.Nullable String id)
+            @jakarta.annotation.Nullable String name, @jakarta.annotation.Nullable String id)
             throws ApiException {
         ApiResponse<List<ProjectRef>> localVarResp =
                 listAppInstallationProjectsWithHttpInfo(name, id);
@@ -1423,7 +1427,7 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<List<ProjectRef>> listAppInstallationProjectsWithHttpInfo(
-            @javax.annotation.Nullable String name, @javax.annotation.Nullable String id)
+            @jakarta.annotation.Nullable String name, @jakarta.annotation.Nullable String id)
             throws ApiException {
         okhttp3.Call localVarCall = listAppInstallationProjectsValidateBeforeCall(name, id, null);
         Type localVarReturnType = new TypeToken<List<ProjectRef>>() {}.getType();
@@ -1448,8 +1452,8 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call listAppInstallationProjectsAsync(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable String id,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable String id,
             final ApiCallback<List<ProjectRef>> _callback)
             throws ApiException {
 
@@ -1614,7 +1618,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call listAppInstallationToolsCall(
-            @javax.annotation.Nonnull String installId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String installId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1674,7 +1678,7 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAppInstallationToolsValidateBeforeCall(
-            @javax.annotation.Nonnull String installId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String installId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'installId' is set
         if (installId == null) {
@@ -1701,7 +1705,7 @@ public class AppsApi {
      * </table>
      */
     public List<AppToolCollection> listAppInstallationTools(
-            @javax.annotation.Nonnull String installId) throws ApiException {
+            @jakarta.annotation.Nonnull String installId) throws ApiException {
         ApiResponse<List<AppToolCollection>> localVarResp =
                 listAppInstallationToolsWithHttpInfo(installId);
         return localVarResp.getData();
@@ -1723,7 +1727,7 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<List<AppToolCollection>> listAppInstallationToolsWithHttpInfo(
-            @javax.annotation.Nonnull String installId) throws ApiException {
+            @jakarta.annotation.Nonnull String installId) throws ApiException {
         okhttp3.Call localVarCall = listAppInstallationToolsValidateBeforeCall(installId, null);
         Type localVarReturnType = new TypeToken<List<AppToolCollection>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1746,7 +1750,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call listAppInstallationToolsAsync(
-            @javax.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String installId,
             final ApiCallback<List<AppToolCollection>> _callback)
             throws ApiException {
 
@@ -1774,8 +1778,8 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call listAppInstallationsCall(
-            @javax.annotation.Nullable String kind,
-            @javax.annotation.Nullable String availableIn,
+            @jakarta.annotation.Nullable String kind,
+            @jakarta.annotation.Nullable String availableIn,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1841,8 +1845,8 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAppInstallationsValidateBeforeCall(
-            @javax.annotation.Nullable String kind,
-            @javax.annotation.Nullable String availableIn,
+            @jakarta.annotation.Nullable String kind,
+            @jakarta.annotation.Nullable String availableIn,
             final ApiCallback _callback)
             throws ApiException {
         return listAppInstallationsCall(kind, availableIn, _callback);
@@ -1865,7 +1869,8 @@ public class AppsApi {
      * </table>
      */
     public List<AppInstallationWithManifest> listAppInstallations(
-            @javax.annotation.Nullable String kind, @javax.annotation.Nullable String availableIn)
+            @jakarta.annotation.Nullable String kind,
+            @jakarta.annotation.Nullable String availableIn)
             throws ApiException {
         ApiResponse<List<AppInstallationWithManifest>> localVarResp =
                 listAppInstallationsWithHttpInfo(kind, availableIn);
@@ -1889,7 +1894,8 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<List<AppInstallationWithManifest>> listAppInstallationsWithHttpInfo(
-            @javax.annotation.Nullable String kind, @javax.annotation.Nullable String availableIn)
+            @jakarta.annotation.Nullable String kind,
+            @jakarta.annotation.Nullable String availableIn)
             throws ApiException {
         okhttp3.Call localVarCall = listAppInstallationsValidateBeforeCall(kind, availableIn, null);
         Type localVarReturnType = new TypeToken<List<AppInstallationWithManifest>>() {}.getType();
@@ -1914,8 +1920,8 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call listAppInstallationsAsync(
-            @javax.annotation.Nullable String kind,
-            @javax.annotation.Nullable String availableIn,
+            @jakarta.annotation.Nullable String kind,
+            @jakarta.annotation.Nullable String availableIn,
             final ApiCallback<List<AppInstallationWithManifest>> _callback)
             throws ApiException {
 
@@ -2078,7 +2084,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call postDefaultAppPackageCall(
-            @javax.annotation.Nullable String scope, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String scope, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2138,7 +2144,7 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call postDefaultAppPackageValidateBeforeCall(
-            @javax.annotation.Nullable String scope, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String scope, final ApiCallback _callback)
             throws ApiException {
         return postDefaultAppPackageCall(scope, _callback);
     }
@@ -2158,7 +2164,7 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AppPackage postDefaultAppPackage(@javax.annotation.Nullable String scope)
+    public AppPackage postDefaultAppPackage(@jakarta.annotation.Nullable String scope)
             throws ApiException {
         ApiResponse<AppPackage> localVarResp = postDefaultAppPackageWithHttpInfo(scope);
         return localVarResp.getData();
@@ -2180,7 +2186,7 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppPackage> postDefaultAppPackageWithHttpInfo(
-            @javax.annotation.Nullable String scope) throws ApiException {
+            @jakarta.annotation.Nullable String scope) throws ApiException {
         okhttp3.Call localVarCall = postDefaultAppPackageValidateBeforeCall(scope, null);
         Type localVarReturnType = new TypeToken<AppPackage>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2203,7 +2209,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call postDefaultAppPackageAsync(
-            @javax.annotation.Nullable String scope, final ApiCallback<AppPackage> _callback)
+            @jakarta.annotation.Nullable String scope, final ApiCallback<AppPackage> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = postDefaultAppPackageValidateBeforeCall(scope, _callback);
@@ -2228,7 +2234,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call postStudioToolsPackageCall(
-            @javax.annotation.Nullable String scope, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String scope, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2288,7 +2294,7 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call postStudioToolsPackageValidateBeforeCall(
-            @javax.annotation.Nullable String scope, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String scope, final ApiCallback _callback)
             throws ApiException {
         return postStudioToolsPackageCall(scope, _callback);
     }
@@ -2308,7 +2314,7 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AppPackage postStudioToolsPackage(@javax.annotation.Nullable String scope)
+    public AppPackage postStudioToolsPackage(@jakarta.annotation.Nullable String scope)
             throws ApiException {
         ApiResponse<AppPackage> localVarResp = postStudioToolsPackageWithHttpInfo(scope);
         return localVarResp.getData();
@@ -2330,7 +2336,7 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppPackage> postStudioToolsPackageWithHttpInfo(
-            @javax.annotation.Nullable String scope) throws ApiException {
+            @jakarta.annotation.Nullable String scope) throws ApiException {
         okhttp3.Call localVarCall = postStudioToolsPackageValidateBeforeCall(scope, null);
         Type localVarReturnType = new TypeToken<AppPackage>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2353,7 +2359,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call postStudioToolsPackageAsync(
-            @javax.annotation.Nullable String scope, final ApiCallback<AppPackage> _callback)
+            @jakarta.annotation.Nullable String scope, final ApiCallback<AppPackage> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = postStudioToolsPackageValidateBeforeCall(scope, _callback);
@@ -2378,7 +2384,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call uninstallAppCall(
-            @javax.annotation.Nonnull String installId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String installId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2438,7 +2444,7 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call uninstallAppValidateBeforeCall(
-            @javax.annotation.Nonnull String installId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String installId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'installId' is set
         if (installId == null) {
@@ -2464,7 +2470,7 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public CountResult uninstallApp(@javax.annotation.Nonnull String installId)
+    public CountResult uninstallApp(@jakarta.annotation.Nonnull String installId)
             throws ApiException {
         ApiResponse<CountResult> localVarResp = uninstallAppWithHttpInfo(installId);
         return localVarResp.getData();
@@ -2486,7 +2492,7 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<CountResult> uninstallAppWithHttpInfo(
-            @javax.annotation.Nonnull String installId) throws ApiException {
+            @jakarta.annotation.Nonnull String installId) throws ApiException {
         okhttp3.Call localVarCall = uninstallAppValidateBeforeCall(installId, null);
         Type localVarReturnType = new TypeToken<CountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2509,7 +2515,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call uninstallAppAsync(
-            @javax.annotation.Nonnull String installId, final ApiCallback<CountResult> _callback)
+            @jakarta.annotation.Nonnull String installId, final ApiCallback<CountResult> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = uninstallAppValidateBeforeCall(installId, _callback);
@@ -2535,8 +2541,8 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call updateAppCall(
-            @javax.annotation.Nonnull String id,
-            @javax.annotation.Nonnull AppManifestData appManifestData,
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull AppManifestData appManifestData,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2595,8 +2601,8 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateAppValidateBeforeCall(
-            @javax.annotation.Nonnull String id,
-            @javax.annotation.Nonnull AppManifestData appManifestData,
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull AppManifestData appManifestData,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'id' is set
@@ -2631,8 +2637,8 @@ public class AppsApi {
      * </table>
      */
     public AppManifest updateApp(
-            @javax.annotation.Nonnull String id,
-            @javax.annotation.Nonnull AppManifestData appManifestData)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull AppManifestData appManifestData)
             throws ApiException {
         ApiResponse<AppManifest> localVarResp = updateAppWithHttpInfo(id, appManifestData);
         return localVarResp.getData();
@@ -2655,8 +2661,8 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppManifest> updateAppWithHttpInfo(
-            @javax.annotation.Nonnull String id,
-            @javax.annotation.Nonnull AppManifestData appManifestData)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull AppManifestData appManifestData)
             throws ApiException {
         okhttp3.Call localVarCall = updateAppValidateBeforeCall(id, appManifestData, null);
         Type localVarReturnType = new TypeToken<AppManifest>() {}.getType();
@@ -2681,8 +2687,8 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call updateAppAsync(
-            @javax.annotation.Nonnull String id,
-            @javax.annotation.Nonnull AppManifestData appManifestData,
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull AppManifestData appManifestData,
             final ApiCallback<AppManifest> _callback)
             throws ApiException {
 
@@ -2709,8 +2715,8 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call updateAppInstallationSettingsCall(
-            @javax.annotation.Nonnull String appId,
-            @javax.annotation.Nonnull AppInstallationPayload appInstallationPayload,
+            @jakarta.annotation.Nonnull String appId,
+            @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2771,8 +2777,8 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateAppInstallationSettingsValidateBeforeCall(
-            @javax.annotation.Nonnull String appId,
-            @javax.annotation.Nonnull AppInstallationPayload appInstallationPayload,
+            @jakarta.annotation.Nonnull String appId,
+            @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'appId' is set
@@ -2807,8 +2813,8 @@ public class AppsApi {
      * </table>
      */
     public AppInstallation updateAppInstallationSettings(
-            @javax.annotation.Nonnull String appId,
-            @javax.annotation.Nonnull AppInstallationPayload appInstallationPayload)
+            @jakarta.annotation.Nonnull String appId,
+            @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload)
             throws ApiException {
         ApiResponse<AppInstallation> localVarResp =
                 updateAppInstallationSettingsWithHttpInfo(appId, appInstallationPayload);
@@ -2832,8 +2838,8 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppInstallation> updateAppInstallationSettingsWithHttpInfo(
-            @javax.annotation.Nonnull String appId,
-            @javax.annotation.Nonnull AppInstallationPayload appInstallationPayload)
+            @jakarta.annotation.Nonnull String appId,
+            @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateAppInstallationSettingsValidateBeforeCall(
@@ -2860,8 +2866,8 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call updateAppInstallationSettingsAsync(
-            @javax.annotation.Nonnull String appId,
-            @javax.annotation.Nonnull AppInstallationPayload appInstallationPayload,
+            @jakarta.annotation.Nonnull String appId,
+            @jakarta.annotation.Nonnull AppInstallationPayload appInstallationPayload,
             final ApiCallback<AppInstallation> _callback)
             throws ApiException {
 
@@ -2890,8 +2896,8 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call updateAppInstallationToolAllowlistCall(
-            @javax.annotation.Nonnull String installId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull
                     UpdateAppInstallationToolAllowlistPayload
                             updateAppInstallationToolAllowlistPayload,
             final ApiCallback _callback)
@@ -2954,8 +2960,8 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateAppInstallationToolAllowlistValidateBeforeCall(
-            @javax.annotation.Nonnull String installId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull
                     UpdateAppInstallationToolAllowlistPayload
                             updateAppInstallationToolAllowlistPayload,
             final ApiCallback _callback)
@@ -2993,8 +2999,8 @@ public class AppsApi {
      * </table>
      */
     public AppInstallationWithManifest updateAppInstallationToolAllowlist(
-            @javax.annotation.Nonnull String installId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull
                     UpdateAppInstallationToolAllowlistPayload
                             updateAppInstallationToolAllowlistPayload)
             throws ApiException {
@@ -3021,8 +3027,8 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppInstallationWithManifest> updateAppInstallationToolAllowlistWithHttpInfo(
-            @javax.annotation.Nonnull String installId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull
                     UpdateAppInstallationToolAllowlistPayload
                             updateAppInstallationToolAllowlistPayload)
             throws ApiException {
@@ -3051,8 +3057,8 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call updateAppInstallationToolAllowlistAsync(
-            @javax.annotation.Nonnull String installId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull
                     UpdateAppInstallationToolAllowlistPayload
                             updateAppInstallationToolAllowlistPayload,
             final ApiCallback<AppInstallationWithManifest> _callback)
@@ -3082,7 +3088,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call validateAppUrlCall(
-            @javax.annotation.Nonnull ValidateUrlRequest validateUrlRequest,
+            @jakarta.annotation.Nonnull ValidateUrlRequest validateUrlRequest,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3139,7 +3145,7 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call validateAppUrlValidateBeforeCall(
-            @javax.annotation.Nonnull ValidateUrlRequest validateUrlRequest,
+            @jakarta.annotation.Nonnull ValidateUrlRequest validateUrlRequest,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'validateUrlRequest' is set
@@ -3167,7 +3173,7 @@ public class AppsApi {
      * </table>
      */
     public ValidateUrlResponse validateAppUrl(
-            @javax.annotation.Nonnull ValidateUrlRequest validateUrlRequest) throws ApiException {
+            @jakarta.annotation.Nonnull ValidateUrlRequest validateUrlRequest) throws ApiException {
         ApiResponse<ValidateUrlResponse> localVarResp =
                 validateAppUrlWithHttpInfo(validateUrlRequest);
         return localVarResp.getData();
@@ -3189,7 +3195,7 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<ValidateUrlResponse> validateAppUrlWithHttpInfo(
-            @javax.annotation.Nonnull ValidateUrlRequest validateUrlRequest) throws ApiException {
+            @jakarta.annotation.Nonnull ValidateUrlRequest validateUrlRequest) throws ApiException {
         okhttp3.Call localVarCall = validateAppUrlValidateBeforeCall(validateUrlRequest, null);
         Type localVarReturnType = new TypeToken<ValidateUrlResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3212,7 +3218,7 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call validateAppUrlAsync(
-            @javax.annotation.Nonnull ValidateUrlRequest validateUrlRequest,
+            @jakarta.annotation.Nonnull ValidateUrlRequest validateUrlRequest,
             final ApiCallback<ValidateUrlResponse> _callback)
             throws ApiException {
 

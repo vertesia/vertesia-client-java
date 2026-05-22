@@ -32,25 +32,25 @@ import java.util.Objects;
 /**
  * RoleDefinition
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RoleDefinition {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ProjectRoles name;
 
     public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
 
     @SerializedName(SERIALIZED_NAME_PERMISSIONS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<Permission> permissions = new ArrayList<>();
 
     public RoleDefinition() {}
 
-    public RoleDefinition name(@javax.annotation.Nonnull ProjectRoles name) {
+    public RoleDefinition name(@jakarta.annotation.Nonnull ProjectRoles name) {
         this.name = name;
         return this;
     }
@@ -59,16 +59,16 @@ public class RoleDefinition {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ProjectRoles getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull ProjectRoles name) {
+    public void setName(@jakarta.annotation.Nonnull ProjectRoles name) {
         this.name = name;
     }
 
-    public RoleDefinition permissions(@javax.annotation.Nonnull List<Permission> permissions) {
+    public RoleDefinition permissions(@jakarta.annotation.Nonnull List<Permission> permissions) {
         this.permissions = permissions;
         return this;
     }
@@ -85,12 +85,12 @@ public class RoleDefinition {
      * Get permissions
      * @return permissions
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<Permission> getPermissions() {
         return permissions;
     }
 
-    public void setPermissions(@javax.annotation.Nonnull List<Permission> permissions) {
+    public void setPermissions(@jakarta.annotation.Nonnull List<Permission> permissions) {
         this.permissions = permissions;
     }
 

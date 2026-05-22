@@ -30,35 +30,35 @@ import java.util.Objects;
 /**
  * ICreateProjectPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ICreateProjectPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
 
     @SerializedName(SERIALIZED_NAME_NAMESPACE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String namespace;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_AUTO_CONFIG = "auto_config";
 
     @SerializedName(SERIALIZED_NAME_AUTO_CONFIG)
-    @javax.annotation.Nullable private Boolean autoConfig;
+    @jakarta.annotation.Nullable private Boolean autoConfig;
 
     public ICreateProjectPayload() {}
 
-    public ICreateProjectPayload name(@javax.annotation.Nonnull String name) {
+    public ICreateProjectPayload name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -67,16 +67,16 @@ public class ICreateProjectPayload {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public ICreateProjectPayload namespace(@javax.annotation.Nonnull String namespace) {
+    public ICreateProjectPayload namespace(@jakarta.annotation.Nonnull String namespace) {
         this.namespace = namespace;
         return this;
     }
@@ -85,16 +85,16 @@ public class ICreateProjectPayload {
      * Get namespace
      * @return namespace
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getNamespace() {
         return namespace;
     }
 
-    public void setNamespace(@javax.annotation.Nonnull String namespace) {
+    public void setNamespace(@jakarta.annotation.Nonnull String namespace) {
         this.namespace = namespace;
     }
 
-    public ICreateProjectPayload description(@javax.annotation.Nullable String description) {
+    public ICreateProjectPayload description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -103,15 +103,15 @@ public class ICreateProjectPayload {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public ICreateProjectPayload autoConfig(@javax.annotation.Nullable Boolean autoConfig) {
+    public ICreateProjectPayload autoConfig(@jakarta.annotation.Nullable Boolean autoConfig) {
         this.autoConfig = autoConfig;
         return this;
     }
@@ -120,11 +120,11 @@ public class ICreateProjectPayload {
      * Get autoConfig
      * @return autoConfig
      */
-    @javax.annotation.Nullable public Boolean getAutoConfig() {
+    @jakarta.annotation.Nullable public Boolean getAutoConfig() {
         return autoConfig;
     }
 
-    public void setAutoConfig(@javax.annotation.Nullable Boolean autoConfig) {
+    public void setAutoConfig(@jakarta.annotation.Nullable Boolean autoConfig) {
         this.autoConfig = autoConfig;
     }
 

@@ -33,25 +33,25 @@ import java.util.Objects;
 /**
  * CollectionSecuritySettingsResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CollectionSecuritySettingsResponse {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_SECURITY = "security";
 
     @SerializedName(SERIALIZED_NAME_SECURITY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, List<String>> security = new HashMap<>();
 
     public CollectionSecuritySettingsResponse() {}
 
-    public CollectionSecuritySettingsResponse id(@javax.annotation.Nonnull String id) {
+    public CollectionSecuritySettingsResponse id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -60,17 +60,17 @@ public class CollectionSecuritySettingsResponse {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
     public CollectionSecuritySettingsResponse security(
-            @javax.annotation.Nonnull Map<String, List<String>> security) {
+            @jakarta.annotation.Nonnull Map<String, List<String>> security) {
         this.security = security;
         return this;
     }
@@ -88,12 +88,12 @@ public class CollectionSecuritySettingsResponse {
      * Get security
      * @return security
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, List<String>> getSecurity() {
         return security;
     }
 
-    public void setSecurity(@javax.annotation.Nonnull Map<String, List<String>> security) {
+    public void setSecurity(@jakarta.annotation.Nonnull Map<String, List<String>> security) {
         this.security = security;
     }
 

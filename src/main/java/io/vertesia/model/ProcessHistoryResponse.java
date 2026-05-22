@@ -33,30 +33,30 @@ import java.util.Objects;
 /**
  * ProcessHistoryResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProcessHistoryResponse {
     public static final String SERIALIZED_NAME_RUN_ID = "run_id";
 
     @SerializedName(SERIALIZED_NAME_RUN_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String runId;
 
     public static final String SERIALIZED_NAME_CURRENT_NODE = "current_node";
 
     @SerializedName(SERIALIZED_NAME_CURRENT_NODE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String currentNode;
 
     public static final String SERIALIZED_NAME_NODE_HISTORY_REF = "node_history_ref";
 
     @SerializedName(SERIALIZED_NAME_NODE_HISTORY_REF)
-    @javax.annotation.Nullable private ProcessHistoryResponseNodeHistoryRef nodeHistoryRef;
+    @jakarta.annotation.Nullable private ProcessHistoryResponseNodeHistoryRef nodeHistoryRef;
 
     public ProcessHistoryResponse() {}
 
-    public ProcessHistoryResponse runId(@javax.annotation.Nonnull String runId) {
+    public ProcessHistoryResponse runId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
         return this;
     }
@@ -65,16 +65,16 @@ public class ProcessHistoryResponse {
      * Get runId
      * @return runId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRunId() {
         return runId;
     }
 
-    public void setRunId(@javax.annotation.Nonnull String runId) {
+    public void setRunId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
     }
 
-    public ProcessHistoryResponse currentNode(@javax.annotation.Nonnull String currentNode) {
+    public ProcessHistoryResponse currentNode(@jakarta.annotation.Nonnull String currentNode) {
         this.currentNode = currentNode;
         return this;
     }
@@ -83,17 +83,17 @@ public class ProcessHistoryResponse {
      * Get currentNode
      * @return currentNode
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCurrentNode() {
         return currentNode;
     }
 
-    public void setCurrentNode(@javax.annotation.Nonnull String currentNode) {
+    public void setCurrentNode(@jakarta.annotation.Nonnull String currentNode) {
         this.currentNode = currentNode;
     }
 
     public ProcessHistoryResponse nodeHistoryRef(
-            @javax.annotation.Nullable ProcessHistoryResponseNodeHistoryRef nodeHistoryRef) {
+            @jakarta.annotation.Nullable ProcessHistoryResponseNodeHistoryRef nodeHistoryRef) {
         this.nodeHistoryRef = nodeHistoryRef;
         return this;
     }
@@ -102,12 +102,12 @@ public class ProcessHistoryResponse {
      * Get nodeHistoryRef
      * @return nodeHistoryRef
      */
-    @javax.annotation.Nullable public ProcessHistoryResponseNodeHistoryRef getNodeHistoryRef() {
+    @jakarta.annotation.Nullable public ProcessHistoryResponseNodeHistoryRef getNodeHistoryRef() {
         return nodeHistoryRef;
     }
 
     public void setNodeHistoryRef(
-            @javax.annotation.Nullable ProcessHistoryResponseNodeHistoryRef nodeHistoryRef) {
+            @jakarta.annotation.Nullable ProcessHistoryResponseNodeHistoryRef nodeHistoryRef) {
         this.nodeHistoryRef = nodeHistoryRef;
     }
 

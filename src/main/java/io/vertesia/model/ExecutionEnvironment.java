@@ -36,106 +36,106 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * ExecutionEnvironment
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ExecutionEnvironment {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_PROVIDER = "provider";
 
     @SerializedName(SERIALIZED_NAME_PROVIDER)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SupportedProviders provider;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_ENDPOINT_URL = "endpoint_url";
 
     @SerializedName(SERIALIZED_NAME_ENDPOINT_URL)
-    @javax.annotation.Nullable private String endpointUrl;
+    @jakarta.annotation.Nullable private String endpointUrl;
 
     public static final String SERIALIZED_NAME_DEFAULT_MODEL = "default_model";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT_MODEL)
-    @javax.annotation.Nullable private String defaultModel;
+    @jakarta.annotation.Nullable private String defaultModel;
 
     public static final String SERIALIZED_NAME_ENABLED_MODELS = "enabled_models";
 
     @SerializedName(SERIALIZED_NAME_ENABLED_MODELS)
-    @javax.annotation.Nullable private List<AIModel> enabledModels = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<AIModel> enabledModels = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_API_KEY = "apiKey";
 
     @SerializedName(SERIALIZED_NAME_API_KEY)
-    @javax.annotation.Nullable private String apiKey;
+    @jakarta.annotation.Nullable private String apiKey;
 
     public static final String SERIALIZED_NAME_APIKEY_HINT = "apikey_hint";
 
     @SerializedName(SERIALIZED_NAME_APIKEY_HINT)
-    @javax.annotation.Nullable private String apikeyHint;
+    @jakarta.annotation.Nullable private String apikeyHint;
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nullable private Object config = null;
+    @jakarta.annotation.Nullable private Object config = null;
 
     public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
     @SerializedName(SERIALIZED_NAME_SETTINGS)
-    @javax.annotation.Nullable private Map<String, Object> settings = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> settings = new HashMap<>();
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String account;
 
     public static final String SERIALIZED_NAME_ALLOWED_PROJECTS = "allowed_projects";
 
     @SerializedName(SERIALIZED_NAME_ALLOWED_PROJECTS)
-    @javax.annotation.Nullable private List<String> allowedProjects = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> allowedProjects = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public ExecutionEnvironment() {}
 
-    public ExecutionEnvironment id(@javax.annotation.Nonnull String id) {
+    public ExecutionEnvironment id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -144,16 +144,16 @@ public class ExecutionEnvironment {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public ExecutionEnvironment name(@javax.annotation.Nonnull String name) {
+    public ExecutionEnvironment name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -162,16 +162,16 @@ public class ExecutionEnvironment {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public ExecutionEnvironment provider(@javax.annotation.Nonnull SupportedProviders provider) {
+    public ExecutionEnvironment provider(@jakarta.annotation.Nonnull SupportedProviders provider) {
         this.provider = provider;
         return this;
     }
@@ -180,16 +180,16 @@ public class ExecutionEnvironment {
      * Get provider
      * @return provider
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SupportedProviders getProvider() {
         return provider;
     }
 
-    public void setProvider(@javax.annotation.Nonnull SupportedProviders provider) {
+    public void setProvider(@jakarta.annotation.Nonnull SupportedProviders provider) {
         this.provider = provider;
     }
 
-    public ExecutionEnvironment description(@javax.annotation.Nullable String description) {
+    public ExecutionEnvironment description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -198,15 +198,15 @@ public class ExecutionEnvironment {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public ExecutionEnvironment endpointUrl(@javax.annotation.Nullable String endpointUrl) {
+    public ExecutionEnvironment endpointUrl(@jakarta.annotation.Nullable String endpointUrl) {
         this.endpointUrl = endpointUrl;
         return this;
     }
@@ -215,15 +215,15 @@ public class ExecutionEnvironment {
      * Get endpointUrl
      * @return endpointUrl
      */
-    @javax.annotation.Nullable public String getEndpointUrl() {
+    @jakarta.annotation.Nullable public String getEndpointUrl() {
         return endpointUrl;
     }
 
-    public void setEndpointUrl(@javax.annotation.Nullable String endpointUrl) {
+    public void setEndpointUrl(@jakarta.annotation.Nullable String endpointUrl) {
         this.endpointUrl = endpointUrl;
     }
 
-    public ExecutionEnvironment defaultModel(@javax.annotation.Nullable String defaultModel) {
+    public ExecutionEnvironment defaultModel(@jakarta.annotation.Nullable String defaultModel) {
         this.defaultModel = defaultModel;
         return this;
     }
@@ -232,16 +232,16 @@ public class ExecutionEnvironment {
      * Get defaultModel
      * @return defaultModel
      */
-    @javax.annotation.Nullable public String getDefaultModel() {
+    @jakarta.annotation.Nullable public String getDefaultModel() {
         return defaultModel;
     }
 
-    public void setDefaultModel(@javax.annotation.Nullable String defaultModel) {
+    public void setDefaultModel(@jakarta.annotation.Nullable String defaultModel) {
         this.defaultModel = defaultModel;
     }
 
     public ExecutionEnvironment enabledModels(
-            @javax.annotation.Nullable List<AIModel> enabledModels) {
+            @jakarta.annotation.Nullable List<AIModel> enabledModels) {
         this.enabledModels = enabledModels;
         return this;
     }
@@ -258,15 +258,15 @@ public class ExecutionEnvironment {
      * Get enabledModels
      * @return enabledModels
      */
-    @javax.annotation.Nullable public List<AIModel> getEnabledModels() {
+    @jakarta.annotation.Nullable public List<AIModel> getEnabledModels() {
         return enabledModels;
     }
 
-    public void setEnabledModels(@javax.annotation.Nullable List<AIModel> enabledModels) {
+    public void setEnabledModels(@jakarta.annotation.Nullable List<AIModel> enabledModels) {
         this.enabledModels = enabledModels;
     }
 
-    public ExecutionEnvironment apiKey(@javax.annotation.Nullable String apiKey) {
+    public ExecutionEnvironment apiKey(@jakarta.annotation.Nullable String apiKey) {
         this.apiKey = apiKey;
         return this;
     }
@@ -275,15 +275,15 @@ public class ExecutionEnvironment {
      * Get apiKey
      * @return apiKey
      */
-    @javax.annotation.Nullable public String getApiKey() {
+    @jakarta.annotation.Nullable public String getApiKey() {
         return apiKey;
     }
 
-    public void setApiKey(@javax.annotation.Nullable String apiKey) {
+    public void setApiKey(@jakarta.annotation.Nullable String apiKey) {
         this.apiKey = apiKey;
     }
 
-    public ExecutionEnvironment apikeyHint(@javax.annotation.Nullable String apikeyHint) {
+    public ExecutionEnvironment apikeyHint(@jakarta.annotation.Nullable String apikeyHint) {
         this.apikeyHint = apikeyHint;
         return this;
     }
@@ -292,15 +292,15 @@ public class ExecutionEnvironment {
      * Hint showing first and last characters of the API key (e.g. \&quot;AKIA...3xQf\&quot;). Stored alongside the encrypted key so the UI can display which key is configured.
      * @return apikeyHint
      */
-    @javax.annotation.Nullable public String getApikeyHint() {
+    @jakarta.annotation.Nullable public String getApikeyHint() {
         return apikeyHint;
     }
 
-    public void setApikeyHint(@javax.annotation.Nullable String apikeyHint) {
+    public void setApikeyHint(@jakarta.annotation.Nullable String apikeyHint) {
         this.apikeyHint = apikeyHint;
     }
 
-    public ExecutionEnvironment config(@javax.annotation.Nullable Object config) {
+    public ExecutionEnvironment config(@jakarta.annotation.Nullable Object config) {
         this.config = config;
         return this;
     }
@@ -309,15 +309,16 @@ public class ExecutionEnvironment {
      * Get config
      * @return config
      */
-    @javax.annotation.Nullable public Object getConfig() {
+    @jakarta.annotation.Nullable public Object getConfig() {
         return config;
     }
 
-    public void setConfig(@javax.annotation.Nullable Object config) {
+    public void setConfig(@jakarta.annotation.Nullable Object config) {
         this.config = config;
     }
 
-    public ExecutionEnvironment settings(@javax.annotation.Nullable Map<String, Object> settings) {
+    public ExecutionEnvironment settings(
+            @jakarta.annotation.Nullable Map<String, Object> settings) {
         this.settings = settings;
         return this;
     }
@@ -334,15 +335,15 @@ public class ExecutionEnvironment {
      * Additional provider-specific settings passed through to the driver. For example, custom headers for Apigee-proxied endpoints.
      * @return settings
      */
-    @javax.annotation.Nullable public Map<String, Object> getSettings() {
+    @jakarta.annotation.Nullable public Map<String, Object> getSettings() {
         return settings;
     }
 
-    public void setSettings(@javax.annotation.Nullable Map<String, Object> settings) {
+    public void setSettings(@jakarta.annotation.Nullable Map<String, Object> settings) {
         this.settings = settings;
     }
 
-    public ExecutionEnvironment account(@javax.annotation.Nonnull String account) {
+    public ExecutionEnvironment account(@jakarta.annotation.Nonnull String account) {
         this.account = account;
         return this;
     }
@@ -351,17 +352,17 @@ public class ExecutionEnvironment {
      * Get account
      * @return account
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nonnull String account) {
+    public void setAccount(@jakarta.annotation.Nonnull String account) {
         this.account = account;
     }
 
     public ExecutionEnvironment allowedProjects(
-            @javax.annotation.Nullable List<String> allowedProjects) {
+            @jakarta.annotation.Nullable List<String> allowedProjects) {
         this.allowedProjects = allowedProjects;
         return this;
     }
@@ -378,15 +379,15 @@ public class ExecutionEnvironment {
      * Get allowedProjects
      * @return allowedProjects
      */
-    @javax.annotation.Nullable public List<String> getAllowedProjects() {
+    @jakarta.annotation.Nullable public List<String> getAllowedProjects() {
         return allowedProjects;
     }
 
-    public void setAllowedProjects(@javax.annotation.Nullable List<String> allowedProjects) {
+    public void setAllowedProjects(@jakarta.annotation.Nullable List<String> allowedProjects) {
         this.allowedProjects = allowedProjects;
     }
 
-    public ExecutionEnvironment createdBy(@javax.annotation.Nonnull String createdBy) {
+    public ExecutionEnvironment createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -395,16 +396,16 @@ public class ExecutionEnvironment {
      * Get createdBy
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public ExecutionEnvironment updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public ExecutionEnvironment updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -413,16 +414,16 @@ public class ExecutionEnvironment {
      * Get updatedBy
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public ExecutionEnvironment createdAt(@javax.annotation.Nonnull String createdAt) {
+    public ExecutionEnvironment createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -431,16 +432,16 @@ public class ExecutionEnvironment {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public ExecutionEnvironment updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public ExecutionEnvironment updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -449,12 +450,12 @@ public class ExecutionEnvironment {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 

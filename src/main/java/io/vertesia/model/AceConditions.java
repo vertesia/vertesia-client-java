@@ -32,24 +32,24 @@ import java.util.Objects;
 /**
  * Conditions attached to an ACE for dynamic matching. - &#x60;principal_props&#x60;: matched against user/group properties at token time (PrincipalSet). - &#x60;resource_props&#x60;: matched against content properties at query time (ContentSet).
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AceConditions {
     public static final String SERIALIZED_NAME_PRINCIPAL_PROPS = "principal_props";
 
     @SerializedName(SERIALIZED_NAME_PRINCIPAL_PROPS)
-    @javax.annotation.Nullable private Map<String, Object> principalProps;
+    @jakarta.annotation.Nullable private Map<String, Object> principalProps;
 
     public static final String SERIALIZED_NAME_RESOURCE_PROPS = "resource_props";
 
     @SerializedName(SERIALIZED_NAME_RESOURCE_PROPS)
-    @javax.annotation.Nullable private Map<String, Object> resourceProps;
+    @jakarta.annotation.Nullable private Map<String, Object> resourceProps;
 
     public AceConditions() {}
 
     public AceConditions principalProps(
-            @javax.annotation.Nullable Map<String, Object> principalProps) {
+            @jakarta.annotation.Nullable Map<String, Object> principalProps) {
         this.principalProps = principalProps;
         return this;
     }
@@ -66,16 +66,16 @@ public class AceConditions {
      * Property conditions matched against user/group properties at token time (PrincipalSet).
      * @return principalProps
      */
-    @javax.annotation.Nullable public Map<String, Object> getPrincipalProps() {
+    @jakarta.annotation.Nullable public Map<String, Object> getPrincipalProps() {
         return principalProps;
     }
 
-    public void setPrincipalProps(@javax.annotation.Nullable Map<String, Object> principalProps) {
+    public void setPrincipalProps(@jakarta.annotation.Nullable Map<String, Object> principalProps) {
         this.principalProps = principalProps;
     }
 
     public AceConditions resourceProps(
-            @javax.annotation.Nullable Map<String, Object> resourceProps) {
+            @jakarta.annotation.Nullable Map<String, Object> resourceProps) {
         this.resourceProps = resourceProps;
         return this;
     }
@@ -92,11 +92,11 @@ public class AceConditions {
      * Property conditions matched against content properties at query time (ContentSet).
      * @return resourceProps
      */
-    @javax.annotation.Nullable public Map<String, Object> getResourceProps() {
+    @jakarta.annotation.Nullable public Map<String, Object> getResourceProps() {
         return resourceProps;
     }
 
-    public void setResourceProps(@javax.annotation.Nullable Map<String, Object> resourceProps) {
+    public void setResourceProps(@jakarta.annotation.Nullable Map<String, Object> resourceProps) {
         this.resourceProps = resourceProps;
     }
 

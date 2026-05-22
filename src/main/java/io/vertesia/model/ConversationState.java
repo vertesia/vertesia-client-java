@@ -35,171 +35,171 @@ import java.util.Objects;
 /**
  * Conversation state passed between workflow activities. Contains all context needed to continue a multi-turn agent conversation.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ConversationState {
     public static final String SERIALIZED_NAME_RUN = "run";
 
     @SerializedName(SERIALIZED_NAME_RUN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ExecutionRunDocRef run;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String environment;
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private StatelessExecutionOptions options;
 
     public static final String SERIALIZED_NAME_TOOL_USE = "tool_use";
 
     @SerializedName(SERIALIZED_NAME_TOOL_USE)
-    @javax.annotation.Nullable private List<ToolUse> toolUse = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<ToolUse> toolUse = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_OUTPUT = "output";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<CompletionResult> output = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TOKEN_USAGE = "token_usage";
 
     @SerializedName(SERIALIZED_NAME_TOKEN_USAGE)
-    @javax.annotation.Nullable private ExecutionTokenUsage tokenUsage;
+    @jakarta.annotation.Nullable private ExecutionTokenUsage tokenUsage;
 
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private WorkflowAncestor parent;
+    @jakarta.annotation.Nullable private WorkflowAncestor parent;
 
     public static final String SERIALIZED_NAME_ANCESTORS = "ancestors";
 
     @SerializedName(SERIALIZED_NAME_ANCESTORS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<WorkflowAncestor> ancestors = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TASK_ID = "task_id";
 
     @SerializedName(SERIALIZED_NAME_TASK_ID)
-    @javax.annotation.Nullable private String taskId;
+    @jakarta.annotation.Nullable private String taskId;
 
     public static final String SERIALIZED_NAME_PLAN = "plan";
 
     @SerializedName(SERIALIZED_NAME_PLAN)
-    @javax.annotation.Nullable private Plan plan;
+    @jakarta.annotation.Nullable private Plan plan;
 
     public static final String SERIALIZED_NAME_DEBUG = "debug";
 
     @SerializedName(SERIALIZED_NAME_DEBUG)
-    @javax.annotation.Nullable private Boolean debug;
+    @jakarta.annotation.Nullable private Boolean debug;
 
     public static final String SERIALIZED_NAME_STRIP_OPTIONS = "strip_options";
 
     @SerializedName(SERIALIZED_NAME_STRIP_OPTIONS)
-    @javax.annotation.Nullable private ConversationStripOptions stripOptions;
+    @jakarta.annotation.Nullable private ConversationStripOptions stripOptions;
 
     public static final String SERIALIZED_NAME_CONVERSATION_ARTIFACTS_BASE_URL =
             "conversation_artifacts_base_url";
 
     @SerializedName(SERIALIZED_NAME_CONVERSATION_ARTIFACTS_BASE_URL)
-    @javax.annotation.Nullable private String conversationArtifactsBaseUrl;
+    @jakarta.annotation.Nullable private String conversationArtifactsBaseUrl;
 
     public static final String SERIALIZED_NAME_TOOL_REFERENCE = "tool_reference";
 
     @SerializedName(SERIALIZED_NAME_TOOL_REFERENCE)
-    @javax.annotation.Nullable private ToolReference toolReference;
+    @jakarta.annotation.Nullable private ToolReference toolReference;
 
     public static final String SERIALIZED_NAME_ACTIVE_TOOL_NAMES = "active_tool_names";
 
     @SerializedName(SERIALIZED_NAME_ACTIVE_TOOL_NAMES)
-    @javax.annotation.Nullable private List<String> activeToolNames = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> activeToolNames = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PINNED_TOOL_NAMES = "pinned_tool_names";
 
     @SerializedName(SERIALIZED_NAME_PINNED_TOOL_NAMES)
-    @javax.annotation.Nullable private List<String> pinnedToolNames = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> pinnedToolNames = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TOOL_ACTIVATION_METADATA =
             "tool_activation_metadata";
 
     @SerializedName(SERIALIZED_NAME_TOOL_ACTIVATION_METADATA)
-    @javax.annotation.Nullable private Map<String, ToolActivationMetadata> toolActivationMetadata;
+    @jakarta.annotation.Nullable private Map<String, ToolActivationMetadata> toolActivationMetadata;
 
     public static final String SERIALIZED_NAME_USED_SKILLS = "used_skills";
 
     @SerializedName(SERIALIZED_NAME_USED_SKILLS)
-    @javax.annotation.Nullable private List<UsedSkill> usedSkills = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<UsedSkill> usedSkills = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_AVAILABLE_SKILLS = "available_skills";
 
     @SerializedName(SERIALIZED_NAME_AVAILABLE_SKILLS)
-    @javax.annotation.Nullable private List<AvailableSkill> availableSkills = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<AvailableSkill> availableSkills = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_STREAMING_ENABLED = "streaming_enabled";
 
     @SerializedName(SERIALIZED_NAME_STREAMING_ENABLED)
-    @javax.annotation.Nullable private Boolean streamingEnabled;
+    @jakarta.annotation.Nullable private Boolean streamingEnabled;
 
     public static final String SERIALIZED_NAME_USER_CHANNELS = "user_channels";
 
     @SerializedName(SERIALIZED_NAME_USER_CHANNELS)
-    @javax.annotation.Nullable private List<UserChannel> userChannels = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<UserChannel> userChannels = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_RESOLVED_INTERACTION = "resolvedInteraction";
 
     @SerializedName(SERIALIZED_NAME_RESOLVED_INTERACTION)
-    @javax.annotation.Nullable private ResolvedInteractionExecutionInfo resolvedInteraction;
+    @jakarta.annotation.Nullable private ResolvedInteractionExecutionInfo resolvedInteraction;
 
     public static final String SERIALIZED_NAME_END_CONVERSATION = "end_conversation";
 
     @SerializedName(SERIALIZED_NAME_END_CONVERSATION)
-    @javax.annotation.Nullable private ConversationStateEndConversation endConversation;
+    @jakarta.annotation.Nullable private ConversationStateEndConversation endConversation;
 
     public static final String SERIALIZED_NAME_UNLOCKED_TOOLS = "unlocked_tools";
 
     @SerializedName(SERIALIZED_NAME_UNLOCKED_TOOLS)
-    @javax.annotation.Nullable private List<String> unlockedTools = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> unlockedTools = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LATEST_ACTIVITY_ID = "latest_activity_id";
 
     @SerializedName(SERIALIZED_NAME_LATEST_ACTIVITY_ID)
-    @javax.annotation.Nullable private String latestActivityId;
+    @jakarta.annotation.Nullable private String latestActivityId;
 
     public static final String SERIALIZED_NAME_SKILL_TOOL_MAP = "skill_tool_map";
 
     @SerializedName(SERIALIZED_NAME_SKILL_TOOL_MAP)
-    @javax.annotation.Nullable private Map<String, List<String>> skillToolMap;
+    @jakarta.annotation.Nullable private Map<String, List<String>> skillToolMap;
 
     public static final String SERIALIZED_NAME_ACTIVE_ACTIVITY_GROUP_ID =
             "active_activity_group_id";
 
     @SerializedName(SERIALIZED_NAME_ACTIVE_ACTIVITY_GROUP_ID)
-    @javax.annotation.Nullable private String activeActivityGroupId;
+    @jakarta.annotation.Nullable private String activeActivityGroupId;
 
     public static final String SERIALIZED_NAME_FINISH_REASON = "finish_reason";
 
     @SerializedName(SERIALIZED_NAME_FINISH_REASON)
-    @javax.annotation.Nullable private String finishReason;
+    @jakarta.annotation.Nullable private String finishReason;
 
     public static final String SERIALIZED_NAME_AGENT_RUN_ID = "agent_run_id";
 
     @SerializedName(SERIALIZED_NAME_AGENT_RUN_ID)
-    @javax.annotation.Nullable private String agentRunId;
+    @jakarta.annotation.Nullable private String agentRunId;
 
     public static final String SERIALIZED_NAME_LAUNCH_ID = "launch_id";
 
     @SerializedName(SERIALIZED_NAME_LAUNCH_ID)
-    @javax.annotation.Nullable private String launchId;
+    @jakarta.annotation.Nullable private String launchId;
 
     public ConversationState() {}
 
-    public ConversationState run(@javax.annotation.Nonnull ExecutionRunDocRef run) {
+    public ConversationState run(@jakarta.annotation.Nonnull ExecutionRunDocRef run) {
         this.run = run;
         return this;
     }
@@ -208,16 +208,16 @@ public class ConversationState {
      * A reference to the run that started the conversation
      * @return run
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ExecutionRunDocRef getRun() {
         return run;
     }
 
-    public void setRun(@javax.annotation.Nonnull ExecutionRunDocRef run) {
+    public void setRun(@jakarta.annotation.Nonnull ExecutionRunDocRef run) {
         this.run = run;
     }
 
-    public ConversationState environment(@javax.annotation.Nonnull String environment) {
+    public ConversationState environment(@jakarta.annotation.Nonnull String environment) {
         this.environment = environment;
         return this;
     }
@@ -226,16 +226,17 @@ public class ConversationState {
      * The execution environment with provider info for LLM calls.
      * @return environment
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@javax.annotation.Nonnull String environment) {
+    public void setEnvironment(@jakarta.annotation.Nonnull String environment) {
         this.environment = environment;
     }
 
-    public ConversationState options(@javax.annotation.Nonnull StatelessExecutionOptions options) {
+    public ConversationState options(
+            @jakarta.annotation.Nonnull StatelessExecutionOptions options) {
         this.options = options;
         return this;
     }
@@ -244,16 +245,16 @@ public class ConversationState {
      * The options to use on the next call.
      * @return options
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public StatelessExecutionOptions getOptions() {
         return options;
     }
 
-    public void setOptions(@javax.annotation.Nonnull StatelessExecutionOptions options) {
+    public void setOptions(@jakarta.annotation.Nonnull StatelessExecutionOptions options) {
         this.options = options;
     }
 
-    public ConversationState toolUse(@javax.annotation.Nullable List<ToolUse> toolUse) {
+    public ConversationState toolUse(@jakarta.annotation.Nullable List<ToolUse> toolUse) {
         this.toolUse = toolUse;
         return this;
     }
@@ -270,15 +271,15 @@ public class ConversationState {
      * The tools to call next.
      * @return toolUse
      */
-    @javax.annotation.Nullable public List<ToolUse> getToolUse() {
+    @jakarta.annotation.Nullable public List<ToolUse> getToolUse() {
         return toolUse;
     }
 
-    public void setToolUse(@javax.annotation.Nullable List<ToolUse> toolUse) {
+    public void setToolUse(@jakarta.annotation.Nullable List<ToolUse> toolUse) {
         this.toolUse = toolUse;
     }
 
-    public ConversationState output(@javax.annotation.Nonnull List<CompletionResult> output) {
+    public ConversationState output(@jakarta.annotation.Nonnull List<CompletionResult> output) {
         this.output = output;
         return this;
     }
@@ -295,16 +296,17 @@ public class ConversationState {
      * The output of the this conversation step
      * @return output
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<CompletionResult> getOutput() {
         return output;
     }
 
-    public void setOutput(@javax.annotation.Nonnull List<CompletionResult> output) {
+    public void setOutput(@jakarta.annotation.Nonnull List<CompletionResult> output) {
         this.output = output;
     }
 
-    public ConversationState tokenUsage(@javax.annotation.Nullable ExecutionTokenUsage tokenUsage) {
+    public ConversationState tokenUsage(
+            @jakarta.annotation.Nullable ExecutionTokenUsage tokenUsage) {
         this.tokenUsage = tokenUsage;
         return this;
     }
@@ -313,15 +315,15 @@ public class ConversationState {
      * The token usage of the this conversation step
      * @return tokenUsage
      */
-    @javax.annotation.Nullable public ExecutionTokenUsage getTokenUsage() {
+    @jakarta.annotation.Nullable public ExecutionTokenUsage getTokenUsage() {
         return tokenUsage;
     }
 
-    public void setTokenUsage(@javax.annotation.Nullable ExecutionTokenUsage tokenUsage) {
+    public void setTokenUsage(@jakarta.annotation.Nullable ExecutionTokenUsage tokenUsage) {
         this.tokenUsage = tokenUsage;
     }
 
-    public ConversationState parent(@javax.annotation.Nullable WorkflowAncestor parent) {
+    public ConversationState parent(@jakarta.annotation.Nullable WorkflowAncestor parent) {
         this.parent = parent;
         return this;
     }
@@ -330,15 +332,16 @@ public class ConversationState {
      * If a sub workflow execution, contains the parent&#39;s info
      * @return parent
      */
-    @javax.annotation.Nullable public WorkflowAncestor getParent() {
+    @jakarta.annotation.Nullable public WorkflowAncestor getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable WorkflowAncestor parent) {
+    public void setParent(@jakarta.annotation.Nullable WorkflowAncestor parent) {
         this.parent = parent;
     }
 
-    public ConversationState ancestors(@javax.annotation.Nonnull List<WorkflowAncestor> ancestors) {
+    public ConversationState ancestors(
+            @jakarta.annotation.Nonnull List<WorkflowAncestor> ancestors) {
         this.ancestors = ancestors;
         return this;
     }
@@ -355,16 +358,16 @@ public class ConversationState {
      * Full ancestry chain from root to immediate parent (for hierarchical aggregation)
      * @return ancestors
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<WorkflowAncestor> getAncestors() {
         return ancestors;
     }
 
-    public void setAncestors(@javax.annotation.Nonnull List<WorkflowAncestor> ancestors) {
+    public void setAncestors(@jakarta.annotation.Nonnull List<WorkflowAncestor> ancestors) {
         this.ancestors = ancestors;
     }
 
-    public ConversationState taskId(@javax.annotation.Nullable String taskId) {
+    public ConversationState taskId(@jakarta.annotation.Nullable String taskId) {
         this.taskId = taskId;
         return this;
     }
@@ -373,15 +376,15 @@ public class ConversationState {
      * If part of a larger agentic workflow, task id of this task
      * @return taskId
      */
-    @javax.annotation.Nullable public String getTaskId() {
+    @jakarta.annotation.Nullable public String getTaskId() {
         return taskId;
     }
 
-    public void setTaskId(@javax.annotation.Nullable String taskId) {
+    public void setTaskId(@jakarta.annotation.Nullable String taskId) {
         this.taskId = taskId;
     }
 
-    public ConversationState plan(@javax.annotation.Nullable Plan plan) {
+    public ConversationState plan(@jakarta.annotation.Nullable Plan plan) {
         this.plan = plan;
         return this;
     }
@@ -390,15 +393,15 @@ public class ConversationState {
      * Stores the most recent plan for reference by plan-related tools
      * @return plan
      */
-    @javax.annotation.Nullable public Plan getPlan() {
+    @jakarta.annotation.Nullable public Plan getPlan() {
         return plan;
     }
 
-    public void setPlan(@javax.annotation.Nullable Plan plan) {
+    public void setPlan(@jakarta.annotation.Nullable Plan plan) {
         this.plan = plan;
     }
 
-    public ConversationState debug(@javax.annotation.Nullable Boolean debug) {
+    public ConversationState debug(@jakarta.annotation.Nullable Boolean debug) {
         this.debug = debug;
         return this;
     }
@@ -407,16 +410,16 @@ public class ConversationState {
      * Debug mode (more logs and persisted artifacts)
      * @return debug
      */
-    @javax.annotation.Nullable public Boolean getDebug() {
+    @jakarta.annotation.Nullable public Boolean getDebug() {
         return debug;
     }
 
-    public void setDebug(@javax.annotation.Nullable Boolean debug) {
+    public void setDebug(@jakarta.annotation.Nullable Boolean debug) {
         this.debug = debug;
     }
 
     public ConversationState stripOptions(
-            @javax.annotation.Nullable ConversationStripOptions stripOptions) {
+            @jakarta.annotation.Nullable ConversationStripOptions stripOptions) {
         this.stripOptions = stripOptions;
         return this;
     }
@@ -425,16 +428,17 @@ public class ConversationState {
      * Configuration for stripping large data from conversation history. Passed to llumiverse ExecutionOptions.stripImagesAfterTurns.
      * @return stripOptions
      */
-    @javax.annotation.Nullable public ConversationStripOptions getStripOptions() {
+    @jakarta.annotation.Nullable public ConversationStripOptions getStripOptions() {
         return stripOptions;
     }
 
-    public void setStripOptions(@javax.annotation.Nullable ConversationStripOptions stripOptions) {
+    public void setStripOptions(
+            @jakarta.annotation.Nullable ConversationStripOptions stripOptions) {
         this.stripOptions = stripOptions;
     }
 
     public ConversationState conversationArtifactsBaseUrl(
-            @javax.annotation.Nullable String conversationArtifactsBaseUrl) {
+            @jakarta.annotation.Nullable String conversationArtifactsBaseUrl) {
         this.conversationArtifactsBaseUrl = conversationArtifactsBaseUrl;
         return this;
     }
@@ -443,16 +447,17 @@ public class ConversationState {
      * Conversation artifacts base url
      * @return conversationArtifactsBaseUrl
      */
-    @javax.annotation.Nullable public String getConversationArtifactsBaseUrl() {
+    @jakarta.annotation.Nullable public String getConversationArtifactsBaseUrl() {
         return conversationArtifactsBaseUrl;
     }
 
     public void setConversationArtifactsBaseUrl(
-            @javax.annotation.Nullable String conversationArtifactsBaseUrl) {
+            @jakarta.annotation.Nullable String conversationArtifactsBaseUrl) {
         this.conversationArtifactsBaseUrl = conversationArtifactsBaseUrl;
     }
 
-    public ConversationState toolReference(@javax.annotation.Nullable ToolReference toolReference) {
+    public ConversationState toolReference(
+            @jakarta.annotation.Nullable ToolReference toolReference) {
         this.toolReference = toolReference;
         return this;
     }
@@ -461,16 +466,16 @@ public class ConversationState {
      * Reference to tools stored in GCP instead of embedding full tool definitions
      * @return toolReference
      */
-    @javax.annotation.Nullable public ToolReference getToolReference() {
+    @jakarta.annotation.Nullable public ToolReference getToolReference() {
         return toolReference;
     }
 
-    public void setToolReference(@javax.annotation.Nullable ToolReference toolReference) {
+    public void setToolReference(@jakarta.annotation.Nullable ToolReference toolReference) {
         this.toolReference = toolReference;
     }
 
     public ConversationState activeToolNames(
-            @javax.annotation.Nullable List<String> activeToolNames) {
+            @jakarta.annotation.Nullable List<String> activeToolNames) {
         this.activeToolNames = activeToolNames;
         return this;
     }
@@ -487,16 +492,16 @@ public class ConversationState {
      * Names of currently active tools (base + unlocked). Tool definitions loaded from tool_reference.
      * @return activeToolNames
      */
-    @javax.annotation.Nullable public List<String> getActiveToolNames() {
+    @jakarta.annotation.Nullable public List<String> getActiveToolNames() {
         return activeToolNames;
     }
 
-    public void setActiveToolNames(@javax.annotation.Nullable List<String> activeToolNames) {
+    public void setActiveToolNames(@jakarta.annotation.Nullable List<String> activeToolNames) {
         this.activeToolNames = activeToolNames;
     }
 
     public ConversationState pinnedToolNames(
-            @javax.annotation.Nullable List<String> pinnedToolNames) {
+            @jakarta.annotation.Nullable List<String> pinnedToolNames) {
         this.pinnedToolNames = pinnedToolNames;
         return this;
     }
@@ -513,16 +518,16 @@ public class ConversationState {
      * Active tools that should not be evicted by bounded active-tool pruning.
      * @return pinnedToolNames
      */
-    @javax.annotation.Nullable public List<String> getPinnedToolNames() {
+    @jakarta.annotation.Nullable public List<String> getPinnedToolNames() {
         return pinnedToolNames;
     }
 
-    public void setPinnedToolNames(@javax.annotation.Nullable List<String> pinnedToolNames) {
+    public void setPinnedToolNames(@jakarta.annotation.Nullable List<String> pinnedToolNames) {
         this.pinnedToolNames = pinnedToolNames;
     }
 
     public ConversationState toolActivationMetadata(
-            @javax.annotation.Nullable Map<String, ToolActivationMetadata> toolActivationMetadata) {
+            @jakarta.annotation.Nullable Map<String, ToolActivationMetadata> toolActivationMetadata) {
         this.toolActivationMetadata = toolActivationMetadata;
         return this;
     }
@@ -540,16 +545,16 @@ public class ConversationState {
      * Activation and usage metadata for tools seen during the conversation. Used to keep the active tool set bounded without losing recovery context.
      * @return toolActivationMetadata
      */
-    @javax.annotation.Nullable public Map<String, ToolActivationMetadata> getToolActivationMetadata() {
+    @jakarta.annotation.Nullable public Map<String, ToolActivationMetadata> getToolActivationMetadata() {
         return toolActivationMetadata;
     }
 
     public void setToolActivationMetadata(
-            @javax.annotation.Nullable Map<String, ToolActivationMetadata> toolActivationMetadata) {
+            @jakarta.annotation.Nullable Map<String, ToolActivationMetadata> toolActivationMetadata) {
         this.toolActivationMetadata = toolActivationMetadata;
     }
 
-    public ConversationState usedSkills(@javax.annotation.Nullable List<UsedSkill> usedSkills) {
+    public ConversationState usedSkills(@jakarta.annotation.Nullable List<UsedSkill> usedSkills) {
         this.usedSkills = usedSkills;
         return this;
     }
@@ -566,16 +571,16 @@ public class ConversationState {
      * Skills that have been used in this conversation (for auto-syncing scripts and package installation)
      * @return usedSkills
      */
-    @javax.annotation.Nullable public List<UsedSkill> getUsedSkills() {
+    @jakarta.annotation.Nullable public List<UsedSkill> getUsedSkills() {
         return usedSkills;
     }
 
-    public void setUsedSkills(@javax.annotation.Nullable List<UsedSkill> usedSkills) {
+    public void setUsedSkills(@jakarta.annotation.Nullable List<UsedSkill> usedSkills) {
         this.usedSkills = usedSkills;
     }
 
     public ConversationState availableSkills(
-            @javax.annotation.Nullable List<AvailableSkill> availableSkills) {
+            @jakarta.annotation.Nullable List<AvailableSkill> availableSkills) {
         this.availableSkills = availableSkills;
         return this;
     }
@@ -592,16 +597,17 @@ public class ConversationState {
      * All available skills from registered tool collections (for upfront hydration in sandbox)
      * @return availableSkills
      */
-    @javax.annotation.Nullable public List<AvailableSkill> getAvailableSkills() {
+    @jakarta.annotation.Nullable public List<AvailableSkill> getAvailableSkills() {
         return availableSkills;
     }
 
     public void setAvailableSkills(
-            @javax.annotation.Nullable List<AvailableSkill> availableSkills) {
+            @jakarta.annotation.Nullable List<AvailableSkill> availableSkills) {
         this.availableSkills = availableSkills;
     }
 
-    public ConversationState streamingEnabled(@javax.annotation.Nullable Boolean streamingEnabled) {
+    public ConversationState streamingEnabled(
+            @jakarta.annotation.Nullable Boolean streamingEnabled) {
         this.streamingEnabled = streamingEnabled;
         return this;
     }
@@ -610,16 +616,16 @@ public class ConversationState {
      * Whether to stream LLM responses to Redis (cached from project config)
      * @return streamingEnabled
      */
-    @javax.annotation.Nullable public Boolean getStreamingEnabled() {
+    @jakarta.annotation.Nullable public Boolean getStreamingEnabled() {
         return streamingEnabled;
     }
 
-    public void setStreamingEnabled(@javax.annotation.Nullable Boolean streamingEnabled) {
+    public void setStreamingEnabled(@jakarta.annotation.Nullable Boolean streamingEnabled) {
         this.streamingEnabled = streamingEnabled;
     }
 
     public ConversationState userChannels(
-            @javax.annotation.Nullable List<UserChannel> userChannels) {
+            @jakarta.annotation.Nullable List<UserChannel> userChannels) {
         this.userChannels = userChannels;
         return this;
     }
@@ -636,16 +642,16 @@ public class ConversationState {
      * Active communication channels with their current state. Channels can be updated as conversation progresses (e.g., email threading info).
      * @return userChannels
      */
-    @javax.annotation.Nullable public List<UserChannel> getUserChannels() {
+    @jakarta.annotation.Nullable public List<UserChannel> getUserChannels() {
         return userChannels;
     }
 
-    public void setUserChannels(@javax.annotation.Nullable List<UserChannel> userChannels) {
+    public void setUserChannels(@jakarta.annotation.Nullable List<UserChannel> userChannels) {
         this.userChannels = userChannels;
     }
 
     public ConversationState resolvedInteraction(
-            @javax.annotation.Nullable ResolvedInteractionExecutionInfo resolvedInteraction) {
+            @jakarta.annotation.Nullable ResolvedInteractionExecutionInfo resolvedInteraction) {
         this.resolvedInteraction = resolvedInteraction;
         return this;
     }
@@ -654,17 +660,17 @@ public class ConversationState {
      * The resolved interaction execution info. Contains interaction ID, name, version, and environment details.
      * @return resolvedInteraction
      */
-    @javax.annotation.Nullable public ResolvedInteractionExecutionInfo getResolvedInteraction() {
+    @jakarta.annotation.Nullable public ResolvedInteractionExecutionInfo getResolvedInteraction() {
         return resolvedInteraction;
     }
 
     public void setResolvedInteraction(
-            @javax.annotation.Nullable ResolvedInteractionExecutionInfo resolvedInteraction) {
+            @jakarta.annotation.Nullable ResolvedInteractionExecutionInfo resolvedInteraction) {
         this.resolvedInteraction = resolvedInteraction;
     }
 
     public ConversationState endConversation(
-            @javax.annotation.Nullable ConversationStateEndConversation endConversation) {
+            @jakarta.annotation.Nullable ConversationStateEndConversation endConversation) {
         this.endConversation = endConversation;
         return this;
     }
@@ -673,16 +679,17 @@ public class ConversationState {
      * Get endConversation
      * @return endConversation
      */
-    @javax.annotation.Nullable public ConversationStateEndConversation getEndConversation() {
+    @jakarta.annotation.Nullable public ConversationStateEndConversation getEndConversation() {
         return endConversation;
     }
 
     public void setEndConversation(
-            @javax.annotation.Nullable ConversationStateEndConversation endConversation) {
+            @jakarta.annotation.Nullable ConversationStateEndConversation endConversation) {
         this.endConversation = endConversation;
     }
 
-    public ConversationState unlockedTools(@javax.annotation.Nullable List<String> unlockedTools) {
+    public ConversationState unlockedTools(
+            @jakarta.annotation.Nullable List<String> unlockedTools) {
         this.unlockedTools = unlockedTools;
         return this;
     }
@@ -699,15 +706,16 @@ public class ConversationState {
      * Tools that have been unlocked by skills during the conversation. These tools were initially hidden (default: false) but became available when a skill with tools was called.
      * @return unlockedTools
      */
-    @javax.annotation.Nullable public List<String> getUnlockedTools() {
+    @jakarta.annotation.Nullable public List<String> getUnlockedTools() {
         return unlockedTools;
     }
 
-    public void setUnlockedTools(@javax.annotation.Nullable List<String> unlockedTools) {
+    public void setUnlockedTools(@jakarta.annotation.Nullable List<String> unlockedTools) {
         this.unlockedTools = unlockedTools;
     }
 
-    public ConversationState latestActivityId(@javax.annotation.Nullable String latestActivityId) {
+    public ConversationState latestActivityId(
+            @jakarta.annotation.Nullable String latestActivityId) {
         this.latestActivityId = latestActivityId;
         return this;
     }
@@ -716,16 +724,16 @@ public class ConversationState {
      * Activity ID from the latest LLM call (for deduplication with streamed content). Set by streamToRedis when completing async activities.
      * @return latestActivityId
      */
-    @javax.annotation.Nullable public String getLatestActivityId() {
+    @jakarta.annotation.Nullable public String getLatestActivityId() {
         return latestActivityId;
     }
 
-    public void setLatestActivityId(@javax.annotation.Nullable String latestActivityId) {
+    public void setLatestActivityId(@jakarta.annotation.Nullable String latestActivityId) {
         this.latestActivityId = latestActivityId;
     }
 
     public ConversationState skillToolMap(
-            @javax.annotation.Nullable Map<String, List<String>> skillToolMap) {
+            @jakarta.annotation.Nullable Map<String, List<String>> skillToolMap) {
         this.skillToolMap = skillToolMap;
         return this;
     }
@@ -742,16 +750,17 @@ public class ConversationState {
      * Mapping of skill names to their related tools. When a skill is called, its related tools are added to unlocked_tools.
      * @return skillToolMap
      */
-    @javax.annotation.Nullable public Map<String, List<String>> getSkillToolMap() {
+    @jakarta.annotation.Nullable public Map<String, List<String>> getSkillToolMap() {
         return skillToolMap;
     }
 
-    public void setSkillToolMap(@javax.annotation.Nullable Map<String, List<String>> skillToolMap) {
+    public void setSkillToolMap(
+            @jakarta.annotation.Nullable Map<String, List<String>> skillToolMap) {
         this.skillToolMap = skillToolMap;
     }
 
     public ConversationState activeActivityGroupId(
-            @javax.annotation.Nullable String activeActivityGroupId) {
+            @jakarta.annotation.Nullable String activeActivityGroupId) {
         this.activeActivityGroupId = activeActivityGroupId;
         return this;
     }
@@ -760,15 +769,16 @@ public class ConversationState {
      * Current activity group ID for internal tool-execution progress messages. All updates emitted during one tool-execution cycle should share this ID.
      * @return activeActivityGroupId
      */
-    @javax.annotation.Nullable public String getActiveActivityGroupId() {
+    @jakarta.annotation.Nullable public String getActiveActivityGroupId() {
         return activeActivityGroupId;
     }
 
-    public void setActiveActivityGroupId(@javax.annotation.Nullable String activeActivityGroupId) {
+    public void setActiveActivityGroupId(
+            @jakarta.annotation.Nullable String activeActivityGroupId) {
         this.activeActivityGroupId = activeActivityGroupId;
     }
 
-    public ConversationState finishReason(@javax.annotation.Nullable String finishReason) {
+    public ConversationState finishReason(@jakarta.annotation.Nullable String finishReason) {
         this.finishReason = finishReason;
         return this;
     }
@@ -777,15 +787,15 @@ public class ConversationState {
      * LLM stop reason from the latest call (e.g., \&quot;stop\&quot;, \&quot;length\&quot;, \&quot;tool_use\&quot;)
      * @return finishReason
      */
-    @javax.annotation.Nullable public String getFinishReason() {
+    @jakarta.annotation.Nullable public String getFinishReason() {
         return finishReason;
     }
 
-    public void setFinishReason(@javax.annotation.Nullable String finishReason) {
+    public void setFinishReason(@jakarta.annotation.Nullable String finishReason) {
         this.finishReason = finishReason;
     }
 
-    public ConversationState agentRunId(@javax.annotation.Nullable String agentRunId) {
+    public ConversationState agentRunId(@jakarta.annotation.Nullable String agentRunId) {
         this.agentRunId = agentRunId;
         return this;
     }
@@ -794,15 +804,15 @@ public class ConversationState {
      * The AgentRun ID (MongoDB _id) that owns this conversation. Used for artifact storage paths: agents/{agent_run_id}/ Undefined for legacy workflows started before the AgentRun system.
      * @return agentRunId
      */
-    @javax.annotation.Nullable public String getAgentRunId() {
+    @jakarta.annotation.Nullable public String getAgentRunId() {
         return agentRunId;
     }
 
-    public void setAgentRunId(@javax.annotation.Nullable String agentRunId) {
+    public void setAgentRunId(@jakarta.annotation.Nullable String agentRunId) {
         this.agentRunId = agentRunId;
     }
 
-    public ConversationState launchId(@javax.annotation.Nullable String launchId) {
+    public ConversationState launchId(@jakarta.annotation.Nullable String launchId) {
         this.launchId = launchId;
         return this;
     }
@@ -811,11 +821,11 @@ public class ConversationState {
      * For workstreams: the launch ID assigned by the parent workflow. When set, artifacts are stored under agents/{agent_run_id}/workstreams/{launch_id}/ to consolidate all artifacts under the parent agent run.
      * @return launchId
      */
-    @javax.annotation.Nullable public String getLaunchId() {
+    @jakarta.annotation.Nullable public String getLaunchId() {
         return launchId;
     }
 
-    public void setLaunchId(@javax.annotation.Nullable String launchId) {
+    public void setLaunchId(@jakarta.annotation.Nullable String launchId) {
         this.launchId = launchId;
     }
 

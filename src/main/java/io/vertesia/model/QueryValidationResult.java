@@ -33,25 +33,25 @@ import java.util.Objects;
 /**
  * QueryValidationResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class QueryValidationResult {
     public static final String SERIALIZED_NAME_VALID = "valid";
 
     @SerializedName(SERIALIZED_NAME_VALID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean valid;
 
     public static final String SERIALIZED_NAME_ERRORS = "errors";
 
     @SerializedName(SERIALIZED_NAME_ERRORS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<QueryValidationError> errors = new ArrayList<>();
 
     public QueryValidationResult() {}
 
-    public QueryValidationResult valid(@javax.annotation.Nonnull Boolean valid) {
+    public QueryValidationResult valid(@jakarta.annotation.Nonnull Boolean valid) {
         this.valid = valid;
         return this;
     }
@@ -60,17 +60,17 @@ public class QueryValidationResult {
      * Get valid
      * @return valid
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getValid() {
         return valid;
     }
 
-    public void setValid(@javax.annotation.Nonnull Boolean valid) {
+    public void setValid(@jakarta.annotation.Nonnull Boolean valid) {
         this.valid = valid;
     }
 
     public QueryValidationResult errors(
-            @javax.annotation.Nonnull List<QueryValidationError> errors) {
+            @jakarta.annotation.Nonnull List<QueryValidationError> errors) {
         this.errors = errors;
         return this;
     }
@@ -87,12 +87,12 @@ public class QueryValidationResult {
      * Get errors
      * @return errors
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<QueryValidationError> getErrors() {
         return errors;
     }
 
-    public void setErrors(@javax.annotation.Nonnull List<QueryValidationError> errors) {
+    public void setErrors(@jakarta.annotation.Nonnull List<QueryValidationError> errors) {
         this.errors = errors;
     }
 

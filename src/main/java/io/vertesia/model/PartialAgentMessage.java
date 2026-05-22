@@ -32,43 +32,43 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * PartialAgentMessage
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PartialAgentMessage {
     public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
 
     @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    @javax.annotation.Nullable private BigDecimal timestamp;
+    @jakarta.annotation.Nullable private BigDecimal timestamp;
 
     public static final String SERIALIZED_NAME_WORKFLOW_RUN_ID = "workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_RUN_ID)
-    @javax.annotation.Nullable private String workflowRunId;
+    @jakarta.annotation.Nullable private String workflowRunId;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private AgentMessageType type;
+    @jakarta.annotation.Nullable private AgentMessageType type;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nullable private String message;
+    @jakarta.annotation.Nullable private String message;
 
     public static final String SERIALIZED_NAME_DETAILS = "details";
 
     @SerializedName(SERIALIZED_NAME_DETAILS)
-    @javax.annotation.Nullable private Object details = null;
+    @jakarta.annotation.Nullable private Object details = null;
 
     public static final String SERIALIZED_NAME_WORKSTREAM_ID = "workstream_id";
 
     @SerializedName(SERIALIZED_NAME_WORKSTREAM_ID)
-    @javax.annotation.Nullable private String workstreamId;
+    @jakarta.annotation.Nullable private String workstreamId;
 
     public PartialAgentMessage() {}
 
-    public PartialAgentMessage timestamp(@javax.annotation.Nullable BigDecimal timestamp) {
+    public PartialAgentMessage timestamp(@jakarta.annotation.Nullable BigDecimal timestamp) {
         this.timestamp = timestamp;
         return this;
     }
@@ -77,15 +77,15 @@ public class PartialAgentMessage {
      * Get timestamp
      * @return timestamp
      */
-    @javax.annotation.Nullable public BigDecimal getTimestamp() {
+    @jakarta.annotation.Nullable public BigDecimal getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(@javax.annotation.Nullable BigDecimal timestamp) {
+    public void setTimestamp(@jakarta.annotation.Nullable BigDecimal timestamp) {
         this.timestamp = timestamp;
     }
 
-    public PartialAgentMessage workflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public PartialAgentMessage workflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
         return this;
     }
@@ -94,15 +94,15 @@ public class PartialAgentMessage {
      * Get workflowRunId
      * @return workflowRunId
      */
-    @javax.annotation.Nullable public String getWorkflowRunId() {
+    @jakarta.annotation.Nullable public String getWorkflowRunId() {
         return workflowRunId;
     }
 
-    public void setWorkflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public void setWorkflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
     }
 
-    public PartialAgentMessage type(@javax.annotation.Nullable AgentMessageType type) {
+    public PartialAgentMessage type(@jakarta.annotation.Nullable AgentMessageType type) {
         this.type = type;
         return this;
     }
@@ -111,15 +111,15 @@ public class PartialAgentMessage {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public AgentMessageType getType() {
+    @jakarta.annotation.Nullable public AgentMessageType getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable AgentMessageType type) {
+    public void setType(@jakarta.annotation.Nullable AgentMessageType type) {
         this.type = type;
     }
 
-    public PartialAgentMessage message(@javax.annotation.Nullable String message) {
+    public PartialAgentMessage message(@jakarta.annotation.Nullable String message) {
         this.message = message;
         return this;
     }
@@ -128,15 +128,15 @@ public class PartialAgentMessage {
      * Get message
      * @return message
      */
-    @javax.annotation.Nullable public String getMessage() {
+    @jakarta.annotation.Nullable public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nullable String message) {
+    public void setMessage(@jakarta.annotation.Nullable String message) {
         this.message = message;
     }
 
-    public PartialAgentMessage details(@javax.annotation.Nullable Object details) {
+    public PartialAgentMessage details(@jakarta.annotation.Nullable Object details) {
         this.details = details;
         return this;
     }
@@ -145,15 +145,15 @@ public class PartialAgentMessage {
      * Get details
      * @return details
      */
-    @javax.annotation.Nullable public Object getDetails() {
+    @jakarta.annotation.Nullable public Object getDetails() {
         return details;
     }
 
-    public void setDetails(@javax.annotation.Nullable Object details) {
+    public void setDetails(@jakarta.annotation.Nullable Object details) {
         this.details = details;
     }
 
-    public PartialAgentMessage workstreamId(@javax.annotation.Nullable String workstreamId) {
+    public PartialAgentMessage workstreamId(@jakarta.annotation.Nullable String workstreamId) {
         this.workstreamId = workstreamId;
         return this;
     }
@@ -162,11 +162,11 @@ public class PartialAgentMessage {
      * Get workstreamId
      * @return workstreamId
      */
-    @javax.annotation.Nullable public String getWorkstreamId() {
+    @jakarta.annotation.Nullable public String getWorkstreamId() {
         return workstreamId;
     }
 
-    public void setWorkstreamId(@javax.annotation.Nullable String workstreamId) {
+    public void setWorkstreamId(@jakarta.annotation.Nullable String workstreamId) {
         this.workstreamId = workstreamId;
     }
 

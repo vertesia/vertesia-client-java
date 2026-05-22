@@ -31,25 +31,25 @@ import java.util.Objects;
 /**
  * DeleteCountResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DeleteCountResult {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_COUNT = "count";
 
     @SerializedName(SERIALIZED_NAME_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal count;
 
     public DeleteCountResult() {}
 
-    public DeleteCountResult id(@javax.annotation.Nonnull String id) {
+    public DeleteCountResult id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -58,16 +58,16 @@ public class DeleteCountResult {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public DeleteCountResult count(@javax.annotation.Nonnull BigDecimal count) {
+    public DeleteCountResult count(@jakarta.annotation.Nonnull BigDecimal count) {
         this.count = count;
         return this;
     }
@@ -76,12 +76,12 @@ public class DeleteCountResult {
      * Get count
      * @return count
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCount() {
         return count;
     }
 
-    public void setCount(@javax.annotation.Nonnull BigDecimal count) {
+    public void setCount(@jakarta.annotation.Nonnull BigDecimal count) {
         this.count = count;
     }
 

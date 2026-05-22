@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * EnvironmentTokenRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EnvironmentTokenRequest {
@@ -91,46 +91,46 @@ public class EnvironmentTokenRequest {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_AUDIENCE = "audience";
 
     @SerializedName(SERIALIZED_NAME_AUDIENCE)
-    @javax.annotation.Nullable private String audience;
+    @jakarta.annotation.Nullable private String audience;
 
     public static final String SERIALIZED_NAME_ALGORITHM = "algorithm";
 
     @SerializedName(SERIALIZED_NAME_ALGORITHM)
-    @javax.annotation.Nullable private SigningAlgorithm algorithm;
+    @jakarta.annotation.Nullable private SigningAlgorithm algorithm;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT_ID = "environment_id";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String environmentId;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT_NAME = "environment_name";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String environmentName;
 
     public static final String SERIALIZED_NAME_PROJECT_ID = "project_id";
 
     @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String projectId;
 
     public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String accountId;
 
     public EnvironmentTokenRequest() {}
 
-    public EnvironmentTokenRequest type(@javax.annotation.Nonnull TypeEnum type) {
+    public EnvironmentTokenRequest type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -139,16 +139,16 @@ public class EnvironmentTokenRequest {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public EnvironmentTokenRequest audience(@javax.annotation.Nullable String audience) {
+    public EnvironmentTokenRequest audience(@jakarta.annotation.Nullable String audience) {
         this.audience = audience;
         return this;
     }
@@ -157,16 +157,16 @@ public class EnvironmentTokenRequest {
      * Get audience
      * @return audience
      */
-    @javax.annotation.Nullable public String getAudience() {
+    @jakarta.annotation.Nullable public String getAudience() {
         return audience;
     }
 
-    public void setAudience(@javax.annotation.Nullable String audience) {
+    public void setAudience(@jakarta.annotation.Nullable String audience) {
         this.audience = audience;
     }
 
     public EnvironmentTokenRequest algorithm(
-            @javax.annotation.Nullable SigningAlgorithm algorithm) {
+            @jakarta.annotation.Nullable SigningAlgorithm algorithm) {
         this.algorithm = algorithm;
         return this;
     }
@@ -175,15 +175,15 @@ public class EnvironmentTokenRequest {
      * Signing algorithm - defaults to ES256. Use RS256 for Azure AD compatibility.
      * @return algorithm
      */
-    @javax.annotation.Nullable public SigningAlgorithm getAlgorithm() {
+    @jakarta.annotation.Nullable public SigningAlgorithm getAlgorithm() {
         return algorithm;
     }
 
-    public void setAlgorithm(@javax.annotation.Nullable SigningAlgorithm algorithm) {
+    public void setAlgorithm(@jakarta.annotation.Nullable SigningAlgorithm algorithm) {
         this.algorithm = algorithm;
     }
 
-    public EnvironmentTokenRequest environmentId(@javax.annotation.Nonnull String environmentId) {
+    public EnvironmentTokenRequest environmentId(@jakarta.annotation.Nonnull String environmentId) {
         this.environmentId = environmentId;
         return this;
     }
@@ -192,17 +192,17 @@ public class EnvironmentTokenRequest {
      * Get environmentId
      * @return environmentId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getEnvironmentId() {
         return environmentId;
     }
 
-    public void setEnvironmentId(@javax.annotation.Nonnull String environmentId) {
+    public void setEnvironmentId(@jakarta.annotation.Nonnull String environmentId) {
         this.environmentId = environmentId;
     }
 
     public EnvironmentTokenRequest environmentName(
-            @javax.annotation.Nonnull String environmentName) {
+            @jakarta.annotation.Nonnull String environmentName) {
         this.environmentName = environmentName;
         return this;
     }
@@ -211,16 +211,16 @@ public class EnvironmentTokenRequest {
      * Get environmentName
      * @return environmentName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getEnvironmentName() {
         return environmentName;
     }
 
-    public void setEnvironmentName(@javax.annotation.Nonnull String environmentName) {
+    public void setEnvironmentName(@jakarta.annotation.Nonnull String environmentName) {
         this.environmentName = environmentName;
     }
 
-    public EnvironmentTokenRequest projectId(@javax.annotation.Nonnull String projectId) {
+    public EnvironmentTokenRequest projectId(@jakarta.annotation.Nonnull String projectId) {
         this.projectId = projectId;
         return this;
     }
@@ -229,16 +229,16 @@ public class EnvironmentTokenRequest {
      * Get projectId
      * @return projectId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(@javax.annotation.Nonnull String projectId) {
+    public void setProjectId(@jakarta.annotation.Nonnull String projectId) {
         this.projectId = projectId;
     }
 
-    public EnvironmentTokenRequest accountId(@javax.annotation.Nonnull String accountId) {
+    public EnvironmentTokenRequest accountId(@jakarta.annotation.Nonnull String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -247,12 +247,12 @@ public class EnvironmentTokenRequest {
      * Get accountId
      * @return accountId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(@javax.annotation.Nonnull String accountId) {
+    public void setAccountId(@jakarta.annotation.Nonnull String accountId) {
         this.accountId = accountId;
     }
 

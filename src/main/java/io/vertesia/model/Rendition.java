@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * Rendition
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class Rendition {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_CONTENT = "content";
 
     @SerializedName(SERIALIZED_NAME_CONTENT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ContentSource content;
 
     public Rendition() {}
 
-    public Rendition name(@javax.annotation.Nonnull String name) {
+    public Rendition name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -57,16 +57,16 @@ public class Rendition {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public Rendition content(@javax.annotation.Nonnull ContentSource content) {
+    public Rendition content(@jakarta.annotation.Nonnull ContentSource content) {
         this.content = content;
         return this;
     }
@@ -75,12 +75,12 @@ public class Rendition {
      * Get content
      * @return content
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ContentSource getContent() {
         return content;
     }
 
-    public void setContent(@javax.annotation.Nonnull ContentSource content) {
+    public void setContent(@jakarta.annotation.Nonnull ContentSource content) {
         this.content = content;
     }
 

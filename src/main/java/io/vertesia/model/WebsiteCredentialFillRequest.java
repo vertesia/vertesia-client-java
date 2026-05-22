@@ -30,40 +30,40 @@ import java.util.Objects;
 /**
  * WebsiteCredentialFillRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WebsiteCredentialFillRequest {
     public static final String SERIALIZED_NAME_USERNAME_TARGET_ID = "username_target_id";
 
     @SerializedName(SERIALIZED_NAME_USERNAME_TARGET_ID)
-    @javax.annotation.Nullable private String usernameTargetId;
+    @jakarta.annotation.Nullable private String usernameTargetId;
 
     public static final String SERIALIZED_NAME_PASSWORD_TARGET_ID = "password_target_id";
 
     @SerializedName(SERIALIZED_NAME_PASSWORD_TARGET_ID)
-    @javax.annotation.Nullable private String passwordTargetId;
+    @jakarta.annotation.Nullable private String passwordTargetId;
 
     public static final String SERIALIZED_NAME_TOTP_TARGET_ID = "totp_target_id";
 
     @SerializedName(SERIALIZED_NAME_TOTP_TARGET_ID)
-    @javax.annotation.Nullable private String totpTargetId;
+    @jakarta.annotation.Nullable private String totpTargetId;
 
     public static final String SERIALIZED_NAME_SUBMIT_TARGET_ID = "submit_target_id";
 
     @SerializedName(SERIALIZED_NAME_SUBMIT_TARGET_ID)
-    @javax.annotation.Nullable private String submitTargetId;
+    @jakarta.annotation.Nullable private String submitTargetId;
 
     public static final String SERIALIZED_NAME_BROWSER_WORKFLOW_ID = "browser_workflow_id";
 
     @SerializedName(SERIALIZED_NAME_BROWSER_WORKFLOW_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String browserWorkflowId;
 
     public WebsiteCredentialFillRequest() {}
 
     public WebsiteCredentialFillRequest usernameTargetId(
-            @javax.annotation.Nullable String usernameTargetId) {
+            @jakarta.annotation.Nullable String usernameTargetId) {
         this.usernameTargetId = usernameTargetId;
         return this;
     }
@@ -72,16 +72,16 @@ public class WebsiteCredentialFillRequest {
      * Get usernameTargetId
      * @return usernameTargetId
      */
-    @javax.annotation.Nullable public String getUsernameTargetId() {
+    @jakarta.annotation.Nullable public String getUsernameTargetId() {
         return usernameTargetId;
     }
 
-    public void setUsernameTargetId(@javax.annotation.Nullable String usernameTargetId) {
+    public void setUsernameTargetId(@jakarta.annotation.Nullable String usernameTargetId) {
         this.usernameTargetId = usernameTargetId;
     }
 
     public WebsiteCredentialFillRequest passwordTargetId(
-            @javax.annotation.Nullable String passwordTargetId) {
+            @jakarta.annotation.Nullable String passwordTargetId) {
         this.passwordTargetId = passwordTargetId;
         return this;
     }
@@ -90,16 +90,16 @@ public class WebsiteCredentialFillRequest {
      * Get passwordTargetId
      * @return passwordTargetId
      */
-    @javax.annotation.Nullable public String getPasswordTargetId() {
+    @jakarta.annotation.Nullable public String getPasswordTargetId() {
         return passwordTargetId;
     }
 
-    public void setPasswordTargetId(@javax.annotation.Nullable String passwordTargetId) {
+    public void setPasswordTargetId(@jakarta.annotation.Nullable String passwordTargetId) {
         this.passwordTargetId = passwordTargetId;
     }
 
     public WebsiteCredentialFillRequest totpTargetId(
-            @javax.annotation.Nullable String totpTargetId) {
+            @jakarta.annotation.Nullable String totpTargetId) {
         this.totpTargetId = totpTargetId;
         return this;
     }
@@ -108,16 +108,16 @@ public class WebsiteCredentialFillRequest {
      * Get totpTargetId
      * @return totpTargetId
      */
-    @javax.annotation.Nullable public String getTotpTargetId() {
+    @jakarta.annotation.Nullable public String getTotpTargetId() {
         return totpTargetId;
     }
 
-    public void setTotpTargetId(@javax.annotation.Nullable String totpTargetId) {
+    public void setTotpTargetId(@jakarta.annotation.Nullable String totpTargetId) {
         this.totpTargetId = totpTargetId;
     }
 
     public WebsiteCredentialFillRequest submitTargetId(
-            @javax.annotation.Nullable String submitTargetId) {
+            @jakarta.annotation.Nullable String submitTargetId) {
         this.submitTargetId = submitTargetId;
         return this;
     }
@@ -126,16 +126,16 @@ public class WebsiteCredentialFillRequest {
      * Get submitTargetId
      * @return submitTargetId
      */
-    @javax.annotation.Nullable public String getSubmitTargetId() {
+    @jakarta.annotation.Nullable public String getSubmitTargetId() {
         return submitTargetId;
     }
 
-    public void setSubmitTargetId(@javax.annotation.Nullable String submitTargetId) {
+    public void setSubmitTargetId(@jakarta.annotation.Nullable String submitTargetId) {
         this.submitTargetId = submitTargetId;
     }
 
     public WebsiteCredentialFillRequest browserWorkflowId(
-            @javax.annotation.Nonnull String browserWorkflowId) {
+            @jakarta.annotation.Nonnull String browserWorkflowId) {
         this.browserWorkflowId = browserWorkflowId;
         return this;
     }
@@ -144,12 +144,12 @@ public class WebsiteCredentialFillRequest {
      * Browser-use parent workflow id. The API resolves the Daytona sandbox and observes the current page server-side before decrypting the credential.
      * @return browserWorkflowId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getBrowserWorkflowId() {
         return browserWorkflowId;
     }
 
-    public void setBrowserWorkflowId(@javax.annotation.Nonnull String browserWorkflowId) {
+    public void setBrowserWorkflowId(@jakarta.annotation.Nonnull String browserWorkflowId) {
         this.browserWorkflowId = browserWorkflowId;
     }
 

@@ -30,30 +30,30 @@ import java.util.Objects;
 /**
  * AsyncExecutionResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AsyncExecutionResult {
     public static final String SERIALIZED_NAME_RUN_ID = "runId";
 
     @SerializedName(SERIALIZED_NAME_RUN_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String runId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflowId";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String workflowId;
 
     public static final String SERIALIZED_NAME_AGENT_RUN_ID = "agentRunId";
 
     @SerializedName(SERIALIZED_NAME_AGENT_RUN_ID)
-    @javax.annotation.Nullable private String agentRunId;
+    @jakarta.annotation.Nullable private String agentRunId;
 
     public AsyncExecutionResult() {}
 
-    public AsyncExecutionResult runId(@javax.annotation.Nonnull String runId) {
+    public AsyncExecutionResult runId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
         return this;
     }
@@ -62,16 +62,16 @@ public class AsyncExecutionResult {
      * Get runId
      * @return runId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRunId() {
         return runId;
     }
 
-    public void setRunId(@javax.annotation.Nonnull String runId) {
+    public void setRunId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
     }
 
-    public AsyncExecutionResult workflowId(@javax.annotation.Nonnull String workflowId) {
+    public AsyncExecutionResult workflowId(@jakarta.annotation.Nonnull String workflowId) {
         this.workflowId = workflowId;
         return this;
     }
@@ -80,16 +80,16 @@ public class AsyncExecutionResult {
      * Get workflowId
      * @return workflowId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getWorkflowId() {
         return workflowId;
     }
 
-    public void setWorkflowId(@javax.annotation.Nonnull String workflowId) {
+    public void setWorkflowId(@jakarta.annotation.Nonnull String workflowId) {
         this.workflowId = workflowId;
     }
 
-    public AsyncExecutionResult agentRunId(@javax.annotation.Nullable String agentRunId) {
+    public AsyncExecutionResult agentRunId(@jakarta.annotation.Nullable String agentRunId) {
         this.agentRunId = agentRunId;
         return this;
     }
@@ -98,11 +98,11 @@ public class AsyncExecutionResult {
      * Get agentRunId
      * @return agentRunId
      */
-    @javax.annotation.Nullable public String getAgentRunId() {
+    @jakarta.annotation.Nullable public String getAgentRunId() {
         return agentRunId;
     }
 
-    public void setAgentRunId(@javax.annotation.Nullable String agentRunId) {
+    public void setAgentRunId(@jakarta.annotation.Nullable String agentRunId) {
         this.agentRunId = agentRunId;
     }
 

@@ -35,43 +35,43 @@ import java.util.Objects;
 /**
  * GeneratedInteractionDefinition
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GeneratedInteractionDefinition {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String description;
 
     public static final String SERIALIZED_NAME_TEMPERATURE = "temperature";
 
     @SerializedName(SERIALIZED_NAME_TEMPERATURE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal temperature;
 
     public static final String SERIALIZED_NAME_PROMPTS = "prompts";
 
     @SerializedName(SERIALIZED_NAME_PROMPTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<GeneratedInteractionPromptSegment> prompts = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
-    @javax.annotation.Nullable private BigDecimal maxTokens;
+    @jakarta.annotation.Nullable private BigDecimal maxTokens;
 
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private JSONSchema resultSchema;
 
     /**
@@ -132,12 +132,12 @@ public class GeneratedInteractionDefinition {
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<TagsEnum> tags = new ArrayList<>();
 
     public GeneratedInteractionDefinition() {}
 
-    public GeneratedInteractionDefinition name(@javax.annotation.Nonnull String name) {
+    public GeneratedInteractionDefinition name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -146,17 +146,17 @@ public class GeneratedInteractionDefinition {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
     public GeneratedInteractionDefinition description(
-            @javax.annotation.Nonnull String description) {
+            @jakarta.annotation.Nonnull String description) {
         this.description = description;
         return this;
     }
@@ -165,17 +165,17 @@ public class GeneratedInteractionDefinition {
      * Get description
      * @return description
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nonnull String description) {
+    public void setDescription(@jakarta.annotation.Nonnull String description) {
         this.description = description;
     }
 
     public GeneratedInteractionDefinition temperature(
-            @javax.annotation.Nonnull BigDecimal temperature) {
+            @jakarta.annotation.Nonnull BigDecimal temperature) {
         this.temperature = temperature;
         return this;
     }
@@ -184,17 +184,17 @@ public class GeneratedInteractionDefinition {
      * Get temperature
      * @return temperature
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(@javax.annotation.Nonnull BigDecimal temperature) {
+    public void setTemperature(@jakarta.annotation.Nonnull BigDecimal temperature) {
         this.temperature = temperature;
     }
 
     public GeneratedInteractionDefinition prompts(
-            @javax.annotation.Nonnull List<GeneratedInteractionPromptSegment> prompts) {
+            @jakarta.annotation.Nonnull List<GeneratedInteractionPromptSegment> prompts) {
         this.prompts = prompts;
         return this;
     }
@@ -212,18 +212,18 @@ public class GeneratedInteractionDefinition {
      * Get prompts
      * @return prompts
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<GeneratedInteractionPromptSegment> getPrompts() {
         return prompts;
     }
 
     public void setPrompts(
-            @javax.annotation.Nonnull List<GeneratedInteractionPromptSegment> prompts) {
+            @jakarta.annotation.Nonnull List<GeneratedInteractionPromptSegment> prompts) {
         this.prompts = prompts;
     }
 
     public GeneratedInteractionDefinition maxTokens(
-            @javax.annotation.Nullable BigDecimal maxTokens) {
+            @jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
         return this;
     }
@@ -232,16 +232,16 @@ public class GeneratedInteractionDefinition {
      * Get maxTokens
      * @return maxTokens
      */
-    @javax.annotation.Nullable public BigDecimal getMaxTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxTokens() {
         return maxTokens;
     }
 
-    public void setMaxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public void setMaxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
     }
 
     public GeneratedInteractionDefinition resultSchema(
-            @javax.annotation.Nonnull JSONSchema resultSchema) {
+            @jakarta.annotation.Nonnull JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
         return this;
     }
@@ -250,16 +250,16 @@ public class GeneratedInteractionDefinition {
      * Get resultSchema
      * @return resultSchema
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public JSONSchema getResultSchema() {
         return resultSchema;
     }
 
-    public void setResultSchema(@javax.annotation.Nonnull JSONSchema resultSchema) {
+    public void setResultSchema(@jakarta.annotation.Nonnull JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
     }
 
-    public GeneratedInteractionDefinition tags(@javax.annotation.Nonnull List<TagsEnum> tags) {
+    public GeneratedInteractionDefinition tags(@jakarta.annotation.Nonnull List<TagsEnum> tags) {
         this.tags = tags;
         return this;
     }
@@ -276,12 +276,12 @@ public class GeneratedInteractionDefinition {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<TagsEnum> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nonnull List<TagsEnum> tags) {
+    public void setTags(@jakarta.annotation.Nonnull List<TagsEnum> tags) {
         this.tags = tags;
     }
 

@@ -35,132 +35,132 @@ import java.util.Objects;
 /**
  * WebsiteCredentialRecord
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WebsiteCredentialRecord {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_WEBSITES = "websites";
 
     @SerializedName(SERIALIZED_NAME_WEBSITES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<WebsiteCredentialWebsite> websites = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_USERNAME = "username";
 
     @SerializedName(SERIALIZED_NAME_USERNAME)
-    @javax.annotation.Nullable private String username;
+    @jakarta.annotation.Nullable private String username;
 
     public static final String SERIALIZED_NAME_USERNAME_HINT = "username_hint";
 
     @SerializedName(SERIALIZED_NAME_USERNAME_HINT)
-    @javax.annotation.Nullable private String usernameHint;
+    @jakarta.annotation.Nullable private String usernameHint;
 
     public static final String SERIALIZED_NAME_USERNAME_SECRET = "username_secret";
 
     @SerializedName(SERIALIZED_NAME_USERNAME_SECRET)
-    @javax.annotation.Nullable private Boolean usernameSecret;
+    @jakarta.annotation.Nullable private Boolean usernameSecret;
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nullable private Boolean enabled;
+    @jakarta.annotation.Nullable private Boolean enabled;
 
     public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
 
     @SerializedName(SERIALIZED_NAME_CAPABILITIES)
-    @javax.annotation.Nullable private List<WebsiteCredentialCapability> capabilities = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<WebsiteCredentialCapability> capabilities = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_NOTES = "notes";
 
     @SerializedName(SERIALIZED_NAME_NOTES)
-    @javax.annotation.Nullable private String notes;
+    @jakarta.annotation.Nullable private String notes;
 
     public static final String SERIALIZED_NAME_TOTP = "totp";
 
     @SerializedName(SERIALIZED_NAME_TOTP)
-    @javax.annotation.Nullable private WebsiteCredentialTotpMetadata totp;
+    @jakarta.annotation.Nullable private WebsiteCredentialTotpMetadata totp;
 
     public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
 
     @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
-    @javax.annotation.Nullable private String expiresAt;
+    @jakarta.annotation.Nullable private String expiresAt;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_CREDENTIAL_REF = "credential_ref";
 
     @SerializedName(SERIALIZED_NAME_CREDENTIAL_REF)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String credentialRef;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String project;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nullable private String createdAt;
+    @jakarta.annotation.Nullable private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nullable private String updatedAt;
+    @jakarta.annotation.Nullable private String updatedAt;
 
     public static final String SERIALIZED_NAME_HAS_USERNAME_SECRET = "has_username_secret";
 
     @SerializedName(SERIALIZED_NAME_HAS_USERNAME_SECRET)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean hasUsernameSecret;
 
     public static final String SERIALIZED_NAME_HAS_PASSWORD = "has_password";
 
     @SerializedName(SERIALIZED_NAME_HAS_PASSWORD)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean hasPassword;
 
     public static final String SERIALIZED_NAME_HAS_TOTP = "has_totp";
 
     @SerializedName(SERIALIZED_NAME_HAS_TOTP)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean hasTotp;
 
     public static final String SERIALIZED_NAME_HAS_OAUTH = "has_oauth";
 
     @SerializedName(SERIALIZED_NAME_HAS_OAUTH)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean hasOauth;
 
     public static final String SERIALIZED_NAME_PASSWORD_HINT = "password_hint";
 
     @SerializedName(SERIALIZED_NAME_PASSWORD_HINT)
-    @javax.annotation.Nullable private String passwordHint;
+    @jakarta.annotation.Nullable private String passwordHint;
 
     public WebsiteCredentialRecord() {}
 
-    public WebsiteCredentialRecord name(@javax.annotation.Nonnull String name) {
+    public WebsiteCredentialRecord name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -169,17 +169,17 @@ public class WebsiteCredentialRecord {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
     public WebsiteCredentialRecord websites(
-            @javax.annotation.Nonnull List<WebsiteCredentialWebsite> websites) {
+            @jakarta.annotation.Nonnull List<WebsiteCredentialWebsite> websites) {
         this.websites = websites;
         return this;
     }
@@ -196,16 +196,16 @@ public class WebsiteCredentialRecord {
      * Get websites
      * @return websites
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<WebsiteCredentialWebsite> getWebsites() {
         return websites;
     }
 
-    public void setWebsites(@javax.annotation.Nonnull List<WebsiteCredentialWebsite> websites) {
+    public void setWebsites(@jakarta.annotation.Nonnull List<WebsiteCredentialWebsite> websites) {
         this.websites = websites;
     }
 
-    public WebsiteCredentialRecord username(@javax.annotation.Nullable String username) {
+    public WebsiteCredentialRecord username(@jakarta.annotation.Nullable String username) {
         this.username = username;
         return this;
     }
@@ -214,15 +214,15 @@ public class WebsiteCredentialRecord {
      * Get username
      * @return username
      */
-    @javax.annotation.Nullable public String getUsername() {
+    @jakarta.annotation.Nullable public String getUsername() {
         return username;
     }
 
-    public void setUsername(@javax.annotation.Nullable String username) {
+    public void setUsername(@jakarta.annotation.Nullable String username) {
         this.username = username;
     }
 
-    public WebsiteCredentialRecord usernameHint(@javax.annotation.Nullable String usernameHint) {
+    public WebsiteCredentialRecord usernameHint(@jakarta.annotation.Nullable String usernameHint) {
         this.usernameHint = usernameHint;
         return this;
     }
@@ -231,16 +231,16 @@ public class WebsiteCredentialRecord {
      * Get usernameHint
      * @return usernameHint
      */
-    @javax.annotation.Nullable public String getUsernameHint() {
+    @jakarta.annotation.Nullable public String getUsernameHint() {
         return usernameHint;
     }
 
-    public void setUsernameHint(@javax.annotation.Nullable String usernameHint) {
+    public void setUsernameHint(@jakarta.annotation.Nullable String usernameHint) {
         this.usernameHint = usernameHint;
     }
 
     public WebsiteCredentialRecord usernameSecret(
-            @javax.annotation.Nullable Boolean usernameSecret) {
+            @jakarta.annotation.Nullable Boolean usernameSecret) {
         this.usernameSecret = usernameSecret;
         return this;
     }
@@ -249,16 +249,16 @@ public class WebsiteCredentialRecord {
      * Get usernameSecret
      * @return usernameSecret
      */
-    @javax.annotation.Nullable public Boolean getUsernameSecret() {
+    @jakarta.annotation.Nullable public Boolean getUsernameSecret() {
         return usernameSecret;
     }
 
-    public void setUsernameSecret(@javax.annotation.Nullable Boolean usernameSecret) {
+    public void setUsernameSecret(@jakarta.annotation.Nullable Boolean usernameSecret) {
         this.usernameSecret = usernameSecret;
     }
 
     public WebsiteCredentialRecord properties(
-            @javax.annotation.Nullable Map<String, Object> properties) {
+            @jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
         return this;
     }
@@ -275,15 +275,15 @@ public class WebsiteCredentialRecord {
      * Get properties
      * @return properties
      */
-    @javax.annotation.Nullable public Map<String, Object> getProperties() {
+    @jakarta.annotation.Nullable public Map<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public void setProperties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
     }
 
-    public WebsiteCredentialRecord tags(@javax.annotation.Nullable List<String> tags) {
+    public WebsiteCredentialRecord tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -300,15 +300,15 @@ public class WebsiteCredentialRecord {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public WebsiteCredentialRecord enabled(@javax.annotation.Nullable Boolean enabled) {
+    public WebsiteCredentialRecord enabled(@jakarta.annotation.Nullable Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -317,16 +317,16 @@ public class WebsiteCredentialRecord {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nullable public Boolean getEnabled() {
+    @jakarta.annotation.Nullable public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nullable Boolean enabled) {
         this.enabled = enabled;
     }
 
     public WebsiteCredentialRecord capabilities(
-            @javax.annotation.Nullable List<WebsiteCredentialCapability> capabilities) {
+            @jakarta.annotation.Nullable List<WebsiteCredentialCapability> capabilities) {
         this.capabilities = capabilities;
         return this;
     }
@@ -344,16 +344,16 @@ public class WebsiteCredentialRecord {
      * Get capabilities
      * @return capabilities
      */
-    @javax.annotation.Nullable public List<WebsiteCredentialCapability> getCapabilities() {
+    @jakarta.annotation.Nullable public List<WebsiteCredentialCapability> getCapabilities() {
         return capabilities;
     }
 
     public void setCapabilities(
-            @javax.annotation.Nullable List<WebsiteCredentialCapability> capabilities) {
+            @jakarta.annotation.Nullable List<WebsiteCredentialCapability> capabilities) {
         this.capabilities = capabilities;
     }
 
-    public WebsiteCredentialRecord notes(@javax.annotation.Nullable String notes) {
+    public WebsiteCredentialRecord notes(@jakarta.annotation.Nullable String notes) {
         this.notes = notes;
         return this;
     }
@@ -362,16 +362,16 @@ public class WebsiteCredentialRecord {
      * Get notes
      * @return notes
      */
-    @javax.annotation.Nullable public String getNotes() {
+    @jakarta.annotation.Nullable public String getNotes() {
         return notes;
     }
 
-    public void setNotes(@javax.annotation.Nullable String notes) {
+    public void setNotes(@jakarta.annotation.Nullable String notes) {
         this.notes = notes;
     }
 
     public WebsiteCredentialRecord totp(
-            @javax.annotation.Nullable WebsiteCredentialTotpMetadata totp) {
+            @jakarta.annotation.Nullable WebsiteCredentialTotpMetadata totp) {
         this.totp = totp;
         return this;
     }
@@ -380,15 +380,15 @@ public class WebsiteCredentialRecord {
      * Get totp
      * @return totp
      */
-    @javax.annotation.Nullable public WebsiteCredentialTotpMetadata getTotp() {
+    @jakarta.annotation.Nullable public WebsiteCredentialTotpMetadata getTotp() {
         return totp;
     }
 
-    public void setTotp(@javax.annotation.Nullable WebsiteCredentialTotpMetadata totp) {
+    public void setTotp(@jakarta.annotation.Nullable WebsiteCredentialTotpMetadata totp) {
         this.totp = totp;
     }
 
-    public WebsiteCredentialRecord expiresAt(@javax.annotation.Nullable String expiresAt) {
+    public WebsiteCredentialRecord expiresAt(@jakarta.annotation.Nullable String expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -397,15 +397,15 @@ public class WebsiteCredentialRecord {
      * Optional ISO timestamp after which the credential is no longer usable. Expired credentials are hidden from lookup and cannot be filled.
      * @return expiresAt
      */
-    @javax.annotation.Nullable public String getExpiresAt() {
+    @jakarta.annotation.Nullable public String getExpiresAt() {
         return expiresAt;
     }
 
-    public void setExpiresAt(@javax.annotation.Nullable String expiresAt) {
+    public void setExpiresAt(@jakarta.annotation.Nullable String expiresAt) {
         this.expiresAt = expiresAt;
     }
 
-    public WebsiteCredentialRecord id(@javax.annotation.Nonnull String id) {
+    public WebsiteCredentialRecord id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -414,16 +414,16 @@ public class WebsiteCredentialRecord {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public WebsiteCredentialRecord credentialRef(@javax.annotation.Nonnull String credentialRef) {
+    public WebsiteCredentialRecord credentialRef(@jakarta.annotation.Nonnull String credentialRef) {
         this.credentialRef = credentialRef;
         return this;
     }
@@ -432,16 +432,16 @@ public class WebsiteCredentialRecord {
      * Get credentialRef
      * @return credentialRef
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCredentialRef() {
         return credentialRef;
     }
 
-    public void setCredentialRef(@javax.annotation.Nonnull String credentialRef) {
+    public void setCredentialRef(@jakarta.annotation.Nonnull String credentialRef) {
         this.credentialRef = credentialRef;
     }
 
-    public WebsiteCredentialRecord project(@javax.annotation.Nonnull String project) {
+    public WebsiteCredentialRecord project(@jakarta.annotation.Nonnull String project) {
         this.project = project;
         return this;
     }
@@ -450,16 +450,16 @@ public class WebsiteCredentialRecord {
      * Get project
      * @return project
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nonnull String project) {
+    public void setProject(@jakarta.annotation.Nonnull String project) {
         this.project = project;
     }
 
-    public WebsiteCredentialRecord createdAt(@javax.annotation.Nullable String createdAt) {
+    public WebsiteCredentialRecord createdAt(@jakarta.annotation.Nullable String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -468,15 +468,15 @@ public class WebsiteCredentialRecord {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nullable public String getCreatedAt() {
+    @jakarta.annotation.Nullable public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nullable String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nullable String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public WebsiteCredentialRecord updatedAt(@javax.annotation.Nullable String updatedAt) {
+    public WebsiteCredentialRecord updatedAt(@jakarta.annotation.Nullable String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -485,16 +485,16 @@ public class WebsiteCredentialRecord {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nullable public String getUpdatedAt() {
+    @jakarta.annotation.Nullable public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nullable String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nullable String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
     public WebsiteCredentialRecord hasUsernameSecret(
-            @javax.annotation.Nonnull Boolean hasUsernameSecret) {
+            @jakarta.annotation.Nonnull Boolean hasUsernameSecret) {
         this.hasUsernameSecret = hasUsernameSecret;
         return this;
     }
@@ -503,16 +503,16 @@ public class WebsiteCredentialRecord {
      * Get hasUsernameSecret
      * @return hasUsernameSecret
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getHasUsernameSecret() {
         return hasUsernameSecret;
     }
 
-    public void setHasUsernameSecret(@javax.annotation.Nonnull Boolean hasUsernameSecret) {
+    public void setHasUsernameSecret(@jakarta.annotation.Nonnull Boolean hasUsernameSecret) {
         this.hasUsernameSecret = hasUsernameSecret;
     }
 
-    public WebsiteCredentialRecord hasPassword(@javax.annotation.Nonnull Boolean hasPassword) {
+    public WebsiteCredentialRecord hasPassword(@jakarta.annotation.Nonnull Boolean hasPassword) {
         this.hasPassword = hasPassword;
         return this;
     }
@@ -521,16 +521,16 @@ public class WebsiteCredentialRecord {
      * Get hasPassword
      * @return hasPassword
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getHasPassword() {
         return hasPassword;
     }
 
-    public void setHasPassword(@javax.annotation.Nonnull Boolean hasPassword) {
+    public void setHasPassword(@jakarta.annotation.Nonnull Boolean hasPassword) {
         this.hasPassword = hasPassword;
     }
 
-    public WebsiteCredentialRecord hasTotp(@javax.annotation.Nonnull Boolean hasTotp) {
+    public WebsiteCredentialRecord hasTotp(@jakarta.annotation.Nonnull Boolean hasTotp) {
         this.hasTotp = hasTotp;
         return this;
     }
@@ -539,16 +539,16 @@ public class WebsiteCredentialRecord {
      * Get hasTotp
      * @return hasTotp
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getHasTotp() {
         return hasTotp;
     }
 
-    public void setHasTotp(@javax.annotation.Nonnull Boolean hasTotp) {
+    public void setHasTotp(@jakarta.annotation.Nonnull Boolean hasTotp) {
         this.hasTotp = hasTotp;
     }
 
-    public WebsiteCredentialRecord hasOauth(@javax.annotation.Nonnull Boolean hasOauth) {
+    public WebsiteCredentialRecord hasOauth(@jakarta.annotation.Nonnull Boolean hasOauth) {
         this.hasOauth = hasOauth;
         return this;
     }
@@ -557,16 +557,16 @@ public class WebsiteCredentialRecord {
      * Get hasOauth
      * @return hasOauth
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getHasOauth() {
         return hasOauth;
     }
 
-    public void setHasOauth(@javax.annotation.Nonnull Boolean hasOauth) {
+    public void setHasOauth(@jakarta.annotation.Nonnull Boolean hasOauth) {
         this.hasOauth = hasOauth;
     }
 
-    public WebsiteCredentialRecord passwordHint(@javax.annotation.Nullable String passwordHint) {
+    public WebsiteCredentialRecord passwordHint(@jakarta.annotation.Nullable String passwordHint) {
         this.passwordHint = passwordHint;
         return this;
     }
@@ -575,11 +575,11 @@ public class WebsiteCredentialRecord {
      * Get passwordHint
      * @return passwordHint
      */
-    @javax.annotation.Nullable public String getPasswordHint() {
+    @jakarta.annotation.Nullable public String getPasswordHint() {
         return passwordHint;
     }
 
-    public void setPasswordHint(@javax.annotation.Nullable String passwordHint) {
+    public void setPasswordHint(@jakarta.annotation.Nullable String passwordHint) {
         this.passwordHint = passwordHint;
     }
 

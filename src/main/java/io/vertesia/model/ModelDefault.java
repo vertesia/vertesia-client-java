@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * Environment and model pair for a default configuration.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ModelDefault {
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String environment;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String model;
 
     public ModelDefault() {}
 
-    public ModelDefault environment(@javax.annotation.Nonnull String environment) {
+    public ModelDefault environment(@jakarta.annotation.Nonnull String environment) {
         this.environment = environment;
         return this;
     }
@@ -57,16 +57,16 @@ public class ModelDefault {
      * Get environment
      * @return environment
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@javax.annotation.Nonnull String environment) {
+    public void setEnvironment(@jakarta.annotation.Nonnull String environment) {
         this.environment = environment;
     }
 
-    public ModelDefault model(@javax.annotation.Nonnull String model) {
+    public ModelDefault model(@jakarta.annotation.Nonnull String model) {
         this.model = model;
         return this;
     }
@@ -75,12 +75,12 @@ public class ModelDefault {
      * Get model
      * @return model
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nonnull String model) {
+    public void setModel(@jakarta.annotation.Nonnull String model) {
         this.model = model;
     }
 

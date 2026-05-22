@@ -31,25 +31,25 @@ import java.util.Objects;
 /**
  * DeleteOperationResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DeleteOperationResult {
     public static final String SERIALIZED_NAME_ACKNOWLEDGED = "acknowledged";
 
     @SerializedName(SERIALIZED_NAME_ACKNOWLEDGED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean acknowledged;
 
     public static final String SERIALIZED_NAME_DELETED_COUNT = "deletedCount";
 
     @SerializedName(SERIALIZED_NAME_DELETED_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal deletedCount;
 
     public DeleteOperationResult() {}
 
-    public DeleteOperationResult acknowledged(@javax.annotation.Nonnull Boolean acknowledged) {
+    public DeleteOperationResult acknowledged(@jakarta.annotation.Nonnull Boolean acknowledged) {
         this.acknowledged = acknowledged;
         return this;
     }
@@ -58,16 +58,16 @@ public class DeleteOperationResult {
      * Get acknowledged
      * @return acknowledged
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getAcknowledged() {
         return acknowledged;
     }
 
-    public void setAcknowledged(@javax.annotation.Nonnull Boolean acknowledged) {
+    public void setAcknowledged(@jakarta.annotation.Nonnull Boolean acknowledged) {
         this.acknowledged = acknowledged;
     }
 
-    public DeleteOperationResult deletedCount(@javax.annotation.Nonnull BigDecimal deletedCount) {
+    public DeleteOperationResult deletedCount(@jakarta.annotation.Nonnull BigDecimal deletedCount) {
         this.deletedCount = deletedCount;
         return this;
     }
@@ -76,12 +76,12 @@ public class DeleteOperationResult {
      * Get deletedCount
      * @return deletedCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getDeletedCount() {
         return deletedCount;
     }
 
-    public void setDeletedCount(@javax.annotation.Nonnull BigDecimal deletedCount) {
+    public void setDeletedCount(@jakarta.annotation.Nonnull BigDecimal deletedCount) {
         this.deletedCount = deletedCount;
     }
 

@@ -32,72 +32,72 @@ import java.util.Objects;
 /**
  * ResendConfiguration
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ResendConfiguration {
     public static final String SERIALIZED_NAME_INTEGRATION = "integration";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SupportedIntegrationsResend integration;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean enabled;
 
     public static final String SERIALIZED_NAME_HAS_API_KEY = "has_api_key";
 
     @SerializedName(SERIALIZED_NAME_HAS_API_KEY)
-    @javax.annotation.Nullable private Boolean hasApiKey;
+    @jakarta.annotation.Nullable private Boolean hasApiKey;
 
     public static final String SERIALIZED_NAME_API_KEY_HINT = "api_key_hint";
 
     @SerializedName(SERIALIZED_NAME_API_KEY_HINT)
-    @javax.annotation.Nullable private String apiKeyHint;
+    @jakarta.annotation.Nullable private String apiKeyHint;
 
     public static final String SERIALIZED_NAME_EMAIL_DOMAIN = "email_domain";
 
     @SerializedName(SERIALIZED_NAME_EMAIL_DOMAIN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String emailDomain;
 
     public static final String SERIALIZED_NAME_DEFAULT_FROM_NAME = "default_from_name";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT_FROM_NAME)
-    @javax.annotation.Nullable private String defaultFromName;
+    @jakarta.annotation.Nullable private String defaultFromName;
 
     public static final String SERIALIZED_NAME_HAS_WEBHOOK_SECRET = "has_webhook_secret";
 
     @SerializedName(SERIALIZED_NAME_HAS_WEBHOOK_SECRET)
-    @javax.annotation.Nullable private Boolean hasWebhookSecret;
+    @jakarta.annotation.Nullable private Boolean hasWebhookSecret;
 
     public static final String SERIALIZED_NAME_WEBHOOK_SECRET_HINT = "webhook_secret_hint";
 
     @SerializedName(SERIALIZED_NAME_WEBHOOK_SECRET_HINT)
-    @javax.annotation.Nullable private String webhookSecretHint;
+    @jakarta.annotation.Nullable private String webhookSecretHint;
 
     public static final String SERIALIZED_NAME_ALLOWED_SENDER_DOMAINS = "allowed_sender_domains";
 
     @SerializedName(SERIALIZED_NAME_ALLOWED_SENDER_DOMAINS)
-    @javax.annotation.Nullable private List<String> allowedSenderDomains = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> allowedSenderDomains = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_REQUIRE_PROJECT_ACCESS = "require_project_access";
 
     @SerializedName(SERIALIZED_NAME_REQUIRE_PROJECT_ACCESS)
-    @javax.annotation.Nullable private Boolean requireProjectAccess;
+    @jakarta.annotation.Nullable private Boolean requireProjectAccess;
 
     public static final String SERIALIZED_NAME_REQUIRE_EMAIL_AUTH = "require_email_auth";
 
     @SerializedName(SERIALIZED_NAME_REQUIRE_EMAIL_AUTH)
-    @javax.annotation.Nullable private Boolean requireEmailAuth;
+    @jakarta.annotation.Nullable private Boolean requireEmailAuth;
 
     public ResendConfiguration() {}
 
     public ResendConfiguration integration(
-            @javax.annotation.Nonnull SupportedIntegrationsResend integration) {
+            @jakarta.annotation.Nonnull SupportedIntegrationsResend integration) {
         this.integration = integration;
         return this;
     }
@@ -106,16 +106,17 @@ public class ResendConfiguration {
      * Get integration
      * @return integration
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SupportedIntegrationsResend getIntegration() {
         return integration;
     }
 
-    public void setIntegration(@javax.annotation.Nonnull SupportedIntegrationsResend integration) {
+    public void setIntegration(
+            @jakarta.annotation.Nonnull SupportedIntegrationsResend integration) {
         this.integration = integration;
     }
 
-    public ResendConfiguration enabled(@javax.annotation.Nonnull Boolean enabled) {
+    public ResendConfiguration enabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -124,16 +125,16 @@ public class ResendConfiguration {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public ResendConfiguration hasApiKey(@javax.annotation.Nullable Boolean hasApiKey) {
+    public ResendConfiguration hasApiKey(@jakarta.annotation.Nullable Boolean hasApiKey) {
         this.hasApiKey = hasApiKey;
         return this;
     }
@@ -142,15 +143,15 @@ public class ResendConfiguration {
      * Get hasApiKey
      * @return hasApiKey
      */
-    @javax.annotation.Nullable public Boolean getHasApiKey() {
+    @jakarta.annotation.Nullable public Boolean getHasApiKey() {
         return hasApiKey;
     }
 
-    public void setHasApiKey(@javax.annotation.Nullable Boolean hasApiKey) {
+    public void setHasApiKey(@jakarta.annotation.Nullable Boolean hasApiKey) {
         this.hasApiKey = hasApiKey;
     }
 
-    public ResendConfiguration apiKeyHint(@javax.annotation.Nullable String apiKeyHint) {
+    public ResendConfiguration apiKeyHint(@jakarta.annotation.Nullable String apiKeyHint) {
         this.apiKeyHint = apiKeyHint;
         return this;
     }
@@ -159,15 +160,15 @@ public class ResendConfiguration {
      * Get apiKeyHint
      * @return apiKeyHint
      */
-    @javax.annotation.Nullable public String getApiKeyHint() {
+    @jakarta.annotation.Nullable public String getApiKeyHint() {
         return apiKeyHint;
     }
 
-    public void setApiKeyHint(@javax.annotation.Nullable String apiKeyHint) {
+    public void setApiKeyHint(@jakarta.annotation.Nullable String apiKeyHint) {
         this.apiKeyHint = apiKeyHint;
     }
 
-    public ResendConfiguration emailDomain(@javax.annotation.Nonnull String emailDomain) {
+    public ResendConfiguration emailDomain(@jakarta.annotation.Nonnull String emailDomain) {
         this.emailDomain = emailDomain;
         return this;
     }
@@ -176,16 +177,17 @@ public class ResendConfiguration {
      * Domain for email (both sending and receiving). Must be verified in Resend.
      * @return emailDomain
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getEmailDomain() {
         return emailDomain;
     }
 
-    public void setEmailDomain(@javax.annotation.Nonnull String emailDomain) {
+    public void setEmailDomain(@jakarta.annotation.Nonnull String emailDomain) {
         this.emailDomain = emailDomain;
     }
 
-    public ResendConfiguration defaultFromName(@javax.annotation.Nullable String defaultFromName) {
+    public ResendConfiguration defaultFromName(
+            @jakarta.annotation.Nullable String defaultFromName) {
         this.defaultFromName = defaultFromName;
         return this;
     }
@@ -194,16 +196,16 @@ public class ResendConfiguration {
      * Default display name for outgoing emails (e.g., \&quot;Vertesia - Project Name\&quot;)
      * @return defaultFromName
      */
-    @javax.annotation.Nullable public String getDefaultFromName() {
+    @jakarta.annotation.Nullable public String getDefaultFromName() {
         return defaultFromName;
     }
 
-    public void setDefaultFromName(@javax.annotation.Nullable String defaultFromName) {
+    public void setDefaultFromName(@jakarta.annotation.Nullable String defaultFromName) {
         this.defaultFromName = defaultFromName;
     }
 
     public ResendConfiguration hasWebhookSecret(
-            @javax.annotation.Nullable Boolean hasWebhookSecret) {
+            @jakarta.annotation.Nullable Boolean hasWebhookSecret) {
         this.hasWebhookSecret = hasWebhookSecret;
         return this;
     }
@@ -212,16 +214,16 @@ public class ResendConfiguration {
      * Get hasWebhookSecret
      * @return hasWebhookSecret
      */
-    @javax.annotation.Nullable public Boolean getHasWebhookSecret() {
+    @jakarta.annotation.Nullable public Boolean getHasWebhookSecret() {
         return hasWebhookSecret;
     }
 
-    public void setHasWebhookSecret(@javax.annotation.Nullable Boolean hasWebhookSecret) {
+    public void setHasWebhookSecret(@jakarta.annotation.Nullable Boolean hasWebhookSecret) {
         this.hasWebhookSecret = hasWebhookSecret;
     }
 
     public ResendConfiguration webhookSecretHint(
-            @javax.annotation.Nullable String webhookSecretHint) {
+            @jakarta.annotation.Nullable String webhookSecretHint) {
         this.webhookSecretHint = webhookSecretHint;
         return this;
     }
@@ -230,16 +232,16 @@ public class ResendConfiguration {
      * Get webhookSecretHint
      * @return webhookSecretHint
      */
-    @javax.annotation.Nullable public String getWebhookSecretHint() {
+    @jakarta.annotation.Nullable public String getWebhookSecretHint() {
         return webhookSecretHint;
     }
 
-    public void setWebhookSecretHint(@javax.annotation.Nullable String webhookSecretHint) {
+    public void setWebhookSecretHint(@jakarta.annotation.Nullable String webhookSecretHint) {
         this.webhookSecretHint = webhookSecretHint;
     }
 
     public ResendConfiguration allowedSenderDomains(
-            @javax.annotation.Nullable List<String> allowedSenderDomains) {
+            @jakarta.annotation.Nullable List<String> allowedSenderDomains) {
         this.allowedSenderDomains = allowedSenderDomains;
         return this;
     }
@@ -256,17 +258,17 @@ public class ResendConfiguration {
      * Domains allowed to send emails TO start agents (for inbound validation)
      * @return allowedSenderDomains
      */
-    @javax.annotation.Nullable public List<String> getAllowedSenderDomains() {
+    @jakarta.annotation.Nullable public List<String> getAllowedSenderDomains() {
         return allowedSenderDomains;
     }
 
     public void setAllowedSenderDomains(
-            @javax.annotation.Nullable List<String> allowedSenderDomains) {
+            @jakarta.annotation.Nullable List<String> allowedSenderDomains) {
         this.allowedSenderDomains = allowedSenderDomains;
     }
 
     public ResendConfiguration requireProjectAccess(
-            @javax.annotation.Nullable Boolean requireProjectAccess) {
+            @jakarta.annotation.Nullable Boolean requireProjectAccess) {
         this.requireProjectAccess = requireProjectAccess;
         return this;
     }
@@ -275,16 +277,16 @@ public class ResendConfiguration {
      * Require sender to have project access to start agents via email (default: true)
      * @return requireProjectAccess
      */
-    @javax.annotation.Nullable public Boolean getRequireProjectAccess() {
+    @jakarta.annotation.Nullable public Boolean getRequireProjectAccess() {
         return requireProjectAccess;
     }
 
-    public void setRequireProjectAccess(@javax.annotation.Nullable Boolean requireProjectAccess) {
+    public void setRequireProjectAccess(@jakarta.annotation.Nullable Boolean requireProjectAccess) {
         this.requireProjectAccess = requireProjectAccess;
     }
 
     public ResendConfiguration requireEmailAuth(
-            @javax.annotation.Nullable Boolean requireEmailAuth) {
+            @jakarta.annotation.Nullable Boolean requireEmailAuth) {
         this.requireEmailAuth = requireEmailAuth;
         return this;
     }
@@ -293,11 +295,11 @@ public class ResendConfiguration {
      * Require DKIM/SPF authentication to pass for inbound emails (default: true)
      * @return requireEmailAuth
      */
-    @javax.annotation.Nullable public Boolean getRequireEmailAuth() {
+    @jakarta.annotation.Nullable public Boolean getRequireEmailAuth() {
         return requireEmailAuth;
     }
 
-    public void setRequireEmailAuth(@javax.annotation.Nullable Boolean requireEmailAuth) {
+    public void setRequireEmailAuth(@jakarta.annotation.Nullable Boolean requireEmailAuth) {
         this.requireEmailAuth = requireEmailAuth;
     }
 

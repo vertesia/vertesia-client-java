@@ -33,47 +33,47 @@ import java.util.Objects;
 /**
  * Complete schema definition for a data store.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataSchema {
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String version;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TABLES = "tables";
 
     @SerializedName(SERIALIZED_NAME_TABLES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<DataTable> tables = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_RELATIONSHIPS = "relationships";
 
     @SerializedName(SERIALIZED_NAME_RELATIONSHIPS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<DataRelationship> relationships = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nullable private String updatedBy;
+    @jakarta.annotation.Nullable private String updatedBy;
 
     public DataSchema() {}
 
-    public DataSchema version(@javax.annotation.Nonnull String version) {
+    public DataSchema version(@jakarta.annotation.Nonnull String version) {
         this.version = version;
         return this;
     }
@@ -82,16 +82,16 @@ public class DataSchema {
      * Semantic version (e.g., \&quot;1.2.0\&quot;)
      * @return version
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getVersion() {
         return version;
     }
 
-    public void setVersion(@javax.annotation.Nonnull String version) {
+    public void setVersion(@jakarta.annotation.Nonnull String version) {
         this.version = version;
     }
 
-    public DataSchema description(@javax.annotation.Nullable String description) {
+    public DataSchema description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -100,15 +100,15 @@ public class DataSchema {
      * Schema description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public DataSchema tables(@javax.annotation.Nonnull List<DataTable> tables) {
+    public DataSchema tables(@jakarta.annotation.Nonnull List<DataTable> tables) {
         this.tables = tables;
         return this;
     }
@@ -125,17 +125,17 @@ public class DataSchema {
      * Table definitions
      * @return tables
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<DataTable> getTables() {
         return tables;
     }
 
-    public void setTables(@javax.annotation.Nonnull List<DataTable> tables) {
+    public void setTables(@jakarta.annotation.Nonnull List<DataTable> tables) {
         this.tables = tables;
     }
 
     public DataSchema relationships(
-            @javax.annotation.Nonnull List<DataRelationship> relationships) {
+            @jakarta.annotation.Nonnull List<DataRelationship> relationships) {
         this.relationships = relationships;
         return this;
     }
@@ -152,16 +152,16 @@ public class DataSchema {
      * Relationship definitions
      * @return relationships
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<DataRelationship> getRelationships() {
         return relationships;
     }
 
-    public void setRelationships(@javax.annotation.Nonnull List<DataRelationship> relationships) {
+    public void setRelationships(@jakarta.annotation.Nonnull List<DataRelationship> relationships) {
         this.relationships = relationships;
     }
 
-    public DataSchema updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public DataSchema updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -170,16 +170,16 @@ public class DataSchema {
      * Last update timestamp
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public DataSchema updatedBy(@javax.annotation.Nullable String updatedBy) {
+    public DataSchema updatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -188,11 +188,11 @@ public class DataSchema {
      * User/agent who last updated
      * @return updatedBy
      */
-    @javax.annotation.Nullable public String getUpdatedBy() {
+    @jakarta.annotation.Nullable public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nullable String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
     }
 

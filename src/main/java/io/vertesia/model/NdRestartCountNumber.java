@@ -31,19 +31,19 @@ import java.util.Objects;
 /**
  * NdRestartCountNumber
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class NdRestartCountNumber {
     public static final String SERIALIZED_NAME_ND_RESTART_COUNT = "nd_restart_count";
 
     @SerializedName(SERIALIZED_NAME_ND_RESTART_COUNT)
-    @javax.annotation.Nullable private BigDecimal ndRestartCount;
+    @jakarta.annotation.Nullable private BigDecimal ndRestartCount;
 
     public NdRestartCountNumber() {}
 
     public NdRestartCountNumber ndRestartCount(
-            @javax.annotation.Nullable BigDecimal ndRestartCount) {
+            @jakarta.annotation.Nullable BigDecimal ndRestartCount) {
         this.ndRestartCount = ndRestartCount;
         return this;
     }
@@ -52,11 +52,11 @@ public class NdRestartCountNumber {
      * Get ndRestartCount
      * @return ndRestartCount
      */
-    @javax.annotation.Nullable public BigDecimal getNdRestartCount() {
+    @jakarta.annotation.Nullable public BigDecimal getNdRestartCount() {
         return ndRestartCount;
     }
 
-    public void setNdRestartCount(@javax.annotation.Nullable BigDecimal ndRestartCount) {
+    public void setNdRestartCount(@jakarta.annotation.Nullable BigDecimal ndRestartCount) {
         this.ndRestartCount = ndRestartCount;
     }
 

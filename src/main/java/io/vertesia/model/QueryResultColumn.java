@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * Column metadata in query results.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class QueryResultColumn {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String type;
 
     public QueryResultColumn() {}
 
-    public QueryResultColumn name(@javax.annotation.Nonnull String name) {
+    public QueryResultColumn name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -57,16 +57,16 @@ public class QueryResultColumn {
      * Column name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public QueryResultColumn type(@javax.annotation.Nonnull String type) {
+    public QueryResultColumn type(@jakarta.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -75,12 +75,12 @@ public class QueryResultColumn {
      * Column type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull String type) {
+    public void setType(@jakarta.annotation.Nonnull String type) {
         this.type = type;
     }
 

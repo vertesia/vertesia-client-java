@@ -32,23 +32,23 @@ import java.util.Objects;
 /**
  * ProcessNodeReturnsDefinition
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProcessNodeReturnsDefinition {
     public static final String SERIALIZED_NAME_FROM = "from";
 
     @SerializedName(SERIALIZED_NAME_FROM)
-    @javax.annotation.Nullable private String from;
+    @jakarta.annotation.Nullable private String from;
 
     public static final String SERIALIZED_NAME_CONTEXT = "context";
 
     @SerializedName(SERIALIZED_NAME_CONTEXT)
-    @javax.annotation.Nullable private List<String> context = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> context = new ArrayList<>();
 
     public ProcessNodeReturnsDefinition() {}
 
-    public ProcessNodeReturnsDefinition from(@javax.annotation.Nullable String from) {
+    public ProcessNodeReturnsDefinition from(@jakarta.annotation.Nullable String from) {
         this.from = from;
         return this;
     }
@@ -57,15 +57,15 @@ public class ProcessNodeReturnsDefinition {
      * Path to read from the completed child process state. Use &#x60;context.foo&#x60; for child context values or &#x60;state.sequence&#x60; for process-state fields. If omitted, the child context is used as the node output.
      * @return from
      */
-    @javax.annotation.Nullable public String getFrom() {
+    @jakarta.annotation.Nullable public String getFrom() {
         return from;
     }
 
-    public void setFrom(@javax.annotation.Nullable String from) {
+    public void setFrom(@jakarta.annotation.Nullable String from) {
         this.from = from;
     }
 
-    public ProcessNodeReturnsDefinition context(@javax.annotation.Nullable List<String> context) {
+    public ProcessNodeReturnsDefinition context(@jakarta.annotation.Nullable List<String> context) {
         this.context = context;
         return this;
     }
@@ -82,11 +82,11 @@ public class ProcessNodeReturnsDefinition {
      * Select specific fields from the completed child process context. Ignored when &#x60;from&#x60; is set.
      * @return context
      */
-    @javax.annotation.Nullable public List<String> getContext() {
+    @jakarta.annotation.Nullable public List<String> getContext() {
         return context;
     }
 
-    public void setContext(@javax.annotation.Nullable List<String> context) {
+    public void setContext(@jakarta.annotation.Nullable List<String> context) {
         this.context = context;
     }
 

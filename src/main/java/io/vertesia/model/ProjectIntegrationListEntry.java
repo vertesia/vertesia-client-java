@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * ProjectIntegrationListEntry
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProjectIntegrationListEntry {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SupportedIntegrations id;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean enabled;
 
     public ProjectIntegrationListEntry() {}
 
-    public ProjectIntegrationListEntry id(@javax.annotation.Nonnull SupportedIntegrations id) {
+    public ProjectIntegrationListEntry id(@jakarta.annotation.Nonnull SupportedIntegrations id) {
         this.id = id;
         return this;
     }
@@ -57,16 +57,16 @@ public class ProjectIntegrationListEntry {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SupportedIntegrations getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull SupportedIntegrations id) {
+    public void setId(@jakarta.annotation.Nonnull SupportedIntegrations id) {
         this.id = id;
     }
 
-    public ProjectIntegrationListEntry enabled(@javax.annotation.Nonnull Boolean enabled) {
+    public ProjectIntegrationListEntry enabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -75,12 +75,12 @@ public class ProjectIntegrationListEntry {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
     }
 

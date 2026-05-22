@@ -35,133 +35,133 @@ import java.util.Objects;
 /**
  * ContentObjectItemApiResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ContentObjectItemApiResponse {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private String parent;
+    @jakarta.annotation.Nullable private String parent;
 
     public static final String SERIALIZED_NAME_LOCATION = "location";
 
     @SerializedName(SERIALIZED_NAME_LOCATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String location;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ContentObjectStatus status;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private ContentObjectTypeRef type;
+    @jakarta.annotation.Nullable private ContentObjectTypeRef type;
 
     public static final String SERIALIZED_NAME_CONTENT = "content";
 
     @SerializedName(SERIALIZED_NAME_CONTENT)
-    @javax.annotation.Nullable private ContentSource content;
+    @jakarta.annotation.Nullable private ContentSource content;
 
     public static final String SERIALIZED_NAME_EXTERNAL_ID = "external_id";
 
     @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
-    @javax.annotation.Nullable private String externalId;
+    @jakarta.annotation.Nullable private String externalId;
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> properties = new HashMap<>();
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @javax.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
 
     public static final String SERIALIZED_NAME_TOKENS = "tokens";
 
     @SerializedName(SERIALIZED_NAME_TOKENS)
-    @javax.annotation.Nullable private ContentObjectApiResponseTokens tokens;
+    @jakarta.annotation.Nullable private ContentObjectApiResponseTokens tokens;
 
     public static final String SERIALIZED_NAME_REVISION = "revision";
 
     @SerializedName(SERIALIZED_NAME_REVISION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ContentObjectApiRevision revision;
 
     public static final String SERIALIZED_NAME_IS_DELETED = "is_deleted";
 
     @SerializedName(SERIALIZED_NAME_IS_DELETED)
-    @javax.annotation.Nullable private Boolean isDeleted;
+    @jakarta.annotation.Nullable private Boolean isDeleted;
 
     public static final String SERIALIZED_NAME_IS_LOCKED = "is_locked";
 
     @SerializedName(SERIALIZED_NAME_IS_LOCKED)
-    @javax.annotation.Nullable private Boolean isLocked;
+    @jakarta.annotation.Nullable private Boolean isLocked;
 
     public static final String SERIALIZED_NAME_SCORE = "score";
 
     @SerializedName(SERIALIZED_NAME_SCORE)
-    @javax.annotation.Nullable private BigDecimal score;
+    @jakarta.annotation.Nullable private BigDecimal score;
 
     public static final String SERIALIZED_NAME_USER_PERMISSIONS = "user_permissions";
 
     @SerializedName(SERIALIZED_NAME_USER_PERMISSIONS)
-    @javax.annotation.Nullable private ContentObjectUserPermissions userPermissions;
+    @jakarta.annotation.Nullable private ContentObjectUserPermissions userPermissions;
 
     public ContentObjectItemApiResponse() {}
 
-    public ContentObjectItemApiResponse id(@javax.annotation.Nonnull String id) {
+    public ContentObjectItemApiResponse id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -170,16 +170,16 @@ public class ContentObjectItemApiResponse {
      * Unique identifier for the object
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public ContentObjectItemApiResponse name(@javax.annotation.Nonnull String name) {
+    public ContentObjectItemApiResponse name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -188,16 +188,17 @@ public class ContentObjectItemApiResponse {
      * Human-readable name or title
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public ContentObjectItemApiResponse description(@javax.annotation.Nullable String description) {
+    public ContentObjectItemApiResponse description(
+            @jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -206,15 +207,15 @@ public class ContentObjectItemApiResponse {
      * Optional detailed description of the object
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public ContentObjectItemApiResponse tags(@javax.annotation.Nullable List<String> tags) {
+    public ContentObjectItemApiResponse tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -231,15 +232,15 @@ public class ContentObjectItemApiResponse {
      * Optional array of categorization tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public ContentObjectItemApiResponse updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public ContentObjectItemApiResponse updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -248,16 +249,16 @@ public class ContentObjectItemApiResponse {
      * Identifier of the user who last modified the object
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public ContentObjectItemApiResponse createdBy(@javax.annotation.Nonnull String createdBy) {
+    public ContentObjectItemApiResponse createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -266,16 +267,16 @@ public class ContentObjectItemApiResponse {
      * Identifier of the user who created the object
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public ContentObjectItemApiResponse createdAt(@javax.annotation.Nonnull String createdAt) {
+    public ContentObjectItemApiResponse createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -284,16 +285,16 @@ public class ContentObjectItemApiResponse {
      * ISO timestamp of when the object was created
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public ContentObjectItemApiResponse updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public ContentObjectItemApiResponse updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -302,16 +303,16 @@ public class ContentObjectItemApiResponse {
      * ISO timestamp of when the object was last updated
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public ContentObjectItemApiResponse parent(@javax.annotation.Nullable String parent) {
+    public ContentObjectItemApiResponse parent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
         return this;
     }
@@ -320,15 +321,15 @@ public class ContentObjectItemApiResponse {
      * Get parent
      * @return parent
      */
-    @javax.annotation.Nullable public String getParent() {
+    @jakarta.annotation.Nullable public String getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable String parent) {
+    public void setParent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
     }
 
-    public ContentObjectItemApiResponse location(@javax.annotation.Nonnull String location) {
+    public ContentObjectItemApiResponse location(@jakarta.annotation.Nonnull String location) {
         this.location = location;
         return this;
     }
@@ -337,17 +338,17 @@ public class ContentObjectItemApiResponse {
      * Get location
      * @return location
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(@javax.annotation.Nonnull String location) {
+    public void setLocation(@jakarta.annotation.Nonnull String location) {
         this.location = location;
     }
 
     public ContentObjectItemApiResponse status(
-            @javax.annotation.Nonnull ContentObjectStatus status) {
+            @jakarta.annotation.Nonnull ContentObjectStatus status) {
         this.status = status;
         return this;
     }
@@ -356,16 +357,17 @@ public class ContentObjectItemApiResponse {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ContentObjectStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull ContentObjectStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull ContentObjectStatus status) {
         this.status = status;
     }
 
-    public ContentObjectItemApiResponse type(@javax.annotation.Nullable ContentObjectTypeRef type) {
+    public ContentObjectItemApiResponse type(
+            @jakarta.annotation.Nullable ContentObjectTypeRef type) {
         this.type = type;
         return this;
     }
@@ -374,15 +376,16 @@ public class ContentObjectItemApiResponse {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public ContentObjectTypeRef getType() {
+    @jakarta.annotation.Nullable public ContentObjectTypeRef getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable ContentObjectTypeRef type) {
+    public void setType(@jakarta.annotation.Nullable ContentObjectTypeRef type) {
         this.type = type;
     }
 
-    public ContentObjectItemApiResponse content(@javax.annotation.Nullable ContentSource content) {
+    public ContentObjectItemApiResponse content(
+            @jakarta.annotation.Nullable ContentSource content) {
         this.content = content;
         return this;
     }
@@ -391,15 +394,15 @@ public class ContentObjectItemApiResponse {
      * Get content
      * @return content
      */
-    @javax.annotation.Nullable public ContentSource getContent() {
+    @jakarta.annotation.Nullable public ContentSource getContent() {
         return content;
     }
 
-    public void setContent(@javax.annotation.Nullable ContentSource content) {
+    public void setContent(@jakarta.annotation.Nullable ContentSource content) {
         this.content = content;
     }
 
-    public ContentObjectItemApiResponse externalId(@javax.annotation.Nullable String externalId) {
+    public ContentObjectItemApiResponse externalId(@jakarta.annotation.Nullable String externalId) {
         this.externalId = externalId;
         return this;
     }
@@ -408,16 +411,16 @@ public class ContentObjectItemApiResponse {
      * Get externalId
      * @return externalId
      */
-    @javax.annotation.Nullable public String getExternalId() {
+    @jakarta.annotation.Nullable public String getExternalId() {
         return externalId;
     }
 
-    public void setExternalId(@javax.annotation.Nullable String externalId) {
+    public void setExternalId(@jakarta.annotation.Nullable String externalId) {
         this.externalId = externalId;
     }
 
     public ContentObjectItemApiResponse properties(
-            @javax.annotation.Nonnull Map<String, Object> properties) {
+            @jakarta.annotation.Nonnull Map<String, Object> properties) {
         this.properties = properties;
         return this;
     }
@@ -434,17 +437,17 @@ public class ContentObjectItemApiResponse {
      * Get properties
      * @return properties
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nonnull Map<String, Object> properties) {
+    public void setProperties(@jakarta.annotation.Nonnull Map<String, Object> properties) {
         this.properties = properties;
     }
 
     public ContentObjectItemApiResponse metadata(
-            @javax.annotation.Nullable Map<String, Object> metadata) {
+            @jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -461,16 +464,16 @@ public class ContentObjectItemApiResponse {
      * Get metadata
      * @return metadata
      */
-    @javax.annotation.Nullable public Map<String, Object> getMetadata() {
+    @jakarta.annotation.Nullable public Map<String, Object> getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 
     public ContentObjectItemApiResponse tokens(
-            @javax.annotation.Nullable ContentObjectApiResponseTokens tokens) {
+            @jakarta.annotation.Nullable ContentObjectApiResponseTokens tokens) {
         this.tokens = tokens;
         return this;
     }
@@ -479,16 +482,16 @@ public class ContentObjectItemApiResponse {
      * Get tokens
      * @return tokens
      */
-    @javax.annotation.Nullable public ContentObjectApiResponseTokens getTokens() {
+    @jakarta.annotation.Nullable public ContentObjectApiResponseTokens getTokens() {
         return tokens;
     }
 
-    public void setTokens(@javax.annotation.Nullable ContentObjectApiResponseTokens tokens) {
+    public void setTokens(@jakarta.annotation.Nullable ContentObjectApiResponseTokens tokens) {
         this.tokens = tokens;
     }
 
     public ContentObjectItemApiResponse revision(
-            @javax.annotation.Nonnull ContentObjectApiRevision revision) {
+            @jakarta.annotation.Nonnull ContentObjectApiRevision revision) {
         this.revision = revision;
         return this;
     }
@@ -497,16 +500,16 @@ public class ContentObjectItemApiResponse {
      * Get revision
      * @return revision
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ContentObjectApiRevision getRevision() {
         return revision;
     }
 
-    public void setRevision(@javax.annotation.Nonnull ContentObjectApiRevision revision) {
+    public void setRevision(@jakarta.annotation.Nonnull ContentObjectApiRevision revision) {
         this.revision = revision;
     }
 
-    public ContentObjectItemApiResponse isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+    public ContentObjectItemApiResponse isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
         this.isDeleted = isDeleted;
         return this;
     }
@@ -515,15 +518,15 @@ public class ContentObjectItemApiResponse {
      * Get isDeleted
      * @return isDeleted
      */
-    @javax.annotation.Nullable public Boolean getIsDeleted() {
+    @jakarta.annotation.Nullable public Boolean getIsDeleted() {
         return isDeleted;
     }
 
-    public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+    public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
         this.isDeleted = isDeleted;
     }
 
-    public ContentObjectItemApiResponse isLocked(@javax.annotation.Nullable Boolean isLocked) {
+    public ContentObjectItemApiResponse isLocked(@jakarta.annotation.Nullable Boolean isLocked) {
         this.isLocked = isLocked;
         return this;
     }
@@ -532,15 +535,15 @@ public class ContentObjectItemApiResponse {
      * Get isLocked
      * @return isLocked
      */
-    @javax.annotation.Nullable public Boolean getIsLocked() {
+    @jakarta.annotation.Nullable public Boolean getIsLocked() {
         return isLocked;
     }
 
-    public void setIsLocked(@javax.annotation.Nullable Boolean isLocked) {
+    public void setIsLocked(@jakarta.annotation.Nullable Boolean isLocked) {
         this.isLocked = isLocked;
     }
 
-    public ContentObjectItemApiResponse score(@javax.annotation.Nullable BigDecimal score) {
+    public ContentObjectItemApiResponse score(@jakarta.annotation.Nullable BigDecimal score) {
         this.score = score;
         return this;
     }
@@ -549,16 +552,16 @@ public class ContentObjectItemApiResponse {
      * Get score
      * @return score
      */
-    @javax.annotation.Nullable public BigDecimal getScore() {
+    @jakarta.annotation.Nullable public BigDecimal getScore() {
         return score;
     }
 
-    public void setScore(@javax.annotation.Nullable BigDecimal score) {
+    public void setScore(@jakarta.annotation.Nullable BigDecimal score) {
         this.score = score;
     }
 
     public ContentObjectItemApiResponse userPermissions(
-            @javax.annotation.Nullable ContentObjectUserPermissions userPermissions) {
+            @jakarta.annotation.Nullable ContentObjectUserPermissions userPermissions) {
         this.userPermissions = userPermissions;
         return this;
     }
@@ -567,12 +570,12 @@ public class ContentObjectItemApiResponse {
      * Get userPermissions
      * @return userPermissions
      */
-    @javax.annotation.Nullable public ContentObjectUserPermissions getUserPermissions() {
+    @jakarta.annotation.Nullable public ContentObjectUserPermissions getUserPermissions() {
         return userPermissions;
     }
 
     public void setUserPermissions(
-            @javax.annotation.Nullable ContentObjectUserPermissions userPermissions) {
+            @jakarta.annotation.Nullable ContentObjectUserPermissions userPermissions) {
         this.userPermissions = userPermissions;
     }
 

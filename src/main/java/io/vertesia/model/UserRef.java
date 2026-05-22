@@ -30,36 +30,36 @@ import java.util.Objects;
 /**
  * UserRef
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UserRef {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_EMAIL = "email";
 
     @SerializedName(SERIALIZED_NAME_EMAIL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String email;
 
     public static final String SERIALIZED_NAME_PICTURE = "picture";
 
     @SerializedName(SERIALIZED_NAME_PICTURE)
-    @javax.annotation.Nullable private String picture;
+    @jakarta.annotation.Nullable private String picture;
 
     public UserRef() {}
 
-    public UserRef id(@javax.annotation.Nonnull String id) {
+    public UserRef id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -68,16 +68,16 @@ public class UserRef {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public UserRef name(@javax.annotation.Nonnull String name) {
+    public UserRef name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -86,16 +86,16 @@ public class UserRef {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public UserRef email(@javax.annotation.Nonnull String email) {
+    public UserRef email(@jakarta.annotation.Nonnull String email) {
         this.email = email;
         return this;
     }
@@ -104,16 +104,16 @@ public class UserRef {
      * Get email
      * @return email
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(@javax.annotation.Nonnull String email) {
+    public void setEmail(@jakarta.annotation.Nonnull String email) {
         this.email = email;
     }
 
-    public UserRef picture(@javax.annotation.Nullable String picture) {
+    public UserRef picture(@jakarta.annotation.Nullable String picture) {
         this.picture = picture;
         return this;
     }
@@ -122,11 +122,11 @@ public class UserRef {
      * Get picture
      * @return picture
      */
-    @javax.annotation.Nullable public String getPicture() {
+    @jakarta.annotation.Nullable public String getPicture() {
         return picture;
     }
 
-    public void setPicture(@javax.annotation.Nullable String picture) {
+    public void setPicture(@jakarta.annotation.Nullable String picture) {
         this.picture = picture;
     }
 

@@ -33,29 +33,29 @@ import java.util.Objects;
 /**
  * ListWorkflowRunsResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ListWorkflowRunsResponse {
     public static final String SERIALIZED_NAME_RUNS = "runs";
 
     @SerializedName(SERIALIZED_NAME_RUNS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<WorkflowRun> runs = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_NEXT_PAGE_TOKEN = "next_page_token";
 
     @SerializedName(SERIALIZED_NAME_NEXT_PAGE_TOKEN)
-    @javax.annotation.Nullable private String nextPageToken;
+    @jakarta.annotation.Nullable private String nextPageToken;
 
     public static final String SERIALIZED_NAME_HAS_MORE = "has_more";
 
     @SerializedName(SERIALIZED_NAME_HAS_MORE)
-    @javax.annotation.Nullable private Boolean hasMore;
+    @jakarta.annotation.Nullable private Boolean hasMore;
 
     public ListWorkflowRunsResponse() {}
 
-    public ListWorkflowRunsResponse runs(@javax.annotation.Nonnull List<WorkflowRun> runs) {
+    public ListWorkflowRunsResponse runs(@jakarta.annotation.Nonnull List<WorkflowRun> runs) {
         this.runs = runs;
         return this;
     }
@@ -72,16 +72,17 @@ public class ListWorkflowRunsResponse {
      * Get runs
      * @return runs
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<WorkflowRun> getRuns() {
         return runs;
     }
 
-    public void setRuns(@javax.annotation.Nonnull List<WorkflowRun> runs) {
+    public void setRuns(@jakarta.annotation.Nonnull List<WorkflowRun> runs) {
         this.runs = runs;
     }
 
-    public ListWorkflowRunsResponse nextPageToken(@javax.annotation.Nullable String nextPageToken) {
+    public ListWorkflowRunsResponse nextPageToken(
+            @jakarta.annotation.Nullable String nextPageToken) {
         this.nextPageToken = nextPageToken;
         return this;
     }
@@ -90,15 +91,15 @@ public class ListWorkflowRunsResponse {
      * Get nextPageToken
      * @return nextPageToken
      */
-    @javax.annotation.Nullable public String getNextPageToken() {
+    @jakarta.annotation.Nullable public String getNextPageToken() {
         return nextPageToken;
     }
 
-    public void setNextPageToken(@javax.annotation.Nullable String nextPageToken) {
+    public void setNextPageToken(@jakarta.annotation.Nullable String nextPageToken) {
         this.nextPageToken = nextPageToken;
     }
 
-    public ListWorkflowRunsResponse hasMore(@javax.annotation.Nullable Boolean hasMore) {
+    public ListWorkflowRunsResponse hasMore(@jakarta.annotation.Nullable Boolean hasMore) {
         this.hasMore = hasMore;
         return this;
     }
@@ -107,11 +108,11 @@ public class ListWorkflowRunsResponse {
      * Get hasMore
      * @return hasMore
      */
-    @javax.annotation.Nullable public Boolean getHasMore() {
+    @jakarta.annotation.Nullable public Boolean getHasMore() {
         return hasMore;
     }
 
-    public void setHasMore(@javax.annotation.Nullable Boolean hasMore) {
+    public void setHasMore(@jakarta.annotation.Nullable Boolean hasMore) {
         this.hasMore = hasMore;
     }
 

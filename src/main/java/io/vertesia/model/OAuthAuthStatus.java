@@ -30,47 +30,47 @@ import java.util.Objects;
 /**
  * OAuth authentication status for an MCP tool collection
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OAuthAuthStatus {
     public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String collectionId;
 
     public static final String SERIALIZED_NAME_COLLECTION_NAME = "collection_name";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String collectionName;
 
     public static final String SERIALIZED_NAME_AUTHENTICATED = "authenticated";
 
     @SerializedName(SERIALIZED_NAME_AUTHENTICATED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean authenticated;
 
     public static final String SERIALIZED_NAME_MCP_SERVER_URL = "mcp_server_url";
 
     @SerializedName(SERIALIZED_NAME_MCP_SERVER_URL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String mcpServerUrl;
 
     public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
 
     @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
-    @javax.annotation.Nullable private String expiresAt;
+    @jakarta.annotation.Nullable private String expiresAt;
 
     public static final String SERIALIZED_NAME_SCOPE = "scope";
 
     @SerializedName(SERIALIZED_NAME_SCOPE)
-    @javax.annotation.Nullable private String scope;
+    @jakarta.annotation.Nullable private String scope;
 
     public OAuthAuthStatus() {}
 
-    public OAuthAuthStatus collectionId(@javax.annotation.Nonnull String collectionId) {
+    public OAuthAuthStatus collectionId(@jakarta.annotation.Nonnull String collectionId) {
         this.collectionId = collectionId;
         return this;
     }
@@ -79,16 +79,16 @@ public class OAuthAuthStatus {
      * Get collectionId
      * @return collectionId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCollectionId() {
         return collectionId;
     }
 
-    public void setCollectionId(@javax.annotation.Nonnull String collectionId) {
+    public void setCollectionId(@jakarta.annotation.Nonnull String collectionId) {
         this.collectionId = collectionId;
     }
 
-    public OAuthAuthStatus collectionName(@javax.annotation.Nonnull String collectionName) {
+    public OAuthAuthStatus collectionName(@jakarta.annotation.Nonnull String collectionName) {
         this.collectionName = collectionName;
         return this;
     }
@@ -97,16 +97,16 @@ public class OAuthAuthStatus {
      * Get collectionName
      * @return collectionName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCollectionName() {
         return collectionName;
     }
 
-    public void setCollectionName(@javax.annotation.Nonnull String collectionName) {
+    public void setCollectionName(@jakarta.annotation.Nonnull String collectionName) {
         this.collectionName = collectionName;
     }
 
-    public OAuthAuthStatus authenticated(@javax.annotation.Nonnull Boolean authenticated) {
+    public OAuthAuthStatus authenticated(@jakarta.annotation.Nonnull Boolean authenticated) {
         this.authenticated = authenticated;
         return this;
     }
@@ -115,16 +115,16 @@ public class OAuthAuthStatus {
      * Get authenticated
      * @return authenticated
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getAuthenticated() {
         return authenticated;
     }
 
-    public void setAuthenticated(@javax.annotation.Nonnull Boolean authenticated) {
+    public void setAuthenticated(@jakarta.annotation.Nonnull Boolean authenticated) {
         this.authenticated = authenticated;
     }
 
-    public OAuthAuthStatus mcpServerUrl(@javax.annotation.Nonnull String mcpServerUrl) {
+    public OAuthAuthStatus mcpServerUrl(@jakarta.annotation.Nonnull String mcpServerUrl) {
         this.mcpServerUrl = mcpServerUrl;
         return this;
     }
@@ -133,16 +133,16 @@ public class OAuthAuthStatus {
      * Get mcpServerUrl
      * @return mcpServerUrl
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMcpServerUrl() {
         return mcpServerUrl;
     }
 
-    public void setMcpServerUrl(@javax.annotation.Nonnull String mcpServerUrl) {
+    public void setMcpServerUrl(@jakarta.annotation.Nonnull String mcpServerUrl) {
         this.mcpServerUrl = mcpServerUrl;
     }
 
-    public OAuthAuthStatus expiresAt(@javax.annotation.Nullable String expiresAt) {
+    public OAuthAuthStatus expiresAt(@jakarta.annotation.Nullable String expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -151,15 +151,15 @@ public class OAuthAuthStatus {
      * Get expiresAt
      * @return expiresAt
      */
-    @javax.annotation.Nullable public String getExpiresAt() {
+    @jakarta.annotation.Nullable public String getExpiresAt() {
         return expiresAt;
     }
 
-    public void setExpiresAt(@javax.annotation.Nullable String expiresAt) {
+    public void setExpiresAt(@jakarta.annotation.Nullable String expiresAt) {
         this.expiresAt = expiresAt;
     }
 
-    public OAuthAuthStatus scope(@javax.annotation.Nullable String scope) {
+    public OAuthAuthStatus scope(@jakarta.annotation.Nullable String scope) {
         this.scope = scope;
         return this;
     }
@@ -168,11 +168,11 @@ public class OAuthAuthStatus {
      * Get scope
      * @return scope
      */
-    @javax.annotation.Nullable public String getScope() {
+    @jakarta.annotation.Nullable public String getScope() {
         return scope;
     }
 
-    public void setScope(@javax.annotation.Nullable String scope) {
+    public void setScope(@jakarta.annotation.Nullable String scope) {
         this.scope = scope;
     }
 

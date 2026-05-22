@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * BulkObjectUpdateResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BulkObjectUpdateResult {
@@ -94,7 +94,7 @@ public class BulkObjectUpdateResult {
     public static final String SERIALIZED_NAME_OPERATION = "operation";
 
     @SerializedName(SERIALIZED_NAME_OPERATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OperationEnum operation;
 
     /**
@@ -157,24 +157,24 @@ public class BulkObjectUpdateResult {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private StatusEnum status;
 
     public static final String SERIALIZED_NAME_UPDATED = "updated";
 
     @SerializedName(SERIALIZED_NAME_UPDATED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal updated;
 
     public static final String SERIALIZED_NAME_FAILED = "failed";
 
     @SerializedName(SERIALIZED_NAME_FAILED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> failed = new ArrayList<>();
 
     public BulkObjectUpdateResult() {}
 
-    public BulkObjectUpdateResult operation(@javax.annotation.Nonnull OperationEnum operation) {
+    public BulkObjectUpdateResult operation(@jakarta.annotation.Nonnull OperationEnum operation) {
         this.operation = operation;
         return this;
     }
@@ -183,16 +183,16 @@ public class BulkObjectUpdateResult {
      * Get operation
      * @return operation
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OperationEnum getOperation() {
         return operation;
     }
 
-    public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
+    public void setOperation(@jakarta.annotation.Nonnull OperationEnum operation) {
         this.operation = operation;
     }
 
-    public BulkObjectUpdateResult status(@javax.annotation.Nonnull StatusEnum status) {
+    public BulkObjectUpdateResult status(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
         return this;
     }
@@ -201,16 +201,16 @@ public class BulkObjectUpdateResult {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
+    public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
     }
 
-    public BulkObjectUpdateResult updated(@javax.annotation.Nonnull BigDecimal updated) {
+    public BulkObjectUpdateResult updated(@jakarta.annotation.Nonnull BigDecimal updated) {
         this.updated = updated;
         return this;
     }
@@ -219,16 +219,16 @@ public class BulkObjectUpdateResult {
      * Number of documents successfully updated
      * @return updated
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getUpdated() {
         return updated;
     }
 
-    public void setUpdated(@javax.annotation.Nonnull BigDecimal updated) {
+    public void setUpdated(@jakarta.annotation.Nonnull BigDecimal updated) {
         this.updated = updated;
     }
 
-    public BulkObjectUpdateResult failed(@javax.annotation.Nonnull List<String> failed) {
+    public BulkObjectUpdateResult failed(@jakarta.annotation.Nonnull List<String> failed) {
         this.failed = failed;
         return this;
     }
@@ -245,12 +245,12 @@ public class BulkObjectUpdateResult {
      * IDs that were not found, not authorized, or failed to update
      * @return failed
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getFailed() {
         return failed;
     }
 
-    public void setFailed(@javax.annotation.Nonnull List<String> failed) {
+    public void setFailed(@jakarta.annotation.Nonnull List<String> failed) {
         this.failed = failed;
     }
 

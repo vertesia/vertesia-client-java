@@ -32,37 +32,37 @@ import java.util.Objects;
 /**
  * Response from OAuth metadata endpoint
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OAuthMetadataResponse {
     public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String collectionId;
 
     public static final String SERIALIZED_NAME_COLLECTION_NAME = "collection_name";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String collectionName;
 
     public static final String SERIALIZED_NAME_MCP_SERVER_URL = "mcp_server_url";
 
     @SerializedName(SERIALIZED_NAME_MCP_SERVER_URL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String mcpServerUrl;
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> metadata = new HashMap<>();
 
     public OAuthMetadataResponse() {}
 
-    public OAuthMetadataResponse collectionId(@javax.annotation.Nonnull String collectionId) {
+    public OAuthMetadataResponse collectionId(@jakarta.annotation.Nonnull String collectionId) {
         this.collectionId = collectionId;
         return this;
     }
@@ -71,16 +71,16 @@ public class OAuthMetadataResponse {
      * Get collectionId
      * @return collectionId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCollectionId() {
         return collectionId;
     }
 
-    public void setCollectionId(@javax.annotation.Nonnull String collectionId) {
+    public void setCollectionId(@jakarta.annotation.Nonnull String collectionId) {
         this.collectionId = collectionId;
     }
 
-    public OAuthMetadataResponse collectionName(@javax.annotation.Nonnull String collectionName) {
+    public OAuthMetadataResponse collectionName(@jakarta.annotation.Nonnull String collectionName) {
         this.collectionName = collectionName;
         return this;
     }
@@ -89,16 +89,16 @@ public class OAuthMetadataResponse {
      * Get collectionName
      * @return collectionName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCollectionName() {
         return collectionName;
     }
 
-    public void setCollectionName(@javax.annotation.Nonnull String collectionName) {
+    public void setCollectionName(@jakarta.annotation.Nonnull String collectionName) {
         this.collectionName = collectionName;
     }
 
-    public OAuthMetadataResponse mcpServerUrl(@javax.annotation.Nonnull String mcpServerUrl) {
+    public OAuthMetadataResponse mcpServerUrl(@jakarta.annotation.Nonnull String mcpServerUrl) {
         this.mcpServerUrl = mcpServerUrl;
         return this;
     }
@@ -107,16 +107,17 @@ public class OAuthMetadataResponse {
      * Get mcpServerUrl
      * @return mcpServerUrl
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMcpServerUrl() {
         return mcpServerUrl;
     }
 
-    public void setMcpServerUrl(@javax.annotation.Nonnull String mcpServerUrl) {
+    public void setMcpServerUrl(@jakarta.annotation.Nonnull String mcpServerUrl) {
         this.mcpServerUrl = mcpServerUrl;
     }
 
-    public OAuthMetadataResponse metadata(@javax.annotation.Nonnull Map<String, Object> metadata) {
+    public OAuthMetadataResponse metadata(
+            @jakarta.annotation.Nonnull Map<String, Object> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -133,12 +134,12 @@ public class OAuthMetadataResponse {
      * Get metadata
      * @return metadata
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@javax.annotation.Nonnull Map<String, Object> metadata) {
+    public void setMetadata(@jakarta.annotation.Nonnull Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 

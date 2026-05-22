@@ -33,7 +33,7 @@ import java.util.Objects;
 /**
  * CollectionMembersUpdatePayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CollectionMembersUpdatePayload {
@@ -95,18 +95,18 @@ public class CollectionMembersUpdatePayload {
     public static final String SERIALIZED_NAME_ACTION = "action";
 
     @SerializedName(SERIALIZED_NAME_ACTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ActionEnum action;
 
     public static final String SERIALIZED_NAME_MEMBERS = "members";
 
     @SerializedName(SERIALIZED_NAME_MEMBERS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> members = new ArrayList<>();
 
     public CollectionMembersUpdatePayload() {}
 
-    public CollectionMembersUpdatePayload action(@javax.annotation.Nonnull ActionEnum action) {
+    public CollectionMembersUpdatePayload action(@jakarta.annotation.Nonnull ActionEnum action) {
         this.action = action;
         return this;
     }
@@ -115,16 +115,17 @@ public class CollectionMembersUpdatePayload {
      * Get action
      * @return action
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ActionEnum getAction() {
         return action;
     }
 
-    public void setAction(@javax.annotation.Nonnull ActionEnum action) {
+    public void setAction(@jakarta.annotation.Nonnull ActionEnum action) {
         this.action = action;
     }
 
-    public CollectionMembersUpdatePayload members(@javax.annotation.Nonnull List<String> members) {
+    public CollectionMembersUpdatePayload members(
+            @jakarta.annotation.Nonnull List<String> members) {
         this.members = members;
         return this;
     }
@@ -141,12 +142,12 @@ public class CollectionMembersUpdatePayload {
      * Get members
      * @return members
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getMembers() {
         return members;
     }
 
-    public void setMembers(@javax.annotation.Nonnull List<String> members) {
+    public void setMembers(@jakarta.annotation.Nonnull List<String> members) {
         this.members = members;
     }
 

@@ -36,64 +36,64 @@ import java.util.Objects;
 /**
  * DocumentMetadata
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DocumentMetadata {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ContentNatureDocument type;
 
     public static final String SERIALIZED_NAME_SIZE = "size";
 
     @SerializedName(SERIALIZED_NAME_SIZE)
-    @javax.annotation.Nullable private BigDecimal size;
+    @jakarta.annotation.Nullable private BigDecimal size;
 
     public static final String SERIALIZED_NAME_LANGUAGES = "languages";
 
     @SerializedName(SERIALIZED_NAME_LANGUAGES)
-    @javax.annotation.Nullable private List<String> languages = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> languages = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LOCATION = "location";
 
     @SerializedName(SERIALIZED_NAME_LOCATION)
-    @javax.annotation.Nullable private Location location;
+    @jakarta.annotation.Nullable private Location location;
 
     public static final String SERIALIZED_NAME_GENERATION_RUNS = "generation_runs";
 
     @SerializedName(SERIALIZED_NAME_GENERATION_RUNS)
-    @javax.annotation.Nullable private List<GenerationRunMetadata> generationRuns = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<GenerationRunMetadata> generationRuns = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ETAG = "etag";
 
     @SerializedName(SERIALIZED_NAME_ETAG)
-    @javax.annotation.Nullable private String etag;
+    @jakarta.annotation.Nullable private String etag;
 
     public static final String SERIALIZED_NAME_RENDITIONS = "renditions";
 
     @SerializedName(SERIALIZED_NAME_RENDITIONS)
-    @javax.annotation.Nullable private List<Rendition> renditions = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<Rendition> renditions = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PAGE_COUNT = "page_count";
 
     @SerializedName(SERIALIZED_NAME_PAGE_COUNT)
-    @javax.annotation.Nullable private BigDecimal pageCount;
+    @jakarta.annotation.Nullable private BigDecimal pageCount;
 
     public static final String SERIALIZED_NAME_CONTENT_PROCESSOR = "content_processor";
 
     @SerializedName(SERIALIZED_NAME_CONTENT_PROCESSOR)
-    @javax.annotation.Nullable private DocumentMetadataContentProcessor contentProcessor;
+    @jakarta.annotation.Nullable private DocumentMetadataContentProcessor contentProcessor;
 
     public static final String SERIALIZED_NAME_SECTIONS = "sections";
 
     @SerializedName(SERIALIZED_NAME_SECTIONS)
-    @javax.annotation.Nullable private List<TextSection> sections = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<TextSection> sections = new ArrayList<>();
 
     public DocumentMetadata() {}
 
-    public DocumentMetadata type(@javax.annotation.Nonnull ContentNatureDocument type) {
+    public DocumentMetadata type(@jakarta.annotation.Nonnull ContentNatureDocument type) {
         this.type = type;
         return this;
     }
@@ -102,16 +102,16 @@ public class DocumentMetadata {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ContentNatureDocument getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull ContentNatureDocument type) {
+    public void setType(@jakarta.annotation.Nonnull ContentNatureDocument type) {
         this.type = type;
     }
 
-    public DocumentMetadata size(@javax.annotation.Nullable BigDecimal size) {
+    public DocumentMetadata size(@jakarta.annotation.Nullable BigDecimal size) {
         this.size = size;
         return this;
     }
@@ -120,15 +120,15 @@ public class DocumentMetadata {
      * Get size
      * @return size
      */
-    @javax.annotation.Nullable public BigDecimal getSize() {
+    @jakarta.annotation.Nullable public BigDecimal getSize() {
         return size;
     }
 
-    public void setSize(@javax.annotation.Nullable BigDecimal size) {
+    public void setSize(@jakarta.annotation.Nullable BigDecimal size) {
         this.size = size;
     }
 
-    public DocumentMetadata languages(@javax.annotation.Nullable List<String> languages) {
+    public DocumentMetadata languages(@jakarta.annotation.Nullable List<String> languages) {
         this.languages = languages;
         return this;
     }
@@ -145,15 +145,15 @@ public class DocumentMetadata {
      * Get languages
      * @return languages
      */
-    @javax.annotation.Nullable public List<String> getLanguages() {
+    @jakarta.annotation.Nullable public List<String> getLanguages() {
         return languages;
     }
 
-    public void setLanguages(@javax.annotation.Nullable List<String> languages) {
+    public void setLanguages(@jakarta.annotation.Nullable List<String> languages) {
         this.languages = languages;
     }
 
-    public DocumentMetadata location(@javax.annotation.Nullable Location location) {
+    public DocumentMetadata location(@jakarta.annotation.Nullable Location location) {
         this.location = location;
         return this;
     }
@@ -162,16 +162,16 @@ public class DocumentMetadata {
      * Get location
      * @return location
      */
-    @javax.annotation.Nullable public Location getLocation() {
+    @jakarta.annotation.Nullable public Location getLocation() {
         return location;
     }
 
-    public void setLocation(@javax.annotation.Nullable Location location) {
+    public void setLocation(@jakarta.annotation.Nullable Location location) {
         this.location = location;
     }
 
     public DocumentMetadata generationRuns(
-            @javax.annotation.Nullable List<GenerationRunMetadata> generationRuns) {
+            @jakarta.annotation.Nullable List<GenerationRunMetadata> generationRuns) {
         this.generationRuns = generationRuns;
         return this;
     }
@@ -188,16 +188,16 @@ public class DocumentMetadata {
      * Get generationRuns
      * @return generationRuns
      */
-    @javax.annotation.Nullable public List<GenerationRunMetadata> getGenerationRuns() {
+    @jakarta.annotation.Nullable public List<GenerationRunMetadata> getGenerationRuns() {
         return generationRuns;
     }
 
     public void setGenerationRuns(
-            @javax.annotation.Nullable List<GenerationRunMetadata> generationRuns) {
+            @jakarta.annotation.Nullable List<GenerationRunMetadata> generationRuns) {
         this.generationRuns = generationRuns;
     }
 
-    public DocumentMetadata etag(@javax.annotation.Nullable String etag) {
+    public DocumentMetadata etag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
         return this;
     }
@@ -206,15 +206,15 @@ public class DocumentMetadata {
      * Get etag
      * @return etag
      */
-    @javax.annotation.Nullable public String getEtag() {
+    @jakarta.annotation.Nullable public String getEtag() {
         return etag;
     }
 
-    public void setEtag(@javax.annotation.Nullable String etag) {
+    public void setEtag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
     }
 
-    public DocumentMetadata renditions(@javax.annotation.Nullable List<Rendition> renditions) {
+    public DocumentMetadata renditions(@jakarta.annotation.Nullable List<Rendition> renditions) {
         this.renditions = renditions;
         return this;
     }
@@ -231,15 +231,15 @@ public class DocumentMetadata {
      * Get renditions
      * @return renditions
      */
-    @javax.annotation.Nullable public List<Rendition> getRenditions() {
+    @jakarta.annotation.Nullable public List<Rendition> getRenditions() {
         return renditions;
     }
 
-    public void setRenditions(@javax.annotation.Nullable List<Rendition> renditions) {
+    public void setRenditions(@jakarta.annotation.Nullable List<Rendition> renditions) {
         this.renditions = renditions;
     }
 
-    public DocumentMetadata pageCount(@javax.annotation.Nullable BigDecimal pageCount) {
+    public DocumentMetadata pageCount(@jakarta.annotation.Nullable BigDecimal pageCount) {
         this.pageCount = pageCount;
         return this;
     }
@@ -248,16 +248,16 @@ public class DocumentMetadata {
      * Get pageCount
      * @return pageCount
      */
-    @javax.annotation.Nullable public BigDecimal getPageCount() {
+    @jakarta.annotation.Nullable public BigDecimal getPageCount() {
         return pageCount;
     }
 
-    public void setPageCount(@javax.annotation.Nullable BigDecimal pageCount) {
+    public void setPageCount(@jakarta.annotation.Nullable BigDecimal pageCount) {
         this.pageCount = pageCount;
     }
 
     public DocumentMetadata contentProcessor(
-            @javax.annotation.Nullable DocumentMetadataContentProcessor contentProcessor) {
+            @jakarta.annotation.Nullable DocumentMetadataContentProcessor contentProcessor) {
         this.contentProcessor = contentProcessor;
         return this;
     }
@@ -266,16 +266,16 @@ public class DocumentMetadata {
      * Get contentProcessor
      * @return contentProcessor
      */
-    @javax.annotation.Nullable public DocumentMetadataContentProcessor getContentProcessor() {
+    @jakarta.annotation.Nullable public DocumentMetadataContentProcessor getContentProcessor() {
         return contentProcessor;
     }
 
     public void setContentProcessor(
-            @javax.annotation.Nullable DocumentMetadataContentProcessor contentProcessor) {
+            @jakarta.annotation.Nullable DocumentMetadataContentProcessor contentProcessor) {
         this.contentProcessor = contentProcessor;
     }
 
-    public DocumentMetadata sections(@javax.annotation.Nullable List<TextSection> sections) {
+    public DocumentMetadata sections(@jakarta.annotation.Nullable List<TextSection> sections) {
         this.sections = sections;
         return this;
     }
@@ -292,11 +292,11 @@ public class DocumentMetadata {
      * Get sections
      * @return sections
      */
-    @javax.annotation.Nullable public List<TextSection> getSections() {
+    @jakarta.annotation.Nullable public List<TextSection> getSections() {
         return sections;
     }
 
-    public void setSections(@javax.annotation.Nullable List<TextSection> sections) {
+    public void setSections(@jakarta.annotation.Nullable List<TextSection> sections) {
         this.sections = sections;
     }
 

@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * BedrockGptOssOptions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BedrockGptOssOptions {
@@ -94,28 +94,28 @@ public class BedrockGptOssOptions {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OptionIdEnum optionId;
 
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
-    @javax.annotation.Nullable private BigDecimal maxTokens;
+    @jakarta.annotation.Nullable private BigDecimal maxTokens;
 
     public static final String SERIALIZED_NAME_TEMPERATURE = "temperature";
 
     @SerializedName(SERIALIZED_NAME_TEMPERATURE)
-    @javax.annotation.Nullable private BigDecimal temperature;
+    @jakarta.annotation.Nullable private BigDecimal temperature;
 
     public static final String SERIALIZED_NAME_TOP_P = "top_p";
 
     @SerializedName(SERIALIZED_NAME_TOP_P)
-    @javax.annotation.Nullable private BigDecimal topP;
+    @jakarta.annotation.Nullable private BigDecimal topP;
 
     public static final String SERIALIZED_NAME_STOP_SEQUENCE = "stop_sequence";
 
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
-    @javax.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
     /**
      * Gets or Sets reasoningEffort
@@ -177,21 +177,21 @@ public class BedrockGptOssOptions {
     public static final String SERIALIZED_NAME_REASONING_EFFORT = "reasoning_effort";
 
     @SerializedName(SERIALIZED_NAME_REASONING_EFFORT)
-    @javax.annotation.Nullable private ReasoningEffortEnum reasoningEffort;
+    @jakarta.annotation.Nullable private ReasoningEffortEnum reasoningEffort;
 
     public static final String SERIALIZED_NAME_FREQUENCY_PENALTY = "frequency_penalty";
 
     @SerializedName(SERIALIZED_NAME_FREQUENCY_PENALTY)
-    @javax.annotation.Nullable private BigDecimal frequencyPenalty;
+    @jakarta.annotation.Nullable private BigDecimal frequencyPenalty;
 
     public static final String SERIALIZED_NAME_PRESENCE_PENALTY = "presence_penalty";
 
     @SerializedName(SERIALIZED_NAME_PRESENCE_PENALTY)
-    @javax.annotation.Nullable private BigDecimal presencePenalty;
+    @jakarta.annotation.Nullable private BigDecimal presencePenalty;
 
     public BedrockGptOssOptions() {}
 
-    public BedrockGptOssOptions optionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public BedrockGptOssOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -200,16 +200,16 @@ public class BedrockGptOssOptions {
      * Get optionId
      * @return optionId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
-    public BedrockGptOssOptions maxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public BedrockGptOssOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
         return this;
     }
@@ -218,15 +218,15 @@ public class BedrockGptOssOptions {
      * Get maxTokens
      * @return maxTokens
      */
-    @javax.annotation.Nullable public BigDecimal getMaxTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxTokens() {
         return maxTokens;
     }
 
-    public void setMaxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public void setMaxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
     }
 
-    public BedrockGptOssOptions temperature(@javax.annotation.Nullable BigDecimal temperature) {
+    public BedrockGptOssOptions temperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
         return this;
     }
@@ -235,15 +235,15 @@ public class BedrockGptOssOptions {
      * Get temperature
      * @return temperature
      */
-    @javax.annotation.Nullable public BigDecimal getTemperature() {
+    @jakarta.annotation.Nullable public BigDecimal getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(@javax.annotation.Nullable BigDecimal temperature) {
+    public void setTemperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
     }
 
-    public BedrockGptOssOptions topP(@javax.annotation.Nullable BigDecimal topP) {
+    public BedrockGptOssOptions topP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
         return this;
     }
@@ -252,15 +252,16 @@ public class BedrockGptOssOptions {
      * Get topP
      * @return topP
      */
-    @javax.annotation.Nullable public BigDecimal getTopP() {
+    @jakarta.annotation.Nullable public BigDecimal getTopP() {
         return topP;
     }
 
-    public void setTopP(@javax.annotation.Nullable BigDecimal topP) {
+    public void setTopP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
     }
 
-    public BedrockGptOssOptions stopSequence(@javax.annotation.Nullable List<String> stopSequence) {
+    public BedrockGptOssOptions stopSequence(
+            @jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
         return this;
     }
@@ -277,16 +278,16 @@ public class BedrockGptOssOptions {
      * Get stopSequence
      * @return stopSequence
      */
-    @javax.annotation.Nullable public List<String> getStopSequence() {
+    @jakarta.annotation.Nullable public List<String> getStopSequence() {
         return stopSequence;
     }
 
-    public void setStopSequence(@javax.annotation.Nullable List<String> stopSequence) {
+    public void setStopSequence(@jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
     }
 
     public BedrockGptOssOptions reasoningEffort(
-            @javax.annotation.Nullable ReasoningEffortEnum reasoningEffort) {
+            @jakarta.annotation.Nullable ReasoningEffortEnum reasoningEffort) {
         this.reasoningEffort = reasoningEffort;
         return this;
     }
@@ -295,16 +296,17 @@ public class BedrockGptOssOptions {
      * Get reasoningEffort
      * @return reasoningEffort
      */
-    @javax.annotation.Nullable public ReasoningEffortEnum getReasoningEffort() {
+    @jakarta.annotation.Nullable public ReasoningEffortEnum getReasoningEffort() {
         return reasoningEffort;
     }
 
-    public void setReasoningEffort(@javax.annotation.Nullable ReasoningEffortEnum reasoningEffort) {
+    public void setReasoningEffort(
+            @jakarta.annotation.Nullable ReasoningEffortEnum reasoningEffort) {
         this.reasoningEffort = reasoningEffort;
     }
 
     public BedrockGptOssOptions frequencyPenalty(
-            @javax.annotation.Nullable BigDecimal frequencyPenalty) {
+            @jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
         this.frequencyPenalty = frequencyPenalty;
         return this;
     }
@@ -313,16 +315,16 @@ public class BedrockGptOssOptions {
      * Get frequencyPenalty
      * @return frequencyPenalty
      */
-    @javax.annotation.Nullable public BigDecimal getFrequencyPenalty() {
+    @jakarta.annotation.Nullable public BigDecimal getFrequencyPenalty() {
         return frequencyPenalty;
     }
 
-    public void setFrequencyPenalty(@javax.annotation.Nullable BigDecimal frequencyPenalty) {
+    public void setFrequencyPenalty(@jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
         this.frequencyPenalty = frequencyPenalty;
     }
 
     public BedrockGptOssOptions presencePenalty(
-            @javax.annotation.Nullable BigDecimal presencePenalty) {
+            @jakarta.annotation.Nullable BigDecimal presencePenalty) {
         this.presencePenalty = presencePenalty;
         return this;
     }
@@ -331,11 +333,11 @@ public class BedrockGptOssOptions {
      * Get presencePenalty
      * @return presencePenalty
      */
-    @javax.annotation.Nullable public BigDecimal getPresencePenalty() {
+    @jakarta.annotation.Nullable public BigDecimal getPresencePenalty() {
         return presencePenalty;
     }
 
-    public void setPresencePenalty(@javax.annotation.Nullable BigDecimal presencePenalty) {
+    public void setPresencePenalty(@jakarta.annotation.Nullable BigDecimal presencePenalty) {
         this.presencePenalty = presencePenalty;
     }
 

@@ -33,36 +33,36 @@ import java.util.Objects;
 /**
  * A top-level section heading in the sidebar menu. Sections are always at root level and contain nav-items.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppMenuSection {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_LABEL = "label";
 
     @SerializedName(SERIALIZED_NAME_LABEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String label;
 
     public static final String SERIALIZED_NAME_HIDDEN = "hidden";
 
     @SerializedName(SERIALIZED_NAME_HIDDEN)
-    @javax.annotation.Nullable private Boolean hidden;
+    @jakarta.annotation.Nullable private Boolean hidden;
 
     public static final String SERIALIZED_NAME_ITEMS = "items";
 
     @SerializedName(SERIALIZED_NAME_ITEMS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<CompositeAppMenuNavItem> items = new ArrayList<>();
 
     public CompositeAppMenuSection() {}
 
-    public CompositeAppMenuSection id(@javax.annotation.Nonnull String id) {
+    public CompositeAppMenuSection id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -71,16 +71,16 @@ public class CompositeAppMenuSection {
      * Stable unique identifier
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public CompositeAppMenuSection label(@javax.annotation.Nonnull String label) {
+    public CompositeAppMenuSection label(@jakarta.annotation.Nonnull String label) {
         this.label = label;
         return this;
     }
@@ -89,16 +89,16 @@ public class CompositeAppMenuSection {
      * Section heading label
      * @return label
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getLabel() {
         return label;
     }
 
-    public void setLabel(@javax.annotation.Nonnull String label) {
+    public void setLabel(@jakarta.annotation.Nonnull String label) {
         this.label = label;
     }
 
-    public CompositeAppMenuSection hidden(@javax.annotation.Nullable Boolean hidden) {
+    public CompositeAppMenuSection hidden(@jakarta.annotation.Nullable Boolean hidden) {
         this.hidden = hidden;
         return this;
     }
@@ -107,16 +107,16 @@ public class CompositeAppMenuSection {
      * When true, this section and its items are hidden from the sidebar
      * @return hidden
      */
-    @javax.annotation.Nullable public Boolean getHidden() {
+    @jakarta.annotation.Nullable public Boolean getHidden() {
         return hidden;
     }
 
-    public void setHidden(@javax.annotation.Nullable Boolean hidden) {
+    public void setHidden(@jakarta.annotation.Nullable Boolean hidden) {
         this.hidden = hidden;
     }
 
     public CompositeAppMenuSection items(
-            @javax.annotation.Nonnull List<CompositeAppMenuNavItem> items) {
+            @jakarta.annotation.Nonnull List<CompositeAppMenuNavItem> items) {
         this.items = items;
         return this;
     }
@@ -133,12 +133,12 @@ public class CompositeAppMenuSection {
      * Ordered nav-items within this section
      * @return items
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<CompositeAppMenuNavItem> getItems() {
         return items;
     }
 
-    public void setItems(@javax.annotation.Nonnull List<CompositeAppMenuNavItem> items) {
+    public void setItems(@jakarta.annotation.Nonnull List<CompositeAppMenuNavItem> items) {
         this.items = items;
     }
 

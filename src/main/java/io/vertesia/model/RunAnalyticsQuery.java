@@ -31,49 +31,49 @@ import java.util.Objects;
 /**
  * RunAnalyticsQuery
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RunAnalyticsQuery {
     public static final String SERIALIZED_NAME_FILTER_BY = "filterBy";
 
     @SerializedName(SERIALIZED_NAME_FILTER_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private AnalyticsAxis filterBy;
 
     public static final String SERIALIZED_NAME_GROUP_BY = "groupBy";
 
     @SerializedName(SERIALIZED_NAME_GROUP_BY)
-    @javax.annotation.Nullable private RunAnalyticsGroupBy groupBy;
+    @jakarta.annotation.Nullable private RunAnalyticsGroupBy groupBy;
 
     public static final String SERIALIZED_NAME_FROM = "from";
 
     @SerializedName(SERIALIZED_NAME_FROM)
-    @javax.annotation.Nullable private BigDecimal from;
+    @jakarta.annotation.Nullable private BigDecimal from;
 
     public static final String SERIALIZED_NAME_TO = "to";
 
     @SerializedName(SERIALIZED_NAME_TO)
-    @javax.annotation.Nullable private BigDecimal to;
+    @jakarta.annotation.Nullable private BigDecimal to;
 
     public static final String SERIALIZED_NAME_RESOLUTION = "resolution";
 
     @SerializedName(SERIALIZED_NAME_RESOLUTION)
-    @javax.annotation.Nullable private TimeResolution resolution;
+    @jakarta.annotation.Nullable private TimeResolution resolution;
 
     public static final String SERIALIZED_NAME_RESOLUTION_STEP = "resolutionStep";
 
     @SerializedName(SERIALIZED_NAME_RESOLUTION_STEP)
-    @javax.annotation.Nullable private BigDecimal resolutionStep;
+    @jakarta.annotation.Nullable private BigDecimal resolutionStep;
 
     public static final String SERIALIZED_NAME_VIRTUAL = "virtual";
 
     @SerializedName(SERIALIZED_NAME_VIRTUAL)
-    @javax.annotation.Nullable private Boolean virtual;
+    @jakarta.annotation.Nullable private Boolean virtual;
 
     public RunAnalyticsQuery() {}
 
-    public RunAnalyticsQuery filterBy(@javax.annotation.Nonnull AnalyticsAxis filterBy) {
+    public RunAnalyticsQuery filterBy(@jakarta.annotation.Nonnull AnalyticsAxis filterBy) {
         this.filterBy = filterBy;
         return this;
     }
@@ -82,16 +82,16 @@ public class RunAnalyticsQuery {
      * filters to apply to the query
      * @return filterBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public AnalyticsAxis getFilterBy() {
         return filterBy;
     }
 
-    public void setFilterBy(@javax.annotation.Nonnull AnalyticsAxis filterBy) {
+    public void setFilterBy(@jakarta.annotation.Nonnull AnalyticsAxis filterBy) {
         this.filterBy = filterBy;
     }
 
-    public RunAnalyticsQuery groupBy(@javax.annotation.Nullable RunAnalyticsGroupBy groupBy) {
+    public RunAnalyticsQuery groupBy(@jakarta.annotation.Nullable RunAnalyticsGroupBy groupBy) {
         this.groupBy = groupBy;
         return this;
     }
@@ -100,15 +100,15 @@ public class RunAnalyticsQuery {
      * The field to group by
      * @return groupBy
      */
-    @javax.annotation.Nullable public RunAnalyticsGroupBy getGroupBy() {
+    @jakarta.annotation.Nullable public RunAnalyticsGroupBy getGroupBy() {
         return groupBy;
     }
 
-    public void setGroupBy(@javax.annotation.Nullable RunAnalyticsGroupBy groupBy) {
+    public void setGroupBy(@jakarta.annotation.Nullable RunAnalyticsGroupBy groupBy) {
         this.groupBy = groupBy;
     }
 
-    public RunAnalyticsQuery from(@javax.annotation.Nullable BigDecimal from) {
+    public RunAnalyticsQuery from(@jakarta.annotation.Nullable BigDecimal from) {
         this.from = from;
         return this;
     }
@@ -117,15 +117,15 @@ public class RunAnalyticsQuery {
      * The start date of the query in EPOCH format
      * @return from
      */
-    @javax.annotation.Nullable public BigDecimal getFrom() {
+    @jakarta.annotation.Nullable public BigDecimal getFrom() {
         return from;
     }
 
-    public void setFrom(@javax.annotation.Nullable BigDecimal from) {
+    public void setFrom(@jakarta.annotation.Nullable BigDecimal from) {
         this.from = from;
     }
 
-    public RunAnalyticsQuery to(@javax.annotation.Nullable BigDecimal to) {
+    public RunAnalyticsQuery to(@jakarta.annotation.Nullable BigDecimal to) {
         this.to = to;
         return this;
     }
@@ -134,15 +134,15 @@ public class RunAnalyticsQuery {
      * The end date of the query in EPOCH format
      * @return to
      */
-    @javax.annotation.Nullable public BigDecimal getTo() {
+    @jakarta.annotation.Nullable public BigDecimal getTo() {
         return to;
     }
 
-    public void setTo(@javax.annotation.Nullable BigDecimal to) {
+    public void setTo(@jakarta.annotation.Nullable BigDecimal to) {
         this.to = to;
     }
 
-    public RunAnalyticsQuery resolution(@javax.annotation.Nullable TimeResolution resolution) {
+    public RunAnalyticsQuery resolution(@jakarta.annotation.Nullable TimeResolution resolution) {
         this.resolution = resolution;
         return this;
     }
@@ -151,15 +151,16 @@ public class RunAnalyticsQuery {
      * The time resolution unit of the analytics query
      * @return resolution
      */
-    @javax.annotation.Nullable public TimeResolution getResolution() {
+    @jakarta.annotation.Nullable public TimeResolution getResolution() {
         return resolution;
     }
 
-    public void setResolution(@javax.annotation.Nullable TimeResolution resolution) {
+    public void setResolution(@jakarta.annotation.Nullable TimeResolution resolution) {
         this.resolution = resolution;
     }
 
-    public RunAnalyticsQuery resolutionStep(@javax.annotation.Nullable BigDecimal resolutionStep) {
+    public RunAnalyticsQuery resolutionStep(
+            @jakarta.annotation.Nullable BigDecimal resolutionStep) {
         this.resolutionStep = resolutionStep;
         return this;
     }
@@ -168,15 +169,15 @@ public class RunAnalyticsQuery {
      * The step size for the resolution (e.g., 4 with resolution&#x3D;&#39;hour&#39; means 4-hour intervals). Defaults to 1.
      * @return resolutionStep
      */
-    @javax.annotation.Nullable public BigDecimal getResolutionStep() {
+    @jakarta.annotation.Nullable public BigDecimal getResolutionStep() {
         return resolutionStep;
     }
 
-    public void setResolutionStep(@javax.annotation.Nullable BigDecimal resolutionStep) {
+    public void setResolutionStep(@jakarta.annotation.Nullable BigDecimal resolutionStep) {
         this.resolutionStep = resolutionStep;
     }
 
-    public RunAnalyticsQuery virtual(@javax.annotation.Nullable Boolean virtual) {
+    public RunAnalyticsQuery virtual(@jakarta.annotation.Nullable Boolean virtual) {
         this.virtual = virtual;
         return this;
     }
@@ -185,11 +186,11 @@ public class RunAnalyticsQuery {
      * The field to sort by
      * @return virtual
      */
-    @javax.annotation.Nullable public Boolean getVirtual() {
+    @jakarta.annotation.Nullable public Boolean getVirtual() {
         return virtual;
     }
 
-    public void setVirtual(@javax.annotation.Nullable Boolean virtual) {
+    public void setVirtual(@jakarta.annotation.Nullable Boolean virtual) {
         this.virtual = virtual;
     }
 

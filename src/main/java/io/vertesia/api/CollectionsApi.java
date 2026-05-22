@@ -96,8 +96,8 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call computeCollectionMembersFacetsCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -158,8 +158,8 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call computeCollectionMembersFacetsValidateBeforeCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'collectionId' is set
@@ -195,8 +195,8 @@ public class CollectionsApi {
      * </table>
      */
     public ComputedFacetResponse computeCollectionMembersFacets(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload)
             throws ApiException {
         ApiResponse<ComputedFacetResponse> localVarResp =
                 computeCollectionMembersFacetsWithHttpInfo(collectionId, computeObjectFacetPayload);
@@ -220,8 +220,8 @@ public class CollectionsApi {
      * </table>
      */
     public ApiResponse<ComputedFacetResponse> computeCollectionMembersFacetsWithHttpInfo(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 computeCollectionMembersFacetsValidateBeforeCall(
@@ -248,8 +248,8 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call computeCollectionMembersFacetsAsync(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
             final ApiCallback<ComputedFacetResponse> _callback)
             throws ApiException {
 
@@ -277,7 +277,7 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call computeCollectionsFacetsCall(
-            @javax.annotation.Nonnull ComputeCollectionFacetPayload computeCollectionFacetPayload,
+            @jakarta.annotation.Nonnull ComputeCollectionFacetPayload computeCollectionFacetPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -334,7 +334,7 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call computeCollectionsFacetsValidateBeforeCall(
-            @javax.annotation.Nonnull ComputeCollectionFacetPayload computeCollectionFacetPayload,
+            @jakarta.annotation.Nonnull ComputeCollectionFacetPayload computeCollectionFacetPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'computeCollectionFacetPayload' is set
@@ -362,7 +362,7 @@ public class CollectionsApi {
      * </table>
      */
     public ComputedFacetResponse computeCollectionsFacets(
-            @javax.annotation.Nonnull ComputeCollectionFacetPayload computeCollectionFacetPayload)
+            @jakarta.annotation.Nonnull ComputeCollectionFacetPayload computeCollectionFacetPayload)
             throws ApiException {
         ApiResponse<ComputedFacetResponse> localVarResp =
                 computeCollectionsFacetsWithHttpInfo(computeCollectionFacetPayload);
@@ -385,7 +385,7 @@ public class CollectionsApi {
      * </table>
      */
     public ApiResponse<ComputedFacetResponse> computeCollectionsFacetsWithHttpInfo(
-            @javax.annotation.Nonnull ComputeCollectionFacetPayload computeCollectionFacetPayload)
+            @jakarta.annotation.Nonnull ComputeCollectionFacetPayload computeCollectionFacetPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 computeCollectionsFacetsValidateBeforeCall(computeCollectionFacetPayload, null);
@@ -410,7 +410,7 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call computeCollectionsFacetsAsync(
-            @javax.annotation.Nonnull ComputeCollectionFacetPayload computeCollectionFacetPayload,
+            @jakarta.annotation.Nonnull ComputeCollectionFacetPayload computeCollectionFacetPayload,
             final ApiCallback<ComputedFacetResponse> _callback)
             throws ApiException {
 
@@ -438,7 +438,7 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call createCollectionCall(
-            @javax.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
+            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -495,7 +495,7 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createCollectionValidateBeforeCall(
-            @javax.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
+            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'createCollectionPayload' is set
@@ -523,7 +523,7 @@ public class CollectionsApi {
      * </table>
      */
     public Collection createCollection(
-            @javax.annotation.Nonnull CreateCollectionPayload createCollectionPayload)
+            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload)
             throws ApiException {
         ApiResponse<Collection> localVarResp =
                 createCollectionWithHttpInfo(createCollectionPayload);
@@ -546,7 +546,7 @@ public class CollectionsApi {
      * </table>
      */
     public ApiResponse<Collection> createCollectionWithHttpInfo(
-            @javax.annotation.Nonnull CreateCollectionPayload createCollectionPayload)
+            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createCollectionValidateBeforeCall(createCollectionPayload, null);
@@ -571,7 +571,7 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call createCollectionAsync(
-            @javax.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
+            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
             final ApiCallback<Collection> _callback)
             throws ApiException {
 
@@ -598,7 +598,7 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call deleteCollectionCall(
-            @javax.annotation.Nonnull String collectionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String collectionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -658,7 +658,7 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteCollectionValidateBeforeCall(
-            @javax.annotation.Nonnull String collectionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String collectionId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -684,7 +684,7 @@ public class CollectionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteCountResult deleteCollection(@javax.annotation.Nonnull String collectionId)
+    public DeleteCountResult deleteCollection(@jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
         ApiResponse<DeleteCountResult> localVarResp = deleteCollectionWithHttpInfo(collectionId);
         return localVarResp.getData();
@@ -706,7 +706,7 @@ public class CollectionsApi {
      * </table>
      */
     public ApiResponse<DeleteCountResult> deleteCollectionWithHttpInfo(
-            @javax.annotation.Nonnull String collectionId) throws ApiException {
+            @jakarta.annotation.Nonnull String collectionId) throws ApiException {
         okhttp3.Call localVarCall = deleteCollectionValidateBeforeCall(collectionId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -729,7 +729,7 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call deleteCollectionAsync(
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
 
@@ -755,7 +755,7 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call getCollectionCall(
-            @javax.annotation.Nonnull String collectionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String collectionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -815,7 +815,7 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCollectionValidateBeforeCall(
-            @javax.annotation.Nonnull String collectionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String collectionId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -841,7 +841,7 @@ public class CollectionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public Collection getCollection(@javax.annotation.Nonnull String collectionId)
+    public Collection getCollection(@jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
         ApiResponse<Collection> localVarResp = getCollectionWithHttpInfo(collectionId);
         return localVarResp.getData();
@@ -863,7 +863,7 @@ public class CollectionsApi {
      * </table>
      */
     public ApiResponse<Collection> getCollectionWithHttpInfo(
-            @javax.annotation.Nonnull String collectionId) throws ApiException {
+            @jakarta.annotation.Nonnull String collectionId) throws ApiException {
         okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, null);
         Type localVarReturnType = new TypeToken<Collection>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -886,7 +886,8 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call getCollectionAsync(
-            @javax.annotation.Nonnull String collectionId, final ApiCallback<Collection> _callback)
+            @jakarta.annotation.Nonnull String collectionId,
+            final ApiCallback<Collection> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getCollectionValidateBeforeCall(collectionId, _callback);
@@ -915,11 +916,11 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call listCollectionMembersCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable String type,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable String type,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -996,11 +997,11 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listCollectionMembersValidateBeforeCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable String type,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable String type,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'collectionId' is set
@@ -1032,11 +1033,11 @@ public class CollectionsApi {
      * </table>
      */
     public List<ContentObjectItemApiResponse> listCollectionMembers(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable String type,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable String type,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         ApiResponse<List<ContentObjectItemApiResponse>> localVarResp =
                 listCollectionMembersWithHttpInfo(collectionId, status, type, limit, offset);
@@ -1063,11 +1064,11 @@ public class CollectionsApi {
      * </table>
      */
     public ApiResponse<List<ContentObjectItemApiResponse>> listCollectionMembersWithHttpInfo(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable String type,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable String type,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listCollectionMembersValidateBeforeCall(
@@ -1097,11 +1098,11 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call listCollectionMembersAsync(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable String type,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable String type,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback<List<ContentObjectItemApiResponse>> _callback)
             throws ApiException {
 
@@ -1129,7 +1130,7 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call propagateCollectionPermissionsCall(
-            @javax.annotation.Nonnull String collectionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String collectionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1189,7 +1190,7 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call propagateCollectionPermissionsValidateBeforeCall(
-            @javax.annotation.Nonnull String collectionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String collectionId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -1216,7 +1217,7 @@ public class CollectionsApi {
      * </table>
      */
     public CollectionPropagationResponse propagateCollectionPermissions(
-            @javax.annotation.Nonnull String collectionId) throws ApiException {
+            @jakarta.annotation.Nonnull String collectionId) throws ApiException {
         ApiResponse<CollectionPropagationResponse> localVarResp =
                 propagateCollectionPermissionsWithHttpInfo(collectionId);
         return localVarResp.getData();
@@ -1238,7 +1239,7 @@ public class CollectionsApi {
      * </table>
      */
     public ApiResponse<CollectionPropagationResponse> propagateCollectionPermissionsWithHttpInfo(
-            @javax.annotation.Nonnull String collectionId) throws ApiException {
+            @jakarta.annotation.Nonnull String collectionId) throws ApiException {
         okhttp3.Call localVarCall =
                 propagateCollectionPermissionsValidateBeforeCall(collectionId, null);
         Type localVarReturnType = new TypeToken<CollectionPropagationResponse>() {}.getType();
@@ -1262,7 +1263,7 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call propagateCollectionPermissionsAsync(
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<CollectionPropagationResponse> _callback)
             throws ApiException {
 
@@ -1289,7 +1290,7 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call propagateCollectionSharedPropertiesCall(
-            @javax.annotation.Nonnull String collectionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String collectionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1349,7 +1350,7 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call propagateCollectionSharedPropertiesValidateBeforeCall(
-            @javax.annotation.Nonnull String collectionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String collectionId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'collectionId' is set
         if (collectionId == null) {
@@ -1376,7 +1377,7 @@ public class CollectionsApi {
      * </table>
      */
     public CollectionPropagationResponse propagateCollectionSharedProperties(
-            @javax.annotation.Nonnull String collectionId) throws ApiException {
+            @jakarta.annotation.Nonnull String collectionId) throws ApiException {
         ApiResponse<CollectionPropagationResponse> localVarResp =
                 propagateCollectionSharedPropertiesWithHttpInfo(collectionId);
         return localVarResp.getData();
@@ -1399,7 +1400,7 @@ public class CollectionsApi {
      */
     public ApiResponse<CollectionPropagationResponse>
             propagateCollectionSharedPropertiesWithHttpInfo(
-                    @javax.annotation.Nonnull String collectionId) throws ApiException {
+                    @jakarta.annotation.Nonnull String collectionId) throws ApiException {
         okhttp3.Call localVarCall =
                 propagateCollectionSharedPropertiesValidateBeforeCall(collectionId, null);
         Type localVarReturnType = new TypeToken<CollectionPropagationResponse>() {}.getType();
@@ -1423,7 +1424,7 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call propagateCollectionSharedPropertiesAsync(
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<CollectionPropagationResponse> _callback)
             throws ApiException {
 
@@ -1451,8 +1452,8 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call searchCollectionChildrenCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1513,8 +1514,8 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchCollectionChildrenValidateBeforeCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'collectionId' is set
@@ -1549,8 +1550,8 @@ public class CollectionsApi {
      * </table>
      */
     public List<Collection> searchCollectionChildren(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery)
             throws ApiException {
         ApiResponse<List<Collection>> localVarResp =
                 searchCollectionChildrenWithHttpInfo(collectionId, complexCollectionSearchQuery);
@@ -1574,8 +1575,8 @@ public class CollectionsApi {
      * </table>
      */
     public ApiResponse<List<Collection>> searchCollectionChildrenWithHttpInfo(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery)
             throws ApiException {
         okhttp3.Call localVarCall =
                 searchCollectionChildrenValidateBeforeCall(
@@ -1602,8 +1603,8 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call searchCollectionChildrenAsync(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
             final ApiCallback<List<Collection>> _callback)
             throws ApiException {
 
@@ -1632,8 +1633,8 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call searchCollectionMembersCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1694,8 +1695,8 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchCollectionMembersValidateBeforeCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'collectionId' is set
@@ -1730,8 +1731,8 @@ public class CollectionsApi {
      * </table>
      */
     public ObjectSearchResponse searchCollectionMembers(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComplexSearchPayload complexSearchPayload)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload)
             throws ApiException {
         ApiResponse<ObjectSearchResponse> localVarResp =
                 searchCollectionMembersWithHttpInfo(collectionId, complexSearchPayload);
@@ -1755,8 +1756,8 @@ public class CollectionsApi {
      * </table>
      */
     public ApiResponse<ObjectSearchResponse> searchCollectionMembersWithHttpInfo(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComplexSearchPayload complexSearchPayload)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 searchCollectionMembersValidateBeforeCall(collectionId, complexSearchPayload, null);
@@ -1782,8 +1783,8 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call searchCollectionMembersAsync(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
             final ApiCallback<ObjectSearchResponse> _callback)
             throws ApiException {
 
@@ -1811,7 +1812,7 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call searchCollectionsCall(
-            @javax.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
+            @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1868,7 +1869,7 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchCollectionsValidateBeforeCall(
-            @javax.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
+            @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'complexCollectionSearchQuery' is set
@@ -1896,7 +1897,7 @@ public class CollectionsApi {
      * </table>
      */
     public List<Collection> searchCollections(
-            @javax.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery)
+            @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery)
             throws ApiException {
         ApiResponse<List<Collection>> localVarResp =
                 searchCollectionsWithHttpInfo(complexCollectionSearchQuery);
@@ -1919,7 +1920,7 @@ public class CollectionsApi {
      * </table>
      */
     public ApiResponse<List<Collection>> searchCollectionsWithHttpInfo(
-            @javax.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery)
+            @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery)
             throws ApiException {
         okhttp3.Call localVarCall =
                 searchCollectionsValidateBeforeCall(complexCollectionSearchQuery, null);
@@ -1944,7 +1945,7 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call searchCollectionsAsync(
-            @javax.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
+            @jakarta.annotation.Nonnull ComplexCollectionSearchQuery complexCollectionSearchQuery,
             final ApiCallback<List<Collection>> _callback)
             throws ApiException {
 
@@ -1972,8 +1973,8 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call updateCollectionCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2034,8 +2035,8 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateCollectionValidateBeforeCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'collectionId' is set
@@ -2070,8 +2071,8 @@ public class CollectionsApi {
      * </table>
      */
     public Collection updateCollection(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull CreateCollectionPayload createCollectionPayload)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload)
             throws ApiException {
         ApiResponse<Collection> localVarResp =
                 updateCollectionWithHttpInfo(collectionId, createCollectionPayload);
@@ -2095,8 +2096,8 @@ public class CollectionsApi {
      * </table>
      */
     public ApiResponse<Collection> updateCollectionWithHttpInfo(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull CreateCollectionPayload createCollectionPayload)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateCollectionValidateBeforeCall(collectionId, createCollectionPayload, null);
@@ -2122,8 +2123,8 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call updateCollectionAsync(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
             final ApiCallback<Collection> _callback)
             throws ApiException {
 
@@ -2152,8 +2153,8 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call updateCollectionChildrenCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull
                     CollectionChildrenUpdatePayload collectionChildrenUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -2215,8 +2216,8 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateCollectionChildrenValidateBeforeCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull
                     CollectionChildrenUpdatePayload collectionChildrenUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -2253,8 +2254,8 @@ public class CollectionsApi {
      * </table>
      */
     public CollectionChildrenUpdateResult updateCollectionChildren(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull
                     CollectionChildrenUpdatePayload collectionChildrenUpdatePayload)
             throws ApiException {
         ApiResponse<CollectionChildrenUpdateResult> localVarResp =
@@ -2279,8 +2280,8 @@ public class CollectionsApi {
      * </table>
      */
     public ApiResponse<CollectionChildrenUpdateResult> updateCollectionChildrenWithHttpInfo(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull
                     CollectionChildrenUpdatePayload collectionChildrenUpdatePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -2308,8 +2309,8 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call updateCollectionChildrenAsync(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull
                     CollectionChildrenUpdatePayload collectionChildrenUpdatePayload,
             final ApiCallback<CollectionChildrenUpdateResult> _callback)
             throws ApiException {
@@ -2339,8 +2340,9 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call updateCollectionMembersCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull CollectionMembersUpdatePayload collectionMembersUpdatePayload,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull
+                    CollectionMembersUpdatePayload collectionMembersUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2401,8 +2403,9 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateCollectionMembersValidateBeforeCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull CollectionMembersUpdatePayload collectionMembersUpdatePayload,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull
+                    CollectionMembersUpdatePayload collectionMembersUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'collectionId' is set
@@ -2437,8 +2440,9 @@ public class CollectionsApi {
      * </table>
      */
     public CollectionMembersUpdateResult updateCollectionMembers(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull CollectionMembersUpdatePayload collectionMembersUpdatePayload)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull
+                    CollectionMembersUpdatePayload collectionMembersUpdatePayload)
             throws ApiException {
         ApiResponse<CollectionMembersUpdateResult> localVarResp =
                 updateCollectionMembersWithHttpInfo(collectionId, collectionMembersUpdatePayload);
@@ -2462,8 +2466,9 @@ public class CollectionsApi {
      * </table>
      */
     public ApiResponse<CollectionMembersUpdateResult> updateCollectionMembersWithHttpInfo(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull CollectionMembersUpdatePayload collectionMembersUpdatePayload)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull
+                    CollectionMembersUpdatePayload collectionMembersUpdatePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateCollectionMembersValidateBeforeCall(
@@ -2490,8 +2495,9 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call updateCollectionMembersAsync(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull CollectionMembersUpdatePayload collectionMembersUpdatePayload,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull
+                    CollectionMembersUpdatePayload collectionMembersUpdatePayload,
             final ApiCallback<CollectionMembersUpdateResult> _callback)
             throws ApiException {
 
@@ -2520,8 +2526,8 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call updateCollectionPermissionsCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2582,8 +2588,8 @@ public class CollectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateCollectionPermissionsValidateBeforeCall(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'collectionId' is set
@@ -2618,8 +2624,8 @@ public class CollectionsApi {
      * </table>
      */
     public CollectionSecuritySettingsResponse updateCollectionPermissions(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody)
             throws ApiException {
         ApiResponse<CollectionSecuritySettingsResponse> localVarResp =
                 updateCollectionPermissionsWithHttpInfo(collectionId, requestBody);
@@ -2643,8 +2649,8 @@ public class CollectionsApi {
      * </table>
      */
     public ApiResponse<CollectionSecuritySettingsResponse> updateCollectionPermissionsWithHttpInfo(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody)
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateCollectionPermissionsValidateBeforeCall(collectionId, requestBody, null);
@@ -2670,8 +2676,8 @@ public class CollectionsApi {
      * </table>
      */
     public okhttp3.Call updateCollectionPermissionsAsync(
-            @javax.annotation.Nonnull String collectionId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback<CollectionSecuritySettingsResponse> _callback)
             throws ApiException {
 

@@ -81,7 +81,7 @@ public class UsersApi {
      * </table>
      */
     public okhttp3.Call deleteUserCall(
-            @javax.annotation.Nonnull String userId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String userId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -141,7 +141,7 @@ public class UsersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteUserValidateBeforeCall(
-            @javax.annotation.Nonnull String userId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String userId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
@@ -167,7 +167,7 @@ public class UsersApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteByIdResult deleteUser(@javax.annotation.Nonnull String userId)
+    public DeleteByIdResult deleteUser(@jakarta.annotation.Nonnull String userId)
             throws ApiException {
         ApiResponse<DeleteByIdResult> localVarResp = deleteUserWithHttpInfo(userId);
         return localVarResp.getData();
@@ -189,7 +189,7 @@ public class UsersApi {
      * </table>
      */
     public ApiResponse<DeleteByIdResult> deleteUserWithHttpInfo(
-            @javax.annotation.Nonnull String userId) throws ApiException {
+            @jakarta.annotation.Nonnull String userId) throws ApiException {
         okhttp3.Call localVarCall = deleteUserValidateBeforeCall(userId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -212,7 +212,8 @@ public class UsersApi {
      * </table>
      */
     public okhttp3.Call deleteUserAsync(
-            @javax.annotation.Nonnull String userId, final ApiCallback<DeleteByIdResult> _callback)
+            @jakarta.annotation.Nonnull String userId,
+            final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = deleteUserValidateBeforeCall(userId, _callback);
@@ -237,7 +238,7 @@ public class UsersApi {
      * </table>
      */
     public okhttp3.Call getUserCall(
-            @javax.annotation.Nonnull String userId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String userId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -297,7 +298,7 @@ public class UsersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getUserValidateBeforeCall(
-            @javax.annotation.Nonnull String userId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String userId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'userId' is set
         if (userId == null) {
@@ -323,7 +324,7 @@ public class UsersApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public User getUser(@javax.annotation.Nonnull String userId) throws ApiException {
+    public User getUser(@jakarta.annotation.Nonnull String userId) throws ApiException {
         ApiResponse<User> localVarResp = getUserWithHttpInfo(userId);
         return localVarResp.getData();
     }
@@ -343,7 +344,7 @@ public class UsersApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<User> getUserWithHttpInfo(@javax.annotation.Nonnull String userId)
+    public ApiResponse<User> getUserWithHttpInfo(@jakarta.annotation.Nonnull String userId)
             throws ApiException {
         okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, null);
         Type localVarReturnType = new TypeToken<User>() {}.getType();
@@ -367,7 +368,7 @@ public class UsersApi {
      * </table>
      */
     public okhttp3.Call getUserAsync(
-            @javax.annotation.Nonnull String userId, final ApiCallback<User> _callback)
+            @jakarta.annotation.Nonnull String userId, final ApiCallback<User> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, _callback);
@@ -393,8 +394,8 @@ public class UsersApi {
      * </table>
      */
     public okhttp3.Call updateUserCall(
-            @javax.annotation.Nonnull String userId,
-            @javax.annotation.Nonnull UpdateUserPayload updateUserPayload,
+            @jakarta.annotation.Nonnull String userId,
+            @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -455,8 +456,8 @@ public class UsersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateUserValidateBeforeCall(
-            @javax.annotation.Nonnull String userId,
-            @javax.annotation.Nonnull UpdateUserPayload updateUserPayload,
+            @jakarta.annotation.Nonnull String userId,
+            @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'userId' is set
@@ -491,8 +492,8 @@ public class UsersApi {
      * </table>
      */
     public User updateUser(
-            @javax.annotation.Nonnull String userId,
-            @javax.annotation.Nonnull UpdateUserPayload updateUserPayload)
+            @jakarta.annotation.Nonnull String userId,
+            @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload)
             throws ApiException {
         ApiResponse<User> localVarResp = updateUserWithHttpInfo(userId, updateUserPayload);
         return localVarResp.getData();
@@ -515,8 +516,8 @@ public class UsersApi {
      * </table>
      */
     public ApiResponse<User> updateUserWithHttpInfo(
-            @javax.annotation.Nonnull String userId,
-            @javax.annotation.Nonnull UpdateUserPayload updateUserPayload)
+            @jakarta.annotation.Nonnull String userId,
+            @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload)
             throws ApiException {
         okhttp3.Call localVarCall = updateUserValidateBeforeCall(userId, updateUserPayload, null);
         Type localVarReturnType = new TypeToken<User>() {}.getType();
@@ -541,8 +542,8 @@ public class UsersApi {
      * </table>
      */
     public okhttp3.Call updateUserAsync(
-            @javax.annotation.Nonnull String userId,
-            @javax.annotation.Nonnull UpdateUserPayload updateUserPayload,
+            @jakarta.annotation.Nonnull String userId,
+            @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload,
             final ApiCallback<User> _callback)
             throws ApiException {
 

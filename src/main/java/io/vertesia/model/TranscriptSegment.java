@@ -31,45 +31,45 @@ import java.util.Objects;
 /**
  * TranscriptSegment
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class TranscriptSegment {
     public static final String SERIALIZED_NAME_START = "start";
 
     @SerializedName(SERIALIZED_NAME_START)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal start;
 
     public static final String SERIALIZED_NAME_TEXT = "text";
 
     @SerializedName(SERIALIZED_NAME_TEXT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String text;
 
     public static final String SERIALIZED_NAME_SPEAKER = "speaker";
 
     @SerializedName(SERIALIZED_NAME_SPEAKER)
-    @javax.annotation.Nullable private BigDecimal speaker;
+    @jakarta.annotation.Nullable private BigDecimal speaker;
 
     public static final String SERIALIZED_NAME_END = "end";
 
     @SerializedName(SERIALIZED_NAME_END)
-    @javax.annotation.Nullable private BigDecimal end;
+    @jakarta.annotation.Nullable private BigDecimal end;
 
     public static final String SERIALIZED_NAME_CONFIDENCE = "confidence";
 
     @SerializedName(SERIALIZED_NAME_CONFIDENCE)
-    @javax.annotation.Nullable private BigDecimal confidence;
+    @jakarta.annotation.Nullable private BigDecimal confidence;
 
     public static final String SERIALIZED_NAME_LANGUAGE = "language";
 
     @SerializedName(SERIALIZED_NAME_LANGUAGE)
-    @javax.annotation.Nullable private String language;
+    @jakarta.annotation.Nullable private String language;
 
     public TranscriptSegment() {}
 
-    public TranscriptSegment start(@javax.annotation.Nonnull BigDecimal start) {
+    public TranscriptSegment start(@jakarta.annotation.Nonnull BigDecimal start) {
         this.start = start;
         return this;
     }
@@ -78,16 +78,16 @@ public class TranscriptSegment {
      * Get start
      * @return start
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getStart() {
         return start;
     }
 
-    public void setStart(@javax.annotation.Nonnull BigDecimal start) {
+    public void setStart(@jakarta.annotation.Nonnull BigDecimal start) {
         this.start = start;
     }
 
-    public TranscriptSegment text(@javax.annotation.Nonnull String text) {
+    public TranscriptSegment text(@jakarta.annotation.Nonnull String text) {
         this.text = text;
         return this;
     }
@@ -96,16 +96,16 @@ public class TranscriptSegment {
      * Get text
      * @return text
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getText() {
         return text;
     }
 
-    public void setText(@javax.annotation.Nonnull String text) {
+    public void setText(@jakarta.annotation.Nonnull String text) {
         this.text = text;
     }
 
-    public TranscriptSegment speaker(@javax.annotation.Nullable BigDecimal speaker) {
+    public TranscriptSegment speaker(@jakarta.annotation.Nullable BigDecimal speaker) {
         this.speaker = speaker;
         return this;
     }
@@ -114,15 +114,15 @@ public class TranscriptSegment {
      * Get speaker
      * @return speaker
      */
-    @javax.annotation.Nullable public BigDecimal getSpeaker() {
+    @jakarta.annotation.Nullable public BigDecimal getSpeaker() {
         return speaker;
     }
 
-    public void setSpeaker(@javax.annotation.Nullable BigDecimal speaker) {
+    public void setSpeaker(@jakarta.annotation.Nullable BigDecimal speaker) {
         this.speaker = speaker;
     }
 
-    public TranscriptSegment end(@javax.annotation.Nullable BigDecimal end) {
+    public TranscriptSegment end(@jakarta.annotation.Nullable BigDecimal end) {
         this.end = end;
         return this;
     }
@@ -131,15 +131,15 @@ public class TranscriptSegment {
      * Get end
      * @return end
      */
-    @javax.annotation.Nullable public BigDecimal getEnd() {
+    @jakarta.annotation.Nullable public BigDecimal getEnd() {
         return end;
     }
 
-    public void setEnd(@javax.annotation.Nullable BigDecimal end) {
+    public void setEnd(@jakarta.annotation.Nullable BigDecimal end) {
         this.end = end;
     }
 
-    public TranscriptSegment confidence(@javax.annotation.Nullable BigDecimal confidence) {
+    public TranscriptSegment confidence(@jakarta.annotation.Nullable BigDecimal confidence) {
         this.confidence = confidence;
         return this;
     }
@@ -148,15 +148,15 @@ public class TranscriptSegment {
      * Get confidence
      * @return confidence
      */
-    @javax.annotation.Nullable public BigDecimal getConfidence() {
+    @jakarta.annotation.Nullable public BigDecimal getConfidence() {
         return confidence;
     }
 
-    public void setConfidence(@javax.annotation.Nullable BigDecimal confidence) {
+    public void setConfidence(@jakarta.annotation.Nullable BigDecimal confidence) {
         this.confidence = confidence;
     }
 
-    public TranscriptSegment language(@javax.annotation.Nullable String language) {
+    public TranscriptSegment language(@jakarta.annotation.Nullable String language) {
         this.language = language;
         return this;
     }
@@ -165,11 +165,11 @@ public class TranscriptSegment {
      * Get language
      * @return language
      */
-    @javax.annotation.Nullable public String getLanguage() {
+    @jakarta.annotation.Nullable public String getLanguage() {
         return language;
     }
 
-    public void setLanguage(@javax.annotation.Nullable String language) {
+    public void setLanguage(@jakarta.annotation.Nullable String language) {
         this.language = language;
     }
 

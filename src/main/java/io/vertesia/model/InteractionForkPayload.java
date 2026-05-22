@@ -30,28 +30,28 @@ import java.util.Objects;
 /**
  * InteractionForkPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InteractionForkPayload {
     public static final String SERIALIZED_NAME_KEEP_TAGS = "keepTags";
 
     @SerializedName(SERIALIZED_NAME_KEEP_TAGS)
-    @javax.annotation.Nullable private Boolean keepTags;
+    @jakarta.annotation.Nullable private Boolean keepTags;
 
     public static final String SERIALIZED_NAME_FORK_PROMPTS = "forkPrompts";
 
     @SerializedName(SERIALIZED_NAME_FORK_PROMPTS)
-    @javax.annotation.Nullable private Boolean forkPrompts;
+    @jakarta.annotation.Nullable private Boolean forkPrompts;
 
     public static final String SERIALIZED_NAME_TARGET_PROJECT = "targetProject";
 
     @SerializedName(SERIALIZED_NAME_TARGET_PROJECT)
-    @javax.annotation.Nullable private String targetProject;
+    @jakarta.annotation.Nullable private String targetProject;
 
     public InteractionForkPayload() {}
 
-    public InteractionForkPayload keepTags(@javax.annotation.Nullable Boolean keepTags) {
+    public InteractionForkPayload keepTags(@jakarta.annotation.Nullable Boolean keepTags) {
         this.keepTags = keepTags;
         return this;
     }
@@ -60,15 +60,15 @@ public class InteractionForkPayload {
      * Get keepTags
      * @return keepTags
      */
-    @javax.annotation.Nullable public Boolean getKeepTags() {
+    @jakarta.annotation.Nullable public Boolean getKeepTags() {
         return keepTags;
     }
 
-    public void setKeepTags(@javax.annotation.Nullable Boolean keepTags) {
+    public void setKeepTags(@jakarta.annotation.Nullable Boolean keepTags) {
         this.keepTags = keepTags;
     }
 
-    public InteractionForkPayload forkPrompts(@javax.annotation.Nullable Boolean forkPrompts) {
+    public InteractionForkPayload forkPrompts(@jakarta.annotation.Nullable Boolean forkPrompts) {
         this.forkPrompts = forkPrompts;
         return this;
     }
@@ -77,15 +77,15 @@ public class InteractionForkPayload {
      * Get forkPrompts
      * @return forkPrompts
      */
-    @javax.annotation.Nullable public Boolean getForkPrompts() {
+    @jakarta.annotation.Nullable public Boolean getForkPrompts() {
         return forkPrompts;
     }
 
-    public void setForkPrompts(@javax.annotation.Nullable Boolean forkPrompts) {
+    public void setForkPrompts(@jakarta.annotation.Nullable Boolean forkPrompts) {
         this.forkPrompts = forkPrompts;
     }
 
-    public InteractionForkPayload targetProject(@javax.annotation.Nullable String targetProject) {
+    public InteractionForkPayload targetProject(@jakarta.annotation.Nullable String targetProject) {
         this.targetProject = targetProject;
         return this;
     }
@@ -94,11 +94,11 @@ public class InteractionForkPayload {
      * Get targetProject
      * @return targetProject
      */
-    @javax.annotation.Nullable public String getTargetProject() {
+    @jakarta.annotation.Nullable public String getTargetProject() {
         return targetProject;
     }
 
-    public void setTargetProject(@javax.annotation.Nullable String targetProject) {
+    public void setTargetProject(@jakarta.annotation.Nullable String targetProject) {
         this.targetProject = targetProject;
     }
 

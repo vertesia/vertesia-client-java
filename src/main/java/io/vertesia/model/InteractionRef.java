@@ -35,85 +35,85 @@ import java.util.Objects;
 /**
  * InteractionRef
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InteractionRef {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_ENDPOINT = "endpoint";
 
     @SerializedName(SERIALIZED_NAME_ENDPOINT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String endpoint;
 
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private String parent;
+    @jakarta.annotation.Nullable private String parent;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nullable private String model;
+    @jakarta.annotation.Nullable private String model;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private InteractionStatus status;
 
     public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
     @SerializedName(SERIALIZED_NAME_VISIBILITY)
-    @javax.annotation.Nullable private InteractionVisibility visibility;
+    @jakarta.annotation.Nullable private InteractionVisibility visibility;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal version;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_AGENT_RUNNER_OPTIONS = "agent_runner_options";
 
     @SerializedName(SERIALIZED_NAME_AGENT_RUNNER_OPTIONS)
-    @javax.annotation.Nullable private AgentRunnerOptions agentRunnerOptions;
+    @jakarta.annotation.Nullable private AgentRunnerOptions agentRunnerOptions;
 
     public static final String SERIALIZED_NAME_PROMPTS = "prompts";
 
     @SerializedName(SERIALIZED_NAME_PROMPTS)
-    @javax.annotation.Nullable private List<PromptSegmentRefPromptTemplateRef> prompts = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<PromptSegmentRefPromptTemplateRef> prompts = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime updatedAt;
 
     public InteractionRef() {}
 
-    public InteractionRef id(@javax.annotation.Nonnull String id) {
+    public InteractionRef id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -122,16 +122,16 @@ public class InteractionRef {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public InteractionRef name(@javax.annotation.Nonnull String name) {
+    public InteractionRef name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -140,16 +140,16 @@ public class InteractionRef {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public InteractionRef endpoint(@javax.annotation.Nonnull String endpoint) {
+    public InteractionRef endpoint(@jakarta.annotation.Nonnull String endpoint) {
         this.endpoint = endpoint;
         return this;
     }
@@ -158,16 +158,16 @@ public class InteractionRef {
      * Get endpoint
      * @return endpoint
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getEndpoint() {
         return endpoint;
     }
 
-    public void setEndpoint(@javax.annotation.Nonnull String endpoint) {
+    public void setEndpoint(@jakarta.annotation.Nonnull String endpoint) {
         this.endpoint = endpoint;
     }
 
-    public InteractionRef parent(@javax.annotation.Nullable String parent) {
+    public InteractionRef parent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
         return this;
     }
@@ -176,15 +176,15 @@ public class InteractionRef {
      * Get parent
      * @return parent
      */
-    @javax.annotation.Nullable public String getParent() {
+    @jakarta.annotation.Nullable public String getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable String parent) {
+    public void setParent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
     }
 
-    public InteractionRef model(@javax.annotation.Nullable String model) {
+    public InteractionRef model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
@@ -193,15 +193,15 @@ public class InteractionRef {
      * Get model
      * @return model
      */
-    @javax.annotation.Nullable public String getModel() {
+    @jakarta.annotation.Nullable public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nullable String model) {
+    public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
     }
 
-    public InteractionRef description(@javax.annotation.Nullable String description) {
+    public InteractionRef description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -210,15 +210,15 @@ public class InteractionRef {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public InteractionRef status(@javax.annotation.Nonnull InteractionStatus status) {
+    public InteractionRef status(@jakarta.annotation.Nonnull InteractionStatus status) {
         this.status = status;
         return this;
     }
@@ -227,16 +227,17 @@ public class InteractionRef {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public InteractionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull InteractionStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull InteractionStatus status) {
         this.status = status;
     }
 
-    public InteractionRef visibility(@javax.annotation.Nullable InteractionVisibility visibility) {
+    public InteractionRef visibility(
+            @jakarta.annotation.Nullable InteractionVisibility visibility) {
         this.visibility = visibility;
         return this;
     }
@@ -245,15 +246,15 @@ public class InteractionRef {
      * Get visibility
      * @return visibility
      */
-    @javax.annotation.Nullable public InteractionVisibility getVisibility() {
+    @jakarta.annotation.Nullable public InteractionVisibility getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(@javax.annotation.Nullable InteractionVisibility visibility) {
+    public void setVisibility(@jakarta.annotation.Nullable InteractionVisibility visibility) {
         this.visibility = visibility;
     }
 
-    public InteractionRef version(@javax.annotation.Nonnull BigDecimal version) {
+    public InteractionRef version(@jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
         return this;
     }
@@ -262,16 +263,16 @@ public class InteractionRef {
      * Get version
      * @return version
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getVersion() {
         return version;
     }
 
-    public void setVersion(@javax.annotation.Nonnull BigDecimal version) {
+    public void setVersion(@jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
     }
 
-    public InteractionRef tags(@javax.annotation.Nonnull List<String> tags) {
+    public InteractionRef tags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -288,17 +289,17 @@ public class InteractionRef {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nonnull List<String> tags) {
+    public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
     }
 
     public InteractionRef agentRunnerOptions(
-            @javax.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
+            @jakarta.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
         this.agentRunnerOptions = agentRunnerOptions;
         return this;
     }
@@ -307,17 +308,17 @@ public class InteractionRef {
      * Get agentRunnerOptions
      * @return agentRunnerOptions
      */
-    @javax.annotation.Nullable public AgentRunnerOptions getAgentRunnerOptions() {
+    @jakarta.annotation.Nullable public AgentRunnerOptions getAgentRunnerOptions() {
         return agentRunnerOptions;
     }
 
     public void setAgentRunnerOptions(
-            @javax.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
+            @jakarta.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
         this.agentRunnerOptions = agentRunnerOptions;
     }
 
     public InteractionRef prompts(
-            @javax.annotation.Nullable List<PromptSegmentRefPromptTemplateRef> prompts) {
+            @jakarta.annotation.Nullable List<PromptSegmentRefPromptTemplateRef> prompts) {
         this.prompts = prompts;
         return this;
     }
@@ -334,16 +335,16 @@ public class InteractionRef {
      * Get prompts
      * @return prompts
      */
-    @javax.annotation.Nullable public List<PromptSegmentRefPromptTemplateRef> getPrompts() {
+    @jakarta.annotation.Nullable public List<PromptSegmentRefPromptTemplateRef> getPrompts() {
         return prompts;
     }
 
     public void setPrompts(
-            @javax.annotation.Nullable List<PromptSegmentRefPromptTemplateRef> prompts) {
+            @jakarta.annotation.Nullable List<PromptSegmentRefPromptTemplateRef> prompts) {
         this.prompts = prompts;
     }
 
-    public InteractionRef updatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public InteractionRef updatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -352,12 +353,12 @@ public class InteractionRef {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 

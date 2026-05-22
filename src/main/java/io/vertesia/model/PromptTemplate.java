@@ -36,120 +36,120 @@ import java.util.Objects;
 /**
  * PromptTemplate
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromptTemplate {
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private PromptRole role;
 
     public static final String SERIALIZED_NAME_CONTENT = "content";
 
     @SerializedName(SERIALIZED_NAME_CONTENT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String content;
 
     public static final String SERIALIZED_NAME_CONTENT_TYPE = "content_type";
 
     @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TemplateType contentType;
 
     public static final String SERIALIZED_NAME_INPUT_SCHEMA = "inputSchema";
 
     @SerializedName(SERIALIZED_NAME_INPUT_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema inputSchema;
+    @jakarta.annotation.Nullable private JSONSchema inputSchema;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private PromptStatus status;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal version;
 
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private String parent;
+    @jakarta.annotation.Nullable private String parent;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TEST_DATA = "test_data";
 
     @SerializedName(SERIALIZED_NAME_TEST_DATA)
-    @javax.annotation.Nullable private Map<String, Object> testData = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> testData = new HashMap<>();
 
     public static final String SERIALIZED_NAME_SCRIPT = "script";
 
     @SerializedName(SERIALIZED_NAME_SCRIPT)
-    @javax.annotation.Nullable private String script;
+    @jakarta.annotation.Nullable private String script;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private InteractionProject project;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LAST_PUBLISHED_AT = "last_published_at";
 
     @SerializedName(SERIALIZED_NAME_LAST_PUBLISHED_AT)
-    @javax.annotation.Nullable private OffsetDateTime lastPublishedAt;
+    @jakarta.annotation.Nullable private OffsetDateTime lastPublishedAt;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime updatedAt;
 
     public PromptTemplate() {}
 
-    public PromptTemplate role(@javax.annotation.Nonnull PromptRole role) {
+    public PromptTemplate role(@jakarta.annotation.Nonnull PromptRole role) {
         this.role = role;
         return this;
     }
@@ -158,16 +158,16 @@ public class PromptTemplate {
      * Get role
      * @return role
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public PromptRole getRole() {
         return role;
     }
 
-    public void setRole(@javax.annotation.Nonnull PromptRole role) {
+    public void setRole(@jakarta.annotation.Nonnull PromptRole role) {
         this.role = role;
     }
 
-    public PromptTemplate content(@javax.annotation.Nonnull String content) {
+    public PromptTemplate content(@jakarta.annotation.Nonnull String content) {
         this.content = content;
         return this;
     }
@@ -176,16 +176,16 @@ public class PromptTemplate {
      * Get content
      * @return content
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getContent() {
         return content;
     }
 
-    public void setContent(@javax.annotation.Nonnull String content) {
+    public void setContent(@jakarta.annotation.Nonnull String content) {
         this.content = content;
     }
 
-    public PromptTemplate contentType(@javax.annotation.Nonnull TemplateType contentType) {
+    public PromptTemplate contentType(@jakarta.annotation.Nonnull TemplateType contentType) {
         this.contentType = contentType;
         return this;
     }
@@ -194,16 +194,16 @@ public class PromptTemplate {
      * Get contentType
      * @return contentType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TemplateType getContentType() {
         return contentType;
     }
 
-    public void setContentType(@javax.annotation.Nonnull TemplateType contentType) {
+    public void setContentType(@jakarta.annotation.Nonnull TemplateType contentType) {
         this.contentType = contentType;
     }
 
-    public PromptTemplate inputSchema(@javax.annotation.Nullable JSONSchema inputSchema) {
+    public PromptTemplate inputSchema(@jakarta.annotation.Nullable JSONSchema inputSchema) {
         this.inputSchema = inputSchema;
         return this;
     }
@@ -212,15 +212,15 @@ public class PromptTemplate {
      * Get inputSchema
      * @return inputSchema
      */
-    @javax.annotation.Nullable public JSONSchema getInputSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getInputSchema() {
         return inputSchema;
     }
 
-    public void setInputSchema(@javax.annotation.Nullable JSONSchema inputSchema) {
+    public void setInputSchema(@jakarta.annotation.Nullable JSONSchema inputSchema) {
         this.inputSchema = inputSchema;
     }
 
-    public PromptTemplate id(@javax.annotation.Nonnull String id) {
+    public PromptTemplate id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -229,16 +229,16 @@ public class PromptTemplate {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public PromptTemplate name(@javax.annotation.Nonnull String name) {
+    public PromptTemplate name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -247,16 +247,16 @@ public class PromptTemplate {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public PromptTemplate status(@javax.annotation.Nonnull PromptStatus status) {
+    public PromptTemplate status(@jakarta.annotation.Nonnull PromptStatus status) {
         this.status = status;
         return this;
     }
@@ -265,16 +265,16 @@ public class PromptTemplate {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public PromptStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull PromptStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull PromptStatus status) {
         this.status = status;
     }
 
-    public PromptTemplate version(@javax.annotation.Nonnull BigDecimal version) {
+    public PromptTemplate version(@jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
         return this;
     }
@@ -283,16 +283,16 @@ public class PromptTemplate {
      * Get version
      * @return version
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getVersion() {
         return version;
     }
 
-    public void setVersion(@javax.annotation.Nonnull BigDecimal version) {
+    public void setVersion(@jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
     }
 
-    public PromptTemplate parent(@javax.annotation.Nullable String parent) {
+    public PromptTemplate parent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
         return this;
     }
@@ -301,15 +301,15 @@ public class PromptTemplate {
      * Get parent
      * @return parent
      */
-    @javax.annotation.Nullable public String getParent() {
+    @jakarta.annotation.Nullable public String getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable String parent) {
+    public void setParent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
     }
 
-    public PromptTemplate description(@javax.annotation.Nullable String description) {
+    public PromptTemplate description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -318,15 +318,15 @@ public class PromptTemplate {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public PromptTemplate testData(@javax.annotation.Nullable Map<String, Object> testData) {
+    public PromptTemplate testData(@jakarta.annotation.Nullable Map<String, Object> testData) {
         this.testData = testData;
         return this;
     }
@@ -343,15 +343,15 @@ public class PromptTemplate {
      * Get testData
      * @return testData
      */
-    @javax.annotation.Nullable public Map<String, Object> getTestData() {
+    @jakarta.annotation.Nullable public Map<String, Object> getTestData() {
         return testData;
     }
 
-    public void setTestData(@javax.annotation.Nullable Map<String, Object> testData) {
+    public void setTestData(@jakarta.annotation.Nullable Map<String, Object> testData) {
         this.testData = testData;
     }
 
-    public PromptTemplate script(@javax.annotation.Nullable String script) {
+    public PromptTemplate script(@jakarta.annotation.Nullable String script) {
         this.script = script;
         return this;
     }
@@ -360,15 +360,15 @@ public class PromptTemplate {
      * Get script
      * @return script
      */
-    @javax.annotation.Nullable public String getScript() {
+    @jakarta.annotation.Nullable public String getScript() {
         return script;
     }
 
-    public void setScript(@javax.annotation.Nullable String script) {
+    public void setScript(@jakarta.annotation.Nullable String script) {
         this.script = script;
     }
 
-    public PromptTemplate project(@javax.annotation.Nonnull InteractionProject project) {
+    public PromptTemplate project(@jakarta.annotation.Nonnull InteractionProject project) {
         this.project = project;
         return this;
     }
@@ -377,16 +377,16 @@ public class PromptTemplate {
      * Get project
      * @return project
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public InteractionProject getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nonnull InteractionProject project) {
+    public void setProject(@jakarta.annotation.Nonnull InteractionProject project) {
         this.project = project;
     }
 
-    public PromptTemplate tags(@javax.annotation.Nullable List<String> tags) {
+    public PromptTemplate tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -403,16 +403,16 @@ public class PromptTemplate {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
     public PromptTemplate lastPublishedAt(
-            @javax.annotation.Nullable OffsetDateTime lastPublishedAt) {
+            @jakarta.annotation.Nullable OffsetDateTime lastPublishedAt) {
         this.lastPublishedAt = lastPublishedAt;
         return this;
     }
@@ -421,15 +421,15 @@ public class PromptTemplate {
      * Get lastPublishedAt
      * @return lastPublishedAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getLastPublishedAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getLastPublishedAt() {
         return lastPublishedAt;
     }
 
-    public void setLastPublishedAt(@javax.annotation.Nullable OffsetDateTime lastPublishedAt) {
+    public void setLastPublishedAt(@jakarta.annotation.Nullable OffsetDateTime lastPublishedAt) {
         this.lastPublishedAt = lastPublishedAt;
     }
 
-    public PromptTemplate createdBy(@javax.annotation.Nonnull String createdBy) {
+    public PromptTemplate createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -438,16 +438,16 @@ public class PromptTemplate {
      * Get createdBy
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public PromptTemplate updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public PromptTemplate updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -456,16 +456,16 @@ public class PromptTemplate {
      * Get updatedBy
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public PromptTemplate createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public PromptTemplate createdAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -474,16 +474,16 @@ public class PromptTemplate {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public PromptTemplate updatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public PromptTemplate updatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -492,12 +492,12 @@ public class PromptTemplate {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 

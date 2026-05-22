@@ -36,91 +36,91 @@ import java.util.Objects;
 /**
  * Task
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class Task {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String account;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String project;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String title;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DurableTaskStatus status;
 
     public static final String SERIALIZED_NAME_ASSIGNEE = "assignee";
 
     @SerializedName(SERIALIZED_NAME_ASSIGNEE)
-    @javax.annotation.Nullable private String assignee;
+    @jakarta.annotation.Nullable private String assignee;
 
     public static final String SERIALIZED_NAME_FIELDS = "fields";
 
     @SerializedName(SERIALIZED_NAME_FIELDS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<TaskField> fields = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_RESULT = "result";
 
     @SerializedName(SERIALIZED_NAME_RESULT)
-    @javax.annotation.Nullable private Map<String, Object> result = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> result = new HashMap<>();
 
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TaskSource source;
 
     public static final String SERIALIZED_NAME_DUE_AT = "due_at";
 
     @SerializedName(SERIALIZED_NAME_DUE_AT)
-    @javax.annotation.Nullable private OffsetDateTime dueAt;
+    @jakarta.annotation.Nullable private OffsetDateTime dueAt;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime createdAt;
 
     public static final String SERIALIZED_NAME_COMPLETED_AT = "completed_at";
 
     @SerializedName(SERIALIZED_NAME_COMPLETED_AT)
-    @javax.annotation.Nullable private OffsetDateTime completedAt;
+    @jakarta.annotation.Nullable private OffsetDateTime completedAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nullable private OffsetDateTime updatedAt;
+    @jakarta.annotation.Nullable private OffsetDateTime updatedAt;
 
     public Task() {}
 
-    public Task id(@javax.annotation.Nonnull String id) {
+    public Task id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -129,16 +129,16 @@ public class Task {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public Task account(@javax.annotation.Nonnull String account) {
+    public Task account(@jakarta.annotation.Nonnull String account) {
         this.account = account;
         return this;
     }
@@ -147,16 +147,16 @@ public class Task {
      * Get account
      * @return account
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nonnull String account) {
+    public void setAccount(@jakarta.annotation.Nonnull String account) {
         this.account = account;
     }
 
-    public Task project(@javax.annotation.Nonnull String project) {
+    public Task project(@jakarta.annotation.Nonnull String project) {
         this.project = project;
         return this;
     }
@@ -165,16 +165,16 @@ public class Task {
      * Get project
      * @return project
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nonnull String project) {
+    public void setProject(@jakarta.annotation.Nonnull String project) {
         this.project = project;
     }
 
-    public Task title(@javax.annotation.Nonnull String title) {
+    public Task title(@jakarta.annotation.Nonnull String title) {
         this.title = title;
         return this;
     }
@@ -183,16 +183,16 @@ public class Task {
      * Get title
      * @return title
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nonnull String title) {
+    public void setTitle(@jakarta.annotation.Nonnull String title) {
         this.title = title;
     }
 
-    public Task description(@javax.annotation.Nullable String description) {
+    public Task description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -201,15 +201,15 @@ public class Task {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public Task status(@javax.annotation.Nonnull DurableTaskStatus status) {
+    public Task status(@jakarta.annotation.Nonnull DurableTaskStatus status) {
         this.status = status;
         return this;
     }
@@ -218,16 +218,16 @@ public class Task {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DurableTaskStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull DurableTaskStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull DurableTaskStatus status) {
         this.status = status;
     }
 
-    public Task assignee(@javax.annotation.Nullable String assignee) {
+    public Task assignee(@jakarta.annotation.Nullable String assignee) {
         this.assignee = assignee;
         return this;
     }
@@ -236,15 +236,15 @@ public class Task {
      * Get assignee
      * @return assignee
      */
-    @javax.annotation.Nullable public String getAssignee() {
+    @jakarta.annotation.Nullable public String getAssignee() {
         return assignee;
     }
 
-    public void setAssignee(@javax.annotation.Nullable String assignee) {
+    public void setAssignee(@jakarta.annotation.Nullable String assignee) {
         this.assignee = assignee;
     }
 
-    public Task fields(@javax.annotation.Nonnull List<TaskField> fields) {
+    public Task fields(@jakarta.annotation.Nonnull List<TaskField> fields) {
         this.fields = fields;
         return this;
     }
@@ -261,16 +261,16 @@ public class Task {
      * Get fields
      * @return fields
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<TaskField> getFields() {
         return fields;
     }
 
-    public void setFields(@javax.annotation.Nonnull List<TaskField> fields) {
+    public void setFields(@jakarta.annotation.Nonnull List<TaskField> fields) {
         this.fields = fields;
     }
 
-    public Task result(@javax.annotation.Nullable Map<String, Object> result) {
+    public Task result(@jakarta.annotation.Nullable Map<String, Object> result) {
         this.result = result;
         return this;
     }
@@ -287,15 +287,15 @@ public class Task {
      * Get result
      * @return result
      */
-    @javax.annotation.Nullable public Map<String, Object> getResult() {
+    @jakarta.annotation.Nullable public Map<String, Object> getResult() {
         return result;
     }
 
-    public void setResult(@javax.annotation.Nullable Map<String, Object> result) {
+    public void setResult(@jakarta.annotation.Nullable Map<String, Object> result) {
         this.result = result;
     }
 
-    public Task source(@javax.annotation.Nonnull TaskSource source) {
+    public Task source(@jakarta.annotation.Nonnull TaskSource source) {
         this.source = source;
         return this;
     }
@@ -304,16 +304,16 @@ public class Task {
      * Get source
      * @return source
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TaskSource getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nonnull TaskSource source) {
+    public void setSource(@jakarta.annotation.Nonnull TaskSource source) {
         this.source = source;
     }
 
-    public Task dueAt(@javax.annotation.Nullable OffsetDateTime dueAt) {
+    public Task dueAt(@jakarta.annotation.Nullable OffsetDateTime dueAt) {
         this.dueAt = dueAt;
         return this;
     }
@@ -322,15 +322,15 @@ public class Task {
      * Get dueAt
      * @return dueAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getDueAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getDueAt() {
         return dueAt;
     }
 
-    public void setDueAt(@javax.annotation.Nullable OffsetDateTime dueAt) {
+    public void setDueAt(@jakarta.annotation.Nullable OffsetDateTime dueAt) {
         this.dueAt = dueAt;
     }
 
-    public Task createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public Task createdAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -339,16 +339,16 @@ public class Task {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Task completedAt(@javax.annotation.Nullable OffsetDateTime completedAt) {
+    public Task completedAt(@jakarta.annotation.Nullable OffsetDateTime completedAt) {
         this.completedAt = completedAt;
         return this;
     }
@@ -357,15 +357,15 @@ public class Task {
      * Get completedAt
      * @return completedAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getCompletedAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getCompletedAt() {
         return completedAt;
     }
 
-    public void setCompletedAt(@javax.annotation.Nullable OffsetDateTime completedAt) {
+    public void setCompletedAt(@jakarta.annotation.Nullable OffsetDateTime completedAt) {
         this.completedAt = completedAt;
     }
 
-    public Task updatedAt(@javax.annotation.Nullable OffsetDateTime updatedAt) {
+    public Task updatedAt(@jakarta.annotation.Nullable OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -374,11 +374,11 @@ public class Task {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getUpdatedAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nullable OffsetDateTime updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nullable OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 

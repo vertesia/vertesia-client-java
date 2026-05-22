@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * AgentTaskError
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AgentTaskError {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String type;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String message;
 
     public AgentTaskError() {}
 
-    public AgentTaskError type(@javax.annotation.Nonnull String type) {
+    public AgentTaskError type(@jakarta.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -57,16 +57,16 @@ public class AgentTaskError {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull String type) {
+    public void setType(@jakarta.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public AgentTaskError message(@javax.annotation.Nonnull String message) {
+    public AgentTaskError message(@jakarta.annotation.Nonnull String message) {
         this.message = message;
         return this;
     }
@@ -75,12 +75,12 @@ public class AgentTaskError {
      * Get message
      * @return message
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nonnull String message) {
+    public void setMessage(@jakarta.annotation.Nonnull String message) {
         this.message = message;
     }
 

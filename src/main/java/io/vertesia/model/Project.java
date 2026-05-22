@@ -33,83 +33,83 @@ import java.util.Objects;
 /**
  * Project
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class Project {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
 
     @SerializedName(SERIALIZED_NAME_NAMESPACE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String namespace;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String account;
 
     public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
 
     @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ProjectConfiguration _configuration;
 
     public static final String SERIALIZED_NAME_INTEGRATIONS = "integrations";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATIONS)
-    @javax.annotation.Nullable private MapStringAny integrations;
+    @jakarta.annotation.Nullable private MapStringAny integrations;
 
     public static final String SERIALIZED_NAME_PLUGINS = "plugins";
 
     @SerializedName(SERIALIZED_NAME_PLUGINS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> plugins = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime updatedAt;
 
     public Project() {}
 
-    public Project id(@javax.annotation.Nonnull String id) {
+    public Project id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -118,16 +118,16 @@ public class Project {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public Project name(@javax.annotation.Nonnull String name) {
+    public Project name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -136,16 +136,16 @@ public class Project {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public Project namespace(@javax.annotation.Nonnull String namespace) {
+    public Project namespace(@jakarta.annotation.Nonnull String namespace) {
         this.namespace = namespace;
         return this;
     }
@@ -154,16 +154,16 @@ public class Project {
      * Get namespace
      * @return namespace
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getNamespace() {
         return namespace;
     }
 
-    public void setNamespace(@javax.annotation.Nonnull String namespace) {
+    public void setNamespace(@jakarta.annotation.Nonnull String namespace) {
         this.namespace = namespace;
     }
 
-    public Project description(@javax.annotation.Nullable String description) {
+    public Project description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -172,15 +172,15 @@ public class Project {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public Project account(@javax.annotation.Nonnull String account) {
+    public Project account(@jakarta.annotation.Nonnull String account) {
         this.account = account;
         return this;
     }
@@ -189,16 +189,16 @@ public class Project {
      * Get account
      * @return account
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nonnull String account) {
+    public void setAccount(@jakarta.annotation.Nonnull String account) {
         this.account = account;
     }
 
-    public Project _configuration(@javax.annotation.Nonnull ProjectConfiguration _configuration) {
+    public Project _configuration(@jakarta.annotation.Nonnull ProjectConfiguration _configuration) {
         this._configuration = _configuration;
         return this;
     }
@@ -207,16 +207,16 @@ public class Project {
      * Get _configuration
      * @return _configuration
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ProjectConfiguration getConfiguration() {
         return _configuration;
     }
 
-    public void setConfiguration(@javax.annotation.Nonnull ProjectConfiguration _configuration) {
+    public void setConfiguration(@jakarta.annotation.Nonnull ProjectConfiguration _configuration) {
         this._configuration = _configuration;
     }
 
-    public Project integrations(@javax.annotation.Nullable MapStringAny integrations) {
+    public Project integrations(@jakarta.annotation.Nullable MapStringAny integrations) {
         this.integrations = integrations;
         return this;
     }
@@ -225,15 +225,15 @@ public class Project {
      * Get integrations
      * @return integrations
      */
-    @javax.annotation.Nullable public MapStringAny getIntegrations() {
+    @jakarta.annotation.Nullable public MapStringAny getIntegrations() {
         return integrations;
     }
 
-    public void setIntegrations(@javax.annotation.Nullable MapStringAny integrations) {
+    public void setIntegrations(@jakarta.annotation.Nullable MapStringAny integrations) {
         this.integrations = integrations;
     }
 
-    public Project plugins(@javax.annotation.Nonnull List<String> plugins) {
+    public Project plugins(@jakarta.annotation.Nonnull List<String> plugins) {
         this.plugins = plugins;
         return this;
     }
@@ -250,16 +250,16 @@ public class Project {
      * Get plugins
      * @return plugins
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getPlugins() {
         return plugins;
     }
 
-    public void setPlugins(@javax.annotation.Nonnull List<String> plugins) {
+    public void setPlugins(@jakarta.annotation.Nonnull List<String> plugins) {
         this.plugins = plugins;
     }
 
-    public Project createdBy(@javax.annotation.Nonnull String createdBy) {
+    public Project createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -268,16 +268,16 @@ public class Project {
      * Get createdBy
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public Project updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public Project updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -286,16 +286,16 @@ public class Project {
      * Get updatedBy
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public Project createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public Project createdAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -304,16 +304,16 @@ public class Project {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Project updatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public Project updatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -322,12 +322,12 @@ public class Project {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 

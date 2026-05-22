@@ -30,39 +30,39 @@ import java.util.Objects;
 /**
  * Represents a document analysis run status
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DocAnalyzeRunStatusResponse {
     public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflow_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
-    @javax.annotation.Nullable private String workflowId;
+    @jakarta.annotation.Nullable private String workflowId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_RUN_ID = "workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_RUN_ID)
-    @javax.annotation.Nullable private String workflowRunId;
+    @jakarta.annotation.Nullable private String workflowRunId;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private WorkflowExecutionStatus status;
 
     public static final String SERIALIZED_NAME_PROGRESS = "progress";
 
     @SerializedName(SERIALIZED_NAME_PROGRESS)
-    @javax.annotation.Nullable private DocAnalyzerProgress progress;
+    @jakarta.annotation.Nullable private DocAnalyzerProgress progress;
 
     public static final String SERIALIZED_NAME_OUTPUT_FORMAT = "output_format";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT_FORMAT)
-    @javax.annotation.Nullable private DocProcessorOutputFormat outputFormat;
+    @jakarta.annotation.Nullable private DocProcessorOutputFormat outputFormat;
 
     public DocAnalyzeRunStatusResponse() {}
 
-    public DocAnalyzeRunStatusResponse workflowId(@javax.annotation.Nullable String workflowId) {
+    public DocAnalyzeRunStatusResponse workflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
         return this;
     }
@@ -71,16 +71,16 @@ public class DocAnalyzeRunStatusResponse {
      * Get workflowId
      * @return workflowId
      */
-    @javax.annotation.Nullable public String getWorkflowId() {
+    @jakarta.annotation.Nullable public String getWorkflowId() {
         return workflowId;
     }
 
-    public void setWorkflowId(@javax.annotation.Nullable String workflowId) {
+    public void setWorkflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
     }
 
     public DocAnalyzeRunStatusResponse workflowRunId(
-            @javax.annotation.Nullable String workflowRunId) {
+            @jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
         return this;
     }
@@ -89,16 +89,16 @@ public class DocAnalyzeRunStatusResponse {
      * Get workflowRunId
      * @return workflowRunId
      */
-    @javax.annotation.Nullable public String getWorkflowRunId() {
+    @jakarta.annotation.Nullable public String getWorkflowRunId() {
         return workflowRunId;
     }
 
-    public void setWorkflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public void setWorkflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
     }
 
     public DocAnalyzeRunStatusResponse status(
-            @javax.annotation.Nonnull WorkflowExecutionStatus status) {
+            @jakarta.annotation.Nonnull WorkflowExecutionStatus status) {
         this.status = status;
         return this;
     }
@@ -107,17 +107,17 @@ public class DocAnalyzeRunStatusResponse {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public WorkflowExecutionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull WorkflowExecutionStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull WorkflowExecutionStatus status) {
         this.status = status;
     }
 
     public DocAnalyzeRunStatusResponse progress(
-            @javax.annotation.Nullable DocAnalyzerProgress progress) {
+            @jakarta.annotation.Nullable DocAnalyzerProgress progress) {
         this.progress = progress;
         return this;
     }
@@ -126,16 +126,16 @@ public class DocAnalyzeRunStatusResponse {
      * Get progress
      * @return progress
      */
-    @javax.annotation.Nullable public DocAnalyzerProgress getProgress() {
+    @jakarta.annotation.Nullable public DocAnalyzerProgress getProgress() {
         return progress;
     }
 
-    public void setProgress(@javax.annotation.Nullable DocAnalyzerProgress progress) {
+    public void setProgress(@jakarta.annotation.Nullable DocAnalyzerProgress progress) {
         this.progress = progress;
     }
 
     public DocAnalyzeRunStatusResponse outputFormat(
-            @javax.annotation.Nullable DocProcessorOutputFormat outputFormat) {
+            @jakarta.annotation.Nullable DocProcessorOutputFormat outputFormat) {
         this.outputFormat = outputFormat;
         return this;
     }
@@ -144,11 +144,12 @@ public class DocAnalyzeRunStatusResponse {
      * The output format being used for processing (markdown or xml)
      * @return outputFormat
      */
-    @javax.annotation.Nullable public DocProcessorOutputFormat getOutputFormat() {
+    @jakarta.annotation.Nullable public DocProcessorOutputFormat getOutputFormat() {
         return outputFormat;
     }
 
-    public void setOutputFormat(@javax.annotation.Nullable DocProcessorOutputFormat outputFormat) {
+    public void setOutputFormat(
+            @jakarta.annotation.Nullable DocProcessorOutputFormat outputFormat) {
         this.outputFormat = outputFormat;
     }
 

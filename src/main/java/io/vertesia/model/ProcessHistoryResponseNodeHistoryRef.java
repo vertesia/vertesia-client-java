@@ -31,31 +31,31 @@ import java.util.Objects;
 /**
  * ProcessHistoryResponseNodeHistoryRef
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProcessHistoryResponseNodeHistoryRef {
     public static final String SERIALIZED_NAME_PATH = "path";
 
     @SerializedName(SERIALIZED_NAME_PATH)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String path;
 
     public static final String SERIALIZED_NAME_LATEST_SEQUENCE = "latest_sequence";
 
     @SerializedName(SERIALIZED_NAME_LATEST_SEQUENCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal latestSequence;
 
     public static final String SERIALIZED_NAME_COUNT = "count";
 
     @SerializedName(SERIALIZED_NAME_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal count;
 
     public ProcessHistoryResponseNodeHistoryRef() {}
 
-    public ProcessHistoryResponseNodeHistoryRef path(@javax.annotation.Nonnull String path) {
+    public ProcessHistoryResponseNodeHistoryRef path(@jakarta.annotation.Nonnull String path) {
         this.path = path;
         return this;
     }
@@ -64,17 +64,17 @@ public class ProcessHistoryResponseNodeHistoryRef {
      * Get path
      * @return path
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getPath() {
         return path;
     }
 
-    public void setPath(@javax.annotation.Nonnull String path) {
+    public void setPath(@jakarta.annotation.Nonnull String path) {
         this.path = path;
     }
 
     public ProcessHistoryResponseNodeHistoryRef latestSequence(
-            @javax.annotation.Nonnull BigDecimal latestSequence) {
+            @jakarta.annotation.Nonnull BigDecimal latestSequence) {
         this.latestSequence = latestSequence;
         return this;
     }
@@ -83,16 +83,17 @@ public class ProcessHistoryResponseNodeHistoryRef {
      * Get latestSequence
      * @return latestSequence
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getLatestSequence() {
         return latestSequence;
     }
 
-    public void setLatestSequence(@javax.annotation.Nonnull BigDecimal latestSequence) {
+    public void setLatestSequence(@jakarta.annotation.Nonnull BigDecimal latestSequence) {
         this.latestSequence = latestSequence;
     }
 
-    public ProcessHistoryResponseNodeHistoryRef count(@javax.annotation.Nonnull BigDecimal count) {
+    public ProcessHistoryResponseNodeHistoryRef count(
+            @jakarta.annotation.Nonnull BigDecimal count) {
         this.count = count;
         return this;
     }
@@ -101,12 +102,12 @@ public class ProcessHistoryResponseNodeHistoryRef {
      * Get count
      * @return count
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCount() {
         return count;
     }
 
-    public void setCount(@javax.annotation.Nonnull BigDecimal count) {
+    public void setCount(@jakarta.annotation.Nonnull BigDecimal count) {
         this.count = count;
     }
 

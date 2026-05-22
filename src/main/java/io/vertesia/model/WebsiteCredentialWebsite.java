@@ -32,29 +32,29 @@ import java.util.Objects;
 /**
  * WebsiteCredentialWebsite
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WebsiteCredentialWebsite {
     public static final String SERIALIZED_NAME_HOST = "host";
 
     @SerializedName(SERIALIZED_NAME_HOST)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String host;
 
     public static final String SERIALIZED_NAME_LOGIN_URL = "login_url";
 
     @SerializedName(SERIALIZED_NAME_LOGIN_URL)
-    @javax.annotation.Nullable private String loginUrl;
+    @jakarta.annotation.Nullable private String loginUrl;
 
     public static final String SERIALIZED_NAME_ALLOWED_ORIGINS = "allowed_origins";
 
     @SerializedName(SERIALIZED_NAME_ALLOWED_ORIGINS)
-    @javax.annotation.Nullable private List<String> allowedOrigins = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> allowedOrigins = new ArrayList<>();
 
     public WebsiteCredentialWebsite() {}
 
-    public WebsiteCredentialWebsite host(@javax.annotation.Nonnull String host) {
+    public WebsiteCredentialWebsite host(@jakarta.annotation.Nonnull String host) {
         this.host = host;
         return this;
     }
@@ -63,16 +63,16 @@ public class WebsiteCredentialWebsite {
      * Hostname this credential is allowed on. Subdomains match.
      * @return host
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getHost() {
         return host;
     }
 
-    public void setHost(@javax.annotation.Nonnull String host) {
+    public void setHost(@jakarta.annotation.Nonnull String host) {
         this.host = host;
     }
 
-    public WebsiteCredentialWebsite loginUrl(@javax.annotation.Nullable String loginUrl) {
+    public WebsiteCredentialWebsite loginUrl(@jakarta.annotation.Nullable String loginUrl) {
         this.loginUrl = loginUrl;
         return this;
     }
@@ -81,16 +81,16 @@ public class WebsiteCredentialWebsite {
      * Optional login URL used by agents as a hint.
      * @return loginUrl
      */
-    @javax.annotation.Nullable public String getLoginUrl() {
+    @jakarta.annotation.Nullable public String getLoginUrl() {
         return loginUrl;
     }
 
-    public void setLoginUrl(@javax.annotation.Nullable String loginUrl) {
+    public void setLoginUrl(@jakarta.annotation.Nullable String loginUrl) {
         this.loginUrl = loginUrl;
     }
 
     public WebsiteCredentialWebsite allowedOrigins(
-            @javax.annotation.Nullable List<String> allowedOrigins) {
+            @jakarta.annotation.Nullable List<String> allowedOrigins) {
         this.allowedOrigins = allowedOrigins;
         return this;
     }
@@ -107,11 +107,11 @@ public class WebsiteCredentialWebsite {
      * Optional narrower origin allowlist for this credential.
      * @return allowedOrigins
      */
-    @javax.annotation.Nullable public List<String> getAllowedOrigins() {
+    @jakarta.annotation.Nullable public List<String> getAllowedOrigins() {
         return allowedOrigins;
     }
 
-    public void setAllowedOrigins(@javax.annotation.Nullable List<String> allowedOrigins) {
+    public void setAllowedOrigins(@jakarta.annotation.Nullable List<String> allowedOrigins) {
         this.allowedOrigins = allowedOrigins;
     }
 

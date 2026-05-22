@@ -30,20 +30,20 @@ import java.util.Objects;
 /**
  * DashboardVersioningStatusResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DashboardVersioningStatusResponse {
     public static final String SERIALIZED_NAME_VERSIONING_ENABLED = "versioning_enabled";
 
     @SerializedName(SERIALIZED_NAME_VERSIONING_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean versioningEnabled;
 
     public DashboardVersioningStatusResponse() {}
 
     public DashboardVersioningStatusResponse versioningEnabled(
-            @javax.annotation.Nonnull Boolean versioningEnabled) {
+            @jakarta.annotation.Nonnull Boolean versioningEnabled) {
         this.versioningEnabled = versioningEnabled;
         return this;
     }
@@ -52,12 +52,12 @@ public class DashboardVersioningStatusResponse {
      * Get versioningEnabled
      * @return versioningEnabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getVersioningEnabled() {
         return versioningEnabled;
     }
 
-    public void setVersioningEnabled(@javax.annotation.Nonnull Boolean versioningEnabled) {
+    public void setVersioningEnabled(@jakarta.annotation.Nonnull Boolean versioningEnabled) {
         this.versioningEnabled = versioningEnabled;
     }
 

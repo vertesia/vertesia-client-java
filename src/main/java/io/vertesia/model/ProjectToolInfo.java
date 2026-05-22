@@ -33,41 +33,41 @@ import java.util.Objects;
 /**
  * Information about a tool and its associated app installation. Used to look up which app provides a specific tool.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProjectToolInfo {
     public static final String SERIALIZED_NAME_TOOL_NAME = "tool_name";
 
     @SerializedName(SERIALIZED_NAME_TOOL_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String toolName;
 
     public static final String SERIALIZED_NAME_TOOL_DESCRIPTION = "tool_description";
 
     @SerializedName(SERIALIZED_NAME_TOOL_DESCRIPTION)
-    @javax.annotation.Nullable private String toolDescription;
+    @jakarta.annotation.Nullable private String toolDescription;
 
     public static final String SERIALIZED_NAME_APP_NAME = "app_name";
 
     @SerializedName(SERIALIZED_NAME_APP_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String appName;
 
     public static final String SERIALIZED_NAME_APP_INSTALL_ID = "app_install_id";
 
     @SerializedName(SERIALIZED_NAME_APP_INSTALL_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String appInstallId;
 
     public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
     @SerializedName(SERIALIZED_NAME_SETTINGS)
-    @javax.annotation.Nullable private Map<String, Object> settings = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> settings = new HashMap<>();
 
     public ProjectToolInfo() {}
 
-    public ProjectToolInfo toolName(@javax.annotation.Nonnull String toolName) {
+    public ProjectToolInfo toolName(@jakarta.annotation.Nonnull String toolName) {
         this.toolName = toolName;
         return this;
     }
@@ -76,16 +76,16 @@ public class ProjectToolInfo {
      * The tool name
      * @return toolName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getToolName() {
         return toolName;
     }
 
-    public void setToolName(@javax.annotation.Nonnull String toolName) {
+    public void setToolName(@jakarta.annotation.Nonnull String toolName) {
         this.toolName = toolName;
     }
 
-    public ProjectToolInfo toolDescription(@javax.annotation.Nullable String toolDescription) {
+    public ProjectToolInfo toolDescription(@jakarta.annotation.Nullable String toolDescription) {
         this.toolDescription = toolDescription;
         return this;
     }
@@ -94,15 +94,15 @@ public class ProjectToolInfo {
      * Optional tool description
      * @return toolDescription
      */
-    @javax.annotation.Nullable public String getToolDescription() {
+    @jakarta.annotation.Nullable public String getToolDescription() {
         return toolDescription;
     }
 
-    public void setToolDescription(@javax.annotation.Nullable String toolDescription) {
+    public void setToolDescription(@jakarta.annotation.Nullable String toolDescription) {
         this.toolDescription = toolDescription;
     }
 
-    public ProjectToolInfo appName(@javax.annotation.Nonnull String appName) {
+    public ProjectToolInfo appName(@jakarta.annotation.Nonnull String appName) {
         this.appName = appName;
         return this;
     }
@@ -111,16 +111,16 @@ public class ProjectToolInfo {
      * The app name that provides this tool
      * @return appName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAppName() {
         return appName;
     }
 
-    public void setAppName(@javax.annotation.Nonnull String appName) {
+    public void setAppName(@jakarta.annotation.Nonnull String appName) {
         this.appName = appName;
     }
 
-    public ProjectToolInfo appInstallId(@javax.annotation.Nonnull String appInstallId) {
+    public ProjectToolInfo appInstallId(@jakarta.annotation.Nonnull String appInstallId) {
         this.appInstallId = appInstallId;
         return this;
     }
@@ -129,16 +129,16 @@ public class ProjectToolInfo {
      * The app installation ID
      * @return appInstallId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAppInstallId() {
         return appInstallId;
     }
 
-    public void setAppInstallId(@javax.annotation.Nonnull String appInstallId) {
+    public void setAppInstallId(@jakarta.annotation.Nonnull String appInstallId) {
         this.appInstallId = appInstallId;
     }
 
-    public ProjectToolInfo settings(@javax.annotation.Nullable Map<String, Object> settings) {
+    public ProjectToolInfo settings(@jakarta.annotation.Nullable Map<String, Object> settings) {
         this.settings = settings;
         return this;
     }
@@ -155,11 +155,11 @@ public class ProjectToolInfo {
      * The app installation settings. Only included for agent tokens, not user tokens (security: may contain API keys).
      * @return settings
      */
-    @javax.annotation.Nullable public Map<String, Object> getSettings() {
+    @jakarta.annotation.Nullable public Map<String, Object> getSettings() {
         return settings;
     }
 
-    public void setSettings(@javax.annotation.Nullable Map<String, Object> settings) {
+    public void setSettings(@jakarta.annotation.Nullable Map<String, Object> settings) {
         this.settings = settings;
     }
 

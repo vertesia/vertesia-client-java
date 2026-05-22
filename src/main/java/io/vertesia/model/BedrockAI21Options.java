@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * BedrockAI21Options
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BedrockAI21Options {
@@ -94,32 +94,32 @@ public class BedrockAI21Options {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OptionIdEnum optionId;
 
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
-    @javax.annotation.Nullable private BigDecimal maxTokens;
+    @jakarta.annotation.Nullable private BigDecimal maxTokens;
 
     public static final String SERIALIZED_NAME_TEMPERATURE = "temperature";
 
     @SerializedName(SERIALIZED_NAME_TEMPERATURE)
-    @javax.annotation.Nullable private BigDecimal temperature;
+    @jakarta.annotation.Nullable private BigDecimal temperature;
 
     public static final String SERIALIZED_NAME_TOP_P = "top_p";
 
     @SerializedName(SERIALIZED_NAME_TOP_P)
-    @javax.annotation.Nullable private BigDecimal topP;
+    @jakarta.annotation.Nullable private BigDecimal topP;
 
     public static final String SERIALIZED_NAME_STOP_SEQUENCE = "stop_sequence";
 
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
-    @javax.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
     public BedrockAI21Options() {}
 
-    public BedrockAI21Options optionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public BedrockAI21Options optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -128,16 +128,16 @@ public class BedrockAI21Options {
      * Get optionId
      * @return optionId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
-    public BedrockAI21Options maxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public BedrockAI21Options maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
         return this;
     }
@@ -146,15 +146,15 @@ public class BedrockAI21Options {
      * Get maxTokens
      * @return maxTokens
      */
-    @javax.annotation.Nullable public BigDecimal getMaxTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxTokens() {
         return maxTokens;
     }
 
-    public void setMaxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public void setMaxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
     }
 
-    public BedrockAI21Options temperature(@javax.annotation.Nullable BigDecimal temperature) {
+    public BedrockAI21Options temperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
         return this;
     }
@@ -163,15 +163,15 @@ public class BedrockAI21Options {
      * Get temperature
      * @return temperature
      */
-    @javax.annotation.Nullable public BigDecimal getTemperature() {
+    @jakarta.annotation.Nullable public BigDecimal getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(@javax.annotation.Nullable BigDecimal temperature) {
+    public void setTemperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
     }
 
-    public BedrockAI21Options topP(@javax.annotation.Nullable BigDecimal topP) {
+    public BedrockAI21Options topP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
         return this;
     }
@@ -180,15 +180,15 @@ public class BedrockAI21Options {
      * Get topP
      * @return topP
      */
-    @javax.annotation.Nullable public BigDecimal getTopP() {
+    @jakarta.annotation.Nullable public BigDecimal getTopP() {
         return topP;
     }
 
-    public void setTopP(@javax.annotation.Nullable BigDecimal topP) {
+    public void setTopP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
     }
 
-    public BedrockAI21Options stopSequence(@javax.annotation.Nullable List<String> stopSequence) {
+    public BedrockAI21Options stopSequence(@jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
         return this;
     }
@@ -205,11 +205,11 @@ public class BedrockAI21Options {
      * Get stopSequence
      * @return stopSequence
      */
-    @javax.annotation.Nullable public List<String> getStopSequence() {
+    @jakarta.annotation.Nullable public List<String> getStopSequence() {
         return stopSequence;
     }
 
-    public void setStopSequence(@javax.annotation.Nullable List<String> stopSequence) {
+    public void setStopSequence(@jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
     }
 

@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * Signed artifact URL response for agent artifacts.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AgentArtifactUrlResponse {
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String url;
 
     public static final String SERIALIZED_NAME_PATH = "path";
 
     @SerializedName(SERIALIZED_NAME_PATH)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String path;
 
     public AgentArtifactUrlResponse() {}
 
-    public AgentArtifactUrlResponse url(@javax.annotation.Nonnull String url) {
+    public AgentArtifactUrlResponse url(@jakarta.annotation.Nonnull String url) {
         this.url = url;
         return this;
     }
@@ -57,16 +57,16 @@ public class AgentArtifactUrlResponse {
      * Get url
      * @return url
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nonnull String url) {
+    public void setUrl(@jakarta.annotation.Nonnull String url) {
         this.url = url;
     }
 
-    public AgentArtifactUrlResponse path(@javax.annotation.Nonnull String path) {
+    public AgentArtifactUrlResponse path(@jakarta.annotation.Nonnull String path) {
         this.path = path;
         return this;
     }
@@ -75,12 +75,12 @@ public class AgentArtifactUrlResponse {
      * Get path
      * @return path
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getPath() {
         return path;
     }
 
-    public void setPath(@javax.annotation.Nonnull String path) {
+    public void setPath(@jakarta.annotation.Nonnull String path) {
         this.path = path;
     }
 

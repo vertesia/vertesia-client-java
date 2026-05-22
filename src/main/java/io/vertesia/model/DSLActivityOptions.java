@@ -30,34 +30,34 @@ import java.util.Objects;
 /**
  * The payload for a DSL activity options.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DSLActivityOptions {
     public static final String SERIALIZED_NAME_START_TO_CLOSE_TIMEOUT = "startToCloseTimeout";
 
     @SerializedName(SERIALIZED_NAME_START_TO_CLOSE_TIMEOUT)
-    @javax.annotation.Nullable private DurationValue startToCloseTimeout;
+    @jakarta.annotation.Nullable private DurationValue startToCloseTimeout;
 
     public static final String SERIALIZED_NAME_SCHEDULE_TO_START_TIMEOUT = "scheduleToStartTimeout";
 
     @SerializedName(SERIALIZED_NAME_SCHEDULE_TO_START_TIMEOUT)
-    @javax.annotation.Nullable private DurationValue scheduleToStartTimeout;
+    @jakarta.annotation.Nullable private DurationValue scheduleToStartTimeout;
 
     public static final String SERIALIZED_NAME_SCHEDULE_TO_CLOSE_TIMEOUT = "scheduleToCloseTimeout";
 
     @SerializedName(SERIALIZED_NAME_SCHEDULE_TO_CLOSE_TIMEOUT)
-    @javax.annotation.Nullable private DurationValue scheduleToCloseTimeout;
+    @jakarta.annotation.Nullable private DurationValue scheduleToCloseTimeout;
 
     public static final String SERIALIZED_NAME_RETRY = "retry";
 
     @SerializedName(SERIALIZED_NAME_RETRY)
-    @javax.annotation.Nullable private DSLRetryPolicy retry;
+    @jakarta.annotation.Nullable private DSLRetryPolicy retry;
 
     public DSLActivityOptions() {}
 
     public DSLActivityOptions startToCloseTimeout(
-            @javax.annotation.Nullable DurationValue startToCloseTimeout) {
+            @jakarta.annotation.Nullable DurationValue startToCloseTimeout) {
         this.startToCloseTimeout = startToCloseTimeout;
         return this;
     }
@@ -66,17 +66,17 @@ public class DSLActivityOptions {
      * Get startToCloseTimeout
      * @return startToCloseTimeout
      */
-    @javax.annotation.Nullable public DurationValue getStartToCloseTimeout() {
+    @jakarta.annotation.Nullable public DurationValue getStartToCloseTimeout() {
         return startToCloseTimeout;
     }
 
     public void setStartToCloseTimeout(
-            @javax.annotation.Nullable DurationValue startToCloseTimeout) {
+            @jakarta.annotation.Nullable DurationValue startToCloseTimeout) {
         this.startToCloseTimeout = startToCloseTimeout;
     }
 
     public DSLActivityOptions scheduleToStartTimeout(
-            @javax.annotation.Nullable DurationValue scheduleToStartTimeout) {
+            @jakarta.annotation.Nullable DurationValue scheduleToStartTimeout) {
         this.scheduleToStartTimeout = scheduleToStartTimeout;
         return this;
     }
@@ -85,17 +85,17 @@ public class DSLActivityOptions {
      * Get scheduleToStartTimeout
      * @return scheduleToStartTimeout
      */
-    @javax.annotation.Nullable public DurationValue getScheduleToStartTimeout() {
+    @jakarta.annotation.Nullable public DurationValue getScheduleToStartTimeout() {
         return scheduleToStartTimeout;
     }
 
     public void setScheduleToStartTimeout(
-            @javax.annotation.Nullable DurationValue scheduleToStartTimeout) {
+            @jakarta.annotation.Nullable DurationValue scheduleToStartTimeout) {
         this.scheduleToStartTimeout = scheduleToStartTimeout;
     }
 
     public DSLActivityOptions scheduleToCloseTimeout(
-            @javax.annotation.Nullable DurationValue scheduleToCloseTimeout) {
+            @jakarta.annotation.Nullable DurationValue scheduleToCloseTimeout) {
         this.scheduleToCloseTimeout = scheduleToCloseTimeout;
         return this;
     }
@@ -104,16 +104,16 @@ public class DSLActivityOptions {
      * Get scheduleToCloseTimeout
      * @return scheduleToCloseTimeout
      */
-    @javax.annotation.Nullable public DurationValue getScheduleToCloseTimeout() {
+    @jakarta.annotation.Nullable public DurationValue getScheduleToCloseTimeout() {
         return scheduleToCloseTimeout;
     }
 
     public void setScheduleToCloseTimeout(
-            @javax.annotation.Nullable DurationValue scheduleToCloseTimeout) {
+            @jakarta.annotation.Nullable DurationValue scheduleToCloseTimeout) {
         this.scheduleToCloseTimeout = scheduleToCloseTimeout;
     }
 
-    public DSLActivityOptions retry(@javax.annotation.Nullable DSLRetryPolicy retry) {
+    public DSLActivityOptions retry(@jakarta.annotation.Nullable DSLRetryPolicy retry) {
         this.retry = retry;
         return this;
     }
@@ -122,11 +122,11 @@ public class DSLActivityOptions {
      * Get retry
      * @return retry
      */
-    @javax.annotation.Nullable public DSLRetryPolicy getRetry() {
+    @jakarta.annotation.Nullable public DSLRetryPolicy getRetry() {
         return retry;
     }
 
-    public void setRetry(@javax.annotation.Nullable DSLRetryPolicy retry) {
+    public void setRetry(@jakarta.annotation.Nullable DSLRetryPolicy retry) {
         this.retry = retry;
     }
 

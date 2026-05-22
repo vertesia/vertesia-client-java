@@ -33,39 +33,39 @@ import java.util.Objects;
 /**
  * The payload for a DSL retry policy.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DSLRetryPolicy {
     public static final String SERIALIZED_NAME_BACKOFF_COEFFICIENT = "backoffCoefficient";
 
     @SerializedName(SERIALIZED_NAME_BACKOFF_COEFFICIENT)
-    @javax.annotation.Nullable private BigDecimal backoffCoefficient;
+    @jakarta.annotation.Nullable private BigDecimal backoffCoefficient;
 
     public static final String SERIALIZED_NAME_INITIAL_INTERVAL = "initialInterval";
 
     @SerializedName(SERIALIZED_NAME_INITIAL_INTERVAL)
-    @javax.annotation.Nullable private DurationValue initialInterval;
+    @jakarta.annotation.Nullable private DurationValue initialInterval;
 
     public static final String SERIALIZED_NAME_MAXIMUM_ATTEMPTS = "maximumAttempts";
 
     @SerializedName(SERIALIZED_NAME_MAXIMUM_ATTEMPTS)
-    @javax.annotation.Nullable private BigDecimal maximumAttempts;
+    @jakarta.annotation.Nullable private BigDecimal maximumAttempts;
 
     public static final String SERIALIZED_NAME_MAXIMUM_INTERVAL = "maximumInterval";
 
     @SerializedName(SERIALIZED_NAME_MAXIMUM_INTERVAL)
-    @javax.annotation.Nullable private DurationValue maximumInterval;
+    @jakarta.annotation.Nullable private DurationValue maximumInterval;
 
     public static final String SERIALIZED_NAME_NON_RETRYABLE_ERROR_TYPES = "nonRetryableErrorTypes";
 
     @SerializedName(SERIALIZED_NAME_NON_RETRYABLE_ERROR_TYPES)
-    @javax.annotation.Nullable private List<String> nonRetryableErrorTypes = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> nonRetryableErrorTypes = new ArrayList<>();
 
     public DSLRetryPolicy() {}
 
     public DSLRetryPolicy backoffCoefficient(
-            @javax.annotation.Nullable BigDecimal backoffCoefficient) {
+            @jakarta.annotation.Nullable BigDecimal backoffCoefficient) {
         this.backoffCoefficient = backoffCoefficient;
         return this;
     }
@@ -74,16 +74,16 @@ public class DSLRetryPolicy {
      * Get backoffCoefficient
      * @return backoffCoefficient
      */
-    @javax.annotation.Nullable public BigDecimal getBackoffCoefficient() {
+    @jakarta.annotation.Nullable public BigDecimal getBackoffCoefficient() {
         return backoffCoefficient;
     }
 
-    public void setBackoffCoefficient(@javax.annotation.Nullable BigDecimal backoffCoefficient) {
+    public void setBackoffCoefficient(@jakarta.annotation.Nullable BigDecimal backoffCoefficient) {
         this.backoffCoefficient = backoffCoefficient;
     }
 
     public DSLRetryPolicy initialInterval(
-            @javax.annotation.Nullable DurationValue initialInterval) {
+            @jakarta.annotation.Nullable DurationValue initialInterval) {
         this.initialInterval = initialInterval;
         return this;
     }
@@ -92,15 +92,15 @@ public class DSLRetryPolicy {
      * Get initialInterval
      * @return initialInterval
      */
-    @javax.annotation.Nullable public DurationValue getInitialInterval() {
+    @jakarta.annotation.Nullable public DurationValue getInitialInterval() {
         return initialInterval;
     }
 
-    public void setInitialInterval(@javax.annotation.Nullable DurationValue initialInterval) {
+    public void setInitialInterval(@jakarta.annotation.Nullable DurationValue initialInterval) {
         this.initialInterval = initialInterval;
     }
 
-    public DSLRetryPolicy maximumAttempts(@javax.annotation.Nullable BigDecimal maximumAttempts) {
+    public DSLRetryPolicy maximumAttempts(@jakarta.annotation.Nullable BigDecimal maximumAttempts) {
         this.maximumAttempts = maximumAttempts;
         return this;
     }
@@ -109,16 +109,16 @@ public class DSLRetryPolicy {
      * Get maximumAttempts
      * @return maximumAttempts
      */
-    @javax.annotation.Nullable public BigDecimal getMaximumAttempts() {
+    @jakarta.annotation.Nullable public BigDecimal getMaximumAttempts() {
         return maximumAttempts;
     }
 
-    public void setMaximumAttempts(@javax.annotation.Nullable BigDecimal maximumAttempts) {
+    public void setMaximumAttempts(@jakarta.annotation.Nullable BigDecimal maximumAttempts) {
         this.maximumAttempts = maximumAttempts;
     }
 
     public DSLRetryPolicy maximumInterval(
-            @javax.annotation.Nullable DurationValue maximumInterval) {
+            @jakarta.annotation.Nullable DurationValue maximumInterval) {
         this.maximumInterval = maximumInterval;
         return this;
     }
@@ -127,16 +127,16 @@ public class DSLRetryPolicy {
      * Get maximumInterval
      * @return maximumInterval
      */
-    @javax.annotation.Nullable public DurationValue getMaximumInterval() {
+    @jakarta.annotation.Nullable public DurationValue getMaximumInterval() {
         return maximumInterval;
     }
 
-    public void setMaximumInterval(@javax.annotation.Nullable DurationValue maximumInterval) {
+    public void setMaximumInterval(@jakarta.annotation.Nullable DurationValue maximumInterval) {
         this.maximumInterval = maximumInterval;
     }
 
     public DSLRetryPolicy nonRetryableErrorTypes(
-            @javax.annotation.Nullable List<String> nonRetryableErrorTypes) {
+            @jakarta.annotation.Nullable List<String> nonRetryableErrorTypes) {
         this.nonRetryableErrorTypes = nonRetryableErrorTypes;
         return this;
     }
@@ -153,12 +153,12 @@ public class DSLRetryPolicy {
      * Get nonRetryableErrorTypes
      * @return nonRetryableErrorTypes
      */
-    @javax.annotation.Nullable public List<String> getNonRetryableErrorTypes() {
+    @jakarta.annotation.Nullable public List<String> getNonRetryableErrorTypes() {
         return nonRetryableErrorTypes;
     }
 
     public void setNonRetryableErrorTypes(
-            @javax.annotation.Nullable List<String> nonRetryableErrorTypes) {
+            @jakarta.annotation.Nullable List<String> nonRetryableErrorTypes) {
         this.nonRetryableErrorTypes = nonRetryableErrorTypes;
     }
 

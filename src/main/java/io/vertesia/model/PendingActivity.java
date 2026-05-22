@@ -31,45 +31,45 @@ import java.util.Objects;
 /**
  * PendingActivity
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PendingActivity {
     public static final String SERIALIZED_NAME_ACTIVITY_ID = "activityId";
 
     @SerializedName(SERIALIZED_NAME_ACTIVITY_ID)
-    @javax.annotation.Nullable private String activityId;
+    @jakarta.annotation.Nullable private String activityId;
 
     public static final String SERIALIZED_NAME_ACTIVITY_TYPE = "activityType";
 
     @SerializedName(SERIALIZED_NAME_ACTIVITY_TYPE)
-    @javax.annotation.Nullable private String activityType;
+    @jakarta.annotation.Nullable private String activityType;
 
     public static final String SERIALIZED_NAME_ATTEMPT = "attempt";
 
     @SerializedName(SERIALIZED_NAME_ATTEMPT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal attempt;
 
     public static final String SERIALIZED_NAME_MAXIMUM_ATTEMPTS = "maximumAttempts";
 
     @SerializedName(SERIALIZED_NAME_MAXIMUM_ATTEMPTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal maximumAttempts;
 
     public static final String SERIALIZED_NAME_LAST_FAILURE = "lastFailure";
 
     @SerializedName(SERIALIZED_NAME_LAST_FAILURE)
-    @javax.annotation.Nullable private String lastFailure;
+    @jakarta.annotation.Nullable private String lastFailure;
 
     public static final String SERIALIZED_NAME_LAST_STARTED_TIME = "lastStartedTime";
 
     @SerializedName(SERIALIZED_NAME_LAST_STARTED_TIME)
-    @javax.annotation.Nullable private String lastStartedTime;
+    @jakarta.annotation.Nullable private String lastStartedTime;
 
     public PendingActivity() {}
 
-    public PendingActivity activityId(@javax.annotation.Nullable String activityId) {
+    public PendingActivity activityId(@jakarta.annotation.Nullable String activityId) {
         this.activityId = activityId;
         return this;
     }
@@ -78,15 +78,15 @@ public class PendingActivity {
      * Get activityId
      * @return activityId
      */
-    @javax.annotation.Nullable public String getActivityId() {
+    @jakarta.annotation.Nullable public String getActivityId() {
         return activityId;
     }
 
-    public void setActivityId(@javax.annotation.Nullable String activityId) {
+    public void setActivityId(@jakarta.annotation.Nullable String activityId) {
         this.activityId = activityId;
     }
 
-    public PendingActivity activityType(@javax.annotation.Nullable String activityType) {
+    public PendingActivity activityType(@jakarta.annotation.Nullable String activityType) {
         this.activityType = activityType;
         return this;
     }
@@ -95,15 +95,15 @@ public class PendingActivity {
      * Get activityType
      * @return activityType
      */
-    @javax.annotation.Nullable public String getActivityType() {
+    @jakarta.annotation.Nullable public String getActivityType() {
         return activityType;
     }
 
-    public void setActivityType(@javax.annotation.Nullable String activityType) {
+    public void setActivityType(@jakarta.annotation.Nullable String activityType) {
         this.activityType = activityType;
     }
 
-    public PendingActivity attempt(@javax.annotation.Nonnull BigDecimal attempt) {
+    public PendingActivity attempt(@jakarta.annotation.Nonnull BigDecimal attempt) {
         this.attempt = attempt;
         return this;
     }
@@ -112,16 +112,16 @@ public class PendingActivity {
      * Get attempt
      * @return attempt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getAttempt() {
         return attempt;
     }
 
-    public void setAttempt(@javax.annotation.Nonnull BigDecimal attempt) {
+    public void setAttempt(@jakarta.annotation.Nonnull BigDecimal attempt) {
         this.attempt = attempt;
     }
 
-    public PendingActivity maximumAttempts(@javax.annotation.Nonnull BigDecimal maximumAttempts) {
+    public PendingActivity maximumAttempts(@jakarta.annotation.Nonnull BigDecimal maximumAttempts) {
         this.maximumAttempts = maximumAttempts;
         return this;
     }
@@ -130,16 +130,16 @@ public class PendingActivity {
      * Get maximumAttempts
      * @return maximumAttempts
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getMaximumAttempts() {
         return maximumAttempts;
     }
 
-    public void setMaximumAttempts(@javax.annotation.Nonnull BigDecimal maximumAttempts) {
+    public void setMaximumAttempts(@jakarta.annotation.Nonnull BigDecimal maximumAttempts) {
         this.maximumAttempts = maximumAttempts;
     }
 
-    public PendingActivity lastFailure(@javax.annotation.Nullable String lastFailure) {
+    public PendingActivity lastFailure(@jakarta.annotation.Nullable String lastFailure) {
         this.lastFailure = lastFailure;
         return this;
     }
@@ -148,15 +148,15 @@ public class PendingActivity {
      * Get lastFailure
      * @return lastFailure
      */
-    @javax.annotation.Nullable public String getLastFailure() {
+    @jakarta.annotation.Nullable public String getLastFailure() {
         return lastFailure;
     }
 
-    public void setLastFailure(@javax.annotation.Nullable String lastFailure) {
+    public void setLastFailure(@jakarta.annotation.Nullable String lastFailure) {
         this.lastFailure = lastFailure;
     }
 
-    public PendingActivity lastStartedTime(@javax.annotation.Nullable String lastStartedTime) {
+    public PendingActivity lastStartedTime(@jakarta.annotation.Nullable String lastStartedTime) {
         this.lastStartedTime = lastStartedTime;
         return this;
     }
@@ -165,11 +165,11 @@ public class PendingActivity {
      * Get lastStartedTime
      * @return lastStartedTime
      */
-    @javax.annotation.Nullable public String getLastStartedTime() {
+    @jakarta.annotation.Nullable public String getLastStartedTime() {
         return lastStartedTime;
     }
 
-    public void setLastStartedTime(@javax.annotation.Nullable String lastStartedTime) {
+    public void setLastStartedTime(@jakarta.annotation.Nullable String lastStartedTime) {
         this.lastStartedTime = lastStartedTime;
     }
 

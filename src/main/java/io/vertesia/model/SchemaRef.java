@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * Schema can be stored or specified as a reference to an external schema. We only support \&quot;store:\&quot; references for now
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class SchemaRef {
     public static final String SERIALIZED_NAME_$_URI = "$uri";
 
     @SerializedName(SERIALIZED_NAME_$_URI)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String $uri;
 
     public SchemaRef() {}
 
-    public SchemaRef $uri(@javax.annotation.Nonnull String $uri) {
+    public SchemaRef $uri(@jakarta.annotation.Nonnull String $uri) {
         this.$uri = $uri;
         return this;
     }
@@ -51,12 +51,12 @@ public class SchemaRef {
      * Get $uri
      * @return $uri
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String get$Uri() {
         return $uri;
     }
 
-    public void set$Uri(@javax.annotation.Nonnull String $uri) {
+    public void set$Uri(@jakarta.annotation.Nonnull String $uri) {
         this.$uri = $uri;
     }
 

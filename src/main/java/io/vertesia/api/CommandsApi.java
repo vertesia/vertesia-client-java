@@ -232,7 +232,7 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call disableProjectEmbeddingsCall(
-            @javax.annotation.Nonnull String type, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String type, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -292,7 +292,7 @@ public class CommandsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call disableProjectEmbeddingsValidateBeforeCall(
-            @javax.annotation.Nonnull String type, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String type, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'type' is set
         if (type == null) {
@@ -318,7 +318,7 @@ public class CommandsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public GenericCommandResponse disableProjectEmbeddings(@javax.annotation.Nonnull String type)
+    public GenericCommandResponse disableProjectEmbeddings(@jakarta.annotation.Nonnull String type)
             throws ApiException {
         ApiResponse<GenericCommandResponse> localVarResp =
                 disableProjectEmbeddingsWithHttpInfo(type);
@@ -341,7 +341,7 @@ public class CommandsApi {
      * </table>
      */
     public ApiResponse<GenericCommandResponse> disableProjectEmbeddingsWithHttpInfo(
-            @javax.annotation.Nonnull String type) throws ApiException {
+            @jakarta.annotation.Nonnull String type) throws ApiException {
         okhttp3.Call localVarCall = disableProjectEmbeddingsValidateBeforeCall(type, null);
         Type localVarReturnType = new TypeToken<GenericCommandResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -364,7 +364,7 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call disableProjectEmbeddingsAsync(
-            @javax.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull String type,
             final ApiCallback<GenericCommandResponse> _callback)
             throws ApiException {
 
@@ -675,8 +675,8 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call enableProjectEmbeddingsCall(
-            @javax.annotation.Nonnull String type,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull
                     ProjectConfigurationEmbeddingEnablePayload
                             projectConfigurationEmbeddingEnablePayload,
             final ApiCallback _callback)
@@ -739,8 +739,8 @@ public class CommandsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call enableProjectEmbeddingsValidateBeforeCall(
-            @javax.annotation.Nonnull String type,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull
                     ProjectConfigurationEmbeddingEnablePayload
                             projectConfigurationEmbeddingEnablePayload,
             final ApiCallback _callback)
@@ -778,8 +778,8 @@ public class CommandsApi {
      * </table>
      */
     public GenericCommandResponse enableProjectEmbeddings(
-            @javax.annotation.Nonnull String type,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull
                     ProjectConfigurationEmbeddingEnablePayload
                             projectConfigurationEmbeddingEnablePayload)
             throws ApiException {
@@ -806,8 +806,8 @@ public class CommandsApi {
      * </table>
      */
     public ApiResponse<GenericCommandResponse> enableProjectEmbeddingsWithHttpInfo(
-            @javax.annotation.Nonnull String type,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull
                     ProjectConfigurationEmbeddingEnablePayload
                             projectConfigurationEmbeddingEnablePayload)
             throws ApiException {
@@ -836,8 +836,8 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call enableProjectEmbeddingsAsync(
-            @javax.annotation.Nonnull String type,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull
                     ProjectConfigurationEmbeddingEnablePayload
                             projectConfigurationEmbeddingEnablePayload,
             final ApiCallback<GenericCommandResponse> _callback)
@@ -1004,7 +1004,7 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call getEmbeddingCommandStatusCall(
-            @javax.annotation.Nonnull String type, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String type, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1064,7 +1064,7 @@ public class CommandsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getEmbeddingCommandStatusValidateBeforeCall(
-            @javax.annotation.Nonnull String type, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String type, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'type' is set
         if (type == null) {
@@ -1090,8 +1090,8 @@ public class CommandsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public EmbeddingsStatusResponse getEmbeddingCommandStatus(@javax.annotation.Nonnull String type)
-            throws ApiException {
+    public EmbeddingsStatusResponse getEmbeddingCommandStatus(
+            @jakarta.annotation.Nonnull String type) throws ApiException {
         ApiResponse<EmbeddingsStatusResponse> localVarResp =
                 getEmbeddingCommandStatusWithHttpInfo(type);
         return localVarResp.getData();
@@ -1113,7 +1113,7 @@ public class CommandsApi {
      * </table>
      */
     public ApiResponse<EmbeddingsStatusResponse> getEmbeddingCommandStatusWithHttpInfo(
-            @javax.annotation.Nonnull String type) throws ApiException {
+            @jakarta.annotation.Nonnull String type) throws ApiException {
         okhttp3.Call localVarCall = getEmbeddingCommandStatusValidateBeforeCall(type, null);
         Type localVarReturnType = new TypeToken<EmbeddingsStatusResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1136,7 +1136,7 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call getEmbeddingCommandStatusAsync(
-            @javax.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull String type,
             final ApiCallback<EmbeddingsStatusResponse> _callback)
             throws ApiException {
 
@@ -1571,7 +1571,7 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call recalculateProjectEmbeddingsCall(
-            @javax.annotation.Nonnull String type, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String type, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1631,7 +1631,7 @@ public class CommandsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call recalculateProjectEmbeddingsValidateBeforeCall(
-            @javax.annotation.Nonnull String type, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String type, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'type' is set
         if (type == null) {
@@ -1658,7 +1658,7 @@ public class CommandsApi {
      * </table>
      */
     public GenericCommandResponse recalculateProjectEmbeddings(
-            @javax.annotation.Nonnull String type) throws ApiException {
+            @jakarta.annotation.Nonnull String type) throws ApiException {
         ApiResponse<GenericCommandResponse> localVarResp =
                 recalculateProjectEmbeddingsWithHttpInfo(type);
         return localVarResp.getData();
@@ -1680,7 +1680,7 @@ public class CommandsApi {
      * </table>
      */
     public ApiResponse<GenericCommandResponse> recalculateProjectEmbeddingsWithHttpInfo(
-            @javax.annotation.Nonnull String type) throws ApiException {
+            @jakarta.annotation.Nonnull String type) throws ApiException {
         okhttp3.Call localVarCall = recalculateProjectEmbeddingsValidateBeforeCall(type, null);
         Type localVarReturnType = new TypeToken<GenericCommandResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1703,7 +1703,7 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call recalculateProjectEmbeddingsAsync(
-            @javax.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull String type,
             final ApiCallback<GenericCommandResponse> _callback)
             throws ApiException {
 
@@ -1730,8 +1730,8 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call runZenoMigrationCall(
-            @javax.annotation.Nonnull String name,
-            @javax.annotation.Nonnull RunMigrationPayload runMigrationPayload,
+            @jakarta.annotation.Nonnull String name,
+            @jakarta.annotation.Nonnull RunMigrationPayload runMigrationPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1792,8 +1792,8 @@ public class CommandsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call runZenoMigrationValidateBeforeCall(
-            @javax.annotation.Nonnull String name,
-            @javax.annotation.Nonnull RunMigrationPayload runMigrationPayload,
+            @jakarta.annotation.Nonnull String name,
+            @jakarta.annotation.Nonnull RunMigrationPayload runMigrationPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'name' is set
@@ -1828,8 +1828,8 @@ public class CommandsApi {
      * </table>
      */
     public RunMigrationResponse runZenoMigration(
-            @javax.annotation.Nonnull String name,
-            @javax.annotation.Nonnull RunMigrationPayload runMigrationPayload)
+            @jakarta.annotation.Nonnull String name,
+            @jakarta.annotation.Nonnull RunMigrationPayload runMigrationPayload)
             throws ApiException {
         ApiResponse<RunMigrationResponse> localVarResp =
                 runZenoMigrationWithHttpInfo(name, runMigrationPayload);
@@ -1853,8 +1853,8 @@ public class CommandsApi {
      * </table>
      */
     public ApiResponse<RunMigrationResponse> runZenoMigrationWithHttpInfo(
-            @javax.annotation.Nonnull String name,
-            @javax.annotation.Nonnull RunMigrationPayload runMigrationPayload)
+            @jakarta.annotation.Nonnull String name,
+            @jakarta.annotation.Nonnull RunMigrationPayload runMigrationPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 runZenoMigrationValidateBeforeCall(name, runMigrationPayload, null);
@@ -1880,8 +1880,8 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call runZenoMigrationAsync(
-            @javax.annotation.Nonnull String name,
-            @javax.annotation.Nonnull RunMigrationPayload runMigrationPayload,
+            @jakarta.annotation.Nonnull String name,
+            @jakarta.annotation.Nonnull RunMigrationPayload runMigrationPayload,
             final ApiCallback<RunMigrationResponse> _callback)
             throws ApiException {
 
@@ -2047,7 +2047,7 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call startProjectReindexCall(
-            @javax.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload,
+            @jakarta.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2104,7 +2104,7 @@ public class CommandsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call startProjectReindexValidateBeforeCall(
-            @javax.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload,
+            @jakarta.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'startProjectReindexPayload' is set
@@ -2132,7 +2132,7 @@ public class CommandsApi {
      * </table>
      */
     public GenericCommandResponse startProjectReindex(
-            @javax.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload)
+            @jakarta.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload)
             throws ApiException {
         ApiResponse<GenericCommandResponse> localVarResp =
                 startProjectReindexWithHttpInfo(startProjectReindexPayload);
@@ -2155,7 +2155,7 @@ public class CommandsApi {
      * </table>
      */
     public ApiResponse<GenericCommandResponse> startProjectReindexWithHttpInfo(
-            @javax.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload)
+            @jakarta.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 startProjectReindexValidateBeforeCall(startProjectReindexPayload, null);
@@ -2180,7 +2180,7 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call startProjectReindexAsync(
-            @javax.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload,
+            @jakarta.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload,
             final ApiCallback<GenericCommandResponse> _callback)
             throws ApiException {
 

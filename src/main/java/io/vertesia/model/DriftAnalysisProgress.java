@@ -31,79 +31,79 @@ import java.util.Objects;
 /**
  * DriftAnalysisProgress
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DriftAnalysisProgress {
     public static final String SERIALIZED_NAME_TOTAL = "total";
 
     @SerializedName(SERIALIZED_NAME_TOTAL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal total;
 
     public static final String SERIALIZED_NAME_PROCESSED = "processed";
 
     @SerializedName(SERIALIZED_NAME_PROCESSED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal processed;
 
     public static final String SERIALIZED_NAME_MISSING = "missing";
 
     @SerializedName(SERIALIZED_NAME_MISSING)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal missing;
 
     public static final String SERIALIZED_NAME_STALE = "stale";
 
     @SerializedName(SERIALIZED_NAME_STALE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal stale;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String status;
 
     public static final String SERIALIZED_NAME_CURRENT_BATCH = "current_batch";
 
     @SerializedName(SERIALIZED_NAME_CURRENT_BATCH)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal currentBatch;
 
     public static final String SERIALIZED_NAME_TOTAL_BATCHES = "total_batches";
 
     @SerializedName(SERIALIZED_NAME_TOTAL_BATCHES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal totalBatches;
 
     public static final String SERIALIZED_NAME_PERCENT_COMPLETE = "percent_complete";
 
     @SerializedName(SERIALIZED_NAME_PERCENT_COMPLETE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal percentComplete;
 
     public static final String SERIALIZED_NAME_DOCS_PER_SECOND = "docs_per_second";
 
     @SerializedName(SERIALIZED_NAME_DOCS_PER_SECOND)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal docsPerSecond;
 
     public static final String SERIALIZED_NAME_ELAPSED_SECONDS = "elapsed_seconds";
 
     @SerializedName(SERIALIZED_NAME_ELAPSED_SECONDS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal elapsedSeconds;
 
     public static final String SERIALIZED_NAME_ESTIMATED_SECONDS_REMAINING =
             "estimated_seconds_remaining";
 
     @SerializedName(SERIALIZED_NAME_ESTIMATED_SECONDS_REMAINING)
-    @javax.annotation.Nullable private BigDecimal estimatedSecondsRemaining;
+    @jakarta.annotation.Nullable private BigDecimal estimatedSecondsRemaining;
 
     public DriftAnalysisProgress() {}
 
-    public DriftAnalysisProgress total(@javax.annotation.Nonnull BigDecimal total) {
+    public DriftAnalysisProgress total(@jakarta.annotation.Nonnull BigDecimal total) {
         this.total = total;
         return this;
     }
@@ -112,16 +112,16 @@ public class DriftAnalysisProgress {
      * Get total
      * @return total
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(@javax.annotation.Nonnull BigDecimal total) {
+    public void setTotal(@jakarta.annotation.Nonnull BigDecimal total) {
         this.total = total;
     }
 
-    public DriftAnalysisProgress processed(@javax.annotation.Nonnull BigDecimal processed) {
+    public DriftAnalysisProgress processed(@jakarta.annotation.Nonnull BigDecimal processed) {
         this.processed = processed;
         return this;
     }
@@ -130,16 +130,16 @@ public class DriftAnalysisProgress {
      * Get processed
      * @return processed
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getProcessed() {
         return processed;
     }
 
-    public void setProcessed(@javax.annotation.Nonnull BigDecimal processed) {
+    public void setProcessed(@jakarta.annotation.Nonnull BigDecimal processed) {
         this.processed = processed;
     }
 
-    public DriftAnalysisProgress missing(@javax.annotation.Nonnull BigDecimal missing) {
+    public DriftAnalysisProgress missing(@jakarta.annotation.Nonnull BigDecimal missing) {
         this.missing = missing;
         return this;
     }
@@ -148,16 +148,16 @@ public class DriftAnalysisProgress {
      * Get missing
      * @return missing
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getMissing() {
         return missing;
     }
 
-    public void setMissing(@javax.annotation.Nonnull BigDecimal missing) {
+    public void setMissing(@jakarta.annotation.Nonnull BigDecimal missing) {
         this.missing = missing;
     }
 
-    public DriftAnalysisProgress stale(@javax.annotation.Nonnull BigDecimal stale) {
+    public DriftAnalysisProgress stale(@jakarta.annotation.Nonnull BigDecimal stale) {
         this.stale = stale;
         return this;
     }
@@ -166,16 +166,16 @@ public class DriftAnalysisProgress {
      * Get stale
      * @return stale
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getStale() {
         return stale;
     }
 
-    public void setStale(@javax.annotation.Nonnull BigDecimal stale) {
+    public void setStale(@jakarta.annotation.Nonnull BigDecimal stale) {
         this.stale = stale;
     }
 
-    public DriftAnalysisProgress status(@javax.annotation.Nonnull String status) {
+    public DriftAnalysisProgress status(@jakarta.annotation.Nonnull String status) {
         this.status = status;
         return this;
     }
@@ -184,16 +184,16 @@ public class DriftAnalysisProgress {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull String status) {
+    public void setStatus(@jakarta.annotation.Nonnull String status) {
         this.status = status;
     }
 
-    public DriftAnalysisProgress currentBatch(@javax.annotation.Nonnull BigDecimal currentBatch) {
+    public DriftAnalysisProgress currentBatch(@jakarta.annotation.Nonnull BigDecimal currentBatch) {
         this.currentBatch = currentBatch;
         return this;
     }
@@ -202,16 +202,16 @@ public class DriftAnalysisProgress {
      * Get currentBatch
      * @return currentBatch
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCurrentBatch() {
         return currentBatch;
     }
 
-    public void setCurrentBatch(@javax.annotation.Nonnull BigDecimal currentBatch) {
+    public void setCurrentBatch(@jakarta.annotation.Nonnull BigDecimal currentBatch) {
         this.currentBatch = currentBatch;
     }
 
-    public DriftAnalysisProgress totalBatches(@javax.annotation.Nonnull BigDecimal totalBatches) {
+    public DriftAnalysisProgress totalBatches(@jakarta.annotation.Nonnull BigDecimal totalBatches) {
         this.totalBatches = totalBatches;
         return this;
     }
@@ -220,17 +220,17 @@ public class DriftAnalysisProgress {
      * Get totalBatches
      * @return totalBatches
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTotalBatches() {
         return totalBatches;
     }
 
-    public void setTotalBatches(@javax.annotation.Nonnull BigDecimal totalBatches) {
+    public void setTotalBatches(@jakarta.annotation.Nonnull BigDecimal totalBatches) {
         this.totalBatches = totalBatches;
     }
 
     public DriftAnalysisProgress percentComplete(
-            @javax.annotation.Nonnull BigDecimal percentComplete) {
+            @jakarta.annotation.Nonnull BigDecimal percentComplete) {
         this.percentComplete = percentComplete;
         return this;
     }
@@ -239,16 +239,17 @@ public class DriftAnalysisProgress {
      * Get percentComplete
      * @return percentComplete
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getPercentComplete() {
         return percentComplete;
     }
 
-    public void setPercentComplete(@javax.annotation.Nonnull BigDecimal percentComplete) {
+    public void setPercentComplete(@jakarta.annotation.Nonnull BigDecimal percentComplete) {
         this.percentComplete = percentComplete;
     }
 
-    public DriftAnalysisProgress docsPerSecond(@javax.annotation.Nonnull BigDecimal docsPerSecond) {
+    public DriftAnalysisProgress docsPerSecond(
+            @jakarta.annotation.Nonnull BigDecimal docsPerSecond) {
         this.docsPerSecond = docsPerSecond;
         return this;
     }
@@ -257,17 +258,17 @@ public class DriftAnalysisProgress {
      * Get docsPerSecond
      * @return docsPerSecond
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getDocsPerSecond() {
         return docsPerSecond;
     }
 
-    public void setDocsPerSecond(@javax.annotation.Nonnull BigDecimal docsPerSecond) {
+    public void setDocsPerSecond(@jakarta.annotation.Nonnull BigDecimal docsPerSecond) {
         this.docsPerSecond = docsPerSecond;
     }
 
     public DriftAnalysisProgress elapsedSeconds(
-            @javax.annotation.Nonnull BigDecimal elapsedSeconds) {
+            @jakarta.annotation.Nonnull BigDecimal elapsedSeconds) {
         this.elapsedSeconds = elapsedSeconds;
         return this;
     }
@@ -276,17 +277,17 @@ public class DriftAnalysisProgress {
      * Get elapsedSeconds
      * @return elapsedSeconds
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getElapsedSeconds() {
         return elapsedSeconds;
     }
 
-    public void setElapsedSeconds(@javax.annotation.Nonnull BigDecimal elapsedSeconds) {
+    public void setElapsedSeconds(@jakarta.annotation.Nonnull BigDecimal elapsedSeconds) {
         this.elapsedSeconds = elapsedSeconds;
     }
 
     public DriftAnalysisProgress estimatedSecondsRemaining(
-            @javax.annotation.Nullable BigDecimal estimatedSecondsRemaining) {
+            @jakarta.annotation.Nullable BigDecimal estimatedSecondsRemaining) {
         this.estimatedSecondsRemaining = estimatedSecondsRemaining;
         return this;
     }
@@ -295,12 +296,12 @@ public class DriftAnalysisProgress {
      * Get estimatedSecondsRemaining
      * @return estimatedSecondsRemaining
      */
-    @javax.annotation.Nullable public BigDecimal getEstimatedSecondsRemaining() {
+    @jakarta.annotation.Nullable public BigDecimal getEstimatedSecondsRemaining() {
         return estimatedSecondsRemaining;
     }
 
     public void setEstimatedSecondsRemaining(
-            @javax.annotation.Nullable BigDecimal estimatedSecondsRemaining) {
+            @jakarta.annotation.Nullable BigDecimal estimatedSecondsRemaining) {
         this.estimatedSecondsRemaining = estimatedSecondsRemaining;
     }
 

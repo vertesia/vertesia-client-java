@@ -30,38 +30,38 @@ import java.util.Objects;
 /**
  * Card display overrides for the CompositeApp in the App Portal. Similar to AppManifest display properties, but specific to the CompositeApp card. Allows customers to customize the app portal card (not otherwise possible if using a shared, Vertesia-managed manifest across accounts).
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppCardOverrides {
     public static final String SERIALIZED_NAME_VISIBLE = "visible";
 
     @SerializedName(SERIALIZED_NAME_VISIBLE)
-    @javax.annotation.Nullable private Boolean visible;
+    @jakarta.annotation.Nullable private Boolean visible;
 
     public static final String SERIALIZED_NAME_LABEL = "label";
 
     @SerializedName(SERIALIZED_NAME_LABEL)
-    @javax.annotation.Nullable private String label;
+    @jakarta.annotation.Nullable private String label;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_ICON = "icon";
 
     @SerializedName(SERIALIZED_NAME_ICON)
-    @javax.annotation.Nullable private String icon;
+    @jakarta.annotation.Nullable private String icon;
 
     public static final String SERIALIZED_NAME_COLOR = "color";
 
     @SerializedName(SERIALIZED_NAME_COLOR)
-    @javax.annotation.Nullable private String color;
+    @jakarta.annotation.Nullable private String color;
 
     public CompositeAppCardOverrides() {}
 
-    public CompositeAppCardOverrides visible(@javax.annotation.Nullable Boolean visible) {
+    public CompositeAppCardOverrides visible(@jakarta.annotation.Nullable Boolean visible) {
         this.visible = visible;
         return this;
     }
@@ -70,15 +70,15 @@ public class CompositeAppCardOverrides {
      * Whether to show the CompositeApp card in App Portal (default: false)
      * @return visible
      */
-    @javax.annotation.Nullable public Boolean getVisible() {
+    @jakarta.annotation.Nullable public Boolean getVisible() {
         return visible;
     }
 
-    public void setVisible(@javax.annotation.Nullable Boolean visible) {
+    public void setVisible(@jakarta.annotation.Nullable Boolean visible) {
         this.visible = visible;
     }
 
-    public CompositeAppCardOverrides label(@javax.annotation.Nullable String label) {
+    public CompositeAppCardOverrides label(@jakarta.annotation.Nullable String label) {
         this.label = label;
         return this;
     }
@@ -87,15 +87,15 @@ public class CompositeAppCardOverrides {
      * Override the card label (default: \&quot;Composite App\&quot;)
      * @return label
      */
-    @javax.annotation.Nullable public String getLabel() {
+    @jakarta.annotation.Nullable public String getLabel() {
         return label;
     }
 
-    public void setLabel(@javax.annotation.Nullable String label) {
+    public void setLabel(@jakarta.annotation.Nullable String label) {
         this.label = label;
     }
 
-    public CompositeAppCardOverrides description(@javax.annotation.Nullable String description) {
+    public CompositeAppCardOverrides description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -104,15 +104,15 @@ public class CompositeAppCardOverrides {
      * Override the card description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public CompositeAppCardOverrides icon(@javax.annotation.Nullable String icon) {
+    public CompositeAppCardOverrides icon(@jakarta.annotation.Nullable String icon) {
         this.icon = icon;
         return this;
     }
@@ -121,15 +121,15 @@ public class CompositeAppCardOverrides {
      * Override the card icon (Lucide icon name or SVG content string)
      * @return icon
      */
-    @javax.annotation.Nullable public String getIcon() {
+    @jakarta.annotation.Nullable public String getIcon() {
         return icon;
     }
 
-    public void setIcon(@javax.annotation.Nullable String icon) {
+    public void setIcon(@jakarta.annotation.Nullable String icon) {
         this.icon = icon;
     }
 
-    public CompositeAppCardOverrides color(@javax.annotation.Nullable String color) {
+    public CompositeAppCardOverrides color(@jakarta.annotation.Nullable String color) {
         this.color = color;
         return this;
     }
@@ -138,11 +138,11 @@ public class CompositeAppCardOverrides {
      * Override the card color (e.g., \&quot;blue\&quot;, \&quot;red\&quot;, \&quot;purple\&quot;)
      * @return color
      */
-    @javax.annotation.Nullable public String getColor() {
+    @jakarta.annotation.Nullable public String getColor() {
         return color;
     }
 
-    public void setColor(@javax.annotation.Nullable String color) {
+    public void setColor(@jakarta.annotation.Nullable String color) {
         this.color = color;
     }
 

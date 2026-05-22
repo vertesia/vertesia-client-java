@@ -30,24 +30,24 @@ import java.util.Objects;
 /**
  * Switcher visibility overrides for the CompositeApp header.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppSwitchersOverrides {
     public static final String SERIALIZED_NAME_HIDE_ORGANIZATION = "hideOrganization";
 
     @SerializedName(SERIALIZED_NAME_HIDE_ORGANIZATION)
-    @javax.annotation.Nullable private Boolean hideOrganization;
+    @jakarta.annotation.Nullable private Boolean hideOrganization;
 
     public static final String SERIALIZED_NAME_HIDE_PROJECT = "hideProject";
 
     @SerializedName(SERIALIZED_NAME_HIDE_PROJECT)
-    @javax.annotation.Nullable private Boolean hideProject;
+    @jakarta.annotation.Nullable private Boolean hideProject;
 
     public CompositeAppSwitchersOverrides() {}
 
     public CompositeAppSwitchersOverrides hideOrganization(
-            @javax.annotation.Nullable Boolean hideOrganization) {
+            @jakarta.annotation.Nullable Boolean hideOrganization) {
         this.hideOrganization = hideOrganization;
         return this;
     }
@@ -56,16 +56,16 @@ public class CompositeAppSwitchersOverrides {
      * Whether to hide the organization switcher (defaults to false)
      * @return hideOrganization
      */
-    @javax.annotation.Nullable public Boolean getHideOrganization() {
+    @jakarta.annotation.Nullable public Boolean getHideOrganization() {
         return hideOrganization;
     }
 
-    public void setHideOrganization(@javax.annotation.Nullable Boolean hideOrganization) {
+    public void setHideOrganization(@jakarta.annotation.Nullable Boolean hideOrganization) {
         this.hideOrganization = hideOrganization;
     }
 
     public CompositeAppSwitchersOverrides hideProject(
-            @javax.annotation.Nullable Boolean hideProject) {
+            @jakarta.annotation.Nullable Boolean hideProject) {
         this.hideProject = hideProject;
         return this;
     }
@@ -74,11 +74,11 @@ public class CompositeAppSwitchersOverrides {
      * Whether to hide the project switcher (defaults to false)
      * @return hideProject
      */
-    @javax.annotation.Nullable public Boolean getHideProject() {
+    @jakarta.annotation.Nullable public Boolean getHideProject() {
         return hideProject;
     }
 
-    public void setHideProject(@javax.annotation.Nullable Boolean hideProject) {
+    public void setHideProject(@jakarta.annotation.Nullable Boolean hideProject) {
         this.hideProject = hideProject;
     }
 

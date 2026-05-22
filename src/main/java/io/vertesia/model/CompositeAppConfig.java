@@ -34,80 +34,80 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * CompositeApp shell configuration. This is the main configuration interface for storing CompositeApp settings. Used as the MongoDB model for persisting CompositeApp configurations.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppConfig {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nullable private String id;
+    @jakarta.annotation.Nullable private String id;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String project;
 
     public static final String SERIALIZED_NAME_CARD = "card";
 
     @SerializedName(SERIALIZED_NAME_CARD)
-    @javax.annotation.Nullable private CompositeAppCardOverrides card;
+    @jakarta.annotation.Nullable private CompositeAppCardOverrides card;
 
     public static final String SERIALIZED_NAME_LOGO = "logo";
 
     @SerializedName(SERIALIZED_NAME_LOGO)
-    @javax.annotation.Nullable private CompositeAppLogoOverrides logo;
+    @jakarta.annotation.Nullable private CompositeAppLogoOverrides logo;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nullable private CompositeAppMessageOverrides message;
+    @jakarta.annotation.Nullable private CompositeAppMessageOverrides message;
 
     public static final String SERIALIZED_NAME_SWITCHERS = "switchers";
 
     @SerializedName(SERIALIZED_NAME_SWITCHERS)
-    @javax.annotation.Nullable private CompositeAppSwitchersOverrides switchers;
+    @jakarta.annotation.Nullable private CompositeAppSwitchersOverrides switchers;
 
     public static final String SERIALIZED_NAME_SIDEBAR = "sidebar";
 
     @SerializedName(SERIALIZED_NAME_SIDEBAR)
-    @javax.annotation.Nullable private CompositeAppSidebarOverrides sidebar;
+    @jakarta.annotation.Nullable private CompositeAppSidebarOverrides sidebar;
 
     public static final String SERIALIZED_NAME_HEADER = "header";
 
     @SerializedName(SERIALIZED_NAME_HEADER)
-    @javax.annotation.Nullable private CompositeAppHeaderOverrides header;
+    @jakarta.annotation.Nullable private CompositeAppHeaderOverrides header;
 
     public static final String SERIALIZED_NAME_USER_MENU = "userMenu";
 
     @SerializedName(SERIALIZED_NAME_USER_MENU)
-    @javax.annotation.Nullable private CompositeAppUserMenuOverrides userMenu;
+    @jakarta.annotation.Nullable private CompositeAppUserMenuOverrides userMenu;
 
     public static final String SERIALIZED_NAME_THEME = "theme";
 
     @SerializedName(SERIALIZED_NAME_THEME)
-    @javax.annotation.Nullable private CompositeAppThemeOverrides theme;
+    @jakarta.annotation.Nullable private CompositeAppThemeOverrides theme;
 
     public static final String SERIALIZED_NAME_HOME_PLUGIN = "homePlugin";
 
     @SerializedName(SERIALIZED_NAME_HOME_PLUGIN)
-    @javax.annotation.Nullable private CompositeAppHomePlugin homePlugin;
+    @jakarta.annotation.Nullable private CompositeAppHomePlugin homePlugin;
 
     public static final String SERIALIZED_NAME_APPS = "apps";
 
     @SerializedName(SERIALIZED_NAME_APPS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<CompositeAppEntry> apps = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_MENU = "menu";
 
     @SerializedName(SERIALIZED_NAME_MENU)
-    @javax.annotation.Nullable private List<CompositeAppMenuSection> menu = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<CompositeAppMenuSection> menu = new ArrayList<>();
 
     public CompositeAppConfig() {}
 
-    public CompositeAppConfig id(@javax.annotation.Nullable String id) {
+    public CompositeAppConfig id(@jakarta.annotation.Nullable String id) {
         this.id = id;
         return this;
     }
@@ -116,15 +116,15 @@ public class CompositeAppConfig {
      * The unique identifier for this CompositeApp configuration  Undefined if the configuration doesn&#39;t exists yet.
      * @return id
      */
-    @javax.annotation.Nullable public String getId() {
+    @jakarta.annotation.Nullable public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nullable String id) {
+    public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
     }
 
-    public CompositeAppConfig project(@javax.annotation.Nonnull String project) {
+    public CompositeAppConfig project(@jakarta.annotation.Nonnull String project) {
         this.project = project;
         return this;
     }
@@ -133,16 +133,16 @@ public class CompositeAppConfig {
      * The project this CompositeApp belongs to
      * @return project
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nonnull String project) {
+    public void setProject(@jakarta.annotation.Nonnull String project) {
         this.project = project;
     }
 
-    public CompositeAppConfig card(@javax.annotation.Nullable CompositeAppCardOverrides card) {
+    public CompositeAppConfig card(@jakarta.annotation.Nullable CompositeAppCardOverrides card) {
         this.card = card;
         return this;
     }
@@ -151,15 +151,15 @@ public class CompositeAppConfig {
      * Card display overrides (includes visibility)
      * @return card
      */
-    @javax.annotation.Nullable public CompositeAppCardOverrides getCard() {
+    @jakarta.annotation.Nullable public CompositeAppCardOverrides getCard() {
         return card;
     }
 
-    public void setCard(@javax.annotation.Nullable CompositeAppCardOverrides card) {
+    public void setCard(@jakarta.annotation.Nullable CompositeAppCardOverrides card) {
         this.card = card;
     }
 
-    public CompositeAppConfig logo(@javax.annotation.Nullable CompositeAppLogoOverrides logo) {
+    public CompositeAppConfig logo(@jakarta.annotation.Nullable CompositeAppLogoOverrides logo) {
         this.logo = logo;
         return this;
     }
@@ -168,16 +168,16 @@ public class CompositeAppConfig {
      * Optional logo overrides (replaces default Vertesia logo)
      * @return logo
      */
-    @javax.annotation.Nullable public CompositeAppLogoOverrides getLogo() {
+    @jakarta.annotation.Nullable public CompositeAppLogoOverrides getLogo() {
         return logo;
     }
 
-    public void setLogo(@javax.annotation.Nullable CompositeAppLogoOverrides logo) {
+    public void setLogo(@jakarta.annotation.Nullable CompositeAppLogoOverrides logo) {
         this.logo = logo;
     }
 
     public CompositeAppConfig message(
-            @javax.annotation.Nullable CompositeAppMessageOverrides message) {
+            @jakarta.annotation.Nullable CompositeAppMessageOverrides message) {
         this.message = message;
         return this;
     }
@@ -186,16 +186,16 @@ public class CompositeAppConfig {
      * Optional message banner overrides
      * @return message
      */
-    @javax.annotation.Nullable public CompositeAppMessageOverrides getMessage() {
+    @jakarta.annotation.Nullable public CompositeAppMessageOverrides getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nullable CompositeAppMessageOverrides message) {
+    public void setMessage(@jakarta.annotation.Nullable CompositeAppMessageOverrides message) {
         this.message = message;
     }
 
     public CompositeAppConfig switchers(
-            @javax.annotation.Nullable CompositeAppSwitchersOverrides switchers) {
+            @jakarta.annotation.Nullable CompositeAppSwitchersOverrides switchers) {
         this.switchers = switchers;
         return this;
     }
@@ -204,16 +204,17 @@ public class CompositeAppConfig {
      * Optional switcher visibility overrides
      * @return switchers
      */
-    @javax.annotation.Nullable public CompositeAppSwitchersOverrides getSwitchers() {
+    @jakarta.annotation.Nullable public CompositeAppSwitchersOverrides getSwitchers() {
         return switchers;
     }
 
-    public void setSwitchers(@javax.annotation.Nullable CompositeAppSwitchersOverrides switchers) {
+    public void setSwitchers(
+            @jakarta.annotation.Nullable CompositeAppSwitchersOverrides switchers) {
         this.switchers = switchers;
     }
 
     public CompositeAppConfig sidebar(
-            @javax.annotation.Nullable CompositeAppSidebarOverrides sidebar) {
+            @jakarta.annotation.Nullable CompositeAppSidebarOverrides sidebar) {
         this.sidebar = sidebar;
         return this;
     }
@@ -222,16 +223,16 @@ public class CompositeAppConfig {
      * Optional sidebar display overrides
      * @return sidebar
      */
-    @javax.annotation.Nullable public CompositeAppSidebarOverrides getSidebar() {
+    @jakarta.annotation.Nullable public CompositeAppSidebarOverrides getSidebar() {
         return sidebar;
     }
 
-    public void setSidebar(@javax.annotation.Nullable CompositeAppSidebarOverrides sidebar) {
+    public void setSidebar(@jakarta.annotation.Nullable CompositeAppSidebarOverrides sidebar) {
         this.sidebar = sidebar;
     }
 
     public CompositeAppConfig header(
-            @javax.annotation.Nullable CompositeAppHeaderOverrides header) {
+            @jakarta.annotation.Nullable CompositeAppHeaderOverrides header) {
         this.header = header;
         return this;
     }
@@ -240,16 +241,16 @@ public class CompositeAppConfig {
      * Optional header button visibility overrides
      * @return header
      */
-    @javax.annotation.Nullable public CompositeAppHeaderOverrides getHeader() {
+    @jakarta.annotation.Nullable public CompositeAppHeaderOverrides getHeader() {
         return header;
     }
 
-    public void setHeader(@javax.annotation.Nullable CompositeAppHeaderOverrides header) {
+    public void setHeader(@jakarta.annotation.Nullable CompositeAppHeaderOverrides header) {
         this.header = header;
     }
 
     public CompositeAppConfig userMenu(
-            @javax.annotation.Nullable CompositeAppUserMenuOverrides userMenu) {
+            @jakarta.annotation.Nullable CompositeAppUserMenuOverrides userMenu) {
         this.userMenu = userMenu;
         return this;
     }
@@ -258,15 +259,15 @@ public class CompositeAppConfig {
      * Optional user menu overrides
      * @return userMenu
      */
-    @javax.annotation.Nullable public CompositeAppUserMenuOverrides getUserMenu() {
+    @jakarta.annotation.Nullable public CompositeAppUserMenuOverrides getUserMenu() {
         return userMenu;
     }
 
-    public void setUserMenu(@javax.annotation.Nullable CompositeAppUserMenuOverrides userMenu) {
+    public void setUserMenu(@jakarta.annotation.Nullable CompositeAppUserMenuOverrides userMenu) {
         this.userMenu = userMenu;
     }
 
-    public CompositeAppConfig theme(@javax.annotation.Nullable CompositeAppThemeOverrides theme) {
+    public CompositeAppConfig theme(@jakarta.annotation.Nullable CompositeAppThemeOverrides theme) {
         this.theme = theme;
         return this;
     }
@@ -275,16 +276,16 @@ public class CompositeAppConfig {
      * Optional theme overrides (e.g. disable dark mode)
      * @return theme
      */
-    @javax.annotation.Nullable public CompositeAppThemeOverrides getTheme() {
+    @jakarta.annotation.Nullable public CompositeAppThemeOverrides getTheme() {
         return theme;
     }
 
-    public void setTheme(@javax.annotation.Nullable CompositeAppThemeOverrides theme) {
+    public void setTheme(@jakarta.annotation.Nullable CompositeAppThemeOverrides theme) {
         this.theme = theme;
     }
 
     public CompositeAppConfig homePlugin(
-            @javax.annotation.Nullable CompositeAppHomePlugin homePlugin) {
+            @jakarta.annotation.Nullable CompositeAppHomePlugin homePlugin) {
         this.homePlugin = homePlugin;
         return this;
     }
@@ -293,15 +294,15 @@ public class CompositeAppConfig {
      * Optional home page override. When set, redirects \&quot;/\&quot; to the specified app route instead of the dashboard. Send null to unset.
      * @return homePlugin
      */
-    @javax.annotation.Nullable public CompositeAppHomePlugin getHomePlugin() {
+    @jakarta.annotation.Nullable public CompositeAppHomePlugin getHomePlugin() {
         return homePlugin;
     }
 
-    public void setHomePlugin(@javax.annotation.Nullable CompositeAppHomePlugin homePlugin) {
+    public void setHomePlugin(@jakarta.annotation.Nullable CompositeAppHomePlugin homePlugin) {
         this.homePlugin = homePlugin;
     }
 
-    public CompositeAppConfig apps(@javax.annotation.Nonnull List<CompositeAppEntry> apps) {
+    public CompositeAppConfig apps(@jakarta.annotation.Nonnull List<CompositeAppEntry> apps) {
         this.apps = apps;
         return this;
     }
@@ -318,16 +319,17 @@ public class CompositeAppConfig {
      * List of apps to include in the CompositeApp (used for installation tracking and fallback sidebar)
      * @return apps
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<CompositeAppEntry> getApps() {
         return apps;
     }
 
-    public void setApps(@javax.annotation.Nonnull List<CompositeAppEntry> apps) {
+    public void setApps(@jakarta.annotation.Nonnull List<CompositeAppEntry> apps) {
         this.apps = apps;
     }
 
-    public CompositeAppConfig menu(@javax.annotation.Nullable List<CompositeAppMenuSection> menu) {
+    public CompositeAppConfig menu(
+            @jakarta.annotation.Nullable List<CompositeAppMenuSection> menu) {
         this.menu = menu;
         return this;
     }
@@ -344,11 +346,11 @@ public class CompositeAppConfig {
      * Optional sidebar menu. When present, the sidebar renders from this instead of the apps-based pipeline. Top-level array is sections; each section contains nav-items.
      * @return menu
      */
-    @javax.annotation.Nullable public List<CompositeAppMenuSection> getMenu() {
+    @jakarta.annotation.Nullable public List<CompositeAppMenuSection> getMenu() {
         return menu;
     }
 
-    public void setMenu(@javax.annotation.Nullable List<CompositeAppMenuSection> menu) {
+    public void setMenu(@jakarta.annotation.Nullable List<CompositeAppMenuSection> menu) {
         this.menu = menu;
     }
 

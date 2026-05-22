@@ -33,75 +33,75 @@ import java.util.Objects;
 /**
  * A point-in-time version of a data store.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataStoreVersion {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_STORE_ID = "store_id";
 
     @SerializedName(SERIALIZED_NAME_STORE_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String storeId;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String message;
 
     public static final String SERIALIZED_NAME_SCHEMA_VERSION = "schema_version";
 
     @SerializedName(SERIALIZED_NAME_SCHEMA_VERSION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String schemaVersion;
 
     public static final String SERIALIZED_NAME_TABLES = "tables";
 
     @SerializedName(SERIALIZED_NAME_TABLES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, DataStoreVersionTableState> tables;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nullable private String createdBy;
+    @jakarta.annotation.Nullable private String createdBy;
 
     public static final String SERIALIZED_NAME_GCS_GENERATION = "gcs_generation";
 
     @SerializedName(SERIALIZED_NAME_GCS_GENERATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal gcsGeneration;
 
     public static final String SERIALIZED_NAME_GCS_PATH_ID = "gcs_path_id";
 
     @SerializedName(SERIALIZED_NAME_GCS_PATH_ID)
-    @javax.annotation.Nullable private String gcsPathId;
+    @jakarta.annotation.Nullable private String gcsPathId;
 
     public static final String SERIALIZED_NAME_IS_SNAPSHOT = "is_snapshot";
 
     @SerializedName(SERIALIZED_NAME_IS_SNAPSHOT)
-    @javax.annotation.Nullable private Boolean isSnapshot;
+    @jakarta.annotation.Nullable private Boolean isSnapshot;
 
     public static final String SERIALIZED_NAME_SNAPSHOT_NAME = "snapshot_name";
 
     @SerializedName(SERIALIZED_NAME_SNAPSHOT_NAME)
-    @javax.annotation.Nullable private String snapshotName;
+    @jakarta.annotation.Nullable private String snapshotName;
 
     public DataStoreVersion() {}
 
-    public DataStoreVersion id(@javax.annotation.Nonnull String id) {
+    public DataStoreVersion id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -110,16 +110,16 @@ public class DataStoreVersion {
      * Version ID
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public DataStoreVersion storeId(@javax.annotation.Nonnull String storeId) {
+    public DataStoreVersion storeId(@jakarta.annotation.Nonnull String storeId) {
         this.storeId = storeId;
         return this;
     }
@@ -128,16 +128,16 @@ public class DataStoreVersion {
      * Parent store ID
      * @return storeId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStoreId() {
         return storeId;
     }
 
-    public void setStoreId(@javax.annotation.Nonnull String storeId) {
+    public void setStoreId(@jakarta.annotation.Nonnull String storeId) {
         this.storeId = storeId;
     }
 
-    public DataStoreVersion message(@javax.annotation.Nonnull String message) {
+    public DataStoreVersion message(@jakarta.annotation.Nonnull String message) {
         this.message = message;
         return this;
     }
@@ -146,16 +146,16 @@ public class DataStoreVersion {
      * Commit message
      * @return message
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nonnull String message) {
+    public void setMessage(@jakarta.annotation.Nonnull String message) {
         this.message = message;
     }
 
-    public DataStoreVersion schemaVersion(@javax.annotation.Nonnull String schemaVersion) {
+    public DataStoreVersion schemaVersion(@jakarta.annotation.Nonnull String schemaVersion) {
         this.schemaVersion = schemaVersion;
         return this;
     }
@@ -164,17 +164,17 @@ public class DataStoreVersion {
      * Schema version at this point
      * @return schemaVersion
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSchemaVersion() {
         return schemaVersion;
     }
 
-    public void setSchemaVersion(@javax.annotation.Nonnull String schemaVersion) {
+    public void setSchemaVersion(@jakarta.annotation.Nonnull String schemaVersion) {
         this.schemaVersion = schemaVersion;
     }
 
     public DataStoreVersion tables(
-            @javax.annotation.Nonnull Map<String, DataStoreVersionTableState> tables) {
+            @jakarta.annotation.Nonnull Map<String, DataStoreVersionTableState> tables) {
         this.tables = tables;
         return this;
     }
@@ -191,17 +191,17 @@ public class DataStoreVersion {
      * Table states at this version
      * @return tables
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, DataStoreVersionTableState> getTables() {
         return tables;
     }
 
     public void setTables(
-            @javax.annotation.Nonnull Map<String, DataStoreVersionTableState> tables) {
+            @jakarta.annotation.Nonnull Map<String, DataStoreVersionTableState> tables) {
         this.tables = tables;
     }
 
-    public DataStoreVersion createdAt(@javax.annotation.Nonnull String createdAt) {
+    public DataStoreVersion createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -210,16 +210,16 @@ public class DataStoreVersion {
      * Creation timestamp
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public DataStoreVersion createdBy(@javax.annotation.Nullable String createdBy) {
+    public DataStoreVersion createdBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -228,15 +228,15 @@ public class DataStoreVersion {
      * User/agent who created
      * @return createdBy
      */
-    @javax.annotation.Nullable public String getCreatedBy() {
+    @jakarta.annotation.Nullable public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public DataStoreVersion gcsGeneration(@javax.annotation.Nonnull BigDecimal gcsGeneration) {
+    public DataStoreVersion gcsGeneration(@jakarta.annotation.Nonnull BigDecimal gcsGeneration) {
         this.gcsGeneration = gcsGeneration;
         return this;
     }
@@ -245,16 +245,16 @@ public class DataStoreVersion {
      * GCS object generation number
      * @return gcsGeneration
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getGcsGeneration() {
         return gcsGeneration;
     }
 
-    public void setGcsGeneration(@javax.annotation.Nonnull BigDecimal gcsGeneration) {
+    public void setGcsGeneration(@jakarta.annotation.Nonnull BigDecimal gcsGeneration) {
         this.gcsGeneration = gcsGeneration;
     }
 
-    public DataStoreVersion gcsPathId(@javax.annotation.Nullable String gcsPathId) {
+    public DataStoreVersion gcsPathId(@jakarta.annotation.Nullable String gcsPathId) {
         this.gcsPathId = gcsPathId;
         return this;
     }
@@ -263,15 +263,15 @@ public class DataStoreVersion {
      * Timestamp-based ID used for GCS path (internal)
      * @return gcsPathId
      */
-    @javax.annotation.Nullable public String getGcsPathId() {
+    @jakarta.annotation.Nullable public String getGcsPathId() {
         return gcsPathId;
     }
 
-    public void setGcsPathId(@javax.annotation.Nullable String gcsPathId) {
+    public void setGcsPathId(@jakarta.annotation.Nullable String gcsPathId) {
         this.gcsPathId = gcsPathId;
     }
 
-    public DataStoreVersion isSnapshot(@javax.annotation.Nullable Boolean isSnapshot) {
+    public DataStoreVersion isSnapshot(@jakarta.annotation.Nullable Boolean isSnapshot) {
         this.isSnapshot = isSnapshot;
         return this;
     }
@@ -280,15 +280,15 @@ public class DataStoreVersion {
      * Whether this is a named snapshot
      * @return isSnapshot
      */
-    @javax.annotation.Nullable public Boolean getIsSnapshot() {
+    @jakarta.annotation.Nullable public Boolean getIsSnapshot() {
         return isSnapshot;
     }
 
-    public void setIsSnapshot(@javax.annotation.Nullable Boolean isSnapshot) {
+    public void setIsSnapshot(@jakarta.annotation.Nullable Boolean isSnapshot) {
         this.isSnapshot = isSnapshot;
     }
 
-    public DataStoreVersion snapshotName(@javax.annotation.Nullable String snapshotName) {
+    public DataStoreVersion snapshotName(@jakarta.annotation.Nullable String snapshotName) {
         this.snapshotName = snapshotName;
         return this;
     }
@@ -297,11 +297,11 @@ public class DataStoreVersion {
      * Snapshot name (if is_snapshot)
      * @return snapshotName
      */
-    @javax.annotation.Nullable public String getSnapshotName() {
+    @jakarta.annotation.Nullable public String getSnapshotName() {
         return snapshotName;
     }
 
-    public void setSnapshotName(@javax.annotation.Nullable String snapshotName) {
+    public void setSnapshotName(@jakarta.annotation.Nullable String snapshotName) {
         this.snapshotName = snapshotName;
     }
 

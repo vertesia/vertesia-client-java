@@ -34,37 +34,37 @@ import java.util.Objects;
 /**
  * OAuthGrantListResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OAuthGrantListResponse {
     public static final String SERIALIZED_NAME_GRANTS = "grants";
 
     @SerializedName(SERIALIZED_NAME_GRANTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<OAuthGrant> grants = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TOTAL_COUNT = "total_count";
 
     @SerializedName(SERIALIZED_NAME_TOTAL_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal totalCount;
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal limit;
 
     public static final String SERIALIZED_NAME_OFFSET = "offset";
 
     @SerializedName(SERIALIZED_NAME_OFFSET)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal offset;
 
     public OAuthGrantListResponse() {}
 
-    public OAuthGrantListResponse grants(@javax.annotation.Nonnull List<OAuthGrant> grants) {
+    public OAuthGrantListResponse grants(@jakarta.annotation.Nonnull List<OAuthGrant> grants) {
         this.grants = grants;
         return this;
     }
@@ -81,16 +81,16 @@ public class OAuthGrantListResponse {
      * Get grants
      * @return grants
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<OAuthGrant> getGrants() {
         return grants;
     }
 
-    public void setGrants(@javax.annotation.Nonnull List<OAuthGrant> grants) {
+    public void setGrants(@jakarta.annotation.Nonnull List<OAuthGrant> grants) {
         this.grants = grants;
     }
 
-    public OAuthGrantListResponse totalCount(@javax.annotation.Nonnull BigDecimal totalCount) {
+    public OAuthGrantListResponse totalCount(@jakarta.annotation.Nonnull BigDecimal totalCount) {
         this.totalCount = totalCount;
         return this;
     }
@@ -99,16 +99,16 @@ public class OAuthGrantListResponse {
      * Get totalCount
      * @return totalCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTotalCount() {
         return totalCount;
     }
 
-    public void setTotalCount(@javax.annotation.Nonnull BigDecimal totalCount) {
+    public void setTotalCount(@jakarta.annotation.Nonnull BigDecimal totalCount) {
         this.totalCount = totalCount;
     }
 
-    public OAuthGrantListResponse limit(@javax.annotation.Nonnull BigDecimal limit) {
+    public OAuthGrantListResponse limit(@jakarta.annotation.Nonnull BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -117,16 +117,16 @@ public class OAuthGrantListResponse {
      * Get limit
      * @return limit
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nonnull BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nonnull BigDecimal limit) {
         this.limit = limit;
     }
 
-    public OAuthGrantListResponse offset(@javax.annotation.Nonnull BigDecimal offset) {
+    public OAuthGrantListResponse offset(@jakarta.annotation.Nonnull BigDecimal offset) {
         this.offset = offset;
         return this;
     }
@@ -135,12 +135,12 @@ public class OAuthGrantListResponse {
      * Get offset
      * @return offset
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getOffset() {
         return offset;
     }
 
-    public void setOffset(@javax.annotation.Nonnull BigDecimal offset) {
+    public void setOffset(@jakarta.annotation.Nonnull BigDecimal offset) {
         this.offset = offset;
     }
 

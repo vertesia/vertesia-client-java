@@ -31,39 +31,39 @@ import java.util.Objects;
 /**
  * CostRunPriceQuery
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CostRunPriceQuery {
     public static final String SERIALIZED_NAME_RUN_ID = "run_id";
 
     @SerializedName(SERIALIZED_NAME_RUN_ID)
-    @javax.annotation.Nullable private String runId;
+    @jakarta.annotation.Nullable private String runId;
 
     public static final String SERIALIZED_NAME_AGENT_RUN_ID = "agent_run_id";
 
     @SerializedName(SERIALIZED_NAME_AGENT_RUN_ID)
-    @javax.annotation.Nullable private String agentRunId;
+    @jakarta.annotation.Nullable private String agentRunId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflow_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
-    @javax.annotation.Nullable private String workflowId;
+    @jakarta.annotation.Nullable private String workflowId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_RUN_ID = "workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_RUN_ID)
-    @javax.annotation.Nullable private String workflowRunId;
+    @jakarta.annotation.Nullable private String workflowRunId;
 
     public static final String SERIALIZED_NAME_FROM = "from";
 
     @SerializedName(SERIALIZED_NAME_FROM)
-    @javax.annotation.Nullable private CostRunPriceQueryFrom from;
+    @jakarta.annotation.Nullable private CostRunPriceQueryFrom from;
 
     public static final String SERIALIZED_NAME_TO = "to";
 
     @SerializedName(SERIALIZED_NAME_TO)
-    @javax.annotation.Nullable private CostRunPriceQueryTo to;
+    @jakarta.annotation.Nullable private CostRunPriceQueryTo to;
 
     /**
      * Pricing source. Defaults to historical effective prices for run pricing.
@@ -123,23 +123,23 @@ public class CostRunPriceQuery {
     public static final String SERIALIZED_NAME_PRICING_SOURCE = "pricing_source";
 
     @SerializedName(SERIALIZED_NAME_PRICING_SOURCE)
-    @javax.annotation.Nullable private PricingSourceEnum pricingSource;
+    @jakarta.annotation.Nullable private PricingSourceEnum pricingSource;
 
     public static final String SERIALIZED_NAME_INCLUDE_COMPARISON_PRICING =
             "include_comparison_pricing";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_COMPARISON_PRICING)
-    @javax.annotation.Nullable private Boolean includeComparisonPricing;
+    @jakarta.annotation.Nullable private Boolean includeComparisonPricing;
 
     public static final String SERIALIZED_NAME_PROJECT_ID = "project_id";
 
     @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-    @javax.annotation.Nullable private String projectId;
+    @jakarta.annotation.Nullable private String projectId;
 
     public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
-    @javax.annotation.Nullable private String accountId;
+    @jakarta.annotation.Nullable private String accountId;
 
     /**
      * Scope: &#39;project&#39; (default, current project) or &#39;org&#39;
@@ -199,11 +199,11 @@ public class CostRunPriceQuery {
     public static final String SERIALIZED_NAME_SCOPE = "scope";
 
     @SerializedName(SERIALIZED_NAME_SCOPE)
-    @javax.annotation.Nullable private ScopeEnum scope;
+    @jakarta.annotation.Nullable private ScopeEnum scope;
 
     public CostRunPriceQuery() {}
 
-    public CostRunPriceQuery runId(@javax.annotation.Nullable String runId) {
+    public CostRunPriceQuery runId(@jakarta.annotation.Nullable String runId) {
         this.runId = runId;
         return this;
     }
@@ -212,15 +212,15 @@ public class CostRunPriceQuery {
      * Interaction execution run ID
      * @return runId
      */
-    @javax.annotation.Nullable public String getRunId() {
+    @jakarta.annotation.Nullable public String getRunId() {
         return runId;
     }
 
-    public void setRunId(@javax.annotation.Nullable String runId) {
+    public void setRunId(@jakarta.annotation.Nullable String runId) {
         this.runId = runId;
     }
 
-    public CostRunPriceQuery agentRunId(@javax.annotation.Nullable String agentRunId) {
+    public CostRunPriceQuery agentRunId(@jakarta.annotation.Nullable String agentRunId) {
         this.agentRunId = agentRunId;
         return this;
     }
@@ -229,15 +229,15 @@ public class CostRunPriceQuery {
      * Agent run ID
      * @return agentRunId
      */
-    @javax.annotation.Nullable public String getAgentRunId() {
+    @jakarta.annotation.Nullable public String getAgentRunId() {
         return agentRunId;
     }
 
-    public void setAgentRunId(@javax.annotation.Nullable String agentRunId) {
+    public void setAgentRunId(@jakarta.annotation.Nullable String agentRunId) {
         this.agentRunId = agentRunId;
     }
 
-    public CostRunPriceQuery workflowId(@javax.annotation.Nullable String workflowId) {
+    public CostRunPriceQuery workflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
         return this;
     }
@@ -246,15 +246,15 @@ public class CostRunPriceQuery {
      * Workflow ID, when known
      * @return workflowId
      */
-    @javax.annotation.Nullable public String getWorkflowId() {
+    @jakarta.annotation.Nullable public String getWorkflowId() {
         return workflowId;
     }
 
-    public void setWorkflowId(@javax.annotation.Nullable String workflowId) {
+    public void setWorkflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
     }
 
-    public CostRunPriceQuery workflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public CostRunPriceQuery workflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
         return this;
     }
@@ -263,15 +263,15 @@ public class CostRunPriceQuery {
      * Temporal workflow run ID, when known
      * @return workflowRunId
      */
-    @javax.annotation.Nullable public String getWorkflowRunId() {
+    @jakarta.annotation.Nullable public String getWorkflowRunId() {
         return workflowRunId;
     }
 
-    public void setWorkflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public void setWorkflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
     }
 
-    public CostRunPriceQuery from(@javax.annotation.Nullable CostRunPriceQueryFrom from) {
+    public CostRunPriceQuery from(@jakarta.annotation.Nullable CostRunPriceQueryFrom from) {
         this.from = from;
         return this;
     }
@@ -280,15 +280,15 @@ public class CostRunPriceQuery {
      * Get from
      * @return from
      */
-    @javax.annotation.Nullable public CostRunPriceQueryFrom getFrom() {
+    @jakarta.annotation.Nullable public CostRunPriceQueryFrom getFrom() {
         return from;
     }
 
-    public void setFrom(@javax.annotation.Nullable CostRunPriceQueryFrom from) {
+    public void setFrom(@jakarta.annotation.Nullable CostRunPriceQueryFrom from) {
         this.from = from;
     }
 
-    public CostRunPriceQuery to(@javax.annotation.Nullable CostRunPriceQueryTo to) {
+    public CostRunPriceQuery to(@jakarta.annotation.Nullable CostRunPriceQueryTo to) {
         this.to = to;
         return this;
     }
@@ -297,16 +297,16 @@ public class CostRunPriceQuery {
      * Get to
      * @return to
      */
-    @javax.annotation.Nullable public CostRunPriceQueryTo getTo() {
+    @jakarta.annotation.Nullable public CostRunPriceQueryTo getTo() {
         return to;
     }
 
-    public void setTo(@javax.annotation.Nullable CostRunPriceQueryTo to) {
+    public void setTo(@jakarta.annotation.Nullable CostRunPriceQueryTo to) {
         this.to = to;
     }
 
     public CostRunPriceQuery pricingSource(
-            @javax.annotation.Nullable PricingSourceEnum pricingSource) {
+            @jakarta.annotation.Nullable PricingSourceEnum pricingSource) {
         this.pricingSource = pricingSource;
         return this;
     }
@@ -315,16 +315,16 @@ public class CostRunPriceQuery {
      * Pricing source. Defaults to historical effective prices for run pricing.
      * @return pricingSource
      */
-    @javax.annotation.Nullable public PricingSourceEnum getPricingSource() {
+    @jakarta.annotation.Nullable public PricingSourceEnum getPricingSource() {
         return pricingSource;
     }
 
-    public void setPricingSource(@javax.annotation.Nullable PricingSourceEnum pricingSource) {
+    public void setPricingSource(@jakarta.annotation.Nullable PricingSourceEnum pricingSource) {
         this.pricingSource = pricingSource;
     }
 
     public CostRunPriceQuery includeComparisonPricing(
-            @javax.annotation.Nullable Boolean includeComparisonPricing) {
+            @jakarta.annotation.Nullable Boolean includeComparisonPricing) {
         this.includeComparisonPricing = includeComparisonPricing;
         return this;
     }
@@ -333,16 +333,16 @@ public class CostRunPriceQuery {
      * Include the full pricing catalog for cross-model comparison. Defaults to false.
      * @return includeComparisonPricing
      */
-    @javax.annotation.Nullable public Boolean getIncludeComparisonPricing() {
+    @jakarta.annotation.Nullable public Boolean getIncludeComparisonPricing() {
         return includeComparisonPricing;
     }
 
     public void setIncludeComparisonPricing(
-            @javax.annotation.Nullable Boolean includeComparisonPricing) {
+            @jakarta.annotation.Nullable Boolean includeComparisonPricing) {
         this.includeComparisonPricing = includeComparisonPricing;
     }
 
-    public CostRunPriceQuery projectId(@javax.annotation.Nullable String projectId) {
+    public CostRunPriceQuery projectId(@jakarta.annotation.Nullable String projectId) {
         this.projectId = projectId;
         return this;
     }
@@ -351,15 +351,15 @@ public class CostRunPriceQuery {
      * Project filter; server fills current project by default
      * @return projectId
      */
-    @javax.annotation.Nullable public String getProjectId() {
+    @jakarta.annotation.Nullable public String getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(@javax.annotation.Nullable String projectId) {
+    public void setProjectId(@jakarta.annotation.Nullable String projectId) {
         this.projectId = projectId;
     }
 
-    public CostRunPriceQuery accountId(@javax.annotation.Nullable String accountId) {
+    public CostRunPriceQuery accountId(@jakarta.annotation.Nullable String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -368,15 +368,15 @@ public class CostRunPriceQuery {
      * Account filter; server fills current account
      * @return accountId
      */
-    @javax.annotation.Nullable public String getAccountId() {
+    @jakarta.annotation.Nullable public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(@javax.annotation.Nullable String accountId) {
+    public void setAccountId(@jakarta.annotation.Nullable String accountId) {
         this.accountId = accountId;
     }
 
-    public CostRunPriceQuery scope(@javax.annotation.Nullable ScopeEnum scope) {
+    public CostRunPriceQuery scope(@jakarta.annotation.Nullable ScopeEnum scope) {
         this.scope = scope;
         return this;
     }
@@ -385,11 +385,11 @@ public class CostRunPriceQuery {
      * Scope: &#39;project&#39; (default, current project) or &#39;org&#39;
      * @return scope
      */
-    @javax.annotation.Nullable public ScopeEnum getScope() {
+    @jakarta.annotation.Nullable public ScopeEnum getScope() {
         return scope;
     }
 
-    public void setScope(@javax.annotation.Nullable ScopeEnum scope) {
+    public void setScope(@jakarta.annotation.Nullable ScopeEnum scope) {
         this.scope = scope;
     }
 

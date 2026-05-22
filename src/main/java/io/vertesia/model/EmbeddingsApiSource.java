@@ -30,33 +30,33 @@ import java.util.Objects;
 /**
  * EmbeddingsApiSource
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EmbeddingsApiSource {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
 
     @SerializedName(SERIALIZED_NAME_MIME_TYPE)
-    @javax.annotation.Nullable private String mimeType;
+    @jakarta.annotation.Nullable private String mimeType;
 
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nullable private String url;
+    @jakarta.annotation.Nullable private String url;
 
     public static final String SERIALIZED_NAME_BASE64 = "base64";
 
     @SerializedName(SERIALIZED_NAME_BASE64)
-    @javax.annotation.Nullable private String base64;
+    @jakarta.annotation.Nullable private String base64;
 
     public EmbeddingsApiSource() {}
 
-    public EmbeddingsApiSource name(@javax.annotation.Nullable String name) {
+    public EmbeddingsApiSource name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -65,15 +65,15 @@ public class EmbeddingsApiSource {
      * Display name for the source (defaults to \&quot;embedding-input\&quot;).
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public EmbeddingsApiSource mimeType(@javax.annotation.Nullable String mimeType) {
+    public EmbeddingsApiSource mimeType(@jakarta.annotation.Nullable String mimeType) {
         this.mimeType = mimeType;
         return this;
     }
@@ -82,15 +82,15 @@ public class EmbeddingsApiSource {
      * MIME type of the binary content. Required for most providers.
      * @return mimeType
      */
-    @javax.annotation.Nullable public String getMimeType() {
+    @jakarta.annotation.Nullable public String getMimeType() {
         return mimeType;
     }
 
-    public void setMimeType(@javax.annotation.Nullable String mimeType) {
+    public void setMimeType(@jakarta.annotation.Nullable String mimeType) {
         this.mimeType = mimeType;
     }
 
-    public EmbeddingsApiSource url(@javax.annotation.Nullable String url) {
+    public EmbeddingsApiSource url(@jakarta.annotation.Nullable String url) {
         this.url = url;
         return this;
     }
@@ -99,15 +99,15 @@ public class EmbeddingsApiSource {
      * Provider-native URL the driver may pass through directly: - gs:// or https://storage.googleapis.com/ for Vertex AI - s3:// or https://_*.amazonaws.com for Bedrock - https:// for fetch fallback Mutually exclusive with base64.
      * @return url
      */
-    @javax.annotation.Nullable public String getUrl() {
+    @jakarta.annotation.Nullable public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nullable String url) {
+    public void setUrl(@jakarta.annotation.Nullable String url) {
         this.url = url;
     }
 
-    public EmbeddingsApiSource base64(@javax.annotation.Nullable String base64) {
+    public EmbeddingsApiSource base64(@jakarta.annotation.Nullable String base64) {
         this.base64 = base64;
         return this;
     }
@@ -116,11 +116,11 @@ public class EmbeddingsApiSource {
      * Base64-encoded bytes. Mutually exclusive with url.
      * @return base64
      */
-    @javax.annotation.Nullable public String getBase64() {
+    @jakarta.annotation.Nullable public String getBase64() {
         return base64;
     }
 
-    public void setBase64(@javax.annotation.Nullable String base64) {
+    public void setBase64(@jakarta.annotation.Nullable String base64) {
         this.base64 = base64;
     }
 

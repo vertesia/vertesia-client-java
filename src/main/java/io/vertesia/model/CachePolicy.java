@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * CachePolicy
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CachePolicy {
@@ -98,30 +98,30 @@ public class CachePolicy {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_REFRESH_PROBABILITY = "refresh_probability";
 
     @SerializedName(SERIALIZED_NAME_REFRESH_PROBABILITY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal refreshProbability;
 
     public static final String SERIALIZED_NAME_VARIES_ON = "varies_on";
 
     @SerializedName(SERIALIZED_NAME_VARIES_ON)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> variesOn = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TTL = "ttl";
 
     @SerializedName(SERIALIZED_NAME_TTL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal ttl;
 
     public CachePolicy() {}
 
-    public CachePolicy type(@javax.annotation.Nonnull TypeEnum type) {
+    public CachePolicy type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -130,16 +130,17 @@ public class CachePolicy {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public CachePolicy refreshProbability(@javax.annotation.Nonnull BigDecimal refreshProbability) {
+    public CachePolicy refreshProbability(
+            @jakarta.annotation.Nonnull BigDecimal refreshProbability) {
         this.refreshProbability = refreshProbability;
         return this;
     }
@@ -148,16 +149,16 @@ public class CachePolicy {
      * Get refreshProbability
      * @return refreshProbability
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getRefreshProbability() {
         return refreshProbability;
     }
 
-    public void setRefreshProbability(@javax.annotation.Nonnull BigDecimal refreshProbability) {
+    public void setRefreshProbability(@jakarta.annotation.Nonnull BigDecimal refreshProbability) {
         this.refreshProbability = refreshProbability;
     }
 
-    public CachePolicy variesOn(@javax.annotation.Nonnull List<String> variesOn) {
+    public CachePolicy variesOn(@jakarta.annotation.Nonnull List<String> variesOn) {
         this.variesOn = variesOn;
         return this;
     }
@@ -174,16 +175,16 @@ public class CachePolicy {
      * Get variesOn
      * @return variesOn
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getVariesOn() {
         return variesOn;
     }
 
-    public void setVariesOn(@javax.annotation.Nonnull List<String> variesOn) {
+    public void setVariesOn(@jakarta.annotation.Nonnull List<String> variesOn) {
         this.variesOn = variesOn;
     }
 
-    public CachePolicy ttl(@javax.annotation.Nonnull BigDecimal ttl) {
+    public CachePolicy ttl(@jakarta.annotation.Nonnull BigDecimal ttl) {
         this.ttl = ttl;
         return this;
     }
@@ -192,12 +193,12 @@ public class CachePolicy {
      * Get ttl
      * @return ttl
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTtl() {
         return ttl;
     }
 
-    public void setTtl(@javax.annotation.Nonnull BigDecimal ttl) {
+    public void setTtl(@jakarta.annotation.Nonnull BigDecimal ttl) {
         this.ttl = ttl;
     }
 

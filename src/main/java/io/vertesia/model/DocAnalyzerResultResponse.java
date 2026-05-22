@@ -34,33 +34,33 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * DocAnalyzerResultResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DocAnalyzerResultResponse {
     public static final String SERIALIZED_NAME_DOCUMENT = "document";
 
     @SerializedName(SERIALIZED_NAME_DOCUMENT)
-    @javax.annotation.Nullable private String document;
+    @jakarta.annotation.Nullable private String document;
 
     public static final String SERIALIZED_NAME_TABLES = "tables";
 
     @SerializedName(SERIALIZED_NAME_TABLES)
-    @javax.annotation.Nullable private List<DocTableResponse> tables = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<DocTableResponse> tables = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_IMAGES = "images";
 
     @SerializedName(SERIALIZED_NAME_IMAGES)
-    @javax.annotation.Nullable private List<DocImage> images = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<DocImage> images = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ANNOTATED = "annotated";
 
     @SerializedName(SERIALIZED_NAME_ANNOTATED)
-    @javax.annotation.Nullable private String annotated;
+    @jakarta.annotation.Nullable private String annotated;
 
     public DocAnalyzerResultResponse() {}
 
-    public DocAnalyzerResultResponse document(@javax.annotation.Nullable String document) {
+    public DocAnalyzerResultResponse document(@jakarta.annotation.Nullable String document) {
         this.document = document;
         return this;
     }
@@ -69,16 +69,16 @@ public class DocAnalyzerResultResponse {
      * Get document
      * @return document
      */
-    @javax.annotation.Nullable public String getDocument() {
+    @jakarta.annotation.Nullable public String getDocument() {
         return document;
     }
 
-    public void setDocument(@javax.annotation.Nullable String document) {
+    public void setDocument(@jakarta.annotation.Nullable String document) {
         this.document = document;
     }
 
     public DocAnalyzerResultResponse tables(
-            @javax.annotation.Nullable List<DocTableResponse> tables) {
+            @jakarta.annotation.Nullable List<DocTableResponse> tables) {
         this.tables = tables;
         return this;
     }
@@ -95,15 +95,15 @@ public class DocAnalyzerResultResponse {
      * Get tables
      * @return tables
      */
-    @javax.annotation.Nullable public List<DocTableResponse> getTables() {
+    @jakarta.annotation.Nullable public List<DocTableResponse> getTables() {
         return tables;
     }
 
-    public void setTables(@javax.annotation.Nullable List<DocTableResponse> tables) {
+    public void setTables(@jakarta.annotation.Nullable List<DocTableResponse> tables) {
         this.tables = tables;
     }
 
-    public DocAnalyzerResultResponse images(@javax.annotation.Nullable List<DocImage> images) {
+    public DocAnalyzerResultResponse images(@jakarta.annotation.Nullable List<DocImage> images) {
         this.images = images;
         return this;
     }
@@ -120,15 +120,15 @@ public class DocAnalyzerResultResponse {
      * Get images
      * @return images
      */
-    @javax.annotation.Nullable public List<DocImage> getImages() {
+    @jakarta.annotation.Nullable public List<DocImage> getImages() {
         return images;
     }
 
-    public void setImages(@javax.annotation.Nullable List<DocImage> images) {
+    public void setImages(@jakarta.annotation.Nullable List<DocImage> images) {
         this.images = images;
     }
 
-    public DocAnalyzerResultResponse annotated(@javax.annotation.Nullable String annotated) {
+    public DocAnalyzerResultResponse annotated(@jakarta.annotation.Nullable String annotated) {
         this.annotated = annotated;
         return this;
     }
@@ -137,11 +137,11 @@ public class DocAnalyzerResultResponse {
      * Get annotated
      * @return annotated
      */
-    @javax.annotation.Nullable public String getAnnotated() {
+    @jakarta.annotation.Nullable public String getAnnotated() {
         return annotated;
     }
 
-    public void setAnnotated(@javax.annotation.Nullable String annotated) {
+    public void setAnnotated(@jakarta.annotation.Nullable String annotated) {
         this.annotated = annotated;
     }
 

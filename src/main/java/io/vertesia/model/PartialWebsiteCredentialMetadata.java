@@ -35,73 +35,73 @@ import java.util.Objects;
 /**
  * PartialWebsiteCredentialMetadata
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PartialWebsiteCredentialMetadata {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_WEBSITES = "websites";
 
     @SerializedName(SERIALIZED_NAME_WEBSITES)
-    @javax.annotation.Nullable private List<WebsiteCredentialWebsite> websites = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<WebsiteCredentialWebsite> websites = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_USERNAME = "username";
 
     @SerializedName(SERIALIZED_NAME_USERNAME)
-    @javax.annotation.Nullable private String username;
+    @jakarta.annotation.Nullable private String username;
 
     public static final String SERIALIZED_NAME_USERNAME_HINT = "username_hint";
 
     @SerializedName(SERIALIZED_NAME_USERNAME_HINT)
-    @javax.annotation.Nullable private String usernameHint;
+    @jakarta.annotation.Nullable private String usernameHint;
 
     public static final String SERIALIZED_NAME_USERNAME_SECRET = "username_secret";
 
     @SerializedName(SERIALIZED_NAME_USERNAME_SECRET)
-    @javax.annotation.Nullable private Boolean usernameSecret;
+    @jakarta.annotation.Nullable private Boolean usernameSecret;
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nullable private Boolean enabled;
+    @jakarta.annotation.Nullable private Boolean enabled;
 
     public static final String SERIALIZED_NAME_CAPABILITIES = "capabilities";
 
     @SerializedName(SERIALIZED_NAME_CAPABILITIES)
-    @javax.annotation.Nullable private List<WebsiteCredentialCapability> capabilities = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<WebsiteCredentialCapability> capabilities = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_NOTES = "notes";
 
     @SerializedName(SERIALIZED_NAME_NOTES)
-    @javax.annotation.Nullable private String notes;
+    @jakarta.annotation.Nullable private String notes;
 
     public static final String SERIALIZED_NAME_TOTP = "totp";
 
     @SerializedName(SERIALIZED_NAME_TOTP)
-    @javax.annotation.Nullable private WebsiteCredentialTotpMetadata totp;
+    @jakarta.annotation.Nullable private WebsiteCredentialTotpMetadata totp;
 
     public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
 
     @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
-    @javax.annotation.Nullable private String expiresAt;
+    @jakarta.annotation.Nullable private String expiresAt;
 
     public PartialWebsiteCredentialMetadata() {}
 
-    public PartialWebsiteCredentialMetadata name(@javax.annotation.Nullable String name) {
+    public PartialWebsiteCredentialMetadata name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -110,16 +110,16 @@ public class PartialWebsiteCredentialMetadata {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
     public PartialWebsiteCredentialMetadata websites(
-            @javax.annotation.Nullable List<WebsiteCredentialWebsite> websites) {
+            @jakarta.annotation.Nullable List<WebsiteCredentialWebsite> websites) {
         this.websites = websites;
         return this;
     }
@@ -136,15 +136,15 @@ public class PartialWebsiteCredentialMetadata {
      * Get websites
      * @return websites
      */
-    @javax.annotation.Nullable public List<WebsiteCredentialWebsite> getWebsites() {
+    @jakarta.annotation.Nullable public List<WebsiteCredentialWebsite> getWebsites() {
         return websites;
     }
 
-    public void setWebsites(@javax.annotation.Nullable List<WebsiteCredentialWebsite> websites) {
+    public void setWebsites(@jakarta.annotation.Nullable List<WebsiteCredentialWebsite> websites) {
         this.websites = websites;
     }
 
-    public PartialWebsiteCredentialMetadata username(@javax.annotation.Nullable String username) {
+    public PartialWebsiteCredentialMetadata username(@jakarta.annotation.Nullable String username) {
         this.username = username;
         return this;
     }
@@ -153,16 +153,16 @@ public class PartialWebsiteCredentialMetadata {
      * Get username
      * @return username
      */
-    @javax.annotation.Nullable public String getUsername() {
+    @jakarta.annotation.Nullable public String getUsername() {
         return username;
     }
 
-    public void setUsername(@javax.annotation.Nullable String username) {
+    public void setUsername(@jakarta.annotation.Nullable String username) {
         this.username = username;
     }
 
     public PartialWebsiteCredentialMetadata usernameHint(
-            @javax.annotation.Nullable String usernameHint) {
+            @jakarta.annotation.Nullable String usernameHint) {
         this.usernameHint = usernameHint;
         return this;
     }
@@ -171,16 +171,16 @@ public class PartialWebsiteCredentialMetadata {
      * Get usernameHint
      * @return usernameHint
      */
-    @javax.annotation.Nullable public String getUsernameHint() {
+    @jakarta.annotation.Nullable public String getUsernameHint() {
         return usernameHint;
     }
 
-    public void setUsernameHint(@javax.annotation.Nullable String usernameHint) {
+    public void setUsernameHint(@jakarta.annotation.Nullable String usernameHint) {
         this.usernameHint = usernameHint;
     }
 
     public PartialWebsiteCredentialMetadata usernameSecret(
-            @javax.annotation.Nullable Boolean usernameSecret) {
+            @jakarta.annotation.Nullable Boolean usernameSecret) {
         this.usernameSecret = usernameSecret;
         return this;
     }
@@ -189,16 +189,16 @@ public class PartialWebsiteCredentialMetadata {
      * Get usernameSecret
      * @return usernameSecret
      */
-    @javax.annotation.Nullable public Boolean getUsernameSecret() {
+    @jakarta.annotation.Nullable public Boolean getUsernameSecret() {
         return usernameSecret;
     }
 
-    public void setUsernameSecret(@javax.annotation.Nullable Boolean usernameSecret) {
+    public void setUsernameSecret(@jakarta.annotation.Nullable Boolean usernameSecret) {
         this.usernameSecret = usernameSecret;
     }
 
     public PartialWebsiteCredentialMetadata properties(
-            @javax.annotation.Nullable Map<String, Object> properties) {
+            @jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
         return this;
     }
@@ -215,15 +215,15 @@ public class PartialWebsiteCredentialMetadata {
      * Get properties
      * @return properties
      */
-    @javax.annotation.Nullable public Map<String, Object> getProperties() {
+    @jakarta.annotation.Nullable public Map<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public void setProperties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
     }
 
-    public PartialWebsiteCredentialMetadata tags(@javax.annotation.Nullable List<String> tags) {
+    public PartialWebsiteCredentialMetadata tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -240,15 +240,15 @@ public class PartialWebsiteCredentialMetadata {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public PartialWebsiteCredentialMetadata enabled(@javax.annotation.Nullable Boolean enabled) {
+    public PartialWebsiteCredentialMetadata enabled(@jakarta.annotation.Nullable Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -257,16 +257,16 @@ public class PartialWebsiteCredentialMetadata {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nullable public Boolean getEnabled() {
+    @jakarta.annotation.Nullable public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nullable Boolean enabled) {
         this.enabled = enabled;
     }
 
     public PartialWebsiteCredentialMetadata capabilities(
-            @javax.annotation.Nullable List<WebsiteCredentialCapability> capabilities) {
+            @jakarta.annotation.Nullable List<WebsiteCredentialCapability> capabilities) {
         this.capabilities = capabilities;
         return this;
     }
@@ -284,16 +284,16 @@ public class PartialWebsiteCredentialMetadata {
      * Get capabilities
      * @return capabilities
      */
-    @javax.annotation.Nullable public List<WebsiteCredentialCapability> getCapabilities() {
+    @jakarta.annotation.Nullable public List<WebsiteCredentialCapability> getCapabilities() {
         return capabilities;
     }
 
     public void setCapabilities(
-            @javax.annotation.Nullable List<WebsiteCredentialCapability> capabilities) {
+            @jakarta.annotation.Nullable List<WebsiteCredentialCapability> capabilities) {
         this.capabilities = capabilities;
     }
 
-    public PartialWebsiteCredentialMetadata notes(@javax.annotation.Nullable String notes) {
+    public PartialWebsiteCredentialMetadata notes(@jakarta.annotation.Nullable String notes) {
         this.notes = notes;
         return this;
     }
@@ -302,16 +302,16 @@ public class PartialWebsiteCredentialMetadata {
      * Get notes
      * @return notes
      */
-    @javax.annotation.Nullable public String getNotes() {
+    @jakarta.annotation.Nullable public String getNotes() {
         return notes;
     }
 
-    public void setNotes(@javax.annotation.Nullable String notes) {
+    public void setNotes(@jakarta.annotation.Nullable String notes) {
         this.notes = notes;
     }
 
     public PartialWebsiteCredentialMetadata totp(
-            @javax.annotation.Nullable WebsiteCredentialTotpMetadata totp) {
+            @jakarta.annotation.Nullable WebsiteCredentialTotpMetadata totp) {
         this.totp = totp;
         return this;
     }
@@ -320,15 +320,16 @@ public class PartialWebsiteCredentialMetadata {
      * Get totp
      * @return totp
      */
-    @javax.annotation.Nullable public WebsiteCredentialTotpMetadata getTotp() {
+    @jakarta.annotation.Nullable public WebsiteCredentialTotpMetadata getTotp() {
         return totp;
     }
 
-    public void setTotp(@javax.annotation.Nullable WebsiteCredentialTotpMetadata totp) {
+    public void setTotp(@jakarta.annotation.Nullable WebsiteCredentialTotpMetadata totp) {
         this.totp = totp;
     }
 
-    public PartialWebsiteCredentialMetadata expiresAt(@javax.annotation.Nullable String expiresAt) {
+    public PartialWebsiteCredentialMetadata expiresAt(
+            @jakarta.annotation.Nullable String expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -337,11 +338,11 @@ public class PartialWebsiteCredentialMetadata {
      * Optional ISO timestamp after which the credential is no longer usable. Expired credentials are hidden from lookup and cannot be filled.
      * @return expiresAt
      */
-    @javax.annotation.Nullable public String getExpiresAt() {
+    @jakarta.annotation.Nullable public String getExpiresAt() {
         return expiresAt;
     }
 
-    public void setExpiresAt(@javax.annotation.Nullable String expiresAt) {
+    public void setExpiresAt(@jakarta.annotation.Nullable String expiresAt) {
         this.expiresAt = expiresAt;
     }
 

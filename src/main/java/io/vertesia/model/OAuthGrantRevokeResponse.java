@@ -31,26 +31,26 @@ import java.util.Objects;
 /**
  * OAuthGrantRevokeResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OAuthGrantRevokeResponse {
     public static final String SERIALIZED_NAME_REVOKED_TOKENS = "revoked_tokens";
 
     @SerializedName(SERIALIZED_NAME_REVOKED_TOKENS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal revokedTokens;
 
     public static final String SERIALIZED_NAME_REVOKED_CONSENTS = "revoked_consents";
 
     @SerializedName(SERIALIZED_NAME_REVOKED_CONSENTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal revokedConsents;
 
     public OAuthGrantRevokeResponse() {}
 
     public OAuthGrantRevokeResponse revokedTokens(
-            @javax.annotation.Nonnull BigDecimal revokedTokens) {
+            @jakarta.annotation.Nonnull BigDecimal revokedTokens) {
         this.revokedTokens = revokedTokens;
         return this;
     }
@@ -59,17 +59,17 @@ public class OAuthGrantRevokeResponse {
      * Get revokedTokens
      * @return revokedTokens
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getRevokedTokens() {
         return revokedTokens;
     }
 
-    public void setRevokedTokens(@javax.annotation.Nonnull BigDecimal revokedTokens) {
+    public void setRevokedTokens(@jakarta.annotation.Nonnull BigDecimal revokedTokens) {
         this.revokedTokens = revokedTokens;
     }
 
     public OAuthGrantRevokeResponse revokedConsents(
-            @javax.annotation.Nonnull BigDecimal revokedConsents) {
+            @jakarta.annotation.Nonnull BigDecimal revokedConsents) {
         this.revokedConsents = revokedConsents;
         return this;
     }
@@ -78,12 +78,12 @@ public class OAuthGrantRevokeResponse {
      * Get revokedConsents
      * @return revokedConsents
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getRevokedConsents() {
         return revokedConsents;
     }
 
-    public void setRevokedConsents(@javax.annotation.Nonnull BigDecimal revokedConsents) {
+    public void setRevokedConsents(@jakarta.annotation.Nonnull BigDecimal revokedConsents) {
         this.revokedConsents = revokedConsents;
     }
 

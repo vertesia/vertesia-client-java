@@ -31,31 +31,31 @@ import java.util.Objects;
 /**
  * Lightweight tool reference for activity payloads. References tools stored in GCP instead of embedding full tool definitions.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ToolReference {
     public static final String SERIALIZED_NAME_STORAGE_KEY = "storage_key";
 
     @SerializedName(SERIALIZED_NAME_STORAGE_KEY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String storageKey;
 
     public static final String SERIALIZED_NAME_TOOL_COUNT = "tool_count";
 
     @SerializedName(SERIALIZED_NAME_TOOL_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal toolCount;
 
     public static final String SERIALIZED_NAME_STORED_AT = "stored_at";
 
     @SerializedName(SERIALIZED_NAME_STORED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String storedAt;
 
     public ToolReference() {}
 
-    public ToolReference storageKey(@javax.annotation.Nonnull String storageKey) {
+    public ToolReference storageKey(@jakarta.annotation.Nonnull String storageKey) {
         this.storageKey = storageKey;
         return this;
     }
@@ -64,16 +64,16 @@ public class ToolReference {
      * Get storageKey
      * @return storageKey
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStorageKey() {
         return storageKey;
     }
 
-    public void setStorageKey(@javax.annotation.Nonnull String storageKey) {
+    public void setStorageKey(@jakarta.annotation.Nonnull String storageKey) {
         this.storageKey = storageKey;
     }
 
-    public ToolReference toolCount(@javax.annotation.Nonnull BigDecimal toolCount) {
+    public ToolReference toolCount(@jakarta.annotation.Nonnull BigDecimal toolCount) {
         this.toolCount = toolCount;
         return this;
     }
@@ -82,16 +82,16 @@ public class ToolReference {
      * Get toolCount
      * @return toolCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getToolCount() {
         return toolCount;
     }
 
-    public void setToolCount(@javax.annotation.Nonnull BigDecimal toolCount) {
+    public void setToolCount(@jakarta.annotation.Nonnull BigDecimal toolCount) {
         this.toolCount = toolCount;
     }
 
-    public ToolReference storedAt(@javax.annotation.Nonnull String storedAt) {
+    public ToolReference storedAt(@jakarta.annotation.Nonnull String storedAt) {
         this.storedAt = storedAt;
         return this;
     }
@@ -100,12 +100,12 @@ public class ToolReference {
      * Get storedAt
      * @return storedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStoredAt() {
         return storedAt;
     }
 
-    public void setStoredAt(@javax.annotation.Nonnull String storedAt) {
+    public void setStoredAt(@jakarta.annotation.Nonnull String storedAt) {
         this.storedAt = storedAt;
     }
 

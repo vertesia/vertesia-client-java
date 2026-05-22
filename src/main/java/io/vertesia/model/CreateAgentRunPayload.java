@@ -36,125 +36,125 @@ import java.util.Objects;
 /**
  * Payload to create and start a new agent run.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateAgentRunPayload {
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String interaction;
 
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    @javax.annotation.Nullable private Map<String, Object> data = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> data = new HashMap<>();
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nullable private InteractionExecutionConfiguration config;
+    @jakarta.annotation.Nullable private InteractionExecutionConfiguration config;
 
     public static final String SERIALIZED_NAME_INTERACTIVE = "interactive";
 
     @SerializedName(SERIALIZED_NAME_INTERACTIVE)
-    @javax.annotation.Nullable private Boolean interactive;
+    @jakarta.annotation.Nullable private Boolean interactive;
 
     public static final String SERIALIZED_NAME_TOOL_NAMES = "tool_names";
 
     @SerializedName(SERIALIZED_NAME_TOOL_NAMES)
-    @javax.annotation.Nullable private List<String> toolNames = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> toolNames = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
-    @javax.annotation.Nullable private String collectionId;
+    @jakarta.annotation.Nullable private String collectionId;
 
     public static final String SERIALIZED_NAME_CONTENT_TYPE = "content_type";
 
     @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
-    @javax.annotation.Nullable private ContentObjectTypeRef contentType;
+    @jakarta.annotation.Nullable private ContentObjectTypeRef contentType;
 
     public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
     @SerializedName(SERIALIZED_NAME_VISIBILITY)
-    @javax.annotation.Nullable private ConversationVisibility visibility;
+    @jakarta.annotation.Nullable private ConversationVisibility visibility;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CATEGORIES = "categories";
 
     @SerializedName(SERIALIZED_NAME_CATEGORIES)
-    @javax.annotation.Nullable private List<String> categories = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> categories = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
 
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nullable private RunSource source;
+    @jakarta.annotation.Nullable private RunSource source;
 
     public static final String SERIALIZED_NAME_SCHEDULE_ID = "schedule_id";
 
     @SerializedName(SERIALIZED_NAME_SCHEDULE_ID)
-    @javax.annotation.Nullable private String scheduleId;
+    @jakarta.annotation.Nullable private String scheduleId;
 
     public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
 
     @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
-    @javax.annotation.Nullable private AgentRunType sourceType;
+    @jakarta.annotation.Nullable private AgentRunType sourceType;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private AgentRunType type;
+    @jakarta.annotation.Nullable private AgentRunType type;
 
     public static final String SERIALIZED_NAME_SEARCH_SCOPE = "search_scope";
 
     @SerializedName(SERIALIZED_NAME_SEARCH_SCOPE)
-    @javax.annotation.Nullable private AgentSearchScope searchScope;
+    @jakarta.annotation.Nullable private AgentSearchScope searchScope;
 
     public static final String SERIALIZED_NAME_USER_CHANNELS = "user_channels";
 
     @SerializedName(SERIALIZED_NAME_USER_CHANNELS)
-    @javax.annotation.Nullable private List<UserChannel> userChannels = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<UserChannel> userChannels = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CHECKPOINT_TOKENS = "checkpoint_tokens";
 
     @SerializedName(SERIALIZED_NAME_CHECKPOINT_TOKENS)
-    @javax.annotation.Nullable private BigDecimal checkpointTokens;
+    @jakarta.annotation.Nullable private BigDecimal checkpointTokens;
 
     public static final String SERIALIZED_NAME_MAX_ITERATIONS = "max_iterations";
 
     @SerializedName(SERIALIZED_NAME_MAX_ITERATIONS)
-    @javax.annotation.Nullable private BigDecimal maxIterations;
+    @jakarta.annotation.Nullable private BigDecimal maxIterations;
 
     public static final String SERIALIZED_NAME_NOTIFY_ENDPOINTS = "notify_endpoints";
 
     @SerializedName(SERIALIZED_NAME_NOTIFY_ENDPOINTS)
-    @javax.annotation.Nullable private List<String> notifyEndpoints = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> notifyEndpoints = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DEBUG_MODE = "debug_mode";
 
     @SerializedName(SERIALIZED_NAME_DEBUG_MODE)
-    @javax.annotation.Nullable private Boolean debugMode;
+    @jakarta.annotation.Nullable private Boolean debugMode;
 
     public static final String SERIALIZED_NAME_STARTED_BY = "started_by";
 
     @SerializedName(SERIALIZED_NAME_STARTED_BY)
-    @javax.annotation.Nullable private String startedBy;
+    @jakarta.annotation.Nullable private String startedBy;
 
     public CreateAgentRunPayload() {}
 
-    public CreateAgentRunPayload interaction(@javax.annotation.Nonnull String interaction) {
+    public CreateAgentRunPayload interaction(@jakarta.annotation.Nonnull String interaction) {
         this.interaction = interaction;
         return this;
     }
@@ -163,16 +163,16 @@ public class CreateAgentRunPayload {
      * Interaction ID or code (e.g. \&quot;sys:generic_question\&quot;).
      * @return interaction
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getInteraction() {
         return interaction;
     }
 
-    public void setInteraction(@javax.annotation.Nonnull String interaction) {
+    public void setInteraction(@jakarta.annotation.Nonnull String interaction) {
         this.interaction = interaction;
     }
 
-    public CreateAgentRunPayload data(@javax.annotation.Nullable Map<String, Object> data) {
+    public CreateAgentRunPayload data(@jakarta.annotation.Nullable Map<String, Object> data) {
         this.data = data;
         return this;
     }
@@ -189,16 +189,16 @@ public class CreateAgentRunPayload {
      * Input parameters, typed per interaction
      * @return data
      */
-    @javax.annotation.Nullable public Map<String, Object> getData() {
+    @jakarta.annotation.Nullable public Map<String, Object> getData() {
         return data;
     }
 
-    public void setData(@javax.annotation.Nullable Map<String, Object> data) {
+    public void setData(@jakarta.annotation.Nullable Map<String, Object> data) {
         this.data = data;
     }
 
     public CreateAgentRunPayload config(
-            @javax.annotation.Nullable InteractionExecutionConfiguration config) {
+            @jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
         this.config = config;
         return this;
     }
@@ -207,15 +207,15 @@ public class CreateAgentRunPayload {
      * Execution configuration (environment, model, model_options, etc.)
      * @return config
      */
-    @javax.annotation.Nullable public InteractionExecutionConfiguration getConfig() {
+    @jakarta.annotation.Nullable public InteractionExecutionConfiguration getConfig() {
         return config;
     }
 
-    public void setConfig(@javax.annotation.Nullable InteractionExecutionConfiguration config) {
+    public void setConfig(@jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
         this.config = config;
     }
 
-    public CreateAgentRunPayload interactive(@javax.annotation.Nullable Boolean interactive) {
+    public CreateAgentRunPayload interactive(@jakarta.annotation.Nullable Boolean interactive) {
         this.interactive = interactive;
         return this;
     }
@@ -224,15 +224,15 @@ public class CreateAgentRunPayload {
      * Whether the agent accepts user input
      * @return interactive
      */
-    @javax.annotation.Nullable public Boolean getInteractive() {
+    @jakarta.annotation.Nullable public Boolean getInteractive() {
         return interactive;
     }
 
-    public void setInteractive(@javax.annotation.Nullable Boolean interactive) {
+    public void setInteractive(@jakarta.annotation.Nullable Boolean interactive) {
         this.interactive = interactive;
     }
 
-    public CreateAgentRunPayload toolNames(@javax.annotation.Nullable List<String> toolNames) {
+    public CreateAgentRunPayload toolNames(@jakarta.annotation.Nullable List<String> toolNames) {
         this.toolNames = toolNames;
         return this;
     }
@@ -249,15 +249,15 @@ public class CreateAgentRunPayload {
      * Tools configured for this run (+/- syntax supported)
      * @return toolNames
      */
-    @javax.annotation.Nullable public List<String> getToolNames() {
+    @jakarta.annotation.Nullable public List<String> getToolNames() {
         return toolNames;
     }
 
-    public void setToolNames(@javax.annotation.Nullable List<String> toolNames) {
+    public void setToolNames(@jakarta.annotation.Nullable List<String> toolNames) {
         this.toolNames = toolNames;
     }
 
-    public CreateAgentRunPayload collectionId(@javax.annotation.Nullable String collectionId) {
+    public CreateAgentRunPayload collectionId(@jakarta.annotation.Nullable String collectionId) {
         this.collectionId = collectionId;
         return this;
     }
@@ -266,16 +266,16 @@ public class CreateAgentRunPayload {
      * Scoped collection (if any)
      * @return collectionId
      */
-    @javax.annotation.Nullable public String getCollectionId() {
+    @jakarta.annotation.Nullable public String getCollectionId() {
         return collectionId;
     }
 
-    public void setCollectionId(@javax.annotation.Nullable String collectionId) {
+    public void setCollectionId(@jakarta.annotation.Nullable String collectionId) {
         this.collectionId = collectionId;
     }
 
     public CreateAgentRunPayload contentType(
-            @javax.annotation.Nullable ContentObjectTypeRef contentType) {
+            @jakarta.annotation.Nullable ContentObjectTypeRef contentType) {
         this.contentType = contentType;
         return this;
     }
@@ -284,16 +284,16 @@ public class CreateAgentRunPayload {
      * Content type linked to this run — defines the schema for &#x60;properties&#x60;
      * @return contentType
      */
-    @javax.annotation.Nullable public ContentObjectTypeRef getContentType() {
+    @jakarta.annotation.Nullable public ContentObjectTypeRef getContentType() {
         return contentType;
     }
 
-    public void setContentType(@javax.annotation.Nullable ContentObjectTypeRef contentType) {
+    public void setContentType(@jakarta.annotation.Nullable ContentObjectTypeRef contentType) {
         this.contentType = contentType;
     }
 
     public CreateAgentRunPayload visibility(
-            @javax.annotation.Nullable ConversationVisibility visibility) {
+            @jakarta.annotation.Nullable ConversationVisibility visibility) {
         this.visibility = visibility;
         return this;
     }
@@ -302,15 +302,15 @@ public class CreateAgentRunPayload {
      * Conversation visibility
      * @return visibility
      */
-    @javax.annotation.Nullable public ConversationVisibility getVisibility() {
+    @jakarta.annotation.Nullable public ConversationVisibility getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(@javax.annotation.Nullable ConversationVisibility visibility) {
+    public void setVisibility(@jakarta.annotation.Nullable ConversationVisibility visibility) {
         this.visibility = visibility;
     }
 
-    public CreateAgentRunPayload tags(@javax.annotation.Nullable List<String> tags) {
+    public CreateAgentRunPayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -327,15 +327,15 @@ public class CreateAgentRunPayload {
      * User-defined or system tags for categorization
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public CreateAgentRunPayload categories(@javax.annotation.Nullable List<String> categories) {
+    public CreateAgentRunPayload categories(@jakarta.annotation.Nullable List<String> categories) {
         this.categories = categories;
         return this;
     }
@@ -352,16 +352,16 @@ public class CreateAgentRunPayload {
      * Categories for organizing runs (e.g. \&quot;support\&quot;, \&quot;analysis\&quot;, \&quot;generation\&quot;)
      * @return categories
      */
-    @javax.annotation.Nullable public List<String> getCategories() {
+    @jakarta.annotation.Nullable public List<String> getCategories() {
         return categories;
     }
 
-    public void setCategories(@javax.annotation.Nullable List<String> categories) {
+    public void setCategories(@jakarta.annotation.Nullable List<String> categories) {
         this.categories = categories;
     }
 
     public CreateAgentRunPayload properties(
-            @javax.annotation.Nullable Map<String, Object> properties) {
+            @jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
         return this;
     }
@@ -378,15 +378,15 @@ public class CreateAgentRunPayload {
      * Business metadata — typed by the linked content_type schema
      * @return properties
      */
-    @javax.annotation.Nullable public Map<String, Object> getProperties() {
+    @jakarta.annotation.Nullable public Map<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public void setProperties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
     }
 
-    public CreateAgentRunPayload source(@javax.annotation.Nullable RunSource source) {
+    public CreateAgentRunPayload source(@jakarta.annotation.Nullable RunSource source) {
         this.source = source;
         return this;
     }
@@ -395,15 +395,15 @@ public class CreateAgentRunPayload {
      * How the run was started
      * @return source
      */
-    @javax.annotation.Nullable public RunSource getSource() {
+    @jakarta.annotation.Nullable public RunSource getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nullable RunSource source) {
+    public void setSource(@jakarta.annotation.Nullable RunSource source) {
         this.source = source;
     }
 
-    public CreateAgentRunPayload scheduleId(@javax.annotation.Nullable String scheduleId) {
+    public CreateAgentRunPayload scheduleId(@jakarta.annotation.Nullable String scheduleId) {
         this.scheduleId = scheduleId;
         return this;
     }
@@ -412,15 +412,15 @@ public class CreateAgentRunPayload {
      * Schedule ID — set when this run was triggered by a Temporal schedule
      * @return scheduleId
      */
-    @javax.annotation.Nullable public String getScheduleId() {
+    @jakarta.annotation.Nullable public String getScheduleId() {
         return scheduleId;
     }
 
-    public void setScheduleId(@javax.annotation.Nullable String scheduleId) {
+    public void setScheduleId(@jakarta.annotation.Nullable String scheduleId) {
         this.scheduleId = scheduleId;
     }
 
-    public CreateAgentRunPayload sourceType(@javax.annotation.Nullable AgentRunType sourceType) {
+    public CreateAgentRunPayload sourceType(@jakarta.annotation.Nullable AgentRunType sourceType) {
         this.sourceType = sourceType;
         return this;
     }
@@ -429,16 +429,16 @@ public class CreateAgentRunPayload {
      * How the run was created
      * @return sourceType
      */
-    @javax.annotation.Nullable public AgentRunType getSourceType() {
+    @jakarta.annotation.Nullable public AgentRunType getSourceType() {
         return sourceType;
     }
 
-    public void setSourceType(@javax.annotation.Nullable AgentRunType sourceType) {
+    public void setSourceType(@jakarta.annotation.Nullable AgentRunType sourceType) {
         this.sourceType = sourceType;
     }
 
     @Deprecated
-    public CreateAgentRunPayload type(@javax.annotation.Nullable AgentRunType type) {
+    public CreateAgentRunPayload type(@jakarta.annotation.Nullable AgentRunType type) {
         this.type = type;
         return this;
     }
@@ -449,17 +449,17 @@ public class CreateAgentRunPayload {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nullable public AgentRunType getType() {
+    @jakarta.annotation.Nullable public AgentRunType getType() {
         return type;
     }
 
     @Deprecated
-    public void setType(@javax.annotation.Nullable AgentRunType type) {
+    public void setType(@jakarta.annotation.Nullable AgentRunType type) {
         this.type = type;
     }
 
     public CreateAgentRunPayload searchScope(
-            @javax.annotation.Nullable AgentSearchScope searchScope) {
+            @jakarta.annotation.Nullable AgentSearchScope searchScope) {
         this.searchScope = searchScope;
         return this;
     }
@@ -468,16 +468,16 @@ public class CreateAgentRunPayload {
      * Search scope for RAG queries
      * @return searchScope
      */
-    @javax.annotation.Nullable public AgentSearchScope getSearchScope() {
+    @jakarta.annotation.Nullable public AgentSearchScope getSearchScope() {
         return searchScope;
     }
 
-    public void setSearchScope(@javax.annotation.Nullable AgentSearchScope searchScope) {
+    public void setSearchScope(@jakarta.annotation.Nullable AgentSearchScope searchScope) {
         this.searchScope = searchScope;
     }
 
     public CreateAgentRunPayload userChannels(
-            @javax.annotation.Nullable List<UserChannel> userChannels) {
+            @jakarta.annotation.Nullable List<UserChannel> userChannels) {
         this.userChannels = userChannels;
         return this;
     }
@@ -494,16 +494,16 @@ public class CreateAgentRunPayload {
      * User communication channels (email, interactive)
      * @return userChannels
      */
-    @javax.annotation.Nullable public List<UserChannel> getUserChannels() {
+    @jakarta.annotation.Nullable public List<UserChannel> getUserChannels() {
         return userChannels;
     }
 
-    public void setUserChannels(@javax.annotation.Nullable List<UserChannel> userChannels) {
+    public void setUserChannels(@jakarta.annotation.Nullable List<UserChannel> userChannels) {
         this.userChannels = userChannels;
     }
 
     public CreateAgentRunPayload checkpointTokens(
-            @javax.annotation.Nullable BigDecimal checkpointTokens) {
+            @jakarta.annotation.Nullable BigDecimal checkpointTokens) {
         this.checkpointTokens = checkpointTokens;
         return this;
     }
@@ -512,16 +512,16 @@ public class CreateAgentRunPayload {
      * Token budget for checkpointing
      * @return checkpointTokens
      */
-    @javax.annotation.Nullable public BigDecimal getCheckpointTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getCheckpointTokens() {
         return checkpointTokens;
     }
 
-    public void setCheckpointTokens(@javax.annotation.Nullable BigDecimal checkpointTokens) {
+    public void setCheckpointTokens(@jakarta.annotation.Nullable BigDecimal checkpointTokens) {
         this.checkpointTokens = checkpointTokens;
     }
 
     public CreateAgentRunPayload maxIterations(
-            @javax.annotation.Nullable BigDecimal maxIterations) {
+            @jakarta.annotation.Nullable BigDecimal maxIterations) {
         this.maxIterations = maxIterations;
         return this;
     }
@@ -530,16 +530,16 @@ public class CreateAgentRunPayload {
      * Maximum conversation iterations (default: 20)
      * @return maxIterations
      */
-    @javax.annotation.Nullable public BigDecimal getMaxIterations() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxIterations() {
         return maxIterations;
     }
 
-    public void setMaxIterations(@javax.annotation.Nullable BigDecimal maxIterations) {
+    public void setMaxIterations(@jakarta.annotation.Nullable BigDecimal maxIterations) {
         this.maxIterations = maxIterations;
     }
 
     public CreateAgentRunPayload notifyEndpoints(
-            @javax.annotation.Nullable List<String> notifyEndpoints) {
+            @jakarta.annotation.Nullable List<String> notifyEndpoints) {
         this.notifyEndpoints = notifyEndpoints;
         return this;
     }
@@ -556,15 +556,15 @@ public class CreateAgentRunPayload {
      * Webhook URLs to notify on completion
      * @return notifyEndpoints
      */
-    @javax.annotation.Nullable public List<String> getNotifyEndpoints() {
+    @jakarta.annotation.Nullable public List<String> getNotifyEndpoints() {
         return notifyEndpoints;
     }
 
-    public void setNotifyEndpoints(@javax.annotation.Nullable List<String> notifyEndpoints) {
+    public void setNotifyEndpoints(@jakarta.annotation.Nullable List<String> notifyEndpoints) {
         this.notifyEndpoints = notifyEndpoints;
     }
 
-    public CreateAgentRunPayload debugMode(@javax.annotation.Nullable Boolean debugMode) {
+    public CreateAgentRunPayload debugMode(@jakarta.annotation.Nullable Boolean debugMode) {
         this.debugMode = debugMode;
         return this;
     }
@@ -573,15 +573,15 @@ public class CreateAgentRunPayload {
      * Enable debug mode for verbose logging
      * @return debugMode
      */
-    @javax.annotation.Nullable public Boolean getDebugMode() {
+    @jakarta.annotation.Nullable public Boolean getDebugMode() {
         return debugMode;
     }
 
-    public void setDebugMode(@javax.annotation.Nullable Boolean debugMode) {
+    public void setDebugMode(@jakarta.annotation.Nullable Boolean debugMode) {
         this.debugMode = debugMode;
     }
 
-    public CreateAgentRunPayload startedBy(@javax.annotation.Nullable String startedBy) {
+    public CreateAgentRunPayload startedBy(@jakarta.annotation.Nullable String startedBy) {
         this.startedBy = startedBy;
         return this;
     }
@@ -590,11 +590,11 @@ public class CreateAgentRunPayload {
      * Principal ref of the user who initiated the run (for server-to-server forwarding)
      * @return startedBy
      */
-    @javax.annotation.Nullable public String getStartedBy() {
+    @jakarta.annotation.Nullable public String getStartedBy() {
         return startedBy;
     }
 
-    public void setStartedBy(@javax.annotation.Nullable String startedBy) {
+    public void setStartedBy(@jakarta.annotation.Nullable String startedBy) {
         this.startedBy = startedBy;
     }
 

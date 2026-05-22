@@ -32,29 +32,29 @@ import java.util.Objects;
 /**
  * Access control settings for a composite app nav item.  If any of &#x60;groupsAllowed&#x60;, &#x60;usersAllowed&#x60;, or &#x60;rolesAllowed&#x60; are set, access is granted when the user matches ANY list (OR logic). All empty/absent means visible to everyone. Admin users bypass all checks.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppNavItemPermissions {
     public static final String SERIALIZED_NAME_GROUPS_ALLOWED = "groupsAllowed";
 
     @SerializedName(SERIALIZED_NAME_GROUPS_ALLOWED)
-    @javax.annotation.Nullable private List<String> groupsAllowed = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> groupsAllowed = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_USERS_ALLOWED = "usersAllowed";
 
     @SerializedName(SERIALIZED_NAME_USERS_ALLOWED)
-    @javax.annotation.Nullable private List<String> usersAllowed = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> usersAllowed = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ROLES_ALLOWED = "rolesAllowed";
 
     @SerializedName(SERIALIZED_NAME_ROLES_ALLOWED)
-    @javax.annotation.Nullable private List<String> rolesAllowed = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> rolesAllowed = new ArrayList<>();
 
     public CompositeAppNavItemPermissions() {}
 
     public CompositeAppNavItemPermissions groupsAllowed(
-            @javax.annotation.Nullable List<String> groupsAllowed) {
+            @jakarta.annotation.Nullable List<String> groupsAllowed) {
         this.groupsAllowed = groupsAllowed;
         return this;
     }
@@ -71,16 +71,16 @@ public class CompositeAppNavItemPermissions {
      * Group IDs whose members can see this item.
      * @return groupsAllowed
      */
-    @javax.annotation.Nullable public List<String> getGroupsAllowed() {
+    @jakarta.annotation.Nullable public List<String> getGroupsAllowed() {
         return groupsAllowed;
     }
 
-    public void setGroupsAllowed(@javax.annotation.Nullable List<String> groupsAllowed) {
+    public void setGroupsAllowed(@jakarta.annotation.Nullable List<String> groupsAllowed) {
         this.groupsAllowed = groupsAllowed;
     }
 
     public CompositeAppNavItemPermissions usersAllowed(
-            @javax.annotation.Nullable List<String> usersAllowed) {
+            @jakarta.annotation.Nullable List<String> usersAllowed) {
         this.usersAllowed = usersAllowed;
         return this;
     }
@@ -97,16 +97,16 @@ public class CompositeAppNavItemPermissions {
      * User IDs who can see this item.
      * @return usersAllowed
      */
-    @javax.annotation.Nullable public List<String> getUsersAllowed() {
+    @jakarta.annotation.Nullable public List<String> getUsersAllowed() {
         return usersAllowed;
     }
 
-    public void setUsersAllowed(@javax.annotation.Nullable List<String> usersAllowed) {
+    public void setUsersAllowed(@jakarta.annotation.Nullable List<String> usersAllowed) {
         this.usersAllowed = usersAllowed;
     }
 
     public CompositeAppNavItemPermissions rolesAllowed(
-            @javax.annotation.Nullable List<String> rolesAllowed) {
+            @jakarta.annotation.Nullable List<String> rolesAllowed) {
         this.rolesAllowed = rolesAllowed;
         return this;
     }
@@ -123,11 +123,11 @@ public class CompositeAppNavItemPermissions {
      * ProjectRoles values (e.g. \&quot;developer\&quot;, \&quot;manager\&quot;) whose holders can see this item.
      * @return rolesAllowed
      */
-    @javax.annotation.Nullable public List<String> getRolesAllowed() {
+    @jakarta.annotation.Nullable public List<String> getRolesAllowed() {
         return rolesAllowed;
     }
 
-    public void setRolesAllowed(@javax.annotation.Nullable List<String> rolesAllowed) {
+    public void setRolesAllowed(@jakarta.annotation.Nullable List<String> rolesAllowed) {
         this.rolesAllowed = rolesAllowed;
     }
 

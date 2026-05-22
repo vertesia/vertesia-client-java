@@ -34,34 +34,34 @@ import java.util.Objects;
 /**
  * Payload for executing a query.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class QueryPayload {
     public static final String SERIALIZED_NAME_SQL = "sql";
 
     @SerializedName(SERIALIZED_NAME_SQL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String sql;
 
     public static final String SERIALIZED_NAME_PARAMS = "params";
 
     @SerializedName(SERIALIZED_NAME_PARAMS)
-    @javax.annotation.Nullable private Map<String, Object> params = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> params = new HashMap<>();
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nullable private BigDecimal limit;
+    @jakarta.annotation.Nullable private BigDecimal limit;
 
     public static final String SERIALIZED_NAME_VERSION_ID = "version_id";
 
     @SerializedName(SERIALIZED_NAME_VERSION_ID)
-    @javax.annotation.Nullable private String versionId;
+    @jakarta.annotation.Nullable private String versionId;
 
     public QueryPayload() {}
 
-    public QueryPayload sql(@javax.annotation.Nonnull String sql) {
+    public QueryPayload sql(@jakarta.annotation.Nonnull String sql) {
         this.sql = sql;
         return this;
     }
@@ -70,16 +70,16 @@ public class QueryPayload {
      * SQL query (SELECT only)
      * @return sql
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSql() {
         return sql;
     }
 
-    public void setSql(@javax.annotation.Nonnull String sql) {
+    public void setSql(@jakarta.annotation.Nonnull String sql) {
         this.sql = sql;
     }
 
-    public QueryPayload params(@javax.annotation.Nullable Map<String, Object> params) {
+    public QueryPayload params(@jakarta.annotation.Nullable Map<String, Object> params) {
         this.params = params;
         return this;
     }
@@ -96,15 +96,15 @@ public class QueryPayload {
      * Query parameters (for prepared statements)
      * @return params
      */
-    @javax.annotation.Nullable public Map<String, Object> getParams() {
+    @jakarta.annotation.Nullable public Map<String, Object> getParams() {
         return params;
     }
 
-    public void setParams(@javax.annotation.Nullable Map<String, Object> params) {
+    public void setParams(@jakarta.annotation.Nullable Map<String, Object> params) {
         this.params = params;
     }
 
-    public QueryPayload limit(@javax.annotation.Nullable BigDecimal limit) {
+    public QueryPayload limit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -113,15 +113,15 @@ public class QueryPayload {
      * Maximum rows to return
      * @return limit
      */
-    @javax.annotation.Nullable public BigDecimal getLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nullable BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
     }
 
-    public QueryPayload versionId(@javax.annotation.Nullable String versionId) {
+    public QueryPayload versionId(@jakarta.annotation.Nullable String versionId) {
         this.versionId = versionId;
         return this;
     }
@@ -130,11 +130,11 @@ public class QueryPayload {
      * Query against a specific version (optional)
      * @return versionId
      */
-    @javax.annotation.Nullable public String getVersionId() {
+    @jakarta.annotation.Nullable public String getVersionId() {
         return versionId;
     }
 
-    public void setVersionId(@javax.annotation.Nullable String versionId) {
+    public void setVersionId(@jakarta.annotation.Nullable String versionId) {
         this.versionId = versionId;
     }
 

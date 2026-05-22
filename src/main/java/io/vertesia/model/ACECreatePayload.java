@@ -32,68 +32,68 @@ import java.util.Objects;
 /**
  * ACECreatePayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ACECreatePayload {
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ProjectRoles role;
 
     public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource_type";
 
     @SerializedName(SERIALIZED_NAME_RESOURCE_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private AccessControlResourceType resourceType;
 
     public static final String SERIALIZED_NAME_RESOURCE = "resource";
 
     @SerializedName(SERIALIZED_NAME_RESOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String resource;
 
     public static final String SERIALIZED_NAME_PRINCIPAL_TYPE = "principal_type";
 
     @SerializedName(SERIALIZED_NAME_PRINCIPAL_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private AccessControlPrincipalType principalType;
 
     public static final String SERIALIZED_NAME_PRINCIPAL = "principal";
 
     @SerializedName(SERIALIZED_NAME_PRINCIPAL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String principal;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nullable private String account;
+    @jakarta.annotation.Nullable private String account;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nullable private String project;
+    @jakarta.annotation.Nullable private String project;
 
     public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
 
     @SerializedName(SERIALIZED_NAME_CONDITIONS)
-    @javax.annotation.Nullable private AceConditions conditions;
+    @jakarta.annotation.Nullable private AceConditions conditions;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
 
     @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
-    @javax.annotation.Nullable private String expiresAt;
+    @jakarta.annotation.Nullable private String expiresAt;
 
     public ACECreatePayload() {}
 
-    public ACECreatePayload role(@javax.annotation.Nonnull ProjectRoles role) {
+    public ACECreatePayload role(@jakarta.annotation.Nonnull ProjectRoles role) {
         this.role = role;
         return this;
     }
@@ -102,17 +102,17 @@ public class ACECreatePayload {
      * Get role
      * @return role
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ProjectRoles getRole() {
         return role;
     }
 
-    public void setRole(@javax.annotation.Nonnull ProjectRoles role) {
+    public void setRole(@jakarta.annotation.Nonnull ProjectRoles role) {
         this.role = role;
     }
 
     public ACECreatePayload resourceType(
-            @javax.annotation.Nonnull AccessControlResourceType resourceType) {
+            @jakarta.annotation.Nonnull AccessControlResourceType resourceType) {
         this.resourceType = resourceType;
         return this;
     }
@@ -121,16 +121,17 @@ public class ACECreatePayload {
      * Get resourceType
      * @return resourceType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public AccessControlResourceType getResourceType() {
         return resourceType;
     }
 
-    public void setResourceType(@javax.annotation.Nonnull AccessControlResourceType resourceType) {
+    public void setResourceType(
+            @jakarta.annotation.Nonnull AccessControlResourceType resourceType) {
         this.resourceType = resourceType;
     }
 
-    public ACECreatePayload resource(@javax.annotation.Nonnull String resource) {
+    public ACECreatePayload resource(@jakarta.annotation.Nonnull String resource) {
         this.resource = resource;
         return this;
     }
@@ -139,17 +140,17 @@ public class ACECreatePayload {
      * Get resource
      * @return resource
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getResource() {
         return resource;
     }
 
-    public void setResource(@javax.annotation.Nonnull String resource) {
+    public void setResource(@jakarta.annotation.Nonnull String resource) {
         this.resource = resource;
     }
 
     public ACECreatePayload principalType(
-            @javax.annotation.Nonnull AccessControlPrincipalType principalType) {
+            @jakarta.annotation.Nonnull AccessControlPrincipalType principalType) {
         this.principalType = principalType;
         return this;
     }
@@ -158,17 +159,17 @@ public class ACECreatePayload {
      * Get principalType
      * @return principalType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public AccessControlPrincipalType getPrincipalType() {
         return principalType;
     }
 
     public void setPrincipalType(
-            @javax.annotation.Nonnull AccessControlPrincipalType principalType) {
+            @jakarta.annotation.Nonnull AccessControlPrincipalType principalType) {
         this.principalType = principalType;
     }
 
-    public ACECreatePayload principal(@javax.annotation.Nonnull String principal) {
+    public ACECreatePayload principal(@jakarta.annotation.Nonnull String principal) {
         this.principal = principal;
         return this;
     }
@@ -177,16 +178,16 @@ public class ACECreatePayload {
      * Get principal
      * @return principal
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getPrincipal() {
         return principal;
     }
 
-    public void setPrincipal(@javax.annotation.Nonnull String principal) {
+    public void setPrincipal(@jakarta.annotation.Nonnull String principal) {
         this.principal = principal;
     }
 
-    public ACECreatePayload account(@javax.annotation.Nullable String account) {
+    public ACECreatePayload account(@jakarta.annotation.Nullable String account) {
         this.account = account;
         return this;
     }
@@ -195,15 +196,15 @@ public class ACECreatePayload {
      * Account scope — required for principal_set/content_set ACEs.
      * @return account
      */
-    @javax.annotation.Nullable public String getAccount() {
+    @jakarta.annotation.Nullable public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nullable String account) {
+    public void setAccount(@jakarta.annotation.Nullable String account) {
         this.account = account;
     }
 
-    public ACECreatePayload project(@javax.annotation.Nullable String project) {
+    public ACECreatePayload project(@jakarta.annotation.Nullable String project) {
         this.project = project;
         return this;
     }
@@ -212,15 +213,15 @@ public class ACECreatePayload {
      * Project scope — narrows a principal_set/content_set ACE to a single project.
      * @return project
      */
-    @javax.annotation.Nullable public String getProject() {
+    @jakarta.annotation.Nullable public String getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nullable String project) {
+    public void setProject(@jakarta.annotation.Nullable String project) {
         this.project = project;
     }
 
-    public ACECreatePayload conditions(@javax.annotation.Nullable AceConditions conditions) {
+    public ACECreatePayload conditions(@jakarta.annotation.Nullable AceConditions conditions) {
         this.conditions = conditions;
         return this;
     }
@@ -229,15 +230,15 @@ public class ACECreatePayload {
      * Dynamic matching conditions for principal_set/content_set ACEs.
      * @return conditions
      */
-    @javax.annotation.Nullable public AceConditions getConditions() {
+    @jakarta.annotation.Nullable public AceConditions getConditions() {
         return conditions;
     }
 
-    public void setConditions(@javax.annotation.Nullable AceConditions conditions) {
+    public void setConditions(@jakarta.annotation.Nullable AceConditions conditions) {
         this.conditions = conditions;
     }
 
-    public ACECreatePayload tags(@javax.annotation.Nullable List<String> tags) {
+    public ACECreatePayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -254,15 +255,15 @@ public class ACECreatePayload {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public ACECreatePayload expiresAt(@javax.annotation.Nullable String expiresAt) {
+    public ACECreatePayload expiresAt(@jakarta.annotation.Nullable String expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -271,11 +272,11 @@ public class ACECreatePayload {
      * Get expiresAt
      * @return expiresAt
      */
-    @javax.annotation.Nullable public String getExpiresAt() {
+    @jakarta.annotation.Nullable public String getExpiresAt() {
         return expiresAt;
     }
 
-    public void setExpiresAt(@javax.annotation.Nullable String expiresAt) {
+    public void setExpiresAt(@jakarta.annotation.Nullable String expiresAt) {
         this.expiresAt = expiresAt;
     }
 

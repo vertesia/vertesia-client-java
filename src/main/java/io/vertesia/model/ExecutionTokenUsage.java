@@ -31,43 +31,43 @@ import java.util.Objects;
 /**
  * ExecutionTokenUsage
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ExecutionTokenUsage {
     public static final String SERIALIZED_NAME_PROMPT = "prompt";
 
     @SerializedName(SERIALIZED_NAME_PROMPT)
-    @javax.annotation.Nullable private BigDecimal prompt;
+    @jakarta.annotation.Nullable private BigDecimal prompt;
 
     public static final String SERIALIZED_NAME_RESULT = "result";
 
     @SerializedName(SERIALIZED_NAME_RESULT)
-    @javax.annotation.Nullable private BigDecimal result;
+    @jakarta.annotation.Nullable private BigDecimal result;
 
     public static final String SERIALIZED_NAME_TOTAL = "total";
 
     @SerializedName(SERIALIZED_NAME_TOTAL)
-    @javax.annotation.Nullable private BigDecimal total;
+    @jakarta.annotation.Nullable private BigDecimal total;
 
     public static final String SERIALIZED_NAME_PROMPT_CACHED = "prompt_cached";
 
     @SerializedName(SERIALIZED_NAME_PROMPT_CACHED)
-    @javax.annotation.Nullable private BigDecimal promptCached;
+    @jakarta.annotation.Nullable private BigDecimal promptCached;
 
     public static final String SERIALIZED_NAME_PROMPT_CACHE_WRITE = "prompt_cache_write";
 
     @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_WRITE)
-    @javax.annotation.Nullable private BigDecimal promptCacheWrite;
+    @jakarta.annotation.Nullable private BigDecimal promptCacheWrite;
 
     public static final String SERIALIZED_NAME_PROMPT_NEW = "prompt_new";
 
     @SerializedName(SERIALIZED_NAME_PROMPT_NEW)
-    @javax.annotation.Nullable private BigDecimal promptNew;
+    @jakarta.annotation.Nullable private BigDecimal promptNew;
 
     public ExecutionTokenUsage() {}
 
-    public ExecutionTokenUsage prompt(@javax.annotation.Nullable BigDecimal prompt) {
+    public ExecutionTokenUsage prompt(@jakarta.annotation.Nullable BigDecimal prompt) {
         this.prompt = prompt;
         return this;
     }
@@ -76,15 +76,15 @@ public class ExecutionTokenUsage {
      * Get prompt
      * @return prompt
      */
-    @javax.annotation.Nullable public BigDecimal getPrompt() {
+    @jakarta.annotation.Nullable public BigDecimal getPrompt() {
         return prompt;
     }
 
-    public void setPrompt(@javax.annotation.Nullable BigDecimal prompt) {
+    public void setPrompt(@jakarta.annotation.Nullable BigDecimal prompt) {
         this.prompt = prompt;
     }
 
-    public ExecutionTokenUsage result(@javax.annotation.Nullable BigDecimal result) {
+    public ExecutionTokenUsage result(@jakarta.annotation.Nullable BigDecimal result) {
         this.result = result;
         return this;
     }
@@ -93,15 +93,15 @@ public class ExecutionTokenUsage {
      * Get result
      * @return result
      */
-    @javax.annotation.Nullable public BigDecimal getResult() {
+    @jakarta.annotation.Nullable public BigDecimal getResult() {
         return result;
     }
 
-    public void setResult(@javax.annotation.Nullable BigDecimal result) {
+    public void setResult(@jakarta.annotation.Nullable BigDecimal result) {
         this.result = result;
     }
 
-    public ExecutionTokenUsage total(@javax.annotation.Nullable BigDecimal total) {
+    public ExecutionTokenUsage total(@jakarta.annotation.Nullable BigDecimal total) {
         this.total = total;
         return this;
     }
@@ -110,15 +110,15 @@ public class ExecutionTokenUsage {
      * Get total
      * @return total
      */
-    @javax.annotation.Nullable public BigDecimal getTotal() {
+    @jakarta.annotation.Nullable public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(@javax.annotation.Nullable BigDecimal total) {
+    public void setTotal(@jakarta.annotation.Nullable BigDecimal total) {
         this.total = total;
     }
 
-    public ExecutionTokenUsage promptCached(@javax.annotation.Nullable BigDecimal promptCached) {
+    public ExecutionTokenUsage promptCached(@jakarta.annotation.Nullable BigDecimal promptCached) {
         this.promptCached = promptCached;
         return this;
     }
@@ -127,16 +127,16 @@ public class ExecutionTokenUsage {
      * Number of input tokens read from prompt cache (discounted rate).
      * @return promptCached
      */
-    @javax.annotation.Nullable public BigDecimal getPromptCached() {
+    @jakarta.annotation.Nullable public BigDecimal getPromptCached() {
         return promptCached;
     }
 
-    public void setPromptCached(@javax.annotation.Nullable BigDecimal promptCached) {
+    public void setPromptCached(@jakarta.annotation.Nullable BigDecimal promptCached) {
         this.promptCached = promptCached;
     }
 
     public ExecutionTokenUsage promptCacheWrite(
-            @javax.annotation.Nullable BigDecimal promptCacheWrite) {
+            @jakarta.annotation.Nullable BigDecimal promptCacheWrite) {
         this.promptCacheWrite = promptCacheWrite;
         return this;
     }
@@ -145,15 +145,15 @@ public class ExecutionTokenUsage {
      * Number of input tokens written to prompt cache.
      * @return promptCacheWrite
      */
-    @javax.annotation.Nullable public BigDecimal getPromptCacheWrite() {
+    @jakarta.annotation.Nullable public BigDecimal getPromptCacheWrite() {
         return promptCacheWrite;
     }
 
-    public void setPromptCacheWrite(@javax.annotation.Nullable BigDecimal promptCacheWrite) {
+    public void setPromptCacheWrite(@jakarta.annotation.Nullable BigDecimal promptCacheWrite) {
         this.promptCacheWrite = promptCacheWrite;
     }
 
-    public ExecutionTokenUsage promptNew(@javax.annotation.Nullable BigDecimal promptNew) {
+    public ExecutionTokenUsage promptNew(@jakarta.annotation.Nullable BigDecimal promptNew) {
         this.promptNew = promptNew;
         return this;
     }
@@ -162,11 +162,11 @@ public class ExecutionTokenUsage {
      * Get promptNew
      * @return promptNew
      */
-    @javax.annotation.Nullable public BigDecimal getPromptNew() {
+    @jakarta.annotation.Nullable public BigDecimal getPromptNew() {
         return promptNew;
     }
 
-    public void setPromptNew(@javax.annotation.Nullable BigDecimal promptNew) {
+    public void setPromptNew(@jakarta.annotation.Nullable BigDecimal promptNew) {
         this.promptNew = promptNew;
     }
 

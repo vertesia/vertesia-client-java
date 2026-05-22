@@ -34,55 +34,55 @@ import java.util.Objects;
 /**
  * DSLChildWorkflowStepOptions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DSLChildWorkflowStepOptions {
     public static final String SERIALIZED_NAME_MEMO = "memo";
 
     @SerializedName(SERIALIZED_NAME_MEMO)
-    @javax.annotation.Nullable private Map<String, Object> memo = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> memo = new HashMap<>();
 
     public static final String SERIALIZED_NAME_RETRY = "retry";
 
     @SerializedName(SERIALIZED_NAME_RETRY)
-    @javax.annotation.Nullable private DSLRetryPolicy retry;
+    @jakarta.annotation.Nullable private DSLRetryPolicy retry;
 
     public static final String SERIALIZED_NAME_SEARCH_ATTRIBUTES = "searchAttributes";
 
     @SerializedName(SERIALIZED_NAME_SEARCH_ATTRIBUTES)
-    @javax.annotation.Nullable private Map<String, List<WorkflowSearchAttributeValueInner>> searchAttributes = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, List<WorkflowSearchAttributeValueInner>> searchAttributes = new HashMap<>();
 
     public static final String SERIALIZED_NAME_TASK_QUEUE = "taskQueue";
 
     @SerializedName(SERIALIZED_NAME_TASK_QUEUE)
-    @javax.annotation.Nullable private String taskQueue;
+    @jakarta.annotation.Nullable private String taskQueue;
 
     public static final String SERIALIZED_NAME_WORKFLOW_EXECUTION_TIMEOUT =
             "workflowExecutionTimeout";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_EXECUTION_TIMEOUT)
-    @javax.annotation.Nullable private DurationValue workflowExecutionTimeout;
+    @jakarta.annotation.Nullable private DurationValue workflowExecutionTimeout;
 
     public static final String SERIALIZED_NAME_WORKFLOW_RUN_TIMEOUT = "workflowRunTimeout";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_RUN_TIMEOUT)
-    @javax.annotation.Nullable private DurationValue workflowRunTimeout;
+    @jakarta.annotation.Nullable private DurationValue workflowRunTimeout;
 
     public static final String SERIALIZED_NAME_WORKFLOW_TASK_TIMEOUT = "workflowTaskTimeout";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_TASK_TIMEOUT)
-    @javax.annotation.Nullable private DurationValue workflowTaskTimeout;
+    @jakarta.annotation.Nullable private DurationValue workflowTaskTimeout;
 
     public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflowId";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
-    @javax.annotation.Nullable private String workflowId;
+    @jakarta.annotation.Nullable private String workflowId;
 
     public static final String SERIALIZED_NAME_CRON_SCHEDULE = "cronSchedule";
 
     @SerializedName(SERIALIZED_NAME_CRON_SCHEDULE)
-    @javax.annotation.Nullable private String cronSchedule;
+    @jakarta.annotation.Nullable private String cronSchedule;
 
     /**
      * Gets or Sets parentClosePolicy
@@ -144,11 +144,11 @@ public class DSLChildWorkflowStepOptions {
     public static final String SERIALIZED_NAME_PARENT_CLOSE_POLICY = "parentClosePolicy";
 
     @SerializedName(SERIALIZED_NAME_PARENT_CLOSE_POLICY)
-    @javax.annotation.Nullable private ParentClosePolicyEnum parentClosePolicy;
+    @jakarta.annotation.Nullable private ParentClosePolicyEnum parentClosePolicy;
 
     public DSLChildWorkflowStepOptions() {}
 
-    public DSLChildWorkflowStepOptions memo(@javax.annotation.Nullable Map<String, Object> memo) {
+    public DSLChildWorkflowStepOptions memo(@jakarta.annotation.Nullable Map<String, Object> memo) {
         this.memo = memo;
         return this;
     }
@@ -165,15 +165,15 @@ public class DSLChildWorkflowStepOptions {
      * Get memo
      * @return memo
      */
-    @javax.annotation.Nullable public Map<String, Object> getMemo() {
+    @jakarta.annotation.Nullable public Map<String, Object> getMemo() {
         return memo;
     }
 
-    public void setMemo(@javax.annotation.Nullable Map<String, Object> memo) {
+    public void setMemo(@jakarta.annotation.Nullable Map<String, Object> memo) {
         this.memo = memo;
     }
 
-    public DSLChildWorkflowStepOptions retry(@javax.annotation.Nullable DSLRetryPolicy retry) {
+    public DSLChildWorkflowStepOptions retry(@jakarta.annotation.Nullable DSLRetryPolicy retry) {
         this.retry = retry;
         return this;
     }
@@ -182,16 +182,16 @@ public class DSLChildWorkflowStepOptions {
      * Get retry
      * @return retry
      */
-    @javax.annotation.Nullable public DSLRetryPolicy getRetry() {
+    @jakarta.annotation.Nullable public DSLRetryPolicy getRetry() {
         return retry;
     }
 
-    public void setRetry(@javax.annotation.Nullable DSLRetryPolicy retry) {
+    public void setRetry(@jakarta.annotation.Nullable DSLRetryPolicy retry) {
         this.retry = retry;
     }
 
     public DSLChildWorkflowStepOptions searchAttributes(
-            @javax.annotation.Nullable Map<String, List<WorkflowSearchAttributeValueInner>> searchAttributes) {
+            @jakarta.annotation.Nullable Map<String, List<WorkflowSearchAttributeValueInner>> searchAttributes) {
         this.searchAttributes = searchAttributes;
         return this;
     }
@@ -209,16 +209,16 @@ public class DSLChildWorkflowStepOptions {
      * Get searchAttributes
      * @return searchAttributes
      */
-    @javax.annotation.Nullable public Map<String, List<WorkflowSearchAttributeValueInner>> getSearchAttributes() {
+    @jakarta.annotation.Nullable public Map<String, List<WorkflowSearchAttributeValueInner>> getSearchAttributes() {
         return searchAttributes;
     }
 
     public void setSearchAttributes(
-            @javax.annotation.Nullable Map<String, List<WorkflowSearchAttributeValueInner>> searchAttributes) {
+            @jakarta.annotation.Nullable Map<String, List<WorkflowSearchAttributeValueInner>> searchAttributes) {
         this.searchAttributes = searchAttributes;
     }
 
-    public DSLChildWorkflowStepOptions taskQueue(@javax.annotation.Nullable String taskQueue) {
+    public DSLChildWorkflowStepOptions taskQueue(@jakarta.annotation.Nullable String taskQueue) {
         this.taskQueue = taskQueue;
         return this;
     }
@@ -227,16 +227,16 @@ public class DSLChildWorkflowStepOptions {
      * Get taskQueue
      * @return taskQueue
      */
-    @javax.annotation.Nullable public String getTaskQueue() {
+    @jakarta.annotation.Nullable public String getTaskQueue() {
         return taskQueue;
     }
 
-    public void setTaskQueue(@javax.annotation.Nullable String taskQueue) {
+    public void setTaskQueue(@jakarta.annotation.Nullable String taskQueue) {
         this.taskQueue = taskQueue;
     }
 
     public DSLChildWorkflowStepOptions workflowExecutionTimeout(
-            @javax.annotation.Nullable DurationValue workflowExecutionTimeout) {
+            @jakarta.annotation.Nullable DurationValue workflowExecutionTimeout) {
         this.workflowExecutionTimeout = workflowExecutionTimeout;
         return this;
     }
@@ -245,17 +245,17 @@ public class DSLChildWorkflowStepOptions {
      * Get workflowExecutionTimeout
      * @return workflowExecutionTimeout
      */
-    @javax.annotation.Nullable public DurationValue getWorkflowExecutionTimeout() {
+    @jakarta.annotation.Nullable public DurationValue getWorkflowExecutionTimeout() {
         return workflowExecutionTimeout;
     }
 
     public void setWorkflowExecutionTimeout(
-            @javax.annotation.Nullable DurationValue workflowExecutionTimeout) {
+            @jakarta.annotation.Nullable DurationValue workflowExecutionTimeout) {
         this.workflowExecutionTimeout = workflowExecutionTimeout;
     }
 
     public DSLChildWorkflowStepOptions workflowRunTimeout(
-            @javax.annotation.Nullable DurationValue workflowRunTimeout) {
+            @jakarta.annotation.Nullable DurationValue workflowRunTimeout) {
         this.workflowRunTimeout = workflowRunTimeout;
         return this;
     }
@@ -264,16 +264,17 @@ public class DSLChildWorkflowStepOptions {
      * Get workflowRunTimeout
      * @return workflowRunTimeout
      */
-    @javax.annotation.Nullable public DurationValue getWorkflowRunTimeout() {
+    @jakarta.annotation.Nullable public DurationValue getWorkflowRunTimeout() {
         return workflowRunTimeout;
     }
 
-    public void setWorkflowRunTimeout(@javax.annotation.Nullable DurationValue workflowRunTimeout) {
+    public void setWorkflowRunTimeout(
+            @jakarta.annotation.Nullable DurationValue workflowRunTimeout) {
         this.workflowRunTimeout = workflowRunTimeout;
     }
 
     public DSLChildWorkflowStepOptions workflowTaskTimeout(
-            @javax.annotation.Nullable DurationValue workflowTaskTimeout) {
+            @jakarta.annotation.Nullable DurationValue workflowTaskTimeout) {
         this.workflowTaskTimeout = workflowTaskTimeout;
         return this;
     }
@@ -282,16 +283,16 @@ public class DSLChildWorkflowStepOptions {
      * Get workflowTaskTimeout
      * @return workflowTaskTimeout
      */
-    @javax.annotation.Nullable public DurationValue getWorkflowTaskTimeout() {
+    @jakarta.annotation.Nullable public DurationValue getWorkflowTaskTimeout() {
         return workflowTaskTimeout;
     }
 
     public void setWorkflowTaskTimeout(
-            @javax.annotation.Nullable DurationValue workflowTaskTimeout) {
+            @jakarta.annotation.Nullable DurationValue workflowTaskTimeout) {
         this.workflowTaskTimeout = workflowTaskTimeout;
     }
 
-    public DSLChildWorkflowStepOptions workflowId(@javax.annotation.Nullable String workflowId) {
+    public DSLChildWorkflowStepOptions workflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
         return this;
     }
@@ -300,16 +301,16 @@ public class DSLChildWorkflowStepOptions {
      * Get workflowId
      * @return workflowId
      */
-    @javax.annotation.Nullable public String getWorkflowId() {
+    @jakarta.annotation.Nullable public String getWorkflowId() {
         return workflowId;
     }
 
-    public void setWorkflowId(@javax.annotation.Nullable String workflowId) {
+    public void setWorkflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
     }
 
     public DSLChildWorkflowStepOptions cronSchedule(
-            @javax.annotation.Nullable String cronSchedule) {
+            @jakarta.annotation.Nullable String cronSchedule) {
         this.cronSchedule = cronSchedule;
         return this;
     }
@@ -318,16 +319,16 @@ public class DSLChildWorkflowStepOptions {
      * Get cronSchedule
      * @return cronSchedule
      */
-    @javax.annotation.Nullable public String getCronSchedule() {
+    @jakarta.annotation.Nullable public String getCronSchedule() {
         return cronSchedule;
     }
 
-    public void setCronSchedule(@javax.annotation.Nullable String cronSchedule) {
+    public void setCronSchedule(@jakarta.annotation.Nullable String cronSchedule) {
         this.cronSchedule = cronSchedule;
     }
 
     public DSLChildWorkflowStepOptions parentClosePolicy(
-            @javax.annotation.Nullable ParentClosePolicyEnum parentClosePolicy) {
+            @jakarta.annotation.Nullable ParentClosePolicyEnum parentClosePolicy) {
         this.parentClosePolicy = parentClosePolicy;
         return this;
     }
@@ -336,12 +337,12 @@ public class DSLChildWorkflowStepOptions {
      * Get parentClosePolicy
      * @return parentClosePolicy
      */
-    @javax.annotation.Nullable public ParentClosePolicyEnum getParentClosePolicy() {
+    @jakarta.annotation.Nullable public ParentClosePolicyEnum getParentClosePolicy() {
         return parentClosePolicy;
     }
 
     public void setParentClosePolicy(
-            @javax.annotation.Nullable ParentClosePolicyEnum parentClosePolicy) {
+            @jakarta.annotation.Nullable ParentClosePolicyEnum parentClosePolicy) {
         this.parentClosePolicy = parentClosePolicy;
     }
 

@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * NovaCanvasOptions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class NovaCanvasOptions {
@@ -94,7 +94,7 @@ public class NovaCanvasOptions {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OptionIdEnum optionId;
 
     /**
@@ -165,18 +165,18 @@ public class NovaCanvasOptions {
     public static final String SERIALIZED_NAME_TASK_TYPE = "taskType";
 
     @SerializedName(SERIALIZED_NAME_TASK_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TaskTypeEnum taskType;
 
     public static final String SERIALIZED_NAME_WIDTH = "width";
 
     @SerializedName(SERIALIZED_NAME_WIDTH)
-    @javax.annotation.Nullable private BigDecimal width;
+    @jakarta.annotation.Nullable private BigDecimal width;
 
     public static final String SERIALIZED_NAME_HEIGHT = "height";
 
     @SerializedName(SERIALIZED_NAME_HEIGHT)
-    @javax.annotation.Nullable private BigDecimal height;
+    @jakarta.annotation.Nullable private BigDecimal height;
 
     /**
      * Gets or Sets quality
@@ -236,22 +236,22 @@ public class NovaCanvasOptions {
     public static final String SERIALIZED_NAME_QUALITY = "quality";
 
     @SerializedName(SERIALIZED_NAME_QUALITY)
-    @javax.annotation.Nullable private QualityEnum quality;
+    @jakarta.annotation.Nullable private QualityEnum quality;
 
     public static final String SERIALIZED_NAME_CFG_SCALE = "cfgScale";
 
     @SerializedName(SERIALIZED_NAME_CFG_SCALE)
-    @javax.annotation.Nullable private BigDecimal cfgScale;
+    @jakarta.annotation.Nullable private BigDecimal cfgScale;
 
     public static final String SERIALIZED_NAME_SEED = "seed";
 
     @SerializedName(SERIALIZED_NAME_SEED)
-    @javax.annotation.Nullable private BigDecimal seed;
+    @jakarta.annotation.Nullable private BigDecimal seed;
 
     public static final String SERIALIZED_NAME_NUMBER_OF_IMAGES = "numberOfImages";
 
     @SerializedName(SERIALIZED_NAME_NUMBER_OF_IMAGES)
-    @javax.annotation.Nullable private BigDecimal numberOfImages;
+    @jakarta.annotation.Nullable private BigDecimal numberOfImages;
 
     /**
      * Gets or Sets controlMode
@@ -311,22 +311,22 @@ public class NovaCanvasOptions {
     public static final String SERIALIZED_NAME_CONTROL_MODE = "controlMode";
 
     @SerializedName(SERIALIZED_NAME_CONTROL_MODE)
-    @javax.annotation.Nullable private ControlModeEnum controlMode;
+    @jakarta.annotation.Nullable private ControlModeEnum controlMode;
 
     public static final String SERIALIZED_NAME_CONTROL_STRENGTH = "controlStrength";
 
     @SerializedName(SERIALIZED_NAME_CONTROL_STRENGTH)
-    @javax.annotation.Nullable private BigDecimal controlStrength;
+    @jakarta.annotation.Nullable private BigDecimal controlStrength;
 
     public static final String SERIALIZED_NAME_COLORS = "colors";
 
     @SerializedName(SERIALIZED_NAME_COLORS)
-    @javax.annotation.Nullable private List<String> colors = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> colors = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SIMILARITY_STRENGTH = "similarityStrength";
 
     @SerializedName(SERIALIZED_NAME_SIMILARITY_STRENGTH)
-    @javax.annotation.Nullable private BigDecimal similarityStrength;
+    @jakarta.annotation.Nullable private BigDecimal similarityStrength;
 
     /**
      * Gets or Sets outPaintingMode
@@ -386,11 +386,11 @@ public class NovaCanvasOptions {
     public static final String SERIALIZED_NAME_OUT_PAINTING_MODE = "outPaintingMode";
 
     @SerializedName(SERIALIZED_NAME_OUT_PAINTING_MODE)
-    @javax.annotation.Nullable private OutPaintingModeEnum outPaintingMode;
+    @jakarta.annotation.Nullable private OutPaintingModeEnum outPaintingMode;
 
     public NovaCanvasOptions() {}
 
-    public NovaCanvasOptions optionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public NovaCanvasOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -399,16 +399,16 @@ public class NovaCanvasOptions {
      * Get optionId
      * @return optionId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
-    public NovaCanvasOptions taskType(@javax.annotation.Nonnull TaskTypeEnum taskType) {
+    public NovaCanvasOptions taskType(@jakarta.annotation.Nonnull TaskTypeEnum taskType) {
         this.taskType = taskType;
         return this;
     }
@@ -417,16 +417,16 @@ public class NovaCanvasOptions {
      * Get taskType
      * @return taskType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TaskTypeEnum getTaskType() {
         return taskType;
     }
 
-    public void setTaskType(@javax.annotation.Nonnull TaskTypeEnum taskType) {
+    public void setTaskType(@jakarta.annotation.Nonnull TaskTypeEnum taskType) {
         this.taskType = taskType;
     }
 
-    public NovaCanvasOptions width(@javax.annotation.Nullable BigDecimal width) {
+    public NovaCanvasOptions width(@jakarta.annotation.Nullable BigDecimal width) {
         this.width = width;
         return this;
     }
@@ -435,15 +435,15 @@ public class NovaCanvasOptions {
      * Get width
      * @return width
      */
-    @javax.annotation.Nullable public BigDecimal getWidth() {
+    @jakarta.annotation.Nullable public BigDecimal getWidth() {
         return width;
     }
 
-    public void setWidth(@javax.annotation.Nullable BigDecimal width) {
+    public void setWidth(@jakarta.annotation.Nullable BigDecimal width) {
         this.width = width;
     }
 
-    public NovaCanvasOptions height(@javax.annotation.Nullable BigDecimal height) {
+    public NovaCanvasOptions height(@jakarta.annotation.Nullable BigDecimal height) {
         this.height = height;
         return this;
     }
@@ -452,15 +452,15 @@ public class NovaCanvasOptions {
      * Get height
      * @return height
      */
-    @javax.annotation.Nullable public BigDecimal getHeight() {
+    @jakarta.annotation.Nullable public BigDecimal getHeight() {
         return height;
     }
 
-    public void setHeight(@javax.annotation.Nullable BigDecimal height) {
+    public void setHeight(@jakarta.annotation.Nullable BigDecimal height) {
         this.height = height;
     }
 
-    public NovaCanvasOptions quality(@javax.annotation.Nullable QualityEnum quality) {
+    public NovaCanvasOptions quality(@jakarta.annotation.Nullable QualityEnum quality) {
         this.quality = quality;
         return this;
     }
@@ -469,15 +469,15 @@ public class NovaCanvasOptions {
      * Get quality
      * @return quality
      */
-    @javax.annotation.Nullable public QualityEnum getQuality() {
+    @jakarta.annotation.Nullable public QualityEnum getQuality() {
         return quality;
     }
 
-    public void setQuality(@javax.annotation.Nullable QualityEnum quality) {
+    public void setQuality(@jakarta.annotation.Nullable QualityEnum quality) {
         this.quality = quality;
     }
 
-    public NovaCanvasOptions cfgScale(@javax.annotation.Nullable BigDecimal cfgScale) {
+    public NovaCanvasOptions cfgScale(@jakarta.annotation.Nullable BigDecimal cfgScale) {
         this.cfgScale = cfgScale;
         return this;
     }
@@ -486,15 +486,15 @@ public class NovaCanvasOptions {
      * Get cfgScale
      * @return cfgScale
      */
-    @javax.annotation.Nullable public BigDecimal getCfgScale() {
+    @jakarta.annotation.Nullable public BigDecimal getCfgScale() {
         return cfgScale;
     }
 
-    public void setCfgScale(@javax.annotation.Nullable BigDecimal cfgScale) {
+    public void setCfgScale(@jakarta.annotation.Nullable BigDecimal cfgScale) {
         this.cfgScale = cfgScale;
     }
 
-    public NovaCanvasOptions seed(@javax.annotation.Nullable BigDecimal seed) {
+    public NovaCanvasOptions seed(@jakarta.annotation.Nullable BigDecimal seed) {
         this.seed = seed;
         return this;
     }
@@ -503,15 +503,16 @@ public class NovaCanvasOptions {
      * Get seed
      * @return seed
      */
-    @javax.annotation.Nullable public BigDecimal getSeed() {
+    @jakarta.annotation.Nullable public BigDecimal getSeed() {
         return seed;
     }
 
-    public void setSeed(@javax.annotation.Nullable BigDecimal seed) {
+    public void setSeed(@jakarta.annotation.Nullable BigDecimal seed) {
         this.seed = seed;
     }
 
-    public NovaCanvasOptions numberOfImages(@javax.annotation.Nullable BigDecimal numberOfImages) {
+    public NovaCanvasOptions numberOfImages(
+            @jakarta.annotation.Nullable BigDecimal numberOfImages) {
         this.numberOfImages = numberOfImages;
         return this;
     }
@@ -520,15 +521,15 @@ public class NovaCanvasOptions {
      * Get numberOfImages
      * @return numberOfImages
      */
-    @javax.annotation.Nullable public BigDecimal getNumberOfImages() {
+    @jakarta.annotation.Nullable public BigDecimal getNumberOfImages() {
         return numberOfImages;
     }
 
-    public void setNumberOfImages(@javax.annotation.Nullable BigDecimal numberOfImages) {
+    public void setNumberOfImages(@jakarta.annotation.Nullable BigDecimal numberOfImages) {
         this.numberOfImages = numberOfImages;
     }
 
-    public NovaCanvasOptions controlMode(@javax.annotation.Nullable ControlModeEnum controlMode) {
+    public NovaCanvasOptions controlMode(@jakarta.annotation.Nullable ControlModeEnum controlMode) {
         this.controlMode = controlMode;
         return this;
     }
@@ -537,16 +538,16 @@ public class NovaCanvasOptions {
      * Get controlMode
      * @return controlMode
      */
-    @javax.annotation.Nullable public ControlModeEnum getControlMode() {
+    @jakarta.annotation.Nullable public ControlModeEnum getControlMode() {
         return controlMode;
     }
 
-    public void setControlMode(@javax.annotation.Nullable ControlModeEnum controlMode) {
+    public void setControlMode(@jakarta.annotation.Nullable ControlModeEnum controlMode) {
         this.controlMode = controlMode;
     }
 
     public NovaCanvasOptions controlStrength(
-            @javax.annotation.Nullable BigDecimal controlStrength) {
+            @jakarta.annotation.Nullable BigDecimal controlStrength) {
         this.controlStrength = controlStrength;
         return this;
     }
@@ -555,15 +556,15 @@ public class NovaCanvasOptions {
      * Get controlStrength
      * @return controlStrength
      */
-    @javax.annotation.Nullable public BigDecimal getControlStrength() {
+    @jakarta.annotation.Nullable public BigDecimal getControlStrength() {
         return controlStrength;
     }
 
-    public void setControlStrength(@javax.annotation.Nullable BigDecimal controlStrength) {
+    public void setControlStrength(@jakarta.annotation.Nullable BigDecimal controlStrength) {
         this.controlStrength = controlStrength;
     }
 
-    public NovaCanvasOptions colors(@javax.annotation.Nullable List<String> colors) {
+    public NovaCanvasOptions colors(@jakarta.annotation.Nullable List<String> colors) {
         this.colors = colors;
         return this;
     }
@@ -580,16 +581,16 @@ public class NovaCanvasOptions {
      * Get colors
      * @return colors
      */
-    @javax.annotation.Nullable public List<String> getColors() {
+    @jakarta.annotation.Nullable public List<String> getColors() {
         return colors;
     }
 
-    public void setColors(@javax.annotation.Nullable List<String> colors) {
+    public void setColors(@jakarta.annotation.Nullable List<String> colors) {
         this.colors = colors;
     }
 
     public NovaCanvasOptions similarityStrength(
-            @javax.annotation.Nullable BigDecimal similarityStrength) {
+            @jakarta.annotation.Nullable BigDecimal similarityStrength) {
         this.similarityStrength = similarityStrength;
         return this;
     }
@@ -598,16 +599,16 @@ public class NovaCanvasOptions {
      * Get similarityStrength
      * @return similarityStrength
      */
-    @javax.annotation.Nullable public BigDecimal getSimilarityStrength() {
+    @jakarta.annotation.Nullable public BigDecimal getSimilarityStrength() {
         return similarityStrength;
     }
 
-    public void setSimilarityStrength(@javax.annotation.Nullable BigDecimal similarityStrength) {
+    public void setSimilarityStrength(@jakarta.annotation.Nullable BigDecimal similarityStrength) {
         this.similarityStrength = similarityStrength;
     }
 
     public NovaCanvasOptions outPaintingMode(
-            @javax.annotation.Nullable OutPaintingModeEnum outPaintingMode) {
+            @jakarta.annotation.Nullable OutPaintingModeEnum outPaintingMode) {
         this.outPaintingMode = outPaintingMode;
         return this;
     }
@@ -616,11 +617,12 @@ public class NovaCanvasOptions {
      * Get outPaintingMode
      * @return outPaintingMode
      */
-    @javax.annotation.Nullable public OutPaintingModeEnum getOutPaintingMode() {
+    @jakarta.annotation.Nullable public OutPaintingModeEnum getOutPaintingMode() {
         return outPaintingMode;
     }
 
-    public void setOutPaintingMode(@javax.annotation.Nullable OutPaintingModeEnum outPaintingMode) {
+    public void setOutPaintingMode(
+            @jakarta.annotation.Nullable OutPaintingModeEnum outPaintingMode) {
         this.outPaintingMode = outPaintingMode;
     }
 

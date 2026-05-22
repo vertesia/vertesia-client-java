@@ -34,34 +34,34 @@ import java.util.Objects;
 /**
  * BulkRevokeOAuthGrantsPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BulkRevokeOAuthGrantsPayload {
     public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
-    @javax.annotation.Nullable private String accountId;
+    @jakarta.annotation.Nullable private String accountId;
 
     public static final String SERIALIZED_NAME_PROJECT_ID = "project_id";
 
     @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-    @javax.annotation.Nullable private String projectId;
+    @jakarta.annotation.Nullable private String projectId;
 
     public static final String SERIALIZED_NAME_USER_ID = "user_id";
 
     @SerializedName(SERIALIZED_NAME_USER_ID)
-    @javax.annotation.Nullable private String userId;
+    @jakarta.annotation.Nullable private String userId;
 
     public static final String SERIALIZED_NAME_CLIENT_ID = "client_id";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_ID)
-    @javax.annotation.Nullable private String clientId;
+    @jakarta.annotation.Nullable private String clientId;
 
     public static final String SERIALIZED_NAME_RESOURCE = "resource";
 
     @SerializedName(SERIALIZED_NAME_RESOURCE)
-    @javax.annotation.Nullable private String resource;
+    @jakarta.annotation.Nullable private String resource;
 
     /**
      * Gets or Sets status
@@ -125,41 +125,41 @@ public class BulkRevokeOAuthGrantsPayload {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private StatusEnum status;
+    @jakarta.annotation.Nullable private StatusEnum status;
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nullable private BigDecimal limit;
+    @jakarta.annotation.Nullable private BigDecimal limit;
 
     public static final String SERIALIZED_NAME_OFFSET = "offset";
 
     @SerializedName(SERIALIZED_NAME_OFFSET)
-    @javax.annotation.Nullable private BigDecimal offset;
+    @jakarta.annotation.Nullable private BigDecimal offset;
 
     public static final String SERIALIZED_NAME_SORT_BY = "sort_by";
 
     @SerializedName(SERIALIZED_NAME_SORT_BY)
-    @javax.annotation.Nullable private OAuthGrantSortField sortBy;
+    @jakarta.annotation.Nullable private OAuthGrantSortField sortBy;
 
     public static final String SERIALIZED_NAME_SORT_ORDER = "sort_order";
 
     @SerializedName(SERIALIZED_NAME_SORT_ORDER)
-    @javax.annotation.Nullable private OAuthGrantSortOrder sortOrder;
+    @jakarta.annotation.Nullable private OAuthGrantSortOrder sortOrder;
 
     public static final String SERIALIZED_NAME_GRANT_IDS = "grant_ids";
 
     @SerializedName(SERIALIZED_NAME_GRANT_IDS)
-    @javax.annotation.Nullable private List<String> grantIds = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> grantIds = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_INCLUDE_CONSENT = "include_consent";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_CONSENT)
-    @javax.annotation.Nullable private Boolean includeConsent;
+    @jakarta.annotation.Nullable private Boolean includeConsent;
 
     public BulkRevokeOAuthGrantsPayload() {}
 
-    public BulkRevokeOAuthGrantsPayload accountId(@javax.annotation.Nullable String accountId) {
+    public BulkRevokeOAuthGrantsPayload accountId(@jakarta.annotation.Nullable String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -168,15 +168,15 @@ public class BulkRevokeOAuthGrantsPayload {
      * Get accountId
      * @return accountId
      */
-    @javax.annotation.Nullable public String getAccountId() {
+    @jakarta.annotation.Nullable public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(@javax.annotation.Nullable String accountId) {
+    public void setAccountId(@jakarta.annotation.Nullable String accountId) {
         this.accountId = accountId;
     }
 
-    public BulkRevokeOAuthGrantsPayload projectId(@javax.annotation.Nullable String projectId) {
+    public BulkRevokeOAuthGrantsPayload projectId(@jakarta.annotation.Nullable String projectId) {
         this.projectId = projectId;
         return this;
     }
@@ -185,15 +185,15 @@ public class BulkRevokeOAuthGrantsPayload {
      * Get projectId
      * @return projectId
      */
-    @javax.annotation.Nullable public String getProjectId() {
+    @jakarta.annotation.Nullable public String getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(@javax.annotation.Nullable String projectId) {
+    public void setProjectId(@jakarta.annotation.Nullable String projectId) {
         this.projectId = projectId;
     }
 
-    public BulkRevokeOAuthGrantsPayload userId(@javax.annotation.Nullable String userId) {
+    public BulkRevokeOAuthGrantsPayload userId(@jakarta.annotation.Nullable String userId) {
         this.userId = userId;
         return this;
     }
@@ -202,15 +202,15 @@ public class BulkRevokeOAuthGrantsPayload {
      * Get userId
      * @return userId
      */
-    @javax.annotation.Nullable public String getUserId() {
+    @jakarta.annotation.Nullable public String getUserId() {
         return userId;
     }
 
-    public void setUserId(@javax.annotation.Nullable String userId) {
+    public void setUserId(@jakarta.annotation.Nullable String userId) {
         this.userId = userId;
     }
 
-    public BulkRevokeOAuthGrantsPayload clientId(@javax.annotation.Nullable String clientId) {
+    public BulkRevokeOAuthGrantsPayload clientId(@jakarta.annotation.Nullable String clientId) {
         this.clientId = clientId;
         return this;
     }
@@ -219,15 +219,15 @@ public class BulkRevokeOAuthGrantsPayload {
      * Get clientId
      * @return clientId
      */
-    @javax.annotation.Nullable public String getClientId() {
+    @jakarta.annotation.Nullable public String getClientId() {
         return clientId;
     }
 
-    public void setClientId(@javax.annotation.Nullable String clientId) {
+    public void setClientId(@jakarta.annotation.Nullable String clientId) {
         this.clientId = clientId;
     }
 
-    public BulkRevokeOAuthGrantsPayload resource(@javax.annotation.Nullable String resource) {
+    public BulkRevokeOAuthGrantsPayload resource(@jakarta.annotation.Nullable String resource) {
         this.resource = resource;
         return this;
     }
@@ -236,15 +236,15 @@ public class BulkRevokeOAuthGrantsPayload {
      * Get resource
      * @return resource
      */
-    @javax.annotation.Nullable public String getResource() {
+    @jakarta.annotation.Nullable public String getResource() {
         return resource;
     }
 
-    public void setResource(@javax.annotation.Nullable String resource) {
+    public void setResource(@jakarta.annotation.Nullable String resource) {
         this.resource = resource;
     }
 
-    public BulkRevokeOAuthGrantsPayload status(@javax.annotation.Nullable StatusEnum status) {
+    public BulkRevokeOAuthGrantsPayload status(@jakarta.annotation.Nullable StatusEnum status) {
         this.status = status;
         return this;
     }
@@ -253,15 +253,15 @@ public class BulkRevokeOAuthGrantsPayload {
      * Get status
      * @return status
      */
-    @javax.annotation.Nullable public StatusEnum getStatus() {
+    @jakarta.annotation.Nullable public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable StatusEnum status) {
+    public void setStatus(@jakarta.annotation.Nullable StatusEnum status) {
         this.status = status;
     }
 
-    public BulkRevokeOAuthGrantsPayload limit(@javax.annotation.Nullable BigDecimal limit) {
+    public BulkRevokeOAuthGrantsPayload limit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -270,15 +270,15 @@ public class BulkRevokeOAuthGrantsPayload {
      * Get limit
      * @return limit
      */
-    @javax.annotation.Nullable public BigDecimal getLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nullable BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
     }
 
-    public BulkRevokeOAuthGrantsPayload offset(@javax.annotation.Nullable BigDecimal offset) {
+    public BulkRevokeOAuthGrantsPayload offset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
         return this;
     }
@@ -287,16 +287,16 @@ public class BulkRevokeOAuthGrantsPayload {
      * Get offset
      * @return offset
      */
-    @javax.annotation.Nullable public BigDecimal getOffset() {
+    @jakarta.annotation.Nullable public BigDecimal getOffset() {
         return offset;
     }
 
-    public void setOffset(@javax.annotation.Nullable BigDecimal offset) {
+    public void setOffset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
     }
 
     public BulkRevokeOAuthGrantsPayload sortBy(
-            @javax.annotation.Nullable OAuthGrantSortField sortBy) {
+            @jakarta.annotation.Nullable OAuthGrantSortField sortBy) {
         this.sortBy = sortBy;
         return this;
     }
@@ -305,16 +305,16 @@ public class BulkRevokeOAuthGrantsPayload {
      * Get sortBy
      * @return sortBy
      */
-    @javax.annotation.Nullable public OAuthGrantSortField getSortBy() {
+    @jakarta.annotation.Nullable public OAuthGrantSortField getSortBy() {
         return sortBy;
     }
 
-    public void setSortBy(@javax.annotation.Nullable OAuthGrantSortField sortBy) {
+    public void setSortBy(@jakarta.annotation.Nullable OAuthGrantSortField sortBy) {
         this.sortBy = sortBy;
     }
 
     public BulkRevokeOAuthGrantsPayload sortOrder(
-            @javax.annotation.Nullable OAuthGrantSortOrder sortOrder) {
+            @jakarta.annotation.Nullable OAuthGrantSortOrder sortOrder) {
         this.sortOrder = sortOrder;
         return this;
     }
@@ -323,15 +323,16 @@ public class BulkRevokeOAuthGrantsPayload {
      * Get sortOrder
      * @return sortOrder
      */
-    @javax.annotation.Nullable public OAuthGrantSortOrder getSortOrder() {
+    @jakarta.annotation.Nullable public OAuthGrantSortOrder getSortOrder() {
         return sortOrder;
     }
 
-    public void setSortOrder(@javax.annotation.Nullable OAuthGrantSortOrder sortOrder) {
+    public void setSortOrder(@jakarta.annotation.Nullable OAuthGrantSortOrder sortOrder) {
         this.sortOrder = sortOrder;
     }
 
-    public BulkRevokeOAuthGrantsPayload grantIds(@javax.annotation.Nullable List<String> grantIds) {
+    public BulkRevokeOAuthGrantsPayload grantIds(
+            @jakarta.annotation.Nullable List<String> grantIds) {
         this.grantIds = grantIds;
         return this;
     }
@@ -348,16 +349,16 @@ public class BulkRevokeOAuthGrantsPayload {
      * Get grantIds
      * @return grantIds
      */
-    @javax.annotation.Nullable public List<String> getGrantIds() {
+    @jakarta.annotation.Nullable public List<String> getGrantIds() {
         return grantIds;
     }
 
-    public void setGrantIds(@javax.annotation.Nullable List<String> grantIds) {
+    public void setGrantIds(@jakarta.annotation.Nullable List<String> grantIds) {
         this.grantIds = grantIds;
     }
 
     public BulkRevokeOAuthGrantsPayload includeConsent(
-            @javax.annotation.Nullable Boolean includeConsent) {
+            @jakarta.annotation.Nullable Boolean includeConsent) {
         this.includeConsent = includeConsent;
         return this;
     }
@@ -366,11 +367,11 @@ public class BulkRevokeOAuthGrantsPayload {
      * Get includeConsent
      * @return includeConsent
      */
-    @javax.annotation.Nullable public Boolean getIncludeConsent() {
+    @jakarta.annotation.Nullable public Boolean getIncludeConsent() {
         return includeConsent;
     }
 
-    public void setIncludeConsent(@javax.annotation.Nullable Boolean includeConsent) {
+    public void setIncludeConsent(@jakarta.annotation.Nullable Boolean includeConsent) {
         this.includeConsent = includeConsent;
     }
 

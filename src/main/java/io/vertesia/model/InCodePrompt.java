@@ -30,46 +30,46 @@ import java.util.Objects;
 /**
  * InCodePrompt
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InCodePrompt {
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private PromptRole role;
 
     public static final String SERIALIZED_NAME_CONTENT = "content";
 
     @SerializedName(SERIALIZED_NAME_CONTENT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String content;
 
     public static final String SERIALIZED_NAME_CONTENT_TYPE = "content_type";
 
     @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TemplateType contentType;
 
     public static final String SERIALIZED_NAME_SCHEMA = "schema";
 
     @SerializedName(SERIALIZED_NAME_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema schema;
+    @jakarta.annotation.Nullable private JSONSchema schema;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
 
     @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
-    @javax.annotation.Nullable private String externalId;
+    @jakarta.annotation.Nullable private String externalId;
 
     public InCodePrompt() {}
 
-    public InCodePrompt role(@javax.annotation.Nonnull PromptRole role) {
+    public InCodePrompt role(@jakarta.annotation.Nonnull PromptRole role) {
         this.role = role;
         return this;
     }
@@ -78,16 +78,16 @@ public class InCodePrompt {
      * Get role
      * @return role
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public PromptRole getRole() {
         return role;
     }
 
-    public void setRole(@javax.annotation.Nonnull PromptRole role) {
+    public void setRole(@jakarta.annotation.Nonnull PromptRole role) {
         this.role = role;
     }
 
-    public InCodePrompt content(@javax.annotation.Nonnull String content) {
+    public InCodePrompt content(@jakarta.annotation.Nonnull String content) {
         this.content = content;
         return this;
     }
@@ -96,16 +96,16 @@ public class InCodePrompt {
      * Get content
      * @return content
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getContent() {
         return content;
     }
 
-    public void setContent(@javax.annotation.Nonnull String content) {
+    public void setContent(@jakarta.annotation.Nonnull String content) {
         this.content = content;
     }
 
-    public InCodePrompt contentType(@javax.annotation.Nonnull TemplateType contentType) {
+    public InCodePrompt contentType(@jakarta.annotation.Nonnull TemplateType contentType) {
         this.contentType = contentType;
         return this;
     }
@@ -114,16 +114,16 @@ public class InCodePrompt {
      * Get contentType
      * @return contentType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TemplateType getContentType() {
         return contentType;
     }
 
-    public void setContentType(@javax.annotation.Nonnull TemplateType contentType) {
+    public void setContentType(@jakarta.annotation.Nonnull TemplateType contentType) {
         this.contentType = contentType;
     }
 
-    public InCodePrompt schema(@javax.annotation.Nullable JSONSchema schema) {
+    public InCodePrompt schema(@jakarta.annotation.Nullable JSONSchema schema) {
         this.schema = schema;
         return this;
     }
@@ -132,15 +132,15 @@ public class InCodePrompt {
      * Get schema
      * @return schema
      */
-    @javax.annotation.Nullable public JSONSchema getSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getSchema() {
         return schema;
     }
 
-    public void setSchema(@javax.annotation.Nullable JSONSchema schema) {
+    public void setSchema(@jakarta.annotation.Nullable JSONSchema schema) {
         this.schema = schema;
     }
 
-    public InCodePrompt name(@javax.annotation.Nullable String name) {
+    public InCodePrompt name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -149,15 +149,15 @@ public class InCodePrompt {
      * optional name of the prompt segment. Use kebab case for prompt names
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public InCodePrompt externalId(@javax.annotation.Nullable String externalId) {
+    public InCodePrompt externalId(@jakarta.annotation.Nullable String externalId) {
         this.externalId = externalId;
         return this;
     }
@@ -166,11 +166,11 @@ public class InCodePrompt {
      * optional reference to an external resource if any. Used internally by the system to synchronize stored prompts with in-code prompts.
      * @return externalId
      */
-    @javax.annotation.Nullable public String getExternalId() {
+    @jakarta.annotation.Nullable public String getExternalId() {
         return externalId;
     }
 
-    public void setExternalId(@javax.annotation.Nullable String externalId) {
+    public void setExternalId(@jakarta.annotation.Nullable String externalId) {
         this.externalId = externalId;
     }
 

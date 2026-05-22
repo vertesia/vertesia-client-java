@@ -33,25 +33,25 @@ import java.util.Objects;
 /**
  * PromptFormatterNamedArgs
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromptFormatterNamedArgs {
     public static final String SERIALIZED_NAME_MESSAGES = "messages";
 
     @SerializedName(SERIALIZED_NAME_MESSAGES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<PromptSegment> messages = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SCHEMA = "schema";
 
     @SerializedName(SERIALIZED_NAME_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema schema;
+    @jakarta.annotation.Nullable private JSONSchema schema;
 
     public PromptFormatterNamedArgs() {}
 
     public PromptFormatterNamedArgs messages(
-            @javax.annotation.Nonnull List<PromptSegment> messages) {
+            @jakarta.annotation.Nonnull List<PromptSegment> messages) {
         this.messages = messages;
         return this;
     }
@@ -68,16 +68,16 @@ public class PromptFormatterNamedArgs {
      * Get messages
      * @return messages
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<PromptSegment> getMessages() {
         return messages;
     }
 
-    public void setMessages(@javax.annotation.Nonnull List<PromptSegment> messages) {
+    public void setMessages(@jakarta.annotation.Nonnull List<PromptSegment> messages) {
         this.messages = messages;
     }
 
-    public PromptFormatterNamedArgs schema(@javax.annotation.Nullable JSONSchema schema) {
+    public PromptFormatterNamedArgs schema(@jakarta.annotation.Nullable JSONSchema schema) {
         this.schema = schema;
         return this;
     }
@@ -86,11 +86,11 @@ public class PromptFormatterNamedArgs {
      * Get schema
      * @return schema
      */
-    @javax.annotation.Nullable public JSONSchema getSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getSchema() {
         return schema;
     }
 
-    public void setSchema(@javax.annotation.Nullable JSONSchema schema) {
+    public void setSchema(@jakarta.annotation.Nullable JSONSchema schema) {
         this.schema = schema;
     }
 

@@ -30,48 +30,48 @@ import java.util.Objects;
 /**
  * InteractionExecutionConfiguration
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InteractionExecutionConfiguration {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nullable private String id;
+    @jakarta.annotation.Nullable private String id;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @javax.annotation.Nullable private String environment;
+    @jakarta.annotation.Nullable private String environment;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nullable private String model;
+    @jakarta.annotation.Nullable private String model;
 
     public static final String SERIALIZED_NAME_DO_VALIDATE = "do_validate";
 
     @SerializedName(SERIALIZED_NAME_DO_VALIDATE)
-    @javax.annotation.Nullable private Boolean doValidate;
+    @jakarta.annotation.Nullable private Boolean doValidate;
 
     public static final String SERIALIZED_NAME_RUN_DATA = "run_data";
 
     @SerializedName(SERIALIZED_NAME_RUN_DATA)
-    @javax.annotation.Nullable private RunDataStorageLevel runData;
+    @jakarta.annotation.Nullable private RunDataStorageLevel runData;
 
     public static final String SERIALIZED_NAME_CONFIG_MODE = "configMode";
 
     @SerializedName(SERIALIZED_NAME_CONFIG_MODE)
-    @javax.annotation.Nullable private ConfigModes configMode;
+    @jakarta.annotation.Nullable private ConfigModes configMode;
 
     public static final String SERIALIZED_NAME_MODEL_OPTIONS = "model_options";
 
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
-    @javax.annotation.Nullable private ModelOptions modelOptions;
+    @jakarta.annotation.Nullable private ModelOptions modelOptions;
 
     public InteractionExecutionConfiguration() {}
 
-    public InteractionExecutionConfiguration id(@javax.annotation.Nullable String id) {
+    public InteractionExecutionConfiguration id(@jakarta.annotation.Nullable String id) {
         this.id = id;
         return this;
     }
@@ -80,16 +80,16 @@ public class InteractionExecutionConfiguration {
      * Get id
      * @return id
      */
-    @javax.annotation.Nullable public String getId() {
+    @jakarta.annotation.Nullable public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nullable String id) {
+    public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
     }
 
     public InteractionExecutionConfiguration environment(
-            @javax.annotation.Nullable String environment) {
+            @jakarta.annotation.Nullable String environment) {
         this.environment = environment;
         return this;
     }
@@ -98,15 +98,15 @@ public class InteractionExecutionConfiguration {
      * Get environment
      * @return environment
      */
-    @javax.annotation.Nullable public String getEnvironment() {
+    @jakarta.annotation.Nullable public String getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@javax.annotation.Nullable String environment) {
+    public void setEnvironment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
     }
 
-    public InteractionExecutionConfiguration model(@javax.annotation.Nullable String model) {
+    public InteractionExecutionConfiguration model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
@@ -115,16 +115,16 @@ public class InteractionExecutionConfiguration {
      * Get model
      * @return model
      */
-    @javax.annotation.Nullable public String getModel() {
+    @jakarta.annotation.Nullable public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nullable String model) {
+    public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
     }
 
     public InteractionExecutionConfiguration doValidate(
-            @javax.annotation.Nullable Boolean doValidate) {
+            @jakarta.annotation.Nullable Boolean doValidate) {
         this.doValidate = doValidate;
         return this;
     }
@@ -133,16 +133,16 @@ public class InteractionExecutionConfiguration {
      * Get doValidate
      * @return doValidate
      */
-    @javax.annotation.Nullable public Boolean getDoValidate() {
+    @jakarta.annotation.Nullable public Boolean getDoValidate() {
         return doValidate;
     }
 
-    public void setDoValidate(@javax.annotation.Nullable Boolean doValidate) {
+    public void setDoValidate(@jakarta.annotation.Nullable Boolean doValidate) {
         this.doValidate = doValidate;
     }
 
     public InteractionExecutionConfiguration runData(
-            @javax.annotation.Nullable RunDataStorageLevel runData) {
+            @jakarta.annotation.Nullable RunDataStorageLevel runData) {
         this.runData = runData;
         return this;
     }
@@ -151,16 +151,16 @@ public class InteractionExecutionConfiguration {
      * Get runData
      * @return runData
      */
-    @javax.annotation.Nullable public RunDataStorageLevel getRunData() {
+    @jakarta.annotation.Nullable public RunDataStorageLevel getRunData() {
         return runData;
     }
 
-    public void setRunData(@javax.annotation.Nullable RunDataStorageLevel runData) {
+    public void setRunData(@jakarta.annotation.Nullable RunDataStorageLevel runData) {
         this.runData = runData;
     }
 
     public InteractionExecutionConfiguration configMode(
-            @javax.annotation.Nullable ConfigModes configMode) {
+            @jakarta.annotation.Nullable ConfigModes configMode) {
         this.configMode = configMode;
         return this;
     }
@@ -169,16 +169,16 @@ public class InteractionExecutionConfiguration {
      * Get configMode
      * @return configMode
      */
-    @javax.annotation.Nullable public ConfigModes getConfigMode() {
+    @jakarta.annotation.Nullable public ConfigModes getConfigMode() {
         return configMode;
     }
 
-    public void setConfigMode(@javax.annotation.Nullable ConfigModes configMode) {
+    public void setConfigMode(@jakarta.annotation.Nullable ConfigModes configMode) {
         this.configMode = configMode;
     }
 
     public InteractionExecutionConfiguration modelOptions(
-            @javax.annotation.Nullable ModelOptions modelOptions) {
+            @jakarta.annotation.Nullable ModelOptions modelOptions) {
         this.modelOptions = modelOptions;
         return this;
     }
@@ -187,11 +187,11 @@ public class InteractionExecutionConfiguration {
      * Get modelOptions
      * @return modelOptions
      */
-    @javax.annotation.Nullable public ModelOptions getModelOptions() {
+    @jakarta.annotation.Nullable public ModelOptions getModelOptions() {
         return modelOptions;
     }
 
-    public void setModelOptions(@javax.annotation.Nullable ModelOptions modelOptions) {
+    public void setModelOptions(@jakarta.annotation.Nullable ModelOptions modelOptions) {
         this.modelOptions = modelOptions;
     }
 

@@ -30,29 +30,29 @@ import java.util.Objects;
 /**
  * PartialRecordSupportedEmbeddingTypesEmbedding
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PartialRecordSupportedEmbeddingTypesEmbedding {
     public static final String SERIALIZED_NAME_TEXT = "text";
 
     @SerializedName(SERIALIZED_NAME_TEXT)
-    @javax.annotation.Nullable private Embedding text;
+    @jakarta.annotation.Nullable private Embedding text;
 
     public static final String SERIALIZED_NAME_IMAGE = "image";
 
     @SerializedName(SERIALIZED_NAME_IMAGE)
-    @javax.annotation.Nullable private Embedding image;
+    @jakarta.annotation.Nullable private Embedding image;
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private Embedding properties;
+    @jakarta.annotation.Nullable private Embedding properties;
 
     public PartialRecordSupportedEmbeddingTypesEmbedding() {}
 
     public PartialRecordSupportedEmbeddingTypesEmbedding text(
-            @javax.annotation.Nullable Embedding text) {
+            @jakarta.annotation.Nullable Embedding text) {
         this.text = text;
         return this;
     }
@@ -61,16 +61,16 @@ public class PartialRecordSupportedEmbeddingTypesEmbedding {
      * Get text
      * @return text
      */
-    @javax.annotation.Nullable public Embedding getText() {
+    @jakarta.annotation.Nullable public Embedding getText() {
         return text;
     }
 
-    public void setText(@javax.annotation.Nullable Embedding text) {
+    public void setText(@jakarta.annotation.Nullable Embedding text) {
         this.text = text;
     }
 
     public PartialRecordSupportedEmbeddingTypesEmbedding image(
-            @javax.annotation.Nullable Embedding image) {
+            @jakarta.annotation.Nullable Embedding image) {
         this.image = image;
         return this;
     }
@@ -79,16 +79,16 @@ public class PartialRecordSupportedEmbeddingTypesEmbedding {
      * Get image
      * @return image
      */
-    @javax.annotation.Nullable public Embedding getImage() {
+    @jakarta.annotation.Nullable public Embedding getImage() {
         return image;
     }
 
-    public void setImage(@javax.annotation.Nullable Embedding image) {
+    public void setImage(@jakarta.annotation.Nullable Embedding image) {
         this.image = image;
     }
 
     public PartialRecordSupportedEmbeddingTypesEmbedding properties(
-            @javax.annotation.Nullable Embedding properties) {
+            @jakarta.annotation.Nullable Embedding properties) {
         this.properties = properties;
         return this;
     }
@@ -97,11 +97,11 @@ public class PartialRecordSupportedEmbeddingTypesEmbedding {
      * Get properties
      * @return properties
      */
-    @javax.annotation.Nullable public Embedding getProperties() {
+    @jakarta.annotation.Nullable public Embedding getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable Embedding properties) {
+    public void setProperties(@jakarta.annotation.Nullable Embedding properties) {
         this.properties = properties;
     }
 

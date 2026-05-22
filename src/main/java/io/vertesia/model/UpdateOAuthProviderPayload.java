@@ -35,19 +35,19 @@ import java.util.Objects;
 /**
  * Payload for updating an OAuth Provider. All fields are optional — only provided fields are updated. To clear the client_secret, set it to an empty string.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UpdateOAuthProviderPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
 
     @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
-    @javax.annotation.Nullable private String displayName;
+    @jakarta.annotation.Nullable private String displayName;
 
     /**
      * Gets or Sets grantType
@@ -107,46 +107,46 @@ public class UpdateOAuthProviderPayload {
     public static final String SERIALIZED_NAME_GRANT_TYPE = "grant_type";
 
     @SerializedName(SERIALIZED_NAME_GRANT_TYPE)
-    @javax.annotation.Nullable private GrantTypeEnum grantType;
+    @jakarta.annotation.Nullable private GrantTypeEnum grantType;
 
     public static final String SERIALIZED_NAME_AUTHORIZATION_ENDPOINT = "authorization_endpoint";
 
     @SerializedName(SERIALIZED_NAME_AUTHORIZATION_ENDPOINT)
-    @javax.annotation.Nullable private String authorizationEndpoint;
+    @jakarta.annotation.Nullable private String authorizationEndpoint;
 
     public static final String SERIALIZED_NAME_TOKEN_ENDPOINT = "token_endpoint";
 
     @SerializedName(SERIALIZED_NAME_TOKEN_ENDPOINT)
-    @javax.annotation.Nullable private String tokenEndpoint;
+    @jakarta.annotation.Nullable private String tokenEndpoint;
 
     public static final String SERIALIZED_NAME_CLIENT_ID = "client_id";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_ID)
-    @javax.annotation.Nullable private String clientId;
+    @jakarta.annotation.Nullable private String clientId;
 
     public static final String SERIALIZED_NAME_CLIENT_SECRET = "client_secret";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
-    @javax.annotation.Nullable private String clientSecret;
+    @jakarta.annotation.Nullable private String clientSecret;
 
     public static final String SERIALIZED_NAME_DEFAULT_SCOPES = "default_scopes";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT_SCOPES)
-    @javax.annotation.Nullable private List<String> defaultScopes = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> defaultScopes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_USE_PKCE = "use_pkce";
 
     @SerializedName(SERIALIZED_NAME_USE_PKCE)
-    @javax.annotation.Nullable private Boolean usePkce;
+    @jakarta.annotation.Nullable private Boolean usePkce;
 
     public static final String SERIALIZED_NAME_REVOCATION_ENDPOINT = "revocation_endpoint";
 
     @SerializedName(SERIALIZED_NAME_REVOCATION_ENDPOINT)
-    @javax.annotation.Nullable private String revocationEndpoint;
+    @jakarta.annotation.Nullable private String revocationEndpoint;
 
     public UpdateOAuthProviderPayload() {}
 
-    public UpdateOAuthProviderPayload name(@javax.annotation.Nullable String name) {
+    public UpdateOAuthProviderPayload name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -155,15 +155,15 @@ public class UpdateOAuthProviderPayload {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public UpdateOAuthProviderPayload displayName(@javax.annotation.Nullable String displayName) {
+    public UpdateOAuthProviderPayload displayName(@jakarta.annotation.Nullable String displayName) {
         this.displayName = displayName;
         return this;
     }
@@ -172,16 +172,16 @@ public class UpdateOAuthProviderPayload {
      * Get displayName
      * @return displayName
      */
-    @javax.annotation.Nullable public String getDisplayName() {
+    @jakarta.annotation.Nullable public String getDisplayName() {
         return displayName;
     }
 
-    public void setDisplayName(@javax.annotation.Nullable String displayName) {
+    public void setDisplayName(@jakarta.annotation.Nullable String displayName) {
         this.displayName = displayName;
     }
 
     public UpdateOAuthProviderPayload grantType(
-            @javax.annotation.Nullable GrantTypeEnum grantType) {
+            @jakarta.annotation.Nullable GrantTypeEnum grantType) {
         this.grantType = grantType;
         return this;
     }
@@ -190,16 +190,16 @@ public class UpdateOAuthProviderPayload {
      * Get grantType
      * @return grantType
      */
-    @javax.annotation.Nullable public GrantTypeEnum getGrantType() {
+    @jakarta.annotation.Nullable public GrantTypeEnum getGrantType() {
         return grantType;
     }
 
-    public void setGrantType(@javax.annotation.Nullable GrantTypeEnum grantType) {
+    public void setGrantType(@jakarta.annotation.Nullable GrantTypeEnum grantType) {
         this.grantType = grantType;
     }
 
     public UpdateOAuthProviderPayload authorizationEndpoint(
-            @javax.annotation.Nullable String authorizationEndpoint) {
+            @jakarta.annotation.Nullable String authorizationEndpoint) {
         this.authorizationEndpoint = authorizationEndpoint;
         return this;
     }
@@ -208,16 +208,17 @@ public class UpdateOAuthProviderPayload {
      * Get authorizationEndpoint
      * @return authorizationEndpoint
      */
-    @javax.annotation.Nullable public String getAuthorizationEndpoint() {
+    @jakarta.annotation.Nullable public String getAuthorizationEndpoint() {
         return authorizationEndpoint;
     }
 
-    public void setAuthorizationEndpoint(@javax.annotation.Nullable String authorizationEndpoint) {
+    public void setAuthorizationEndpoint(
+            @jakarta.annotation.Nullable String authorizationEndpoint) {
         this.authorizationEndpoint = authorizationEndpoint;
     }
 
     public UpdateOAuthProviderPayload tokenEndpoint(
-            @javax.annotation.Nullable String tokenEndpoint) {
+            @jakarta.annotation.Nullable String tokenEndpoint) {
         this.tokenEndpoint = tokenEndpoint;
         return this;
     }
@@ -226,15 +227,15 @@ public class UpdateOAuthProviderPayload {
      * Get tokenEndpoint
      * @return tokenEndpoint
      */
-    @javax.annotation.Nullable public String getTokenEndpoint() {
+    @jakarta.annotation.Nullable public String getTokenEndpoint() {
         return tokenEndpoint;
     }
 
-    public void setTokenEndpoint(@javax.annotation.Nullable String tokenEndpoint) {
+    public void setTokenEndpoint(@jakarta.annotation.Nullable String tokenEndpoint) {
         this.tokenEndpoint = tokenEndpoint;
     }
 
-    public UpdateOAuthProviderPayload clientId(@javax.annotation.Nullable String clientId) {
+    public UpdateOAuthProviderPayload clientId(@jakarta.annotation.Nullable String clientId) {
         this.clientId = clientId;
         return this;
     }
@@ -243,15 +244,16 @@ public class UpdateOAuthProviderPayload {
      * Get clientId
      * @return clientId
      */
-    @javax.annotation.Nullable public String getClientId() {
+    @jakarta.annotation.Nullable public String getClientId() {
         return clientId;
     }
 
-    public void setClientId(@javax.annotation.Nullable String clientId) {
+    public void setClientId(@jakarta.annotation.Nullable String clientId) {
         this.clientId = clientId;
     }
 
-    public UpdateOAuthProviderPayload clientSecret(@javax.annotation.Nullable String clientSecret) {
+    public UpdateOAuthProviderPayload clientSecret(
+            @jakarta.annotation.Nullable String clientSecret) {
         this.clientSecret = clientSecret;
         return this;
     }
@@ -260,16 +262,16 @@ public class UpdateOAuthProviderPayload {
      * Optional client secret for confidential clients. Will be encrypted at rest and never returned in API responses.
      * @return clientSecret
      */
-    @javax.annotation.Nullable public String getClientSecret() {
+    @jakarta.annotation.Nullable public String getClientSecret() {
         return clientSecret;
     }
 
-    public void setClientSecret(@javax.annotation.Nullable String clientSecret) {
+    public void setClientSecret(@jakarta.annotation.Nullable String clientSecret) {
         this.clientSecret = clientSecret;
     }
 
     public UpdateOAuthProviderPayload defaultScopes(
-            @javax.annotation.Nullable List<String> defaultScopes) {
+            @jakarta.annotation.Nullable List<String> defaultScopes) {
         this.defaultScopes = defaultScopes;
         return this;
     }
@@ -286,15 +288,15 @@ public class UpdateOAuthProviderPayload {
      * Get defaultScopes
      * @return defaultScopes
      */
-    @javax.annotation.Nullable public List<String> getDefaultScopes() {
+    @jakarta.annotation.Nullable public List<String> getDefaultScopes() {
         return defaultScopes;
     }
 
-    public void setDefaultScopes(@javax.annotation.Nullable List<String> defaultScopes) {
+    public void setDefaultScopes(@jakarta.annotation.Nullable List<String> defaultScopes) {
         this.defaultScopes = defaultScopes;
     }
 
-    public UpdateOAuthProviderPayload usePkce(@javax.annotation.Nullable Boolean usePkce) {
+    public UpdateOAuthProviderPayload usePkce(@jakarta.annotation.Nullable Boolean usePkce) {
         this.usePkce = usePkce;
         return this;
     }
@@ -303,16 +305,16 @@ public class UpdateOAuthProviderPayload {
      * Get usePkce
      * @return usePkce
      */
-    @javax.annotation.Nullable public Boolean getUsePkce() {
+    @jakarta.annotation.Nullable public Boolean getUsePkce() {
         return usePkce;
     }
 
-    public void setUsePkce(@javax.annotation.Nullable Boolean usePkce) {
+    public void setUsePkce(@jakarta.annotation.Nullable Boolean usePkce) {
         this.usePkce = usePkce;
     }
 
     public UpdateOAuthProviderPayload revocationEndpoint(
-            @javax.annotation.Nullable String revocationEndpoint) {
+            @jakarta.annotation.Nullable String revocationEndpoint) {
         this.revocationEndpoint = revocationEndpoint;
         return this;
     }
@@ -321,11 +323,11 @@ public class UpdateOAuthProviderPayload {
      * Get revocationEndpoint
      * @return revocationEndpoint
      */
-    @javax.annotation.Nullable public String getRevocationEndpoint() {
+    @jakarta.annotation.Nullable public String getRevocationEndpoint() {
         return revocationEndpoint;
     }
 
-    public void setRevocationEndpoint(@javax.annotation.Nullable String revocationEndpoint) {
+    public void setRevocationEndpoint(@jakarta.annotation.Nullable String revocationEndpoint) {
         this.revocationEndpoint = revocationEndpoint;
     }
 

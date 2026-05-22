@@ -32,82 +32,82 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * ChildWorkflowTask
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ChildWorkflowTask {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TaskTypeCHILDWORKFLOW type;
 
     public static final String SERIALIZED_NAME_ACTIVITY_ID = "activityId";
 
     @SerializedName(SERIALIZED_NAME_ACTIVITY_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String activityId;
 
     public static final String SERIALIZED_NAME_ACTIVITY_NAME = "activityName";
 
     @SerializedName(SERIALIZED_NAME_ACTIVITY_NAME)
-    @javax.annotation.Nullable private String activityName;
+    @jakarta.annotation.Nullable private String activityName;
 
     public static final String SERIALIZED_NAME_INPUT = "input";
 
     @SerializedName(SERIALIZED_NAME_INPUT)
-    @javax.annotation.Nullable private Object input = null;
+    @jakarta.annotation.Nullable private Object input = null;
 
     public static final String SERIALIZED_NAME_SCHEDULED = "scheduled";
 
     @SerializedName(SERIALIZED_NAME_SCHEDULED)
-    @javax.annotation.Nullable private String scheduled;
+    @jakarta.annotation.Nullable private String scheduled;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TaskStatus status;
 
     public static final String SERIALIZED_NAME_ATTEMPTS = "attempts";
 
     @SerializedName(SERIALIZED_NAME_ATTEMPTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal attempts;
 
     public static final String SERIALIZED_NAME_STARTED = "started";
 
     @SerializedName(SERIALIZED_NAME_STARTED)
-    @javax.annotation.Nullable private String started;
+    @jakarta.annotation.Nullable private String started;
 
     public static final String SERIALIZED_NAME_COMPLETED = "completed";
 
     @SerializedName(SERIALIZED_NAME_COMPLETED)
-    @javax.annotation.Nullable private String completed;
+    @jakarta.annotation.Nullable private String completed;
 
     public static final String SERIALIZED_NAME_ERROR = "error";
 
     @SerializedName(SERIALIZED_NAME_ERROR)
-    @javax.annotation.Nullable private String error;
+    @jakarta.annotation.Nullable private String error;
 
     public static final String SERIALIZED_NAME_RESULT = "result";
 
     @SerializedName(SERIALIZED_NAME_RESULT)
-    @javax.annotation.Nullable private Object result = null;
+    @jakarta.annotation.Nullable private Object result = null;
 
     public static final String SERIALIZED_NAME_RUN_ID = "runId";
 
     @SerializedName(SERIALIZED_NAME_RUN_ID)
-    @javax.annotation.Nullable private String runId;
+    @jakarta.annotation.Nullable private String runId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_TYPE = "workflowType";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_TYPE)
-    @javax.annotation.Nullable private String workflowType;
+    @jakarta.annotation.Nullable private String workflowType;
 
     public ChildWorkflowTask() {}
 
-    public ChildWorkflowTask type(@javax.annotation.Nonnull TaskTypeCHILDWORKFLOW type) {
+    public ChildWorkflowTask type(@jakarta.annotation.Nonnull TaskTypeCHILDWORKFLOW type) {
         this.type = type;
         return this;
     }
@@ -116,16 +116,16 @@ public class ChildWorkflowTask {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TaskTypeCHILDWORKFLOW getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TaskTypeCHILDWORKFLOW type) {
+    public void setType(@jakarta.annotation.Nonnull TaskTypeCHILDWORKFLOW type) {
         this.type = type;
     }
 
-    public ChildWorkflowTask activityId(@javax.annotation.Nonnull String activityId) {
+    public ChildWorkflowTask activityId(@jakarta.annotation.Nonnull String activityId) {
         this.activityId = activityId;
         return this;
     }
@@ -134,16 +134,16 @@ public class ChildWorkflowTask {
      * Get activityId
      * @return activityId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getActivityId() {
         return activityId;
     }
 
-    public void setActivityId(@javax.annotation.Nonnull String activityId) {
+    public void setActivityId(@jakarta.annotation.Nonnull String activityId) {
         this.activityId = activityId;
     }
 
-    public ChildWorkflowTask activityName(@javax.annotation.Nullable String activityName) {
+    public ChildWorkflowTask activityName(@jakarta.annotation.Nullable String activityName) {
         this.activityName = activityName;
         return this;
     }
@@ -152,15 +152,15 @@ public class ChildWorkflowTask {
      * Get activityName
      * @return activityName
      */
-    @javax.annotation.Nullable public String getActivityName() {
+    @jakarta.annotation.Nullable public String getActivityName() {
         return activityName;
     }
 
-    public void setActivityName(@javax.annotation.Nullable String activityName) {
+    public void setActivityName(@jakarta.annotation.Nullable String activityName) {
         this.activityName = activityName;
     }
 
-    public ChildWorkflowTask input(@javax.annotation.Nullable Object input) {
+    public ChildWorkflowTask input(@jakarta.annotation.Nullable Object input) {
         this.input = input;
         return this;
     }
@@ -169,15 +169,15 @@ public class ChildWorkflowTask {
      * Get input
      * @return input
      */
-    @javax.annotation.Nullable public Object getInput() {
+    @jakarta.annotation.Nullable public Object getInput() {
         return input;
     }
 
-    public void setInput(@javax.annotation.Nullable Object input) {
+    public void setInput(@jakarta.annotation.Nullable Object input) {
         this.input = input;
     }
 
-    public ChildWorkflowTask scheduled(@javax.annotation.Nullable String scheduled) {
+    public ChildWorkflowTask scheduled(@jakarta.annotation.Nullable String scheduled) {
         this.scheduled = scheduled;
         return this;
     }
@@ -186,15 +186,15 @@ public class ChildWorkflowTask {
      * Get scheduled
      * @return scheduled
      */
-    @javax.annotation.Nullable public String getScheduled() {
+    @jakarta.annotation.Nullable public String getScheduled() {
         return scheduled;
     }
 
-    public void setScheduled(@javax.annotation.Nullable String scheduled) {
+    public void setScheduled(@jakarta.annotation.Nullable String scheduled) {
         this.scheduled = scheduled;
     }
 
-    public ChildWorkflowTask status(@javax.annotation.Nonnull TaskStatus status) {
+    public ChildWorkflowTask status(@jakarta.annotation.Nonnull TaskStatus status) {
         this.status = status;
         return this;
     }
@@ -203,16 +203,16 @@ public class ChildWorkflowTask {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TaskStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull TaskStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull TaskStatus status) {
         this.status = status;
     }
 
-    public ChildWorkflowTask attempts(@javax.annotation.Nonnull BigDecimal attempts) {
+    public ChildWorkflowTask attempts(@jakarta.annotation.Nonnull BigDecimal attempts) {
         this.attempts = attempts;
         return this;
     }
@@ -221,16 +221,16 @@ public class ChildWorkflowTask {
      * Get attempts
      * @return attempts
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getAttempts() {
         return attempts;
     }
 
-    public void setAttempts(@javax.annotation.Nonnull BigDecimal attempts) {
+    public void setAttempts(@jakarta.annotation.Nonnull BigDecimal attempts) {
         this.attempts = attempts;
     }
 
-    public ChildWorkflowTask started(@javax.annotation.Nullable String started) {
+    public ChildWorkflowTask started(@jakarta.annotation.Nullable String started) {
         this.started = started;
         return this;
     }
@@ -239,15 +239,15 @@ public class ChildWorkflowTask {
      * Get started
      * @return started
      */
-    @javax.annotation.Nullable public String getStarted() {
+    @jakarta.annotation.Nullable public String getStarted() {
         return started;
     }
 
-    public void setStarted(@javax.annotation.Nullable String started) {
+    public void setStarted(@jakarta.annotation.Nullable String started) {
         this.started = started;
     }
 
-    public ChildWorkflowTask completed(@javax.annotation.Nullable String completed) {
+    public ChildWorkflowTask completed(@jakarta.annotation.Nullable String completed) {
         this.completed = completed;
         return this;
     }
@@ -256,15 +256,15 @@ public class ChildWorkflowTask {
      * Get completed
      * @return completed
      */
-    @javax.annotation.Nullable public String getCompleted() {
+    @jakarta.annotation.Nullable public String getCompleted() {
         return completed;
     }
 
-    public void setCompleted(@javax.annotation.Nullable String completed) {
+    public void setCompleted(@jakarta.annotation.Nullable String completed) {
         this.completed = completed;
     }
 
-    public ChildWorkflowTask error(@javax.annotation.Nullable String error) {
+    public ChildWorkflowTask error(@jakarta.annotation.Nullable String error) {
         this.error = error;
         return this;
     }
@@ -273,15 +273,15 @@ public class ChildWorkflowTask {
      * Get error
      * @return error
      */
-    @javax.annotation.Nullable public String getError() {
+    @jakarta.annotation.Nullable public String getError() {
         return error;
     }
 
-    public void setError(@javax.annotation.Nullable String error) {
+    public void setError(@jakarta.annotation.Nullable String error) {
         this.error = error;
     }
 
-    public ChildWorkflowTask result(@javax.annotation.Nullable Object result) {
+    public ChildWorkflowTask result(@jakarta.annotation.Nullable Object result) {
         this.result = result;
         return this;
     }
@@ -290,15 +290,15 @@ public class ChildWorkflowTask {
      * Get result
      * @return result
      */
-    @javax.annotation.Nullable public Object getResult() {
+    @jakarta.annotation.Nullable public Object getResult() {
         return result;
     }
 
-    public void setResult(@javax.annotation.Nullable Object result) {
+    public void setResult(@jakarta.annotation.Nullable Object result) {
         this.result = result;
     }
 
-    public ChildWorkflowTask runId(@javax.annotation.Nullable String runId) {
+    public ChildWorkflowTask runId(@jakarta.annotation.Nullable String runId) {
         this.runId = runId;
         return this;
     }
@@ -307,15 +307,15 @@ public class ChildWorkflowTask {
      * Temporal run ID that produced this task (set when aggregating across continueAsNew runs).
      * @return runId
      */
-    @javax.annotation.Nullable public String getRunId() {
+    @jakarta.annotation.Nullable public String getRunId() {
         return runId;
     }
 
-    public void setRunId(@javax.annotation.Nullable String runId) {
+    public void setRunId(@jakarta.annotation.Nullable String runId) {
         this.runId = runId;
     }
 
-    public ChildWorkflowTask workflowType(@javax.annotation.Nullable String workflowType) {
+    public ChildWorkflowTask workflowType(@jakarta.annotation.Nullable String workflowType) {
         this.workflowType = workflowType;
         return this;
     }
@@ -324,11 +324,11 @@ public class ChildWorkflowTask {
      * Get workflowType
      * @return workflowType
      */
-    @javax.annotation.Nullable public String getWorkflowType() {
+    @jakarta.annotation.Nullable public String getWorkflowType() {
         return workflowType;
     }
 
-    public void setWorkflowType(@javax.annotation.Nullable String workflowType) {
+    public void setWorkflowType(@jakarta.annotation.Nullable String workflowType) {
         this.workflowType = workflowType;
     }
 

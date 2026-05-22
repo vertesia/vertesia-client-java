@@ -30,49 +30,49 @@ import java.util.Objects;
 /**
  * Polled status response for markdown rendering workflow.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RenderMarkdownStatusResponse {
     public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflow_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
-    @javax.annotation.Nullable private String workflowId;
+    @jakarta.annotation.Nullable private String workflowId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_RUN_ID = "workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_RUN_ID)
-    @javax.annotation.Nullable private String workflowRunId;
+    @jakarta.annotation.Nullable private String workflowRunId;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private WorkflowExecutionStatus status;
 
     public static final String SERIALIZED_NAME_FORMAT = "format";
 
     @SerializedName(SERIALIZED_NAME_FORMAT)
-    @javax.annotation.Nullable private MarkdownRenditionFormat format;
+    @jakarta.annotation.Nullable private MarkdownRenditionFormat format;
 
     public static final String SERIALIZED_NAME_DOWNLOAD_URL = "download_url";
 
     @SerializedName(SERIALIZED_NAME_DOWNLOAD_URL)
-    @javax.annotation.Nullable private String downloadUrl;
+    @jakarta.annotation.Nullable private String downloadUrl;
 
     public static final String SERIALIZED_NAME_FILE_URI = "file_uri";
 
     @SerializedName(SERIALIZED_NAME_FILE_URI)
-    @javax.annotation.Nullable private String fileUri;
+    @jakarta.annotation.Nullable private String fileUri;
 
     public static final String SERIALIZED_NAME_ERROR = "error";
 
     @SerializedName(SERIALIZED_NAME_ERROR)
-    @javax.annotation.Nullable private String error;
+    @jakarta.annotation.Nullable private String error;
 
     public RenderMarkdownStatusResponse() {}
 
-    public RenderMarkdownStatusResponse workflowId(@javax.annotation.Nullable String workflowId) {
+    public RenderMarkdownStatusResponse workflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
         return this;
     }
@@ -81,16 +81,16 @@ public class RenderMarkdownStatusResponse {
      * Get workflowId
      * @return workflowId
      */
-    @javax.annotation.Nullable public String getWorkflowId() {
+    @jakarta.annotation.Nullable public String getWorkflowId() {
         return workflowId;
     }
 
-    public void setWorkflowId(@javax.annotation.Nullable String workflowId) {
+    public void setWorkflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
     }
 
     public RenderMarkdownStatusResponse workflowRunId(
-            @javax.annotation.Nullable String workflowRunId) {
+            @jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
         return this;
     }
@@ -99,16 +99,16 @@ public class RenderMarkdownStatusResponse {
      * Get workflowRunId
      * @return workflowRunId
      */
-    @javax.annotation.Nullable public String getWorkflowRunId() {
+    @jakarta.annotation.Nullable public String getWorkflowRunId() {
         return workflowRunId;
     }
 
-    public void setWorkflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public void setWorkflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
     }
 
     public RenderMarkdownStatusResponse status(
-            @javax.annotation.Nonnull WorkflowExecutionStatus status) {
+            @jakarta.annotation.Nonnull WorkflowExecutionStatus status) {
         this.status = status;
         return this;
     }
@@ -117,17 +117,17 @@ public class RenderMarkdownStatusResponse {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public WorkflowExecutionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull WorkflowExecutionStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull WorkflowExecutionStatus status) {
         this.status = status;
     }
 
     public RenderMarkdownStatusResponse format(
-            @javax.annotation.Nullable MarkdownRenditionFormat format) {
+            @jakarta.annotation.Nullable MarkdownRenditionFormat format) {
         this.format = format;
         return this;
     }
@@ -136,15 +136,16 @@ public class RenderMarkdownStatusResponse {
      * Requested output format (if known)
      * @return format
      */
-    @javax.annotation.Nullable public MarkdownRenditionFormat getFormat() {
+    @jakarta.annotation.Nullable public MarkdownRenditionFormat getFormat() {
         return format;
     }
 
-    public void setFormat(@javax.annotation.Nullable MarkdownRenditionFormat format) {
+    public void setFormat(@jakarta.annotation.Nullable MarkdownRenditionFormat format) {
         this.format = format;
     }
 
-    public RenderMarkdownStatusResponse downloadUrl(@javax.annotation.Nullable String downloadUrl) {
+    public RenderMarkdownStatusResponse downloadUrl(
+            @jakarta.annotation.Nullable String downloadUrl) {
         this.downloadUrl = downloadUrl;
         return this;
     }
@@ -153,15 +154,15 @@ public class RenderMarkdownStatusResponse {
      * Download URL for completed output
      * @return downloadUrl
      */
-    @javax.annotation.Nullable public String getDownloadUrl() {
+    @jakarta.annotation.Nullable public String getDownloadUrl() {
         return downloadUrl;
     }
 
-    public void setDownloadUrl(@javax.annotation.Nullable String downloadUrl) {
+    public void setDownloadUrl(@jakarta.annotation.Nullable String downloadUrl) {
         this.downloadUrl = downloadUrl;
     }
 
-    public RenderMarkdownStatusResponse fileUri(@javax.annotation.Nullable String fileUri) {
+    public RenderMarkdownStatusResponse fileUri(@jakarta.annotation.Nullable String fileUri) {
         this.fileUri = fileUri;
         return this;
     }
@@ -170,15 +171,15 @@ public class RenderMarkdownStatusResponse {
      * File URI in storage for completed output
      * @return fileUri
      */
-    @javax.annotation.Nullable public String getFileUri() {
+    @jakarta.annotation.Nullable public String getFileUri() {
         return fileUri;
     }
 
-    public void setFileUri(@javax.annotation.Nullable String fileUri) {
+    public void setFileUri(@jakarta.annotation.Nullable String fileUri) {
         this.fileUri = fileUri;
     }
 
-    public RenderMarkdownStatusResponse error(@javax.annotation.Nullable String error) {
+    public RenderMarkdownStatusResponse error(@jakarta.annotation.Nullable String error) {
         this.error = error;
         return this;
     }
@@ -187,11 +188,11 @@ public class RenderMarkdownStatusResponse {
      * Error details for failed/terminated runs
      * @return error
      */
-    @javax.annotation.Nullable public String getError() {
+    @jakarta.annotation.Nullable public String getError() {
         return error;
     }
 
-    public void setError(@javax.annotation.Nullable String error) {
+    public void setError(@jakarta.annotation.Nullable String error) {
         this.error = error;
     }
 

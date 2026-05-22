@@ -30,35 +30,35 @@ import java.util.Objects;
 /**
  * Initial response when starting a markdown rendering workflow. Clients should poll status using workflow_id/workflow_run_id.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RenderMarkdownStartResponse {
     public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflow_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
-    @javax.annotation.Nullable private String workflowId;
+    @jakarta.annotation.Nullable private String workflowId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_RUN_ID = "workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_RUN_ID)
-    @javax.annotation.Nullable private String workflowRunId;
+    @jakarta.annotation.Nullable private String workflowRunId;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private WorkflowExecutionStatus status;
 
     public static final String SERIALIZED_NAME_FORMAT = "format";
 
     @SerializedName(SERIALIZED_NAME_FORMAT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private MarkdownRenditionFormat format;
 
     public RenderMarkdownStartResponse() {}
 
-    public RenderMarkdownStartResponse workflowId(@javax.annotation.Nullable String workflowId) {
+    public RenderMarkdownStartResponse workflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
         return this;
     }
@@ -67,16 +67,16 @@ public class RenderMarkdownStartResponse {
      * Get workflowId
      * @return workflowId
      */
-    @javax.annotation.Nullable public String getWorkflowId() {
+    @jakarta.annotation.Nullable public String getWorkflowId() {
         return workflowId;
     }
 
-    public void setWorkflowId(@javax.annotation.Nullable String workflowId) {
+    public void setWorkflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
     }
 
     public RenderMarkdownStartResponse workflowRunId(
-            @javax.annotation.Nullable String workflowRunId) {
+            @jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
         return this;
     }
@@ -85,16 +85,16 @@ public class RenderMarkdownStartResponse {
      * Get workflowRunId
      * @return workflowRunId
      */
-    @javax.annotation.Nullable public String getWorkflowRunId() {
+    @jakarta.annotation.Nullable public String getWorkflowRunId() {
         return workflowRunId;
     }
 
-    public void setWorkflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public void setWorkflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
     }
 
     public RenderMarkdownStartResponse status(
-            @javax.annotation.Nonnull WorkflowExecutionStatus status) {
+            @jakarta.annotation.Nonnull WorkflowExecutionStatus status) {
         this.status = status;
         return this;
     }
@@ -103,17 +103,17 @@ public class RenderMarkdownStartResponse {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public WorkflowExecutionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull WorkflowExecutionStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull WorkflowExecutionStatus status) {
         this.status = status;
     }
 
     public RenderMarkdownStartResponse format(
-            @javax.annotation.Nonnull MarkdownRenditionFormat format) {
+            @jakarta.annotation.Nonnull MarkdownRenditionFormat format) {
         this.format = format;
         return this;
     }
@@ -122,12 +122,12 @@ public class RenderMarkdownStartResponse {
      * Requested output format
      * @return format
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public MarkdownRenditionFormat getFormat() {
         return format;
     }
 
-    public void setFormat(@javax.annotation.Nonnull MarkdownRenditionFormat format) {
+    public void setFormat(@jakarta.annotation.Nonnull MarkdownRenditionFormat format) {
         this.format = format;
     }
 

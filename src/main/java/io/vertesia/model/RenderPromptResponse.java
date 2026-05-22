@@ -30,43 +30,43 @@ import java.util.Objects;
 /**
  * RenderPromptResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RenderPromptResponse {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String role;
 
     public static final String SERIALIZED_NAME_CONTENT_TYPE = "content_type";
 
     @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String contentType;
 
     public static final String SERIALIZED_NAME_RENDERED = "rendered";
 
     @SerializedName(SERIALIZED_NAME_RENDERED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String rendered;
 
     public RenderPromptResponse() {}
 
-    public RenderPromptResponse id(@javax.annotation.Nonnull String id) {
+    public RenderPromptResponse id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -75,16 +75,16 @@ public class RenderPromptResponse {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public RenderPromptResponse name(@javax.annotation.Nonnull String name) {
+    public RenderPromptResponse name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -93,16 +93,16 @@ public class RenderPromptResponse {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public RenderPromptResponse role(@javax.annotation.Nonnull String role) {
+    public RenderPromptResponse role(@jakarta.annotation.Nonnull String role) {
         this.role = role;
         return this;
     }
@@ -111,16 +111,16 @@ public class RenderPromptResponse {
      * Get role
      * @return role
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRole() {
         return role;
     }
 
-    public void setRole(@javax.annotation.Nonnull String role) {
+    public void setRole(@jakarta.annotation.Nonnull String role) {
         this.role = role;
     }
 
-    public RenderPromptResponse contentType(@javax.annotation.Nonnull String contentType) {
+    public RenderPromptResponse contentType(@jakarta.annotation.Nonnull String contentType) {
         this.contentType = contentType;
         return this;
     }
@@ -129,16 +129,16 @@ public class RenderPromptResponse {
      * Get contentType
      * @return contentType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getContentType() {
         return contentType;
     }
 
-    public void setContentType(@javax.annotation.Nonnull String contentType) {
+    public void setContentType(@jakarta.annotation.Nonnull String contentType) {
         this.contentType = contentType;
     }
 
-    public RenderPromptResponse rendered(@javax.annotation.Nonnull String rendered) {
+    public RenderPromptResponse rendered(@jakarta.annotation.Nonnull String rendered) {
         this.rendered = rendered;
         return this;
     }
@@ -147,12 +147,12 @@ public class RenderPromptResponse {
      * Get rendered
      * @return rendered
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRendered() {
         return rendered;
     }
 
-    public void setRendered(@javax.annotation.Nonnull String rendered) {
+    public void setRendered(@jakarta.annotation.Nonnull String rendered) {
         this.rendered = rendered;
     }
 

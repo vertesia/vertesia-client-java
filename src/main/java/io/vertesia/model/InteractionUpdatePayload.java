@@ -38,114 +38,114 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * InteractionUpdatePayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InteractionUpdatePayload {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private InteractionStatus status;
+    @jakarta.annotation.Nullable private InteractionStatus status;
 
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private String parent;
+    @jakarta.annotation.Nullable private String parent;
 
     public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
     @SerializedName(SERIALIZED_NAME_VISIBILITY)
-    @javax.annotation.Nullable private InteractionVisibility visibility;
+    @jakarta.annotation.Nullable private InteractionVisibility visibility;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nullable private BigDecimal version;
+    @jakarta.annotation.Nullable private BigDecimal version;
 
     public static final String SERIALIZED_NAME_TEST_DATA = "test_data";
 
     @SerializedName(SERIALIZED_NAME_TEST_DATA)
-    @javax.annotation.Nullable private Map<String, Object> testData = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> testData = new HashMap<>();
 
     public static final String SERIALIZED_NAME_INTERACTION_SCHEMA = "interaction_schema";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION_SCHEMA)
-    @javax.annotation.Nullable private InteractionResultSchema interactionSchema;
+    @jakarta.annotation.Nullable private InteractionResultSchema interactionSchema;
 
     public static final String SERIALIZED_NAME_CACHE_POLICY = "cache_policy";
 
     @SerializedName(SERIALIZED_NAME_CACHE_POLICY)
-    @javax.annotation.Nullable private CachePolicy cachePolicy;
+    @jakarta.annotation.Nullable private CachePolicy cachePolicy;
 
     public static final String SERIALIZED_NAME_PROMPTS = "prompts";
 
     @SerializedName(SERIALIZED_NAME_PROMPTS)
-    @javax.annotation.Nullable private List<PromptSegmentDef> prompts = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<PromptSegmentDef> prompts = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LAST_PUBLISHED_AT = "last_published_at";
 
     @SerializedName(SERIALIZED_NAME_LAST_PUBLISHED_AT)
-    @javax.annotation.Nullable private OffsetDateTime lastPublishedAt;
+    @jakarta.annotation.Nullable private OffsetDateTime lastPublishedAt;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_ENDPOINT = "endpoint";
 
     @SerializedName(SERIALIZED_NAME_ENDPOINT)
-    @javax.annotation.Nullable private String endpoint;
+    @jakarta.annotation.Nullable private String endpoint;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_AGENT_RUNNER_OPTIONS = "agent_runner_options";
 
     @SerializedName(SERIALIZED_NAME_AGENT_RUNNER_OPTIONS)
-    @javax.annotation.Nullable private AgentRunnerOptions agentRunnerOptions;
+    @jakarta.annotation.Nullable private AgentRunnerOptions agentRunnerOptions;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @javax.annotation.Nullable private InteractionEnvironment environment;
+    @jakarta.annotation.Nullable private InteractionEnvironment environment;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nullable private String model;
+    @jakarta.annotation.Nullable private String model;
 
     public static final String SERIALIZED_NAME_MODEL_OPTIONS = "model_options";
 
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
-    @javax.annotation.Nullable private ModelOptions modelOptions;
+    @jakarta.annotation.Nullable private ModelOptions modelOptions;
 
     public static final String SERIALIZED_NAME_RESTRICTION = "restriction";
 
     @SerializedName(SERIALIZED_NAME_RESTRICTION)
-    @javax.annotation.Nullable private RunDataStorageLevel restriction;
+    @jakarta.annotation.Nullable private RunDataStorageLevel restriction;
 
     public static final String SERIALIZED_NAME_OUTPUT_MODALITY = "output_modality";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_OUTPUT_MODALITY)
-    @javax.annotation.Nullable private Modalities outputModality;
+    @jakarta.annotation.Nullable private Modalities outputModality;
 
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema resultSchema;
+    @jakarta.annotation.Nullable private JSONSchema resultSchema;
 
     public InteractionUpdatePayload() {}
 
-    public InteractionUpdatePayload status(@javax.annotation.Nullable InteractionStatus status) {
+    public InteractionUpdatePayload status(@jakarta.annotation.Nullable InteractionStatus status) {
         this.status = status;
         return this;
     }
@@ -154,15 +154,15 @@ public class InteractionUpdatePayload {
      * Get status
      * @return status
      */
-    @javax.annotation.Nullable public InteractionStatus getStatus() {
+    @jakarta.annotation.Nullable public InteractionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable InteractionStatus status) {
+    public void setStatus(@jakarta.annotation.Nullable InteractionStatus status) {
         this.status = status;
     }
 
-    public InteractionUpdatePayload parent(@javax.annotation.Nullable String parent) {
+    public InteractionUpdatePayload parent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
         return this;
     }
@@ -171,16 +171,16 @@ public class InteractionUpdatePayload {
      * Get parent
      * @return parent
      */
-    @javax.annotation.Nullable public String getParent() {
+    @jakarta.annotation.Nullable public String getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable String parent) {
+    public void setParent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
     }
 
     public InteractionUpdatePayload visibility(
-            @javax.annotation.Nullable InteractionVisibility visibility) {
+            @jakarta.annotation.Nullable InteractionVisibility visibility) {
         this.visibility = visibility;
         return this;
     }
@@ -189,15 +189,15 @@ public class InteractionUpdatePayload {
      * Get visibility
      * @return visibility
      */
-    @javax.annotation.Nullable public InteractionVisibility getVisibility() {
+    @jakarta.annotation.Nullable public InteractionVisibility getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(@javax.annotation.Nullable InteractionVisibility visibility) {
+    public void setVisibility(@jakarta.annotation.Nullable InteractionVisibility visibility) {
         this.visibility = visibility;
     }
 
-    public InteractionUpdatePayload version(@javax.annotation.Nullable BigDecimal version) {
+    public InteractionUpdatePayload version(@jakarta.annotation.Nullable BigDecimal version) {
         this.version = version;
         return this;
     }
@@ -206,16 +206,16 @@ public class InteractionUpdatePayload {
      * Get version
      * @return version
      */
-    @javax.annotation.Nullable public BigDecimal getVersion() {
+    @jakarta.annotation.Nullable public BigDecimal getVersion() {
         return version;
     }
 
-    public void setVersion(@javax.annotation.Nullable BigDecimal version) {
+    public void setVersion(@jakarta.annotation.Nullable BigDecimal version) {
         this.version = version;
     }
 
     public InteractionUpdatePayload testData(
-            @javax.annotation.Nullable Map<String, Object> testData) {
+            @jakarta.annotation.Nullable Map<String, Object> testData) {
         this.testData = testData;
         return this;
     }
@@ -232,16 +232,16 @@ public class InteractionUpdatePayload {
      * Get testData
      * @return testData
      */
-    @javax.annotation.Nullable public Map<String, Object> getTestData() {
+    @jakarta.annotation.Nullable public Map<String, Object> getTestData() {
         return testData;
     }
 
-    public void setTestData(@javax.annotation.Nullable Map<String, Object> testData) {
+    public void setTestData(@jakarta.annotation.Nullable Map<String, Object> testData) {
         this.testData = testData;
     }
 
     public InteractionUpdatePayload interactionSchema(
-            @javax.annotation.Nullable InteractionResultSchema interactionSchema) {
+            @jakarta.annotation.Nullable InteractionResultSchema interactionSchema) {
         this.interactionSchema = interactionSchema;
         return this;
     }
@@ -250,17 +250,17 @@ public class InteractionUpdatePayload {
      * Get interactionSchema
      * @return interactionSchema
      */
-    @javax.annotation.Nullable public InteractionResultSchema getInteractionSchema() {
+    @jakarta.annotation.Nullable public InteractionResultSchema getInteractionSchema() {
         return interactionSchema;
     }
 
     public void setInteractionSchema(
-            @javax.annotation.Nullable InteractionResultSchema interactionSchema) {
+            @jakarta.annotation.Nullable InteractionResultSchema interactionSchema) {
         this.interactionSchema = interactionSchema;
     }
 
     public InteractionUpdatePayload cachePolicy(
-            @javax.annotation.Nullable CachePolicy cachePolicy) {
+            @jakarta.annotation.Nullable CachePolicy cachePolicy) {
         this.cachePolicy = cachePolicy;
         return this;
     }
@@ -269,16 +269,16 @@ public class InteractionUpdatePayload {
      * Get cachePolicy
      * @return cachePolicy
      */
-    @javax.annotation.Nullable public CachePolicy getCachePolicy() {
+    @jakarta.annotation.Nullable public CachePolicy getCachePolicy() {
         return cachePolicy;
     }
 
-    public void setCachePolicy(@javax.annotation.Nullable CachePolicy cachePolicy) {
+    public void setCachePolicy(@jakarta.annotation.Nullable CachePolicy cachePolicy) {
         this.cachePolicy = cachePolicy;
     }
 
     public InteractionUpdatePayload prompts(
-            @javax.annotation.Nullable List<PromptSegmentDef> prompts) {
+            @jakarta.annotation.Nullable List<PromptSegmentDef> prompts) {
         this.prompts = prompts;
         return this;
     }
@@ -295,16 +295,16 @@ public class InteractionUpdatePayload {
      * Get prompts
      * @return prompts
      */
-    @javax.annotation.Nullable public List<PromptSegmentDef> getPrompts() {
+    @jakarta.annotation.Nullable public List<PromptSegmentDef> getPrompts() {
         return prompts;
     }
 
-    public void setPrompts(@javax.annotation.Nullable List<PromptSegmentDef> prompts) {
+    public void setPrompts(@jakarta.annotation.Nullable List<PromptSegmentDef> prompts) {
         this.prompts = prompts;
     }
 
     public InteractionUpdatePayload lastPublishedAt(
-            @javax.annotation.Nullable OffsetDateTime lastPublishedAt) {
+            @jakarta.annotation.Nullable OffsetDateTime lastPublishedAt) {
         this.lastPublishedAt = lastPublishedAt;
         return this;
     }
@@ -313,15 +313,15 @@ public class InteractionUpdatePayload {
      * Get lastPublishedAt
      * @return lastPublishedAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getLastPublishedAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getLastPublishedAt() {
         return lastPublishedAt;
     }
 
-    public void setLastPublishedAt(@javax.annotation.Nullable OffsetDateTime lastPublishedAt) {
+    public void setLastPublishedAt(@jakarta.annotation.Nullable OffsetDateTime lastPublishedAt) {
         this.lastPublishedAt = lastPublishedAt;
     }
 
-    public InteractionUpdatePayload name(@javax.annotation.Nullable String name) {
+    public InteractionUpdatePayload name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -330,15 +330,15 @@ public class InteractionUpdatePayload {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public InteractionUpdatePayload endpoint(@javax.annotation.Nullable String endpoint) {
+    public InteractionUpdatePayload endpoint(@jakarta.annotation.Nullable String endpoint) {
         this.endpoint = endpoint;
         return this;
     }
@@ -347,15 +347,15 @@ public class InteractionUpdatePayload {
      * Get endpoint
      * @return endpoint
      */
-    @javax.annotation.Nullable public String getEndpoint() {
+    @jakarta.annotation.Nullable public String getEndpoint() {
         return endpoint;
     }
 
-    public void setEndpoint(@javax.annotation.Nullable String endpoint) {
+    public void setEndpoint(@jakarta.annotation.Nullable String endpoint) {
         this.endpoint = endpoint;
     }
 
-    public InteractionUpdatePayload description(@javax.annotation.Nullable String description) {
+    public InteractionUpdatePayload description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -364,15 +364,15 @@ public class InteractionUpdatePayload {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public InteractionUpdatePayload tags(@javax.annotation.Nullable List<String> tags) {
+    public InteractionUpdatePayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -389,16 +389,16 @@ public class InteractionUpdatePayload {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
     public InteractionUpdatePayload agentRunnerOptions(
-            @javax.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
+            @jakarta.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
         this.agentRunnerOptions = agentRunnerOptions;
         return this;
     }
@@ -407,17 +407,17 @@ public class InteractionUpdatePayload {
      * Get agentRunnerOptions
      * @return agentRunnerOptions
      */
-    @javax.annotation.Nullable public AgentRunnerOptions getAgentRunnerOptions() {
+    @jakarta.annotation.Nullable public AgentRunnerOptions getAgentRunnerOptions() {
         return agentRunnerOptions;
     }
 
     public void setAgentRunnerOptions(
-            @javax.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
+            @jakarta.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
         this.agentRunnerOptions = agentRunnerOptions;
     }
 
     public InteractionUpdatePayload environment(
-            @javax.annotation.Nullable InteractionEnvironment environment) {
+            @jakarta.annotation.Nullable InteractionEnvironment environment) {
         this.environment = environment;
         return this;
     }
@@ -426,15 +426,15 @@ public class InteractionUpdatePayload {
      * Get environment
      * @return environment
      */
-    @javax.annotation.Nullable public InteractionEnvironment getEnvironment() {
+    @jakarta.annotation.Nullable public InteractionEnvironment getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@javax.annotation.Nullable InteractionEnvironment environment) {
+    public void setEnvironment(@jakarta.annotation.Nullable InteractionEnvironment environment) {
         this.environment = environment;
     }
 
-    public InteractionUpdatePayload model(@javax.annotation.Nullable String model) {
+    public InteractionUpdatePayload model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
@@ -443,16 +443,16 @@ public class InteractionUpdatePayload {
      * Get model
      * @return model
      */
-    @javax.annotation.Nullable public String getModel() {
+    @jakarta.annotation.Nullable public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nullable String model) {
+    public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
     }
 
     public InteractionUpdatePayload modelOptions(
-            @javax.annotation.Nullable ModelOptions modelOptions) {
+            @jakarta.annotation.Nullable ModelOptions modelOptions) {
         this.modelOptions = modelOptions;
         return this;
     }
@@ -461,16 +461,16 @@ public class InteractionUpdatePayload {
      * Get modelOptions
      * @return modelOptions
      */
-    @javax.annotation.Nullable public ModelOptions getModelOptions() {
+    @jakarta.annotation.Nullable public ModelOptions getModelOptions() {
         return modelOptions;
     }
 
-    public void setModelOptions(@javax.annotation.Nullable ModelOptions modelOptions) {
+    public void setModelOptions(@jakarta.annotation.Nullable ModelOptions modelOptions) {
         this.modelOptions = modelOptions;
     }
 
     public InteractionUpdatePayload restriction(
-            @javax.annotation.Nullable RunDataStorageLevel restriction) {
+            @jakarta.annotation.Nullable RunDataStorageLevel restriction) {
         this.restriction = restriction;
         return this;
     }
@@ -479,17 +479,17 @@ public class InteractionUpdatePayload {
      * Get restriction
      * @return restriction
      */
-    @javax.annotation.Nullable public RunDataStorageLevel getRestriction() {
+    @jakarta.annotation.Nullable public RunDataStorageLevel getRestriction() {
         return restriction;
     }
 
-    public void setRestriction(@javax.annotation.Nullable RunDataStorageLevel restriction) {
+    public void setRestriction(@jakarta.annotation.Nullable RunDataStorageLevel restriction) {
         this.restriction = restriction;
     }
 
     @Deprecated
     public InteractionUpdatePayload outputModality(
-            @javax.annotation.Nullable Modalities outputModality) {
+            @jakarta.annotation.Nullable Modalities outputModality) {
         this.outputModality = outputModality;
         return this;
     }
@@ -500,17 +500,17 @@ public class InteractionUpdatePayload {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nullable public Modalities getOutputModality() {
+    @jakarta.annotation.Nullable public Modalities getOutputModality() {
         return outputModality;
     }
 
     @Deprecated
-    public void setOutputModality(@javax.annotation.Nullable Modalities outputModality) {
+    public void setOutputModality(@jakarta.annotation.Nullable Modalities outputModality) {
         this.outputModality = outputModality;
     }
 
     public InteractionUpdatePayload resultSchema(
-            @javax.annotation.Nullable JSONSchema resultSchema) {
+            @jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
         return this;
     }
@@ -519,11 +519,11 @@ public class InteractionUpdatePayload {
      * Get resultSchema
      * @return resultSchema
      */
-    @javax.annotation.Nullable public JSONSchema getResultSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getResultSchema() {
         return resultSchema;
     }
 
-    public void setResultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public void setResultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
     }
 

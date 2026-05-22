@@ -31,19 +31,20 @@ import java.util.Objects;
 /**
  * PromptTemplateInteractionVersion
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromptTemplateInteractionVersion {
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal version;
 
     public PromptTemplateInteractionVersion() {}
 
-    public PromptTemplateInteractionVersion version(@javax.annotation.Nonnull BigDecimal version) {
+    public PromptTemplateInteractionVersion version(
+            @jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
         return this;
     }
@@ -52,12 +53,12 @@ public class PromptTemplateInteractionVersion {
      * Get version
      * @return version
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getVersion() {
         return version;
     }
 
-    public void setVersion(@javax.annotation.Nonnull BigDecimal version) {
+    public void setVersion(@jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
     }
 

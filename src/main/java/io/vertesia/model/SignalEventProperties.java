@@ -35,7 +35,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * Signal event properties for workflow events
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class SignalEventProperties {
@@ -97,37 +97,37 @@ public class SignalEventProperties {
     public static final String SERIALIZED_NAME_DIRECTION = "direction";
 
     @SerializedName(SERIALIZED_NAME_DIRECTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DirectionEnum direction;
 
     public static final String SERIALIZED_NAME_SIGNAL_NAME = "signalName";
 
     @SerializedName(SERIALIZED_NAME_SIGNAL_NAME)
-    @javax.annotation.Nullable private String signalName;
+    @jakarta.annotation.Nullable private String signalName;
 
     public static final String SERIALIZED_NAME_INPUT = "input";
 
     @SerializedName(SERIALIZED_NAME_INPUT)
-    @javax.annotation.Nullable private Object input = null;
+    @jakarta.annotation.Nullable private Object input = null;
 
     public static final String SERIALIZED_NAME_SENDER = "sender";
 
     @SerializedName(SERIALIZED_NAME_SENDER)
-    @javax.annotation.Nullable private SignalEventPropertiesSender sender;
+    @jakarta.annotation.Nullable private SignalEventPropertiesSender sender;
 
     public static final String SERIALIZED_NAME_RECIPIENT = "recipient";
 
     @SerializedName(SERIALIZED_NAME_RECIPIENT)
-    @javax.annotation.Nullable private SignalEventPropertiesSender recipient;
+    @jakarta.annotation.Nullable private SignalEventPropertiesSender recipient;
 
     public static final String SERIALIZED_NAME_INITIATED_EVENT_ID = "initiatedEventId";
 
     @SerializedName(SERIALIZED_NAME_INITIATED_EVENT_ID)
-    @javax.annotation.Nullable private String initiatedEventId;
+    @jakarta.annotation.Nullable private String initiatedEventId;
 
     public SignalEventProperties() {}
 
-    public SignalEventProperties direction(@javax.annotation.Nonnull DirectionEnum direction) {
+    public SignalEventProperties direction(@jakarta.annotation.Nonnull DirectionEnum direction) {
         this.direction = direction;
         return this;
     }
@@ -136,16 +136,16 @@ public class SignalEventProperties {
      * Get direction
      * @return direction
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DirectionEnum getDirection() {
         return direction;
     }
 
-    public void setDirection(@javax.annotation.Nonnull DirectionEnum direction) {
+    public void setDirection(@jakarta.annotation.Nonnull DirectionEnum direction) {
         this.direction = direction;
     }
 
-    public SignalEventProperties signalName(@javax.annotation.Nullable String signalName) {
+    public SignalEventProperties signalName(@jakarta.annotation.Nullable String signalName) {
         this.signalName = signalName;
         return this;
     }
@@ -154,15 +154,15 @@ public class SignalEventProperties {
      * Get signalName
      * @return signalName
      */
-    @javax.annotation.Nullable public String getSignalName() {
+    @jakarta.annotation.Nullable public String getSignalName() {
         return signalName;
     }
 
-    public void setSignalName(@javax.annotation.Nullable String signalName) {
+    public void setSignalName(@jakarta.annotation.Nullable String signalName) {
         this.signalName = signalName;
     }
 
-    public SignalEventProperties input(@javax.annotation.Nullable Object input) {
+    public SignalEventProperties input(@jakarta.annotation.Nullable Object input) {
         this.input = input;
         return this;
     }
@@ -171,16 +171,16 @@ public class SignalEventProperties {
      * Get input
      * @return input
      */
-    @javax.annotation.Nullable public Object getInput() {
+    @jakarta.annotation.Nullable public Object getInput() {
         return input;
     }
 
-    public void setInput(@javax.annotation.Nullable Object input) {
+    public void setInput(@jakarta.annotation.Nullable Object input) {
         this.input = input;
     }
 
     public SignalEventProperties sender(
-            @javax.annotation.Nullable SignalEventPropertiesSender sender) {
+            @jakarta.annotation.Nullable SignalEventPropertiesSender sender) {
         this.sender = sender;
         return this;
     }
@@ -189,16 +189,16 @@ public class SignalEventProperties {
      * Get sender
      * @return sender
      */
-    @javax.annotation.Nullable public SignalEventPropertiesSender getSender() {
+    @jakarta.annotation.Nullable public SignalEventPropertiesSender getSender() {
         return sender;
     }
 
-    public void setSender(@javax.annotation.Nullable SignalEventPropertiesSender sender) {
+    public void setSender(@jakarta.annotation.Nullable SignalEventPropertiesSender sender) {
         this.sender = sender;
     }
 
     public SignalEventProperties recipient(
-            @javax.annotation.Nullable SignalEventPropertiesSender recipient) {
+            @jakarta.annotation.Nullable SignalEventPropertiesSender recipient) {
         this.recipient = recipient;
         return this;
     }
@@ -207,16 +207,16 @@ public class SignalEventProperties {
      * Get recipient
      * @return recipient
      */
-    @javax.annotation.Nullable public SignalEventPropertiesSender getRecipient() {
+    @jakarta.annotation.Nullable public SignalEventPropertiesSender getRecipient() {
         return recipient;
     }
 
-    public void setRecipient(@javax.annotation.Nullable SignalEventPropertiesSender recipient) {
+    public void setRecipient(@jakarta.annotation.Nullable SignalEventPropertiesSender recipient) {
         this.recipient = recipient;
     }
 
     public SignalEventProperties initiatedEventId(
-            @javax.annotation.Nullable String initiatedEventId) {
+            @jakarta.annotation.Nullable String initiatedEventId) {
         this.initiatedEventId = initiatedEventId;
         return this;
     }
@@ -225,11 +225,11 @@ public class SignalEventProperties {
      * Get initiatedEventId
      * @return initiatedEventId
      */
-    @javax.annotation.Nullable public String getInitiatedEventId() {
+    @jakarta.annotation.Nullable public String getInitiatedEventId() {
         return initiatedEventId;
     }
 
-    public void setInitiatedEventId(@javax.annotation.Nullable String initiatedEventId) {
+    public void setInitiatedEventId(@jakarta.annotation.Nullable String initiatedEventId) {
         this.initiatedEventId = initiatedEventId;
     }
 

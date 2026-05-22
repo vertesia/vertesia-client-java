@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * File reference with URL and mimetype
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WorkflowInputFile {
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String url;
 
     public static final String SERIALIZED_NAME_MIMETYPE = "mimetype";
 
     @SerializedName(SERIALIZED_NAME_MIMETYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String mimetype;
 
     public WorkflowInputFile() {}
 
-    public WorkflowInputFile url(@javax.annotation.Nonnull String url) {
+    public WorkflowInputFile url(@jakarta.annotation.Nonnull String url) {
         this.url = url;
         return this;
     }
@@ -57,16 +57,16 @@ public class WorkflowInputFile {
      * Get url
      * @return url
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nonnull String url) {
+    public void setUrl(@jakarta.annotation.Nonnull String url) {
         this.url = url;
     }
 
-    public WorkflowInputFile mimetype(@javax.annotation.Nonnull String mimetype) {
+    public WorkflowInputFile mimetype(@jakarta.annotation.Nonnull String mimetype) {
         this.mimetype = mimetype;
         return this;
     }
@@ -75,12 +75,12 @@ public class WorkflowInputFile {
      * Get mimetype
      * @return mimetype
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMimetype() {
         return mimetype;
     }
 
-    public void setMimetype(@javax.annotation.Nonnull String mimetype) {
+    public void setMimetype(@jakarta.annotation.Nonnull String mimetype) {
         this.mimetype = mimetype;
     }
 

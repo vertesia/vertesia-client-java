@@ -30,35 +30,35 @@ import java.util.Objects;
 /**
  * RevisionInfo
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RevisionInfo {
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private String parent;
+    @jakarta.annotation.Nullable private String parent;
 
     public static final String SERIALIZED_NAME_ROOT = "root";
 
     @SerializedName(SERIALIZED_NAME_ROOT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String root;
 
     public static final String SERIALIZED_NAME_HEAD = "head";
 
     @SerializedName(SERIALIZED_NAME_HEAD)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean head;
 
     public static final String SERIALIZED_NAME_LABEL = "label";
 
     @SerializedName(SERIALIZED_NAME_LABEL)
-    @javax.annotation.Nullable private String label;
+    @jakarta.annotation.Nullable private String label;
 
     public RevisionInfo() {}
 
-    public RevisionInfo parent(@javax.annotation.Nullable String parent) {
+    public RevisionInfo parent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
         return this;
     }
@@ -67,15 +67,15 @@ public class RevisionInfo {
      * Direct parent revision id (omit on the first revision)
      * @return parent
      */
-    @javax.annotation.Nullable public String getParent() {
+    @jakarta.annotation.Nullable public String getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable String parent) {
+    public void setParent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
     }
 
-    public RevisionInfo root(@javax.annotation.Nonnull String root) {
+    public RevisionInfo root(@jakarta.annotation.Nonnull String root) {
         this.root = root;
         return this;
     }
@@ -84,16 +84,16 @@ public class RevisionInfo {
      * The root revision id (omit on the first revision)
      * @return root
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRoot() {
         return root;
     }
 
-    public void setRoot(@javax.annotation.Nonnull String root) {
+    public void setRoot(@jakarta.annotation.Nonnull String root) {
         this.root = root;
     }
 
-    public RevisionInfo head(@javax.annotation.Nonnull Boolean head) {
+    public RevisionInfo head(@jakarta.annotation.Nonnull Boolean head) {
         this.head = head;
         return this;
     }
@@ -102,16 +102,16 @@ public class RevisionInfo {
      * True if this revision is the head revision
      * @return head
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getHead() {
         return head;
     }
 
-    public void setHead(@javax.annotation.Nonnull Boolean head) {
+    public void setHead(@jakarta.annotation.Nonnull Boolean head) {
         this.head = head;
     }
 
-    public RevisionInfo label(@javax.annotation.Nullable String label) {
+    public RevisionInfo label(@jakarta.annotation.Nullable String label) {
         this.label = label;
         return this;
     }
@@ -120,11 +120,11 @@ public class RevisionInfo {
      * Human‑friendly tag or state (\&quot;v1.2\&quot;, \&quot;approved\&quot;)
      * @return label
      */
-    @javax.annotation.Nullable public String getLabel() {
+    @jakarta.annotation.Nullable public String getLabel() {
         return label;
     }
 
-    public void setLabel(@javax.annotation.Nullable String label) {
+    public void setLabel(@jakarta.annotation.Nullable String label) {
         this.label = label;
     }
 

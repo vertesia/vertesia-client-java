@@ -34,30 +34,30 @@ import java.util.Objects;
 /**
  * ListAgentRunsResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ListAgentRunsResponse {
     public static final String SERIALIZED_NAME_ITEMS = "items";
 
     @SerializedName(SERIALIZED_NAME_ITEMS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<AgentRunResponse> items = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TOTAL_COUNT = "total_count";
 
     @SerializedName(SERIALIZED_NAME_TOTAL_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal totalCount;
 
     public static final String SERIALIZED_NAME_NEXT_CURSOR = "next_cursor";
 
     @SerializedName(SERIALIZED_NAME_NEXT_CURSOR)
-    @javax.annotation.Nullable private String nextCursor;
+    @jakarta.annotation.Nullable private String nextCursor;
 
     public ListAgentRunsResponse() {}
 
-    public ListAgentRunsResponse items(@javax.annotation.Nonnull List<AgentRunResponse> items) {
+    public ListAgentRunsResponse items(@jakarta.annotation.Nonnull List<AgentRunResponse> items) {
         this.items = items;
         return this;
     }
@@ -74,16 +74,16 @@ public class ListAgentRunsResponse {
      * Get items
      * @return items
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<AgentRunResponse> getItems() {
         return items;
     }
 
-    public void setItems(@javax.annotation.Nonnull List<AgentRunResponse> items) {
+    public void setItems(@jakarta.annotation.Nonnull List<AgentRunResponse> items) {
         this.items = items;
     }
 
-    public ListAgentRunsResponse totalCount(@javax.annotation.Nonnull BigDecimal totalCount) {
+    public ListAgentRunsResponse totalCount(@jakarta.annotation.Nonnull BigDecimal totalCount) {
         this.totalCount = totalCount;
         return this;
     }
@@ -92,16 +92,16 @@ public class ListAgentRunsResponse {
      * Get totalCount
      * @return totalCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTotalCount() {
         return totalCount;
     }
 
-    public void setTotalCount(@javax.annotation.Nonnull BigDecimal totalCount) {
+    public void setTotalCount(@jakarta.annotation.Nonnull BigDecimal totalCount) {
         this.totalCount = totalCount;
     }
 
-    public ListAgentRunsResponse nextCursor(@javax.annotation.Nullable String nextCursor) {
+    public ListAgentRunsResponse nextCursor(@jakarta.annotation.Nullable String nextCursor) {
         this.nextCursor = nextCursor;
         return this;
     }
@@ -110,11 +110,11 @@ public class ListAgentRunsResponse {
      * Get nextCursor
      * @return nextCursor
      */
-    @javax.annotation.Nullable public String getNextCursor() {
+    @jakarta.annotation.Nullable public String getNextCursor() {
         return nextCursor;
     }
 
-    public void setNextCursor(@javax.annotation.Nullable String nextCursor) {
+    public void setNextCursor(@jakarta.annotation.Nullable String nextCursor) {
         this.nextCursor = nextCursor;
     }
 

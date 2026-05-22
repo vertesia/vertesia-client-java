@@ -34,24 +34,24 @@ import java.util.Objects;
 /**
  * The adapted table result format
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AdaptedTable {
     public static final String SERIALIZED_NAME_COMMENT = "comment";
 
     @SerializedName(SERIALIZED_NAME_COMMENT)
-    @javax.annotation.Nullable private String comment;
+    @jakarta.annotation.Nullable private String comment;
 
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<Map<String, Object>> data = new ArrayList<>();
 
     public AdaptedTable() {}
 
-    public AdaptedTable comment(@javax.annotation.Nullable String comment) {
+    public AdaptedTable comment(@jakarta.annotation.Nullable String comment) {
         this.comment = comment;
         return this;
     }
@@ -60,15 +60,15 @@ public class AdaptedTable {
      * Get comment
      * @return comment
      */
-    @javax.annotation.Nullable public String getComment() {
+    @jakarta.annotation.Nullable public String getComment() {
         return comment;
     }
 
-    public void setComment(@javax.annotation.Nullable String comment) {
+    public void setComment(@jakarta.annotation.Nullable String comment) {
         this.comment = comment;
     }
 
-    public AdaptedTable data(@javax.annotation.Nonnull List<Map<String, Object>> data) {
+    public AdaptedTable data(@jakarta.annotation.Nonnull List<Map<String, Object>> data) {
         this.data = data;
         return this;
     }
@@ -85,12 +85,12 @@ public class AdaptedTable {
      * Get data
      * @return data
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<Map<String, Object>> getData() {
         return data;
     }
 
-    public void setData(@javax.annotation.Nonnull List<Map<String, Object>> data) {
+    public void setData(@jakarta.annotation.Nonnull List<Map<String, Object>> data) {
         this.data = data;
     }
 

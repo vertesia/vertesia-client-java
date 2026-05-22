@@ -37,161 +37,161 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * ExecutionRunRef
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ExecutionRunRef {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private InteractionExecutionResultParent parent;
+    @jakarta.annotation.Nullable private InteractionExecutionResultParent parent;
 
     public static final String SERIALIZED_NAME_EVALUATION = "evaluation";
 
     @SerializedName(SERIALIZED_NAME_EVALUATION)
-    @javax.annotation.Nullable private InteractionExecutionResultEvaluation evaluation;
+    @jakarta.annotation.Nullable private InteractionExecutionResultEvaluation evaluation;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_INTERACTION_CODE = "interaction_code";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION_CODE)
-    @javax.annotation.Nullable private String interactionCode;
+    @jakarta.annotation.Nullable private String interactionCode;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ExecutionEnvironmentRef environment;
 
     public static final String SERIALIZED_NAME_MODEL_ID = "modelId";
 
     @SerializedName(SERIALIZED_NAME_MODEL_ID)
-    @javax.annotation.Nullable private String modelId;
+    @jakarta.annotation.Nullable private String modelId;
 
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema resultSchema;
+    @jakarta.annotation.Nullable private JSONSchema resultSchema;
 
     public static final String SERIALIZED_NAME_TTL = "ttl";
 
     @SerializedName(SERIALIZED_NAME_TTL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal ttl;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ExecutionRunStatus status;
 
     public static final String SERIALIZED_NAME_FINISH_REASON = "finish_reason";
 
     @SerializedName(SERIALIZED_NAME_FINISH_REASON)
-    @javax.annotation.Nullable private String finishReason;
+    @jakarta.annotation.Nullable private String finishReason;
 
     public static final String SERIALIZED_NAME_PROMPT = "prompt";
 
     @SerializedName(SERIALIZED_NAME_PROMPT)
-    @javax.annotation.Nullable private Object prompt = null;
+    @jakarta.annotation.Nullable private Object prompt = null;
 
     public static final String SERIALIZED_NAME_TOKEN_USE = "token_use";
 
     @SerializedName(SERIALIZED_NAME_TOKEN_USE)
-    @javax.annotation.Nullable private ExecutionTokenUsage tokenUse;
+    @jakarta.annotation.Nullable private ExecutionTokenUsage tokenUse;
 
     public static final String SERIALIZED_NAME_CHUNKS = "chunks";
 
     @SerializedName(SERIALIZED_NAME_CHUNKS)
-    @javax.annotation.Nullable private BigDecimal chunks;
+    @jakarta.annotation.Nullable private BigDecimal chunks;
 
     public static final String SERIALIZED_NAME_EXECUTION_TIME = "execution_time";
 
     @SerializedName(SERIALIZED_NAME_EXECUTION_TIME)
-    @javax.annotation.Nullable private BigDecimal executionTime;
+    @jakarta.annotation.Nullable private BigDecimal executionTime;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime updatedAt;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private AccountRef account;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ProjectRef project;
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private InteractionExecutionConfiguration config;
 
     public static final String SERIALIZED_NAME_ERROR = "error";
 
     @SerializedName(SERIALIZED_NAME_ERROR)
-    @javax.annotation.Nullable private InteractionExecutionError error;
+    @jakarta.annotation.Nullable private InteractionExecutionError error;
 
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private RunSource source;
 
     public static final String SERIALIZED_NAME_OUTPUT_MODALITY = "output_modality";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_OUTPUT_MODALITY)
-    @javax.annotation.Nullable private Modalities outputModality;
+    @jakarta.annotation.Nullable private Modalities outputModality;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_WORKFLOW = "workflow";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW)
-    @javax.annotation.Nullable private ExecutionRunWorkflow workflow;
+    @jakarta.annotation.Nullable private ExecutionRunWorkflow workflow;
 
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
-    @javax.annotation.Nullable private InteractionRef interaction;
+    @jakarta.annotation.Nullable private InteractionRef interaction;
 
     public ExecutionRunRef() {}
 
-    public ExecutionRunRef id(@javax.annotation.Nonnull String id) {
+    public ExecutionRunRef id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -200,17 +200,17 @@ public class ExecutionRunRef {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
     public ExecutionRunRef parent(
-            @javax.annotation.Nullable InteractionExecutionResultParent parent) {
+            @jakarta.annotation.Nullable InteractionExecutionResultParent parent) {
         this.parent = parent;
         return this;
     }
@@ -219,16 +219,16 @@ public class ExecutionRunRef {
      * Get parent
      * @return parent
      */
-    @javax.annotation.Nullable public InteractionExecutionResultParent getParent() {
+    @jakarta.annotation.Nullable public InteractionExecutionResultParent getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable InteractionExecutionResultParent parent) {
+    public void setParent(@jakarta.annotation.Nullable InteractionExecutionResultParent parent) {
         this.parent = parent;
     }
 
     public ExecutionRunRef evaluation(
-            @javax.annotation.Nullable InteractionExecutionResultEvaluation evaluation) {
+            @jakarta.annotation.Nullable InteractionExecutionResultEvaluation evaluation) {
         this.evaluation = evaluation;
         return this;
     }
@@ -237,16 +237,16 @@ public class ExecutionRunRef {
      * Get evaluation
      * @return evaluation
      */
-    @javax.annotation.Nullable public InteractionExecutionResultEvaluation getEvaluation() {
+    @jakarta.annotation.Nullable public InteractionExecutionResultEvaluation getEvaluation() {
         return evaluation;
     }
 
     public void setEvaluation(
-            @javax.annotation.Nullable InteractionExecutionResultEvaluation evaluation) {
+            @jakarta.annotation.Nullable InteractionExecutionResultEvaluation evaluation) {
         this.evaluation = evaluation;
     }
 
-    public ExecutionRunRef tags(@javax.annotation.Nullable List<String> tags) {
+    public ExecutionRunRef tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -263,15 +263,15 @@ public class ExecutionRunRef {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public ExecutionRunRef interactionCode(@javax.annotation.Nullable String interactionCode) {
+    public ExecutionRunRef interactionCode(@jakarta.annotation.Nullable String interactionCode) {
         this.interactionCode = interactionCode;
         return this;
     }
@@ -280,16 +280,16 @@ public class ExecutionRunRef {
      * Get interactionCode
      * @return interactionCode
      */
-    @javax.annotation.Nullable public String getInteractionCode() {
+    @jakarta.annotation.Nullable public String getInteractionCode() {
         return interactionCode;
     }
 
-    public void setInteractionCode(@javax.annotation.Nullable String interactionCode) {
+    public void setInteractionCode(@jakarta.annotation.Nullable String interactionCode) {
         this.interactionCode = interactionCode;
     }
 
     public ExecutionRunRef environment(
-            @javax.annotation.Nonnull ExecutionEnvironmentRef environment) {
+            @jakarta.annotation.Nonnull ExecutionEnvironmentRef environment) {
         this.environment = environment;
         return this;
     }
@@ -298,16 +298,16 @@ public class ExecutionRunRef {
      * Environment reference - populated with full object in API responses
      * @return environment
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ExecutionEnvironmentRef getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@javax.annotation.Nonnull ExecutionEnvironmentRef environment) {
+    public void setEnvironment(@jakarta.annotation.Nonnull ExecutionEnvironmentRef environment) {
         this.environment = environment;
     }
 
-    public ExecutionRunRef modelId(@javax.annotation.Nullable String modelId) {
+    public ExecutionRunRef modelId(@jakarta.annotation.Nullable String modelId) {
         this.modelId = modelId;
         return this;
     }
@@ -316,15 +316,15 @@ public class ExecutionRunRef {
      * Get modelId
      * @return modelId
      */
-    @javax.annotation.Nullable public String getModelId() {
+    @jakarta.annotation.Nullable public String getModelId() {
         return modelId;
     }
 
-    public void setModelId(@javax.annotation.Nullable String modelId) {
+    public void setModelId(@jakarta.annotation.Nullable String modelId) {
         this.modelId = modelId;
     }
 
-    public ExecutionRunRef resultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public ExecutionRunRef resultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
         return this;
     }
@@ -333,15 +333,15 @@ public class ExecutionRunRef {
      * Get resultSchema
      * @return resultSchema
      */
-    @javax.annotation.Nullable public JSONSchema getResultSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getResultSchema() {
         return resultSchema;
     }
 
-    public void setResultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public void setResultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
     }
 
-    public ExecutionRunRef ttl(@javax.annotation.Nonnull BigDecimal ttl) {
+    public ExecutionRunRef ttl(@jakarta.annotation.Nonnull BigDecimal ttl) {
         this.ttl = ttl;
         return this;
     }
@@ -350,16 +350,16 @@ public class ExecutionRunRef {
      * Get ttl
      * @return ttl
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTtl() {
         return ttl;
     }
 
-    public void setTtl(@javax.annotation.Nonnull BigDecimal ttl) {
+    public void setTtl(@jakarta.annotation.Nonnull BigDecimal ttl) {
         this.ttl = ttl;
     }
 
-    public ExecutionRunRef status(@javax.annotation.Nonnull ExecutionRunStatus status) {
+    public ExecutionRunRef status(@jakarta.annotation.Nonnull ExecutionRunStatus status) {
         this.status = status;
         return this;
     }
@@ -368,16 +368,16 @@ public class ExecutionRunRef {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ExecutionRunStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull ExecutionRunStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull ExecutionRunStatus status) {
         this.status = status;
     }
 
-    public ExecutionRunRef finishReason(@javax.annotation.Nullable String finishReason) {
+    public ExecutionRunRef finishReason(@jakarta.annotation.Nullable String finishReason) {
         this.finishReason = finishReason;
         return this;
     }
@@ -386,15 +386,15 @@ public class ExecutionRunRef {
      * Get finishReason
      * @return finishReason
      */
-    @javax.annotation.Nullable public String getFinishReason() {
+    @jakarta.annotation.Nullable public String getFinishReason() {
         return finishReason;
     }
 
-    public void setFinishReason(@javax.annotation.Nullable String finishReason) {
+    public void setFinishReason(@jakarta.annotation.Nullable String finishReason) {
         this.finishReason = finishReason;
     }
 
-    public ExecutionRunRef prompt(@javax.annotation.Nullable Object prompt) {
+    public ExecutionRunRef prompt(@jakarta.annotation.Nullable Object prompt) {
         this.prompt = prompt;
         return this;
     }
@@ -403,15 +403,15 @@ public class ExecutionRunRef {
      * Get prompt
      * @return prompt
      */
-    @javax.annotation.Nullable public Object getPrompt() {
+    @jakarta.annotation.Nullable public Object getPrompt() {
         return prompt;
     }
 
-    public void setPrompt(@javax.annotation.Nullable Object prompt) {
+    public void setPrompt(@jakarta.annotation.Nullable Object prompt) {
         this.prompt = prompt;
     }
 
-    public ExecutionRunRef tokenUse(@javax.annotation.Nullable ExecutionTokenUsage tokenUse) {
+    public ExecutionRunRef tokenUse(@jakarta.annotation.Nullable ExecutionTokenUsage tokenUse) {
         this.tokenUse = tokenUse;
         return this;
     }
@@ -420,15 +420,15 @@ public class ExecutionRunRef {
      * Get tokenUse
      * @return tokenUse
      */
-    @javax.annotation.Nullable public ExecutionTokenUsage getTokenUse() {
+    @jakarta.annotation.Nullable public ExecutionTokenUsage getTokenUse() {
         return tokenUse;
     }
 
-    public void setTokenUse(@javax.annotation.Nullable ExecutionTokenUsage tokenUse) {
+    public void setTokenUse(@jakarta.annotation.Nullable ExecutionTokenUsage tokenUse) {
         this.tokenUse = tokenUse;
     }
 
-    public ExecutionRunRef chunks(@javax.annotation.Nullable BigDecimal chunks) {
+    public ExecutionRunRef chunks(@jakarta.annotation.Nullable BigDecimal chunks) {
         this.chunks = chunks;
         return this;
     }
@@ -437,15 +437,15 @@ public class ExecutionRunRef {
      * Get chunks
      * @return chunks
      */
-    @javax.annotation.Nullable public BigDecimal getChunks() {
+    @jakarta.annotation.Nullable public BigDecimal getChunks() {
         return chunks;
     }
 
-    public void setChunks(@javax.annotation.Nullable BigDecimal chunks) {
+    public void setChunks(@jakarta.annotation.Nullable BigDecimal chunks) {
         this.chunks = chunks;
     }
 
-    public ExecutionRunRef executionTime(@javax.annotation.Nullable BigDecimal executionTime) {
+    public ExecutionRunRef executionTime(@jakarta.annotation.Nullable BigDecimal executionTime) {
         this.executionTime = executionTime;
         return this;
     }
@@ -454,15 +454,15 @@ public class ExecutionRunRef {
      * Get executionTime
      * @return executionTime
      */
-    @javax.annotation.Nullable public BigDecimal getExecutionTime() {
+    @jakarta.annotation.Nullable public BigDecimal getExecutionTime() {
         return executionTime;
     }
 
-    public void setExecutionTime(@javax.annotation.Nullable BigDecimal executionTime) {
+    public void setExecutionTime(@jakarta.annotation.Nullable BigDecimal executionTime) {
         this.executionTime = executionTime;
     }
 
-    public ExecutionRunRef createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public ExecutionRunRef createdAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -471,16 +471,16 @@ public class ExecutionRunRef {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public ExecutionRunRef updatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public ExecutionRunRef updatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -489,16 +489,16 @@ public class ExecutionRunRef {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public ExecutionRunRef account(@javax.annotation.Nonnull AccountRef account) {
+    public ExecutionRunRef account(@jakarta.annotation.Nonnull AccountRef account) {
         this.account = account;
         return this;
     }
@@ -507,16 +507,16 @@ public class ExecutionRunRef {
      * Get account
      * @return account
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public AccountRef getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nonnull AccountRef account) {
+    public void setAccount(@jakarta.annotation.Nonnull AccountRef account) {
         this.account = account;
     }
 
-    public ExecutionRunRef project(@javax.annotation.Nonnull ProjectRef project) {
+    public ExecutionRunRef project(@jakarta.annotation.Nonnull ProjectRef project) {
         this.project = project;
         return this;
     }
@@ -525,17 +525,17 @@ public class ExecutionRunRef {
      * Get project
      * @return project
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ProjectRef getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nonnull ProjectRef project) {
+    public void setProject(@jakarta.annotation.Nonnull ProjectRef project) {
         this.project = project;
     }
 
     public ExecutionRunRef config(
-            @javax.annotation.Nonnull InteractionExecutionConfiguration config) {
+            @jakarta.annotation.Nonnull InteractionExecutionConfiguration config) {
         this.config = config;
         return this;
     }
@@ -544,16 +544,16 @@ public class ExecutionRunRef {
      * Get config
      * @return config
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public InteractionExecutionConfiguration getConfig() {
         return config;
     }
 
-    public void setConfig(@javax.annotation.Nonnull InteractionExecutionConfiguration config) {
+    public void setConfig(@jakarta.annotation.Nonnull InteractionExecutionConfiguration config) {
         this.config = config;
     }
 
-    public ExecutionRunRef error(@javax.annotation.Nullable InteractionExecutionError error) {
+    public ExecutionRunRef error(@jakarta.annotation.Nullable InteractionExecutionError error) {
         this.error = error;
         return this;
     }
@@ -562,15 +562,15 @@ public class ExecutionRunRef {
      * Get error
      * @return error
      */
-    @javax.annotation.Nullable public InteractionExecutionError getError() {
+    @jakarta.annotation.Nullable public InteractionExecutionError getError() {
         return error;
     }
 
-    public void setError(@javax.annotation.Nullable InteractionExecutionError error) {
+    public void setError(@jakarta.annotation.Nullable InteractionExecutionError error) {
         this.error = error;
     }
 
-    public ExecutionRunRef source(@javax.annotation.Nonnull RunSource source) {
+    public ExecutionRunRef source(@jakarta.annotation.Nonnull RunSource source) {
         this.source = source;
         return this;
     }
@@ -579,17 +579,17 @@ public class ExecutionRunRef {
      * Get source
      * @return source
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public RunSource getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nonnull RunSource source) {
+    public void setSource(@jakarta.annotation.Nonnull RunSource source) {
         this.source = source;
     }
 
     @Deprecated
-    public ExecutionRunRef outputModality(@javax.annotation.Nullable Modalities outputModality) {
+    public ExecutionRunRef outputModality(@jakarta.annotation.Nullable Modalities outputModality) {
         this.outputModality = outputModality;
         return this;
     }
@@ -600,16 +600,16 @@ public class ExecutionRunRef {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nullable public Modalities getOutputModality() {
+    @jakarta.annotation.Nullable public Modalities getOutputModality() {
         return outputModality;
     }
 
     @Deprecated
-    public void setOutputModality(@javax.annotation.Nullable Modalities outputModality) {
+    public void setOutputModality(@jakarta.annotation.Nullable Modalities outputModality) {
         this.outputModality = outputModality;
     }
 
-    public ExecutionRunRef createdBy(@javax.annotation.Nonnull String createdBy) {
+    public ExecutionRunRef createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -618,16 +618,16 @@ public class ExecutionRunRef {
      * Get createdBy
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public ExecutionRunRef updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public ExecutionRunRef updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -636,16 +636,16 @@ public class ExecutionRunRef {
      * Get updatedBy
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public ExecutionRunRef workflow(@javax.annotation.Nullable ExecutionRunWorkflow workflow) {
+    public ExecutionRunRef workflow(@jakarta.annotation.Nullable ExecutionRunWorkflow workflow) {
         this.workflow = workflow;
         return this;
     }
@@ -654,15 +654,15 @@ public class ExecutionRunRef {
      * The Vertesia Workflow related to this Interaction Run.  This is only set when the interaction is executed as part of a workflow.
      * @return workflow
      */
-    @javax.annotation.Nullable public ExecutionRunWorkflow getWorkflow() {
+    @jakarta.annotation.Nullable public ExecutionRunWorkflow getWorkflow() {
         return workflow;
     }
 
-    public void setWorkflow(@javax.annotation.Nullable ExecutionRunWorkflow workflow) {
+    public void setWorkflow(@jakarta.annotation.Nullable ExecutionRunWorkflow workflow) {
         this.workflow = workflow;
     }
 
-    public ExecutionRunRef interaction(@javax.annotation.Nullable InteractionRef interaction) {
+    public ExecutionRunRef interaction(@jakarta.annotation.Nullable InteractionRef interaction) {
         this.interaction = interaction;
         return this;
     }
@@ -671,11 +671,11 @@ public class ExecutionRunRef {
      * Get interaction
      * @return interaction
      */
-    @javax.annotation.Nullable public InteractionRef getInteraction() {
+    @jakarta.annotation.Nullable public InteractionRef getInteraction() {
         return interaction;
     }
 
-    public void setInteraction(@javax.annotation.Nullable InteractionRef interaction) {
+    public void setInteraction(@jakarta.annotation.Nullable InteractionRef interaction) {
         this.interaction = interaction;
     }
 

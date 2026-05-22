@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * GeneratedInteractionPromptTemplate
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GeneratedInteractionPromptTemplate {
@@ -95,19 +95,19 @@ public class GeneratedInteractionPromptTemplate {
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private RoleEnum role;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_CONTENT = "content";
 
     @SerializedName(SERIALIZED_NAME_CONTENT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String content;
 
     /**
@@ -166,18 +166,18 @@ public class GeneratedInteractionPromptTemplate {
     public static final String SERIALIZED_NAME_CONTENT_TYPE = "content_type";
 
     @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ContentTypeEnum contentType;
 
     public static final String SERIALIZED_NAME_INPUT_SCHEMA = "inputSchema";
 
     @SerializedName(SERIALIZED_NAME_INPUT_SCHEMA)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private JSONSchema inputSchema;
 
     public GeneratedInteractionPromptTemplate() {}
 
-    public GeneratedInteractionPromptTemplate role(@javax.annotation.Nonnull RoleEnum role) {
+    public GeneratedInteractionPromptTemplate role(@jakarta.annotation.Nonnull RoleEnum role) {
         this.role = role;
         return this;
     }
@@ -186,16 +186,16 @@ public class GeneratedInteractionPromptTemplate {
      * Get role
      * @return role
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public RoleEnum getRole() {
         return role;
     }
 
-    public void setRole(@javax.annotation.Nonnull RoleEnum role) {
+    public void setRole(@jakarta.annotation.Nonnull RoleEnum role) {
         this.role = role;
     }
 
-    public GeneratedInteractionPromptTemplate name(@javax.annotation.Nonnull String name) {
+    public GeneratedInteractionPromptTemplate name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -204,16 +204,16 @@ public class GeneratedInteractionPromptTemplate {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public GeneratedInteractionPromptTemplate content(@javax.annotation.Nonnull String content) {
+    public GeneratedInteractionPromptTemplate content(@jakarta.annotation.Nonnull String content) {
         this.content = content;
         return this;
     }
@@ -222,17 +222,17 @@ public class GeneratedInteractionPromptTemplate {
      * Get content
      * @return content
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getContent() {
         return content;
     }
 
-    public void setContent(@javax.annotation.Nonnull String content) {
+    public void setContent(@jakarta.annotation.Nonnull String content) {
         this.content = content;
     }
 
     public GeneratedInteractionPromptTemplate contentType(
-            @javax.annotation.Nonnull ContentTypeEnum contentType) {
+            @jakarta.annotation.Nonnull ContentTypeEnum contentType) {
         this.contentType = contentType;
         return this;
     }
@@ -241,17 +241,17 @@ public class GeneratedInteractionPromptTemplate {
      * Get contentType
      * @return contentType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ContentTypeEnum getContentType() {
         return contentType;
     }
 
-    public void setContentType(@javax.annotation.Nonnull ContentTypeEnum contentType) {
+    public void setContentType(@jakarta.annotation.Nonnull ContentTypeEnum contentType) {
         this.contentType = contentType;
     }
 
     public GeneratedInteractionPromptTemplate inputSchema(
-            @javax.annotation.Nonnull JSONSchema inputSchema) {
+            @jakarta.annotation.Nonnull JSONSchema inputSchema) {
         this.inputSchema = inputSchema;
         return this;
     }
@@ -260,12 +260,12 @@ public class GeneratedInteractionPromptTemplate {
      * Get inputSchema
      * @return inputSchema
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public JSONSchema getInputSchema() {
         return inputSchema;
     }
 
-    public void setInputSchema(@javax.annotation.Nonnull JSONSchema inputSchema) {
+    public void setInputSchema(@jakarta.annotation.Nonnull JSONSchema inputSchema) {
         this.inputSchema = inputSchema;
     }
 

@@ -32,19 +32,19 @@ import java.util.Objects;
 /**
  * ProjectPluginsUpdatePayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProjectPluginsUpdatePayload {
     public static final String SERIALIZED_NAME_PLUGINS = "plugins";
 
     @SerializedName(SERIALIZED_NAME_PLUGINS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> plugins = new ArrayList<>();
 
     public ProjectPluginsUpdatePayload() {}
 
-    public ProjectPluginsUpdatePayload plugins(@javax.annotation.Nonnull List<String> plugins) {
+    public ProjectPluginsUpdatePayload plugins(@jakarta.annotation.Nonnull List<String> plugins) {
         this.plugins = plugins;
         return this;
     }
@@ -61,12 +61,12 @@ public class ProjectPluginsUpdatePayload {
      * Get plugins
      * @return plugins
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getPlugins() {
         return plugins;
     }
 
-    public void setPlugins(@javax.annotation.Nonnull List<String> plugins) {
+    public void setPlugins(@jakarta.annotation.Nonnull List<String> plugins) {
         this.plugins = plugins;
     }
 

@@ -33,30 +33,30 @@ import java.util.Objects;
 /**
  * Tool definition for LLM tool use. The input_schema uses a permissive type to support both: - AJV&#39;s JSONSchemaType&lt;T&gt; for type-safe schema generation - Plain object schemas for simpler cases
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ToolDefinition {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_INPUT_SCHEMA = "input_schema";
 
     @SerializedName(SERIALIZED_NAME_INPUT_SCHEMA)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> inputSchema = new HashMap<>();
 
     public ToolDefinition() {}
 
-    public ToolDefinition name(@javax.annotation.Nonnull String name) {
+    public ToolDefinition name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -65,16 +65,16 @@ public class ToolDefinition {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public ToolDefinition description(@javax.annotation.Nullable String description) {
+    public ToolDefinition description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -83,15 +83,15 @@ public class ToolDefinition {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public ToolDefinition inputSchema(@javax.annotation.Nonnull Map<String, Object> inputSchema) {
+    public ToolDefinition inputSchema(@jakarta.annotation.Nonnull Map<String, Object> inputSchema) {
         this.inputSchema = inputSchema;
         return this;
     }
@@ -108,12 +108,12 @@ public class ToolDefinition {
      * Get inputSchema
      * @return inputSchema
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getInputSchema() {
         return inputSchema;
     }
 
-    public void setInputSchema(@javax.annotation.Nonnull Map<String, Object> inputSchema) {
+    public void setInputSchema(@jakarta.annotation.Nonnull Map<String, Object> inputSchema) {
         this.inputSchema = inputSchema;
     }
 

@@ -31,31 +31,31 @@ import java.util.Objects;
 /**
  * TextSection
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class TextSection {
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String description;
 
     public static final String SERIALIZED_NAME_FIRST_LINE_INDEX = "first_line_index";
 
     @SerializedName(SERIALIZED_NAME_FIRST_LINE_INDEX)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal firstLineIndex;
 
     public static final String SERIALIZED_NAME_LAST_LINE_INDEX = "last_line_index";
 
     @SerializedName(SERIALIZED_NAME_LAST_LINE_INDEX)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal lastLineIndex;
 
     public TextSection() {}
 
-    public TextSection description(@javax.annotation.Nonnull String description) {
+    public TextSection description(@jakarta.annotation.Nonnull String description) {
         this.description = description;
         return this;
     }
@@ -64,16 +64,16 @@ public class TextSection {
      * Get description
      * @return description
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nonnull String description) {
+    public void setDescription(@jakarta.annotation.Nonnull String description) {
         this.description = description;
     }
 
-    public TextSection firstLineIndex(@javax.annotation.Nonnull BigDecimal firstLineIndex) {
+    public TextSection firstLineIndex(@jakarta.annotation.Nonnull BigDecimal firstLineIndex) {
         this.firstLineIndex = firstLineIndex;
         return this;
     }
@@ -82,16 +82,16 @@ public class TextSection {
      * Get firstLineIndex
      * @return firstLineIndex
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getFirstLineIndex() {
         return firstLineIndex;
     }
 
-    public void setFirstLineIndex(@javax.annotation.Nonnull BigDecimal firstLineIndex) {
+    public void setFirstLineIndex(@jakarta.annotation.Nonnull BigDecimal firstLineIndex) {
         this.firstLineIndex = firstLineIndex;
     }
 
-    public TextSection lastLineIndex(@javax.annotation.Nonnull BigDecimal lastLineIndex) {
+    public TextSection lastLineIndex(@jakarta.annotation.Nonnull BigDecimal lastLineIndex) {
         this.lastLineIndex = lastLineIndex;
         return this;
     }
@@ -100,12 +100,12 @@ public class TextSection {
      * Get lastLineIndex
      * @return lastLineIndex
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getLastLineIndex() {
         return lastLineIndex;
     }
 
-    public void setLastLineIndex(@javax.annotation.Nonnull BigDecimal lastLineIndex) {
+    public void setLastLineIndex(@jakarta.annotation.Nonnull BigDecimal lastLineIndex) {
         this.lastLineIndex = lastLineIndex;
     }
 

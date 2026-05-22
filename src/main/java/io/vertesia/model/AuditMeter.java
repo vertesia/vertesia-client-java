@@ -31,31 +31,31 @@ import java.util.Objects;
 /**
  * Generic metering entry attached to audit events. Used for cost attribution, usage tracking, and billing.  Examples:   { category: \&quot;tokens\&quot;, type: \&quot;input\&quot;, quantity: 1234 }   { category: \&quot;tokens\&quot;, type: \&quot;output\&quot;, quantity: 567 }   { category: \&quot;compute\&quot;, type: \&quot;duration_ms\&quot;, quantity: 2100 }   { category: \&quot;processing\&quot;, type: \&quot;pages\&quot;, quantity: 12 }
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AuditMeter {
     public static final String SERIALIZED_NAME_CATEGORY = "category";
 
     @SerializedName(SERIALIZED_NAME_CATEGORY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String category;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String type;
 
     public static final String SERIALIZED_NAME_QUANTITY = "quantity";
 
     @SerializedName(SERIALIZED_NAME_QUANTITY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal quantity;
 
     public AuditMeter() {}
 
-    public AuditMeter category(@javax.annotation.Nonnull String category) {
+    public AuditMeter category(@jakarta.annotation.Nonnull String category) {
         this.category = category;
         return this;
     }
@@ -64,16 +64,16 @@ public class AuditMeter {
      * Get category
      * @return category
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCategory() {
         return category;
     }
 
-    public void setCategory(@javax.annotation.Nonnull String category) {
+    public void setCategory(@jakarta.annotation.Nonnull String category) {
         this.category = category;
     }
 
-    public AuditMeter type(@javax.annotation.Nonnull String type) {
+    public AuditMeter type(@jakarta.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -82,16 +82,16 @@ public class AuditMeter {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull String type) {
+    public void setType(@jakarta.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public AuditMeter quantity(@javax.annotation.Nonnull BigDecimal quantity) {
+    public AuditMeter quantity(@jakarta.annotation.Nonnull BigDecimal quantity) {
         this.quantity = quantity;
         return this;
     }
@@ -100,12 +100,12 @@ public class AuditMeter {
      * Get quantity
      * @return quantity
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(@javax.annotation.Nonnull BigDecimal quantity) {
+    public void setQuantity(@jakarta.annotation.Nonnull BigDecimal quantity) {
         this.quantity = quantity;
     }
 

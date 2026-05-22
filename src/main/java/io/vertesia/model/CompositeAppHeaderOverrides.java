@@ -30,29 +30,29 @@ import java.util.Objects;
 /**
  * Header button visibility overrides for the CompositeApp header.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppHeaderOverrides {
     public static final String SERIALIZED_NAME_HIDE_APP_PORTAL = "hideAppPortal";
 
     @SerializedName(SERIALIZED_NAME_HIDE_APP_PORTAL)
-    @javax.annotation.Nullable private Boolean hideAppPortal;
+    @jakarta.annotation.Nullable private Boolean hideAppPortal;
 
     public static final String SERIALIZED_NAME_HIDE_DOCS = "hideDocs";
 
     @SerializedName(SERIALIZED_NAME_HIDE_DOCS)
-    @javax.annotation.Nullable private Boolean hideDocs;
+    @jakarta.annotation.Nullable private Boolean hideDocs;
 
     public static final String SERIALIZED_NAME_HIDE_HELP = "hideHelp";
 
     @SerializedName(SERIALIZED_NAME_HIDE_HELP)
-    @javax.annotation.Nullable private Boolean hideHelp;
+    @jakarta.annotation.Nullable private Boolean hideHelp;
 
     public CompositeAppHeaderOverrides() {}
 
     public CompositeAppHeaderOverrides hideAppPortal(
-            @javax.annotation.Nullable Boolean hideAppPortal) {
+            @jakarta.annotation.Nullable Boolean hideAppPortal) {
         this.hideAppPortal = hideAppPortal;
         return this;
     }
@@ -61,15 +61,15 @@ public class CompositeAppHeaderOverrides {
      * Whether to hide the App Portal button (defaults to false)
      * @return hideAppPortal
      */
-    @javax.annotation.Nullable public Boolean getHideAppPortal() {
+    @jakarta.annotation.Nullable public Boolean getHideAppPortal() {
         return hideAppPortal;
     }
 
-    public void setHideAppPortal(@javax.annotation.Nullable Boolean hideAppPortal) {
+    public void setHideAppPortal(@jakarta.annotation.Nullable Boolean hideAppPortal) {
         this.hideAppPortal = hideAppPortal;
     }
 
-    public CompositeAppHeaderOverrides hideDocs(@javax.annotation.Nullable Boolean hideDocs) {
+    public CompositeAppHeaderOverrides hideDocs(@jakarta.annotation.Nullable Boolean hideDocs) {
         this.hideDocs = hideDocs;
         return this;
     }
@@ -78,15 +78,15 @@ public class CompositeAppHeaderOverrides {
      * Whether to hide the Docs button (defaults to false)
      * @return hideDocs
      */
-    @javax.annotation.Nullable public Boolean getHideDocs() {
+    @jakarta.annotation.Nullable public Boolean getHideDocs() {
         return hideDocs;
     }
 
-    public void setHideDocs(@javax.annotation.Nullable Boolean hideDocs) {
+    public void setHideDocs(@jakarta.annotation.Nullable Boolean hideDocs) {
         this.hideDocs = hideDocs;
     }
 
-    public CompositeAppHeaderOverrides hideHelp(@javax.annotation.Nullable Boolean hideHelp) {
+    public CompositeAppHeaderOverrides hideHelp(@jakarta.annotation.Nullable Boolean hideHelp) {
         this.hideHelp = hideHelp;
         return this;
     }
@@ -95,11 +95,11 @@ public class CompositeAppHeaderOverrides {
      * Whether to hide the Help button (defaults to false)
      * @return hideHelp
      */
-    @javax.annotation.Nullable public Boolean getHideHelp() {
+    @jakarta.annotation.Nullable public Boolean getHideHelp() {
         return hideHelp;
     }
 
-    public void setHideHelp(@javax.annotation.Nullable Boolean hideHelp) {
+    public void setHideHelp(@jakarta.annotation.Nullable Boolean hideHelp) {
         this.hideHelp = hideHelp;
     }
 

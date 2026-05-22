@@ -33,45 +33,45 @@ import java.util.Objects;
 /**
  * UpdateProcessDefinitionPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UpdateProcessDefinitionPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private ProcessDefinitionStatus status;
+    @jakarta.annotation.Nullable private ProcessDefinitionStatus status;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nullable private BigDecimal version;
+    @jakarta.annotation.Nullable private BigDecimal version;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DEFINITION = "definition";
 
     @SerializedName(SERIALIZED_NAME_DEFINITION)
-    @javax.annotation.Nullable private ProcessDefinitionBody definition;
+    @jakarta.annotation.Nullable private ProcessDefinitionBody definition;
 
     public UpdateProcessDefinitionPayload() {}
 
-    public UpdateProcessDefinitionPayload name(@javax.annotation.Nullable String name) {
+    public UpdateProcessDefinitionPayload name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -80,16 +80,16 @@ public class UpdateProcessDefinitionPayload {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
     public UpdateProcessDefinitionPayload description(
-            @javax.annotation.Nullable String description) {
+            @jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -98,17 +98,17 @@ public class UpdateProcessDefinitionPayload {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
     @Deprecated
     public UpdateProcessDefinitionPayload status(
-            @javax.annotation.Nullable ProcessDefinitionStatus status) {
+            @jakarta.annotation.Nullable ProcessDefinitionStatus status) {
         this.status = status;
         return this;
     }
@@ -119,17 +119,17 @@ public class UpdateProcessDefinitionPayload {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nullable public ProcessDefinitionStatus getStatus() {
+    @jakarta.annotation.Nullable public ProcessDefinitionStatus getStatus() {
         return status;
     }
 
     @Deprecated
-    public void setStatus(@javax.annotation.Nullable ProcessDefinitionStatus status) {
+    public void setStatus(@jakarta.annotation.Nullable ProcessDefinitionStatus status) {
         this.status = status;
     }
 
     @Deprecated
-    public UpdateProcessDefinitionPayload version(@javax.annotation.Nullable BigDecimal version) {
+    public UpdateProcessDefinitionPayload version(@jakarta.annotation.Nullable BigDecimal version) {
         this.version = version;
         return this;
     }
@@ -140,16 +140,16 @@ public class UpdateProcessDefinitionPayload {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nullable public BigDecimal getVersion() {
+    @jakarta.annotation.Nullable public BigDecimal getVersion() {
         return version;
     }
 
     @Deprecated
-    public void setVersion(@javax.annotation.Nullable BigDecimal version) {
+    public void setVersion(@jakarta.annotation.Nullable BigDecimal version) {
         this.version = version;
     }
 
-    public UpdateProcessDefinitionPayload tags(@javax.annotation.Nullable List<String> tags) {
+    public UpdateProcessDefinitionPayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -166,16 +166,16 @@ public class UpdateProcessDefinitionPayload {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
     public UpdateProcessDefinitionPayload definition(
-            @javax.annotation.Nullable ProcessDefinitionBody definition) {
+            @jakarta.annotation.Nullable ProcessDefinitionBody definition) {
         this.definition = definition;
         return this;
     }
@@ -184,11 +184,11 @@ public class UpdateProcessDefinitionPayload {
      * Get definition
      * @return definition
      */
-    @javax.annotation.Nullable public ProcessDefinitionBody getDefinition() {
+    @jakarta.annotation.Nullable public ProcessDefinitionBody getDefinition() {
         return definition;
     }
 
-    public void setDefinition(@javax.annotation.Nullable ProcessDefinitionBody definition) {
+    public void setDefinition(@jakarta.annotation.Nullable ProcessDefinitionBody definition) {
         this.definition = definition;
     }
 

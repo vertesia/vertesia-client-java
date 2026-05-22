@@ -34,46 +34,46 @@ import java.util.Objects;
 /**
  * Payload for creating a new dashboard. Requires query (SQL) and spec (Vega-Lite).
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateDashboardPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_SUMMARY = "summary";
 
     @SerializedName(SERIALIZED_NAME_SUMMARY)
-    @javax.annotation.Nullable private String summary;
+    @jakarta.annotation.Nullable private String summary;
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String query;
 
     public static final String SERIALIZED_NAME_QUERY_LIMIT = "queryLimit";
 
     @SerializedName(SERIALIZED_NAME_QUERY_LIMIT)
-    @javax.annotation.Nullable private BigDecimal queryLimit;
+    @jakarta.annotation.Nullable private BigDecimal queryLimit;
 
     public static final String SERIALIZED_NAME_QUERY_PARAMETERS = "queryParameters";
 
     @SerializedName(SERIALIZED_NAME_QUERY_PARAMETERS)
-    @javax.annotation.Nullable private Map<String, String> queryParameters;
+    @jakarta.annotation.Nullable private Map<String, String> queryParameters;
 
     public static final String SERIALIZED_NAME_SPEC = "spec";
 
     @SerializedName(SERIALIZED_NAME_SPEC)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> spec = new HashMap<>();
 
     public CreateDashboardPayload() {}
 
-    public CreateDashboardPayload name(@javax.annotation.Nonnull String name) {
+    public CreateDashboardPayload name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -82,16 +82,16 @@ public class CreateDashboardPayload {
      * Dashboard name (unique within store)
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public CreateDashboardPayload summary(@javax.annotation.Nullable String summary) {
+    public CreateDashboardPayload summary(@jakarta.annotation.Nullable String summary) {
         this.summary = summary;
         return this;
     }
@@ -100,15 +100,15 @@ public class CreateDashboardPayload {
      * Dashboard summary
      * @return summary
      */
-    @javax.annotation.Nullable public String getSummary() {
+    @jakarta.annotation.Nullable public String getSummary() {
         return summary;
     }
 
-    public void setSummary(@javax.annotation.Nullable String summary) {
+    public void setSummary(@jakarta.annotation.Nullable String summary) {
         this.summary = summary;
     }
 
-    public CreateDashboardPayload query(@javax.annotation.Nonnull String query) {
+    public CreateDashboardPayload query(@jakarta.annotation.Nonnull String query) {
         this.query = query;
         return this;
     }
@@ -117,16 +117,16 @@ public class CreateDashboardPayload {
      * SQL query that returns all data for the dashboard
      * @return query
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getQuery() {
         return query;
     }
 
-    public void setQuery(@javax.annotation.Nonnull String query) {
+    public void setQuery(@jakarta.annotation.Nonnull String query) {
         this.query = query;
     }
 
-    public CreateDashboardPayload queryLimit(@javax.annotation.Nullable BigDecimal queryLimit) {
+    public CreateDashboardPayload queryLimit(@jakarta.annotation.Nullable BigDecimal queryLimit) {
         this.queryLimit = queryLimit;
         return this;
     }
@@ -135,16 +135,16 @@ public class CreateDashboardPayload {
      * Maximum rows to return from the query (default: 10000)
      * @return queryLimit
      */
-    @javax.annotation.Nullable public BigDecimal getQueryLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getQueryLimit() {
         return queryLimit;
     }
 
-    public void setQueryLimit(@javax.annotation.Nullable BigDecimal queryLimit) {
+    public void setQueryLimit(@jakarta.annotation.Nullable BigDecimal queryLimit) {
         this.queryLimit = queryLimit;
     }
 
     public CreateDashboardPayload queryParameters(
-            @javax.annotation.Nullable Map<String, String> queryParameters) {
+            @jakarta.annotation.Nullable Map<String, String> queryParameters) {
         this.queryParameters = queryParameters;
         return this;
     }
@@ -161,15 +161,16 @@ public class CreateDashboardPayload {
      * Default values for SQL {{param}} placeholders
      * @return queryParameters
      */
-    @javax.annotation.Nullable public Map<String, String> getQueryParameters() {
+    @jakarta.annotation.Nullable public Map<String, String> getQueryParameters() {
         return queryParameters;
     }
 
-    public void setQueryParameters(@javax.annotation.Nullable Map<String, String> queryParameters) {
+    public void setQueryParameters(
+            @jakarta.annotation.Nullable Map<String, String> queryParameters) {
         this.queryParameters = queryParameters;
     }
 
-    public CreateDashboardPayload spec(@javax.annotation.Nonnull Map<String, Object> spec) {
+    public CreateDashboardPayload spec(@jakarta.annotation.Nonnull Map<String, Object> spec) {
         this.spec = spec;
         return this;
     }
@@ -186,12 +187,12 @@ public class CreateDashboardPayload {
      * Complete Vega-Lite specification (use vconcat/hconcat for multiple panels)
      * @return spec
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getSpec() {
         return spec;
     }
 
-    public void setSpec(@javax.annotation.Nonnull Map<String, Object> spec) {
+    public void setSpec(@jakarta.annotation.Nonnull Map<String, Object> spec) {
         this.spec = spec;
     }
 

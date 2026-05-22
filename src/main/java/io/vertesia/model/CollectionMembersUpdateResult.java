@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * CollectionMembersUpdateResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CollectionMembersUpdateResult {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public CollectionMembersUpdateResult() {}
 
-    public CollectionMembersUpdateResult id(@javax.annotation.Nonnull String id) {
+    public CollectionMembersUpdateResult id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -51,12 +51,12 @@ public class CollectionMembersUpdateResult {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 

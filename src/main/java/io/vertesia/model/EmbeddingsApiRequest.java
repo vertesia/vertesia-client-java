@@ -34,34 +34,35 @@ import java.util.Objects;
 /**
  * EmbeddingsApiRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EmbeddingsApiRequest {
     public static final String SERIALIZED_NAME_INPUTS = "inputs";
 
     @SerializedName(SERIALIZED_NAME_INPUTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<EmbeddingsApiInput> inputs = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nullable private String model;
+    @jakarta.annotation.Nullable private String model;
 
     public static final String SERIALIZED_NAME_TASK_TYPE = "task_type";
 
     @SerializedName(SERIALIZED_NAME_TASK_TYPE)
-    @javax.annotation.Nullable private EmbeddingTaskType taskType;
+    @jakarta.annotation.Nullable private EmbeddingTaskType taskType;
 
     public static final String SERIALIZED_NAME_DIMENSIONS = "dimensions";
 
     @SerializedName(SERIALIZED_NAME_DIMENSIONS)
-    @javax.annotation.Nullable private BigDecimal dimensions;
+    @jakarta.annotation.Nullable private BigDecimal dimensions;
 
     public EmbeddingsApiRequest() {}
 
-    public EmbeddingsApiRequest inputs(@javax.annotation.Nonnull List<EmbeddingsApiInput> inputs) {
+    public EmbeddingsApiRequest inputs(
+            @jakarta.annotation.Nonnull List<EmbeddingsApiInput> inputs) {
         this.inputs = inputs;
         return this;
     }
@@ -78,16 +79,16 @@ public class EmbeddingsApiRequest {
      * Get inputs
      * @return inputs
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<EmbeddingsApiInput> getInputs() {
         return inputs;
     }
 
-    public void setInputs(@javax.annotation.Nonnull List<EmbeddingsApiInput> inputs) {
+    public void setInputs(@jakarta.annotation.Nonnull List<EmbeddingsApiInput> inputs) {
         this.inputs = inputs;
     }
 
-    public EmbeddingsApiRequest model(@javax.annotation.Nullable String model) {
+    public EmbeddingsApiRequest model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
@@ -96,15 +97,15 @@ public class EmbeddingsApiRequest {
      * Get model
      * @return model
      */
-    @javax.annotation.Nullable public String getModel() {
+    @jakarta.annotation.Nullable public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nullable String model) {
+    public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
     }
 
-    public EmbeddingsApiRequest taskType(@javax.annotation.Nullable EmbeddingTaskType taskType) {
+    public EmbeddingsApiRequest taskType(@jakarta.annotation.Nullable EmbeddingTaskType taskType) {
         this.taskType = taskType;
         return this;
     }
@@ -113,15 +114,15 @@ public class EmbeddingsApiRequest {
      * Get taskType
      * @return taskType
      */
-    @javax.annotation.Nullable public EmbeddingTaskType getTaskType() {
+    @jakarta.annotation.Nullable public EmbeddingTaskType getTaskType() {
         return taskType;
     }
 
-    public void setTaskType(@javax.annotation.Nullable EmbeddingTaskType taskType) {
+    public void setTaskType(@jakarta.annotation.Nullable EmbeddingTaskType taskType) {
         this.taskType = taskType;
     }
 
-    public EmbeddingsApiRequest dimensions(@javax.annotation.Nullable BigDecimal dimensions) {
+    public EmbeddingsApiRequest dimensions(@jakarta.annotation.Nullable BigDecimal dimensions) {
         this.dimensions = dimensions;
         return this;
     }
@@ -130,11 +131,11 @@ public class EmbeddingsApiRequest {
      * Get dimensions
      * @return dimensions
      */
-    @javax.annotation.Nullable public BigDecimal getDimensions() {
+    @jakarta.annotation.Nullable public BigDecimal getDimensions() {
         return dimensions;
     }
 
-    public void setDimensions(@javax.annotation.Nullable BigDecimal dimensions) {
+    public void setDimensions(@jakarta.annotation.Nullable BigDecimal dimensions) {
         this.dimensions = dimensions;
     }
 

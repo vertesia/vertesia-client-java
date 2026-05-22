@@ -32,87 +32,87 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * TimerTask
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class TimerTask {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TaskTypeTIMER type;
 
     public static final String SERIALIZED_NAME_ACTIVITY_ID = "activityId";
 
     @SerializedName(SERIALIZED_NAME_ACTIVITY_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String activityId;
 
     public static final String SERIALIZED_NAME_ACTIVITY_NAME = "activityName";
 
     @SerializedName(SERIALIZED_NAME_ACTIVITY_NAME)
-    @javax.annotation.Nullable private String activityName;
+    @jakarta.annotation.Nullable private String activityName;
 
     public static final String SERIALIZED_NAME_INPUT = "input";
 
     @SerializedName(SERIALIZED_NAME_INPUT)
-    @javax.annotation.Nullable private Object input = null;
+    @jakarta.annotation.Nullable private Object input = null;
 
     public static final String SERIALIZED_NAME_SCHEDULED = "scheduled";
 
     @SerializedName(SERIALIZED_NAME_SCHEDULED)
-    @javax.annotation.Nullable private String scheduled;
+    @jakarta.annotation.Nullable private String scheduled;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TaskStatus status;
 
     public static final String SERIALIZED_NAME_ATTEMPTS = "attempts";
 
     @SerializedName(SERIALIZED_NAME_ATTEMPTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal attempts;
 
     public static final String SERIALIZED_NAME_STARTED = "started";
 
     @SerializedName(SERIALIZED_NAME_STARTED)
-    @javax.annotation.Nullable private String started;
+    @jakarta.annotation.Nullable private String started;
 
     public static final String SERIALIZED_NAME_COMPLETED = "completed";
 
     @SerializedName(SERIALIZED_NAME_COMPLETED)
-    @javax.annotation.Nullable private String completed;
+    @jakarta.annotation.Nullable private String completed;
 
     public static final String SERIALIZED_NAME_ERROR = "error";
 
     @SerializedName(SERIALIZED_NAME_ERROR)
-    @javax.annotation.Nullable private String error;
+    @jakarta.annotation.Nullable private String error;
 
     public static final String SERIALIZED_NAME_RESULT = "result";
 
     @SerializedName(SERIALIZED_NAME_RESULT)
-    @javax.annotation.Nullable private Object result = null;
+    @jakarta.annotation.Nullable private Object result = null;
 
     public static final String SERIALIZED_NAME_RUN_ID = "runId";
 
     @SerializedName(SERIALIZED_NAME_RUN_ID)
-    @javax.annotation.Nullable private String runId;
+    @jakarta.annotation.Nullable private String runId;
 
     public static final String SERIALIZED_NAME_TIMER_ID = "timerId";
 
     @SerializedName(SERIALIZED_NAME_TIMER_ID)
-    @javax.annotation.Nullable private String timerId;
+    @jakarta.annotation.Nullable private String timerId;
 
     public static final String SERIALIZED_NAME_DURATION = "duration";
 
     @SerializedName(SERIALIZED_NAME_DURATION)
-    @javax.annotation.Nullable private String duration;
+    @jakarta.annotation.Nullable private String duration;
 
     public TimerTask() {}
 
-    public TimerTask type(@javax.annotation.Nonnull TaskTypeTIMER type) {
+    public TimerTask type(@jakarta.annotation.Nonnull TaskTypeTIMER type) {
         this.type = type;
         return this;
     }
@@ -121,16 +121,16 @@ public class TimerTask {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TaskTypeTIMER getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TaskTypeTIMER type) {
+    public void setType(@jakarta.annotation.Nonnull TaskTypeTIMER type) {
         this.type = type;
     }
 
-    public TimerTask activityId(@javax.annotation.Nonnull String activityId) {
+    public TimerTask activityId(@jakarta.annotation.Nonnull String activityId) {
         this.activityId = activityId;
         return this;
     }
@@ -139,16 +139,16 @@ public class TimerTask {
      * Get activityId
      * @return activityId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getActivityId() {
         return activityId;
     }
 
-    public void setActivityId(@javax.annotation.Nonnull String activityId) {
+    public void setActivityId(@jakarta.annotation.Nonnull String activityId) {
         this.activityId = activityId;
     }
 
-    public TimerTask activityName(@javax.annotation.Nullable String activityName) {
+    public TimerTask activityName(@jakarta.annotation.Nullable String activityName) {
         this.activityName = activityName;
         return this;
     }
@@ -157,15 +157,15 @@ public class TimerTask {
      * Get activityName
      * @return activityName
      */
-    @javax.annotation.Nullable public String getActivityName() {
+    @jakarta.annotation.Nullable public String getActivityName() {
         return activityName;
     }
 
-    public void setActivityName(@javax.annotation.Nullable String activityName) {
+    public void setActivityName(@jakarta.annotation.Nullable String activityName) {
         this.activityName = activityName;
     }
 
-    public TimerTask input(@javax.annotation.Nullable Object input) {
+    public TimerTask input(@jakarta.annotation.Nullable Object input) {
         this.input = input;
         return this;
     }
@@ -174,15 +174,15 @@ public class TimerTask {
      * Get input
      * @return input
      */
-    @javax.annotation.Nullable public Object getInput() {
+    @jakarta.annotation.Nullable public Object getInput() {
         return input;
     }
 
-    public void setInput(@javax.annotation.Nullable Object input) {
+    public void setInput(@jakarta.annotation.Nullable Object input) {
         this.input = input;
     }
 
-    public TimerTask scheduled(@javax.annotation.Nullable String scheduled) {
+    public TimerTask scheduled(@jakarta.annotation.Nullable String scheduled) {
         this.scheduled = scheduled;
         return this;
     }
@@ -191,15 +191,15 @@ public class TimerTask {
      * Get scheduled
      * @return scheduled
      */
-    @javax.annotation.Nullable public String getScheduled() {
+    @jakarta.annotation.Nullable public String getScheduled() {
         return scheduled;
     }
 
-    public void setScheduled(@javax.annotation.Nullable String scheduled) {
+    public void setScheduled(@jakarta.annotation.Nullable String scheduled) {
         this.scheduled = scheduled;
     }
 
-    public TimerTask status(@javax.annotation.Nonnull TaskStatus status) {
+    public TimerTask status(@jakarta.annotation.Nonnull TaskStatus status) {
         this.status = status;
         return this;
     }
@@ -208,16 +208,16 @@ public class TimerTask {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TaskStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull TaskStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull TaskStatus status) {
         this.status = status;
     }
 
-    public TimerTask attempts(@javax.annotation.Nonnull BigDecimal attempts) {
+    public TimerTask attempts(@jakarta.annotation.Nonnull BigDecimal attempts) {
         this.attempts = attempts;
         return this;
     }
@@ -226,16 +226,16 @@ public class TimerTask {
      * Get attempts
      * @return attempts
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getAttempts() {
         return attempts;
     }
 
-    public void setAttempts(@javax.annotation.Nonnull BigDecimal attempts) {
+    public void setAttempts(@jakarta.annotation.Nonnull BigDecimal attempts) {
         this.attempts = attempts;
     }
 
-    public TimerTask started(@javax.annotation.Nullable String started) {
+    public TimerTask started(@jakarta.annotation.Nullable String started) {
         this.started = started;
         return this;
     }
@@ -244,15 +244,15 @@ public class TimerTask {
      * Get started
      * @return started
      */
-    @javax.annotation.Nullable public String getStarted() {
+    @jakarta.annotation.Nullable public String getStarted() {
         return started;
     }
 
-    public void setStarted(@javax.annotation.Nullable String started) {
+    public void setStarted(@jakarta.annotation.Nullable String started) {
         this.started = started;
     }
 
-    public TimerTask completed(@javax.annotation.Nullable String completed) {
+    public TimerTask completed(@jakarta.annotation.Nullable String completed) {
         this.completed = completed;
         return this;
     }
@@ -261,15 +261,15 @@ public class TimerTask {
      * Get completed
      * @return completed
      */
-    @javax.annotation.Nullable public String getCompleted() {
+    @jakarta.annotation.Nullable public String getCompleted() {
         return completed;
     }
 
-    public void setCompleted(@javax.annotation.Nullable String completed) {
+    public void setCompleted(@jakarta.annotation.Nullable String completed) {
         this.completed = completed;
     }
 
-    public TimerTask error(@javax.annotation.Nullable String error) {
+    public TimerTask error(@jakarta.annotation.Nullable String error) {
         this.error = error;
         return this;
     }
@@ -278,15 +278,15 @@ public class TimerTask {
      * Get error
      * @return error
      */
-    @javax.annotation.Nullable public String getError() {
+    @jakarta.annotation.Nullable public String getError() {
         return error;
     }
 
-    public void setError(@javax.annotation.Nullable String error) {
+    public void setError(@jakarta.annotation.Nullable String error) {
         this.error = error;
     }
 
-    public TimerTask result(@javax.annotation.Nullable Object result) {
+    public TimerTask result(@jakarta.annotation.Nullable Object result) {
         this.result = result;
         return this;
     }
@@ -295,15 +295,15 @@ public class TimerTask {
      * Get result
      * @return result
      */
-    @javax.annotation.Nullable public Object getResult() {
+    @jakarta.annotation.Nullable public Object getResult() {
         return result;
     }
 
-    public void setResult(@javax.annotation.Nullable Object result) {
+    public void setResult(@jakarta.annotation.Nullable Object result) {
         this.result = result;
     }
 
-    public TimerTask runId(@javax.annotation.Nullable String runId) {
+    public TimerTask runId(@jakarta.annotation.Nullable String runId) {
         this.runId = runId;
         return this;
     }
@@ -312,15 +312,15 @@ public class TimerTask {
      * Temporal run ID that produced this task (set when aggregating across continueAsNew runs).
      * @return runId
      */
-    @javax.annotation.Nullable public String getRunId() {
+    @jakarta.annotation.Nullable public String getRunId() {
         return runId;
     }
 
-    public void setRunId(@javax.annotation.Nullable String runId) {
+    public void setRunId(@jakarta.annotation.Nullable String runId) {
         this.runId = runId;
     }
 
-    public TimerTask timerId(@javax.annotation.Nullable String timerId) {
+    public TimerTask timerId(@jakarta.annotation.Nullable String timerId) {
         this.timerId = timerId;
         return this;
     }
@@ -329,15 +329,15 @@ public class TimerTask {
      * Get timerId
      * @return timerId
      */
-    @javax.annotation.Nullable public String getTimerId() {
+    @jakarta.annotation.Nullable public String getTimerId() {
         return timerId;
     }
 
-    public void setTimerId(@javax.annotation.Nullable String timerId) {
+    public void setTimerId(@jakarta.annotation.Nullable String timerId) {
         this.timerId = timerId;
     }
 
-    public TimerTask duration(@javax.annotation.Nullable String duration) {
+    public TimerTask duration(@jakarta.annotation.Nullable String duration) {
         this.duration = duration;
         return this;
     }
@@ -346,11 +346,11 @@ public class TimerTask {
      * Get duration
      * @return duration
      */
-    @javax.annotation.Nullable public String getDuration() {
+    @jakarta.annotation.Nullable public String getDuration() {
         return duration;
     }
 
-    public void setDuration(@javax.annotation.Nullable String duration) {
+    public void setDuration(@jakarta.annotation.Nullable String duration) {
         this.duration = duration;
     }
 

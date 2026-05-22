@@ -89,7 +89,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call computePromptFacetsCall(
-            @javax.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload,
+            @jakarta.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -146,7 +146,7 @@ public class PromptTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call computePromptFacetsValidateBeforeCall(
-            @javax.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload,
+            @jakarta.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'computePromptFacetPayload' is set
@@ -174,7 +174,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public ComputedFacetResponse computePromptFacets(
-            @javax.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload)
+            @jakarta.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload)
             throws ApiException {
         ApiResponse<ComputedFacetResponse> localVarResp =
                 computePromptFacetsWithHttpInfo(computePromptFacetPayload);
@@ -197,7 +197,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public ApiResponse<ComputedFacetResponse> computePromptFacetsWithHttpInfo(
-            @javax.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload)
+            @jakarta.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 computePromptFacetsValidateBeforeCall(computePromptFacetPayload, null);
@@ -222,7 +222,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call computePromptFacetsAsync(
-            @javax.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload,
+            @jakarta.annotation.Nonnull ComputePromptFacetPayload computePromptFacetPayload,
             final ApiCallback<ComputedFacetResponse> _callback)
             throws ApiException {
 
@@ -249,7 +249,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call createPromptCall(
-            @javax.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload,
+            @jakarta.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -306,7 +306,7 @@ public class PromptTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createPromptValidateBeforeCall(
-            @javax.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload,
+            @jakarta.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'promptTemplateCreatePayload' is set
@@ -334,7 +334,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public PromptTemplate createPrompt(
-            @javax.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload)
+            @jakarta.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload)
             throws ApiException {
         ApiResponse<PromptTemplate> localVarResp =
                 createPromptWithHttpInfo(promptTemplateCreatePayload);
@@ -357,7 +357,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public ApiResponse<PromptTemplate> createPromptWithHttpInfo(
-            @javax.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload)
+            @jakarta.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createPromptValidateBeforeCall(promptTemplateCreatePayload, null);
@@ -382,7 +382,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call createPromptAsync(
-            @javax.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload,
+            @jakarta.annotation.Nonnull PromptTemplateCreatePayload promptTemplateCreatePayload,
             final ApiCallback<PromptTemplate> _callback)
             throws ApiException {
 
@@ -409,7 +409,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call deletePromptCall(
-            @javax.annotation.Nonnull String ptId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -469,7 +469,7 @@ public class PromptTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deletePromptValidateBeforeCall(
-            @javax.annotation.Nonnull String ptId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ptId' is set
         if (ptId == null) {
@@ -495,7 +495,7 @@ public class PromptTemplatesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteByIdResult deletePrompt(@javax.annotation.Nonnull String ptId)
+    public DeleteByIdResult deletePrompt(@jakarta.annotation.Nonnull String ptId)
             throws ApiException {
         ApiResponse<DeleteByIdResult> localVarResp = deletePromptWithHttpInfo(ptId);
         return localVarResp.getData();
@@ -517,7 +517,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public ApiResponse<DeleteByIdResult> deletePromptWithHttpInfo(
-            @javax.annotation.Nonnull String ptId) throws ApiException {
+            @jakarta.annotation.Nonnull String ptId) throws ApiException {
         okhttp3.Call localVarCall = deletePromptValidateBeforeCall(ptId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -540,7 +540,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call deletePromptAsync(
-            @javax.annotation.Nonnull String ptId, final ApiCallback<DeleteByIdResult> _callback)
+            @jakarta.annotation.Nonnull String ptId, final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = deletePromptValidateBeforeCall(ptId, _callback);
@@ -566,8 +566,8 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call forkPromptCall(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload,
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -628,8 +628,8 @@ public class PromptTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call forkPromptValidateBeforeCall(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload,
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ptId' is set
@@ -664,8 +664,8 @@ public class PromptTemplatesApi {
      * </table>
      */
     public PromptTemplate forkPrompt(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload)
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload)
             throws ApiException {
         ApiResponse<PromptTemplate> localVarResp =
                 forkPromptWithHttpInfo(ptId, promptTemplateForkPayload);
@@ -689,8 +689,8 @@ public class PromptTemplatesApi {
      * </table>
      */
     public ApiResponse<PromptTemplate> forkPromptWithHttpInfo(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload)
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 forkPromptValidateBeforeCall(ptId, promptTemplateForkPayload, null);
@@ -716,8 +716,8 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call forkPromptAsync(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload,
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload,
             final ApiCallback<PromptTemplate> _callback)
             throws ApiException {
 
@@ -744,7 +744,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call getPromptCall(
-            @javax.annotation.Nonnull String ptId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -804,7 +804,7 @@ public class PromptTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getPromptValidateBeforeCall(
-            @javax.annotation.Nonnull String ptId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ptId' is set
         if (ptId == null) {
@@ -830,7 +830,7 @@ public class PromptTemplatesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public PromptTemplate getPrompt(@javax.annotation.Nonnull String ptId) throws ApiException {
+    public PromptTemplate getPrompt(@jakarta.annotation.Nonnull String ptId) throws ApiException {
         ApiResponse<PromptTemplate> localVarResp = getPromptWithHttpInfo(ptId);
         return localVarResp.getData();
     }
@@ -850,8 +850,8 @@ public class PromptTemplatesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<PromptTemplate> getPromptWithHttpInfo(@javax.annotation.Nonnull String ptId)
-            throws ApiException {
+    public ApiResponse<PromptTemplate> getPromptWithHttpInfo(
+            @jakarta.annotation.Nonnull String ptId) throws ApiException {
         okhttp3.Call localVarCall = getPromptValidateBeforeCall(ptId, null);
         Type localVarReturnType = new TypeToken<PromptTemplate>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -874,7 +874,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call getPromptAsync(
-            @javax.annotation.Nonnull String ptId, final ApiCallback<PromptTemplate> _callback)
+            @jakarta.annotation.Nonnull String ptId, final ApiCallback<PromptTemplate> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getPromptValidateBeforeCall(ptId, _callback);
@@ -899,7 +899,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call listPromptForksCall(
-            @javax.annotation.Nonnull String ptId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -959,7 +959,7 @@ public class PromptTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listPromptForksValidateBeforeCall(
-            @javax.annotation.Nonnull String ptId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ptId' is set
         if (ptId == null) {
@@ -985,7 +985,7 @@ public class PromptTemplatesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<PromptTemplateRef> listPromptForks(@javax.annotation.Nonnull String ptId)
+    public List<PromptTemplateRef> listPromptForks(@jakarta.annotation.Nonnull String ptId)
             throws ApiException {
         ApiResponse<List<PromptTemplateRef>> localVarResp = listPromptForksWithHttpInfo(ptId);
         return localVarResp.getData();
@@ -1007,7 +1007,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public ApiResponse<List<PromptTemplateRef>> listPromptForksWithHttpInfo(
-            @javax.annotation.Nonnull String ptId) throws ApiException {
+            @jakarta.annotation.Nonnull String ptId) throws ApiException {
         okhttp3.Call localVarCall = listPromptForksValidateBeforeCall(ptId, null);
         Type localVarReturnType = new TypeToken<List<PromptTemplateRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1030,7 +1030,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call listPromptForksAsync(
-            @javax.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull String ptId,
             final ApiCallback<List<PromptTemplateRef>> _callback)
             throws ApiException {
 
@@ -1056,7 +1056,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call listPromptInteractionsCall(
-            @javax.annotation.Nonnull String ptId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1116,7 +1116,7 @@ public class PromptTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listPromptInteractionsValidateBeforeCall(
-            @javax.annotation.Nonnull String ptId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ptId' is set
         if (ptId == null) {
@@ -1143,7 +1143,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public PromptTemplateInteractionsResponse listPromptInteractions(
-            @javax.annotation.Nonnull String ptId) throws ApiException {
+            @jakarta.annotation.Nonnull String ptId) throws ApiException {
         ApiResponse<PromptTemplateInteractionsResponse> localVarResp =
                 listPromptInteractionsWithHttpInfo(ptId);
         return localVarResp.getData();
@@ -1165,7 +1165,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public ApiResponse<PromptTemplateInteractionsResponse> listPromptInteractionsWithHttpInfo(
-            @javax.annotation.Nonnull String ptId) throws ApiException {
+            @jakarta.annotation.Nonnull String ptId) throws ApiException {
         okhttp3.Call localVarCall = listPromptInteractionsValidateBeforeCall(ptId, null);
         Type localVarReturnType = new TypeToken<PromptTemplateInteractionsResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1188,7 +1188,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call listPromptInteractionsAsync(
-            @javax.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull String ptId,
             final ApiCallback<PromptTemplateInteractionsResponse> _callback)
             throws ApiException {
 
@@ -1214,7 +1214,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call listPromptVersionsCall(
-            @javax.annotation.Nonnull String ptId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1274,7 +1274,7 @@ public class PromptTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listPromptVersionsValidateBeforeCall(
-            @javax.annotation.Nonnull String ptId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ptId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ptId' is set
         if (ptId == null) {
@@ -1300,7 +1300,7 @@ public class PromptTemplatesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<PromptTemplateRef> listPromptVersions(@javax.annotation.Nonnull String ptId)
+    public List<PromptTemplateRef> listPromptVersions(@jakarta.annotation.Nonnull String ptId)
             throws ApiException {
         ApiResponse<List<PromptTemplateRef>> localVarResp = listPromptVersionsWithHttpInfo(ptId);
         return localVarResp.getData();
@@ -1322,7 +1322,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public ApiResponse<List<PromptTemplateRef>> listPromptVersionsWithHttpInfo(
-            @javax.annotation.Nonnull String ptId) throws ApiException {
+            @jakarta.annotation.Nonnull String ptId) throws ApiException {
         okhttp3.Call localVarCall = listPromptVersionsValidateBeforeCall(ptId, null);
         Type localVarReturnType = new TypeToken<List<PromptTemplateRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1345,7 +1345,7 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call listPromptVersionsAsync(
-            @javax.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull String ptId,
             final ApiCallback<List<PromptTemplateRef>> _callback)
             throws ApiException {
 
@@ -1376,12 +1376,12 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call listPromptsCall(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String role,
-            @javax.annotation.Nullable Boolean matchInteractions,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String role,
+            @jakarta.annotation.Nullable Boolean matchInteractions,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1464,12 +1464,12 @@ public class PromptTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listPromptsValidateBeforeCall(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String role,
-            @javax.annotation.Nullable Boolean matchInteractions,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String role,
+            @jakarta.annotation.Nullable Boolean matchInteractions,
             final ApiCallback _callback)
             throws ApiException {
         return listPromptsCall(name, status, limit, offset, role, matchInteractions, _callback);
@@ -1496,12 +1496,12 @@ public class PromptTemplatesApi {
      * </table>
      */
     public List<PromptTemplateRef> listPrompts(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String role,
-            @javax.annotation.Nullable Boolean matchInteractions)
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String role,
+            @jakarta.annotation.Nullable Boolean matchInteractions)
             throws ApiException {
         ApiResponse<List<PromptTemplateRef>> localVarResp =
                 listPromptsWithHttpInfo(name, status, limit, offset, role, matchInteractions);
@@ -1529,12 +1529,12 @@ public class PromptTemplatesApi {
      * </table>
      */
     public ApiResponse<List<PromptTemplateRef>> listPromptsWithHttpInfo(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String role,
-            @javax.annotation.Nullable Boolean matchInteractions)
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String role,
+            @jakarta.annotation.Nullable Boolean matchInteractions)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listPromptsValidateBeforeCall(
@@ -1565,12 +1565,12 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call listPromptsAsync(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String role,
-            @javax.annotation.Nullable Boolean matchInteractions,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String role,
+            @jakarta.annotation.Nullable Boolean matchInteractions,
             final ApiCallback<List<PromptTemplateRef>> _callback)
             throws ApiException {
 
@@ -1599,8 +1599,8 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call renderPromptCall(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull Map<String, Object> requestBody,
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1661,8 +1661,8 @@ public class PromptTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call renderPromptValidateBeforeCall(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull Map<String, Object> requestBody,
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ptId' is set
@@ -1697,8 +1697,8 @@ public class PromptTemplatesApi {
      * </table>
      */
     public RenderPromptResponse renderPrompt(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull Map<String, Object> requestBody)
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody)
             throws ApiException {
         ApiResponse<RenderPromptResponse> localVarResp =
                 renderPromptWithHttpInfo(ptId, requestBody);
@@ -1722,8 +1722,8 @@ public class PromptTemplatesApi {
      * </table>
      */
     public ApiResponse<RenderPromptResponse> renderPromptWithHttpInfo(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull Map<String, Object> requestBody)
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody)
             throws ApiException {
         okhttp3.Call localVarCall = renderPromptValidateBeforeCall(ptId, requestBody, null);
         Type localVarReturnType = new TypeToken<RenderPromptResponse>() {}.getType();
@@ -1748,8 +1748,8 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call renderPromptAsync(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull Map<String, Object> requestBody,
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody,
             final ApiCallback<RenderPromptResponse> _callback)
             throws ApiException {
 
@@ -1776,8 +1776,8 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call updatePromptCall(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload,
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1838,8 +1838,8 @@ public class PromptTemplatesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updatePromptValidateBeforeCall(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload,
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ptId' is set
@@ -1874,8 +1874,8 @@ public class PromptTemplatesApi {
      * </table>
      */
     public PromptTemplate updatePrompt(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload)
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload)
             throws ApiException {
         ApiResponse<PromptTemplate> localVarResp =
                 updatePromptWithHttpInfo(ptId, promptTemplateUpdatePayload);
@@ -1899,8 +1899,8 @@ public class PromptTemplatesApi {
      * </table>
      */
     public ApiResponse<PromptTemplate> updatePromptWithHttpInfo(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload)
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updatePromptValidateBeforeCall(ptId, promptTemplateUpdatePayload, null);
@@ -1926,8 +1926,8 @@ public class PromptTemplatesApi {
      * </table>
      */
     public okhttp3.Call updatePromptAsync(
-            @javax.annotation.Nonnull String ptId,
-            @javax.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload,
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull PromptTemplateUpdatePayload promptTemplateUpdatePayload,
             final ApiCallback<PromptTemplate> _callback)
             throws ApiException {
 

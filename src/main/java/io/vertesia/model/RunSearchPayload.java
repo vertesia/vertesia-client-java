@@ -36,63 +36,63 @@ import java.util.Objects;
 /**
  * RunSearchPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RunSearchPayload {
     public static final String SERIALIZED_NAME_FACETS = "facets";
 
     @SerializedName(SERIALIZED_NAME_FACETS)
-    @javax.annotation.Nullable private List<FacetSpec> facets = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<FacetSpec> facets = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LIMIT_FACETS = "limit_facets";
 
     @SerializedName(SERIALIZED_NAME_LIMIT_FACETS)
-    @javax.annotation.Nullable private Boolean limitFacets;
+    @jakarta.annotation.Nullable private Boolean limitFacets;
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @javax.annotation.Nullable private RunSearchQuery query;
+    @jakarta.annotation.Nullable private RunSearchQuery query;
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nullable private BigDecimal limit;
+    @jakarta.annotation.Nullable private BigDecimal limit;
 
     public static final String SERIALIZED_NAME_OFFSET = "offset";
 
     @SerializedName(SERIALIZED_NAME_OFFSET)
-    @javax.annotation.Nullable private BigDecimal offset;
+    @jakarta.annotation.Nullable private BigDecimal offset;
 
     public static final String SERIALIZED_NAME_SELECT = "select";
 
     @SerializedName(SERIALIZED_NAME_SELECT)
-    @javax.annotation.Nullable private String select;
+    @jakarta.annotation.Nullable private String select;
 
     public static final String SERIALIZED_NAME_ALL_REVISIONS = "all_revisions";
 
     @SerializedName(SERIALIZED_NAME_ALL_REVISIONS)
-    @javax.annotation.Nullable private Boolean allRevisions;
+    @jakarta.annotation.Nullable private Boolean allRevisions;
 
     public static final String SERIALIZED_NAME_FROM_ROOT = "from_root";
 
     @SerializedName(SERIALIZED_NAME_FROM_ROOT)
-    @javax.annotation.Nullable private String fromRoot;
+    @jakarta.annotation.Nullable private String fromRoot;
 
     public static final String SERIALIZED_NAME_SORT = "sort";
 
     @SerializedName(SERIALIZED_NAME_SORT)
-    @javax.annotation.Nullable private List<SortOption> sort = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<SortOption> sort = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_AGGS = "aggs";
 
     @SerializedName(SERIALIZED_NAME_AGGS)
-    @javax.annotation.Nullable private Map<String, Object> aggs = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> aggs = new HashMap<>();
 
     public RunSearchPayload() {}
 
-    public RunSearchPayload facets(@javax.annotation.Nullable List<FacetSpec> facets) {
+    public RunSearchPayload facets(@jakarta.annotation.Nullable List<FacetSpec> facets) {
         this.facets = facets;
         return this;
     }
@@ -109,15 +109,15 @@ public class RunSearchPayload {
      * Get facets
      * @return facets
      */
-    @javax.annotation.Nullable public List<FacetSpec> getFacets() {
+    @jakarta.annotation.Nullable public List<FacetSpec> getFacets() {
         return facets;
     }
 
-    public void setFacets(@javax.annotation.Nullable List<FacetSpec> facets) {
+    public void setFacets(@jakarta.annotation.Nullable List<FacetSpec> facets) {
         this.facets = facets;
     }
 
-    public RunSearchPayload limitFacets(@javax.annotation.Nullable Boolean limitFacets) {
+    public RunSearchPayload limitFacets(@jakarta.annotation.Nullable Boolean limitFacets) {
         this.limitFacets = limitFacets;
         return this;
     }
@@ -126,15 +126,15 @@ public class RunSearchPayload {
      * If the facets should be limited to the current page of results. Defaults to false. When false, the facets are independent of the search results page.
      * @return limitFacets
      */
-    @javax.annotation.Nullable public Boolean getLimitFacets() {
+    @jakarta.annotation.Nullable public Boolean getLimitFacets() {
         return limitFacets;
     }
 
-    public void setLimitFacets(@javax.annotation.Nullable Boolean limitFacets) {
+    public void setLimitFacets(@jakarta.annotation.Nullable Boolean limitFacets) {
         this.limitFacets = limitFacets;
     }
 
-    public RunSearchPayload query(@javax.annotation.Nullable RunSearchQuery query) {
+    public RunSearchPayload query(@jakarta.annotation.Nullable RunSearchQuery query) {
         this.query = query;
         return this;
     }
@@ -143,15 +143,15 @@ public class RunSearchPayload {
      * Get query
      * @return query
      */
-    @javax.annotation.Nullable public RunSearchQuery getQuery() {
+    @jakarta.annotation.Nullable public RunSearchQuery getQuery() {
         return query;
     }
 
-    public void setQuery(@javax.annotation.Nullable RunSearchQuery query) {
+    public void setQuery(@jakarta.annotation.Nullable RunSearchQuery query) {
         this.query = query;
     }
 
-    public RunSearchPayload limit(@javax.annotation.Nullable BigDecimal limit) {
+    public RunSearchPayload limit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -160,15 +160,15 @@ public class RunSearchPayload {
      * Get limit
      * @return limit
      */
-    @javax.annotation.Nullable public BigDecimal getLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nullable BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
     }
 
-    public RunSearchPayload offset(@javax.annotation.Nullable BigDecimal offset) {
+    public RunSearchPayload offset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
         return this;
     }
@@ -177,15 +177,15 @@ public class RunSearchPayload {
      * Get offset
      * @return offset
      */
-    @javax.annotation.Nullable public BigDecimal getOffset() {
+    @jakarta.annotation.Nullable public BigDecimal getOffset() {
         return offset;
     }
 
-    public void setOffset(@javax.annotation.Nullable BigDecimal offset) {
+    public void setOffset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
     }
 
-    public RunSearchPayload select(@javax.annotation.Nullable String select) {
+    public RunSearchPayload select(@jakarta.annotation.Nullable String select) {
         this.select = select;
         return this;
     }
@@ -194,15 +194,15 @@ public class RunSearchPayload {
      * Get select
      * @return select
      */
-    @javax.annotation.Nullable public String getSelect() {
+    @jakarta.annotation.Nullable public String getSelect() {
         return select;
     }
 
-    public void setSelect(@javax.annotation.Nullable String select) {
+    public void setSelect(@jakarta.annotation.Nullable String select) {
         this.select = select;
     }
 
-    public RunSearchPayload allRevisions(@javax.annotation.Nullable Boolean allRevisions) {
+    public RunSearchPayload allRevisions(@jakarta.annotation.Nullable Boolean allRevisions) {
         this.allRevisions = allRevisions;
         return this;
     }
@@ -211,15 +211,15 @@ public class RunSearchPayload {
      * Get allRevisions
      * @return allRevisions
      */
-    @javax.annotation.Nullable public Boolean getAllRevisions() {
+    @jakarta.annotation.Nullable public Boolean getAllRevisions() {
         return allRevisions;
     }
 
-    public void setAllRevisions(@javax.annotation.Nullable Boolean allRevisions) {
+    public void setAllRevisions(@jakarta.annotation.Nullable Boolean allRevisions) {
         this.allRevisions = allRevisions;
     }
 
-    public RunSearchPayload fromRoot(@javax.annotation.Nullable String fromRoot) {
+    public RunSearchPayload fromRoot(@jakarta.annotation.Nullable String fromRoot) {
         this.fromRoot = fromRoot;
         return this;
     }
@@ -228,15 +228,15 @@ public class RunSearchPayload {
      * Get fromRoot
      * @return fromRoot
      */
-    @javax.annotation.Nullable public String getFromRoot() {
+    @jakarta.annotation.Nullable public String getFromRoot() {
         return fromRoot;
     }
 
-    public void setFromRoot(@javax.annotation.Nullable String fromRoot) {
+    public void setFromRoot(@jakarta.annotation.Nullable String fromRoot) {
         this.fromRoot = fromRoot;
     }
 
-    public RunSearchPayload sort(@javax.annotation.Nullable List<SortOption> sort) {
+    public RunSearchPayload sort(@jakarta.annotation.Nullable List<SortOption> sort) {
         this.sort = sort;
         return this;
     }
@@ -253,15 +253,15 @@ public class RunSearchPayload {
      * Sort criteria. Multiple entries enable multi-field sorting (first entry is primary).
      * @return sort
      */
-    @javax.annotation.Nullable public List<SortOption> getSort() {
+    @jakarta.annotation.Nullable public List<SortOption> getSort() {
         return sort;
     }
 
-    public void setSort(@javax.annotation.Nullable List<SortOption> sort) {
+    public void setSort(@jakarta.annotation.Nullable List<SortOption> sort) {
         this.sort = sort;
     }
 
-    public RunSearchPayload aggs(@javax.annotation.Nullable Map<String, Object> aggs) {
+    public RunSearchPayload aggs(@jakarta.annotation.Nullable Map<String, Object> aggs) {
         this.aggs = aggs;
         return this;
     }
@@ -278,11 +278,11 @@ public class RunSearchPayload {
      * Arbitrary Elasticsearch aggregation definitions. Ignored when search falls back to MongoDB.
      * @return aggs
      */
-    @javax.annotation.Nullable public Map<String, Object> getAggs() {
+    @jakarta.annotation.Nullable public Map<String, Object> getAggs() {
         return aggs;
     }
 
-    public void setAggs(@javax.annotation.Nullable Map<String, Object> aggs) {
+    public void setAggs(@jakarta.annotation.Nullable Map<String, Object> aggs) {
         this.aggs = aggs;
     }
 

@@ -36,7 +36,7 @@ import java.util.Objects;
 /**
  * Simplified schema representation optimized for AI agent consumption. Provides semantic context for understanding the data model.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataSchemaForAI {
@@ -96,41 +96,41 @@ public class DataSchemaForAI {
     public static final String SERIALIZED_NAME_SCHEMA_FORMAT = "schema_format";
 
     @SerializedName(SERIALIZED_NAME_SCHEMA_FORMAT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SchemaFormatEnum schemaFormat;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String version;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TABLES = "tables";
 
     @SerializedName(SERIALIZED_NAME_TABLES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, DataTableForAI> tables;
 
     public static final String SERIALIZED_NAME_RELATIONSHIPS = "relationships";
 
     @SerializedName(SERIALIZED_NAME_RELATIONSHIPS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<DataRelationshipForAI> relationships = new ArrayList<>();
 
     public DataSchemaForAI() {}
 
-    public DataSchemaForAI schemaFormat(@javax.annotation.Nonnull SchemaFormatEnum schemaFormat) {
+    public DataSchemaForAI schemaFormat(@jakarta.annotation.Nonnull SchemaFormatEnum schemaFormat) {
         this.schemaFormat = schemaFormat;
         return this;
     }
@@ -139,16 +139,16 @@ public class DataSchemaForAI {
      * Get schemaFormat
      * @return schemaFormat
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SchemaFormatEnum getSchemaFormat() {
         return schemaFormat;
     }
 
-    public void setSchemaFormat(@javax.annotation.Nonnull SchemaFormatEnum schemaFormat) {
+    public void setSchemaFormat(@jakarta.annotation.Nonnull SchemaFormatEnum schemaFormat) {
         this.schemaFormat = schemaFormat;
     }
 
-    public DataSchemaForAI name(@javax.annotation.Nonnull String name) {
+    public DataSchemaForAI name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -157,16 +157,16 @@ public class DataSchemaForAI {
      * Store name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public DataSchemaForAI version(@javax.annotation.Nonnull String version) {
+    public DataSchemaForAI version(@jakarta.annotation.Nonnull String version) {
         this.version = version;
         return this;
     }
@@ -175,16 +175,16 @@ public class DataSchemaForAI {
      * Schema version
      * @return version
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getVersion() {
         return version;
     }
 
-    public void setVersion(@javax.annotation.Nonnull String version) {
+    public void setVersion(@jakarta.annotation.Nonnull String version) {
         this.version = version;
     }
 
-    public DataSchemaForAI description(@javax.annotation.Nullable String description) {
+    public DataSchemaForAI description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -193,15 +193,15 @@ public class DataSchemaForAI {
      * Schema description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public DataSchemaForAI tables(@javax.annotation.Nonnull Map<String, DataTableForAI> tables) {
+    public DataSchemaForAI tables(@jakarta.annotation.Nonnull Map<String, DataTableForAI> tables) {
         this.tables = tables;
         return this;
     }
@@ -218,17 +218,17 @@ public class DataSchemaForAI {
      * Tables by name
      * @return tables
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, DataTableForAI> getTables() {
         return tables;
     }
 
-    public void setTables(@javax.annotation.Nonnull Map<String, DataTableForAI> tables) {
+    public void setTables(@jakarta.annotation.Nonnull Map<String, DataTableForAI> tables) {
         this.tables = tables;
     }
 
     public DataSchemaForAI relationships(
-            @javax.annotation.Nonnull List<DataRelationshipForAI> relationships) {
+            @jakarta.annotation.Nonnull List<DataRelationshipForAI> relationships) {
         this.relationships = relationships;
         return this;
     }
@@ -245,13 +245,13 @@ public class DataSchemaForAI {
      * Relationships
      * @return relationships
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<DataRelationshipForAI> getRelationships() {
         return relationships;
     }
 
     public void setRelationships(
-            @javax.annotation.Nonnull List<DataRelationshipForAI> relationships) {
+            @jakarta.annotation.Nonnull List<DataRelationshipForAI> relationships) {
         this.relationships = relationships;
     }
 

@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * BedrockClaudeOptions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BedrockClaudeOptions {
@@ -94,43 +94,43 @@ public class BedrockClaudeOptions {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OptionIdEnum optionId;
 
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
-    @javax.annotation.Nullable private BigDecimal maxTokens;
+    @jakarta.annotation.Nullable private BigDecimal maxTokens;
 
     public static final String SERIALIZED_NAME_TEMPERATURE = "temperature";
 
     @SerializedName(SERIALIZED_NAME_TEMPERATURE)
-    @javax.annotation.Nullable private BigDecimal temperature;
+    @jakarta.annotation.Nullable private BigDecimal temperature;
 
     public static final String SERIALIZED_NAME_TOP_P = "top_p";
 
     @SerializedName(SERIALIZED_NAME_TOP_P)
-    @javax.annotation.Nullable private BigDecimal topP;
+    @jakarta.annotation.Nullable private BigDecimal topP;
 
     public static final String SERIALIZED_NAME_STOP_SEQUENCE = "stop_sequence";
 
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
-    @javax.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TOP_K = "top_k";
 
     @SerializedName(SERIALIZED_NAME_TOP_K)
-    @javax.annotation.Nullable private BigDecimal topK;
+    @jakarta.annotation.Nullable private BigDecimal topK;
 
     public static final String SERIALIZED_NAME_THINKING_BUDGET_TOKENS = "thinking_budget_tokens";
 
     @SerializedName(SERIALIZED_NAME_THINKING_BUDGET_TOKENS)
-    @javax.annotation.Nullable private BigDecimal thinkingBudgetTokens;
+    @jakarta.annotation.Nullable private BigDecimal thinkingBudgetTokens;
 
     public static final String SERIALIZED_NAME_INCLUDE_THOUGHTS = "include_thoughts";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
-    @javax.annotation.Nullable private Boolean includeThoughts;
+    @jakarta.annotation.Nullable private Boolean includeThoughts;
 
     /**
      * Gets or Sets effort
@@ -196,12 +196,12 @@ public class BedrockClaudeOptions {
     public static final String SERIALIZED_NAME_EFFORT = "effort";
 
     @SerializedName(SERIALIZED_NAME_EFFORT)
-    @javax.annotation.Nullable private EffortEnum effort;
+    @jakarta.annotation.Nullable private EffortEnum effort;
 
     public static final String SERIALIZED_NAME_CACHE_ENABLED = "cache_enabled";
 
     @SerializedName(SERIALIZED_NAME_CACHE_ENABLED)
-    @javax.annotation.Nullable private Boolean cacheEnabled;
+    @jakarta.annotation.Nullable private Boolean cacheEnabled;
 
     /**
      * Gets or Sets cacheTtl
@@ -261,11 +261,11 @@ public class BedrockClaudeOptions {
     public static final String SERIALIZED_NAME_CACHE_TTL = "cache_ttl";
 
     @SerializedName(SERIALIZED_NAME_CACHE_TTL)
-    @javax.annotation.Nullable private CacheTtlEnum cacheTtl;
+    @jakarta.annotation.Nullable private CacheTtlEnum cacheTtl;
 
     public BedrockClaudeOptions() {}
 
-    public BedrockClaudeOptions optionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public BedrockClaudeOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -274,16 +274,16 @@ public class BedrockClaudeOptions {
      * Get optionId
      * @return optionId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
-    public BedrockClaudeOptions maxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public BedrockClaudeOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
         return this;
     }
@@ -292,15 +292,15 @@ public class BedrockClaudeOptions {
      * Get maxTokens
      * @return maxTokens
      */
-    @javax.annotation.Nullable public BigDecimal getMaxTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxTokens() {
         return maxTokens;
     }
 
-    public void setMaxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public void setMaxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
     }
 
-    public BedrockClaudeOptions temperature(@javax.annotation.Nullable BigDecimal temperature) {
+    public BedrockClaudeOptions temperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
         return this;
     }
@@ -309,15 +309,15 @@ public class BedrockClaudeOptions {
      * Get temperature
      * @return temperature
      */
-    @javax.annotation.Nullable public BigDecimal getTemperature() {
+    @jakarta.annotation.Nullable public BigDecimal getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(@javax.annotation.Nullable BigDecimal temperature) {
+    public void setTemperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
     }
 
-    public BedrockClaudeOptions topP(@javax.annotation.Nullable BigDecimal topP) {
+    public BedrockClaudeOptions topP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
         return this;
     }
@@ -326,15 +326,16 @@ public class BedrockClaudeOptions {
      * Get topP
      * @return topP
      */
-    @javax.annotation.Nullable public BigDecimal getTopP() {
+    @jakarta.annotation.Nullable public BigDecimal getTopP() {
         return topP;
     }
 
-    public void setTopP(@javax.annotation.Nullable BigDecimal topP) {
+    public void setTopP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
     }
 
-    public BedrockClaudeOptions stopSequence(@javax.annotation.Nullable List<String> stopSequence) {
+    public BedrockClaudeOptions stopSequence(
+            @jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
         return this;
     }
@@ -351,15 +352,15 @@ public class BedrockClaudeOptions {
      * Get stopSequence
      * @return stopSequence
      */
-    @javax.annotation.Nullable public List<String> getStopSequence() {
+    @jakarta.annotation.Nullable public List<String> getStopSequence() {
         return stopSequence;
     }
 
-    public void setStopSequence(@javax.annotation.Nullable List<String> stopSequence) {
+    public void setStopSequence(@jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
     }
 
-    public BedrockClaudeOptions topK(@javax.annotation.Nullable BigDecimal topK) {
+    public BedrockClaudeOptions topK(@jakarta.annotation.Nullable BigDecimal topK) {
         this.topK = topK;
         return this;
     }
@@ -368,16 +369,16 @@ public class BedrockClaudeOptions {
      * Get topK
      * @return topK
      */
-    @javax.annotation.Nullable public BigDecimal getTopK() {
+    @jakarta.annotation.Nullable public BigDecimal getTopK() {
         return topK;
     }
 
-    public void setTopK(@javax.annotation.Nullable BigDecimal topK) {
+    public void setTopK(@jakarta.annotation.Nullable BigDecimal topK) {
         this.topK = topK;
     }
 
     public BedrockClaudeOptions thinkingBudgetTokens(
-            @javax.annotation.Nullable BigDecimal thinkingBudgetTokens) {
+            @jakarta.annotation.Nullable BigDecimal thinkingBudgetTokens) {
         this.thinkingBudgetTokens = thinkingBudgetTokens;
         return this;
     }
@@ -386,17 +387,17 @@ public class BedrockClaudeOptions {
      * Get thinkingBudgetTokens
      * @return thinkingBudgetTokens
      */
-    @javax.annotation.Nullable public BigDecimal getThinkingBudgetTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getThinkingBudgetTokens() {
         return thinkingBudgetTokens;
     }
 
     public void setThinkingBudgetTokens(
-            @javax.annotation.Nullable BigDecimal thinkingBudgetTokens) {
+            @jakarta.annotation.Nullable BigDecimal thinkingBudgetTokens) {
         this.thinkingBudgetTokens = thinkingBudgetTokens;
     }
 
     public BedrockClaudeOptions includeThoughts(
-            @javax.annotation.Nullable Boolean includeThoughts) {
+            @jakarta.annotation.Nullable Boolean includeThoughts) {
         this.includeThoughts = includeThoughts;
         return this;
     }
@@ -405,15 +406,15 @@ public class BedrockClaudeOptions {
      * Get includeThoughts
      * @return includeThoughts
      */
-    @javax.annotation.Nullable public Boolean getIncludeThoughts() {
+    @jakarta.annotation.Nullable public Boolean getIncludeThoughts() {
         return includeThoughts;
     }
 
-    public void setIncludeThoughts(@javax.annotation.Nullable Boolean includeThoughts) {
+    public void setIncludeThoughts(@jakarta.annotation.Nullable Boolean includeThoughts) {
         this.includeThoughts = includeThoughts;
     }
 
-    public BedrockClaudeOptions effort(@javax.annotation.Nullable EffortEnum effort) {
+    public BedrockClaudeOptions effort(@jakarta.annotation.Nullable EffortEnum effort) {
         this.effort = effort;
         return this;
     }
@@ -422,15 +423,15 @@ public class BedrockClaudeOptions {
      * Get effort
      * @return effort
      */
-    @javax.annotation.Nullable public EffortEnum getEffort() {
+    @jakarta.annotation.Nullable public EffortEnum getEffort() {
         return effort;
     }
 
-    public void setEffort(@javax.annotation.Nullable EffortEnum effort) {
+    public void setEffort(@jakarta.annotation.Nullable EffortEnum effort) {
         this.effort = effort;
     }
 
-    public BedrockClaudeOptions cacheEnabled(@javax.annotation.Nullable Boolean cacheEnabled) {
+    public BedrockClaudeOptions cacheEnabled(@jakarta.annotation.Nullable Boolean cacheEnabled) {
         this.cacheEnabled = cacheEnabled;
         return this;
     }
@@ -439,15 +440,15 @@ public class BedrockClaudeOptions {
      * Get cacheEnabled
      * @return cacheEnabled
      */
-    @javax.annotation.Nullable public Boolean getCacheEnabled() {
+    @jakarta.annotation.Nullable public Boolean getCacheEnabled() {
         return cacheEnabled;
     }
 
-    public void setCacheEnabled(@javax.annotation.Nullable Boolean cacheEnabled) {
+    public void setCacheEnabled(@jakarta.annotation.Nullable Boolean cacheEnabled) {
         this.cacheEnabled = cacheEnabled;
     }
 
-    public BedrockClaudeOptions cacheTtl(@javax.annotation.Nullable CacheTtlEnum cacheTtl) {
+    public BedrockClaudeOptions cacheTtl(@jakarta.annotation.Nullable CacheTtlEnum cacheTtl) {
         this.cacheTtl = cacheTtl;
         return this;
     }
@@ -456,11 +457,11 @@ public class BedrockClaudeOptions {
      * Get cacheTtl
      * @return cacheTtl
      */
-    @javax.annotation.Nullable public CacheTtlEnum getCacheTtl() {
+    @jakarta.annotation.Nullable public CacheTtlEnum getCacheTtl() {
         return cacheTtl;
     }
 
-    public void setCacheTtl(@javax.annotation.Nullable CacheTtlEnum cacheTtl) {
+    public void setCacheTtl(@jakarta.annotation.Nullable CacheTtlEnum cacheTtl) {
         this.cacheTtl = cacheTtl;
     }
 

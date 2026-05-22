@@ -35,123 +35,123 @@ import java.util.Objects;
 /**
  * ComplexSearchQuery is used for full-text search and vector embedding search.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ComplexSearchQuery {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private List<String> status = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> status = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nullable private BigDecimal limit;
+    @jakarta.annotation.Nullable private BigDecimal limit;
 
     public static final String SERIALIZED_NAME_OFFSET = "offset";
 
     @SerializedName(SERIALIZED_NAME_OFFSET)
-    @javax.annotation.Nullable private BigDecimal offset;
+    @jakarta.annotation.Nullable private BigDecimal offset;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nullable private String id;
+    @jakarta.annotation.Nullable private String id;
 
     public static final String SERIALIZED_NAME_IDS = "ids";
 
     @SerializedName(SERIALIZED_NAME_IDS)
-    @javax.annotation.Nullable private List<String> ids = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> ids = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CREATED_FROM = "createdFrom";
 
     @SerializedName(SERIALIZED_NAME_CREATED_FROM)
-    @javax.annotation.Nullable private String createdFrom;
+    @jakarta.annotation.Nullable private String createdFrom;
 
     public static final String SERIALIZED_NAME_CREATED_TO = "createdTo";
 
     @SerializedName(SERIALIZED_NAME_CREATED_TO)
-    @javax.annotation.Nullable private String createdTo;
+    @jakarta.annotation.Nullable private String createdTo;
 
     public static final String SERIALIZED_NAME_UPDATED_FROM = "updatedFrom";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_FROM)
-    @javax.annotation.Nullable private String updatedFrom;
+    @jakarta.annotation.Nullable private String updatedFrom;
 
     public static final String SERIALIZED_NAME_UPDATED_TO = "updatedTo";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_TO)
-    @javax.annotation.Nullable private String updatedTo;
+    @jakarta.annotation.Nullable private String updatedTo;
 
     public static final String SERIALIZED_NAME_LOCATION = "location";
 
     @SerializedName(SERIALIZED_NAME_LOCATION)
-    @javax.annotation.Nullable private String location;
+    @jakarta.annotation.Nullable private String location;
 
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private String parent;
+    @jakarta.annotation.Nullable private String parent;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private String type;
+    @jakarta.annotation.Nullable private String type;
 
     public static final String SERIALIZED_NAME_TYPES = "types";
 
     @SerializedName(SERIALIZED_NAME_TYPES)
-    @javax.annotation.Nullable private List<String> types = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> types = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ALL_REVISIONS = "all_revisions";
 
     @SerializedName(SERIALIZED_NAME_ALL_REVISIONS)
-    @javax.annotation.Nullable private Boolean allRevisions;
+    @jakarta.annotation.Nullable private Boolean allRevisions;
 
     public static final String SERIALIZED_NAME_FROM_ROOT = "from_root";
 
     @SerializedName(SERIALIZED_NAME_FROM_ROOT)
-    @javax.annotation.Nullable private String fromRoot;
+    @jakarta.annotation.Nullable private String fromRoot;
 
     public static final String SERIALIZED_NAME_VECTOR = "vector";
 
     @SerializedName(SERIALIZED_NAME_VECTOR)
-    @javax.annotation.Nullable private VectorSearchQuery vector;
+    @jakarta.annotation.Nullable private VectorSearchQuery vector;
 
     public static final String SERIALIZED_NAME_FULL_TEXT = "full_text";
 
     @SerializedName(SERIALIZED_NAME_FULL_TEXT)
-    @javax.annotation.Nullable private String fullText;
+    @jakarta.annotation.Nullable private String fullText;
 
     public static final String SERIALIZED_NAME_WEIGHTS = "weights";
 
     @SerializedName(SERIALIZED_NAME_WEIGHTS)
-    @javax.annotation.Nullable private Map<String, BigDecimal> weights = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, BigDecimal> weights = new HashMap<>();
 
     public static final String SERIALIZED_NAME_DYNAMIC_SCALING = "dynamic_scaling";
 
     @SerializedName(SERIALIZED_NAME_DYNAMIC_SCALING)
-    @javax.annotation.Nullable private DynamicScalingTypes dynamicScaling;
+    @jakarta.annotation.Nullable private DynamicScalingTypes dynamicScaling;
 
     public static final String SERIALIZED_NAME_SCORE_AGGREGATION = "score_aggregation";
 
     @SerializedName(SERIALIZED_NAME_SCORE_AGGREGATION)
-    @javax.annotation.Nullable private ScoreAggregationTypes scoreAggregation;
+    @jakarta.annotation.Nullable private ScoreAggregationTypes scoreAggregation;
 
     public static final String SERIALIZED_NAME_MATCH = "match";
 
     @SerializedName(SERIALIZED_NAME_MATCH)
-    @javax.annotation.Nullable private Map<String, Object> match = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> match = new HashMap<>();
 
     public ComplexSearchQuery() {}
 
-    public ComplexSearchQuery name(@javax.annotation.Nullable String name) {
+    public ComplexSearchQuery name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -160,15 +160,15 @@ public class ComplexSearchQuery {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public ComplexSearchQuery status(@javax.annotation.Nullable List<String> status) {
+    public ComplexSearchQuery status(@jakarta.annotation.Nullable List<String> status) {
         this.status = status;
         return this;
     }
@@ -185,15 +185,15 @@ public class ComplexSearchQuery {
      * Get status
      * @return status
      */
-    @javax.annotation.Nullable public List<String> getStatus() {
+    @jakarta.annotation.Nullable public List<String> getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable List<String> status) {
+    public void setStatus(@jakarta.annotation.Nullable List<String> status) {
         this.status = status;
     }
 
-    public ComplexSearchQuery limit(@javax.annotation.Nullable BigDecimal limit) {
+    public ComplexSearchQuery limit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -202,15 +202,15 @@ public class ComplexSearchQuery {
      * Get limit
      * @return limit
      */
-    @javax.annotation.Nullable public BigDecimal getLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nullable BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
     }
 
-    public ComplexSearchQuery offset(@javax.annotation.Nullable BigDecimal offset) {
+    public ComplexSearchQuery offset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
         return this;
     }
@@ -219,15 +219,15 @@ public class ComplexSearchQuery {
      * Get offset
      * @return offset
      */
-    @javax.annotation.Nullable public BigDecimal getOffset() {
+    @jakarta.annotation.Nullable public BigDecimal getOffset() {
         return offset;
     }
 
-    public void setOffset(@javax.annotation.Nullable BigDecimal offset) {
+    public void setOffset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
     }
 
-    public ComplexSearchQuery id(@javax.annotation.Nullable String id) {
+    public ComplexSearchQuery id(@jakarta.annotation.Nullable String id) {
         this.id = id;
         return this;
     }
@@ -236,15 +236,15 @@ public class ComplexSearchQuery {
      * Get id
      * @return id
      */
-    @javax.annotation.Nullable public String getId() {
+    @jakarta.annotation.Nullable public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nullable String id) {
+    public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
     }
 
-    public ComplexSearchQuery ids(@javax.annotation.Nullable List<String> ids) {
+    public ComplexSearchQuery ids(@jakarta.annotation.Nullable List<String> ids) {
         this.ids = ids;
         return this;
     }
@@ -261,15 +261,15 @@ public class ComplexSearchQuery {
      * Get ids
      * @return ids
      */
-    @javax.annotation.Nullable public List<String> getIds() {
+    @jakarta.annotation.Nullable public List<String> getIds() {
         return ids;
     }
 
-    public void setIds(@javax.annotation.Nullable List<String> ids) {
+    public void setIds(@jakarta.annotation.Nullable List<String> ids) {
         this.ids = ids;
     }
 
-    public ComplexSearchQuery createdFrom(@javax.annotation.Nullable String createdFrom) {
+    public ComplexSearchQuery createdFrom(@jakarta.annotation.Nullable String createdFrom) {
         this.createdFrom = createdFrom;
         return this;
     }
@@ -278,15 +278,15 @@ public class ComplexSearchQuery {
      * Get createdFrom
      * @return createdFrom
      */
-    @javax.annotation.Nullable public String getCreatedFrom() {
+    @jakarta.annotation.Nullable public String getCreatedFrom() {
         return createdFrom;
     }
 
-    public void setCreatedFrom(@javax.annotation.Nullable String createdFrom) {
+    public void setCreatedFrom(@jakarta.annotation.Nullable String createdFrom) {
         this.createdFrom = createdFrom;
     }
 
-    public ComplexSearchQuery createdTo(@javax.annotation.Nullable String createdTo) {
+    public ComplexSearchQuery createdTo(@jakarta.annotation.Nullable String createdTo) {
         this.createdTo = createdTo;
         return this;
     }
@@ -295,15 +295,15 @@ public class ComplexSearchQuery {
      * Get createdTo
      * @return createdTo
      */
-    @javax.annotation.Nullable public String getCreatedTo() {
+    @jakarta.annotation.Nullable public String getCreatedTo() {
         return createdTo;
     }
 
-    public void setCreatedTo(@javax.annotation.Nullable String createdTo) {
+    public void setCreatedTo(@jakarta.annotation.Nullable String createdTo) {
         this.createdTo = createdTo;
     }
 
-    public ComplexSearchQuery updatedFrom(@javax.annotation.Nullable String updatedFrom) {
+    public ComplexSearchQuery updatedFrom(@jakarta.annotation.Nullable String updatedFrom) {
         this.updatedFrom = updatedFrom;
         return this;
     }
@@ -312,15 +312,15 @@ public class ComplexSearchQuery {
      * Get updatedFrom
      * @return updatedFrom
      */
-    @javax.annotation.Nullable public String getUpdatedFrom() {
+    @jakarta.annotation.Nullable public String getUpdatedFrom() {
         return updatedFrom;
     }
 
-    public void setUpdatedFrom(@javax.annotation.Nullable String updatedFrom) {
+    public void setUpdatedFrom(@jakarta.annotation.Nullable String updatedFrom) {
         this.updatedFrom = updatedFrom;
     }
 
-    public ComplexSearchQuery updatedTo(@javax.annotation.Nullable String updatedTo) {
+    public ComplexSearchQuery updatedTo(@jakarta.annotation.Nullable String updatedTo) {
         this.updatedTo = updatedTo;
         return this;
     }
@@ -329,15 +329,15 @@ public class ComplexSearchQuery {
      * Get updatedTo
      * @return updatedTo
      */
-    @javax.annotation.Nullable public String getUpdatedTo() {
+    @jakarta.annotation.Nullable public String getUpdatedTo() {
         return updatedTo;
     }
 
-    public void setUpdatedTo(@javax.annotation.Nullable String updatedTo) {
+    public void setUpdatedTo(@jakarta.annotation.Nullable String updatedTo) {
         this.updatedTo = updatedTo;
     }
 
-    public ComplexSearchQuery location(@javax.annotation.Nullable String location) {
+    public ComplexSearchQuery location(@jakarta.annotation.Nullable String location) {
         this.location = location;
         return this;
     }
@@ -346,15 +346,15 @@ public class ComplexSearchQuery {
      * Get location
      * @return location
      */
-    @javax.annotation.Nullable public String getLocation() {
+    @jakarta.annotation.Nullable public String getLocation() {
         return location;
     }
 
-    public void setLocation(@javax.annotation.Nullable String location) {
+    public void setLocation(@jakarta.annotation.Nullable String location) {
         this.location = location;
     }
 
-    public ComplexSearchQuery parent(@javax.annotation.Nullable String parent) {
+    public ComplexSearchQuery parent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
         return this;
     }
@@ -363,15 +363,15 @@ public class ComplexSearchQuery {
      * Get parent
      * @return parent
      */
-    @javax.annotation.Nullable public String getParent() {
+    @jakarta.annotation.Nullable public String getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable String parent) {
+    public void setParent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
     }
 
-    public ComplexSearchQuery type(@javax.annotation.Nullable String type) {
+    public ComplexSearchQuery type(@jakarta.annotation.Nullable String type) {
         this.type = type;
         return this;
     }
@@ -380,15 +380,15 @@ public class ComplexSearchQuery {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public String getType() {
+    @jakarta.annotation.Nullable public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable String type) {
+    public void setType(@jakarta.annotation.Nullable String type) {
         this.type = type;
     }
 
-    public ComplexSearchQuery types(@javax.annotation.Nullable List<String> types) {
+    public ComplexSearchQuery types(@jakarta.annotation.Nullable List<String> types) {
         this.types = types;
         return this;
     }
@@ -405,15 +405,15 @@ public class ComplexSearchQuery {
      * Get types
      * @return types
      */
-    @javax.annotation.Nullable public List<String> getTypes() {
+    @jakarta.annotation.Nullable public List<String> getTypes() {
         return types;
     }
 
-    public void setTypes(@javax.annotation.Nullable List<String> types) {
+    public void setTypes(@jakarta.annotation.Nullable List<String> types) {
         this.types = types;
     }
 
-    public ComplexSearchQuery allRevisions(@javax.annotation.Nullable Boolean allRevisions) {
+    public ComplexSearchQuery allRevisions(@jakarta.annotation.Nullable Boolean allRevisions) {
         this.allRevisions = allRevisions;
         return this;
     }
@@ -422,15 +422,15 @@ public class ComplexSearchQuery {
      * Get allRevisions
      * @return allRevisions
      */
-    @javax.annotation.Nullable public Boolean getAllRevisions() {
+    @jakarta.annotation.Nullable public Boolean getAllRevisions() {
         return allRevisions;
     }
 
-    public void setAllRevisions(@javax.annotation.Nullable Boolean allRevisions) {
+    public void setAllRevisions(@jakarta.annotation.Nullable Boolean allRevisions) {
         this.allRevisions = allRevisions;
     }
 
-    public ComplexSearchQuery fromRoot(@javax.annotation.Nullable String fromRoot) {
+    public ComplexSearchQuery fromRoot(@jakarta.annotation.Nullable String fromRoot) {
         this.fromRoot = fromRoot;
         return this;
     }
@@ -439,15 +439,15 @@ public class ComplexSearchQuery {
      * Get fromRoot
      * @return fromRoot
      */
-    @javax.annotation.Nullable public String getFromRoot() {
+    @jakarta.annotation.Nullable public String getFromRoot() {
         return fromRoot;
     }
 
-    public void setFromRoot(@javax.annotation.Nullable String fromRoot) {
+    public void setFromRoot(@jakarta.annotation.Nullable String fromRoot) {
         this.fromRoot = fromRoot;
     }
 
-    public ComplexSearchQuery vector(@javax.annotation.Nullable VectorSearchQuery vector) {
+    public ComplexSearchQuery vector(@jakarta.annotation.Nullable VectorSearchQuery vector) {
         this.vector = vector;
         return this;
     }
@@ -456,15 +456,15 @@ public class ComplexSearchQuery {
      * Get vector
      * @return vector
      */
-    @javax.annotation.Nullable public VectorSearchQuery getVector() {
+    @jakarta.annotation.Nullable public VectorSearchQuery getVector() {
         return vector;
     }
 
-    public void setVector(@javax.annotation.Nullable VectorSearchQuery vector) {
+    public void setVector(@jakarta.annotation.Nullable VectorSearchQuery vector) {
         this.vector = vector;
     }
 
-    public ComplexSearchQuery fullText(@javax.annotation.Nullable String fullText) {
+    public ComplexSearchQuery fullText(@jakarta.annotation.Nullable String fullText) {
         this.fullText = fullText;
         return this;
     }
@@ -473,15 +473,16 @@ public class ComplexSearchQuery {
      * If present, do a full text search (snake_case version).
      * @return fullText
      */
-    @javax.annotation.Nullable public String getFullText() {
+    @jakarta.annotation.Nullable public String getFullText() {
         return fullText;
     }
 
-    public void setFullText(@javax.annotation.Nullable String fullText) {
+    public void setFullText(@jakarta.annotation.Nullable String fullText) {
         this.fullText = fullText;
     }
 
-    public ComplexSearchQuery weights(@javax.annotation.Nullable Map<String, BigDecimal> weights) {
+    public ComplexSearchQuery weights(
+            @jakarta.annotation.Nullable Map<String, BigDecimal> weights) {
         this.weights = weights;
         return this;
     }
@@ -498,16 +499,16 @@ public class ComplexSearchQuery {
      * Get weights
      * @return weights
      */
-    @javax.annotation.Nullable public Map<String, BigDecimal> getWeights() {
+    @jakarta.annotation.Nullable public Map<String, BigDecimal> getWeights() {
         return weights;
     }
 
-    public void setWeights(@javax.annotation.Nullable Map<String, BigDecimal> weights) {
+    public void setWeights(@jakarta.annotation.Nullable Map<String, BigDecimal> weights) {
         this.weights = weights;
     }
 
     public ComplexSearchQuery dynamicScaling(
-            @javax.annotation.Nullable DynamicScalingTypes dynamicScaling) {
+            @jakarta.annotation.Nullable DynamicScalingTypes dynamicScaling) {
         this.dynamicScaling = dynamicScaling;
         return this;
     }
@@ -516,16 +517,16 @@ public class ComplexSearchQuery {
      * dynamicScaling rescales the weights when a particular search type is not present in the results, per object. e.g. Weights of 5,3,2 will be treated as 0,3,2 if the first search type is not present in the results. Ignored when scoreAggregation is &#39;smart&#39; Default is &#39;on&#39;
      * @return dynamicScaling
      */
-    @javax.annotation.Nullable public DynamicScalingTypes getDynamicScaling() {
+    @jakarta.annotation.Nullable public DynamicScalingTypes getDynamicScaling() {
         return dynamicScaling;
     }
 
-    public void setDynamicScaling(@javax.annotation.Nullable DynamicScalingTypes dynamicScaling) {
+    public void setDynamicScaling(@jakarta.annotation.Nullable DynamicScalingTypes dynamicScaling) {
         this.dynamicScaling = dynamicScaling;
     }
 
     public ComplexSearchQuery scoreAggregation(
-            @javax.annotation.Nullable ScoreAggregationTypes scoreAggregation) {
+            @jakarta.annotation.Nullable ScoreAggregationTypes scoreAggregation) {
         this.scoreAggregation = scoreAggregation;
         return this;
     }
@@ -534,16 +535,16 @@ public class ComplexSearchQuery {
      * rrf: Reciprocal Rank Fusion rsf: Reciprocal Score Fusion smart: Our own algorithm (default and recommended)
      * @return scoreAggregation
      */
-    @javax.annotation.Nullable public ScoreAggregationTypes getScoreAggregation() {
+    @jakarta.annotation.Nullable public ScoreAggregationTypes getScoreAggregation() {
         return scoreAggregation;
     }
 
     public void setScoreAggregation(
-            @javax.annotation.Nullable ScoreAggregationTypes scoreAggregation) {
+            @jakarta.annotation.Nullable ScoreAggregationTypes scoreAggregation) {
         this.scoreAggregation = scoreAggregation;
     }
 
-    public ComplexSearchQuery match(@javax.annotation.Nullable Map<String, Object> match) {
+    public ComplexSearchQuery match(@jakarta.annotation.Nullable Map<String, Object> match) {
         this.match = match;
         return this;
     }
@@ -560,11 +561,11 @@ public class ComplexSearchQuery {
      * Get match
      * @return match
      */
-    @javax.annotation.Nullable public Map<String, Object> getMatch() {
+    @jakarta.annotation.Nullable public Map<String, Object> getMatch() {
         return match;
     }
 
-    public void setMatch(@javax.annotation.Nullable Map<String, Object> match) {
+    public void setMatch(@jakarta.annotation.Nullable Map<String, Object> match) {
         this.match = match;
     }
 

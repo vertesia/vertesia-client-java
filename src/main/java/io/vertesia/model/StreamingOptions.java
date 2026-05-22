@@ -30,24 +30,24 @@ import java.util.Objects;
 /**
  * Streaming-specific options (only needed when stream&#x3D;true)
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class StreamingOptions {
     public static final String SERIALIZED_NAME_REDIS_CHANNEL = "redis_channel";
 
     @SerializedName(SERIALIZED_NAME_REDIS_CHANNEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String redisChannel;
 
     public static final String SERIALIZED_NAME_WORKSTREAM_ID = "workstream_id";
 
     @SerializedName(SERIALIZED_NAME_WORKSTREAM_ID)
-    @javax.annotation.Nullable private String workstreamId;
+    @jakarta.annotation.Nullable private String workstreamId;
 
     public StreamingOptions() {}
 
-    public StreamingOptions redisChannel(@javax.annotation.Nonnull String redisChannel) {
+    public StreamingOptions redisChannel(@jakarta.annotation.Nonnull String redisChannel) {
         this.redisChannel = redisChannel;
         return this;
     }
@@ -56,16 +56,16 @@ public class StreamingOptions {
      * Redis channel to publish streaming chunks to
      * @return redisChannel
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRedisChannel() {
         return redisChannel;
     }
 
-    public void setRedisChannel(@javax.annotation.Nonnull String redisChannel) {
+    public void setRedisChannel(@jakarta.annotation.Nonnull String redisChannel) {
         this.redisChannel = redisChannel;
     }
 
-    public StreamingOptions workstreamId(@javax.annotation.Nullable String workstreamId) {
+    public StreamingOptions workstreamId(@jakarta.annotation.Nullable String workstreamId) {
         this.workstreamId = workstreamId;
         return this;
     }
@@ -74,11 +74,11 @@ public class StreamingOptions {
      * Optional workstream ID for multi-workstream agents
      * @return workstreamId
      */
-    @javax.annotation.Nullable public String getWorkstreamId() {
+    @jakarta.annotation.Nullable public String getWorkstreamId() {
         return workstreamId;
     }
 
-    public void setWorkstreamId(@javax.annotation.Nullable String workstreamId) {
+    public void setWorkstreamId(@jakarta.annotation.Nullable String workstreamId) {
         this.workstreamId = workstreamId;
     }
 

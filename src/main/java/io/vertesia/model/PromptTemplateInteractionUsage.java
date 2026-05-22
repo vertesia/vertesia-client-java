@@ -33,31 +33,31 @@ import java.util.Objects;
 /**
  * PromptTemplateInteractionUsage
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromptTemplateInteractionUsage {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_VERSIONS = "versions";
 
     @SerializedName(SERIALIZED_NAME_VERSIONS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<PromptTemplateInteractionVersion> versions = new ArrayList<>();
 
     public PromptTemplateInteractionUsage() {}
 
-    public PromptTemplateInteractionUsage id(@javax.annotation.Nonnull String id) {
+    public PromptTemplateInteractionUsage id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -66,16 +66,16 @@ public class PromptTemplateInteractionUsage {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public PromptTemplateInteractionUsage name(@javax.annotation.Nonnull String name) {
+    public PromptTemplateInteractionUsage name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -84,17 +84,17 @@ public class PromptTemplateInteractionUsage {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
     public PromptTemplateInteractionUsage versions(
-            @javax.annotation.Nonnull List<PromptTemplateInteractionVersion> versions) {
+            @jakarta.annotation.Nonnull List<PromptTemplateInteractionVersion> versions) {
         this.versions = versions;
         return this;
     }
@@ -112,13 +112,13 @@ public class PromptTemplateInteractionUsage {
      * Get versions
      * @return versions
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<PromptTemplateInteractionVersion> getVersions() {
         return versions;
     }
 
     public void setVersions(
-            @javax.annotation.Nonnull List<PromptTemplateInteractionVersion> versions) {
+            @jakarta.annotation.Nonnull List<PromptTemplateInteractionVersion> versions) {
         this.versions = versions;
     }
 

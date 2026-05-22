@@ -35,42 +35,42 @@ import java.util.Objects;
 /**
  * ImprovePromptPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ImprovePromptPayload {
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private InteractionExecutionConfiguration config;
 
     public static final String SERIALIZED_NAME_INTERACTION_NAME = "interaction_name";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String interactionName;
 
     public static final String SERIALIZED_NAME_CONTEXT = "context";
 
     @SerializedName(SERIALIZED_NAME_CONTEXT)
-    @javax.annotation.Nullable private String context;
+    @jakarta.annotation.Nullable private String context;
 
     public static final String SERIALIZED_NAME_PROMPT = "prompt";
 
     @SerializedName(SERIALIZED_NAME_PROMPT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<ImprovePromptPayloadPromptInner> prompt = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema resultSchema;
+    @jakarta.annotation.Nullable private JSONSchema resultSchema;
 
     public ImprovePromptPayload() {}
 
     public ImprovePromptPayload config(
-            @javax.annotation.Nonnull InteractionExecutionConfiguration config) {
+            @jakarta.annotation.Nonnull InteractionExecutionConfiguration config) {
         this.config = config;
         return this;
     }
@@ -79,16 +79,17 @@ public class ImprovePromptPayload {
      * Get config
      * @return config
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public InteractionExecutionConfiguration getConfig() {
         return config;
     }
 
-    public void setConfig(@javax.annotation.Nonnull InteractionExecutionConfiguration config) {
+    public void setConfig(@jakarta.annotation.Nonnull InteractionExecutionConfiguration config) {
         this.config = config;
     }
 
-    public ImprovePromptPayload interactionName(@javax.annotation.Nonnull String interactionName) {
+    public ImprovePromptPayload interactionName(
+            @jakarta.annotation.Nonnull String interactionName) {
         this.interactionName = interactionName;
         return this;
     }
@@ -97,16 +98,16 @@ public class ImprovePromptPayload {
      * Get interactionName
      * @return interactionName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getInteractionName() {
         return interactionName;
     }
 
-    public void setInteractionName(@javax.annotation.Nonnull String interactionName) {
+    public void setInteractionName(@jakarta.annotation.Nonnull String interactionName) {
         this.interactionName = interactionName;
     }
 
-    public ImprovePromptPayload context(@javax.annotation.Nullable String context) {
+    public ImprovePromptPayload context(@jakarta.annotation.Nullable String context) {
         this.context = context;
         return this;
     }
@@ -115,16 +116,16 @@ public class ImprovePromptPayload {
      * Get context
      * @return context
      */
-    @javax.annotation.Nullable public String getContext() {
+    @jakarta.annotation.Nullable public String getContext() {
         return context;
     }
 
-    public void setContext(@javax.annotation.Nullable String context) {
+    public void setContext(@jakarta.annotation.Nullable String context) {
         this.context = context;
     }
 
     public ImprovePromptPayload prompt(
-            @javax.annotation.Nonnull List<ImprovePromptPayloadPromptInner> prompt) {
+            @jakarta.annotation.Nonnull List<ImprovePromptPayloadPromptInner> prompt) {
         this.prompt = prompt;
         return this;
     }
@@ -141,16 +142,17 @@ public class ImprovePromptPayload {
      * Get prompt
      * @return prompt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<ImprovePromptPayloadPromptInner> getPrompt() {
         return prompt;
     }
 
-    public void setPrompt(@javax.annotation.Nonnull List<ImprovePromptPayloadPromptInner> prompt) {
+    public void setPrompt(
+            @jakarta.annotation.Nonnull List<ImprovePromptPayloadPromptInner> prompt) {
         this.prompt = prompt;
     }
 
-    public ImprovePromptPayload resultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public ImprovePromptPayload resultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
         return this;
     }
@@ -159,11 +161,11 @@ public class ImprovePromptPayload {
      * Get resultSchema
      * @return resultSchema
      */
-    @javax.annotation.Nullable public JSONSchema getResultSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getResultSchema() {
         return resultSchema;
     }
 
-    public void setResultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public void setResultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
     }
 

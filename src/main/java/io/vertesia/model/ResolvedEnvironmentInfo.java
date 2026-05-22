@@ -30,31 +30,31 @@ import java.util.Objects;
 /**
  * Resolved environment information
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ResolvedEnvironmentInfo {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_PROVIDER = "provider";
 
     @SerializedName(SERIALIZED_NAME_PROVIDER)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String provider;
 
     public ResolvedEnvironmentInfo() {}
 
-    public ResolvedEnvironmentInfo id(@javax.annotation.Nonnull String id) {
+    public ResolvedEnvironmentInfo id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -63,16 +63,16 @@ public class ResolvedEnvironmentInfo {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public ResolvedEnvironmentInfo name(@javax.annotation.Nonnull String name) {
+    public ResolvedEnvironmentInfo name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -81,16 +81,16 @@ public class ResolvedEnvironmentInfo {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public ResolvedEnvironmentInfo provider(@javax.annotation.Nonnull String provider) {
+    public ResolvedEnvironmentInfo provider(@jakarta.annotation.Nonnull String provider) {
         this.provider = provider;
         return this;
     }
@@ -99,12 +99,12 @@ public class ResolvedEnvironmentInfo {
      * Get provider
      * @return provider
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProvider() {
         return provider;
     }
 
-    public void setProvider(@javax.annotation.Nonnull String provider) {
+    public void setProvider(@jakarta.annotation.Nonnull String provider) {
         this.provider = provider;
     }
 

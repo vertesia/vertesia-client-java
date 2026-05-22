@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * ApiKeyTokenRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ApiKeyTokenRequest {
@@ -91,28 +91,28 @@ public class ApiKeyTokenRequest {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_AUDIENCE = "audience";
 
     @SerializedName(SERIALIZED_NAME_AUDIENCE)
-    @javax.annotation.Nullable private String audience;
+    @jakarta.annotation.Nullable private String audience;
 
     public static final String SERIALIZED_NAME_ALGORITHM = "algorithm";
 
     @SerializedName(SERIALIZED_NAME_ALGORITHM)
-    @javax.annotation.Nullable private SigningAlgorithm algorithm;
+    @jakarta.annotation.Nullable private SigningAlgorithm algorithm;
 
     public static final String SERIALIZED_NAME_KEY = "key";
 
     @SerializedName(SERIALIZED_NAME_KEY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String key;
 
     public ApiKeyTokenRequest() {}
 
-    public ApiKeyTokenRequest type(@javax.annotation.Nonnull TypeEnum type) {
+    public ApiKeyTokenRequest type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -121,16 +121,16 @@ public class ApiKeyTokenRequest {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public ApiKeyTokenRequest audience(@javax.annotation.Nullable String audience) {
+    public ApiKeyTokenRequest audience(@jakarta.annotation.Nullable String audience) {
         this.audience = audience;
         return this;
     }
@@ -139,15 +139,15 @@ public class ApiKeyTokenRequest {
      * Get audience
      * @return audience
      */
-    @javax.annotation.Nullable public String getAudience() {
+    @jakarta.annotation.Nullable public String getAudience() {
         return audience;
     }
 
-    public void setAudience(@javax.annotation.Nullable String audience) {
+    public void setAudience(@jakarta.annotation.Nullable String audience) {
         this.audience = audience;
     }
 
-    public ApiKeyTokenRequest algorithm(@javax.annotation.Nullable SigningAlgorithm algorithm) {
+    public ApiKeyTokenRequest algorithm(@jakarta.annotation.Nullable SigningAlgorithm algorithm) {
         this.algorithm = algorithm;
         return this;
     }
@@ -156,15 +156,15 @@ public class ApiKeyTokenRequest {
      * Signing algorithm - defaults to ES256. Use RS256 for Azure AD compatibility.
      * @return algorithm
      */
-    @javax.annotation.Nullable public SigningAlgorithm getAlgorithm() {
+    @jakarta.annotation.Nullable public SigningAlgorithm getAlgorithm() {
         return algorithm;
     }
 
-    public void setAlgorithm(@javax.annotation.Nullable SigningAlgorithm algorithm) {
+    public void setAlgorithm(@jakarta.annotation.Nullable SigningAlgorithm algorithm) {
         this.algorithm = algorithm;
     }
 
-    public ApiKeyTokenRequest key(@javax.annotation.Nonnull String key) {
+    public ApiKeyTokenRequest key(@jakarta.annotation.Nonnull String key) {
         this.key = key;
         return this;
     }
@@ -173,12 +173,12 @@ public class ApiKeyTokenRequest {
      * Get key
      * @return key
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getKey() {
         return key;
     }
 
-    public void setKey(@javax.annotation.Nonnull String key) {
+    public void setKey(@jakarta.annotation.Nonnull String key) {
         this.key = key;
     }
 

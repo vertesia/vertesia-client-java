@@ -30,31 +30,31 @@ import java.util.Objects;
 /**
  * ExportPropertiesResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ExportPropertiesResponse {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String type;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String data;
 
     public ExportPropertiesResponse() {}
 
-    public ExportPropertiesResponse type(@javax.annotation.Nonnull String type) {
+    public ExportPropertiesResponse type(@jakarta.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -63,16 +63,16 @@ public class ExportPropertiesResponse {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull String type) {
+    public void setType(@jakarta.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public ExportPropertiesResponse name(@javax.annotation.Nonnull String name) {
+    public ExportPropertiesResponse name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -81,16 +81,16 @@ public class ExportPropertiesResponse {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public ExportPropertiesResponse data(@javax.annotation.Nonnull String data) {
+    public ExportPropertiesResponse data(@jakarta.annotation.Nonnull String data) {
         this.data = data;
         return this;
     }
@@ -99,12 +99,12 @@ public class ExportPropertiesResponse {
      * Get data
      * @return data
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getData() {
         return data;
     }
 
-    public void setData(@javax.annotation.Nonnull String data) {
+    public void setData(@jakarta.annotation.Nonnull String data) {
         this.data = data;
     }
 

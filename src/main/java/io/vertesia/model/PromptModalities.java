@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * PromptModalities
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromptModalities {
     public static final String SERIALIZED_NAME_HAS_VIDEO = "hasVideo";
 
     @SerializedName(SERIALIZED_NAME_HAS_VIDEO)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean hasVideo;
 
     public static final String SERIALIZED_NAME_HAS_IMAGE = "hasImage";
 
     @SerializedName(SERIALIZED_NAME_HAS_IMAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean hasImage;
 
     public PromptModalities() {}
 
-    public PromptModalities hasVideo(@javax.annotation.Nonnull Boolean hasVideo) {
+    public PromptModalities hasVideo(@jakarta.annotation.Nonnull Boolean hasVideo) {
         this.hasVideo = hasVideo;
         return this;
     }
@@ -57,16 +57,16 @@ public class PromptModalities {
      * Get hasVideo
      * @return hasVideo
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getHasVideo() {
         return hasVideo;
     }
 
-    public void setHasVideo(@javax.annotation.Nonnull Boolean hasVideo) {
+    public void setHasVideo(@jakarta.annotation.Nonnull Boolean hasVideo) {
         this.hasVideo = hasVideo;
     }
 
-    public PromptModalities hasImage(@javax.annotation.Nonnull Boolean hasImage) {
+    public PromptModalities hasImage(@jakarta.annotation.Nonnull Boolean hasImage) {
         this.hasImage = hasImage;
         return this;
     }
@@ -75,12 +75,12 @@ public class PromptModalities {
      * Get hasImage
      * @return hasImage
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getHasImage() {
         return hasImage;
     }
 
-    public void setHasImage(@javax.annotation.Nonnull Boolean hasImage) {
+    public void setHasImage(@jakarta.annotation.Nonnull Boolean hasImage) {
         this.hasImage = hasImage;
     }
 

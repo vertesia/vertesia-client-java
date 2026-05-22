@@ -34,73 +34,73 @@ import java.util.Objects;
 /**
  * SecretRecord
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class SecretRecord {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_SECRET_REF = "secret_ref";
 
     @SerializedName(SERIALIZED_NAME_SECRET_REF)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String secretRef;
 
     public static final String SERIALIZED_NAME_KIND = "kind";
 
     @SerializedName(SERIALIZED_NAME_KIND)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SecretKind kind;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String project;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nullable private Boolean enabled;
+    @jakarta.annotation.Nullable private Boolean enabled;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nullable private String createdAt;
+    @jakarta.annotation.Nullable private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nullable private String updatedAt;
+    @jakarta.annotation.Nullable private String updatedAt;
 
     public static final String SERIALIZED_NAME_DETAILS = "details";
 
     @SerializedName(SERIALIZED_NAME_DETAILS)
-    @javax.annotation.Nullable private WebsiteCredentialRecord details;
+    @jakarta.annotation.Nullable private WebsiteCredentialRecord details;
 
     public SecretRecord() {}
 
-    public SecretRecord id(@javax.annotation.Nonnull String id) {
+    public SecretRecord id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -109,16 +109,16 @@ public class SecretRecord {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public SecretRecord secretRef(@javax.annotation.Nonnull String secretRef) {
+    public SecretRecord secretRef(@jakarta.annotation.Nonnull String secretRef) {
         this.secretRef = secretRef;
         return this;
     }
@@ -127,16 +127,16 @@ public class SecretRecord {
      * Get secretRef
      * @return secretRef
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSecretRef() {
         return secretRef;
     }
 
-    public void setSecretRef(@javax.annotation.Nonnull String secretRef) {
+    public void setSecretRef(@jakarta.annotation.Nonnull String secretRef) {
         this.secretRef = secretRef;
     }
 
-    public SecretRecord kind(@javax.annotation.Nonnull SecretKind kind) {
+    public SecretRecord kind(@jakarta.annotation.Nonnull SecretKind kind) {
         this.kind = kind;
         return this;
     }
@@ -145,16 +145,16 @@ public class SecretRecord {
      * Get kind
      * @return kind
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SecretKind getKind() {
         return kind;
     }
 
-    public void setKind(@javax.annotation.Nonnull SecretKind kind) {
+    public void setKind(@jakarta.annotation.Nonnull SecretKind kind) {
         this.kind = kind;
     }
 
-    public SecretRecord project(@javax.annotation.Nonnull String project) {
+    public SecretRecord project(@jakarta.annotation.Nonnull String project) {
         this.project = project;
         return this;
     }
@@ -163,16 +163,16 @@ public class SecretRecord {
      * Get project
      * @return project
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nonnull String project) {
+    public void setProject(@jakarta.annotation.Nonnull String project) {
         this.project = project;
     }
 
-    public SecretRecord name(@javax.annotation.Nonnull String name) {
+    public SecretRecord name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -181,16 +181,16 @@ public class SecretRecord {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public SecretRecord enabled(@javax.annotation.Nullable Boolean enabled) {
+    public SecretRecord enabled(@jakarta.annotation.Nullable Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -199,15 +199,15 @@ public class SecretRecord {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nullable public Boolean getEnabled() {
+    @jakarta.annotation.Nullable public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nullable Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public SecretRecord tags(@javax.annotation.Nullable List<String> tags) {
+    public SecretRecord tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -224,15 +224,15 @@ public class SecretRecord {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public SecretRecord properties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public SecretRecord properties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
         return this;
     }
@@ -249,15 +249,15 @@ public class SecretRecord {
      * Get properties
      * @return properties
      */
-    @javax.annotation.Nullable public Map<String, Object> getProperties() {
+    @jakarta.annotation.Nullable public Map<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public void setProperties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
     }
 
-    public SecretRecord createdAt(@javax.annotation.Nullable String createdAt) {
+    public SecretRecord createdAt(@jakarta.annotation.Nullable String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -266,15 +266,15 @@ public class SecretRecord {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nullable public String getCreatedAt() {
+    @jakarta.annotation.Nullable public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nullable String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nullable String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public SecretRecord updatedAt(@javax.annotation.Nullable String updatedAt) {
+    public SecretRecord updatedAt(@jakarta.annotation.Nullable String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -283,15 +283,15 @@ public class SecretRecord {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nullable public String getUpdatedAt() {
+    @jakarta.annotation.Nullable public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nullable String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nullable String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public SecretRecord details(@javax.annotation.Nullable WebsiteCredentialRecord details) {
+    public SecretRecord details(@jakarta.annotation.Nullable WebsiteCredentialRecord details) {
         this.details = details;
         return this;
     }
@@ -300,11 +300,11 @@ public class SecretRecord {
      * Get details
      * @return details
      */
-    @javax.annotation.Nullable public WebsiteCredentialRecord getDetails() {
+    @jakarta.annotation.Nullable public WebsiteCredentialRecord getDetails() {
         return details;
     }
 
-    public void setDetails(@javax.annotation.Nullable WebsiteCredentialRecord details) {
+    public void setDetails(@jakarta.annotation.Nullable WebsiteCredentialRecord details) {
         this.details = details;
     }
 

@@ -30,18 +30,18 @@ import java.util.Objects;
 /**
  * AnnotatedPdfResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AnnotatedPdfResponse {
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nullable private String url;
+    @jakarta.annotation.Nullable private String url;
 
     public AnnotatedPdfResponse() {}
 
-    public AnnotatedPdfResponse url(@javax.annotation.Nullable String url) {
+    public AnnotatedPdfResponse url(@jakarta.annotation.Nullable String url) {
         this.url = url;
         return this;
     }
@@ -50,11 +50,11 @@ public class AnnotatedPdfResponse {
      * Get url
      * @return url
      */
-    @javax.annotation.Nullable public String getUrl() {
+    @jakarta.annotation.Nullable public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nullable String url) {
+    public void setUrl(@jakarta.annotation.Nullable String url) {
         this.url = url;
     }
 

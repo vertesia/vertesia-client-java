@@ -35,7 +35,7 @@ import java.util.Objects;
 /**
  * BulkOperationPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BulkOperationPayload {
@@ -103,24 +103,24 @@ public class BulkOperationPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private NameEnum name;
 
     public static final String SERIALIZED_NAME_IDS = "ids";
 
     @SerializedName(SERIALIZED_NAME_IDS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> ids = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PARAMS = "params";
 
     @SerializedName(SERIALIZED_NAME_PARAMS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> params = new HashMap<>();
 
     public BulkOperationPayload() {}
 
-    public BulkOperationPayload name(@javax.annotation.Nonnull NameEnum name) {
+    public BulkOperationPayload name(@jakarta.annotation.Nonnull NameEnum name) {
         this.name = name;
         return this;
     }
@@ -129,16 +129,16 @@ public class BulkOperationPayload {
      * The operation name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public NameEnum getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull NameEnum name) {
+    public void setName(@jakarta.annotation.Nonnull NameEnum name) {
         this.name = name;
     }
 
-    public BulkOperationPayload ids(@javax.annotation.Nonnull List<String> ids) {
+    public BulkOperationPayload ids(@jakarta.annotation.Nonnull List<String> ids) {
         this.ids = ids;
         return this;
     }
@@ -155,16 +155,16 @@ public class BulkOperationPayload {
      * The IDs of the objects to operate on
      * @return ids
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getIds() {
         return ids;
     }
 
-    public void setIds(@javax.annotation.Nonnull List<String> ids) {
+    public void setIds(@jakarta.annotation.Nonnull List<String> ids) {
         this.ids = ids;
     }
 
-    public BulkOperationPayload params(@javax.annotation.Nonnull Map<String, Object> params) {
+    public BulkOperationPayload params(@jakarta.annotation.Nonnull Map<String, Object> params) {
         this.params = params;
         return this;
     }
@@ -181,12 +181,12 @@ public class BulkOperationPayload {
      * The operation parameters.
      * @return params
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getParams() {
         return params;
     }
 
-    public void setParams(@javax.annotation.Nonnull Map<String, Object> params) {
+    public void setParams(@jakarta.annotation.Nonnull Map<String, Object> params) {
         this.params = params;
     }
 

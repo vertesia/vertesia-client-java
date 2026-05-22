@@ -32,28 +32,28 @@ import java.util.Objects;
 /**
  * Context triggers for auto-injection of skills. When these conditions match, the skill is automatically injected into the agent context.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class SkillContextTriggers {
     public static final String SERIALIZED_NAME_KEYWORDS = "keywords";
 
     @SerializedName(SERIALIZED_NAME_KEYWORDS)
-    @javax.annotation.Nullable private List<String> keywords = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> keywords = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TOOL_NAMES = "tool_names";
 
     @SerializedName(SERIALIZED_NAME_TOOL_NAMES)
-    @javax.annotation.Nullable private List<String> toolNames = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> toolNames = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DATA_PATTERNS = "data_patterns";
 
     @SerializedName(SERIALIZED_NAME_DATA_PATTERNS)
-    @javax.annotation.Nullable private List<String> dataPatterns = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> dataPatterns = new ArrayList<>();
 
     public SkillContextTriggers() {}
 
-    public SkillContextTriggers keywords(@javax.annotation.Nullable List<String> keywords) {
+    public SkillContextTriggers keywords(@jakarta.annotation.Nullable List<String> keywords) {
         this.keywords = keywords;
         return this;
     }
@@ -70,15 +70,15 @@ public class SkillContextTriggers {
      * Keywords in user input that should trigger this skill
      * @return keywords
      */
-    @javax.annotation.Nullable public List<String> getKeywords() {
+    @jakarta.annotation.Nullable public List<String> getKeywords() {
         return keywords;
     }
 
-    public void setKeywords(@javax.annotation.Nullable List<String> keywords) {
+    public void setKeywords(@jakarta.annotation.Nullable List<String> keywords) {
         this.keywords = keywords;
     }
 
-    public SkillContextTriggers toolNames(@javax.annotation.Nullable List<String> toolNames) {
+    public SkillContextTriggers toolNames(@jakarta.annotation.Nullable List<String> toolNames) {
         this.toolNames = toolNames;
         return this;
     }
@@ -95,15 +95,16 @@ public class SkillContextTriggers {
      * If these tools are being used, suggest this skill
      * @return toolNames
      */
-    @javax.annotation.Nullable public List<String> getToolNames() {
+    @jakarta.annotation.Nullable public List<String> getToolNames() {
         return toolNames;
     }
 
-    public void setToolNames(@javax.annotation.Nullable List<String> toolNames) {
+    public void setToolNames(@jakarta.annotation.Nullable List<String> toolNames) {
         this.toolNames = toolNames;
     }
 
-    public SkillContextTriggers dataPatterns(@javax.annotation.Nullable List<String> dataPatterns) {
+    public SkillContextTriggers dataPatterns(
+            @jakarta.annotation.Nullable List<String> dataPatterns) {
         this.dataPatterns = dataPatterns;
         return this;
     }
@@ -120,11 +121,11 @@ public class SkillContextTriggers {
      * Regex patterns to match against input data
      * @return dataPatterns
      */
-    @javax.annotation.Nullable public List<String> getDataPatterns() {
+    @jakarta.annotation.Nullable public List<String> getDataPatterns() {
         return dataPatterns;
     }
 
-    public void setDataPatterns(@javax.annotation.Nullable List<String> dataPatterns) {
+    public void setDataPatterns(@jakarta.annotation.Nullable List<String> dataPatterns) {
         this.dataPatterns = dataPatterns;
     }
 

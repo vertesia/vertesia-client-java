@@ -32,29 +32,29 @@ import java.util.Objects;
 /**
  * ParallelCollectDefinition
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ParallelCollectDefinition {
     public static final String SERIALIZED_NAME_INTO = "into";
 
     @SerializedName(SERIALIZED_NAME_INTO)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String into;
 
     public static final String SERIALIZED_NAME_MODE = "mode";
 
     @SerializedName(SERIALIZED_NAME_MODE)
-    @javax.annotation.Nullable private ParallelCollectMode mode;
+    @jakarta.annotation.Nullable private ParallelCollectMode mode;
 
     public static final String SERIALIZED_NAME_INCLUDE = "include";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE)
-    @javax.annotation.Nullable private List<ParallelCollectField> include = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<ParallelCollectField> include = new ArrayList<>();
 
     public ParallelCollectDefinition() {}
 
-    public ParallelCollectDefinition into(@javax.annotation.Nonnull String into) {
+    public ParallelCollectDefinition into(@jakarta.annotation.Nonnull String into) {
         this.into = into;
         return this;
     }
@@ -63,16 +63,16 @@ public class ParallelCollectDefinition {
      * Context key that receives the collected results.
      * @return into
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getInto() {
         return into;
     }
 
-    public void setInto(@javax.annotation.Nonnull String into) {
+    public void setInto(@jakarta.annotation.Nonnull String into) {
         this.into = into;
     }
 
-    public ParallelCollectDefinition mode(@javax.annotation.Nullable ParallelCollectMode mode) {
+    public ParallelCollectDefinition mode(@jakarta.annotation.Nullable ParallelCollectMode mode) {
         this.mode = mode;
         return this;
     }
@@ -81,16 +81,16 @@ public class ParallelCollectDefinition {
      * Get mode
      * @return mode
      */
-    @javax.annotation.Nullable public ParallelCollectMode getMode() {
+    @jakarta.annotation.Nullable public ParallelCollectMode getMode() {
         return mode;
     }
 
-    public void setMode(@javax.annotation.Nullable ParallelCollectMode mode) {
+    public void setMode(@jakarta.annotation.Nullable ParallelCollectMode mode) {
         this.mode = mode;
     }
 
     public ParallelCollectDefinition include(
-            @javax.annotation.Nullable List<ParallelCollectField> include) {
+            @jakarta.annotation.Nullable List<ParallelCollectField> include) {
         this.include = include;
         return this;
     }
@@ -107,11 +107,11 @@ public class ParallelCollectDefinition {
      * Fields to include in each collected item. Defaults to the operational envelope: status, index, item_id, output, error, and child_run_id.
      * @return include
      */
-    @javax.annotation.Nullable public List<ParallelCollectField> getInclude() {
+    @jakarta.annotation.Nullable public List<ParallelCollectField> getInclude() {
         return include;
     }
 
-    public void setInclude(@javax.annotation.Nullable List<ParallelCollectField> include) {
+    public void setInclude(@jakarta.annotation.Nullable List<ParallelCollectField> include) {
         this.include = include;
     }
 

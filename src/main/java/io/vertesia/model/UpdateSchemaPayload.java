@@ -33,39 +33,39 @@ import java.util.Objects;
 /**
  * Payload for AI-driven bulk schema updates.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UpdateSchemaPayload {
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TABLES = "tables";
 
     @SerializedName(SERIALIZED_NAME_TABLES)
-    @javax.annotation.Nullable private List<CreateTablePayload> tables = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<CreateTablePayload> tables = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_RELATIONSHIPS = "relationships";
 
     @SerializedName(SERIALIZED_NAME_RELATIONSHIPS)
-    @javax.annotation.Nullable private List<DataRelationship> relationships = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<DataRelationship> relationships = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DROP_TABLES = "drop_tables";
 
     @SerializedName(SERIALIZED_NAME_DROP_TABLES)
-    @javax.annotation.Nullable private List<String> dropTables = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> dropTables = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String message;
 
     public UpdateSchemaPayload() {}
 
-    public UpdateSchemaPayload description(@javax.annotation.Nullable String description) {
+    public UpdateSchemaPayload description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -74,15 +74,16 @@ public class UpdateSchemaPayload {
      * Updated schema description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public UpdateSchemaPayload tables(@javax.annotation.Nullable List<CreateTablePayload> tables) {
+    public UpdateSchemaPayload tables(
+            @jakarta.annotation.Nullable List<CreateTablePayload> tables) {
         this.tables = tables;
         return this;
     }
@@ -99,16 +100,16 @@ public class UpdateSchemaPayload {
      * Tables to create or update
      * @return tables
      */
-    @javax.annotation.Nullable public List<CreateTablePayload> getTables() {
+    @jakarta.annotation.Nullable public List<CreateTablePayload> getTables() {
         return tables;
     }
 
-    public void setTables(@javax.annotation.Nullable List<CreateTablePayload> tables) {
+    public void setTables(@jakarta.annotation.Nullable List<CreateTablePayload> tables) {
         this.tables = tables;
     }
 
     public UpdateSchemaPayload relationships(
-            @javax.annotation.Nullable List<DataRelationship> relationships) {
+            @jakarta.annotation.Nullable List<DataRelationship> relationships) {
         this.relationships = relationships;
         return this;
     }
@@ -125,15 +126,16 @@ public class UpdateSchemaPayload {
      * Relationships to set
      * @return relationships
      */
-    @javax.annotation.Nullable public List<DataRelationship> getRelationships() {
+    @jakarta.annotation.Nullable public List<DataRelationship> getRelationships() {
         return relationships;
     }
 
-    public void setRelationships(@javax.annotation.Nullable List<DataRelationship> relationships) {
+    public void setRelationships(
+            @jakarta.annotation.Nullable List<DataRelationship> relationships) {
         this.relationships = relationships;
     }
 
-    public UpdateSchemaPayload dropTables(@javax.annotation.Nullable List<String> dropTables) {
+    public UpdateSchemaPayload dropTables(@jakarta.annotation.Nullable List<String> dropTables) {
         this.dropTables = dropTables;
         return this;
     }
@@ -150,15 +152,15 @@ public class UpdateSchemaPayload {
      * Tables to drop
      * @return dropTables
      */
-    @javax.annotation.Nullable public List<String> getDropTables() {
+    @jakarta.annotation.Nullable public List<String> getDropTables() {
         return dropTables;
     }
 
-    public void setDropTables(@javax.annotation.Nullable List<String> dropTables) {
+    public void setDropTables(@jakarta.annotation.Nullable List<String> dropTables) {
         this.dropTables = dropTables;
     }
 
-    public UpdateSchemaPayload message(@javax.annotation.Nonnull String message) {
+    public UpdateSchemaPayload message(@jakarta.annotation.Nonnull String message) {
         this.message = message;
         return this;
     }
@@ -167,12 +169,12 @@ public class UpdateSchemaPayload {
      * Commit message (required)
      * @return message
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nonnull String message) {
+    public void setMessage(@jakarta.annotation.Nonnull String message) {
         this.message = message;
     }
 

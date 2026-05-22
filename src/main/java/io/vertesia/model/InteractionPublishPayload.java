@@ -32,24 +32,24 @@ import java.util.Objects;
 /**
  * InteractionPublishPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InteractionPublishPayload {
     public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
     @SerializedName(SERIALIZED_NAME_VISIBILITY)
-    @javax.annotation.Nullable private InteractionVisibility visibility;
+    @jakarta.annotation.Nullable private InteractionVisibility visibility;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public InteractionPublishPayload() {}
 
     public InteractionPublishPayload visibility(
-            @javax.annotation.Nullable InteractionVisibility visibility) {
+            @jakarta.annotation.Nullable InteractionVisibility visibility) {
         this.visibility = visibility;
         return this;
     }
@@ -58,15 +58,15 @@ public class InteractionPublishPayload {
      * Get visibility
      * @return visibility
      */
-    @javax.annotation.Nullable public InteractionVisibility getVisibility() {
+    @jakarta.annotation.Nullable public InteractionVisibility getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(@javax.annotation.Nullable InteractionVisibility visibility) {
+    public void setVisibility(@jakarta.annotation.Nullable InteractionVisibility visibility) {
         this.visibility = visibility;
     }
 
-    public InteractionPublishPayload tags(@javax.annotation.Nullable List<String> tags) {
+    public InteractionPublishPayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -83,11 +83,11 @@ public class InteractionPublishPayload {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 

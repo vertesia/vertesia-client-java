@@ -31,31 +31,31 @@ import java.util.Objects;
 /**
  * WorkflowAncestor
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WorkflowAncestor {
     public static final String SERIALIZED_NAME_RUN_ID = "run_id";
 
     @SerializedName(SERIALIZED_NAME_RUN_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String runId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflow_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String workflowId;
 
     public static final String SERIALIZED_NAME_RUN_DEPTH = "run_depth";
 
     @SerializedName(SERIALIZED_NAME_RUN_DEPTH)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal runDepth;
 
     public WorkflowAncestor() {}
 
-    public WorkflowAncestor runId(@javax.annotation.Nonnull String runId) {
+    public WorkflowAncestor runId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
         return this;
     }
@@ -64,16 +64,16 @@ public class WorkflowAncestor {
      * Get runId
      * @return runId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRunId() {
         return runId;
     }
 
-    public void setRunId(@javax.annotation.Nonnull String runId) {
+    public void setRunId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
     }
 
-    public WorkflowAncestor workflowId(@javax.annotation.Nonnull String workflowId) {
+    public WorkflowAncestor workflowId(@jakarta.annotation.Nonnull String workflowId) {
         this.workflowId = workflowId;
         return this;
     }
@@ -82,16 +82,16 @@ public class WorkflowAncestor {
      * Get workflowId
      * @return workflowId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getWorkflowId() {
         return workflowId;
     }
 
-    public void setWorkflowId(@javax.annotation.Nonnull String workflowId) {
+    public void setWorkflowId(@jakarta.annotation.Nonnull String workflowId) {
         this.workflowId = workflowId;
     }
 
-    public WorkflowAncestor runDepth(@javax.annotation.Nonnull BigDecimal runDepth) {
+    public WorkflowAncestor runDepth(@jakarta.annotation.Nonnull BigDecimal runDepth) {
         this.runDepth = runDepth;
         return this;
     }
@@ -100,12 +100,12 @@ public class WorkflowAncestor {
      * the depth of nested parent workflows
      * @return runDepth
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getRunDepth() {
         return runDepth;
     }
 
-    public void setRunDepth(@javax.annotation.Nonnull BigDecimal runDepth) {
+    public void setRunDepth(@jakarta.annotation.Nonnull BigDecimal runDepth) {
         this.runDepth = runDepth;
     }
 

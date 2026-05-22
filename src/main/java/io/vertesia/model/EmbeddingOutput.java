@@ -34,14 +34,14 @@ import java.util.Objects;
 /**
  * EmbeddingOutput
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EmbeddingOutput {
     public static final String SERIALIZED_NAME_VALUES = "values";
 
     @SerializedName(SERIALIZED_NAME_VALUES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<BigDecimal> values = new ArrayList<>();
 
     /**
@@ -106,26 +106,26 @@ public class EmbeddingOutput {
     public static final String SERIALIZED_NAME_MODALITY = "modality";
 
     @SerializedName(SERIALIZED_NAME_MODALITY)
-    @javax.annotation.Nullable private ModalityEnum modality;
+    @jakarta.annotation.Nullable private ModalityEnum modality;
 
     public static final String SERIALIZED_NAME_START_SEC = "start_sec";
 
     @SerializedName(SERIALIZED_NAME_START_SEC)
-    @javax.annotation.Nullable private BigDecimal startSec;
+    @jakarta.annotation.Nullable private BigDecimal startSec;
 
     public static final String SERIALIZED_NAME_END_SEC = "end_sec";
 
     @SerializedName(SERIALIZED_NAME_END_SEC)
-    @javax.annotation.Nullable private BigDecimal endSec;
+    @jakarta.annotation.Nullable private BigDecimal endSec;
 
     public static final String SERIALIZED_NAME_EMBEDDING_OPTION = "embedding_option";
 
     @SerializedName(SERIALIZED_NAME_EMBEDDING_OPTION)
-    @javax.annotation.Nullable private String embeddingOption;
+    @jakarta.annotation.Nullable private String embeddingOption;
 
     public EmbeddingOutput() {}
 
-    public EmbeddingOutput values(@javax.annotation.Nonnull List<BigDecimal> values) {
+    public EmbeddingOutput values(@jakarta.annotation.Nonnull List<BigDecimal> values) {
         this.values = values;
         return this;
     }
@@ -142,16 +142,16 @@ public class EmbeddingOutput {
      * Get values
      * @return values
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<BigDecimal> getValues() {
         return values;
     }
 
-    public void setValues(@javax.annotation.Nonnull List<BigDecimal> values) {
+    public void setValues(@jakarta.annotation.Nonnull List<BigDecimal> values) {
         this.values = values;
     }
 
-    public EmbeddingOutput modality(@javax.annotation.Nullable ModalityEnum modality) {
+    public EmbeddingOutput modality(@jakarta.annotation.Nullable ModalityEnum modality) {
         this.modality = modality;
         return this;
     }
@@ -160,15 +160,15 @@ public class EmbeddingOutput {
      * Which modality this vector represents (useful for joint-multimodal results).
      * @return modality
      */
-    @javax.annotation.Nullable public ModalityEnum getModality() {
+    @jakarta.annotation.Nullable public ModalityEnum getModality() {
         return modality;
     }
 
-    public void setModality(@javax.annotation.Nullable ModalityEnum modality) {
+    public void setModality(@jakarta.annotation.Nullable ModalityEnum modality) {
         this.modality = modality;
     }
 
-    public EmbeddingOutput startSec(@javax.annotation.Nullable BigDecimal startSec) {
+    public EmbeddingOutput startSec(@jakarta.annotation.Nullable BigDecimal startSec) {
         this.startSec = startSec;
         return this;
     }
@@ -177,15 +177,15 @@ public class EmbeddingOutput {
      * Segment start time for video/audio.
      * @return startSec
      */
-    @javax.annotation.Nullable public BigDecimal getStartSec() {
+    @jakarta.annotation.Nullable public BigDecimal getStartSec() {
         return startSec;
     }
 
-    public void setStartSec(@javax.annotation.Nullable BigDecimal startSec) {
+    public void setStartSec(@jakarta.annotation.Nullable BigDecimal startSec) {
         this.startSec = startSec;
     }
 
-    public EmbeddingOutput endSec(@javax.annotation.Nullable BigDecimal endSec) {
+    public EmbeddingOutput endSec(@jakarta.annotation.Nullable BigDecimal endSec) {
         this.endSec = endSec;
         return this;
     }
@@ -194,15 +194,15 @@ public class EmbeddingOutput {
      * Segment end time for video/audio.
      * @return endSec
      */
-    @javax.annotation.Nullable public BigDecimal getEndSec() {
+    @jakarta.annotation.Nullable public BigDecimal getEndSec() {
         return endSec;
     }
 
-    public void setEndSec(@javax.annotation.Nullable BigDecimal endSec) {
+    public void setEndSec(@jakarta.annotation.Nullable BigDecimal endSec) {
         this.endSec = endSec;
     }
 
-    public EmbeddingOutput embeddingOption(@javax.annotation.Nullable String embeddingOption) {
+    public EmbeddingOutput embeddingOption(@jakarta.annotation.Nullable String embeddingOption) {
         this.embeddingOption = embeddingOption;
         return this;
     }
@@ -211,11 +211,11 @@ public class EmbeddingOutput {
      * TwelveLabs Marengo: which view of the segment this vector represents.
      * @return embeddingOption
      */
-    @javax.annotation.Nullable public String getEmbeddingOption() {
+    @jakarta.annotation.Nullable public String getEmbeddingOption() {
         return embeddingOption;
     }
 
-    public void setEmbeddingOption(@javax.annotation.Nullable String embeddingOption) {
+    public void setEmbeddingOption(@jakarta.annotation.Nullable String embeddingOption) {
         this.embeddingOption = embeddingOption;
     }
 

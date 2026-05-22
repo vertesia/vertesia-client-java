@@ -81,7 +81,7 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public okhttp3.Call createWorkflowDefinitionCall(
-            @javax.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
+            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -138,7 +138,7 @@ public class WorkflowDefinitionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createWorkflowDefinitionValidateBeforeCall(
-            @javax.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
+            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'dsLWorkflowDefinition' is set
@@ -166,7 +166,7 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public DSLWorkflowDefinition createWorkflowDefinition(
-            @javax.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition)
+            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition)
             throws ApiException {
         ApiResponse<DSLWorkflowDefinition> localVarResp =
                 createWorkflowDefinitionWithHttpInfo(dsLWorkflowDefinition);
@@ -189,7 +189,7 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public ApiResponse<DSLWorkflowDefinition> createWorkflowDefinitionWithHttpInfo(
-            @javax.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition)
+            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createWorkflowDefinitionValidateBeforeCall(dsLWorkflowDefinition, null);
@@ -214,7 +214,7 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public okhttp3.Call createWorkflowDefinitionAsync(
-            @javax.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
+            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
             final ApiCallback<DSLWorkflowDefinition> _callback)
             throws ApiException {
 
@@ -241,7 +241,7 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public okhttp3.Call deleteWorkflowDefinitionCall(
-            @javax.annotation.Nonnull String workflowId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String workflowId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -301,7 +301,7 @@ public class WorkflowDefinitionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteWorkflowDefinitionValidateBeforeCall(
-            @javax.annotation.Nonnull String workflowId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String workflowId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'workflowId' is set
         if (workflowId == null) {
@@ -327,7 +327,7 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteCountResult deleteWorkflowDefinition(@javax.annotation.Nonnull String workflowId)
+    public DeleteCountResult deleteWorkflowDefinition(@jakarta.annotation.Nonnull String workflowId)
             throws ApiException {
         ApiResponse<DeleteCountResult> localVarResp =
                 deleteWorkflowDefinitionWithHttpInfo(workflowId);
@@ -350,7 +350,7 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public ApiResponse<DeleteCountResult> deleteWorkflowDefinitionWithHttpInfo(
-            @javax.annotation.Nonnull String workflowId) throws ApiException {
+            @jakarta.annotation.Nonnull String workflowId) throws ApiException {
         okhttp3.Call localVarCall = deleteWorkflowDefinitionValidateBeforeCall(workflowId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -373,7 +373,7 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public okhttp3.Call deleteWorkflowDefinitionAsync(
-            @javax.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String workflowId,
             final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
 
@@ -400,7 +400,7 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public okhttp3.Call getWorkflowDefinitionCall(
-            @javax.annotation.Nonnull String workflowId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String workflowId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -460,7 +460,7 @@ public class WorkflowDefinitionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWorkflowDefinitionValidateBeforeCall(
-            @javax.annotation.Nonnull String workflowId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String workflowId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'workflowId' is set
         if (workflowId == null) {
@@ -486,8 +486,8 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DSLWorkflowDefinition getWorkflowDefinition(@javax.annotation.Nonnull String workflowId)
-            throws ApiException {
+    public DSLWorkflowDefinition getWorkflowDefinition(
+            @jakarta.annotation.Nonnull String workflowId) throws ApiException {
         ApiResponse<DSLWorkflowDefinition> localVarResp =
                 getWorkflowDefinitionWithHttpInfo(workflowId);
         return localVarResp.getData();
@@ -509,7 +509,7 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public ApiResponse<DSLWorkflowDefinition> getWorkflowDefinitionWithHttpInfo(
-            @javax.annotation.Nonnull String workflowId) throws ApiException {
+            @jakarta.annotation.Nonnull String workflowId) throws ApiException {
         okhttp3.Call localVarCall = getWorkflowDefinitionValidateBeforeCall(workflowId, null);
         Type localVarReturnType = new TypeToken<DSLWorkflowDefinition>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -532,7 +532,7 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public okhttp3.Call getWorkflowDefinitionAsync(
-            @javax.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String workflowId,
             final ApiCallback<DSLWorkflowDefinition> _callback)
             throws ApiException {
 
@@ -698,8 +698,8 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public okhttp3.Call updateWorkflowDefinitionCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -760,8 +760,8 @@ public class WorkflowDefinitionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateWorkflowDefinitionValidateBeforeCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'workflowId' is set
@@ -796,8 +796,8 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public DSLWorkflowDefinition updateWorkflowDefinition(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition)
             throws ApiException {
         ApiResponse<DSLWorkflowDefinition> localVarResp =
                 updateWorkflowDefinitionWithHttpInfo(workflowId, dsLWorkflowDefinition);
@@ -821,8 +821,8 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public ApiResponse<DSLWorkflowDefinition> updateWorkflowDefinitionWithHttpInfo(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateWorkflowDefinitionValidateBeforeCall(workflowId, dsLWorkflowDefinition, null);
@@ -848,8 +848,8 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public okhttp3.Call updateWorkflowDefinitionAsync(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
             final ApiCallback<DSLWorkflowDefinition> _callback)
             throws ApiException {
 

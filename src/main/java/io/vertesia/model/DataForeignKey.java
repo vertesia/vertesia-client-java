@@ -31,26 +31,26 @@ import java.util.Objects;
 /**
  * Foreign key constraint definition.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataForeignKey {
     public static final String SERIALIZED_NAME_COLUMN = "column";
 
     @SerializedName(SERIALIZED_NAME_COLUMN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String column;
 
     public static final String SERIALIZED_NAME_REFERENCES_TABLE = "references_table";
 
     @SerializedName(SERIALIZED_NAME_REFERENCES_TABLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String referencesTable;
 
     public static final String SERIALIZED_NAME_REFERENCES_COLUMN = "references_column";
 
     @SerializedName(SERIALIZED_NAME_REFERENCES_COLUMN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String referencesColumn;
 
     /**
@@ -113,11 +113,11 @@ public class DataForeignKey {
     public static final String SERIALIZED_NAME_ON_DELETE = "on_delete";
 
     @SerializedName(SERIALIZED_NAME_ON_DELETE)
-    @javax.annotation.Nullable private OnDeleteEnum onDelete;
+    @jakarta.annotation.Nullable private OnDeleteEnum onDelete;
 
     public DataForeignKey() {}
 
-    public DataForeignKey column(@javax.annotation.Nonnull String column) {
+    public DataForeignKey column(@jakarta.annotation.Nonnull String column) {
         this.column = column;
         return this;
     }
@@ -126,16 +126,16 @@ public class DataForeignKey {
      * Column in this table
      * @return column
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getColumn() {
         return column;
     }
 
-    public void setColumn(@javax.annotation.Nonnull String column) {
+    public void setColumn(@jakarta.annotation.Nonnull String column) {
         this.column = column;
     }
 
-    public DataForeignKey referencesTable(@javax.annotation.Nonnull String referencesTable) {
+    public DataForeignKey referencesTable(@jakarta.annotation.Nonnull String referencesTable) {
         this.referencesTable = referencesTable;
         return this;
     }
@@ -144,16 +144,16 @@ public class DataForeignKey {
      * Referenced table name
      * @return referencesTable
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getReferencesTable() {
         return referencesTable;
     }
 
-    public void setReferencesTable(@javax.annotation.Nonnull String referencesTable) {
+    public void setReferencesTable(@jakarta.annotation.Nonnull String referencesTable) {
         this.referencesTable = referencesTable;
     }
 
-    public DataForeignKey referencesColumn(@javax.annotation.Nonnull String referencesColumn) {
+    public DataForeignKey referencesColumn(@jakarta.annotation.Nonnull String referencesColumn) {
         this.referencesColumn = referencesColumn;
         return this;
     }
@@ -162,16 +162,16 @@ public class DataForeignKey {
      * Referenced column name
      * @return referencesColumn
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getReferencesColumn() {
         return referencesColumn;
     }
 
-    public void setReferencesColumn(@javax.annotation.Nonnull String referencesColumn) {
+    public void setReferencesColumn(@jakarta.annotation.Nonnull String referencesColumn) {
         this.referencesColumn = referencesColumn;
     }
 
-    public DataForeignKey onDelete(@javax.annotation.Nullable OnDeleteEnum onDelete) {
+    public DataForeignKey onDelete(@jakarta.annotation.Nullable OnDeleteEnum onDelete) {
         this.onDelete = onDelete;
         return this;
     }
@@ -180,11 +180,11 @@ public class DataForeignKey {
      * Action on delete
      * @return onDelete
      */
-    @javax.annotation.Nullable public OnDeleteEnum getOnDelete() {
+    @jakarta.annotation.Nullable public OnDeleteEnum getOnDelete() {
         return onDelete;
     }
 
-    public void setOnDelete(@javax.annotation.Nullable OnDeleteEnum onDelete) {
+    public void setOnDelete(@jakarta.annotation.Nullable OnDeleteEnum onDelete) {
         this.onDelete = onDelete;
     }
 

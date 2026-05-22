@@ -30,35 +30,35 @@ import java.util.Objects;
 /**
  * Standard JSON error response returned by the server error handler.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ErrorResponse {
     public static final String SERIALIZED_NAME_ERROR = "error";
 
     @SerializedName(SERIALIZED_NAME_ERROR)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String error;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Integer status;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nullable private String message;
+    @jakarta.annotation.Nullable private String message;
 
     public static final String SERIALIZED_NAME_DETAILS = "details";
 
     @SerializedName(SERIALIZED_NAME_DETAILS)
-    @javax.annotation.Nullable private String details;
+    @jakarta.annotation.Nullable private String details;
 
     public ErrorResponse() {}
 
-    public ErrorResponse error(@javax.annotation.Nonnull String error) {
+    public ErrorResponse error(@jakarta.annotation.Nonnull String error) {
         this.error = error;
         return this;
     }
@@ -67,16 +67,16 @@ public class ErrorResponse {
      * HTTP status text or normalized error type.
      * @return error
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getError() {
         return error;
     }
 
-    public void setError(@javax.annotation.Nonnull String error) {
+    public void setError(@jakarta.annotation.Nonnull String error) {
         this.error = error;
     }
 
-    public ErrorResponse status(@javax.annotation.Nonnull Integer status) {
+    public ErrorResponse status(@jakarta.annotation.Nonnull Integer status) {
         this.status = status;
         return this;
     }
@@ -87,16 +87,16 @@ public class ErrorResponse {
      * maximum: 599
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull Integer status) {
+    public void setStatus(@jakarta.annotation.Nonnull Integer status) {
         this.status = status;
     }
 
-    public ErrorResponse message(@javax.annotation.Nullable String message) {
+    public ErrorResponse message(@jakarta.annotation.Nullable String message) {
         this.message = message;
         return this;
     }
@@ -105,15 +105,15 @@ public class ErrorResponse {
      * Human-readable error message.
      * @return message
      */
-    @javax.annotation.Nullable public String getMessage() {
+    @jakarta.annotation.Nullable public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nullable String message) {
+    public void setMessage(@jakarta.annotation.Nullable String message) {
         this.message = message;
     }
 
-    public ErrorResponse details(@javax.annotation.Nullable String details) {
+    public ErrorResponse details(@jakarta.annotation.Nullable String details) {
         this.details = details;
         return this;
     }
@@ -122,11 +122,11 @@ public class ErrorResponse {
      * Optional additional error details.
      * @return details
      */
-    @javax.annotation.Nullable public String getDetails() {
+    @jakarta.annotation.Nullable public String getDetails() {
         return details;
     }
 
-    public void setDetails(@javax.annotation.Nullable String details) {
+    public void setDetails(@jakarta.annotation.Nullable String details) {
         this.details = details;
     }
 

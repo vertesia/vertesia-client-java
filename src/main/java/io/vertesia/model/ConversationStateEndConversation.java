@@ -31,14 +31,14 @@ import java.util.Objects;
 /**
  * End conversation metadata set when end_conversation tool is called. Signals the workflow to terminate gracefully.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ConversationStateEndConversation {
     public static final String SERIALIZED_NAME_FINAL_RESULT = "final_result";
 
     @SerializedName(SERIALIZED_NAME_FINAL_RESULT)
-    @javax.annotation.Nullable private String finalResult;
+    @jakarta.annotation.Nullable private String finalResult;
 
     /**
      * Gets or Sets status
@@ -98,17 +98,17 @@ public class ConversationStateEndConversation {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private StatusEnum status;
+    @jakarta.annotation.Nullable private StatusEnum status;
 
     public static final String SERIALIZED_NAME_REASON = "reason";
 
     @SerializedName(SERIALIZED_NAME_REASON)
-    @javax.annotation.Nullable private String reason;
+    @jakarta.annotation.Nullable private String reason;
 
     public ConversationStateEndConversation() {}
 
     public ConversationStateEndConversation finalResult(
-            @javax.annotation.Nullable String finalResult) {
+            @jakarta.annotation.Nullable String finalResult) {
         this.finalResult = finalResult;
         return this;
     }
@@ -117,15 +117,15 @@ public class ConversationStateEndConversation {
      * Get finalResult
      * @return finalResult
      */
-    @javax.annotation.Nullable public String getFinalResult() {
+    @jakarta.annotation.Nullable public String getFinalResult() {
         return finalResult;
     }
 
-    public void setFinalResult(@javax.annotation.Nullable String finalResult) {
+    public void setFinalResult(@jakarta.annotation.Nullable String finalResult) {
         this.finalResult = finalResult;
     }
 
-    public ConversationStateEndConversation status(@javax.annotation.Nullable StatusEnum status) {
+    public ConversationStateEndConversation status(@jakarta.annotation.Nullable StatusEnum status) {
         this.status = status;
         return this;
     }
@@ -134,15 +134,15 @@ public class ConversationStateEndConversation {
      * Get status
      * @return status
      */
-    @javax.annotation.Nullable public StatusEnum getStatus() {
+    @jakarta.annotation.Nullable public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable StatusEnum status) {
+    public void setStatus(@jakarta.annotation.Nullable StatusEnum status) {
         this.status = status;
     }
 
-    public ConversationStateEndConversation reason(@javax.annotation.Nullable String reason) {
+    public ConversationStateEndConversation reason(@jakarta.annotation.Nullable String reason) {
         this.reason = reason;
         return this;
     }
@@ -151,11 +151,11 @@ public class ConversationStateEndConversation {
      * Get reason
      * @return reason
      */
-    @javax.annotation.Nullable public String getReason() {
+    @jakarta.annotation.Nullable public String getReason() {
         return reason;
     }
 
-    public void setReason(@javax.annotation.Nullable String reason) {
+    public void setReason(@jakarta.annotation.Nullable String reason) {
         this.reason = reason;
     }
 

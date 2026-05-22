@@ -32,39 +32,39 @@ import java.util.Objects;
 /**
  * TransitionDefinition
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class TransitionDefinition {
     public static final String SERIALIZED_NAME_TO = "to";
 
     @SerializedName(SERIALIZED_NAME_TO)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String to;
 
     public static final String SERIALIZED_NAME_GUARD = "guard";
 
     @SerializedName(SERIALIZED_NAME_GUARD)
-    @javax.annotation.Nullable private Map<String, Object> guard = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> guard = new HashMap<>();
 
     public static final String SERIALIZED_NAME_TRIGGER = "trigger";
 
     @SerializedName(SERIALIZED_NAME_TRIGGER)
-    @javax.annotation.Nullable private TransitionTrigger trigger;
+    @jakarta.annotation.Nullable private TransitionTrigger trigger;
 
     public static final String SERIALIZED_NAME_LABEL = "label";
 
     @SerializedName(SERIALIZED_NAME_LABEL)
-    @javax.annotation.Nullable private String label;
+    @jakarta.annotation.Nullable private String label;
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @javax.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
 
     public TransitionDefinition() {}
 
-    public TransitionDefinition to(@javax.annotation.Nonnull String to) {
+    public TransitionDefinition to(@jakarta.annotation.Nonnull String to) {
         this.to = to;
         return this;
     }
@@ -73,16 +73,16 @@ public class TransitionDefinition {
      * Get to
      * @return to
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTo() {
         return to;
     }
 
-    public void setTo(@javax.annotation.Nonnull String to) {
+    public void setTo(@jakarta.annotation.Nonnull String to) {
         this.to = to;
     }
 
-    public TransitionDefinition guard(@javax.annotation.Nullable Map<String, Object> guard) {
+    public TransitionDefinition guard(@jakarta.annotation.Nullable Map<String, Object> guard) {
         this.guard = guard;
         return this;
     }
@@ -99,15 +99,15 @@ public class TransitionDefinition {
      * Get guard
      * @return guard
      */
-    @javax.annotation.Nullable public Map<String, Object> getGuard() {
+    @jakarta.annotation.Nullable public Map<String, Object> getGuard() {
         return guard;
     }
 
-    public void setGuard(@javax.annotation.Nullable Map<String, Object> guard) {
+    public void setGuard(@jakarta.annotation.Nullable Map<String, Object> guard) {
         this.guard = guard;
     }
 
-    public TransitionDefinition trigger(@javax.annotation.Nullable TransitionTrigger trigger) {
+    public TransitionDefinition trigger(@jakarta.annotation.Nullable TransitionTrigger trigger) {
         this.trigger = trigger;
         return this;
     }
@@ -116,15 +116,15 @@ public class TransitionDefinition {
      * Get trigger
      * @return trigger
      */
-    @javax.annotation.Nullable public TransitionTrigger getTrigger() {
+    @jakarta.annotation.Nullable public TransitionTrigger getTrigger() {
         return trigger;
     }
 
-    public void setTrigger(@javax.annotation.Nullable TransitionTrigger trigger) {
+    public void setTrigger(@jakarta.annotation.Nullable TransitionTrigger trigger) {
         this.trigger = trigger;
     }
 
-    public TransitionDefinition label(@javax.annotation.Nullable String label) {
+    public TransitionDefinition label(@jakarta.annotation.Nullable String label) {
         this.label = label;
         return this;
     }
@@ -133,15 +133,16 @@ public class TransitionDefinition {
      * Get label
      * @return label
      */
-    @javax.annotation.Nullable public String getLabel() {
+    @jakarta.annotation.Nullable public String getLabel() {
         return label;
     }
 
-    public void setLabel(@javax.annotation.Nullable String label) {
+    public void setLabel(@jakarta.annotation.Nullable String label) {
         this.label = label;
     }
 
-    public TransitionDefinition metadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    public TransitionDefinition metadata(
+            @jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -158,11 +159,11 @@ public class TransitionDefinition {
      * Get metadata
      * @return metadata
      */
-    @javax.annotation.Nullable public Map<String, Object> getMetadata() {
+    @jakarta.annotation.Nullable public Map<String, Object> getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 

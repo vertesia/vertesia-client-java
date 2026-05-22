@@ -32,34 +32,34 @@ import java.util.Objects;
 /**
  * BranchDefinition
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BranchDefinition {
     public static final String SERIALIZED_NAME_TO = "to";
 
     @SerializedName(SERIALIZED_NAME_TO)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String to;
 
     public static final String SERIALIZED_NAME_WHEN = "when";
 
     @SerializedName(SERIALIZED_NAME_WHEN)
-    @javax.annotation.Nullable private Map<String, Object> when = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> when = new HashMap<>();
 
     public static final String SERIALIZED_NAME_DEFAULT = "default";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT)
-    @javax.annotation.Nullable private Boolean _default;
+    @jakarta.annotation.Nullable private Boolean _default;
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @javax.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
 
     public BranchDefinition() {}
 
-    public BranchDefinition to(@javax.annotation.Nonnull String to) {
+    public BranchDefinition to(@jakarta.annotation.Nonnull String to) {
         this.to = to;
         return this;
     }
@@ -68,16 +68,16 @@ public class BranchDefinition {
      * Get to
      * @return to
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTo() {
         return to;
     }
 
-    public void setTo(@javax.annotation.Nonnull String to) {
+    public void setTo(@jakarta.annotation.Nonnull String to) {
         this.to = to;
     }
 
-    public BranchDefinition when(@javax.annotation.Nullable Map<String, Object> when) {
+    public BranchDefinition when(@jakarta.annotation.Nullable Map<String, Object> when) {
         this.when = when;
         return this;
     }
@@ -94,15 +94,15 @@ public class BranchDefinition {
      * Get when
      * @return when
      */
-    @javax.annotation.Nullable public Map<String, Object> getWhen() {
+    @jakarta.annotation.Nullable public Map<String, Object> getWhen() {
         return when;
     }
 
-    public void setWhen(@javax.annotation.Nullable Map<String, Object> when) {
+    public void setWhen(@jakarta.annotation.Nullable Map<String, Object> when) {
         this.when = when;
     }
 
-    public BranchDefinition _default(@javax.annotation.Nullable Boolean _default) {
+    public BranchDefinition _default(@jakarta.annotation.Nullable Boolean _default) {
         this._default = _default;
         return this;
     }
@@ -111,15 +111,15 @@ public class BranchDefinition {
      * Get _default
      * @return _default
      */
-    @javax.annotation.Nullable public Boolean getDefault() {
+    @jakarta.annotation.Nullable public Boolean getDefault() {
         return _default;
     }
 
-    public void setDefault(@javax.annotation.Nullable Boolean _default) {
+    public void setDefault(@jakarta.annotation.Nullable Boolean _default) {
         this._default = _default;
     }
 
-    public BranchDefinition metadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    public BranchDefinition metadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -136,11 +136,11 @@ public class BranchDefinition {
      * Get metadata
      * @return metadata
      */
-    @javax.annotation.Nullable public Map<String, Object> getMetadata() {
+    @jakarta.annotation.Nullable public Map<String, Object> getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 

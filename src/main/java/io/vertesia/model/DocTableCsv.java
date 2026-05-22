@@ -32,24 +32,24 @@ import java.util.Objects;
 /**
  * Represents a table in a document that has been analyzed in CSV format
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DocTableCsv {
     public static final String SERIALIZED_NAME_PAGE_NUMBER = "page_number";
 
     @SerializedName(SERIALIZED_NAME_PAGE_NUMBER)
-    @javax.annotation.Nullable private BigDecimal pageNumber;
+    @jakarta.annotation.Nullable private BigDecimal pageNumber;
 
     public static final String SERIALIZED_NAME_TABLE_NUMBER = "table_number";
 
     @SerializedName(SERIALIZED_NAME_TABLE_NUMBER)
-    @javax.annotation.Nullable private BigDecimal tableNumber;
+    @jakarta.annotation.Nullable private BigDecimal tableNumber;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nullable private String title;
+    @jakarta.annotation.Nullable private String title;
 
     /**
      * Gets or Sets format
@@ -107,18 +107,18 @@ public class DocTableCsv {
     public static final String SERIALIZED_NAME_FORMAT = "format";
 
     @SerializedName(SERIALIZED_NAME_FORMAT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private FormatEnum format;
 
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String data;
 
     public DocTableCsv() {}
 
-    public DocTableCsv pageNumber(@javax.annotation.Nullable BigDecimal pageNumber) {
+    public DocTableCsv pageNumber(@jakarta.annotation.Nullable BigDecimal pageNumber) {
         this.pageNumber = pageNumber;
         return this;
     }
@@ -127,15 +127,15 @@ public class DocTableCsv {
      * Get pageNumber
      * @return pageNumber
      */
-    @javax.annotation.Nullable public BigDecimal getPageNumber() {
+    @jakarta.annotation.Nullable public BigDecimal getPageNumber() {
         return pageNumber;
     }
 
-    public void setPageNumber(@javax.annotation.Nullable BigDecimal pageNumber) {
+    public void setPageNumber(@jakarta.annotation.Nullable BigDecimal pageNumber) {
         this.pageNumber = pageNumber;
     }
 
-    public DocTableCsv tableNumber(@javax.annotation.Nullable BigDecimal tableNumber) {
+    public DocTableCsv tableNumber(@jakarta.annotation.Nullable BigDecimal tableNumber) {
         this.tableNumber = tableNumber;
         return this;
     }
@@ -144,15 +144,15 @@ public class DocTableCsv {
      * Get tableNumber
      * @return tableNumber
      */
-    @javax.annotation.Nullable public BigDecimal getTableNumber() {
+    @jakarta.annotation.Nullable public BigDecimal getTableNumber() {
         return tableNumber;
     }
 
-    public void setTableNumber(@javax.annotation.Nullable BigDecimal tableNumber) {
+    public void setTableNumber(@jakarta.annotation.Nullable BigDecimal tableNumber) {
         this.tableNumber = tableNumber;
     }
 
-    public DocTableCsv title(@javax.annotation.Nullable String title) {
+    public DocTableCsv title(@jakarta.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -161,15 +161,15 @@ public class DocTableCsv {
      * Get title
      * @return title
      */
-    @javax.annotation.Nullable public String getTitle() {
+    @jakarta.annotation.Nullable public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nullable String title) {
+    public void setTitle(@jakarta.annotation.Nullable String title) {
         this.title = title;
     }
 
-    public DocTableCsv format(@javax.annotation.Nonnull FormatEnum format) {
+    public DocTableCsv format(@jakarta.annotation.Nonnull FormatEnum format) {
         this.format = format;
         return this;
     }
@@ -178,16 +178,16 @@ public class DocTableCsv {
      * Get format
      * @return format
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public FormatEnum getFormat() {
         return format;
     }
 
-    public void setFormat(@javax.annotation.Nonnull FormatEnum format) {
+    public void setFormat(@jakarta.annotation.Nonnull FormatEnum format) {
         this.format = format;
     }
 
-    public DocTableCsv data(@javax.annotation.Nonnull String data) {
+    public DocTableCsv data(@jakarta.annotation.Nonnull String data) {
         this.data = data;
         return this;
     }
@@ -196,12 +196,12 @@ public class DocTableCsv {
      * Get data
      * @return data
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getData() {
         return data;
     }
 
-    public void setData(@javax.annotation.Nonnull String data) {
+    public void setData(@jakarta.annotation.Nonnull String data) {
         this.data = data;
     }
 

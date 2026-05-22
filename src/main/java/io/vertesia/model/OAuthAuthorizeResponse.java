@@ -30,29 +30,29 @@ import java.util.Objects;
 /**
  * Response from OAuth authorization endpoint
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OAuthAuthorizeResponse {
     public static final String SERIALIZED_NAME_AUTHORIZATION_URL = "authorization_url";
 
     @SerializedName(SERIALIZED_NAME_AUTHORIZATION_URL)
-    @javax.annotation.Nullable private String authorizationUrl;
+    @jakarta.annotation.Nullable private String authorizationUrl;
 
     public static final String SERIALIZED_NAME_STATE = "state";
 
     @SerializedName(SERIALIZED_NAME_STATE)
-    @javax.annotation.Nullable private String state;
+    @jakarta.annotation.Nullable private String state;
 
     public static final String SERIALIZED_NAME_CONNECTED = "connected";
 
     @SerializedName(SERIALIZED_NAME_CONNECTED)
-    @javax.annotation.Nullable private Boolean connected;
+    @jakarta.annotation.Nullable private Boolean connected;
 
     public OAuthAuthorizeResponse() {}
 
     public OAuthAuthorizeResponse authorizationUrl(
-            @javax.annotation.Nullable String authorizationUrl) {
+            @jakarta.annotation.Nullable String authorizationUrl) {
         this.authorizationUrl = authorizationUrl;
         return this;
     }
@@ -61,15 +61,15 @@ public class OAuthAuthorizeResponse {
      * Get authorizationUrl
      * @return authorizationUrl
      */
-    @javax.annotation.Nullable public String getAuthorizationUrl() {
+    @jakarta.annotation.Nullable public String getAuthorizationUrl() {
         return authorizationUrl;
     }
 
-    public void setAuthorizationUrl(@javax.annotation.Nullable String authorizationUrl) {
+    public void setAuthorizationUrl(@jakarta.annotation.Nullable String authorizationUrl) {
         this.authorizationUrl = authorizationUrl;
     }
 
-    public OAuthAuthorizeResponse state(@javax.annotation.Nullable String state) {
+    public OAuthAuthorizeResponse state(@jakarta.annotation.Nullable String state) {
         this.state = state;
         return this;
     }
@@ -78,15 +78,15 @@ public class OAuthAuthorizeResponse {
      * Get state
      * @return state
      */
-    @javax.annotation.Nullable public String getState() {
+    @jakarta.annotation.Nullable public String getState() {
         return state;
     }
 
-    public void setState(@javax.annotation.Nullable String state) {
+    public void setState(@jakarta.annotation.Nullable String state) {
         this.state = state;
     }
 
-    public OAuthAuthorizeResponse connected(@javax.annotation.Nullable Boolean connected) {
+    public OAuthAuthorizeResponse connected(@jakarta.annotation.Nullable Boolean connected) {
         this.connected = connected;
         return this;
     }
@@ -95,11 +95,11 @@ public class OAuthAuthorizeResponse {
      * Get connected
      * @return connected
      */
-    @javax.annotation.Nullable public Boolean getConnected() {
+    @jakarta.annotation.Nullable public Boolean getConnected() {
         return connected;
     }
 
-    public void setConnected(@javax.annotation.Nullable Boolean connected) {
+    public void setConnected(@jakarta.annotation.Nullable Boolean connected) {
         this.connected = connected;
     }
 

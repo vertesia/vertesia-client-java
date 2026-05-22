@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * WorkflowInputOneOf1
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WorkflowInputOneOf1 {
@@ -94,18 +94,18 @@ public class WorkflowInputOneOf1 {
     public static final String SERIALIZED_NAME_INPUT_TYPE = "inputType";
 
     @SerializedName(SERIALIZED_NAME_INPUT_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private InputTypeEnum inputType;
 
     public static final String SERIALIZED_NAME_FILES = "files";
 
     @SerializedName(SERIALIZED_NAME_FILES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<WorkflowInputFile> files = new ArrayList<>();
 
     public WorkflowInputOneOf1() {}
 
-    public WorkflowInputOneOf1 inputType(@javax.annotation.Nonnull InputTypeEnum inputType) {
+    public WorkflowInputOneOf1 inputType(@jakarta.annotation.Nonnull InputTypeEnum inputType) {
         this.inputType = inputType;
         return this;
     }
@@ -114,16 +114,16 @@ public class WorkflowInputOneOf1 {
      * Get inputType
      * @return inputType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public InputTypeEnum getInputType() {
         return inputType;
     }
 
-    public void setInputType(@javax.annotation.Nonnull InputTypeEnum inputType) {
+    public void setInputType(@jakarta.annotation.Nonnull InputTypeEnum inputType) {
         this.inputType = inputType;
     }
 
-    public WorkflowInputOneOf1 files(@javax.annotation.Nonnull List<WorkflowInputFile> files) {
+    public WorkflowInputOneOf1 files(@jakarta.annotation.Nonnull List<WorkflowInputFile> files) {
         this.files = files;
         return this;
     }
@@ -140,12 +140,12 @@ public class WorkflowInputOneOf1 {
      * Get files
      * @return files
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<WorkflowInputFile> getFiles() {
         return files;
     }
 
-    public void setFiles(@javax.annotation.Nonnull List<WorkflowInputFile> files) {
+    public void setFiles(@jakarta.annotation.Nonnull List<WorkflowInputFile> files) {
         this.files = files;
     }
 

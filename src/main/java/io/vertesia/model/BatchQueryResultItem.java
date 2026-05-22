@@ -36,48 +36,49 @@ import java.util.Objects;
 /**
  * BatchQueryResultItem
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BatchQueryResultItem {
     public static final String SERIALIZED_NAME_COLUMNS = "columns";
 
     @SerializedName(SERIALIZED_NAME_COLUMNS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<QueryResultColumn> columns = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ROWS = "rows";
 
     @SerializedName(SERIALIZED_NAME_ROWS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<Map<String, Object>> rows = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ROW_COUNT = "row_count";
 
     @SerializedName(SERIALIZED_NAME_ROW_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal rowCount;
 
     public static final String SERIALIZED_NAME_EXECUTION_TIME_MS = "execution_time_ms";
 
     @SerializedName(SERIALIZED_NAME_EXECUTION_TIME_MS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal executionTimeMs;
 
     public static final String SERIALIZED_NAME_ERROR = "error";
 
     @SerializedName(SERIALIZED_NAME_ERROR)
-    @javax.annotation.Nullable private String error;
+    @jakarta.annotation.Nullable private String error;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public BatchQueryResultItem() {}
 
-    public BatchQueryResultItem columns(@javax.annotation.Nonnull List<QueryResultColumn> columns) {
+    public BatchQueryResultItem columns(
+            @jakarta.annotation.Nonnull List<QueryResultColumn> columns) {
         this.columns = columns;
         return this;
     }
@@ -94,16 +95,16 @@ public class BatchQueryResultItem {
      * Column metadata
      * @return columns
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<QueryResultColumn> getColumns() {
         return columns;
     }
 
-    public void setColumns(@javax.annotation.Nonnull List<QueryResultColumn> columns) {
+    public void setColumns(@jakarta.annotation.Nonnull List<QueryResultColumn> columns) {
         this.columns = columns;
     }
 
-    public BatchQueryResultItem rows(@javax.annotation.Nonnull List<Map<String, Object>> rows) {
+    public BatchQueryResultItem rows(@jakarta.annotation.Nonnull List<Map<String, Object>> rows) {
         this.rows = rows;
         return this;
     }
@@ -120,16 +121,16 @@ public class BatchQueryResultItem {
      * Result rows
      * @return rows
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<Map<String, Object>> getRows() {
         return rows;
     }
 
-    public void setRows(@javax.annotation.Nonnull List<Map<String, Object>> rows) {
+    public void setRows(@jakarta.annotation.Nonnull List<Map<String, Object>> rows) {
         this.rows = rows;
     }
 
-    public BatchQueryResultItem rowCount(@javax.annotation.Nonnull BigDecimal rowCount) {
+    public BatchQueryResultItem rowCount(@jakarta.annotation.Nonnull BigDecimal rowCount) {
         this.rowCount = rowCount;
         return this;
     }
@@ -138,17 +139,17 @@ public class BatchQueryResultItem {
      * Number of rows returned
      * @return rowCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getRowCount() {
         return rowCount;
     }
 
-    public void setRowCount(@javax.annotation.Nonnull BigDecimal rowCount) {
+    public void setRowCount(@jakarta.annotation.Nonnull BigDecimal rowCount) {
         this.rowCount = rowCount;
     }
 
     public BatchQueryResultItem executionTimeMs(
-            @javax.annotation.Nonnull BigDecimal executionTimeMs) {
+            @jakarta.annotation.Nonnull BigDecimal executionTimeMs) {
         this.executionTimeMs = executionTimeMs;
         return this;
     }
@@ -157,16 +158,16 @@ public class BatchQueryResultItem {
      * Query execution time in milliseconds
      * @return executionTimeMs
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getExecutionTimeMs() {
         return executionTimeMs;
     }
 
-    public void setExecutionTimeMs(@javax.annotation.Nonnull BigDecimal executionTimeMs) {
+    public void setExecutionTimeMs(@jakarta.annotation.Nonnull BigDecimal executionTimeMs) {
         this.executionTimeMs = executionTimeMs;
     }
 
-    public BatchQueryResultItem error(@javax.annotation.Nullable String error) {
+    public BatchQueryResultItem error(@jakarta.annotation.Nullable String error) {
         this.error = error;
         return this;
     }
@@ -175,15 +176,15 @@ public class BatchQueryResultItem {
      * Error message if query failed (used in batch queries)
      * @return error
      */
-    @javax.annotation.Nullable public String getError() {
+    @jakarta.annotation.Nullable public String getError() {
         return error;
     }
 
-    public void setError(@javax.annotation.Nullable String error) {
+    public void setError(@jakarta.annotation.Nullable String error) {
         this.error = error;
     }
 
-    public BatchQueryResultItem name(@javax.annotation.Nonnull String name) {
+    public BatchQueryResultItem name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -192,12 +193,12 @@ public class BatchQueryResultItem {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 

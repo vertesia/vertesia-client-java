@@ -30,18 +30,18 @@ import java.util.Objects;
 /**
  * User menu overrides for the CompositeApp.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppUserMenuOverrides {
     public static final String SERIALIZED_NAME_HIDDEN = "hidden";
 
     @SerializedName(SERIALIZED_NAME_HIDDEN)
-    @javax.annotation.Nullable private Boolean hidden;
+    @jakarta.annotation.Nullable private Boolean hidden;
 
     public CompositeAppUserMenuOverrides() {}
 
-    public CompositeAppUserMenuOverrides hidden(@javax.annotation.Nullable Boolean hidden) {
+    public CompositeAppUserMenuOverrides hidden(@jakarta.annotation.Nullable Boolean hidden) {
         this.hidden = hidden;
         return this;
     }
@@ -50,11 +50,11 @@ public class CompositeAppUserMenuOverrides {
      * Whether to hide the User Menu (defaults to false)
      * @return hidden
      */
-    @javax.annotation.Nullable public Boolean getHidden() {
+    @jakarta.annotation.Nullable public Boolean getHidden() {
         return hidden;
     }
 
-    public void setHidden(@javax.annotation.Nullable Boolean hidden) {
+    public void setHidden(@jakarta.annotation.Nullable Boolean hidden) {
         this.hidden = hidden;
     }
 

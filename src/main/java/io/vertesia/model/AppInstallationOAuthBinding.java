@@ -30,31 +30,32 @@ import java.util.Objects;
 /**
  * Binding between an MCP collection and an OAuth provider created at install time. Stored on AppInstallation so the runtime can look up the correct OAuth provider by ID, independent of manifest oauth_provider references (which may change).
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AppInstallationOAuthBinding {
     public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String collectionId;
 
     public static final String SERIALIZED_NAME_OAUTH_PROVIDER_ID = "oauth_provider_id";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_PROVIDER_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String oauthProviderId;
 
     public static final String SERIALIZED_NAME_OAUTH_PROVIDER_NAME = "oauth_provider_name";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_PROVIDER_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String oauthProviderName;
 
     public AppInstallationOAuthBinding() {}
 
-    public AppInstallationOAuthBinding collectionId(@javax.annotation.Nonnull String collectionId) {
+    public AppInstallationOAuthBinding collectionId(
+            @jakarta.annotation.Nonnull String collectionId) {
         this.collectionId = collectionId;
         return this;
     }
@@ -63,17 +64,17 @@ public class AppInstallationOAuthBinding {
      * Stable collection identifier: MCPToolCollectionObject.id for new manifests. Legacy installations may still contain a name-based fallback value.
      * @return collectionId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCollectionId() {
         return collectionId;
     }
 
-    public void setCollectionId(@javax.annotation.Nonnull String collectionId) {
+    public void setCollectionId(@jakarta.annotation.Nonnull String collectionId) {
         this.collectionId = collectionId;
     }
 
     public AppInstallationOAuthBinding oauthProviderId(
-            @javax.annotation.Nonnull String oauthProviderId) {
+            @jakarta.annotation.Nonnull String oauthProviderId) {
         this.oauthProviderId = oauthProviderId;
         return this;
     }
@@ -82,17 +83,17 @@ public class AppInstallationOAuthBinding {
      * MongoDB ObjectId of the OAuth provider in this project. Used for ID-based lookups (rename-proof).
      * @return oauthProviderId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getOauthProviderId() {
         return oauthProviderId;
     }
 
-    public void setOauthProviderId(@javax.annotation.Nonnull String oauthProviderId) {
+    public void setOauthProviderId(@jakarta.annotation.Nonnull String oauthProviderId) {
         this.oauthProviderId = oauthProviderId;
     }
 
     public AppInstallationOAuthBinding oauthProviderName(
-            @javax.annotation.Nonnull String oauthProviderName) {
+            @jakarta.annotation.Nonnull String oauthProviderName) {
         this.oauthProviderName = oauthProviderName;
         return this;
     }
@@ -101,12 +102,12 @@ public class AppInstallationOAuthBinding {
      * Name of the OAuth provider at creation time. Used by the workflow token path (getMCPClient → remoteMcpConnections.getToken) which looks up by name.
      * @return oauthProviderName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getOauthProviderName() {
         return oauthProviderName;
     }
 
-    public void setOauthProviderName(@javax.annotation.Nonnull String oauthProviderName) {
+    public void setOauthProviderName(@jakarta.annotation.Nonnull String oauthProviderName) {
         this.oauthProviderName = oauthProviderName;
     }
 

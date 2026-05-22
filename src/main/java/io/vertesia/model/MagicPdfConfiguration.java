@@ -32,36 +32,36 @@ import java.util.Objects;
 /**
  * MagicPdfConfiguration
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class MagicPdfConfiguration {
     public static final String SERIALIZED_NAME_INTEGRATION = "integration";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SupportedIntegrationsMagicPdf integration;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean enabled;
 
     public static final String SERIALIZED_NAME_DEFAULT_FEATURES = "default_features";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT_FEATURES)
-    @javax.annotation.Nullable private List<String> defaultFeatures = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> defaultFeatures = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DEFAULT_ZONES = "default_zones";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT_ZONES)
-    @javax.annotation.Nullable private List<String> defaultZones = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> defaultZones = new ArrayList<>();
 
     public MagicPdfConfiguration() {}
 
     public MagicPdfConfiguration integration(
-            @javax.annotation.Nonnull SupportedIntegrationsMagicPdf integration) {
+            @jakarta.annotation.Nonnull SupportedIntegrationsMagicPdf integration) {
         this.integration = integration;
         return this;
     }
@@ -70,17 +70,17 @@ public class MagicPdfConfiguration {
      * Get integration
      * @return integration
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SupportedIntegrationsMagicPdf getIntegration() {
         return integration;
     }
 
     public void setIntegration(
-            @javax.annotation.Nonnull SupportedIntegrationsMagicPdf integration) {
+            @jakarta.annotation.Nonnull SupportedIntegrationsMagicPdf integration) {
         this.integration = integration;
     }
 
-    public MagicPdfConfiguration enabled(@javax.annotation.Nonnull Boolean enabled) {
+    public MagicPdfConfiguration enabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -89,17 +89,17 @@ public class MagicPdfConfiguration {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
     }
 
     public MagicPdfConfiguration defaultFeatures(
-            @javax.annotation.Nullable List<String> defaultFeatures) {
+            @jakarta.annotation.Nullable List<String> defaultFeatures) {
         this.defaultFeatures = defaultFeatures;
         return this;
     }
@@ -116,16 +116,16 @@ public class MagicPdfConfiguration {
      * Get defaultFeatures
      * @return defaultFeatures
      */
-    @javax.annotation.Nullable public List<String> getDefaultFeatures() {
+    @jakarta.annotation.Nullable public List<String> getDefaultFeatures() {
         return defaultFeatures;
     }
 
-    public void setDefaultFeatures(@javax.annotation.Nullable List<String> defaultFeatures) {
+    public void setDefaultFeatures(@jakarta.annotation.Nullable List<String> defaultFeatures) {
         this.defaultFeatures = defaultFeatures;
     }
 
     public MagicPdfConfiguration defaultZones(
-            @javax.annotation.Nullable List<String> defaultZones) {
+            @jakarta.annotation.Nullable List<String> defaultZones) {
         this.defaultZones = defaultZones;
         return this;
     }
@@ -142,11 +142,11 @@ public class MagicPdfConfiguration {
      * Get defaultZones
      * @return defaultZones
      */
-    @javax.annotation.Nullable public List<String> getDefaultZones() {
+    @jakarta.annotation.Nullable public List<String> getDefaultZones() {
         return defaultZones;
     }
 
-    public void setDefaultZones(@javax.annotation.Nullable List<String> defaultZones) {
+    public void setDefaultZones(@jakarta.annotation.Nullable List<String> defaultZones) {
         this.defaultZones = defaultZones;
     }
 

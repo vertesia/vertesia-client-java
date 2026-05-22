@@ -31,43 +31,43 @@ import java.util.Objects;
 /**
  * Represents a image in a document that has been analyzed
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DocImage {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nullable private String id;
+    @jakarta.annotation.Nullable private String id;
 
     public static final String SERIALIZED_NAME_PAGE_NUMBER = "page_number";
 
     @SerializedName(SERIALIZED_NAME_PAGE_NUMBER)
-    @javax.annotation.Nullable private BigDecimal pageNumber;
+    @jakarta.annotation.Nullable private BigDecimal pageNumber;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_IS_MEANINGFUL = "is_meaningful";
 
     @SerializedName(SERIALIZED_NAME_IS_MEANINGFUL)
-    @javax.annotation.Nullable private Boolean isMeaningful;
+    @jakarta.annotation.Nullable private Boolean isMeaningful;
 
     public static final String SERIALIZED_NAME_WIDTH = "width";
 
     @SerializedName(SERIALIZED_NAME_WIDTH)
-    @javax.annotation.Nullable private BigDecimal width;
+    @jakarta.annotation.Nullable private BigDecimal width;
 
     public static final String SERIALIZED_NAME_HEIGHT = "height";
 
     @SerializedName(SERIALIZED_NAME_HEIGHT)
-    @javax.annotation.Nullable private BigDecimal height;
+    @jakarta.annotation.Nullable private BigDecimal height;
 
     public DocImage() {}
 
-    public DocImage id(@javax.annotation.Nullable String id) {
+    public DocImage id(@jakarta.annotation.Nullable String id) {
         this.id = id;
         return this;
     }
@@ -76,15 +76,15 @@ public class DocImage {
      * Get id
      * @return id
      */
-    @javax.annotation.Nullable public String getId() {
+    @jakarta.annotation.Nullable public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nullable String id) {
+    public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
     }
 
-    public DocImage pageNumber(@javax.annotation.Nullable BigDecimal pageNumber) {
+    public DocImage pageNumber(@jakarta.annotation.Nullable BigDecimal pageNumber) {
         this.pageNumber = pageNumber;
         return this;
     }
@@ -93,15 +93,15 @@ public class DocImage {
      * Get pageNumber
      * @return pageNumber
      */
-    @javax.annotation.Nullable public BigDecimal getPageNumber() {
+    @jakarta.annotation.Nullable public BigDecimal getPageNumber() {
         return pageNumber;
     }
 
-    public void setPageNumber(@javax.annotation.Nullable BigDecimal pageNumber) {
+    public void setPageNumber(@jakarta.annotation.Nullable BigDecimal pageNumber) {
         this.pageNumber = pageNumber;
     }
 
-    public DocImage description(@javax.annotation.Nullable String description) {
+    public DocImage description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -110,15 +110,15 @@ public class DocImage {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public DocImage isMeaningful(@javax.annotation.Nullable Boolean isMeaningful) {
+    public DocImage isMeaningful(@jakarta.annotation.Nullable Boolean isMeaningful) {
         this.isMeaningful = isMeaningful;
         return this;
     }
@@ -127,15 +127,15 @@ public class DocImage {
      * Get isMeaningful
      * @return isMeaningful
      */
-    @javax.annotation.Nullable public Boolean getIsMeaningful() {
+    @jakarta.annotation.Nullable public Boolean getIsMeaningful() {
         return isMeaningful;
     }
 
-    public void setIsMeaningful(@javax.annotation.Nullable Boolean isMeaningful) {
+    public void setIsMeaningful(@jakarta.annotation.Nullable Boolean isMeaningful) {
         this.isMeaningful = isMeaningful;
     }
 
-    public DocImage width(@javax.annotation.Nullable BigDecimal width) {
+    public DocImage width(@jakarta.annotation.Nullable BigDecimal width) {
         this.width = width;
         return this;
     }
@@ -144,15 +144,15 @@ public class DocImage {
      * Get width
      * @return width
      */
-    @javax.annotation.Nullable public BigDecimal getWidth() {
+    @jakarta.annotation.Nullable public BigDecimal getWidth() {
         return width;
     }
 
-    public void setWidth(@javax.annotation.Nullable BigDecimal width) {
+    public void setWidth(@jakarta.annotation.Nullable BigDecimal width) {
         this.width = width;
     }
 
-    public DocImage height(@javax.annotation.Nullable BigDecimal height) {
+    public DocImage height(@jakarta.annotation.Nullable BigDecimal height) {
         this.height = height;
         return this;
     }
@@ -161,11 +161,11 @@ public class DocImage {
      * Get height
      * @return height
      */
-    @javax.annotation.Nullable public BigDecimal getHeight() {
+    @jakarta.annotation.Nullable public BigDecimal getHeight() {
         return height;
     }
 
-    public void setHeight(@javax.annotation.Nullable BigDecimal height) {
+    public void setHeight(@jakarta.annotation.Nullable BigDecimal height) {
         this.height = height;
     }
 

@@ -35,35 +35,35 @@ import java.util.Objects;
 /**
  * Simplified table representation for AI agents.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataTableForAI {
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_SEMANTIC_TYPE = "semantic_type";
 
     @SerializedName(SERIALIZED_NAME_SEMANTIC_TYPE)
-    @javax.annotation.Nullable private DataTableSemanticType semanticType;
+    @jakarta.annotation.Nullable private DataTableSemanticType semanticType;
 
     public static final String SERIALIZED_NAME_COLUMNS = "columns";
 
     @SerializedName(SERIALIZED_NAME_COLUMNS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, DataColumnForAI> columns;
 
     public static final String SERIALIZED_NAME_FOREIGN_KEYS = "foreign_keys";
 
     @SerializedName(SERIALIZED_NAME_FOREIGN_KEYS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<DataForeignKeyForAI> foreignKeys = new ArrayList<>();
 
     public DataTableForAI() {}
 
-    public DataTableForAI description(@javax.annotation.Nullable String description) {
+    public DataTableForAI description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -72,16 +72,16 @@ public class DataTableForAI {
      * Description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
     public DataTableForAI semanticType(
-            @javax.annotation.Nullable DataTableSemanticType semanticType) {
+            @jakarta.annotation.Nullable DataTableSemanticType semanticType) {
         this.semanticType = semanticType;
         return this;
     }
@@ -90,15 +90,16 @@ public class DataTableForAI {
      * Semantic type
      * @return semanticType
      */
-    @javax.annotation.Nullable public DataTableSemanticType getSemanticType() {
+    @jakarta.annotation.Nullable public DataTableSemanticType getSemanticType() {
         return semanticType;
     }
 
-    public void setSemanticType(@javax.annotation.Nullable DataTableSemanticType semanticType) {
+    public void setSemanticType(@jakarta.annotation.Nullable DataTableSemanticType semanticType) {
         this.semanticType = semanticType;
     }
 
-    public DataTableForAI columns(@javax.annotation.Nonnull Map<String, DataColumnForAI> columns) {
+    public DataTableForAI columns(
+            @jakarta.annotation.Nonnull Map<String, DataColumnForAI> columns) {
         this.columns = columns;
         return this;
     }
@@ -115,17 +116,17 @@ public class DataTableForAI {
      * Columns by name
      * @return columns
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, DataColumnForAI> getColumns() {
         return columns;
     }
 
-    public void setColumns(@javax.annotation.Nonnull Map<String, DataColumnForAI> columns) {
+    public void setColumns(@jakarta.annotation.Nonnull Map<String, DataColumnForAI> columns) {
         this.columns = columns;
     }
 
     public DataTableForAI foreignKeys(
-            @javax.annotation.Nonnull List<DataForeignKeyForAI> foreignKeys) {
+            @jakarta.annotation.Nonnull List<DataForeignKeyForAI> foreignKeys) {
         this.foreignKeys = foreignKeys;
         return this;
     }
@@ -142,12 +143,12 @@ public class DataTableForAI {
      * Foreign keys
      * @return foreignKeys
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<DataForeignKeyForAI> getForeignKeys() {
         return foreignKeys;
     }
 
-    public void setForeignKeys(@javax.annotation.Nonnull List<DataForeignKeyForAI> foreignKeys) {
+    public void setForeignKeys(@jakarta.annotation.Nonnull List<DataForeignKeyForAI> foreignKeys) {
         this.foreignKeys = foreignKeys;
     }
 

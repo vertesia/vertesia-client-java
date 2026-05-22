@@ -31,19 +31,19 @@ import java.util.Objects;
 /**
  * CostAnalyticsQuery
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CostAnalyticsQuery {
     public static final String SERIALIZED_NAME_FROM = "from";
 
     @SerializedName(SERIALIZED_NAME_FROM)
-    @javax.annotation.Nullable private GetModelPricesFromParameter from;
+    @jakarta.annotation.Nullable private GetModelPricesFromParameter from;
 
     public static final String SERIALIZED_NAME_TO = "to";
 
     @SerializedName(SERIALIZED_NAME_TO)
-    @javax.annotation.Nullable private GetModelPricesToParameter to;
+    @jakarta.annotation.Nullable private GetModelPricesToParameter to;
 
     /**
      * Group results by this dimension
@@ -115,7 +115,7 @@ public class CostAnalyticsQuery {
     public static final String SERIALIZED_NAME_GROUP_BY = "group_by";
 
     @SerializedName(SERIALIZED_NAME_GROUP_BY)
-    @javax.annotation.Nullable private GroupByEnum groupBy;
+    @jakarta.annotation.Nullable private GroupByEnum groupBy;
 
     /**
      * Time series resolution
@@ -179,67 +179,67 @@ public class CostAnalyticsQuery {
     public static final String SERIALIZED_NAME_RESOLUTION = "resolution";
 
     @SerializedName(SERIALIZED_NAME_RESOLUTION)
-    @javax.annotation.Nullable private ResolutionEnum resolution;
+    @jakarta.annotation.Nullable private ResolutionEnum resolution;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nullable private String model;
+    @jakarta.annotation.Nullable private String model;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT_ID = "environment_id";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT_ID)
-    @javax.annotation.Nullable private String environmentId;
+    @jakarta.annotation.Nullable private String environmentId;
 
     public static final String SERIALIZED_NAME_PROVIDER = "provider";
 
     @SerializedName(SERIALIZED_NAME_PROVIDER)
-    @javax.annotation.Nullable private String provider;
+    @jakarta.annotation.Nullable private String provider;
 
     public static final String SERIALIZED_NAME_PROJECT_ID = "project_id";
 
     @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-    @javax.annotation.Nullable private String projectId;
+    @jakarta.annotation.Nullable private String projectId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflow_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
-    @javax.annotation.Nullable private String workflowId;
+    @jakarta.annotation.Nullable private String workflowId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_RUN_ID = "workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_RUN_ID)
-    @javax.annotation.Nullable private String workflowRunId;
+    @jakarta.annotation.Nullable private String workflowRunId;
 
     public static final String SERIALIZED_NAME_RUN_ID = "run_id";
 
     @SerializedName(SERIALIZED_NAME_RUN_ID)
-    @javax.annotation.Nullable private String runId;
+    @jakarta.annotation.Nullable private String runId;
 
     public static final String SERIALIZED_NAME_AGENT_RUN_ID = "agent_run_id";
 
     @SerializedName(SERIALIZED_NAME_AGENT_RUN_ID)
-    @javax.annotation.Nullable private String agentRunId;
+    @jakarta.annotation.Nullable private String agentRunId;
 
     public static final String SERIALIZED_NAME_INTERACTION_ID = "interaction_id";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION_ID)
-    @javax.annotation.Nullable private String interactionId;
+    @jakarta.annotation.Nullable private String interactionId;
 
     public static final String SERIALIZED_NAME_INTERACTION_CODE = "interaction_code";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION_CODE)
-    @javax.annotation.Nullable private String interactionCode;
+    @jakarta.annotation.Nullable private String interactionCode;
 
     public static final String SERIALIZED_NAME_PRINCIPAL_ID = "principal_id";
 
     @SerializedName(SERIALIZED_NAME_PRINCIPAL_ID)
-    @javax.annotation.Nullable private String principalId;
+    @jakarta.annotation.Nullable private String principalId;
 
     public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
-    @javax.annotation.Nullable private String accountId;
+    @jakarta.annotation.Nullable private String accountId;
 
     /**
      * Scope: &#39;project&#39; (default, current project) or &#39;org&#39; (all projects in account)
@@ -299,7 +299,7 @@ public class CostAnalyticsQuery {
     public static final String SERIALIZED_NAME_SCOPE = "scope";
 
     @SerializedName(SERIALIZED_NAME_SCOPE)
-    @javax.annotation.Nullable private ScopeEnum scope;
+    @jakarta.annotation.Nullable private ScopeEnum scope;
 
     /**
      * Pricing source: &#39;list&#39; (latest daily prices) or &#39;historical&#39; (daily effective prices over the query range). Default: &#39;list&#39;
@@ -359,16 +359,16 @@ public class CostAnalyticsQuery {
     public static final String SERIALIZED_NAME_PRICING_SOURCE = "pricing_source";
 
     @SerializedName(SERIALIZED_NAME_PRICING_SOURCE)
-    @javax.annotation.Nullable private PricingSourceEnum pricingSource;
+    @jakarta.annotation.Nullable private PricingSourceEnum pricingSource;
 
     public static final String SERIALIZED_NAME_NO_CACHE = "no_cache";
 
     @SerializedName(SERIALIZED_NAME_NO_CACHE)
-    @javax.annotation.Nullable private Boolean noCache;
+    @jakarta.annotation.Nullable private Boolean noCache;
 
     public CostAnalyticsQuery() {}
 
-    public CostAnalyticsQuery from(@javax.annotation.Nullable GetModelPricesFromParameter from) {
+    public CostAnalyticsQuery from(@jakarta.annotation.Nullable GetModelPricesFromParameter from) {
         this.from = from;
         return this;
     }
@@ -377,15 +377,15 @@ public class CostAnalyticsQuery {
      * Get from
      * @return from
      */
-    @javax.annotation.Nullable public GetModelPricesFromParameter getFrom() {
+    @jakarta.annotation.Nullable public GetModelPricesFromParameter getFrom() {
         return from;
     }
 
-    public void setFrom(@javax.annotation.Nullable GetModelPricesFromParameter from) {
+    public void setFrom(@jakarta.annotation.Nullable GetModelPricesFromParameter from) {
         this.from = from;
     }
 
-    public CostAnalyticsQuery to(@javax.annotation.Nullable GetModelPricesToParameter to) {
+    public CostAnalyticsQuery to(@jakarta.annotation.Nullable GetModelPricesToParameter to) {
         this.to = to;
         return this;
     }
@@ -394,15 +394,15 @@ public class CostAnalyticsQuery {
      * Get to
      * @return to
      */
-    @javax.annotation.Nullable public GetModelPricesToParameter getTo() {
+    @jakarta.annotation.Nullable public GetModelPricesToParameter getTo() {
         return to;
     }
 
-    public void setTo(@javax.annotation.Nullable GetModelPricesToParameter to) {
+    public void setTo(@jakarta.annotation.Nullable GetModelPricesToParameter to) {
         this.to = to;
     }
 
-    public CostAnalyticsQuery groupBy(@javax.annotation.Nullable GroupByEnum groupBy) {
+    public CostAnalyticsQuery groupBy(@jakarta.annotation.Nullable GroupByEnum groupBy) {
         this.groupBy = groupBy;
         return this;
     }
@@ -411,15 +411,15 @@ public class CostAnalyticsQuery {
      * Group results by this dimension
      * @return groupBy
      */
-    @javax.annotation.Nullable public GroupByEnum getGroupBy() {
+    @jakarta.annotation.Nullable public GroupByEnum getGroupBy() {
         return groupBy;
     }
 
-    public void setGroupBy(@javax.annotation.Nullable GroupByEnum groupBy) {
+    public void setGroupBy(@jakarta.annotation.Nullable GroupByEnum groupBy) {
         this.groupBy = groupBy;
     }
 
-    public CostAnalyticsQuery resolution(@javax.annotation.Nullable ResolutionEnum resolution) {
+    public CostAnalyticsQuery resolution(@jakarta.annotation.Nullable ResolutionEnum resolution) {
         this.resolution = resolution;
         return this;
     }
@@ -428,15 +428,15 @@ public class CostAnalyticsQuery {
      * Time series resolution
      * @return resolution
      */
-    @javax.annotation.Nullable public ResolutionEnum getResolution() {
+    @jakarta.annotation.Nullable public ResolutionEnum getResolution() {
         return resolution;
     }
 
-    public void setResolution(@javax.annotation.Nullable ResolutionEnum resolution) {
+    public void setResolution(@jakarta.annotation.Nullable ResolutionEnum resolution) {
         this.resolution = resolution;
     }
 
-    public CostAnalyticsQuery model(@javax.annotation.Nullable String model) {
+    public CostAnalyticsQuery model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
@@ -445,15 +445,15 @@ public class CostAnalyticsQuery {
      * Filter by model pattern
      * @return model
      */
-    @javax.annotation.Nullable public String getModel() {
+    @jakarta.annotation.Nullable public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nullable String model) {
+    public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
     }
 
-    public CostAnalyticsQuery environmentId(@javax.annotation.Nullable String environmentId) {
+    public CostAnalyticsQuery environmentId(@jakarta.annotation.Nullable String environmentId) {
         this.environmentId = environmentId;
         return this;
     }
@@ -462,15 +462,15 @@ public class CostAnalyticsQuery {
      * Filter by environment ID
      * @return environmentId
      */
-    @javax.annotation.Nullable public String getEnvironmentId() {
+    @jakarta.annotation.Nullable public String getEnvironmentId() {
         return environmentId;
     }
 
-    public void setEnvironmentId(@javax.annotation.Nullable String environmentId) {
+    public void setEnvironmentId(@jakarta.annotation.Nullable String environmentId) {
         this.environmentId = environmentId;
     }
 
-    public CostAnalyticsQuery provider(@javax.annotation.Nullable String provider) {
+    public CostAnalyticsQuery provider(@jakarta.annotation.Nullable String provider) {
         this.provider = provider;
         return this;
     }
@@ -479,15 +479,15 @@ public class CostAnalyticsQuery {
      * Filter by provider
      * @return provider
      */
-    @javax.annotation.Nullable public String getProvider() {
+    @jakarta.annotation.Nullable public String getProvider() {
         return provider;
     }
 
-    public void setProvider(@javax.annotation.Nullable String provider) {
+    public void setProvider(@jakarta.annotation.Nullable String provider) {
         this.provider = provider;
     }
 
-    public CostAnalyticsQuery projectId(@javax.annotation.Nullable String projectId) {
+    public CostAnalyticsQuery projectId(@jakarta.annotation.Nullable String projectId) {
         this.projectId = projectId;
         return this;
     }
@@ -496,15 +496,15 @@ public class CostAnalyticsQuery {
      * Filter by project ID (optional, for org scope)
      * @return projectId
      */
-    @javax.annotation.Nullable public String getProjectId() {
+    @jakarta.annotation.Nullable public String getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(@javax.annotation.Nullable String projectId) {
+    public void setProjectId(@jakarta.annotation.Nullable String projectId) {
         this.projectId = projectId;
     }
 
-    public CostAnalyticsQuery workflowId(@javax.annotation.Nullable String workflowId) {
+    public CostAnalyticsQuery workflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
         return this;
     }
@@ -513,15 +513,15 @@ public class CostAnalyticsQuery {
      * Filter by workflow / agent run ID
      * @return workflowId
      */
-    @javax.annotation.Nullable public String getWorkflowId() {
+    @jakarta.annotation.Nullable public String getWorkflowId() {
         return workflowId;
     }
 
-    public void setWorkflowId(@javax.annotation.Nullable String workflowId) {
+    public void setWorkflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
     }
 
-    public CostAnalyticsQuery workflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public CostAnalyticsQuery workflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
         return this;
     }
@@ -530,15 +530,15 @@ public class CostAnalyticsQuery {
      * Filter by Temporal workflow run ID
      * @return workflowRunId
      */
-    @javax.annotation.Nullable public String getWorkflowRunId() {
+    @jakarta.annotation.Nullable public String getWorkflowRunId() {
         return workflowRunId;
     }
 
-    public void setWorkflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public void setWorkflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
     }
 
-    public CostAnalyticsQuery runId(@javax.annotation.Nullable String runId) {
+    public CostAnalyticsQuery runId(@jakarta.annotation.Nullable String runId) {
         this.runId = runId;
         return this;
     }
@@ -547,15 +547,15 @@ public class CostAnalyticsQuery {
      * Filter by interaction execution run ID
      * @return runId
      */
-    @javax.annotation.Nullable public String getRunId() {
+    @jakarta.annotation.Nullable public String getRunId() {
         return runId;
     }
 
-    public void setRunId(@javax.annotation.Nullable String runId) {
+    public void setRunId(@jakarta.annotation.Nullable String runId) {
         this.runId = runId;
     }
 
-    public CostAnalyticsQuery agentRunId(@javax.annotation.Nullable String agentRunId) {
+    public CostAnalyticsQuery agentRunId(@jakarta.annotation.Nullable String agentRunId) {
         this.agentRunId = agentRunId;
         return this;
     }
@@ -564,15 +564,15 @@ public class CostAnalyticsQuery {
      * Filter by agent run ID
      * @return agentRunId
      */
-    @javax.annotation.Nullable public String getAgentRunId() {
+    @jakarta.annotation.Nullable public String getAgentRunId() {
         return agentRunId;
     }
 
-    public void setAgentRunId(@javax.annotation.Nullable String agentRunId) {
+    public void setAgentRunId(@jakarta.annotation.Nullable String agentRunId) {
         this.agentRunId = agentRunId;
     }
 
-    public CostAnalyticsQuery interactionId(@javax.annotation.Nullable String interactionId) {
+    public CostAnalyticsQuery interactionId(@jakarta.annotation.Nullable String interactionId) {
         this.interactionId = interactionId;
         return this;
     }
@@ -581,15 +581,15 @@ public class CostAnalyticsQuery {
      * Filter by saved-interaction ObjectId
      * @return interactionId
      */
-    @javax.annotation.Nullable public String getInteractionId() {
+    @jakarta.annotation.Nullable public String getInteractionId() {
         return interactionId;
     }
 
-    public void setInteractionId(@javax.annotation.Nullable String interactionId) {
+    public void setInteractionId(@jakarta.annotation.Nullable String interactionId) {
         this.interactionId = interactionId;
     }
 
-    public CostAnalyticsQuery interactionCode(@javax.annotation.Nullable String interactionCode) {
+    public CostAnalyticsQuery interactionCode(@jakarta.annotation.Nullable String interactionCode) {
         this.interactionCode = interactionCode;
         return this;
     }
@@ -598,15 +598,15 @@ public class CostAnalyticsQuery {
      * Filter by in-code interaction code (e.g. \&quot;@sys:chat\&quot;)
      * @return interactionCode
      */
-    @javax.annotation.Nullable public String getInteractionCode() {
+    @jakarta.annotation.Nullable public String getInteractionCode() {
         return interactionCode;
     }
 
-    public void setInteractionCode(@javax.annotation.Nullable String interactionCode) {
+    public void setInteractionCode(@jakarta.annotation.Nullable String interactionCode) {
         this.interactionCode = interactionCode;
     }
 
-    public CostAnalyticsQuery principalId(@javax.annotation.Nullable String principalId) {
+    public CostAnalyticsQuery principalId(@jakarta.annotation.Nullable String principalId) {
         this.principalId = principalId;
         return this;
     }
@@ -615,15 +615,15 @@ public class CostAnalyticsQuery {
      * Filter by principal (bare user or API key id; matched against the suffix of principal_id)
      * @return principalId
      */
-    @javax.annotation.Nullable public String getPrincipalId() {
+    @jakarta.annotation.Nullable public String getPrincipalId() {
         return principalId;
     }
 
-    public void setPrincipalId(@javax.annotation.Nullable String principalId) {
+    public void setPrincipalId(@jakarta.annotation.Nullable String principalId) {
         this.principalId = principalId;
     }
 
-    public CostAnalyticsQuery accountId(@javax.annotation.Nullable String accountId) {
+    public CostAnalyticsQuery accountId(@jakarta.annotation.Nullable String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -632,15 +632,15 @@ public class CostAnalyticsQuery {
      * Filter by account ID (set automatically by server)
      * @return accountId
      */
-    @javax.annotation.Nullable public String getAccountId() {
+    @jakarta.annotation.Nullable public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(@javax.annotation.Nullable String accountId) {
+    public void setAccountId(@jakarta.annotation.Nullable String accountId) {
         this.accountId = accountId;
     }
 
-    public CostAnalyticsQuery scope(@javax.annotation.Nullable ScopeEnum scope) {
+    public CostAnalyticsQuery scope(@jakarta.annotation.Nullable ScopeEnum scope) {
         this.scope = scope;
         return this;
     }
@@ -649,16 +649,16 @@ public class CostAnalyticsQuery {
      * Scope: &#39;project&#39; (default, current project) or &#39;org&#39; (all projects in account)
      * @return scope
      */
-    @javax.annotation.Nullable public ScopeEnum getScope() {
+    @jakarta.annotation.Nullable public ScopeEnum getScope() {
         return scope;
     }
 
-    public void setScope(@javax.annotation.Nullable ScopeEnum scope) {
+    public void setScope(@jakarta.annotation.Nullable ScopeEnum scope) {
         this.scope = scope;
     }
 
     public CostAnalyticsQuery pricingSource(
-            @javax.annotation.Nullable PricingSourceEnum pricingSource) {
+            @jakarta.annotation.Nullable PricingSourceEnum pricingSource) {
         this.pricingSource = pricingSource;
         return this;
     }
@@ -667,15 +667,15 @@ public class CostAnalyticsQuery {
      * Pricing source: &#39;list&#39; (latest daily prices) or &#39;historical&#39; (daily effective prices over the query range). Default: &#39;list&#39;
      * @return pricingSource
      */
-    @javax.annotation.Nullable public PricingSourceEnum getPricingSource() {
+    @jakarta.annotation.Nullable public PricingSourceEnum getPricingSource() {
         return pricingSource;
     }
 
-    public void setPricingSource(@javax.annotation.Nullable PricingSourceEnum pricingSource) {
+    public void setPricingSource(@jakarta.annotation.Nullable PricingSourceEnum pricingSource) {
         this.pricingSource = pricingSource;
     }
 
-    public CostAnalyticsQuery noCache(@javax.annotation.Nullable Boolean noCache) {
+    public CostAnalyticsQuery noCache(@jakarta.annotation.Nullable Boolean noCache) {
         this.noCache = noCache;
         return this;
     }
@@ -684,11 +684,11 @@ public class CostAnalyticsQuery {
      * Skip cache and force fresh query
      * @return noCache
      */
-    @javax.annotation.Nullable public Boolean getNoCache() {
+    @jakarta.annotation.Nullable public Boolean getNoCache() {
         return noCache;
     }
 
-    public void setNoCache(@javax.annotation.Nullable Boolean noCache) {
+    public void setNoCache(@jakarta.annotation.Nullable Boolean noCache) {
         this.noCache = noCache;
     }
 

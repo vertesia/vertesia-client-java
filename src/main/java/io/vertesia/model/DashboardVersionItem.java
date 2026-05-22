@@ -31,77 +31,77 @@ import java.util.Objects;
 /**
  * Summary view of a dashboard version (for listings).
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DashboardVersionItem {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_DASHBOARD_ID = "dashboard_id";
 
     @SerializedName(SERIALIZED_NAME_DASHBOARD_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String dashboardId;
 
     public static final String SERIALIZED_NAME_VERSION_NUMBER = "version_number";
 
     @SerializedName(SERIALIZED_NAME_VERSION_NUMBER)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal versionNumber;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String message;
 
     public static final String SERIALIZED_NAME_IS_CURRENT = "is_current";
 
     @SerializedName(SERIALIZED_NAME_IS_CURRENT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean isCurrent;
 
     public static final String SERIALIZED_NAME_IS_SNAPSHOT = "is_snapshot";
 
     @SerializedName(SERIALIZED_NAME_IS_SNAPSHOT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean isSnapshot;
 
     public static final String SERIALIZED_NAME_SNAPSHOT_NAME = "snapshot_name";
 
     @SerializedName(SERIALIZED_NAME_SNAPSHOT_NAME)
-    @javax.annotation.Nullable private String snapshotName;
+    @jakarta.annotation.Nullable private String snapshotName;
 
     public static final String SERIALIZED_NAME_PANEL_COUNT = "panel_count";
 
     @SerializedName(SERIALIZED_NAME_PANEL_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal panelCount;
 
     public static final String SERIALIZED_NAME_QUERY_COUNT = "query_count";
 
     @SerializedName(SERIALIZED_NAME_QUERY_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal queryCount;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nullable private String createdBy;
+    @jakarta.annotation.Nullable private String createdBy;
 
     public DashboardVersionItem() {}
 
-    public DashboardVersionItem id(@javax.annotation.Nonnull String id) {
+    public DashboardVersionItem id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -110,16 +110,16 @@ public class DashboardVersionItem {
      * Version ID
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public DashboardVersionItem dashboardId(@javax.annotation.Nonnull String dashboardId) {
+    public DashboardVersionItem dashboardId(@jakarta.annotation.Nonnull String dashboardId) {
         this.dashboardId = dashboardId;
         return this;
     }
@@ -128,16 +128,17 @@ public class DashboardVersionItem {
      * Parent dashboard ID
      * @return dashboardId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDashboardId() {
         return dashboardId;
     }
 
-    public void setDashboardId(@javax.annotation.Nonnull String dashboardId) {
+    public void setDashboardId(@jakarta.annotation.Nonnull String dashboardId) {
         this.dashboardId = dashboardId;
     }
 
-    public DashboardVersionItem versionNumber(@javax.annotation.Nonnull BigDecimal versionNumber) {
+    public DashboardVersionItem versionNumber(
+            @jakarta.annotation.Nonnull BigDecimal versionNumber) {
         this.versionNumber = versionNumber;
         return this;
     }
@@ -146,16 +147,16 @@ public class DashboardVersionItem {
      * Version number
      * @return versionNumber
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getVersionNumber() {
         return versionNumber;
     }
 
-    public void setVersionNumber(@javax.annotation.Nonnull BigDecimal versionNumber) {
+    public void setVersionNumber(@jakarta.annotation.Nonnull BigDecimal versionNumber) {
         this.versionNumber = versionNumber;
     }
 
-    public DashboardVersionItem message(@javax.annotation.Nonnull String message) {
+    public DashboardVersionItem message(@jakarta.annotation.Nonnull String message) {
         this.message = message;
         return this;
     }
@@ -164,16 +165,16 @@ public class DashboardVersionItem {
      * Commit message
      * @return message
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nonnull String message) {
+    public void setMessage(@jakarta.annotation.Nonnull String message) {
         this.message = message;
     }
 
-    public DashboardVersionItem isCurrent(@javax.annotation.Nonnull Boolean isCurrent) {
+    public DashboardVersionItem isCurrent(@jakarta.annotation.Nonnull Boolean isCurrent) {
         this.isCurrent = isCurrent;
         return this;
     }
@@ -182,16 +183,16 @@ public class DashboardVersionItem {
      * Whether this is the current version
      * @return isCurrent
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getIsCurrent() {
         return isCurrent;
     }
 
-    public void setIsCurrent(@javax.annotation.Nonnull Boolean isCurrent) {
+    public void setIsCurrent(@jakarta.annotation.Nonnull Boolean isCurrent) {
         this.isCurrent = isCurrent;
     }
 
-    public DashboardVersionItem isSnapshot(@javax.annotation.Nonnull Boolean isSnapshot) {
+    public DashboardVersionItem isSnapshot(@jakarta.annotation.Nonnull Boolean isSnapshot) {
         this.isSnapshot = isSnapshot;
         return this;
     }
@@ -200,16 +201,16 @@ public class DashboardVersionItem {
      * Whether this is a named snapshot
      * @return isSnapshot
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getIsSnapshot() {
         return isSnapshot;
     }
 
-    public void setIsSnapshot(@javax.annotation.Nonnull Boolean isSnapshot) {
+    public void setIsSnapshot(@jakarta.annotation.Nonnull Boolean isSnapshot) {
         this.isSnapshot = isSnapshot;
     }
 
-    public DashboardVersionItem snapshotName(@javax.annotation.Nullable String snapshotName) {
+    public DashboardVersionItem snapshotName(@jakarta.annotation.Nullable String snapshotName) {
         this.snapshotName = snapshotName;
         return this;
     }
@@ -218,15 +219,15 @@ public class DashboardVersionItem {
      * Snapshot name (if is_snapshot)
      * @return snapshotName
      */
-    @javax.annotation.Nullable public String getSnapshotName() {
+    @jakarta.annotation.Nullable public String getSnapshotName() {
         return snapshotName;
     }
 
-    public void setSnapshotName(@javax.annotation.Nullable String snapshotName) {
+    public void setSnapshotName(@jakarta.annotation.Nullable String snapshotName) {
         this.snapshotName = snapshotName;
     }
 
-    public DashboardVersionItem panelCount(@javax.annotation.Nonnull BigDecimal panelCount) {
+    public DashboardVersionItem panelCount(@jakarta.annotation.Nonnull BigDecimal panelCount) {
         this.panelCount = panelCount;
         return this;
     }
@@ -235,16 +236,16 @@ public class DashboardVersionItem {
      * Number of panels in this version
      * @return panelCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getPanelCount() {
         return panelCount;
     }
 
-    public void setPanelCount(@javax.annotation.Nonnull BigDecimal panelCount) {
+    public void setPanelCount(@jakarta.annotation.Nonnull BigDecimal panelCount) {
         this.panelCount = panelCount;
     }
 
-    public DashboardVersionItem queryCount(@javax.annotation.Nonnull BigDecimal queryCount) {
+    public DashboardVersionItem queryCount(@jakarta.annotation.Nonnull BigDecimal queryCount) {
         this.queryCount = queryCount;
         return this;
     }
@@ -253,16 +254,16 @@ public class DashboardVersionItem {
      * Number of queries in this version
      * @return queryCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getQueryCount() {
         return queryCount;
     }
 
-    public void setQueryCount(@javax.annotation.Nonnull BigDecimal queryCount) {
+    public void setQueryCount(@jakarta.annotation.Nonnull BigDecimal queryCount) {
         this.queryCount = queryCount;
     }
 
-    public DashboardVersionItem createdAt(@javax.annotation.Nonnull String createdAt) {
+    public DashboardVersionItem createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -271,16 +272,16 @@ public class DashboardVersionItem {
      * Creation timestamp
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public DashboardVersionItem createdBy(@javax.annotation.Nullable String createdBy) {
+    public DashboardVersionItem createdBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -289,11 +290,11 @@ public class DashboardVersionItem {
      * User/agent who created
      * @return createdBy
      */
-    @javax.annotation.Nullable public String getCreatedBy() {
+    @jakarta.annotation.Nullable public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
     }
 

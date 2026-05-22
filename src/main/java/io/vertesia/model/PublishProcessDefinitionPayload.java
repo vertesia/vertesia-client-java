@@ -32,34 +32,35 @@ import java.util.Objects;
 /**
  * PublishProcessDefinitionPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PublishProcessDefinitionPayload {
     public static final String SERIALIZED_NAME_CONFIRMED = "confirmed";
 
     @SerializedName(SERIALIZED_NAME_CONFIRMED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean confirmed;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LABEL = "label";
 
     @SerializedName(SERIALIZED_NAME_LABEL)
-    @javax.annotation.Nullable private String label;
+    @jakarta.annotation.Nullable private String label;
 
     public static final String SERIALIZED_NAME_COMMENT = "comment";
 
     @SerializedName(SERIALIZED_NAME_COMMENT)
-    @javax.annotation.Nullable private String comment;
+    @jakarta.annotation.Nullable private String comment;
 
     public PublishProcessDefinitionPayload() {}
 
-    public PublishProcessDefinitionPayload confirmed(@javax.annotation.Nonnull Boolean confirmed) {
+    public PublishProcessDefinitionPayload confirmed(
+            @jakarta.annotation.Nonnull Boolean confirmed) {
         this.confirmed = confirmed;
         return this;
     }
@@ -68,16 +69,16 @@ public class PublishProcessDefinitionPayload {
      * Required explicit confirmation from the caller.
      * @return confirmed
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getConfirmed() {
         return confirmed;
     }
 
-    public void setConfirmed(@javax.annotation.Nonnull Boolean confirmed) {
+    public void setConfirmed(@jakarta.annotation.Nonnull Boolean confirmed) {
         this.confirmed = confirmed;
     }
 
-    public PublishProcessDefinitionPayload tags(@javax.annotation.Nullable List<String> tags) {
+    public PublishProcessDefinitionPayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -94,15 +95,15 @@ public class PublishProcessDefinitionPayload {
      * Optional tags to merge into the published revision.
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public PublishProcessDefinitionPayload label(@javax.annotation.Nullable String label) {
+    public PublishProcessDefinitionPayload label(@jakarta.annotation.Nullable String label) {
         this.label = label;
         return this;
     }
@@ -111,15 +112,15 @@ public class PublishProcessDefinitionPayload {
      * Optional human-readable revision label.
      * @return label
      */
-    @javax.annotation.Nullable public String getLabel() {
+    @jakarta.annotation.Nullable public String getLabel() {
         return label;
     }
 
-    public void setLabel(@javax.annotation.Nullable String label) {
+    public void setLabel(@jakarta.annotation.Nullable String label) {
         this.label = label;
     }
 
-    public PublishProcessDefinitionPayload comment(@javax.annotation.Nullable String comment) {
+    public PublishProcessDefinitionPayload comment(@jakarta.annotation.Nullable String comment) {
         this.comment = comment;
         return this;
     }
@@ -128,11 +129,11 @@ public class PublishProcessDefinitionPayload {
      * Optional publish note.
      * @return comment
      */
-    @javax.annotation.Nullable public String getComment() {
+    @jakarta.annotation.Nullable public String getComment() {
         return comment;
     }
 
-    public void setComment(@javax.annotation.Nullable String comment) {
+    public void setComment(@jakarta.annotation.Nullable String comment) {
         this.comment = comment;
     }
 

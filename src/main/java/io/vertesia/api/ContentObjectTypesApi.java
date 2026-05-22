@@ -84,7 +84,8 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call createContentObjectTypeCall(
-            @javax.annotation.Nonnull CreateContentObjectTypePayload createContentObjectTypePayload,
+            @jakarta.annotation.Nonnull
+                    CreateContentObjectTypePayload createContentObjectTypePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -141,7 +142,8 @@ public class ContentObjectTypesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createContentObjectTypeValidateBeforeCall(
-            @javax.annotation.Nonnull CreateContentObjectTypePayload createContentObjectTypePayload,
+            @jakarta.annotation.Nonnull
+                    CreateContentObjectTypePayload createContentObjectTypePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'createContentObjectTypePayload' is set
@@ -169,7 +171,8 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public ContentObjectType createContentObjectType(
-            @javax.annotation.Nonnull CreateContentObjectTypePayload createContentObjectTypePayload)
+            @jakarta.annotation.Nonnull
+                    CreateContentObjectTypePayload createContentObjectTypePayload)
             throws ApiException {
         ApiResponse<ContentObjectType> localVarResp =
                 createContentObjectTypeWithHttpInfo(createContentObjectTypePayload);
@@ -192,7 +195,8 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public ApiResponse<ContentObjectType> createContentObjectTypeWithHttpInfo(
-            @javax.annotation.Nonnull CreateContentObjectTypePayload createContentObjectTypePayload)
+            @jakarta.annotation.Nonnull
+                    CreateContentObjectTypePayload createContentObjectTypePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createContentObjectTypeValidateBeforeCall(createContentObjectTypePayload, null);
@@ -217,7 +221,8 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call createContentObjectTypeAsync(
-            @javax.annotation.Nonnull CreateContentObjectTypePayload createContentObjectTypePayload,
+            @jakarta.annotation.Nonnull
+                    CreateContentObjectTypePayload createContentObjectTypePayload,
             final ApiCallback<ContentObjectType> _callback)
             throws ApiException {
 
@@ -245,7 +250,7 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call deleteContentObjectTypeCall(
-            @javax.annotation.Nonnull String typeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String typeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -305,7 +310,7 @@ public class ContentObjectTypesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteContentObjectTypeValidateBeforeCall(
-            @javax.annotation.Nonnull String typeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String typeId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'typeId' is set
         if (typeId == null) {
@@ -331,7 +336,7 @@ public class ContentObjectTypesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteCountResult deleteContentObjectType(@javax.annotation.Nonnull String typeId)
+    public DeleteCountResult deleteContentObjectType(@jakarta.annotation.Nonnull String typeId)
             throws ApiException {
         ApiResponse<DeleteCountResult> localVarResp = deleteContentObjectTypeWithHttpInfo(typeId);
         return localVarResp.getData();
@@ -353,7 +358,7 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public ApiResponse<DeleteCountResult> deleteContentObjectTypeWithHttpInfo(
-            @javax.annotation.Nonnull String typeId) throws ApiException {
+            @jakarta.annotation.Nonnull String typeId) throws ApiException {
         okhttp3.Call localVarCall = deleteContentObjectTypeValidateBeforeCall(typeId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -376,7 +381,8 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call deleteContentObjectTypeAsync(
-            @javax.annotation.Nonnull String typeId, final ApiCallback<DeleteCountResult> _callback)
+            @jakarta.annotation.Nonnull String typeId,
+            final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = deleteContentObjectTypeValidateBeforeCall(typeId, _callback);
@@ -401,7 +407,7 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call getContentObjectTypeCall(
-            @javax.annotation.Nonnull String typeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String typeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -461,7 +467,7 @@ public class ContentObjectTypesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getContentObjectTypeValidateBeforeCall(
-            @javax.annotation.Nonnull String typeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String typeId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'typeId' is set
         if (typeId == null) {
@@ -487,7 +493,7 @@ public class ContentObjectTypesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ContentObjectType getContentObjectType(@javax.annotation.Nonnull String typeId)
+    public ContentObjectType getContentObjectType(@jakarta.annotation.Nonnull String typeId)
             throws ApiException {
         ApiResponse<ContentObjectType> localVarResp = getContentObjectTypeWithHttpInfo(typeId);
         return localVarResp.getData();
@@ -509,7 +515,7 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public ApiResponse<ContentObjectType> getContentObjectTypeWithHttpInfo(
-            @javax.annotation.Nonnull String typeId) throws ApiException {
+            @jakarta.annotation.Nonnull String typeId) throws ApiException {
         okhttp3.Call localVarCall = getContentObjectTypeValidateBeforeCall(typeId, null);
         Type localVarReturnType = new TypeToken<ContentObjectType>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -532,7 +538,8 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call getContentObjectTypeAsync(
-            @javax.annotation.Nonnull String typeId, final ApiCallback<ContentObjectType> _callback)
+            @jakarta.annotation.Nonnull String typeId,
+            final ApiCallback<ContentObjectType> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getContentObjectTypeValidateBeforeCall(typeId, _callback);
@@ -557,7 +564,7 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call getContentObjectTypeByNameCall(
-            @javax.annotation.Nonnull String name, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String name, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -617,7 +624,7 @@ public class ContentObjectTypesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getContentObjectTypeByNameValidateBeforeCall(
-            @javax.annotation.Nonnull String name, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String name, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -643,7 +650,7 @@ public class ContentObjectTypesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ContentObjectType getContentObjectTypeByName(@javax.annotation.Nonnull String name)
+    public ContentObjectType getContentObjectTypeByName(@jakarta.annotation.Nonnull String name)
             throws ApiException {
         ApiResponse<ContentObjectType> localVarResp = getContentObjectTypeByNameWithHttpInfo(name);
         return localVarResp.getData();
@@ -665,7 +672,7 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public ApiResponse<ContentObjectType> getContentObjectTypeByNameWithHttpInfo(
-            @javax.annotation.Nonnull String name) throws ApiException {
+            @jakarta.annotation.Nonnull String name) throws ApiException {
         okhttp3.Call localVarCall = getContentObjectTypeByNameValidateBeforeCall(name, null);
         Type localVarReturnType = new TypeToken<ContentObjectType>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -688,7 +695,7 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call getContentObjectTypeByNameAsync(
-            @javax.annotation.Nonnull String name, final ApiCallback<ContentObjectType> _callback)
+            @jakarta.annotation.Nonnull String name, final ApiCallback<ContentObjectType> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getContentObjectTypeByNameValidateBeforeCall(name, _callback);
@@ -717,11 +724,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call listApplicationContentObjectTypesCall(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -798,11 +805,11 @@ public class ContentObjectTypesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listApplicationContentObjectTypesValidateBeforeCall(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         return listApplicationContentObjectTypesCall(tag, layout, schema, limit, offset, _callback);
@@ -828,11 +835,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public List<ContentObjectTypeItem> listApplicationContentObjectTypes(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         ApiResponse<List<ContentObjectTypeItem>> localVarResp =
                 listApplicationContentObjectTypesWithHttpInfo(tag, layout, schema, limit, offset);
@@ -859,11 +866,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public ApiResponse<List<ContentObjectTypeItem>> listApplicationContentObjectTypesWithHttpInfo(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listApplicationContentObjectTypesValidateBeforeCall(
@@ -893,11 +900,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call listApplicationContentObjectTypesAsync(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback<List<ContentObjectTypeItem>> _callback)
             throws ApiException {
 
@@ -929,11 +936,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call listContentObjectTypeCatalogCall(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1010,11 +1017,11 @@ public class ContentObjectTypesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listContentObjectTypeCatalogValidateBeforeCall(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         return listContentObjectTypeCatalogCall(tag, layout, schema, limit, offset, _callback);
@@ -1040,11 +1047,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public List<ContentObjectTypeItem> listContentObjectTypeCatalog(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         ApiResponse<List<ContentObjectTypeItem>> localVarResp =
                 listContentObjectTypeCatalogWithHttpInfo(tag, layout, schema, limit, offset);
@@ -1071,11 +1078,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public ApiResponse<List<ContentObjectTypeItem>> listContentObjectTypeCatalogWithHttpInfo(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listContentObjectTypeCatalogValidateBeforeCall(
@@ -1105,11 +1112,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call listContentObjectTypeCatalogAsync(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback<List<ContentObjectTypeItem>> _callback)
             throws ApiException {
 
@@ -1142,12 +1149,12 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call listContentObjectTypesCall(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable Boolean chunkable,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable Boolean chunkable,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1228,12 +1235,12 @@ public class ContentObjectTypesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listContentObjectTypesValidateBeforeCall(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable Boolean chunkable,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable Boolean chunkable,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         return listContentObjectTypesCall(
@@ -1261,12 +1268,12 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public List<ContentObjectType> listContentObjectTypes(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable Boolean chunkable,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable Boolean chunkable,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         ApiResponse<List<ContentObjectType>> localVarResp =
                 listContentObjectTypesWithHttpInfo(name, chunkable, layout, schema, limit, offset);
@@ -1294,12 +1301,12 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public ApiResponse<List<ContentObjectType>> listContentObjectTypesWithHttpInfo(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable Boolean chunkable,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable Boolean chunkable,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listContentObjectTypesValidateBeforeCall(
@@ -1330,12 +1337,12 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call listContentObjectTypesAsync(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable Boolean chunkable,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable Boolean chunkable,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback<List<ContentObjectType>> _callback)
             throws ApiException {
 
@@ -1367,11 +1374,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call listStoredContentObjectTypesCall(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1448,11 +1455,11 @@ public class ContentObjectTypesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listStoredContentObjectTypesValidateBeforeCall(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         return listStoredContentObjectTypesCall(tag, layout, schema, limit, offset, _callback);
@@ -1478,11 +1485,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public List<ContentObjectTypeItem> listStoredContentObjectTypes(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         ApiResponse<List<ContentObjectTypeItem>> localVarResp =
                 listStoredContentObjectTypesWithHttpInfo(tag, layout, schema, limit, offset);
@@ -1509,11 +1516,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public ApiResponse<List<ContentObjectTypeItem>> listStoredContentObjectTypesWithHttpInfo(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listStoredContentObjectTypesValidateBeforeCall(
@@ -1543,11 +1550,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call listStoredContentObjectTypesAsync(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback<List<ContentObjectTypeItem>> _callback)
             throws ApiException {
 
@@ -1579,11 +1586,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call listSystemContentObjectTypesCall(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1660,11 +1667,11 @@ public class ContentObjectTypesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSystemContentObjectTypesValidateBeforeCall(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         return listSystemContentObjectTypesCall(tag, layout, schema, limit, offset, _callback);
@@ -1690,11 +1697,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public List<ContentObjectTypeItem> listSystemContentObjectTypes(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         ApiResponse<List<ContentObjectTypeItem>> localVarResp =
                 listSystemContentObjectTypesWithHttpInfo(tag, layout, schema, limit, offset);
@@ -1721,11 +1728,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public ApiResponse<List<ContentObjectTypeItem>> listSystemContentObjectTypesWithHttpInfo(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listSystemContentObjectTypesValidateBeforeCall(
@@ -1755,11 +1762,11 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call listSystemContentObjectTypesAsync(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable Boolean layout,
-            @javax.annotation.Nullable Boolean schema,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean layout,
+            @jakarta.annotation.Nullable Boolean schema,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback<List<ContentObjectTypeItem>> _callback)
             throws ApiException {
 
@@ -1787,7 +1794,7 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call resolveContentObjectTypeCatalogEntryCall(
-            @javax.annotation.Nonnull String typeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String typeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1847,7 +1854,7 @@ public class ContentObjectTypesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call resolveContentObjectTypeCatalogEntryValidateBeforeCall(
-            @javax.annotation.Nonnull String typeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String typeId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'typeId' is set
         if (typeId == null) {
@@ -1874,7 +1881,7 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public ContentObjectTypeCatalogEntry resolveContentObjectTypeCatalogEntry(
-            @javax.annotation.Nonnull String typeId) throws ApiException {
+            @jakarta.annotation.Nonnull String typeId) throws ApiException {
         ApiResponse<ContentObjectTypeCatalogEntry> localVarResp =
                 resolveContentObjectTypeCatalogEntryWithHttpInfo(typeId);
         return localVarResp.getData();
@@ -1897,7 +1904,7 @@ public class ContentObjectTypesApi {
      */
     public ApiResponse<ContentObjectTypeCatalogEntry>
             resolveContentObjectTypeCatalogEntryWithHttpInfo(
-                    @javax.annotation.Nonnull String typeId) throws ApiException {
+                    @jakarta.annotation.Nonnull String typeId) throws ApiException {
         okhttp3.Call localVarCall =
                 resolveContentObjectTypeCatalogEntryValidateBeforeCall(typeId, null);
         Type localVarReturnType = new TypeToken<ContentObjectTypeCatalogEntry>() {}.getType();
@@ -1921,7 +1928,7 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call resolveContentObjectTypeCatalogEntryAsync(
-            @javax.annotation.Nonnull String typeId,
+            @jakarta.annotation.Nonnull String typeId,
             final ApiCallback<ContentObjectTypeCatalogEntry> _callback)
             throws ApiException {
 
@@ -1949,8 +1956,9 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call updateContentObjectTypeCall(
-            @javax.annotation.Nonnull String typeId,
-            @javax.annotation.Nonnull CreateContentObjectTypePayload createContentObjectTypePayload,
+            @jakarta.annotation.Nonnull String typeId,
+            @jakarta.annotation.Nonnull
+                    CreateContentObjectTypePayload createContentObjectTypePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2011,8 +2019,9 @@ public class ContentObjectTypesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateContentObjectTypeValidateBeforeCall(
-            @javax.annotation.Nonnull String typeId,
-            @javax.annotation.Nonnull CreateContentObjectTypePayload createContentObjectTypePayload,
+            @jakarta.annotation.Nonnull String typeId,
+            @jakarta.annotation.Nonnull
+                    CreateContentObjectTypePayload createContentObjectTypePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'typeId' is set
@@ -2047,8 +2056,9 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public ContentObjectType updateContentObjectType(
-            @javax.annotation.Nonnull String typeId,
-            @javax.annotation.Nonnull CreateContentObjectTypePayload createContentObjectTypePayload)
+            @jakarta.annotation.Nonnull String typeId,
+            @jakarta.annotation.Nonnull
+                    CreateContentObjectTypePayload createContentObjectTypePayload)
             throws ApiException {
         ApiResponse<ContentObjectType> localVarResp =
                 updateContentObjectTypeWithHttpInfo(typeId, createContentObjectTypePayload);
@@ -2072,8 +2082,9 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public ApiResponse<ContentObjectType> updateContentObjectTypeWithHttpInfo(
-            @javax.annotation.Nonnull String typeId,
-            @javax.annotation.Nonnull CreateContentObjectTypePayload createContentObjectTypePayload)
+            @jakarta.annotation.Nonnull String typeId,
+            @jakarta.annotation.Nonnull
+                    CreateContentObjectTypePayload createContentObjectTypePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateContentObjectTypeValidateBeforeCall(
@@ -2100,8 +2111,9 @@ public class ContentObjectTypesApi {
      * </table>
      */
     public okhttp3.Call updateContentObjectTypeAsync(
-            @javax.annotation.Nonnull String typeId,
-            @javax.annotation.Nonnull CreateContentObjectTypePayload createContentObjectTypePayload,
+            @jakarta.annotation.Nonnull String typeId,
+            @jakarta.annotation.Nonnull
+                    CreateContentObjectTypePayload createContentObjectTypePayload,
             final ApiCallback<ContentObjectType> _callback)
             throws ApiException {
 

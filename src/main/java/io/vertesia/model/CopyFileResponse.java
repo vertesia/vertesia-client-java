@@ -30,31 +30,31 @@ import java.util.Objects;
 /**
  * CopyFileResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CopyFileResponse {
     public static final String SERIALIZED_NAME_SUCCESS = "success";
 
     @SerializedName(SERIALIZED_NAME_SUCCESS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean success;
 
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String source;
 
     public static final String SERIALIZED_NAME_DEST = "dest";
 
     @SerializedName(SERIALIZED_NAME_DEST)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String dest;
 
     public CopyFileResponse() {}
 
-    public CopyFileResponse success(@javax.annotation.Nonnull Boolean success) {
+    public CopyFileResponse success(@jakarta.annotation.Nonnull Boolean success) {
         this.success = success;
         return this;
     }
@@ -63,16 +63,16 @@ public class CopyFileResponse {
      * Get success
      * @return success
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getSuccess() {
         return success;
     }
 
-    public void setSuccess(@javax.annotation.Nonnull Boolean success) {
+    public void setSuccess(@jakarta.annotation.Nonnull Boolean success) {
         this.success = success;
     }
 
-    public CopyFileResponse source(@javax.annotation.Nonnull String source) {
+    public CopyFileResponse source(@jakarta.annotation.Nonnull String source) {
         this.source = source;
         return this;
     }
@@ -81,16 +81,16 @@ public class CopyFileResponse {
      * Get source
      * @return source
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nonnull String source) {
+    public void setSource(@jakarta.annotation.Nonnull String source) {
         this.source = source;
     }
 
-    public CopyFileResponse dest(@javax.annotation.Nonnull String dest) {
+    public CopyFileResponse dest(@jakarta.annotation.Nonnull String dest) {
         this.dest = dest;
         return this;
     }
@@ -99,12 +99,12 @@ public class CopyFileResponse {
      * Get dest
      * @return dest
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDest() {
         return dest;
     }
 
-    public void setDest(@javax.annotation.Nonnull String dest) {
+    public void setDest(@jakarta.annotation.Nonnull String dest) {
         this.dest = dest;
     }
 

@@ -31,25 +31,25 @@ import java.util.Objects;
 /**
  * LoadBalancingEnvEntryConfig
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class LoadBalancingEnvEntryConfig {
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String model;
 
     public static final String SERIALIZED_NAME_WEIGHT = "weight";
 
     @SerializedName(SERIALIZED_NAME_WEIGHT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal weight;
 
     public LoadBalancingEnvEntryConfig() {}
 
-    public LoadBalancingEnvEntryConfig model(@javax.annotation.Nonnull String model) {
+    public LoadBalancingEnvEntryConfig model(@jakarta.annotation.Nonnull String model) {
         this.model = model;
         return this;
     }
@@ -58,16 +58,16 @@ public class LoadBalancingEnvEntryConfig {
      * Get model
      * @return model
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nonnull String model) {
+    public void setModel(@jakarta.annotation.Nonnull String model) {
         this.model = model;
     }
 
-    public LoadBalancingEnvEntryConfig weight(@javax.annotation.Nonnull BigDecimal weight) {
+    public LoadBalancingEnvEntryConfig weight(@jakarta.annotation.Nonnull BigDecimal weight) {
         this.weight = weight;
         return this;
     }
@@ -76,12 +76,12 @@ public class LoadBalancingEnvEntryConfig {
      * Get weight
      * @return weight
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getWeight() {
         return weight;
     }
 
-    public void setWeight(@javax.annotation.Nonnull BigDecimal weight) {
+    public void setWeight(@jakarta.annotation.Nonnull BigDecimal weight) {
         this.weight = weight;
     }
 

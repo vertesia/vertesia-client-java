@@ -34,79 +34,79 @@ import java.util.Objects;
 /**
  * Account
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class Account {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_EMAIL_DOMAINS = "email_domains";
 
     @SerializedName(SERIALIZED_NAME_EMAIL_DOMAINS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> emailDomains = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ONBOARDING = "onboarding";
 
     @SerializedName(SERIALIZED_NAME_ONBOARDING)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private AccountOnboarding onboarding;
 
     public static final String SERIALIZED_NAME_DATACENTER = "datacenter";
 
     @SerializedName(SERIALIZED_NAME_DATACENTER)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String datacenter;
 
     public static final String SERIALIZED_NAME_ACCOUNT_TYPE = "account_type";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private AccountType accountType;
 
     public static final String SERIALIZED_NAME_BILLING = "billing";
 
     @SerializedName(SERIALIZED_NAME_BILLING)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private AccountBilling billing;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public Account() {}
 
-    public Account id(@javax.annotation.Nonnull String id) {
+    public Account id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -115,16 +115,16 @@ public class Account {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public Account name(@javax.annotation.Nonnull String name) {
+    public Account name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -133,16 +133,16 @@ public class Account {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public Account emailDomains(@javax.annotation.Nonnull List<String> emailDomains) {
+    public Account emailDomains(@jakarta.annotation.Nonnull List<String> emailDomains) {
         this.emailDomains = emailDomains;
         return this;
     }
@@ -159,16 +159,16 @@ public class Account {
      * Get emailDomains
      * @return emailDomains
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getEmailDomains() {
         return emailDomains;
     }
 
-    public void setEmailDomains(@javax.annotation.Nonnull List<String> emailDomains) {
+    public void setEmailDomains(@jakarta.annotation.Nonnull List<String> emailDomains) {
         this.emailDomains = emailDomains;
     }
 
-    public Account onboarding(@javax.annotation.Nonnull AccountOnboarding onboarding) {
+    public Account onboarding(@jakarta.annotation.Nonnull AccountOnboarding onboarding) {
         this.onboarding = onboarding;
         return this;
     }
@@ -177,16 +177,16 @@ public class Account {
      * Get onboarding
      * @return onboarding
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public AccountOnboarding getOnboarding() {
         return onboarding;
     }
 
-    public void setOnboarding(@javax.annotation.Nonnull AccountOnboarding onboarding) {
+    public void setOnboarding(@jakarta.annotation.Nonnull AccountOnboarding onboarding) {
         this.onboarding = onboarding;
     }
 
-    public Account datacenter(@javax.annotation.Nonnull String datacenter) {
+    public Account datacenter(@jakarta.annotation.Nonnull String datacenter) {
         this.datacenter = datacenter;
         return this;
     }
@@ -195,16 +195,16 @@ public class Account {
      * Get datacenter
      * @return datacenter
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDatacenter() {
         return datacenter;
     }
 
-    public void setDatacenter(@javax.annotation.Nonnull String datacenter) {
+    public void setDatacenter(@jakarta.annotation.Nonnull String datacenter) {
         this.datacenter = datacenter;
     }
 
-    public Account accountType(@javax.annotation.Nonnull AccountType accountType) {
+    public Account accountType(@jakarta.annotation.Nonnull AccountType accountType) {
         this.accountType = accountType;
         return this;
     }
@@ -213,16 +213,16 @@ public class Account {
      * Get accountType
      * @return accountType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public AccountType getAccountType() {
         return accountType;
     }
 
-    public void setAccountType(@javax.annotation.Nonnull AccountType accountType) {
+    public void setAccountType(@jakarta.annotation.Nonnull AccountType accountType) {
         this.accountType = accountType;
     }
 
-    public Account billing(@javax.annotation.Nonnull AccountBilling billing) {
+    public Account billing(@jakarta.annotation.Nonnull AccountBilling billing) {
         this.billing = billing;
         return this;
     }
@@ -231,16 +231,16 @@ public class Account {
      * Get billing
      * @return billing
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public AccountBilling getBilling() {
         return billing;
     }
 
-    public void setBilling(@javax.annotation.Nonnull AccountBilling billing) {
+    public void setBilling(@jakarta.annotation.Nonnull AccountBilling billing) {
         this.billing = billing;
     }
 
-    public Account createdBy(@javax.annotation.Nonnull String createdBy) {
+    public Account createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -249,16 +249,16 @@ public class Account {
      * Get createdBy
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public Account updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public Account updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -267,16 +267,16 @@ public class Account {
      * Get updatedBy
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public Account createdAt(@javax.annotation.Nonnull String createdAt) {
+    public Account createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -285,16 +285,16 @@ public class Account {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Account updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public Account updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -303,12 +303,12 @@ public class Account {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 

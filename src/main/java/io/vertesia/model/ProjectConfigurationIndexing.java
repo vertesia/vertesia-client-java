@@ -30,18 +30,18 @@ import java.util.Objects;
 /**
  * Indexing configuration for this project. Controls whether indexing and querying are enabled at the project level.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProjectConfigurationIndexing {
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nullable private Boolean enabled;
+    @jakarta.annotation.Nullable private Boolean enabled;
 
     public ProjectConfigurationIndexing() {}
 
-    public ProjectConfigurationIndexing enabled(@javax.annotation.Nullable Boolean enabled) {
+    public ProjectConfigurationIndexing enabled(@jakarta.annotation.Nullable Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -50,11 +50,11 @@ public class ProjectConfigurationIndexing {
      * Enable indexing for content objects in this project. When enabled, content changes trigger indexing workflows. Defaults to true - indexing is always on when ES infrastructure is available.
      * @return enabled
      */
-    @javax.annotation.Nullable public Boolean getEnabled() {
+    @jakarta.annotation.Nullable public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nullable Boolean enabled) {
         this.enabled = enabled;
     }
 

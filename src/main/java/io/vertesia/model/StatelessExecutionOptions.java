@@ -30,46 +30,46 @@ import java.util.Objects;
 /**
  * StatelessExecutionOptions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class StatelessExecutionOptions {
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String model;
 
     public static final String SERIALIZED_NAME_FORMAT = "format";
 
     @SerializedName(SERIALIZED_NAME_FORMAT)
-    @javax.annotation.Nullable private PromptFormatter format;
+    @jakarta.annotation.Nullable private PromptFormatter format;
 
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema resultSchema;
+    @jakarta.annotation.Nullable private JSONSchema resultSchema;
 
     public static final String SERIALIZED_NAME_INCLUDE_ORIGINAL_RESPONSE =
             "include_original_response";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_ORIGINAL_RESPONSE)
-    @javax.annotation.Nullable private Boolean includeOriginalResponse;
+    @jakarta.annotation.Nullable private Boolean includeOriginalResponse;
 
     public static final String SERIALIZED_NAME_MODEL_OPTIONS = "model_options";
 
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
-    @javax.annotation.Nullable private ModelOptions modelOptions;
+    @jakarta.annotation.Nullable private ModelOptions modelOptions;
 
     public static final String SERIALIZED_NAME_OUTPUT_MODALITY = "output_modality";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_OUTPUT_MODALITY)
-    @javax.annotation.Nullable private Modalities outputModality;
+    @jakarta.annotation.Nullable private Modalities outputModality;
 
     public StatelessExecutionOptions() {}
 
-    public StatelessExecutionOptions model(@javax.annotation.Nonnull String model) {
+    public StatelessExecutionOptions model(@jakarta.annotation.Nonnull String model) {
         this.model = model;
         return this;
     }
@@ -78,16 +78,16 @@ public class StatelessExecutionOptions {
      * Get model
      * @return model
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nonnull String model) {
+    public void setModel(@jakarta.annotation.Nonnull String model) {
         this.model = model;
     }
 
-    public StatelessExecutionOptions format(@javax.annotation.Nullable PromptFormatter format) {
+    public StatelessExecutionOptions format(@jakarta.annotation.Nullable PromptFormatter format) {
         this.format = format;
         return this;
     }
@@ -96,16 +96,16 @@ public class StatelessExecutionOptions {
      * A custom formatter to use for format the final model prompt from the input prompt segments. If no one is specified the driver will choose a formatter compatible with the target model
      * @return format
      */
-    @javax.annotation.Nullable public PromptFormatter getFormat() {
+    @jakarta.annotation.Nullable public PromptFormatter getFormat() {
         return format;
     }
 
-    public void setFormat(@javax.annotation.Nullable PromptFormatter format) {
+    public void setFormat(@jakarta.annotation.Nullable PromptFormatter format) {
         this.format = format;
     }
 
     public StatelessExecutionOptions resultSchema(
-            @javax.annotation.Nullable JSONSchema resultSchema) {
+            @jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
         return this;
     }
@@ -114,16 +114,16 @@ public class StatelessExecutionOptions {
      * Get resultSchema
      * @return resultSchema
      */
-    @javax.annotation.Nullable public JSONSchema getResultSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getResultSchema() {
         return resultSchema;
     }
 
-    public void setResultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public void setResultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
     }
 
     public StatelessExecutionOptions includeOriginalResponse(
-            @javax.annotation.Nullable Boolean includeOriginalResponse) {
+            @jakarta.annotation.Nullable Boolean includeOriginalResponse) {
         this.includeOriginalResponse = includeOriginalResponse;
         return this;
     }
@@ -132,17 +132,17 @@ public class StatelessExecutionOptions {
      * If set to true the original response from the target LLM will be included in the response under the original_response field. This is useful for debugging and for some advanced use cases. It is ignored on streaming requests
      * @return includeOriginalResponse
      */
-    @javax.annotation.Nullable public Boolean getIncludeOriginalResponse() {
+    @jakarta.annotation.Nullable public Boolean getIncludeOriginalResponse() {
         return includeOriginalResponse;
     }
 
     public void setIncludeOriginalResponse(
-            @javax.annotation.Nullable Boolean includeOriginalResponse) {
+            @jakarta.annotation.Nullable Boolean includeOriginalResponse) {
         this.includeOriginalResponse = includeOriginalResponse;
     }
 
     public StatelessExecutionOptions modelOptions(
-            @javax.annotation.Nullable ModelOptions modelOptions) {
+            @jakarta.annotation.Nullable ModelOptions modelOptions) {
         this.modelOptions = modelOptions;
         return this;
     }
@@ -151,17 +151,17 @@ public class StatelessExecutionOptions {
      * Get modelOptions
      * @return modelOptions
      */
-    @javax.annotation.Nullable public ModelOptions getModelOptions() {
+    @jakarta.annotation.Nullable public ModelOptions getModelOptions() {
         return modelOptions;
     }
 
-    public void setModelOptions(@javax.annotation.Nullable ModelOptions modelOptions) {
+    public void setModelOptions(@jakarta.annotation.Nullable ModelOptions modelOptions) {
         this.modelOptions = modelOptions;
     }
 
     @Deprecated
     public StatelessExecutionOptions outputModality(
-            @javax.annotation.Nullable Modalities outputModality) {
+            @jakarta.annotation.Nullable Modalities outputModality) {
         this.outputModality = outputModality;
         return this;
     }
@@ -172,12 +172,12 @@ public class StatelessExecutionOptions {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nullable public Modalities getOutputModality() {
+    @jakarta.annotation.Nullable public Modalities getOutputModality() {
         return outputModality;
     }
 
     @Deprecated
-    public void setOutputModality(@javax.annotation.Nullable Modalities outputModality) {
+    public void setOutputModality(@jakarta.annotation.Nullable Modalities outputModality) {
         this.outputModality = outputModality;
     }
 

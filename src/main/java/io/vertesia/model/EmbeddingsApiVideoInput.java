@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * EmbeddingsApiVideoInput
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EmbeddingsApiVideoInput {
@@ -94,39 +94,39 @@ public class EmbeddingsApiVideoInput {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private EmbeddingsApiSource source;
 
     public static final String SERIALIZED_NAME_START_SEC = "start_sec";
 
     @SerializedName(SERIALIZED_NAME_START_SEC)
-    @javax.annotation.Nullable private BigDecimal startSec;
+    @jakarta.annotation.Nullable private BigDecimal startSec;
 
     public static final String SERIALIZED_NAME_LENGTH_SEC = "length_sec";
 
     @SerializedName(SERIALIZED_NAME_LENGTH_SEC)
-    @javax.annotation.Nullable private BigDecimal lengthSec;
+    @jakarta.annotation.Nullable private BigDecimal lengthSec;
 
     public static final String SERIALIZED_NAME_INTERVAL_SEC = "interval_sec";
 
     @SerializedName(SERIALIZED_NAME_INTERVAL_SEC)
-    @javax.annotation.Nullable private BigDecimal intervalSec;
+    @jakarta.annotation.Nullable private BigDecimal intervalSec;
 
     public static final String SERIALIZED_NAME_USE_FIXED_LENGTH_SEC = "use_fixed_length_sec";
 
     @SerializedName(SERIALIZED_NAME_USE_FIXED_LENGTH_SEC)
-    @javax.annotation.Nullable private Boolean useFixedLengthSec;
+    @jakarta.annotation.Nullable private Boolean useFixedLengthSec;
 
     public static final String SERIALIZED_NAME_MIN_CLIP_SEC = "min_clip_sec";
 
     @SerializedName(SERIALIZED_NAME_MIN_CLIP_SEC)
-    @javax.annotation.Nullable private BigDecimal minClipSec;
+    @jakarta.annotation.Nullable private BigDecimal minClipSec;
 
     /**
      * Gets or Sets embeddingOption
@@ -188,11 +188,11 @@ public class EmbeddingsApiVideoInput {
     public static final String SERIALIZED_NAME_EMBEDDING_OPTION = "embedding_option";
 
     @SerializedName(SERIALIZED_NAME_EMBEDDING_OPTION)
-    @javax.annotation.Nullable private List<EmbeddingOptionEnum> embeddingOption = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<EmbeddingOptionEnum> embeddingOption = new ArrayList<>();
 
     public EmbeddingsApiVideoInput() {}
 
-    public EmbeddingsApiVideoInput type(@javax.annotation.Nonnull TypeEnum type) {
+    public EmbeddingsApiVideoInput type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -201,16 +201,16 @@ public class EmbeddingsApiVideoInput {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public EmbeddingsApiVideoInput source(@javax.annotation.Nonnull EmbeddingsApiSource source) {
+    public EmbeddingsApiVideoInput source(@jakarta.annotation.Nonnull EmbeddingsApiSource source) {
         this.source = source;
         return this;
     }
@@ -219,16 +219,16 @@ public class EmbeddingsApiVideoInput {
      * Get source
      * @return source
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public EmbeddingsApiSource getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nonnull EmbeddingsApiSource source) {
+    public void setSource(@jakarta.annotation.Nonnull EmbeddingsApiSource source) {
         this.source = source;
     }
 
-    public EmbeddingsApiVideoInput startSec(@javax.annotation.Nullable BigDecimal startSec) {
+    public EmbeddingsApiVideoInput startSec(@jakarta.annotation.Nullable BigDecimal startSec) {
         this.startSec = startSec;
         return this;
     }
@@ -237,15 +237,15 @@ public class EmbeddingsApiVideoInput {
      * Get startSec
      * @return startSec
      */
-    @javax.annotation.Nullable public BigDecimal getStartSec() {
+    @jakarta.annotation.Nullable public BigDecimal getStartSec() {
         return startSec;
     }
 
-    public void setStartSec(@javax.annotation.Nullable BigDecimal startSec) {
+    public void setStartSec(@jakarta.annotation.Nullable BigDecimal startSec) {
         this.startSec = startSec;
     }
 
-    public EmbeddingsApiVideoInput lengthSec(@javax.annotation.Nullable BigDecimal lengthSec) {
+    public EmbeddingsApiVideoInput lengthSec(@jakarta.annotation.Nullable BigDecimal lengthSec) {
         this.lengthSec = lengthSec;
         return this;
     }
@@ -254,15 +254,16 @@ public class EmbeddingsApiVideoInput {
      * Get lengthSec
      * @return lengthSec
      */
-    @javax.annotation.Nullable public BigDecimal getLengthSec() {
+    @jakarta.annotation.Nullable public BigDecimal getLengthSec() {
         return lengthSec;
     }
 
-    public void setLengthSec(@javax.annotation.Nullable BigDecimal lengthSec) {
+    public void setLengthSec(@jakarta.annotation.Nullable BigDecimal lengthSec) {
         this.lengthSec = lengthSec;
     }
 
-    public EmbeddingsApiVideoInput intervalSec(@javax.annotation.Nullable BigDecimal intervalSec) {
+    public EmbeddingsApiVideoInput intervalSec(
+            @jakarta.annotation.Nullable BigDecimal intervalSec) {
         this.intervalSec = intervalSec;
         return this;
     }
@@ -271,16 +272,16 @@ public class EmbeddingsApiVideoInput {
      * Get intervalSec
      * @return intervalSec
      */
-    @javax.annotation.Nullable public BigDecimal getIntervalSec() {
+    @jakarta.annotation.Nullable public BigDecimal getIntervalSec() {
         return intervalSec;
     }
 
-    public void setIntervalSec(@javax.annotation.Nullable BigDecimal intervalSec) {
+    public void setIntervalSec(@jakarta.annotation.Nullable BigDecimal intervalSec) {
         this.intervalSec = intervalSec;
     }
 
     public EmbeddingsApiVideoInput useFixedLengthSec(
-            @javax.annotation.Nullable Boolean useFixedLengthSec) {
+            @jakarta.annotation.Nullable Boolean useFixedLengthSec) {
         this.useFixedLengthSec = useFixedLengthSec;
         return this;
     }
@@ -289,15 +290,15 @@ public class EmbeddingsApiVideoInput {
      * Get useFixedLengthSec
      * @return useFixedLengthSec
      */
-    @javax.annotation.Nullable public Boolean getUseFixedLengthSec() {
+    @jakarta.annotation.Nullable public Boolean getUseFixedLengthSec() {
         return useFixedLengthSec;
     }
 
-    public void setUseFixedLengthSec(@javax.annotation.Nullable Boolean useFixedLengthSec) {
+    public void setUseFixedLengthSec(@jakarta.annotation.Nullable Boolean useFixedLengthSec) {
         this.useFixedLengthSec = useFixedLengthSec;
     }
 
-    public EmbeddingsApiVideoInput minClipSec(@javax.annotation.Nullable BigDecimal minClipSec) {
+    public EmbeddingsApiVideoInput minClipSec(@jakarta.annotation.Nullable BigDecimal minClipSec) {
         this.minClipSec = minClipSec;
         return this;
     }
@@ -306,16 +307,16 @@ public class EmbeddingsApiVideoInput {
      * Get minClipSec
      * @return minClipSec
      */
-    @javax.annotation.Nullable public BigDecimal getMinClipSec() {
+    @jakarta.annotation.Nullable public BigDecimal getMinClipSec() {
         return minClipSec;
     }
 
-    public void setMinClipSec(@javax.annotation.Nullable BigDecimal minClipSec) {
+    public void setMinClipSec(@jakarta.annotation.Nullable BigDecimal minClipSec) {
         this.minClipSec = minClipSec;
     }
 
     public EmbeddingsApiVideoInput embeddingOption(
-            @javax.annotation.Nullable List<EmbeddingOptionEnum> embeddingOption) {
+            @jakarta.annotation.Nullable List<EmbeddingOptionEnum> embeddingOption) {
         this.embeddingOption = embeddingOption;
         return this;
     }
@@ -332,12 +333,12 @@ public class EmbeddingsApiVideoInput {
      * Get embeddingOption
      * @return embeddingOption
      */
-    @javax.annotation.Nullable public List<EmbeddingOptionEnum> getEmbeddingOption() {
+    @jakarta.annotation.Nullable public List<EmbeddingOptionEnum> getEmbeddingOption() {
         return embeddingOption;
     }
 
     public void setEmbeddingOption(
-            @javax.annotation.Nullable List<EmbeddingOptionEnum> embeddingOption) {
+            @jakarta.annotation.Nullable List<EmbeddingOptionEnum> embeddingOption) {
         this.embeddingOption = embeddingOption;
     }
 

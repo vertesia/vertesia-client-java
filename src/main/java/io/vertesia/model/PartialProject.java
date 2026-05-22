@@ -33,73 +33,73 @@ import java.util.Objects;
 /**
  * PartialProject
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PartialProject {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nullable private String id;
+    @jakarta.annotation.Nullable private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
 
     @SerializedName(SERIALIZED_NAME_NAMESPACE)
-    @javax.annotation.Nullable private String namespace;
+    @jakarta.annotation.Nullable private String namespace;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nullable private String account;
+    @jakarta.annotation.Nullable private String account;
 
     public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
 
     @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-    @javax.annotation.Nullable private ProjectConfiguration _configuration;
+    @jakarta.annotation.Nullable private ProjectConfiguration _configuration;
 
     public static final String SERIALIZED_NAME_INTEGRATIONS = "integrations";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATIONS)
-    @javax.annotation.Nullable private MapStringAny integrations;
+    @jakarta.annotation.Nullable private MapStringAny integrations;
 
     public static final String SERIALIZED_NAME_PLUGINS = "plugins";
 
     @SerializedName(SERIALIZED_NAME_PLUGINS)
-    @javax.annotation.Nullable private List<String> plugins = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> plugins = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nullable private String createdBy;
+    @jakarta.annotation.Nullable private String createdBy;
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nullable private String updatedBy;
+    @jakarta.annotation.Nullable private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nullable private OffsetDateTime createdAt;
+    @jakarta.annotation.Nullable private OffsetDateTime createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nullable private OffsetDateTime updatedAt;
+    @jakarta.annotation.Nullable private OffsetDateTime updatedAt;
 
     public PartialProject() {}
 
-    public PartialProject id(@javax.annotation.Nullable String id) {
+    public PartialProject id(@jakarta.annotation.Nullable String id) {
         this.id = id;
         return this;
     }
@@ -108,15 +108,15 @@ public class PartialProject {
      * Get id
      * @return id
      */
-    @javax.annotation.Nullable public String getId() {
+    @jakarta.annotation.Nullable public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nullable String id) {
+    public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
     }
 
-    public PartialProject name(@javax.annotation.Nullable String name) {
+    public PartialProject name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -125,15 +125,15 @@ public class PartialProject {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public PartialProject namespace(@javax.annotation.Nullable String namespace) {
+    public PartialProject namespace(@jakarta.annotation.Nullable String namespace) {
         this.namespace = namespace;
         return this;
     }
@@ -142,15 +142,15 @@ public class PartialProject {
      * Get namespace
      * @return namespace
      */
-    @javax.annotation.Nullable public String getNamespace() {
+    @jakarta.annotation.Nullable public String getNamespace() {
         return namespace;
     }
 
-    public void setNamespace(@javax.annotation.Nullable String namespace) {
+    public void setNamespace(@jakarta.annotation.Nullable String namespace) {
         this.namespace = namespace;
     }
 
-    public PartialProject description(@javax.annotation.Nullable String description) {
+    public PartialProject description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -159,15 +159,15 @@ public class PartialProject {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public PartialProject account(@javax.annotation.Nullable String account) {
+    public PartialProject account(@jakarta.annotation.Nullable String account) {
         this.account = account;
         return this;
     }
@@ -176,16 +176,16 @@ public class PartialProject {
      * Get account
      * @return account
      */
-    @javax.annotation.Nullable public String getAccount() {
+    @jakarta.annotation.Nullable public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nullable String account) {
+    public void setAccount(@jakarta.annotation.Nullable String account) {
         this.account = account;
     }
 
     public PartialProject _configuration(
-            @javax.annotation.Nullable ProjectConfiguration _configuration) {
+            @jakarta.annotation.Nullable ProjectConfiguration _configuration) {
         this._configuration = _configuration;
         return this;
     }
@@ -194,15 +194,15 @@ public class PartialProject {
      * Get _configuration
      * @return _configuration
      */
-    @javax.annotation.Nullable public ProjectConfiguration getConfiguration() {
+    @jakarta.annotation.Nullable public ProjectConfiguration getConfiguration() {
         return _configuration;
     }
 
-    public void setConfiguration(@javax.annotation.Nullable ProjectConfiguration _configuration) {
+    public void setConfiguration(@jakarta.annotation.Nullable ProjectConfiguration _configuration) {
         this._configuration = _configuration;
     }
 
-    public PartialProject integrations(@javax.annotation.Nullable MapStringAny integrations) {
+    public PartialProject integrations(@jakarta.annotation.Nullable MapStringAny integrations) {
         this.integrations = integrations;
         return this;
     }
@@ -211,15 +211,15 @@ public class PartialProject {
      * Get integrations
      * @return integrations
      */
-    @javax.annotation.Nullable public MapStringAny getIntegrations() {
+    @jakarta.annotation.Nullable public MapStringAny getIntegrations() {
         return integrations;
     }
 
-    public void setIntegrations(@javax.annotation.Nullable MapStringAny integrations) {
+    public void setIntegrations(@jakarta.annotation.Nullable MapStringAny integrations) {
         this.integrations = integrations;
     }
 
-    public PartialProject plugins(@javax.annotation.Nullable List<String> plugins) {
+    public PartialProject plugins(@jakarta.annotation.Nullable List<String> plugins) {
         this.plugins = plugins;
         return this;
     }
@@ -236,15 +236,15 @@ public class PartialProject {
      * Get plugins
      * @return plugins
      */
-    @javax.annotation.Nullable public List<String> getPlugins() {
+    @jakarta.annotation.Nullable public List<String> getPlugins() {
         return plugins;
     }
 
-    public void setPlugins(@javax.annotation.Nullable List<String> plugins) {
+    public void setPlugins(@jakarta.annotation.Nullable List<String> plugins) {
         this.plugins = plugins;
     }
 
-    public PartialProject createdBy(@javax.annotation.Nullable String createdBy) {
+    public PartialProject createdBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -253,15 +253,15 @@ public class PartialProject {
      * Get createdBy
      * @return createdBy
      */
-    @javax.annotation.Nullable public String getCreatedBy() {
+    @jakarta.annotation.Nullable public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public PartialProject updatedBy(@javax.annotation.Nullable String updatedBy) {
+    public PartialProject updatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -270,15 +270,15 @@ public class PartialProject {
      * Get updatedBy
      * @return updatedBy
      */
-    @javax.annotation.Nullable public String getUpdatedBy() {
+    @jakarta.annotation.Nullable public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nullable String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public PartialProject createdAt(@javax.annotation.Nullable OffsetDateTime createdAt) {
+    public PartialProject createdAt(@jakarta.annotation.Nullable OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -287,15 +287,15 @@ public class PartialProject {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getCreatedAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nullable OffsetDateTime createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nullable OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public PartialProject updatedAt(@javax.annotation.Nullable OffsetDateTime updatedAt) {
+    public PartialProject updatedAt(@jakarta.annotation.Nullable OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -304,11 +304,11 @@ public class PartialProject {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getUpdatedAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nullable OffsetDateTime updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nullable OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 

@@ -32,84 +32,84 @@ import java.util.Objects;
 /**
  * AccessControlEntry
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AccessControlEntry {
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ProjectRoles role;
 
     public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource_type";
 
     @SerializedName(SERIALIZED_NAME_RESOURCE_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private AccessControlResourceType resourceType;
 
     public static final String SERIALIZED_NAME_RESOURCE = "resource";
 
     @SerializedName(SERIALIZED_NAME_RESOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String resource;
 
     public static final String SERIALIZED_NAME_PRINCIPAL_TYPE = "principal_type";
 
     @SerializedName(SERIALIZED_NAME_PRINCIPAL_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private AccessControlPrincipalType principalType;
 
     public static final String SERIALIZED_NAME_PRINCIPAL = "principal";
 
     @SerializedName(SERIALIZED_NAME_PRINCIPAL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String principal;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nullable private String account;
+    @jakarta.annotation.Nullable private String account;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nullable private String project;
+    @jakarta.annotation.Nullable private String project;
 
     public static final String SERIALIZED_NAME_CONDITIONS = "conditions";
 
     @SerializedName(SERIALIZED_NAME_CONDITIONS)
-    @javax.annotation.Nullable private AceConditions conditions;
+    @jakarta.annotation.Nullable private AceConditions conditions;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
 
     @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
-    @javax.annotation.Nullable private String expiresAt;
+    @jakarta.annotation.Nullable private String expiresAt;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nullable private String createdAt;
+    @jakarta.annotation.Nullable private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nullable private String updatedAt;
+    @jakarta.annotation.Nullable private String updatedAt;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public AccessControlEntry() {}
 
-    public AccessControlEntry role(@javax.annotation.Nonnull ProjectRoles role) {
+    public AccessControlEntry role(@jakarta.annotation.Nonnull ProjectRoles role) {
         this.role = role;
         return this;
     }
@@ -118,17 +118,17 @@ public class AccessControlEntry {
      * Get role
      * @return role
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ProjectRoles getRole() {
         return role;
     }
 
-    public void setRole(@javax.annotation.Nonnull ProjectRoles role) {
+    public void setRole(@jakarta.annotation.Nonnull ProjectRoles role) {
         this.role = role;
     }
 
     public AccessControlEntry resourceType(
-            @javax.annotation.Nonnull AccessControlResourceType resourceType) {
+            @jakarta.annotation.Nonnull AccessControlResourceType resourceType) {
         this.resourceType = resourceType;
         return this;
     }
@@ -137,16 +137,17 @@ public class AccessControlEntry {
      * Get resourceType
      * @return resourceType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public AccessControlResourceType getResourceType() {
         return resourceType;
     }
 
-    public void setResourceType(@javax.annotation.Nonnull AccessControlResourceType resourceType) {
+    public void setResourceType(
+            @jakarta.annotation.Nonnull AccessControlResourceType resourceType) {
         this.resourceType = resourceType;
     }
 
-    public AccessControlEntry resource(@javax.annotation.Nonnull String resource) {
+    public AccessControlEntry resource(@jakarta.annotation.Nonnull String resource) {
         this.resource = resource;
         return this;
     }
@@ -155,17 +156,17 @@ public class AccessControlEntry {
      * Get resource
      * @return resource
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getResource() {
         return resource;
     }
 
-    public void setResource(@javax.annotation.Nonnull String resource) {
+    public void setResource(@jakarta.annotation.Nonnull String resource) {
         this.resource = resource;
     }
 
     public AccessControlEntry principalType(
-            @javax.annotation.Nonnull AccessControlPrincipalType principalType) {
+            @jakarta.annotation.Nonnull AccessControlPrincipalType principalType) {
         this.principalType = principalType;
         return this;
     }
@@ -174,17 +175,17 @@ public class AccessControlEntry {
      * Get principalType
      * @return principalType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public AccessControlPrincipalType getPrincipalType() {
         return principalType;
     }
 
     public void setPrincipalType(
-            @javax.annotation.Nonnull AccessControlPrincipalType principalType) {
+            @jakarta.annotation.Nonnull AccessControlPrincipalType principalType) {
         this.principalType = principalType;
     }
 
-    public AccessControlEntry principal(@javax.annotation.Nonnull String principal) {
+    public AccessControlEntry principal(@jakarta.annotation.Nonnull String principal) {
         this.principal = principal;
         return this;
     }
@@ -193,16 +194,16 @@ public class AccessControlEntry {
      * Get principal
      * @return principal
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getPrincipal() {
         return principal;
     }
 
-    public void setPrincipal(@javax.annotation.Nonnull String principal) {
+    public void setPrincipal(@jakarta.annotation.Nonnull String principal) {
         this.principal = principal;
     }
 
-    public AccessControlEntry account(@javax.annotation.Nullable String account) {
+    public AccessControlEntry account(@jakarta.annotation.Nullable String account) {
         this.account = account;
         return this;
     }
@@ -211,15 +212,15 @@ public class AccessControlEntry {
      * Account scope — required for principal_set/content_set ACEs.
      * @return account
      */
-    @javax.annotation.Nullable public String getAccount() {
+    @jakarta.annotation.Nullable public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nullable String account) {
+    public void setAccount(@jakarta.annotation.Nullable String account) {
         this.account = account;
     }
 
-    public AccessControlEntry project(@javax.annotation.Nullable String project) {
+    public AccessControlEntry project(@jakarta.annotation.Nullable String project) {
         this.project = project;
         return this;
     }
@@ -228,15 +229,15 @@ public class AccessControlEntry {
      * Project scope — narrows a principal_set/content_set ACE to a single project.
      * @return project
      */
-    @javax.annotation.Nullable public String getProject() {
+    @jakarta.annotation.Nullable public String getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nullable String project) {
+    public void setProject(@jakarta.annotation.Nullable String project) {
         this.project = project;
     }
 
-    public AccessControlEntry conditions(@javax.annotation.Nullable AceConditions conditions) {
+    public AccessControlEntry conditions(@jakarta.annotation.Nullable AceConditions conditions) {
         this.conditions = conditions;
         return this;
     }
@@ -245,15 +246,15 @@ public class AccessControlEntry {
      * Dynamic matching conditions for principal_set/content_set ACEs.
      * @return conditions
      */
-    @javax.annotation.Nullable public AceConditions getConditions() {
+    @jakarta.annotation.Nullable public AceConditions getConditions() {
         return conditions;
     }
 
-    public void setConditions(@javax.annotation.Nullable AceConditions conditions) {
+    public void setConditions(@jakarta.annotation.Nullable AceConditions conditions) {
         this.conditions = conditions;
     }
 
-    public AccessControlEntry tags(@javax.annotation.Nullable List<String> tags) {
+    public AccessControlEntry tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -270,15 +271,15 @@ public class AccessControlEntry {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public AccessControlEntry expiresAt(@javax.annotation.Nullable String expiresAt) {
+    public AccessControlEntry expiresAt(@jakarta.annotation.Nullable String expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -287,15 +288,15 @@ public class AccessControlEntry {
      * Get expiresAt
      * @return expiresAt
      */
-    @javax.annotation.Nullable public String getExpiresAt() {
+    @jakarta.annotation.Nullable public String getExpiresAt() {
         return expiresAt;
     }
 
-    public void setExpiresAt(@javax.annotation.Nullable String expiresAt) {
+    public void setExpiresAt(@jakarta.annotation.Nullable String expiresAt) {
         this.expiresAt = expiresAt;
     }
 
-    public AccessControlEntry createdAt(@javax.annotation.Nullable String createdAt) {
+    public AccessControlEntry createdAt(@jakarta.annotation.Nullable String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -304,15 +305,15 @@ public class AccessControlEntry {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nullable public String getCreatedAt() {
+    @jakarta.annotation.Nullable public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nullable String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nullable String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public AccessControlEntry updatedAt(@javax.annotation.Nullable String updatedAt) {
+    public AccessControlEntry updatedAt(@jakarta.annotation.Nullable String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -321,15 +322,15 @@ public class AccessControlEntry {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nullable public String getUpdatedAt() {
+    @jakarta.annotation.Nullable public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nullable String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nullable String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public AccessControlEntry id(@javax.annotation.Nonnull String id) {
+    public AccessControlEntry id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -338,12 +339,12 @@ public class AccessControlEntry {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 

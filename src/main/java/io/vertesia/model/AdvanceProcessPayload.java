@@ -30,23 +30,23 @@ import java.util.Objects;
 /**
  * AdvanceProcessPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AdvanceProcessPayload {
     public static final String SERIALIZED_NAME_TARGET = "target";
 
     @SerializedName(SERIALIZED_NAME_TARGET)
-    @javax.annotation.Nullable private String target;
+    @jakarta.annotation.Nullable private String target;
 
     public static final String SERIALIZED_NAME_REASON = "reason";
 
     @SerializedName(SERIALIZED_NAME_REASON)
-    @javax.annotation.Nullable private String reason;
+    @jakarta.annotation.Nullable private String reason;
 
     public AdvanceProcessPayload() {}
 
-    public AdvanceProcessPayload target(@javax.annotation.Nullable String target) {
+    public AdvanceProcessPayload target(@jakarta.annotation.Nullable String target) {
         this.target = target;
         return this;
     }
@@ -55,15 +55,15 @@ public class AdvanceProcessPayload {
      * Get target
      * @return target
      */
-    @javax.annotation.Nullable public String getTarget() {
+    @jakarta.annotation.Nullable public String getTarget() {
         return target;
     }
 
-    public void setTarget(@javax.annotation.Nullable String target) {
+    public void setTarget(@jakarta.annotation.Nullable String target) {
         this.target = target;
     }
 
-    public AdvanceProcessPayload reason(@javax.annotation.Nullable String reason) {
+    public AdvanceProcessPayload reason(@jakarta.annotation.Nullable String reason) {
         this.reason = reason;
         return this;
     }
@@ -72,11 +72,11 @@ public class AdvanceProcessPayload {
      * Get reason
      * @return reason
      */
-    @javax.annotation.Nullable public String getReason() {
+    @jakarta.annotation.Nullable public String getReason() {
         return reason;
     }
 
-    public void setReason(@javax.annotation.Nullable String reason) {
+    public void setReason(@jakarta.annotation.Nullable String reason) {
         this.reason = reason;
     }
 

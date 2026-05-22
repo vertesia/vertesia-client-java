@@ -84,7 +84,7 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call createRunCall(
-            @javax.annotation.Nonnull RunCreatePayload runCreatePayload,
+            @jakarta.annotation.Nonnull RunCreatePayload runCreatePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -141,7 +141,7 @@ public class InteractionRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createRunValidateBeforeCall(
-            @javax.annotation.Nonnull RunCreatePayload runCreatePayload,
+            @jakarta.annotation.Nonnull RunCreatePayload runCreatePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'runCreatePayload' is set
@@ -168,7 +168,7 @@ public class InteractionRunsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ExecutionRunRef createRun(@javax.annotation.Nonnull RunCreatePayload runCreatePayload)
+    public ExecutionRunRef createRun(@jakarta.annotation.Nonnull RunCreatePayload runCreatePayload)
             throws ApiException {
         ApiResponse<ExecutionRunRef> localVarResp = createRunWithHttpInfo(runCreatePayload);
         return localVarResp.getData();
@@ -190,7 +190,7 @@ public class InteractionRunsApi {
      * </table>
      */
     public ApiResponse<ExecutionRunRef> createRunWithHttpInfo(
-            @javax.annotation.Nonnull RunCreatePayload runCreatePayload) throws ApiException {
+            @jakarta.annotation.Nonnull RunCreatePayload runCreatePayload) throws ApiException {
         okhttp3.Call localVarCall = createRunValidateBeforeCall(runCreatePayload, null);
         Type localVarReturnType = new TypeToken<ExecutionRunRef>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -213,7 +213,7 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call createRunAsync(
-            @javax.annotation.Nonnull RunCreatePayload runCreatePayload,
+            @jakarta.annotation.Nonnull RunCreatePayload runCreatePayload,
             final ApiCallback<ExecutionRunRef> _callback)
             throws ApiException {
 
@@ -239,7 +239,7 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call deleteRunCall(
-            @javax.annotation.Nonnull String runId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -299,7 +299,7 @@ public class InteractionRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteRunValidateBeforeCall(
-            @javax.annotation.Nonnull String runId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'runId' is set
         if (runId == null) {
@@ -325,7 +325,8 @@ public class InteractionRunsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteByIdResult deleteRun(@javax.annotation.Nonnull String runId) throws ApiException {
+    public DeleteByIdResult deleteRun(@jakarta.annotation.Nonnull String runId)
+            throws ApiException {
         ApiResponse<DeleteByIdResult> localVarResp = deleteRunWithHttpInfo(runId);
         return localVarResp.getData();
     }
@@ -346,7 +347,7 @@ public class InteractionRunsApi {
      * </table>
      */
     public ApiResponse<DeleteByIdResult> deleteRunWithHttpInfo(
-            @javax.annotation.Nonnull String runId) throws ApiException {
+            @jakarta.annotation.Nonnull String runId) throws ApiException {
         okhttp3.Call localVarCall = deleteRunValidateBeforeCall(runId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -369,7 +370,7 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call deleteRunAsync(
-            @javax.annotation.Nonnull String runId, final ApiCallback<DeleteByIdResult> _callback)
+            @jakarta.annotation.Nonnull String runId, final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = deleteRunValidateBeforeCall(runId, _callback);
@@ -394,7 +395,7 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call getRunCall(
-            @javax.annotation.Nonnull String runId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -454,7 +455,7 @@ public class InteractionRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getRunValidateBeforeCall(
-            @javax.annotation.Nonnull String runId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'runId' is set
         if (runId == null) {
@@ -480,7 +481,7 @@ public class InteractionRunsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ExecutionRunRef getRun(@javax.annotation.Nonnull String runId) throws ApiException {
+    public ExecutionRunRef getRun(@jakarta.annotation.Nonnull String runId) throws ApiException {
         ApiResponse<ExecutionRunRef> localVarResp = getRunWithHttpInfo(runId);
         return localVarResp.getData();
     }
@@ -500,7 +501,7 @@ public class InteractionRunsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<ExecutionRunRef> getRunWithHttpInfo(@javax.annotation.Nonnull String runId)
+    public ApiResponse<ExecutionRunRef> getRunWithHttpInfo(@jakarta.annotation.Nonnull String runId)
             throws ApiException {
         okhttp3.Call localVarCall = getRunValidateBeforeCall(runId, null);
         Type localVarReturnType = new TypeToken<ExecutionRunRef>() {}.getType();
@@ -524,7 +525,7 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call getRunAsync(
-            @javax.annotation.Nonnull String runId, final ApiCallback<ExecutionRunRef> _callback)
+            @jakarta.annotation.Nonnull String runId, final ApiCallback<ExecutionRunRef> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getRunValidateBeforeCall(runId, _callback);
@@ -569,27 +570,27 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call listRunsCall(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String interaction,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String query,
-            @javax.annotation.Nullable String defaultQueryPath,
-            @javax.annotation.Nullable List<String> parent,
-            @javax.annotation.Nullable Boolean isRoot,
-            @javax.annotation.Nullable String _object,
-            @javax.annotation.Nullable String start,
-            @javax.annotation.Nullable String end,
-            @javax.annotation.Nullable String finishReason,
-            @javax.annotation.Nullable String createdBy,
-            @javax.annotation.Nullable List<String> workflowRunIds,
-            @javax.annotation.Nullable List<String> workflowIds,
-            @javax.annotation.Nullable List<String> runIds,
-            @javax.annotation.Nullable Boolean isAgent,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String interaction,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String query,
+            @jakarta.annotation.Nullable String defaultQueryPath,
+            @jakarta.annotation.Nullable List<String> parent,
+            @jakarta.annotation.Nullable Boolean isRoot,
+            @jakarta.annotation.Nullable String _object,
+            @jakarta.annotation.Nullable String start,
+            @jakarta.annotation.Nullable String end,
+            @jakarta.annotation.Nullable String finishReason,
+            @jakarta.annotation.Nullable String createdBy,
+            @jakarta.annotation.Nullable List<String> workflowRunIds,
+            @jakarta.annotation.Nullable List<String> workflowIds,
+            @jakarta.annotation.Nullable List<String> runIds,
+            @jakarta.annotation.Nullable Boolean isAgent,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -740,27 +741,27 @@ public class InteractionRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listRunsValidateBeforeCall(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String interaction,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String query,
-            @javax.annotation.Nullable String defaultQueryPath,
-            @javax.annotation.Nullable List<String> parent,
-            @javax.annotation.Nullable Boolean isRoot,
-            @javax.annotation.Nullable String _object,
-            @javax.annotation.Nullable String start,
-            @javax.annotation.Nullable String end,
-            @javax.annotation.Nullable String finishReason,
-            @javax.annotation.Nullable String createdBy,
-            @javax.annotation.Nullable List<String> workflowRunIds,
-            @javax.annotation.Nullable List<String> workflowIds,
-            @javax.annotation.Nullable List<String> runIds,
-            @javax.annotation.Nullable Boolean isAgent,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String interaction,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String query,
+            @jakarta.annotation.Nullable String defaultQueryPath,
+            @jakarta.annotation.Nullable List<String> parent,
+            @jakarta.annotation.Nullable Boolean isRoot,
+            @jakarta.annotation.Nullable String _object,
+            @jakarta.annotation.Nullable String start,
+            @jakarta.annotation.Nullable String end,
+            @jakarta.annotation.Nullable String finishReason,
+            @jakarta.annotation.Nullable String createdBy,
+            @jakarta.annotation.Nullable List<String> workflowRunIds,
+            @jakarta.annotation.Nullable List<String> workflowIds,
+            @jakarta.annotation.Nullable List<String> runIds,
+            @jakarta.annotation.Nullable Boolean isAgent,
             final ApiCallback _callback)
             throws ApiException {
         return listRunsCall(
@@ -824,27 +825,27 @@ public class InteractionRunsApi {
      * </table>
      */
     public List<ExecutionRunRef> listRuns(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String interaction,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String query,
-            @javax.annotation.Nullable String defaultQueryPath,
-            @javax.annotation.Nullable List<String> parent,
-            @javax.annotation.Nullable Boolean isRoot,
-            @javax.annotation.Nullable String _object,
-            @javax.annotation.Nullable String start,
-            @javax.annotation.Nullable String end,
-            @javax.annotation.Nullable String finishReason,
-            @javax.annotation.Nullable String createdBy,
-            @javax.annotation.Nullable List<String> workflowRunIds,
-            @javax.annotation.Nullable List<String> workflowIds,
-            @javax.annotation.Nullable List<String> runIds,
-            @javax.annotation.Nullable Boolean isAgent)
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String interaction,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String query,
+            @jakarta.annotation.Nullable String defaultQueryPath,
+            @jakarta.annotation.Nullable List<String> parent,
+            @jakarta.annotation.Nullable Boolean isRoot,
+            @jakarta.annotation.Nullable String _object,
+            @jakarta.annotation.Nullable String start,
+            @jakarta.annotation.Nullable String end,
+            @jakarta.annotation.Nullable String finishReason,
+            @jakarta.annotation.Nullable String createdBy,
+            @jakarta.annotation.Nullable List<String> workflowRunIds,
+            @jakarta.annotation.Nullable List<String> workflowIds,
+            @jakarta.annotation.Nullable List<String> runIds,
+            @jakarta.annotation.Nullable Boolean isAgent)
             throws ApiException {
         ApiResponse<List<ExecutionRunRef>> localVarResp =
                 listRunsWithHttpInfo(
@@ -908,27 +909,27 @@ public class InteractionRunsApi {
      * </table>
      */
     public ApiResponse<List<ExecutionRunRef>> listRunsWithHttpInfo(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String interaction,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String query,
-            @javax.annotation.Nullable String defaultQueryPath,
-            @javax.annotation.Nullable List<String> parent,
-            @javax.annotation.Nullable Boolean isRoot,
-            @javax.annotation.Nullable String _object,
-            @javax.annotation.Nullable String start,
-            @javax.annotation.Nullable String end,
-            @javax.annotation.Nullable String finishReason,
-            @javax.annotation.Nullable String createdBy,
-            @javax.annotation.Nullable List<String> workflowRunIds,
-            @javax.annotation.Nullable List<String> workflowIds,
-            @javax.annotation.Nullable List<String> runIds,
-            @javax.annotation.Nullable Boolean isAgent)
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String interaction,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String query,
+            @jakarta.annotation.Nullable String defaultQueryPath,
+            @jakarta.annotation.Nullable List<String> parent,
+            @jakarta.annotation.Nullable Boolean isRoot,
+            @jakarta.annotation.Nullable String _object,
+            @jakarta.annotation.Nullable String start,
+            @jakarta.annotation.Nullable String end,
+            @jakarta.annotation.Nullable String finishReason,
+            @jakarta.annotation.Nullable String createdBy,
+            @jakarta.annotation.Nullable List<String> workflowRunIds,
+            @jakarta.annotation.Nullable List<String> workflowIds,
+            @jakarta.annotation.Nullable List<String> runIds,
+            @jakarta.annotation.Nullable Boolean isAgent)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listRunsValidateBeforeCall(
@@ -995,27 +996,27 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call listRunsAsync(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String interaction,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String query,
-            @javax.annotation.Nullable String defaultQueryPath,
-            @javax.annotation.Nullable List<String> parent,
-            @javax.annotation.Nullable Boolean isRoot,
-            @javax.annotation.Nullable String _object,
-            @javax.annotation.Nullable String start,
-            @javax.annotation.Nullable String end,
-            @javax.annotation.Nullable String finishReason,
-            @javax.annotation.Nullable String createdBy,
-            @javax.annotation.Nullable List<String> workflowRunIds,
-            @javax.annotation.Nullable List<String> workflowIds,
-            @javax.annotation.Nullable List<String> runIds,
-            @javax.annotation.Nullable Boolean isAgent,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String interaction,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String query,
+            @jakarta.annotation.Nullable String defaultQueryPath,
+            @jakarta.annotation.Nullable List<String> parent,
+            @jakarta.annotation.Nullable Boolean isRoot,
+            @jakarta.annotation.Nullable String _object,
+            @jakarta.annotation.Nullable String start,
+            @jakarta.annotation.Nullable String end,
+            @jakarta.annotation.Nullable String finishReason,
+            @jakarta.annotation.Nullable String createdBy,
+            @jakarta.annotation.Nullable List<String> workflowRunIds,
+            @jakarta.annotation.Nullable List<String> workflowIds,
+            @jakarta.annotation.Nullable List<String> runIds,
+            @jakarta.annotation.Nullable Boolean isAgent,
             final ApiCallback<List<ExecutionRunRef>> _callback)
             throws ApiException {
 
@@ -1064,7 +1065,7 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call searchRunsCall(
-            @javax.annotation.Nonnull RunSearchPayload runSearchPayload,
+            @jakarta.annotation.Nonnull RunSearchPayload runSearchPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1121,7 +1122,7 @@ public class InteractionRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchRunsValidateBeforeCall(
-            @javax.annotation.Nonnull RunSearchPayload runSearchPayload,
+            @jakarta.annotation.Nonnull RunSearchPayload runSearchPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'runSearchPayload' is set
@@ -1149,7 +1150,7 @@ public class InteractionRunsApi {
      * </table>
      */
     public List<ExecutionRunRef> searchRuns(
-            @javax.annotation.Nonnull RunSearchPayload runSearchPayload) throws ApiException {
+            @jakarta.annotation.Nonnull RunSearchPayload runSearchPayload) throws ApiException {
         ApiResponse<List<ExecutionRunRef>> localVarResp = searchRunsWithHttpInfo(runSearchPayload);
         return localVarResp.getData();
     }
@@ -1170,7 +1171,7 @@ public class InteractionRunsApi {
      * </table>
      */
     public ApiResponse<List<ExecutionRunRef>> searchRunsWithHttpInfo(
-            @javax.annotation.Nonnull RunSearchPayload runSearchPayload) throws ApiException {
+            @jakarta.annotation.Nonnull RunSearchPayload runSearchPayload) throws ApiException {
         okhttp3.Call localVarCall = searchRunsValidateBeforeCall(runSearchPayload, null);
         Type localVarReturnType = new TypeToken<List<ExecutionRunRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1193,7 +1194,7 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call searchRunsAsync(
-            @javax.annotation.Nonnull RunSearchPayload runSearchPayload,
+            @jakarta.annotation.Nonnull RunSearchPayload runSearchPayload,
             final ApiCallback<List<ExecutionRunRef>> _callback)
             throws ApiException {
 
@@ -1219,7 +1220,7 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call streamRunCall(
-            @javax.annotation.Nonnull String runId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1279,7 +1280,7 @@ public class InteractionRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call streamRunValidateBeforeCall(
-            @javax.annotation.Nonnull String runId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'runId' is set
         if (runId == null) {
@@ -1305,7 +1306,7 @@ public class InteractionRunsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public String streamRun(@javax.annotation.Nonnull String runId) throws ApiException {
+    public String streamRun(@jakarta.annotation.Nonnull String runId) throws ApiException {
         ApiResponse<String> localVarResp = streamRunWithHttpInfo(runId);
         return localVarResp.getData();
     }
@@ -1325,7 +1326,7 @@ public class InteractionRunsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<String> streamRunWithHttpInfo(@javax.annotation.Nonnull String runId)
+    public ApiResponse<String> streamRunWithHttpInfo(@jakarta.annotation.Nonnull String runId)
             throws ApiException {
         okhttp3.Call localVarCall = streamRunValidateBeforeCall(runId, null);
         Type localVarReturnType = new TypeToken<String>() {}.getType();
@@ -1349,7 +1350,7 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call streamRunAsync(
-            @javax.annotation.Nonnull String runId, final ApiCallback<String> _callback)
+            @jakarta.annotation.Nonnull String runId, final ApiCallback<String> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = streamRunValidateBeforeCall(runId, _callback);
@@ -1375,8 +1376,8 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call updateRunCall(
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1437,8 +1438,8 @@ public class InteractionRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateRunValidateBeforeCall(
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'runId' is set
@@ -1473,8 +1474,8 @@ public class InteractionRunsApi {
      * </table>
      */
     public ExecutionRunRef updateRun(
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef)
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef)
             throws ApiException {
         ApiResponse<ExecutionRunRef> localVarResp =
                 updateRunWithHttpInfo(runId, partialExecutionRunRef);
@@ -1498,8 +1499,8 @@ public class InteractionRunsApi {
      * </table>
      */
     public ApiResponse<ExecutionRunRef> updateRunWithHttpInfo(
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef)
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateRunValidateBeforeCall(runId, partialExecutionRunRef, null);
@@ -1525,8 +1526,8 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call updateRunAsync(
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef,
             final ApiCallback<ExecutionRunRef> _callback)
             throws ApiException {
 

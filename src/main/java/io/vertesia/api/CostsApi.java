@@ -89,11 +89,11 @@ public class CostsApi {
      * </table>
      */
     public okhttp3.Call exportCostDataCall(
-            @javax.annotation.Nullable GetModelPricesFromParameter from,
-            @javax.annotation.Nullable GetModelPricesToParameter to,
-            @javax.annotation.Nullable String scope,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String workflowId,
+            @jakarta.annotation.Nullable GetModelPricesFromParameter from,
+            @jakarta.annotation.Nullable GetModelPricesToParameter to,
+            @jakarta.annotation.Nullable String scope,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String workflowId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -171,11 +171,11 @@ public class CostsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call exportCostDataValidateBeforeCall(
-            @javax.annotation.Nullable GetModelPricesFromParameter from,
-            @javax.annotation.Nullable GetModelPricesToParameter to,
-            @javax.annotation.Nullable String scope,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String workflowId,
+            @jakarta.annotation.Nullable GetModelPricesFromParameter from,
+            @jakarta.annotation.Nullable GetModelPricesToParameter to,
+            @jakarta.annotation.Nullable String scope,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String workflowId,
             final ApiCallback _callback)
             throws ApiException {
         return exportCostDataCall(from, to, scope, projectId, workflowId, _callback);
@@ -201,11 +201,11 @@ public class CostsApi {
      * </table>
      */
     public String exportCostData(
-            @javax.annotation.Nullable GetModelPricesFromParameter from,
-            @javax.annotation.Nullable GetModelPricesToParameter to,
-            @javax.annotation.Nullable String scope,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String workflowId)
+            @jakarta.annotation.Nullable GetModelPricesFromParameter from,
+            @jakarta.annotation.Nullable GetModelPricesToParameter to,
+            @jakarta.annotation.Nullable String scope,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String workflowId)
             throws ApiException {
         ApiResponse<String> localVarResp =
                 exportCostDataWithHttpInfo(from, to, scope, projectId, workflowId);
@@ -232,11 +232,11 @@ public class CostsApi {
      * </table>
      */
     public ApiResponse<String> exportCostDataWithHttpInfo(
-            @javax.annotation.Nullable GetModelPricesFromParameter from,
-            @javax.annotation.Nullable GetModelPricesToParameter to,
-            @javax.annotation.Nullable String scope,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String workflowId)
+            @jakarta.annotation.Nullable GetModelPricesFromParameter from,
+            @jakarta.annotation.Nullable GetModelPricesToParameter to,
+            @jakarta.annotation.Nullable String scope,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String workflowId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 exportCostDataValidateBeforeCall(from, to, scope, projectId, workflowId, null);
@@ -265,11 +265,11 @@ public class CostsApi {
      * </table>
      */
     public okhttp3.Call exportCostDataAsync(
-            @javax.annotation.Nullable GetModelPricesFromParameter from,
-            @javax.annotation.Nullable GetModelPricesToParameter to,
-            @javax.annotation.Nullable String scope,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String workflowId,
+            @jakarta.annotation.Nullable GetModelPricesFromParameter from,
+            @jakarta.annotation.Nullable GetModelPricesToParameter to,
+            @jakarta.annotation.Nullable String scope,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String workflowId,
             final ApiCallback<String> _callback)
             throws ApiException {
 
@@ -296,7 +296,7 @@ public class CostsApi {
      * </table>
      */
     public okhttp3.Call getCostAnalyticsCall(
-            @javax.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery,
+            @jakarta.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -353,7 +353,7 @@ public class CostsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getCostAnalyticsValidateBeforeCall(
-            @javax.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery,
+            @jakarta.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'costAnalyticsQuery' is set
@@ -381,7 +381,7 @@ public class CostsApi {
      * </table>
      */
     public CostAnalyticsResponse getCostAnalytics(
-            @javax.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery) throws ApiException {
+            @jakarta.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery) throws ApiException {
         ApiResponse<CostAnalyticsResponse> localVarResp =
                 getCostAnalyticsWithHttpInfo(costAnalyticsQuery);
         return localVarResp.getData();
@@ -403,7 +403,7 @@ public class CostsApi {
      * </table>
      */
     public ApiResponse<CostAnalyticsResponse> getCostAnalyticsWithHttpInfo(
-            @javax.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery) throws ApiException {
+            @jakarta.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery) throws ApiException {
         okhttp3.Call localVarCall = getCostAnalyticsValidateBeforeCall(costAnalyticsQuery, null);
         Type localVarReturnType = new TypeToken<CostAnalyticsResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -426,7 +426,7 @@ public class CostsApi {
      * </table>
      */
     public okhttp3.Call getCostAnalyticsAsync(
-            @javax.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery,
+            @jakarta.annotation.Nonnull CostAnalyticsQuery costAnalyticsQuery,
             final ApiCallback<CostAnalyticsResponse> _callback)
             throws ApiException {
 
@@ -454,8 +454,8 @@ public class CostsApi {
      * </table>
      */
     public okhttp3.Call getModelPricesCall(
-            @javax.annotation.Nullable GetModelPricesFromParameter from,
-            @javax.annotation.Nullable GetModelPricesToParameter to,
+            @jakarta.annotation.Nullable GetModelPricesFromParameter from,
+            @jakarta.annotation.Nullable GetModelPricesToParameter to,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -520,8 +520,8 @@ public class CostsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getModelPricesValidateBeforeCall(
-            @javax.annotation.Nullable GetModelPricesFromParameter from,
-            @javax.annotation.Nullable GetModelPricesToParameter to,
+            @jakarta.annotation.Nullable GetModelPricesFromParameter from,
+            @jakarta.annotation.Nullable GetModelPricesToParameter to,
             final ApiCallback _callback)
             throws ApiException {
         return getModelPricesCall(from, to, _callback);
@@ -544,8 +544,8 @@ public class CostsApi {
      * </table>
      */
     public ModelPriceComparisonResponse getModelPrices(
-            @javax.annotation.Nullable GetModelPricesFromParameter from,
-            @javax.annotation.Nullable GetModelPricesToParameter to)
+            @jakarta.annotation.Nullable GetModelPricesFromParameter from,
+            @jakarta.annotation.Nullable GetModelPricesToParameter to)
             throws ApiException {
         ApiResponse<ModelPriceComparisonResponse> localVarResp =
                 getModelPricesWithHttpInfo(from, to);
@@ -569,8 +569,8 @@ public class CostsApi {
      * </table>
      */
     public ApiResponse<ModelPriceComparisonResponse> getModelPricesWithHttpInfo(
-            @javax.annotation.Nullable GetModelPricesFromParameter from,
-            @javax.annotation.Nullable GetModelPricesToParameter to)
+            @jakarta.annotation.Nullable GetModelPricesFromParameter from,
+            @jakarta.annotation.Nullable GetModelPricesToParameter to)
             throws ApiException {
         okhttp3.Call localVarCall = getModelPricesValidateBeforeCall(from, to, null);
         Type localVarReturnType = new TypeToken<ModelPriceComparisonResponse>() {}.getType();
@@ -595,8 +595,8 @@ public class CostsApi {
      * </table>
      */
     public okhttp3.Call getModelPricesAsync(
-            @javax.annotation.Nullable GetModelPricesFromParameter from,
-            @javax.annotation.Nullable GetModelPricesToParameter to,
+            @jakarta.annotation.Nullable GetModelPricesFromParameter from,
+            @jakarta.annotation.Nullable GetModelPricesToParameter to,
             final ApiCallback<ModelPriceComparisonResponse> _callback)
             throws ApiException {
 
@@ -622,7 +622,7 @@ public class CostsApi {
      * </table>
      */
     public okhttp3.Call getRunPriceCall(
-            @javax.annotation.Nonnull CostRunPriceQuery costRunPriceQuery,
+            @jakarta.annotation.Nonnull CostRunPriceQuery costRunPriceQuery,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -679,7 +679,7 @@ public class CostsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getRunPriceValidateBeforeCall(
-            @javax.annotation.Nonnull CostRunPriceQuery costRunPriceQuery,
+            @jakarta.annotation.Nonnull CostRunPriceQuery costRunPriceQuery,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'costRunPriceQuery' is set
@@ -707,7 +707,7 @@ public class CostsApi {
      * </table>
      */
     public CostRunPriceResponse getRunPrice(
-            @javax.annotation.Nonnull CostRunPriceQuery costRunPriceQuery) throws ApiException {
+            @jakarta.annotation.Nonnull CostRunPriceQuery costRunPriceQuery) throws ApiException {
         ApiResponse<CostRunPriceResponse> localVarResp = getRunPriceWithHttpInfo(costRunPriceQuery);
         return localVarResp.getData();
     }
@@ -728,7 +728,7 @@ public class CostsApi {
      * </table>
      */
     public ApiResponse<CostRunPriceResponse> getRunPriceWithHttpInfo(
-            @javax.annotation.Nonnull CostRunPriceQuery costRunPriceQuery) throws ApiException {
+            @jakarta.annotation.Nonnull CostRunPriceQuery costRunPriceQuery) throws ApiException {
         okhttp3.Call localVarCall = getRunPriceValidateBeforeCall(costRunPriceQuery, null);
         Type localVarReturnType = new TypeToken<CostRunPriceResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -751,7 +751,7 @@ public class CostsApi {
      * </table>
      */
     public okhttp3.Call getRunPriceAsync(
-            @javax.annotation.Nonnull CostRunPriceQuery costRunPriceQuery,
+            @jakarta.annotation.Nonnull CostRunPriceQuery costRunPriceQuery,
             final ApiCallback<CostRunPriceResponse> _callback)
             throws ApiException {
 

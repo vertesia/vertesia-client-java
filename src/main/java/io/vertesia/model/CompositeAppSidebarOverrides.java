@@ -30,34 +30,34 @@ import java.util.Objects;
 /**
  * Sidebar display overrides for the CompositeApp.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppSidebarOverrides {
     public static final String SERIALIZED_NAME_HIDE_SECTION_HEADERS = "hideSectionHeaders";
 
     @SerializedName(SERIALIZED_NAME_HIDE_SECTION_HEADERS)
-    @javax.annotation.Nullable private Boolean hideSectionHeaders;
+    @jakarta.annotation.Nullable private Boolean hideSectionHeaders;
 
     public static final String SERIALIZED_NAME_AUTO_COLLAPSE = "autoCollapse";
 
     @SerializedName(SERIALIZED_NAME_AUTO_COLLAPSE)
-    @javax.annotation.Nullable private Boolean autoCollapse;
+    @jakarta.annotation.Nullable private Boolean autoCollapse;
 
     public static final String SERIALIZED_NAME_AUTO_COLLAPSE_SETTINGS = "autoCollapseSettings";
 
     @SerializedName(SERIALIZED_NAME_AUTO_COLLAPSE_SETTINGS)
-    @javax.annotation.Nullable private Boolean autoCollapseSettings;
+    @jakarta.annotation.Nullable private Boolean autoCollapseSettings;
 
     public static final String SERIALIZED_NAME_AUTO_COLLAPSE_FOOTER = "autoCollapseFooter";
 
     @SerializedName(SERIALIZED_NAME_AUTO_COLLAPSE_FOOTER)
-    @javax.annotation.Nullable private Boolean autoCollapseFooter;
+    @jakarta.annotation.Nullable private Boolean autoCollapseFooter;
 
     public CompositeAppSidebarOverrides() {}
 
     public CompositeAppSidebarOverrides hideSectionHeaders(
-            @javax.annotation.Nullable Boolean hideSectionHeaders) {
+            @jakarta.annotation.Nullable Boolean hideSectionHeaders) {
         this.hideSectionHeaders = hideSectionHeaders;
         return this;
     }
@@ -66,16 +66,16 @@ public class CompositeAppSidebarOverrides {
      * Whether to hide section title headers in the sidebar (defaults to false)
      * @return hideSectionHeaders
      */
-    @javax.annotation.Nullable public Boolean getHideSectionHeaders() {
+    @jakarta.annotation.Nullable public Boolean getHideSectionHeaders() {
         return hideSectionHeaders;
     }
 
-    public void setHideSectionHeaders(@javax.annotation.Nullable Boolean hideSectionHeaders) {
+    public void setHideSectionHeaders(@jakarta.annotation.Nullable Boolean hideSectionHeaders) {
         this.hideSectionHeaders = hideSectionHeaders;
     }
 
     public CompositeAppSidebarOverrides autoCollapse(
-            @javax.annotation.Nullable Boolean autoCollapse) {
+            @jakarta.annotation.Nullable Boolean autoCollapse) {
         this.autoCollapse = autoCollapse;
         return this;
     }
@@ -84,16 +84,16 @@ public class CompositeAppSidebarOverrides {
      * Whether menu items auto-collapse when navigating (accordion behavior). When false, all items stay expanded. Defaults to true.
      * @return autoCollapse
      */
-    @javax.annotation.Nullable public Boolean getAutoCollapse() {
+    @jakarta.annotation.Nullable public Boolean getAutoCollapse() {
         return autoCollapse;
     }
 
-    public void setAutoCollapse(@javax.annotation.Nullable Boolean autoCollapse) {
+    public void setAutoCollapse(@jakarta.annotation.Nullable Boolean autoCollapse) {
         this.autoCollapse = autoCollapse;
     }
 
     public CompositeAppSidebarOverrides autoCollapseSettings(
-            @javax.annotation.Nullable Boolean autoCollapseSettings) {
+            @jakarta.annotation.Nullable Boolean autoCollapseSettings) {
         this.autoCollapseSettings = autoCollapseSettings;
         return this;
     }
@@ -102,16 +102,16 @@ public class CompositeAppSidebarOverrides {
      * Whether settings section items auto-collapse when navigating. Independent of autoCollapse which handles all other items. Defaults to true.
      * @return autoCollapseSettings
      */
-    @javax.annotation.Nullable public Boolean getAutoCollapseSettings() {
+    @jakarta.annotation.Nullable public Boolean getAutoCollapseSettings() {
         return autoCollapseSettings;
     }
 
-    public void setAutoCollapseSettings(@javax.annotation.Nullable Boolean autoCollapseSettings) {
+    public void setAutoCollapseSettings(@jakarta.annotation.Nullable Boolean autoCollapseSettings) {
         this.autoCollapseSettings = autoCollapseSettings;
     }
 
     public CompositeAppSidebarOverrides autoCollapseFooter(
-            @javax.annotation.Nullable Boolean autoCollapseFooter) {
+            @jakarta.annotation.Nullable Boolean autoCollapseFooter) {
         this.autoCollapseFooter = autoCollapseFooter;
         return this;
     }
@@ -120,11 +120,11 @@ public class CompositeAppSidebarOverrides {
      * Whether footer section items auto-collapse when navigating. Independent of autoCollapse which handles all other items. Defaults to true.
      * @return autoCollapseFooter
      */
-    @javax.annotation.Nullable public Boolean getAutoCollapseFooter() {
+    @jakarta.annotation.Nullable public Boolean getAutoCollapseFooter() {
         return autoCollapseFooter;
     }
 
-    public void setAutoCollapseFooter(@javax.annotation.Nullable Boolean autoCollapseFooter) {
+    public void setAutoCollapseFooter(@jakarta.annotation.Nullable Boolean autoCollapseFooter) {
         this.autoCollapseFooter = autoCollapseFooter;
     }
 

@@ -33,19 +33,20 @@ import java.util.Objects;
 /**
  * Payload for altering a table schema.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AlterTablePayload {
     public static final String SERIALIZED_NAME_CHANGES = "changes";
 
     @SerializedName(SERIALIZED_NAME_CHANGES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<AlterTableOperation> changes = new ArrayList<>();
 
     public AlterTablePayload() {}
 
-    public AlterTablePayload changes(@javax.annotation.Nonnull List<AlterTableOperation> changes) {
+    public AlterTablePayload changes(
+            @jakarta.annotation.Nonnull List<AlterTableOperation> changes) {
         this.changes = changes;
         return this;
     }
@@ -62,12 +63,12 @@ public class AlterTablePayload {
      * List of schema changes to apply
      * @return changes
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<AlterTableOperation> getChanges() {
         return changes;
     }
 
-    public void setChanges(@javax.annotation.Nonnull List<AlterTableOperation> changes) {
+    public void setChanges(@jakarta.annotation.Nonnull List<AlterTableOperation> changes) {
         this.changes = changes;
     }
 

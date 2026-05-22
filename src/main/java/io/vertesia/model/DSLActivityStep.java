@@ -35,7 +35,7 @@ import java.util.Objects;
 /**
  * DSLActivityStep
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DSLActivityStep {
@@ -95,73 +95,73 @@ public class DSLActivityStep {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nullable private String title;
+    @jakarta.annotation.Nullable private String title;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_PARAMS = "params";
 
     @SerializedName(SERIALIZED_NAME_PARAMS)
-    @javax.annotation.Nullable private Map<String, Object> params = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> params = new HashMap<>();
 
     public static final String SERIALIZED_NAME_OUTPUT = "output";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT)
-    @javax.annotation.Nullable private String output;
+    @jakarta.annotation.Nullable private String output;
 
     public static final String SERIALIZED_NAME_CONDITION = "condition";
 
     @SerializedName(SERIALIZED_NAME_CONDITION)
-    @javax.annotation.Nullable private Map<String, Object> condition = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> condition = new HashMap<>();
 
     public static final String SERIALIZED_NAME_IMPORT = "import";
 
     @SerializedName(SERIALIZED_NAME_IMPORT)
-    @javax.annotation.Nullable private List<Object> _import;
+    @jakarta.annotation.Nullable private List<Object> _import;
 
     public static final String SERIALIZED_NAME_FETCH = "fetch";
 
     @SerializedName(SERIALIZED_NAME_FETCH)
-    @javax.annotation.Nullable private Map<String, ActivityFetchSpec> fetch;
+    @jakarta.annotation.Nullable private Map<String, ActivityFetchSpec> fetch;
 
     public static final String SERIALIZED_NAME_PROJECTION = "projection";
 
     @SerializedName(SERIALIZED_NAME_PROJECTION)
-    @javax.annotation.Nullable private Map<String, Object> projection = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> projection = new HashMap<>();
 
     public static final String SERIALIZED_NAME_PARALLEL = "parallel";
 
     @SerializedName(SERIALIZED_NAME_PARALLEL)
-    @javax.annotation.Nullable private Boolean parallel;
+    @jakarta.annotation.Nullable private Boolean parallel;
 
     public static final String SERIALIZED_NAME_AWAIT = "await";
 
     @SerializedName(SERIALIZED_NAME_AWAIT)
-    @javax.annotation.Nullable private String await;
+    @jakarta.annotation.Nullable private String await;
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
-    @javax.annotation.Nullable private DSLActivityOptions options;
+    @jakarta.annotation.Nullable private DSLActivityOptions options;
 
     public DSLActivityStep() {}
 
-    public DSLActivityStep type(@javax.annotation.Nonnull TypeEnum type) {
+    public DSLActivityStep type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -170,16 +170,16 @@ public class DSLActivityStep {
      * The type fo the step. If not set defaults to \&quot;activity\&quot;
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public DSLActivityStep name(@javax.annotation.Nonnull String name) {
+    public DSLActivityStep name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -188,16 +188,16 @@ public class DSLActivityStep {
      * The name of the activity function
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public DSLActivityStep title(@javax.annotation.Nullable String title) {
+    public DSLActivityStep title(@jakarta.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -206,15 +206,15 @@ public class DSLActivityStep {
      * Title of the activity to be displayed in the UI workflow builder
      * @return title
      */
-    @javax.annotation.Nullable public String getTitle() {
+    @jakarta.annotation.Nullable public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nullable String title) {
+    public void setTitle(@jakarta.annotation.Nullable String title) {
         this.title = title;
     }
 
-    public DSLActivityStep description(@javax.annotation.Nullable String description) {
+    public DSLActivityStep description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -223,15 +223,15 @@ public class DSLActivityStep {
      * The description of the activity to e displayed in the UI workflow builder
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public DSLActivityStep params(@javax.annotation.Nullable Map<String, Object> params) {
+    public DSLActivityStep params(@jakarta.annotation.Nullable Map<String, Object> params) {
         this.params = params;
         return this;
     }
@@ -248,15 +248,15 @@ public class DSLActivityStep {
      * Activities parameters. These parameters can be either literals (hardcoded strings, numbers, booleans, objects, arrays etc.), either references to the workflow variables. The workflow variables are built from the workflow params (e.g. the workflow configuration) and from the result of the previous activities.
      * @return params
      */
-    @javax.annotation.Nullable public Map<String, Object> getParams() {
+    @jakarta.annotation.Nullable public Map<String, Object> getParams() {
         return params;
     }
 
-    public void setParams(@javax.annotation.Nullable Map<String, Object> params) {
+    public void setParams(@jakarta.annotation.Nullable Map<String, Object> params) {
         this.params = params;
     }
 
-    public DSLActivityStep output(@javax.annotation.Nullable String output) {
+    public DSLActivityStep output(@jakarta.annotation.Nullable String output) {
         this.output = output;
         return this;
     }
@@ -265,15 +265,15 @@ public class DSLActivityStep {
      * The name of the workflow variable that will store the result of the activity If not specified the result will not be stored The parameters describe how the actual parameters will be obtained from the workflow execution vars. since it may contain references to workflow execution vars.
      * @return output
      */
-    @javax.annotation.Nullable public String getOutput() {
+    @jakarta.annotation.Nullable public String getOutput() {
         return output;
     }
 
-    public void setOutput(@javax.annotation.Nullable String output) {
+    public void setOutput(@jakarta.annotation.Nullable String output) {
         this.output = output;
     }
 
-    public DSLActivityStep condition(@javax.annotation.Nullable Map<String, Object> condition) {
+    public DSLActivityStep condition(@jakarta.annotation.Nullable Map<String, Object> condition) {
         this.condition = condition;
         return this;
     }
@@ -290,15 +290,15 @@ public class DSLActivityStep {
      * A JSON expression which evaluate to true or false similar to mongo matches. We support for now basic expression like: $true, $false, $eq, $ne, $gt, $gte, $lt, $lte, $in, $nin, $regexp {$eq: {name: value}}, Ex: {$eq: {wfVarName: value}}
      * @return condition
      */
-    @javax.annotation.Nullable public Map<String, Object> getCondition() {
+    @jakarta.annotation.Nullable public Map<String, Object> getCondition() {
         return condition;
     }
 
-    public void setCondition(@javax.annotation.Nullable Map<String, Object> condition) {
+    public void setCondition(@jakarta.annotation.Nullable Map<String, Object> condition) {
         this.condition = condition;
     }
 
-    public DSLActivityStep _import(@javax.annotation.Nullable List<Object> _import) {
+    public DSLActivityStep _import(@jakarta.annotation.Nullable List<Object> _import) {
         this._import = _import;
         return this;
     }
@@ -315,15 +315,16 @@ public class DSLActivityStep {
      * The import spec is used to import data from workflow variables. The import spec is a list of variable names to import from the workflow context. You can also use objects to rename the imported variables, or to reference an expression. Example: [\&quot;runId\&quot;, {\&quot;typeId\&quot;: \&quot;docType.id\&quot;}]
      * @return _import
      */
-    @javax.annotation.Nullable public List<Object> getImport() {
+    @jakarta.annotation.Nullable public List<Object> getImport() {
         return _import;
     }
 
-    public void setImport(@javax.annotation.Nullable List<Object> _import) {
+    public void setImport(@jakarta.annotation.Nullable List<Object> _import) {
         this._import = _import;
     }
 
-    public DSLActivityStep fetch(@javax.annotation.Nullable Map<String, ActivityFetchSpec> fetch) {
+    public DSLActivityStep fetch(
+            @jakarta.annotation.Nullable Map<String, ActivityFetchSpec> fetch) {
         this.fetch = fetch;
         return this;
     }
@@ -340,15 +341,15 @@ public class DSLActivityStep {
      * The fetch phase is used to fetch data from external sources.
      * @return fetch
      */
-    @javax.annotation.Nullable public Map<String, ActivityFetchSpec> getFetch() {
+    @jakarta.annotation.Nullable public Map<String, ActivityFetchSpec> getFetch() {
         return fetch;
     }
 
-    public void setFetch(@javax.annotation.Nullable Map<String, ActivityFetchSpec> fetch) {
+    public void setFetch(@jakarta.annotation.Nullable Map<String, ActivityFetchSpec> fetch) {
         this.fetch = fetch;
     }
 
-    public DSLActivityStep projection(@javax.annotation.Nullable Map<String, Object> projection) {
+    public DSLActivityStep projection(@jakarta.annotation.Nullable Map<String, Object> projection) {
         this.projection = projection;
         return this;
     }
@@ -365,15 +366,15 @@ public class DSLActivityStep {
      * Projection to apply to the result. Not all activities support this.
      * @return projection
      */
-    @javax.annotation.Nullable public Map<String, Object> getProjection() {
+    @jakarta.annotation.Nullable public Map<String, Object> getProjection() {
         return projection;
     }
 
-    public void setProjection(@javax.annotation.Nullable Map<String, Object> projection) {
+    public void setProjection(@jakarta.annotation.Nullable Map<String, Object> projection) {
         this.projection = projection;
     }
 
-    public DSLActivityStep parallel(@javax.annotation.Nullable Boolean parallel) {
+    public DSLActivityStep parallel(@jakarta.annotation.Nullable Boolean parallel) {
         this.parallel = parallel;
         return this;
     }
@@ -382,15 +383,15 @@ public class DSLActivityStep {
      * If true the activity will be executed in parallel with the other activities. (i.e. the workflow will not wait for the activity to finish before starting the next one)
      * @return parallel
      */
-    @javax.annotation.Nullable public Boolean getParallel() {
+    @jakarta.annotation.Nullable public Boolean getParallel() {
         return parallel;
     }
 
-    public void setParallel(@javax.annotation.Nullable Boolean parallel) {
+    public void setParallel(@jakarta.annotation.Nullable Boolean parallel) {
         this.parallel = parallel;
     }
 
-    public DSLActivityStep await(@javax.annotation.Nullable String await) {
+    public DSLActivityStep await(@jakarta.annotation.Nullable String await) {
         this.await = await;
         return this;
     }
@@ -399,15 +400,15 @@ public class DSLActivityStep {
      * Await for a parallel activity execution to return.
      * @return await
      */
-    @javax.annotation.Nullable public String getAwait() {
+    @jakarta.annotation.Nullable public String getAwait() {
         return await;
     }
 
-    public void setAwait(@javax.annotation.Nullable String await) {
+    public void setAwait(@jakarta.annotation.Nullable String await) {
         this.await = await;
     }
 
-    public DSLActivityStep options(@javax.annotation.Nullable DSLActivityOptions options) {
+    public DSLActivityStep options(@jakarta.annotation.Nullable DSLActivityOptions options) {
         this.options = options;
         return this;
     }
@@ -416,11 +417,11 @@ public class DSLActivityStep {
      * Activity options for configuring the activity execution, which overrides the activity options defined at workflow level.
      * @return options
      */
-    @javax.annotation.Nullable public DSLActivityOptions getOptions() {
+    @jakarta.annotation.Nullable public DSLActivityOptions getOptions() {
         return options;
     }
 
-    public void setOptions(@javax.annotation.Nullable DSLActivityOptions options) {
+    public void setOptions(@jakarta.annotation.Nullable DSLActivityOptions options) {
         this.options = options;
     }
 

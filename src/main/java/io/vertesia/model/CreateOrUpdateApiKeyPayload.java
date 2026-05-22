@@ -31,83 +31,83 @@ import java.util.Objects;
 /**
  * CreateOrUpdateApiKeyPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateOrUpdateApiKeyPayload {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nullable private String id;
+    @jakarta.annotation.Nullable private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private ApiKeyTypes type;
+    @jakarta.annotation.Nullable private ApiKeyTypes type;
 
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @javax.annotation.Nullable private ProjectRoles role;
+    @jakarta.annotation.Nullable private ProjectRoles role;
 
     public static final String SERIALIZED_NAME_MASKED_VALUE = "maskedValue";
 
     @SerializedName(SERIALIZED_NAME_MASKED_VALUE)
-    @javax.annotation.Nullable private String maskedValue;
+    @jakarta.annotation.Nullable private String maskedValue;
 
     public static final String SERIALIZED_NAME_CAN_RETRIEVE_VALUE = "can_retrieve_value";
 
     @SerializedName(SERIALIZED_NAME_CAN_RETRIEVE_VALUE)
-    @javax.annotation.Nullable private Boolean canRetrieveValue;
+    @jakarta.annotation.Nullable private Boolean canRetrieveValue;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nullable private String account;
+    @jakarta.annotation.Nullable private String account;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nullable private ProjectRef project;
+    @jakarta.annotation.Nullable private ProjectRef project;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nullable private Boolean enabled;
+    @jakarta.annotation.Nullable private Boolean enabled;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nullable private String createdBy;
+    @jakarta.annotation.Nullable private String createdBy;
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nullable private String updatedBy;
+    @jakarta.annotation.Nullable private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nullable private OffsetDateTime createdAt;
+    @jakarta.annotation.Nullable private OffsetDateTime createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nullable private OffsetDateTime updatedAt;
+    @jakarta.annotation.Nullable private OffsetDateTime updatedAt;
 
     public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
 
     @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
-    @javax.annotation.Nullable private OffsetDateTime expiresAt;
+    @jakarta.annotation.Nullable private OffsetDateTime expiresAt;
 
     public CreateOrUpdateApiKeyPayload() {}
 
-    public CreateOrUpdateApiKeyPayload id(@javax.annotation.Nullable String id) {
+    public CreateOrUpdateApiKeyPayload id(@jakarta.annotation.Nullable String id) {
         this.id = id;
         return this;
     }
@@ -116,15 +116,15 @@ public class CreateOrUpdateApiKeyPayload {
      * Get id
      * @return id
      */
-    @javax.annotation.Nullable public String getId() {
+    @jakarta.annotation.Nullable public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nullable String id) {
+    public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
     }
 
-    public CreateOrUpdateApiKeyPayload name(@javax.annotation.Nullable String name) {
+    public CreateOrUpdateApiKeyPayload name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -133,15 +133,15 @@ public class CreateOrUpdateApiKeyPayload {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public CreateOrUpdateApiKeyPayload type(@javax.annotation.Nullable ApiKeyTypes type) {
+    public CreateOrUpdateApiKeyPayload type(@jakarta.annotation.Nullable ApiKeyTypes type) {
         this.type = type;
         return this;
     }
@@ -150,15 +150,15 @@ public class CreateOrUpdateApiKeyPayload {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public ApiKeyTypes getType() {
+    @jakarta.annotation.Nullable public ApiKeyTypes getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable ApiKeyTypes type) {
+    public void setType(@jakarta.annotation.Nullable ApiKeyTypes type) {
         this.type = type;
     }
 
-    public CreateOrUpdateApiKeyPayload role(@javax.annotation.Nullable ProjectRoles role) {
+    public CreateOrUpdateApiKeyPayload role(@jakarta.annotation.Nullable ProjectRoles role) {
         this.role = role;
         return this;
     }
@@ -167,15 +167,16 @@ public class CreateOrUpdateApiKeyPayload {
      * Get role
      * @return role
      */
-    @javax.annotation.Nullable public ProjectRoles getRole() {
+    @jakarta.annotation.Nullable public ProjectRoles getRole() {
         return role;
     }
 
-    public void setRole(@javax.annotation.Nullable ProjectRoles role) {
+    public void setRole(@jakarta.annotation.Nullable ProjectRoles role) {
         this.role = role;
     }
 
-    public CreateOrUpdateApiKeyPayload maskedValue(@javax.annotation.Nullable String maskedValue) {
+    public CreateOrUpdateApiKeyPayload maskedValue(
+            @jakarta.annotation.Nullable String maskedValue) {
         this.maskedValue = maskedValue;
         return this;
     }
@@ -184,16 +185,16 @@ public class CreateOrUpdateApiKeyPayload {
      * Get maskedValue
      * @return maskedValue
      */
-    @javax.annotation.Nullable public String getMaskedValue() {
+    @jakarta.annotation.Nullable public String getMaskedValue() {
         return maskedValue;
     }
 
-    public void setMaskedValue(@javax.annotation.Nullable String maskedValue) {
+    public void setMaskedValue(@jakarta.annotation.Nullable String maskedValue) {
         this.maskedValue = maskedValue;
     }
 
     public CreateOrUpdateApiKeyPayload canRetrieveValue(
-            @javax.annotation.Nullable Boolean canRetrieveValue) {
+            @jakarta.annotation.Nullable Boolean canRetrieveValue) {
         this.canRetrieveValue = canRetrieveValue;
         return this;
     }
@@ -202,15 +203,15 @@ public class CreateOrUpdateApiKeyPayload {
      * Get canRetrieveValue
      * @return canRetrieveValue
      */
-    @javax.annotation.Nullable public Boolean getCanRetrieveValue() {
+    @jakarta.annotation.Nullable public Boolean getCanRetrieveValue() {
         return canRetrieveValue;
     }
 
-    public void setCanRetrieveValue(@javax.annotation.Nullable Boolean canRetrieveValue) {
+    public void setCanRetrieveValue(@jakarta.annotation.Nullable Boolean canRetrieveValue) {
         this.canRetrieveValue = canRetrieveValue;
     }
 
-    public CreateOrUpdateApiKeyPayload account(@javax.annotation.Nullable String account) {
+    public CreateOrUpdateApiKeyPayload account(@jakarta.annotation.Nullable String account) {
         this.account = account;
         return this;
     }
@@ -219,15 +220,15 @@ public class CreateOrUpdateApiKeyPayload {
      * Get account
      * @return account
      */
-    @javax.annotation.Nullable public String getAccount() {
+    @jakarta.annotation.Nullable public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nullable String account) {
+    public void setAccount(@jakarta.annotation.Nullable String account) {
         this.account = account;
     }
 
-    public CreateOrUpdateApiKeyPayload project(@javax.annotation.Nullable ProjectRef project) {
+    public CreateOrUpdateApiKeyPayload project(@jakarta.annotation.Nullable ProjectRef project) {
         this.project = project;
         return this;
     }
@@ -236,15 +237,15 @@ public class CreateOrUpdateApiKeyPayload {
      * Get project
      * @return project
      */
-    @javax.annotation.Nullable public ProjectRef getProject() {
+    @jakarta.annotation.Nullable public ProjectRef getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nullable ProjectRef project) {
+    public void setProject(@jakarta.annotation.Nullable ProjectRef project) {
         this.project = project;
     }
 
-    public CreateOrUpdateApiKeyPayload enabled(@javax.annotation.Nullable Boolean enabled) {
+    public CreateOrUpdateApiKeyPayload enabled(@jakarta.annotation.Nullable Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -253,15 +254,15 @@ public class CreateOrUpdateApiKeyPayload {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nullable public Boolean getEnabled() {
+    @jakarta.annotation.Nullable public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nullable Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public CreateOrUpdateApiKeyPayload createdBy(@javax.annotation.Nullable String createdBy) {
+    public CreateOrUpdateApiKeyPayload createdBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -270,15 +271,15 @@ public class CreateOrUpdateApiKeyPayload {
      * Get createdBy
      * @return createdBy
      */
-    @javax.annotation.Nullable public String getCreatedBy() {
+    @jakarta.annotation.Nullable public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public CreateOrUpdateApiKeyPayload updatedBy(@javax.annotation.Nullable String updatedBy) {
+    public CreateOrUpdateApiKeyPayload updatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -287,16 +288,16 @@ public class CreateOrUpdateApiKeyPayload {
      * Get updatedBy
      * @return updatedBy
      */
-    @javax.annotation.Nullable public String getUpdatedBy() {
+    @jakarta.annotation.Nullable public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nullable String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
     public CreateOrUpdateApiKeyPayload createdAt(
-            @javax.annotation.Nullable OffsetDateTime createdAt) {
+            @jakarta.annotation.Nullable OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -305,16 +306,16 @@ public class CreateOrUpdateApiKeyPayload {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getCreatedAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nullable OffsetDateTime createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nullable OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
     public CreateOrUpdateApiKeyPayload updatedAt(
-            @javax.annotation.Nullable OffsetDateTime updatedAt) {
+            @jakarta.annotation.Nullable OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -323,16 +324,16 @@ public class CreateOrUpdateApiKeyPayload {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getUpdatedAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nullable OffsetDateTime updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nullable OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 
     public CreateOrUpdateApiKeyPayload expiresAt(
-            @javax.annotation.Nullable OffsetDateTime expiresAt) {
+            @jakarta.annotation.Nullable OffsetDateTime expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -341,11 +342,11 @@ public class CreateOrUpdateApiKeyPayload {
      * Get expiresAt
      * @return expiresAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getExpiresAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getExpiresAt() {
         return expiresAt;
     }
 
-    public void setExpiresAt(@javax.annotation.Nullable OffsetDateTime expiresAt) {
+    public void setExpiresAt(@jakarta.annotation.Nullable OffsetDateTime expiresAt) {
         this.expiresAt = expiresAt;
     }
 

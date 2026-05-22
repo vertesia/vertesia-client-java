@@ -33,35 +33,35 @@ import java.util.Objects;
 /**
  * ExportPropertiesPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ExportPropertiesPayload {
     public static final String SERIALIZED_NAME_OBJECT_IDS = "objectIds";
 
     @SerializedName(SERIALIZED_NAME_OBJECT_IDS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> objectIds = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String type;
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @javax.annotation.Nullable private ComplexSearchQuery query;
+    @jakarta.annotation.Nullable private ComplexSearchQuery query;
 
     public static final String SERIALIZED_NAME_TABLE_LAYOUT = "table_layout";
 
     @SerializedName(SERIALIZED_NAME_TABLE_LAYOUT)
-    @javax.annotation.Nullable private List<ColumnLayout> tableLayout = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<ColumnLayout> tableLayout = new ArrayList<>();
 
     public ExportPropertiesPayload() {}
 
-    public ExportPropertiesPayload objectIds(@javax.annotation.Nonnull List<String> objectIds) {
+    public ExportPropertiesPayload objectIds(@jakarta.annotation.Nonnull List<String> objectIds) {
         this.objectIds = objectIds;
         return this;
     }
@@ -78,16 +78,16 @@ public class ExportPropertiesPayload {
      * Get objectIds
      * @return objectIds
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getObjectIds() {
         return objectIds;
     }
 
-    public void setObjectIds(@javax.annotation.Nonnull List<String> objectIds) {
+    public void setObjectIds(@jakarta.annotation.Nonnull List<String> objectIds) {
         this.objectIds = objectIds;
     }
 
-    public ExportPropertiesPayload type(@javax.annotation.Nonnull String type) {
+    public ExportPropertiesPayload type(@jakarta.annotation.Nonnull String type) {
         this.type = type;
         return this;
     }
@@ -96,16 +96,16 @@ public class ExportPropertiesPayload {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull String type) {
+    public void setType(@jakarta.annotation.Nonnull String type) {
         this.type = type;
     }
 
-    public ExportPropertiesPayload query(@javax.annotation.Nullable ComplexSearchQuery query) {
+    public ExportPropertiesPayload query(@jakarta.annotation.Nullable ComplexSearchQuery query) {
         this.query = query;
         return this;
     }
@@ -114,16 +114,16 @@ public class ExportPropertiesPayload {
      * Get query
      * @return query
      */
-    @javax.annotation.Nullable public ComplexSearchQuery getQuery() {
+    @jakarta.annotation.Nullable public ComplexSearchQuery getQuery() {
         return query;
     }
 
-    public void setQuery(@javax.annotation.Nullable ComplexSearchQuery query) {
+    public void setQuery(@jakarta.annotation.Nullable ComplexSearchQuery query) {
         this.query = query;
     }
 
     public ExportPropertiesPayload tableLayout(
-            @javax.annotation.Nullable List<ColumnLayout> tableLayout) {
+            @jakarta.annotation.Nullable List<ColumnLayout> tableLayout) {
         this.tableLayout = tableLayout;
         return this;
     }
@@ -140,11 +140,11 @@ public class ExportPropertiesPayload {
      * Get tableLayout
      * @return tableLayout
      */
-    @javax.annotation.Nullable public List<ColumnLayout> getTableLayout() {
+    @jakarta.annotation.Nullable public List<ColumnLayout> getTableLayout() {
         return tableLayout;
     }
 
-    public void setTableLayout(@javax.annotation.Nullable List<ColumnLayout> tableLayout) {
+    public void setTableLayout(@jakarta.annotation.Nullable List<ColumnLayout> tableLayout) {
         this.tableLayout = tableLayout;
     }
 

@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * ProcessContextResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProcessContextResponse {
     public static final String SERIALIZED_NAME_RUN_ID = "run_id";
 
     @SerializedName(SERIALIZED_NAME_RUN_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String runId;
 
     public static final String SERIALIZED_NAME_CURRENT_NODE = "current_node";
 
     @SerializedName(SERIALIZED_NAME_CURRENT_NODE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String currentNode;
 
     public ProcessContextResponse() {}
 
-    public ProcessContextResponse runId(@javax.annotation.Nonnull String runId) {
+    public ProcessContextResponse runId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
         return this;
     }
@@ -57,16 +57,16 @@ public class ProcessContextResponse {
      * Get runId
      * @return runId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRunId() {
         return runId;
     }
 
-    public void setRunId(@javax.annotation.Nonnull String runId) {
+    public void setRunId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
     }
 
-    public ProcessContextResponse currentNode(@javax.annotation.Nonnull String currentNode) {
+    public ProcessContextResponse currentNode(@jakarta.annotation.Nonnull String currentNode) {
         this.currentNode = currentNode;
         return this;
     }
@@ -75,12 +75,12 @@ public class ProcessContextResponse {
      * Get currentNode
      * @return currentNode
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCurrentNode() {
         return currentNode;
     }
 
-    public void setCurrentNode(@javax.annotation.Nonnull String currentNode) {
+    public void setCurrentNode(@jakarta.annotation.Nonnull String currentNode) {
         this.currentNode = currentNode;
     }
 

@@ -32,19 +32,19 @@ import java.util.Objects;
 /**
  * UpdateAppInstallationToolAllowlistPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UpdateAppInstallationToolAllowlistPayload {
     public static final String SERIALIZED_NAME_TOOL_ALLOWLIST = "tool_allowlist";
 
     @SerializedName(SERIALIZED_NAME_TOOL_ALLOWLIST)
-    @javax.annotation.Nullable private List<String> toolAllowlist;
+    @jakarta.annotation.Nullable private List<String> toolAllowlist;
 
     public UpdateAppInstallationToolAllowlistPayload() {}
 
     public UpdateAppInstallationToolAllowlistPayload toolAllowlist(
-            @javax.annotation.Nullable List<String> toolAllowlist) {
+            @jakarta.annotation.Nullable List<String> toolAllowlist) {
         this.toolAllowlist = toolAllowlist;
         return this;
     }
@@ -62,11 +62,11 @@ public class UpdateAppInstallationToolAllowlistPayload {
      * Get toolAllowlist
      * @return toolAllowlist
      */
-    @javax.annotation.Nullable public List<String> getToolAllowlist() {
+    @jakarta.annotation.Nullable public List<String> getToolAllowlist() {
         return toolAllowlist;
     }
 
-    public void setToolAllowlist(@javax.annotation.Nullable List<String> toolAllowlist) {
+    public void setToolAllowlist(@jakarta.annotation.Nullable List<String> toolAllowlist) {
         this.toolAllowlist = toolAllowlist;
     }
 

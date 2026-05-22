@@ -36,79 +36,79 @@ import java.util.Objects;
 /**
  * UserGroup
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UserGroup {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String account;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime updatedAt;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nullable private String createdBy;
+    @jakarta.annotation.Nullable private String createdBy;
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nullable private String updatedBy;
+    @jakarta.annotation.Nullable private String updatedBy;
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
 
     public static final String SERIALIZED_NAME_CLEARANCE = "clearance";
 
     @SerializedName(SERIALIZED_NAME_CLEARANCE)
-    @javax.annotation.Nullable private BigDecimal clearance;
+    @jakarta.annotation.Nullable private BigDecimal clearance;
 
     public static final String SERIALIZED_NAME_COMPARTMENTS = "compartments";
 
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
-    @javax.annotation.Nullable private List<String> compartments = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
     public UserGroup() {}
 
-    public UserGroup id(@javax.annotation.Nonnull String id) {
+    public UserGroup id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -117,16 +117,16 @@ public class UserGroup {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public UserGroup account(@javax.annotation.Nonnull String account) {
+    public UserGroup account(@jakarta.annotation.Nonnull String account) {
         this.account = account;
         return this;
     }
@@ -135,16 +135,16 @@ public class UserGroup {
      * Get account
      * @return account
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nonnull String account) {
+    public void setAccount(@jakarta.annotation.Nonnull String account) {
         this.account = account;
     }
 
-    public UserGroup name(@javax.annotation.Nonnull String name) {
+    public UserGroup name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -153,16 +153,16 @@ public class UserGroup {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public UserGroup description(@javax.annotation.Nullable String description) {
+    public UserGroup description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -171,15 +171,15 @@ public class UserGroup {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public UserGroup tags(@javax.annotation.Nonnull List<String> tags) {
+    public UserGroup tags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -196,16 +196,16 @@ public class UserGroup {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nonnull List<String> tags) {
+    public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
     }
 
-    public UserGroup createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public UserGroup createdAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -214,16 +214,16 @@ public class UserGroup {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public UserGroup updatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public UserGroup updatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -232,16 +232,16 @@ public class UserGroup {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public UserGroup createdBy(@javax.annotation.Nullable String createdBy) {
+    public UserGroup createdBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -250,15 +250,15 @@ public class UserGroup {
      * Get createdBy
      * @return createdBy
      */
-    @javax.annotation.Nullable public String getCreatedBy() {
+    @jakarta.annotation.Nullable public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public UserGroup updatedBy(@javax.annotation.Nullable String updatedBy) {
+    public UserGroup updatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -267,15 +267,15 @@ public class UserGroup {
      * Get updatedBy
      * @return updatedBy
      */
-    @javax.annotation.Nullable public String getUpdatedBy() {
+    @jakarta.annotation.Nullable public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nullable String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public UserGroup properties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public UserGroup properties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
         return this;
     }
@@ -292,15 +292,15 @@ public class UserGroup {
      * Custom properties for dynamic permission matching
      * @return properties
      */
-    @javax.annotation.Nullable public Map<String, Object> getProperties() {
+    @jakarta.annotation.Nullable public Map<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public void setProperties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
     }
 
-    public UserGroup clearance(@javax.annotation.Nullable BigDecimal clearance) {
+    public UserGroup clearance(@jakarta.annotation.Nullable BigDecimal clearance) {
         this.clearance = clearance;
         return this;
     }
@@ -309,15 +309,15 @@ public class UserGroup {
      * BLP clearance level — merged with user clearance using max()
      * @return clearance
      */
-    @javax.annotation.Nullable public BigDecimal getClearance() {
+    @jakarta.annotation.Nullable public BigDecimal getClearance() {
         return clearance;
     }
 
-    public void setClearance(@javax.annotation.Nullable BigDecimal clearance) {
+    public void setClearance(@jakarta.annotation.Nullable BigDecimal clearance) {
         this.clearance = clearance;
     }
 
-    public UserGroup compartments(@javax.annotation.Nullable List<String> compartments) {
+    public UserGroup compartments(@jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
         return this;
     }
@@ -334,11 +334,11 @@ public class UserGroup {
      * Compartments — merged with user compartments using array union
      * @return compartments
      */
-    @javax.annotation.Nullable public List<String> getCompartments() {
+    @jakarta.annotation.Nullable public List<String> getCompartments() {
         return compartments;
     }
 
-    public void setCompartments(@javax.annotation.Nullable List<String> compartments) {
+    public void setCompartments(@jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
     }
 

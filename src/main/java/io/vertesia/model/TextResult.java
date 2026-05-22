@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * TextResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class TextResult {
@@ -91,18 +91,18 @@ public class TextResult {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_VALUE = "value";
 
     @SerializedName(SERIALIZED_NAME_VALUE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String value;
 
     public TextResult() {}
 
-    public TextResult type(@javax.annotation.Nonnull TypeEnum type) {
+    public TextResult type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -111,16 +111,16 @@ public class TextResult {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public TextResult value(@javax.annotation.Nonnull String value) {
+    public TextResult value(@jakarta.annotation.Nonnull String value) {
         this.value = value;
         return this;
     }
@@ -129,12 +129,12 @@ public class TextResult {
      * Get value
      * @return value
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getValue() {
         return value;
     }
 
-    public void setValue(@javax.annotation.Nonnull String value) {
+    public void setValue(@jakarta.annotation.Nonnull String value) {
         this.value = value;
     }
 

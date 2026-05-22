@@ -30,31 +30,31 @@ import java.util.Objects;
 /**
  * The run ref is used to identify a run document in the storage
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ExecutionRunDocRef {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String account;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String project;
 
     public ExecutionRunDocRef() {}
 
-    public ExecutionRunDocRef id(@javax.annotation.Nonnull String id) {
+    public ExecutionRunDocRef id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -63,16 +63,16 @@ public class ExecutionRunDocRef {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public ExecutionRunDocRef account(@javax.annotation.Nonnull String account) {
+    public ExecutionRunDocRef account(@jakarta.annotation.Nonnull String account) {
         this.account = account;
         return this;
     }
@@ -81,16 +81,16 @@ public class ExecutionRunDocRef {
      * Get account
      * @return account
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nonnull String account) {
+    public void setAccount(@jakarta.annotation.Nonnull String account) {
         this.account = account;
     }
 
-    public ExecutionRunDocRef project(@javax.annotation.Nonnull String project) {
+    public ExecutionRunDocRef project(@jakarta.annotation.Nonnull String project) {
         this.project = project;
         return this;
     }
@@ -99,12 +99,12 @@ public class ExecutionRunDocRef {
      * Get project
      * @return project
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nonnull String project) {
+    public void setProject(@jakarta.annotation.Nonnull String project) {
         this.project = project;
     }
 

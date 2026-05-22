@@ -30,40 +30,40 @@ import java.util.Objects;
 /**
  * ProcessDefinitionRevisionInfo
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProcessDefinitionRevisionInfo {
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private String parent;
+    @jakarta.annotation.Nullable private String parent;
 
     public static final String SERIALIZED_NAME_ROOT = "root";
 
     @SerializedName(SERIALIZED_NAME_ROOT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String root;
 
     public static final String SERIALIZED_NAME_HEAD = "head";
 
     @SerializedName(SERIALIZED_NAME_HEAD)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean head;
 
     public static final String SERIALIZED_NAME_LABEL = "label";
 
     @SerializedName(SERIALIZED_NAME_LABEL)
-    @javax.annotation.Nullable private String label;
+    @jakarta.annotation.Nullable private String label;
 
     public static final String SERIALIZED_NAME_COMMENT = "comment";
 
     @SerializedName(SERIALIZED_NAME_COMMENT)
-    @javax.annotation.Nullable private String comment;
+    @jakarta.annotation.Nullable private String comment;
 
     public ProcessDefinitionRevisionInfo() {}
 
-    public ProcessDefinitionRevisionInfo parent(@javax.annotation.Nullable String parent) {
+    public ProcessDefinitionRevisionInfo parent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
         return this;
     }
@@ -72,15 +72,15 @@ public class ProcessDefinitionRevisionInfo {
      * Direct parent revision id. Omitted for the first revision in a bucket.
      * @return parent
      */
-    @javax.annotation.Nullable public String getParent() {
+    @jakarta.annotation.Nullable public String getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable String parent) {
+    public void setParent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
     }
 
-    public ProcessDefinitionRevisionInfo root(@javax.annotation.Nonnull String root) {
+    public ProcessDefinitionRevisionInfo root(@jakarta.annotation.Nonnull String root) {
         this.root = root;
         return this;
     }
@@ -89,16 +89,16 @@ public class ProcessDefinitionRevisionInfo {
      * Root revision id shared by all revisions of the same process definition.
      * @return root
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRoot() {
         return root;
     }
 
-    public void setRoot(@javax.annotation.Nonnull String root) {
+    public void setRoot(@jakarta.annotation.Nonnull String root) {
         this.root = root;
     }
 
-    public ProcessDefinitionRevisionInfo head(@javax.annotation.Nonnull Boolean head) {
+    public ProcessDefinitionRevisionInfo head(@jakarta.annotation.Nonnull Boolean head) {
         this.head = head;
         return this;
     }
@@ -107,16 +107,16 @@ public class ProcessDefinitionRevisionInfo {
      * True when this is the latest revision returned by default list/resolve calls.
      * @return head
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getHead() {
         return head;
     }
 
-    public void setHead(@javax.annotation.Nonnull Boolean head) {
+    public void setHead(@jakarta.annotation.Nonnull Boolean head) {
         this.head = head;
     }
 
-    public ProcessDefinitionRevisionInfo label(@javax.annotation.Nullable String label) {
+    public ProcessDefinitionRevisionInfo label(@jakarta.annotation.Nullable String label) {
         this.label = label;
         return this;
     }
@@ -125,15 +125,15 @@ public class ProcessDefinitionRevisionInfo {
      * Optional human-readable label for the revision.
      * @return label
      */
-    @javax.annotation.Nullable public String getLabel() {
+    @jakarta.annotation.Nullable public String getLabel() {
         return label;
     }
 
-    public void setLabel(@javax.annotation.Nullable String label) {
+    public void setLabel(@jakarta.annotation.Nullable String label) {
         this.label = label;
     }
 
-    public ProcessDefinitionRevisionInfo comment(@javax.annotation.Nullable String comment) {
+    public ProcessDefinitionRevisionInfo comment(@jakarta.annotation.Nullable String comment) {
         this.comment = comment;
         return this;
     }
@@ -142,11 +142,11 @@ public class ProcessDefinitionRevisionInfo {
      * Optional publish note captured when a draft is promoted.
      * @return comment
      */
-    @javax.annotation.Nullable public String getComment() {
+    @jakarta.annotation.Nullable public String getComment() {
         return comment;
     }
 
-    public void setComment(@javax.annotation.Nullable String comment) {
+    public void setComment(@jakarta.annotation.Nullable String comment) {
         this.comment = comment;
     }
 

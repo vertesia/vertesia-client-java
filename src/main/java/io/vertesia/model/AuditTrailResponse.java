@@ -34,37 +34,37 @@ import java.util.Objects;
 /**
  * AuditTrailResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AuditTrailResponse {
     public static final String SERIALIZED_NAME_EVENTS = "events";
 
     @SerializedName(SERIALIZED_NAME_EVENTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<AuditTrailEvent> events = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_HAS_NEXT = "hasNext";
 
     @SerializedName(SERIALIZED_NAME_HAS_NEXT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean hasNext;
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal limit;
 
     public static final String SERIALIZED_NAME_OFFSET = "offset";
 
     @SerializedName(SERIALIZED_NAME_OFFSET)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal offset;
 
     public AuditTrailResponse() {}
 
-    public AuditTrailResponse events(@javax.annotation.Nonnull List<AuditTrailEvent> events) {
+    public AuditTrailResponse events(@jakarta.annotation.Nonnull List<AuditTrailEvent> events) {
         this.events = events;
         return this;
     }
@@ -81,16 +81,16 @@ public class AuditTrailResponse {
      * Get events
      * @return events
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<AuditTrailEvent> getEvents() {
         return events;
     }
 
-    public void setEvents(@javax.annotation.Nonnull List<AuditTrailEvent> events) {
+    public void setEvents(@jakarta.annotation.Nonnull List<AuditTrailEvent> events) {
         this.events = events;
     }
 
-    public AuditTrailResponse hasNext(@javax.annotation.Nonnull Boolean hasNext) {
+    public AuditTrailResponse hasNext(@jakarta.annotation.Nonnull Boolean hasNext) {
         this.hasNext = hasNext;
         return this;
     }
@@ -99,16 +99,16 @@ public class AuditTrailResponse {
      * Whether there are more events after this page
      * @return hasNext
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getHasNext() {
         return hasNext;
     }
 
-    public void setHasNext(@javax.annotation.Nonnull Boolean hasNext) {
+    public void setHasNext(@jakarta.annotation.Nonnull Boolean hasNext) {
         this.hasNext = hasNext;
     }
 
-    public AuditTrailResponse limit(@javax.annotation.Nonnull BigDecimal limit) {
+    public AuditTrailResponse limit(@jakarta.annotation.Nonnull BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -117,16 +117,16 @@ public class AuditTrailResponse {
      * Get limit
      * @return limit
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nonnull BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nonnull BigDecimal limit) {
         this.limit = limit;
     }
 
-    public AuditTrailResponse offset(@javax.annotation.Nonnull BigDecimal offset) {
+    public AuditTrailResponse offset(@jakarta.annotation.Nonnull BigDecimal offset) {
         this.offset = offset;
         return this;
     }
@@ -135,12 +135,12 @@ public class AuditTrailResponse {
      * Get offset
      * @return offset
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getOffset() {
         return offset;
     }
 
-    public void setOffset(@javax.annotation.Nonnull BigDecimal offset) {
+    public void setOffset(@jakarta.annotation.Nonnull BigDecimal offset) {
         this.offset = offset;
     }
 

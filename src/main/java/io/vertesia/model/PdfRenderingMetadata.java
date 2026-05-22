@@ -32,43 +32,43 @@ import java.util.Objects;
 /**
  * Metadata for PDF rendering (displayed in header/footer)
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PdfRenderingMetadata {
     public static final String SERIALIZED_NAME_DOCUMENT_ID = "document_id";
 
     @SerializedName(SERIALIZED_NAME_DOCUMENT_ID)
-    @javax.annotation.Nullable private String documentId;
+    @jakarta.annotation.Nullable private String documentId;
 
     public static final String SERIALIZED_NAME_AGENT_NAME = "agent_name";
 
     @SerializedName(SERIALIZED_NAME_AGENT_NAME)
-    @javax.annotation.Nullable private String agentName;
+    @jakarta.annotation.Nullable private String agentName;
 
     public static final String SERIALIZED_NAME_AGENT_RUN_ID = "agent_run_id";
 
     @SerializedName(SERIALIZED_NAME_AGENT_RUN_ID)
-    @javax.annotation.Nullable private String agentRunId;
+    @jakarta.annotation.Nullable private String agentRunId;
 
     public static final String SERIALIZED_NAME_SUBTITLE = "subtitle";
 
     @SerializedName(SERIALIZED_NAME_SUBTITLE)
-    @javax.annotation.Nullable private String subtitle;
+    @jakarta.annotation.Nullable private String subtitle;
 
     public static final String SERIALIZED_NAME_AUTHOR = "author";
 
     @SerializedName(SERIALIZED_NAME_AUTHOR)
-    @javax.annotation.Nullable private List<String> author = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> author = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DATE = "date";
 
     @SerializedName(SERIALIZED_NAME_DATE)
-    @javax.annotation.Nullable private String date;
+    @jakarta.annotation.Nullable private String date;
 
     public PdfRenderingMetadata() {}
 
-    public PdfRenderingMetadata documentId(@javax.annotation.Nullable String documentId) {
+    public PdfRenderingMetadata documentId(@jakarta.annotation.Nullable String documentId) {
         this.documentId = documentId;
         return this;
     }
@@ -77,15 +77,15 @@ public class PdfRenderingMetadata {
      * Document ID to display in footer
      * @return documentId
      */
-    @javax.annotation.Nullable public String getDocumentId() {
+    @jakarta.annotation.Nullable public String getDocumentId() {
         return documentId;
     }
 
-    public void setDocumentId(@javax.annotation.Nullable String documentId) {
+    public void setDocumentId(@jakarta.annotation.Nullable String documentId) {
         this.documentId = documentId;
     }
 
-    public PdfRenderingMetadata agentName(@javax.annotation.Nullable String agentName) {
+    public PdfRenderingMetadata agentName(@jakarta.annotation.Nullable String agentName) {
         this.agentName = agentName;
         return this;
     }
@@ -94,15 +94,15 @@ public class PdfRenderingMetadata {
      * Agent name that generated the document
      * @return agentName
      */
-    @javax.annotation.Nullable public String getAgentName() {
+    @jakarta.annotation.Nullable public String getAgentName() {
         return agentName;
     }
 
-    public void setAgentName(@javax.annotation.Nullable String agentName) {
+    public void setAgentName(@jakarta.annotation.Nullable String agentName) {
         this.agentName = agentName;
     }
 
-    public PdfRenderingMetadata agentRunId(@javax.annotation.Nullable String agentRunId) {
+    public PdfRenderingMetadata agentRunId(@jakarta.annotation.Nullable String agentRunId) {
         this.agentRunId = agentRunId;
         return this;
     }
@@ -111,15 +111,15 @@ public class PdfRenderingMetadata {
      * Agent run ID to display in footer
      * @return agentRunId
      */
-    @javax.annotation.Nullable public String getAgentRunId() {
+    @jakarta.annotation.Nullable public String getAgentRunId() {
         return agentRunId;
     }
 
-    public void setAgentRunId(@javax.annotation.Nullable String agentRunId) {
+    public void setAgentRunId(@jakarta.annotation.Nullable String agentRunId) {
         this.agentRunId = agentRunId;
     }
 
-    public PdfRenderingMetadata subtitle(@javax.annotation.Nullable String subtitle) {
+    public PdfRenderingMetadata subtitle(@jakarta.annotation.Nullable String subtitle) {
         this.subtitle = subtitle;
         return this;
     }
@@ -128,15 +128,15 @@ public class PdfRenderingMetadata {
      * Document subtitle
      * @return subtitle
      */
-    @javax.annotation.Nullable public String getSubtitle() {
+    @jakarta.annotation.Nullable public String getSubtitle() {
         return subtitle;
     }
 
-    public void setSubtitle(@javax.annotation.Nullable String subtitle) {
+    public void setSubtitle(@jakarta.annotation.Nullable String subtitle) {
         this.subtitle = subtitle;
     }
 
-    public PdfRenderingMetadata author(@javax.annotation.Nullable List<String> author) {
+    public PdfRenderingMetadata author(@jakarta.annotation.Nullable List<String> author) {
         this.author = author;
         return this;
     }
@@ -153,15 +153,15 @@ public class PdfRenderingMetadata {
      * Document author(s)
      * @return author
      */
-    @javax.annotation.Nullable public List<String> getAuthor() {
+    @jakarta.annotation.Nullable public List<String> getAuthor() {
         return author;
     }
 
-    public void setAuthor(@javax.annotation.Nullable List<String> author) {
+    public void setAuthor(@jakarta.annotation.Nullable List<String> author) {
         this.author = author;
     }
 
-    public PdfRenderingMetadata date(@javax.annotation.Nullable String date) {
+    public PdfRenderingMetadata date(@jakarta.annotation.Nullable String date) {
         this.date = date;
         return this;
     }
@@ -170,11 +170,11 @@ public class PdfRenderingMetadata {
      * Document date (displayed in header and title page; defaults to today if omitted)
      * @return date
      */
-    @javax.annotation.Nullable public String getDate() {
+    @jakarta.annotation.Nullable public String getDate() {
         return date;
     }
 
-    public void setDate(@javax.annotation.Nullable String date) {
+    public void setDate(@jakarta.annotation.Nullable String date) {
         this.date = date;
     }
 

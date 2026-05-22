@@ -33,19 +33,20 @@ import java.util.Objects;
 /**
  * BatchQueryResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BatchQueryResult {
     public static final String SERIALIZED_NAME_RESULTS = "results";
 
     @SerializedName(SERIALIZED_NAME_RESULTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<BatchQueryResultItem> results = new ArrayList<>();
 
     public BatchQueryResult() {}
 
-    public BatchQueryResult results(@javax.annotation.Nonnull List<BatchQueryResultItem> results) {
+    public BatchQueryResult results(
+            @jakarta.annotation.Nonnull List<BatchQueryResultItem> results) {
         this.results = results;
         return this;
     }
@@ -62,12 +63,12 @@ public class BatchQueryResult {
      * Get results
      * @return results
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<BatchQueryResultItem> getResults() {
         return results;
     }
 
-    public void setResults(@javax.annotation.Nonnull List<BatchQueryResultItem> results) {
+    public void setResults(@jakarta.annotation.Nonnull List<BatchQueryResultItem> results) {
         this.results = results;
     }
 

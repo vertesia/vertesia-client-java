@@ -33,118 +33,118 @@ import java.util.Objects;
 /**
  * RunSearchQuery
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RunSearchQuery {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private ExecutionRunStatus status;
+    @jakarta.annotation.Nullable private ExecutionRunStatus status;
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nullable private BigDecimal limit;
+    @jakarta.annotation.Nullable private BigDecimal limit;
 
     public static final String SERIALIZED_NAME_OFFSET = "offset";
 
     @SerializedName(SERIALIZED_NAME_OFFSET)
-    @javax.annotation.Nullable private BigDecimal offset;
+    @jakarta.annotation.Nullable private BigDecimal offset;
 
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
-    @javax.annotation.Nullable private String interaction;
+    @jakarta.annotation.Nullable private String interaction;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @javax.annotation.Nullable private String environment;
+    @jakarta.annotation.Nullable private String environment;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nullable private String model;
+    @jakarta.annotation.Nullable private String model;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @javax.annotation.Nullable private String query;
+    @jakarta.annotation.Nullable private String query;
 
     public static final String SERIALIZED_NAME_DEFAULT_QUERY_PATH = "default_query_path";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT_QUERY_PATH)
-    @javax.annotation.Nullable private String defaultQueryPath;
+    @jakarta.annotation.Nullable private String defaultQueryPath;
 
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private List<String> parent = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> parent = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_IS_ROOT = "is_root";
 
     @SerializedName(SERIALIZED_NAME_IS_ROOT)
-    @javax.annotation.Nullable private Boolean isRoot;
+    @jakarta.annotation.Nullable private Boolean isRoot;
 
     public static final String SERIALIZED_NAME_OBJECT = "object";
 
     @SerializedName(SERIALIZED_NAME_OBJECT)
-    @javax.annotation.Nullable private String _object;
+    @jakarta.annotation.Nullable private String _object;
 
     public static final String SERIALIZED_NAME_START = "start";
 
     @SerializedName(SERIALIZED_NAME_START)
-    @javax.annotation.Nullable private String start;
+    @jakarta.annotation.Nullable private String start;
 
     public static final String SERIALIZED_NAME_END = "end";
 
     @SerializedName(SERIALIZED_NAME_END)
-    @javax.annotation.Nullable private String end;
+    @jakarta.annotation.Nullable private String end;
 
     public static final String SERIALIZED_NAME_FINISH_REASON = "finish_reason";
 
     @SerializedName(SERIALIZED_NAME_FINISH_REASON)
-    @javax.annotation.Nullable private String finishReason;
+    @jakarta.annotation.Nullable private String finishReason;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nullable private String createdBy;
+    @jakarta.annotation.Nullable private String createdBy;
 
     public static final String SERIALIZED_NAME_WORKFLOW_RUN_IDS = "workflow_run_ids";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_RUN_IDS)
-    @javax.annotation.Nullable private List<String> workflowRunIds = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> workflowRunIds = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_WORKFLOW_IDS = "workflow_ids";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_IDS)
-    @javax.annotation.Nullable private List<String> workflowIds = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> workflowIds = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_RUN_IDS = "run_ids";
 
     @SerializedName(SERIALIZED_NAME_RUN_IDS)
-    @javax.annotation.Nullable private List<String> runIds = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> runIds = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_IS_AGENT = "is_agent";
 
     @SerializedName(SERIALIZED_NAME_IS_AGENT)
-    @javax.annotation.Nullable private Boolean isAgent;
+    @jakarta.annotation.Nullable private Boolean isAgent;
 
     public RunSearchQuery() {}
 
-    public RunSearchQuery name(@javax.annotation.Nullable String name) {
+    public RunSearchQuery name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -153,15 +153,15 @@ public class RunSearchQuery {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public RunSearchQuery status(@javax.annotation.Nullable ExecutionRunStatus status) {
+    public RunSearchQuery status(@jakarta.annotation.Nullable ExecutionRunStatus status) {
         this.status = status;
         return this;
     }
@@ -170,15 +170,15 @@ public class RunSearchQuery {
      * Get status
      * @return status
      */
-    @javax.annotation.Nullable public ExecutionRunStatus getStatus() {
+    @jakarta.annotation.Nullable public ExecutionRunStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable ExecutionRunStatus status) {
+    public void setStatus(@jakarta.annotation.Nullable ExecutionRunStatus status) {
         this.status = status;
     }
 
-    public RunSearchQuery limit(@javax.annotation.Nullable BigDecimal limit) {
+    public RunSearchQuery limit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -187,15 +187,15 @@ public class RunSearchQuery {
      * Get limit
      * @return limit
      */
-    @javax.annotation.Nullable public BigDecimal getLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nullable BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
     }
 
-    public RunSearchQuery offset(@javax.annotation.Nullable BigDecimal offset) {
+    public RunSearchQuery offset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
         return this;
     }
@@ -204,15 +204,15 @@ public class RunSearchQuery {
      * Get offset
      * @return offset
      */
-    @javax.annotation.Nullable public BigDecimal getOffset() {
+    @jakarta.annotation.Nullable public BigDecimal getOffset() {
         return offset;
     }
 
-    public void setOffset(@javax.annotation.Nullable BigDecimal offset) {
+    public void setOffset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
     }
 
-    public RunSearchQuery interaction(@javax.annotation.Nullable String interaction) {
+    public RunSearchQuery interaction(@jakarta.annotation.Nullable String interaction) {
         this.interaction = interaction;
         return this;
     }
@@ -221,15 +221,15 @@ public class RunSearchQuery {
      * Get interaction
      * @return interaction
      */
-    @javax.annotation.Nullable public String getInteraction() {
+    @jakarta.annotation.Nullable public String getInteraction() {
         return interaction;
     }
 
-    public void setInteraction(@javax.annotation.Nullable String interaction) {
+    public void setInteraction(@jakarta.annotation.Nullable String interaction) {
         this.interaction = interaction;
     }
 
-    public RunSearchQuery environment(@javax.annotation.Nullable String environment) {
+    public RunSearchQuery environment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
         return this;
     }
@@ -238,15 +238,15 @@ public class RunSearchQuery {
      * Get environment
      * @return environment
      */
-    @javax.annotation.Nullable public String getEnvironment() {
+    @jakarta.annotation.Nullable public String getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@javax.annotation.Nullable String environment) {
+    public void setEnvironment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
     }
 
-    public RunSearchQuery model(@javax.annotation.Nullable String model) {
+    public RunSearchQuery model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
@@ -255,15 +255,15 @@ public class RunSearchQuery {
      * Get model
      * @return model
      */
-    @javax.annotation.Nullable public String getModel() {
+    @jakarta.annotation.Nullable public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nullable String model) {
+    public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
     }
 
-    public RunSearchQuery tags(@javax.annotation.Nullable List<String> tags) {
+    public RunSearchQuery tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -280,15 +280,15 @@ public class RunSearchQuery {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public RunSearchQuery query(@javax.annotation.Nullable String query) {
+    public RunSearchQuery query(@jakarta.annotation.Nullable String query) {
         this.query = query;
         return this;
     }
@@ -297,15 +297,15 @@ public class RunSearchQuery {
      * Get query
      * @return query
      */
-    @javax.annotation.Nullable public String getQuery() {
+    @jakarta.annotation.Nullable public String getQuery() {
         return query;
     }
 
-    public void setQuery(@javax.annotation.Nullable String query) {
+    public void setQuery(@jakarta.annotation.Nullable String query) {
         this.query = query;
     }
 
-    public RunSearchQuery defaultQueryPath(@javax.annotation.Nullable String defaultQueryPath) {
+    public RunSearchQuery defaultQueryPath(@jakarta.annotation.Nullable String defaultQueryPath) {
         this.defaultQueryPath = defaultQueryPath;
         return this;
     }
@@ -314,15 +314,15 @@ public class RunSearchQuery {
      * Get defaultQueryPath
      * @return defaultQueryPath
      */
-    @javax.annotation.Nullable public String getDefaultQueryPath() {
+    @jakarta.annotation.Nullable public String getDefaultQueryPath() {
         return defaultQueryPath;
     }
 
-    public void setDefaultQueryPath(@javax.annotation.Nullable String defaultQueryPath) {
+    public void setDefaultQueryPath(@jakarta.annotation.Nullable String defaultQueryPath) {
         this.defaultQueryPath = defaultQueryPath;
     }
 
-    public RunSearchQuery parent(@javax.annotation.Nullable List<String> parent) {
+    public RunSearchQuery parent(@jakarta.annotation.Nullable List<String> parent) {
         this.parent = parent;
         return this;
     }
@@ -339,15 +339,15 @@ public class RunSearchQuery {
      * Get parent
      * @return parent
      */
-    @javax.annotation.Nullable public List<String> getParent() {
+    @jakarta.annotation.Nullable public List<String> getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable List<String> parent) {
+    public void setParent(@jakarta.annotation.Nullable List<String> parent) {
         this.parent = parent;
     }
 
-    public RunSearchQuery isRoot(@javax.annotation.Nullable Boolean isRoot) {
+    public RunSearchQuery isRoot(@jakarta.annotation.Nullable Boolean isRoot) {
         this.isRoot = isRoot;
         return this;
     }
@@ -356,15 +356,15 @@ public class RunSearchQuery {
      * Get isRoot
      * @return isRoot
      */
-    @javax.annotation.Nullable public Boolean getIsRoot() {
+    @jakarta.annotation.Nullable public Boolean getIsRoot() {
         return isRoot;
     }
 
-    public void setIsRoot(@javax.annotation.Nullable Boolean isRoot) {
+    public void setIsRoot(@jakarta.annotation.Nullable Boolean isRoot) {
         this.isRoot = isRoot;
     }
 
-    public RunSearchQuery _object(@javax.annotation.Nullable String _object) {
+    public RunSearchQuery _object(@jakarta.annotation.Nullable String _object) {
         this._object = _object;
         return this;
     }
@@ -373,15 +373,15 @@ public class RunSearchQuery {
      * Get _object
      * @return _object
      */
-    @javax.annotation.Nullable public String getObject() {
+    @jakarta.annotation.Nullable public String getObject() {
         return _object;
     }
 
-    public void setObject(@javax.annotation.Nullable String _object) {
+    public void setObject(@jakarta.annotation.Nullable String _object) {
         this._object = _object;
     }
 
-    public RunSearchQuery start(@javax.annotation.Nullable String start) {
+    public RunSearchQuery start(@jakarta.annotation.Nullable String start) {
         this.start = start;
         return this;
     }
@@ -390,15 +390,15 @@ public class RunSearchQuery {
      * Get start
      * @return start
      */
-    @javax.annotation.Nullable public String getStart() {
+    @jakarta.annotation.Nullable public String getStart() {
         return start;
     }
 
-    public void setStart(@javax.annotation.Nullable String start) {
+    public void setStart(@jakarta.annotation.Nullable String start) {
         this.start = start;
     }
 
-    public RunSearchQuery end(@javax.annotation.Nullable String end) {
+    public RunSearchQuery end(@jakarta.annotation.Nullable String end) {
         this.end = end;
         return this;
     }
@@ -407,15 +407,15 @@ public class RunSearchQuery {
      * Get end
      * @return end
      */
-    @javax.annotation.Nullable public String getEnd() {
+    @jakarta.annotation.Nullable public String getEnd() {
         return end;
     }
 
-    public void setEnd(@javax.annotation.Nullable String end) {
+    public void setEnd(@jakarta.annotation.Nullable String end) {
         this.end = end;
     }
 
-    public RunSearchQuery finishReason(@javax.annotation.Nullable String finishReason) {
+    public RunSearchQuery finishReason(@jakarta.annotation.Nullable String finishReason) {
         this.finishReason = finishReason;
         return this;
     }
@@ -424,15 +424,15 @@ public class RunSearchQuery {
      * Get finishReason
      * @return finishReason
      */
-    @javax.annotation.Nullable public String getFinishReason() {
+    @jakarta.annotation.Nullable public String getFinishReason() {
         return finishReason;
     }
 
-    public void setFinishReason(@javax.annotation.Nullable String finishReason) {
+    public void setFinishReason(@jakarta.annotation.Nullable String finishReason) {
         this.finishReason = finishReason;
     }
 
-    public RunSearchQuery createdBy(@javax.annotation.Nullable String createdBy) {
+    public RunSearchQuery createdBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -441,15 +441,15 @@ public class RunSearchQuery {
      * Get createdBy
      * @return createdBy
      */
-    @javax.annotation.Nullable public String getCreatedBy() {
+    @jakarta.annotation.Nullable public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public RunSearchQuery workflowRunIds(@javax.annotation.Nullable List<String> workflowRunIds) {
+    public RunSearchQuery workflowRunIds(@jakarta.annotation.Nullable List<String> workflowRunIds) {
         this.workflowRunIds = workflowRunIds;
         return this;
     }
@@ -466,15 +466,15 @@ public class RunSearchQuery {
      * Get workflowRunIds
      * @return workflowRunIds
      */
-    @javax.annotation.Nullable public List<String> getWorkflowRunIds() {
+    @jakarta.annotation.Nullable public List<String> getWorkflowRunIds() {
         return workflowRunIds;
     }
 
-    public void setWorkflowRunIds(@javax.annotation.Nullable List<String> workflowRunIds) {
+    public void setWorkflowRunIds(@jakarta.annotation.Nullable List<String> workflowRunIds) {
         this.workflowRunIds = workflowRunIds;
     }
 
-    public RunSearchQuery workflowIds(@javax.annotation.Nullable List<String> workflowIds) {
+    public RunSearchQuery workflowIds(@jakarta.annotation.Nullable List<String> workflowIds) {
         this.workflowIds = workflowIds;
         return this;
     }
@@ -491,15 +491,15 @@ public class RunSearchQuery {
      * Get workflowIds
      * @return workflowIds
      */
-    @javax.annotation.Nullable public List<String> getWorkflowIds() {
+    @jakarta.annotation.Nullable public List<String> getWorkflowIds() {
         return workflowIds;
     }
 
-    public void setWorkflowIds(@javax.annotation.Nullable List<String> workflowIds) {
+    public void setWorkflowIds(@jakarta.annotation.Nullable List<String> workflowIds) {
         this.workflowIds = workflowIds;
     }
 
-    public RunSearchQuery runIds(@javax.annotation.Nullable List<String> runIds) {
+    public RunSearchQuery runIds(@jakarta.annotation.Nullable List<String> runIds) {
         this.runIds = runIds;
         return this;
     }
@@ -516,15 +516,15 @@ public class RunSearchQuery {
      * Get runIds
      * @return runIds
      */
-    @javax.annotation.Nullable public List<String> getRunIds() {
+    @jakarta.annotation.Nullable public List<String> getRunIds() {
         return runIds;
     }
 
-    public void setRunIds(@javax.annotation.Nullable List<String> runIds) {
+    public void setRunIds(@jakarta.annotation.Nullable List<String> runIds) {
         this.runIds = runIds;
     }
 
-    public RunSearchQuery isAgent(@javax.annotation.Nullable Boolean isAgent) {
+    public RunSearchQuery isAgent(@jakarta.annotation.Nullable Boolean isAgent) {
         this.isAgent = isAgent;
         return this;
     }
@@ -533,11 +533,11 @@ public class RunSearchQuery {
      * Get isAgent
      * @return isAgent
      */
-    @javax.annotation.Nullable public Boolean getIsAgent() {
+    @jakarta.annotation.Nullable public Boolean getIsAgent() {
         return isAgent;
     }
 
-    public void setIsAgent(@javax.annotation.Nullable Boolean isAgent) {
+    public void setIsAgent(@jakarta.annotation.Nullable Boolean isAgent) {
         this.isAgent = isAgent;
     }
 

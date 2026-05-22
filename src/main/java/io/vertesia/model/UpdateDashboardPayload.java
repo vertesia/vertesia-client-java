@@ -34,48 +34,48 @@ import java.util.Objects;
 /**
  * Payload for updating a dashboard.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UpdateDashboardPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_SUMMARY = "summary";
 
     @SerializedName(SERIALIZED_NAME_SUMMARY)
-    @javax.annotation.Nullable private String summary;
+    @jakarta.annotation.Nullable private String summary;
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @javax.annotation.Nullable private String query;
+    @jakarta.annotation.Nullable private String query;
 
     public static final String SERIALIZED_NAME_QUERY_LIMIT = "queryLimit";
 
     @SerializedName(SERIALIZED_NAME_QUERY_LIMIT)
-    @javax.annotation.Nullable private BigDecimal queryLimit;
+    @jakarta.annotation.Nullable private BigDecimal queryLimit;
 
     public static final String SERIALIZED_NAME_QUERY_PARAMETERS = "queryParameters";
 
     @SerializedName(SERIALIZED_NAME_QUERY_PARAMETERS)
-    @javax.annotation.Nullable private Map<String, String> queryParameters;
+    @jakarta.annotation.Nullable private Map<String, String> queryParameters;
 
     public static final String SERIALIZED_NAME_SPEC = "spec";
 
     @SerializedName(SERIALIZED_NAME_SPEC)
-    @javax.annotation.Nullable private Map<String, Object> spec = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> spec = new HashMap<>();
 
     public static final String SERIALIZED_NAME_SKIP_VERSIONING = "skip_versioning";
 
     @SerializedName(SERIALIZED_NAME_SKIP_VERSIONING)
-    @javax.annotation.Nullable private Boolean skipVersioning;
+    @jakarta.annotation.Nullable private Boolean skipVersioning;
 
     public UpdateDashboardPayload() {}
 
-    public UpdateDashboardPayload name(@javax.annotation.Nullable String name) {
+    public UpdateDashboardPayload name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -84,15 +84,15 @@ public class UpdateDashboardPayload {
      * Dashboard name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public UpdateDashboardPayload summary(@javax.annotation.Nullable String summary) {
+    public UpdateDashboardPayload summary(@jakarta.annotation.Nullable String summary) {
         this.summary = summary;
         return this;
     }
@@ -101,15 +101,15 @@ public class UpdateDashboardPayload {
      * Dashboard summary
      * @return summary
      */
-    @javax.annotation.Nullable public String getSummary() {
+    @jakarta.annotation.Nullable public String getSummary() {
         return summary;
     }
 
-    public void setSummary(@javax.annotation.Nullable String summary) {
+    public void setSummary(@jakarta.annotation.Nullable String summary) {
         this.summary = summary;
     }
 
-    public UpdateDashboardPayload query(@javax.annotation.Nullable String query) {
+    public UpdateDashboardPayload query(@jakarta.annotation.Nullable String query) {
         this.query = query;
         return this;
     }
@@ -118,15 +118,15 @@ public class UpdateDashboardPayload {
      * SQL query that returns all data for the dashboard
      * @return query
      */
-    @javax.annotation.Nullable public String getQuery() {
+    @jakarta.annotation.Nullable public String getQuery() {
         return query;
     }
 
-    public void setQuery(@javax.annotation.Nullable String query) {
+    public void setQuery(@jakarta.annotation.Nullable String query) {
         this.query = query;
     }
 
-    public UpdateDashboardPayload queryLimit(@javax.annotation.Nullable BigDecimal queryLimit) {
+    public UpdateDashboardPayload queryLimit(@jakarta.annotation.Nullable BigDecimal queryLimit) {
         this.queryLimit = queryLimit;
         return this;
     }
@@ -135,16 +135,16 @@ public class UpdateDashboardPayload {
      * Maximum rows to return from the query (default: 10000)
      * @return queryLimit
      */
-    @javax.annotation.Nullable public BigDecimal getQueryLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getQueryLimit() {
         return queryLimit;
     }
 
-    public void setQueryLimit(@javax.annotation.Nullable BigDecimal queryLimit) {
+    public void setQueryLimit(@jakarta.annotation.Nullable BigDecimal queryLimit) {
         this.queryLimit = queryLimit;
     }
 
     public UpdateDashboardPayload queryParameters(
-            @javax.annotation.Nullable Map<String, String> queryParameters) {
+            @jakarta.annotation.Nullable Map<String, String> queryParameters) {
         this.queryParameters = queryParameters;
         return this;
     }
@@ -161,15 +161,16 @@ public class UpdateDashboardPayload {
      * Default values for SQL {{param}} placeholders
      * @return queryParameters
      */
-    @javax.annotation.Nullable public Map<String, String> getQueryParameters() {
+    @jakarta.annotation.Nullable public Map<String, String> getQueryParameters() {
         return queryParameters;
     }
 
-    public void setQueryParameters(@javax.annotation.Nullable Map<String, String> queryParameters) {
+    public void setQueryParameters(
+            @jakarta.annotation.Nullable Map<String, String> queryParameters) {
         this.queryParameters = queryParameters;
     }
 
-    public UpdateDashboardPayload spec(@javax.annotation.Nullable Map<String, Object> spec) {
+    public UpdateDashboardPayload spec(@jakarta.annotation.Nullable Map<String, Object> spec) {
         this.spec = spec;
         return this;
     }
@@ -186,16 +187,16 @@ public class UpdateDashboardPayload {
      * Complete Vega-Lite specification (use vconcat/hconcat for multiple panels)
      * @return spec
      */
-    @javax.annotation.Nullable public Map<String, Object> getSpec() {
+    @jakarta.annotation.Nullable public Map<String, Object> getSpec() {
         return spec;
     }
 
-    public void setSpec(@javax.annotation.Nullable Map<String, Object> spec) {
+    public void setSpec(@jakarta.annotation.Nullable Map<String, Object> spec) {
         this.spec = spec;
     }
 
     public UpdateDashboardPayload skipVersioning(
-            @javax.annotation.Nullable Boolean skipVersioning) {
+            @jakarta.annotation.Nullable Boolean skipVersioning) {
         this.skipVersioning = skipVersioning;
         return this;
     }
@@ -204,11 +205,11 @@ public class UpdateDashboardPayload {
      * Skip auto-version creation
      * @return skipVersioning
      */
-    @javax.annotation.Nullable public Boolean getSkipVersioning() {
+    @jakarta.annotation.Nullable public Boolean getSkipVersioning() {
         return skipVersioning;
     }
 
-    public void setSkipVersioning(@javax.annotation.Nullable Boolean skipVersioning) {
+    public void setSkipVersioning(@jakarta.annotation.Nullable Boolean skipVersioning) {
         this.skipVersioning = skipVersioning;
     }
 

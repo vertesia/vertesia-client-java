@@ -35,95 +35,95 @@ import java.util.Objects;
 /**
  * DSLWorkflowDefinition
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DSLWorkflowDefinition {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_STEPS = "steps";
 
     @SerializedName(SERIALIZED_NAME_STEPS)
-    @javax.annotation.Nullable private List<DSLWorkflowStep> steps = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<DSLWorkflowStep> steps = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ACTIVITIES = "activities";
 
     @SerializedName(SERIALIZED_NAME_ACTIVITIES)
-    @javax.annotation.Nullable private List<DSLActivitySpec> activities = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<DSLActivitySpec> activities = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_VARS = "vars";
 
     @SerializedName(SERIALIZED_NAME_VARS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> vars = new HashMap<>();
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
-    @javax.annotation.Nullable private DSLActivityOptions options;
+    @jakarta.annotation.Nullable private DSLActivityOptions options;
 
     public static final String SERIALIZED_NAME_RESULT = "result";
 
     @SerializedName(SERIALIZED_NAME_RESULT)
-    @javax.annotation.Nullable private String result;
+    @jakarta.annotation.Nullable private String result;
 
     public static final String SERIALIZED_NAME_DEBUG_MODE = "debug_mode";
 
     @SerializedName(SERIALIZED_NAME_DEBUG_MODE)
-    @javax.annotation.Nullable private Boolean debugMode;
+    @jakarta.annotation.Nullable private Boolean debugMode;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public static final String SERIALIZED_NAME_INPUT_SCHEMA = "input_schema";
 
     @SerializedName(SERIALIZED_NAME_INPUT_SCHEMA)
-    @javax.annotation.Nullable private Map<String, Object> inputSchema = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> inputSchema = new HashMap<>();
 
     public DSLWorkflowDefinition() {}
 
-    public DSLWorkflowDefinition name(@javax.annotation.Nonnull String name) {
+    public DSLWorkflowDefinition name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -132,16 +132,16 @@ public class DSLWorkflowDefinition {
      * Human-readable name or title
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public DSLWorkflowDefinition description(@javax.annotation.Nullable String description) {
+    public DSLWorkflowDefinition description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -150,15 +150,15 @@ public class DSLWorkflowDefinition {
      * Optional detailed description of the object
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public DSLWorkflowDefinition tags(@javax.annotation.Nullable List<String> tags) {
+    public DSLWorkflowDefinition tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -175,15 +175,15 @@ public class DSLWorkflowDefinition {
      * Optional array of categorization tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public DSLWorkflowDefinition steps(@javax.annotation.Nullable List<DSLWorkflowStep> steps) {
+    public DSLWorkflowDefinition steps(@jakarta.annotation.Nullable List<DSLWorkflowStep> steps) {
         this.steps = steps;
         return this;
     }
@@ -200,16 +200,16 @@ public class DSLWorkflowDefinition {
      * Get steps
      * @return steps
      */
-    @javax.annotation.Nullable public List<DSLWorkflowStep> getSteps() {
+    @jakarta.annotation.Nullable public List<DSLWorkflowStep> getSteps() {
         return steps;
     }
 
-    public void setSteps(@javax.annotation.Nullable List<DSLWorkflowStep> steps) {
+    public void setSteps(@jakarta.annotation.Nullable List<DSLWorkflowStep> steps) {
         this.steps = steps;
     }
 
     public DSLWorkflowDefinition activities(
-            @javax.annotation.Nullable List<DSLActivitySpec> activities) {
+            @jakarta.annotation.Nullable List<DSLActivitySpec> activities) {
         this.activities = activities;
         return this;
     }
@@ -226,15 +226,15 @@ public class DSLWorkflowDefinition {
      * Get activities
      * @return activities
      */
-    @javax.annotation.Nullable public List<DSLActivitySpec> getActivities() {
+    @jakarta.annotation.Nullable public List<DSLActivitySpec> getActivities() {
         return activities;
     }
 
-    public void setActivities(@javax.annotation.Nullable List<DSLActivitySpec> activities) {
+    public void setActivities(@jakarta.annotation.Nullable List<DSLActivitySpec> activities) {
         this.activities = activities;
     }
 
-    public DSLWorkflowDefinition vars(@javax.annotation.Nonnull Map<String, Object> vars) {
+    public DSLWorkflowDefinition vars(@jakarta.annotation.Nonnull Map<String, Object> vars) {
         this.vars = vars;
         return this;
     }
@@ -251,16 +251,16 @@ public class DSLWorkflowDefinition {
      * Get vars
      * @return vars
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getVars() {
         return vars;
     }
 
-    public void setVars(@javax.annotation.Nonnull Map<String, Object> vars) {
+    public void setVars(@jakarta.annotation.Nonnull Map<String, Object> vars) {
         this.vars = vars;
     }
 
-    public DSLWorkflowDefinition options(@javax.annotation.Nullable DSLActivityOptions options) {
+    public DSLWorkflowDefinition options(@jakarta.annotation.Nullable DSLActivityOptions options) {
         this.options = options;
         return this;
     }
@@ -269,15 +269,15 @@ public class DSLWorkflowDefinition {
      * Get options
      * @return options
      */
-    @javax.annotation.Nullable public DSLActivityOptions getOptions() {
+    @jakarta.annotation.Nullable public DSLActivityOptions getOptions() {
         return options;
     }
 
-    public void setOptions(@javax.annotation.Nullable DSLActivityOptions options) {
+    public void setOptions(@jakarta.annotation.Nullable DSLActivityOptions options) {
         this.options = options;
     }
 
-    public DSLWorkflowDefinition result(@javax.annotation.Nullable String result) {
+    public DSLWorkflowDefinition result(@jakarta.annotation.Nullable String result) {
         this.result = result;
         return this;
     }
@@ -286,15 +286,15 @@ public class DSLWorkflowDefinition {
      * Get result
      * @return result
      */
-    @javax.annotation.Nullable public String getResult() {
+    @jakarta.annotation.Nullable public String getResult() {
         return result;
     }
 
-    public void setResult(@javax.annotation.Nullable String result) {
+    public void setResult(@jakarta.annotation.Nullable String result) {
         this.result = result;
     }
 
-    public DSLWorkflowDefinition debugMode(@javax.annotation.Nullable Boolean debugMode) {
+    public DSLWorkflowDefinition debugMode(@jakarta.annotation.Nullable Boolean debugMode) {
         this.debugMode = debugMode;
         return this;
     }
@@ -303,15 +303,15 @@ public class DSLWorkflowDefinition {
      * Get debugMode
      * @return debugMode
      */
-    @javax.annotation.Nullable public Boolean getDebugMode() {
+    @jakarta.annotation.Nullable public Boolean getDebugMode() {
         return debugMode;
     }
 
-    public void setDebugMode(@javax.annotation.Nullable Boolean debugMode) {
+    public void setDebugMode(@jakarta.annotation.Nullable Boolean debugMode) {
         this.debugMode = debugMode;
     }
 
-    public DSLWorkflowDefinition id(@javax.annotation.Nonnull String id) {
+    public DSLWorkflowDefinition id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -320,16 +320,16 @@ public class DSLWorkflowDefinition {
      * Unique identifier for the object
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public DSLWorkflowDefinition updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public DSLWorkflowDefinition updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -338,16 +338,16 @@ public class DSLWorkflowDefinition {
      * Identifier of the user who last modified the object
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public DSLWorkflowDefinition createdBy(@javax.annotation.Nonnull String createdBy) {
+    public DSLWorkflowDefinition createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -356,16 +356,16 @@ public class DSLWorkflowDefinition {
      * Identifier of the user who created the object
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public DSLWorkflowDefinition createdAt(@javax.annotation.Nonnull String createdAt) {
+    public DSLWorkflowDefinition createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -374,16 +374,16 @@ public class DSLWorkflowDefinition {
      * ISO timestamp of when the object was created
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public DSLWorkflowDefinition updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public DSLWorkflowDefinition updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -392,17 +392,17 @@ public class DSLWorkflowDefinition {
      * ISO timestamp of when the object was last updated
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
     public DSLWorkflowDefinition inputSchema(
-            @javax.annotation.Nullable Map<String, Object> inputSchema) {
+            @jakarta.annotation.Nullable Map<String, Object> inputSchema) {
         this.inputSchema = inputSchema;
         return this;
     }
@@ -419,11 +419,11 @@ public class DSLWorkflowDefinition {
      * Get inputSchema
      * @return inputSchema
      */
-    @javax.annotation.Nullable public Map<String, Object> getInputSchema() {
+    @jakarta.annotation.Nullable public Map<String, Object> getInputSchema() {
         return inputSchema;
     }
 
-    public void setInputSchema(@javax.annotation.Nullable Map<String, Object> inputSchema) {
+    public void setInputSchema(@jakarta.annotation.Nullable Map<String, Object> inputSchema) {
         this.inputSchema = inputSchema;
     }
 

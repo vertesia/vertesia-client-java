@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * StripeBillingStatusResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class StripeBillingStatusResponse {
@@ -93,27 +93,27 @@ public class StripeBillingStatusResponse {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private StatusEnum status;
 
     public static final String SERIALIZED_NAME_BILLING_METHOD = "billing_method";
 
     @SerializedName(SERIALIZED_NAME_BILLING_METHOD)
-    @javax.annotation.Nullable private BillingMethod billingMethod;
+    @jakarta.annotation.Nullable private BillingMethod billingMethod;
 
     public static final String SERIALIZED_NAME_PORTAL_URL = "portal_url";
 
     @SerializedName(SERIALIZED_NAME_PORTAL_URL)
-    @javax.annotation.Nullable private String portalUrl;
+    @jakarta.annotation.Nullable private String portalUrl;
 
     public static final String SERIALIZED_NAME_REASON = "reason";
 
     @SerializedName(SERIALIZED_NAME_REASON)
-    @javax.annotation.Nullable private String reason;
+    @jakarta.annotation.Nullable private String reason;
 
     public StripeBillingStatusResponse() {}
 
-    public StripeBillingStatusResponse status(@javax.annotation.Nonnull StatusEnum status) {
+    public StripeBillingStatusResponse status(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
         return this;
     }
@@ -122,17 +122,17 @@ public class StripeBillingStatusResponse {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
+    public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
     }
 
     public StripeBillingStatusResponse billingMethod(
-            @javax.annotation.Nullable BillingMethod billingMethod) {
+            @jakarta.annotation.Nullable BillingMethod billingMethod) {
         this.billingMethod = billingMethod;
         return this;
     }
@@ -141,15 +141,15 @@ public class StripeBillingStatusResponse {
      * Get billingMethod
      * @return billingMethod
      */
-    @javax.annotation.Nullable public BillingMethod getBillingMethod() {
+    @jakarta.annotation.Nullable public BillingMethod getBillingMethod() {
         return billingMethod;
     }
 
-    public void setBillingMethod(@javax.annotation.Nullable BillingMethod billingMethod) {
+    public void setBillingMethod(@jakarta.annotation.Nullable BillingMethod billingMethod) {
         this.billingMethod = billingMethod;
     }
 
-    public StripeBillingStatusResponse portalUrl(@javax.annotation.Nullable String portalUrl) {
+    public StripeBillingStatusResponse portalUrl(@jakarta.annotation.Nullable String portalUrl) {
         this.portalUrl = portalUrl;
         return this;
     }
@@ -158,15 +158,15 @@ public class StripeBillingStatusResponse {
      * Get portalUrl
      * @return portalUrl
      */
-    @javax.annotation.Nullable public String getPortalUrl() {
+    @jakarta.annotation.Nullable public String getPortalUrl() {
         return portalUrl;
     }
 
-    public void setPortalUrl(@javax.annotation.Nullable String portalUrl) {
+    public void setPortalUrl(@jakarta.annotation.Nullable String portalUrl) {
         this.portalUrl = portalUrl;
     }
 
-    public StripeBillingStatusResponse reason(@javax.annotation.Nullable String reason) {
+    public StripeBillingStatusResponse reason(@jakarta.annotation.Nullable String reason) {
         this.reason = reason;
         return this;
     }
@@ -175,11 +175,11 @@ public class StripeBillingStatusResponse {
      * Get reason
      * @return reason
      */
-    @javax.annotation.Nullable public String getReason() {
+    @jakarta.annotation.Nullable public String getReason() {
         return reason;
     }
 
-    public void setReason(@javax.annotation.Nullable String reason) {
+    public void setReason(@jakarta.annotation.Nullable String reason) {
         this.reason = reason;
     }
 

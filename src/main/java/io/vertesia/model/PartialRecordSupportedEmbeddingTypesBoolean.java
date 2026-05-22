@@ -30,29 +30,29 @@ import java.util.Objects;
 /**
  * PartialRecordSupportedEmbeddingTypesBoolean
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PartialRecordSupportedEmbeddingTypesBoolean {
     public static final String SERIALIZED_NAME_TEXT = "text";
 
     @SerializedName(SERIALIZED_NAME_TEXT)
-    @javax.annotation.Nullable private Boolean text;
+    @jakarta.annotation.Nullable private Boolean text;
 
     public static final String SERIALIZED_NAME_IMAGE = "image";
 
     @SerializedName(SERIALIZED_NAME_IMAGE)
-    @javax.annotation.Nullable private Boolean image;
+    @jakarta.annotation.Nullable private Boolean image;
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private Boolean properties;
+    @jakarta.annotation.Nullable private Boolean properties;
 
     public PartialRecordSupportedEmbeddingTypesBoolean() {}
 
     public PartialRecordSupportedEmbeddingTypesBoolean text(
-            @javax.annotation.Nullable Boolean text) {
+            @jakarta.annotation.Nullable Boolean text) {
         this.text = text;
         return this;
     }
@@ -61,16 +61,16 @@ public class PartialRecordSupportedEmbeddingTypesBoolean {
      * Get text
      * @return text
      */
-    @javax.annotation.Nullable public Boolean getText() {
+    @jakarta.annotation.Nullable public Boolean getText() {
         return text;
     }
 
-    public void setText(@javax.annotation.Nullable Boolean text) {
+    public void setText(@jakarta.annotation.Nullable Boolean text) {
         this.text = text;
     }
 
     public PartialRecordSupportedEmbeddingTypesBoolean image(
-            @javax.annotation.Nullable Boolean image) {
+            @jakarta.annotation.Nullable Boolean image) {
         this.image = image;
         return this;
     }
@@ -79,16 +79,16 @@ public class PartialRecordSupportedEmbeddingTypesBoolean {
      * Get image
      * @return image
      */
-    @javax.annotation.Nullable public Boolean getImage() {
+    @jakarta.annotation.Nullable public Boolean getImage() {
         return image;
     }
 
-    public void setImage(@javax.annotation.Nullable Boolean image) {
+    public void setImage(@jakarta.annotation.Nullable Boolean image) {
         this.image = image;
     }
 
     public PartialRecordSupportedEmbeddingTypesBoolean properties(
-            @javax.annotation.Nullable Boolean properties) {
+            @jakarta.annotation.Nullable Boolean properties) {
         this.properties = properties;
         return this;
     }
@@ -97,11 +97,11 @@ public class PartialRecordSupportedEmbeddingTypesBoolean {
      * Get properties
      * @return properties
      */
-    @javax.annotation.Nullable public Boolean getProperties() {
+    @jakarta.annotation.Nullable public Boolean getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable Boolean properties) {
+    public void setProperties(@jakarta.annotation.Nullable Boolean properties) {
         this.properties = properties;
     }
 

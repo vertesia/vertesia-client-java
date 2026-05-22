@@ -30,24 +30,24 @@ import java.util.Objects;
 /**
  * AccountBilling
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AccountBilling {
     public static final String SERIALIZED_NAME_METHOD = "method";
 
     @SerializedName(SERIALIZED_NAME_METHOD)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BillingMethod method;
 
     public static final String SERIALIZED_NAME_STRIPE_CUSTOMER_ID = "stripe_customer_id";
 
     @SerializedName(SERIALIZED_NAME_STRIPE_CUSTOMER_ID)
-    @javax.annotation.Nullable private String stripeCustomerId;
+    @jakarta.annotation.Nullable private String stripeCustomerId;
 
     public AccountBilling() {}
 
-    public AccountBilling method(@javax.annotation.Nonnull BillingMethod method) {
+    public AccountBilling method(@jakarta.annotation.Nonnull BillingMethod method) {
         this.method = method;
         return this;
     }
@@ -56,16 +56,16 @@ public class AccountBilling {
      * Get method
      * @return method
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BillingMethod getMethod() {
         return method;
     }
 
-    public void setMethod(@javax.annotation.Nonnull BillingMethod method) {
+    public void setMethod(@jakarta.annotation.Nonnull BillingMethod method) {
         this.method = method;
     }
 
-    public AccountBilling stripeCustomerId(@javax.annotation.Nullable String stripeCustomerId) {
+    public AccountBilling stripeCustomerId(@jakarta.annotation.Nullable String stripeCustomerId) {
         this.stripeCustomerId = stripeCustomerId;
         return this;
     }
@@ -74,11 +74,11 @@ public class AccountBilling {
      * Get stripeCustomerId
      * @return stripeCustomerId
      */
-    @javax.annotation.Nullable public String getStripeCustomerId() {
+    @jakarta.annotation.Nullable public String getStripeCustomerId() {
         return stripeCustomerId;
     }
 
-    public void setStripeCustomerId(@javax.annotation.Nullable String stripeCustomerId) {
+    public void setStripeCustomerId(@jakarta.annotation.Nullable String stripeCustomerId) {
         this.stripeCustomerId = stripeCustomerId;
     }
 

@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * TaskSource
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class TaskSource {
@@ -93,28 +93,28 @@ public class TaskSource {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_RUN_ID = "run_id";
 
     @SerializedName(SERIALIZED_NAME_RUN_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String runId;
 
     public static final String SERIALIZED_NAME_NODE = "node";
 
     @SerializedName(SERIALIZED_NAME_NODE)
-    @javax.annotation.Nullable private String node;
+    @jakarta.annotation.Nullable private String node;
 
     public static final String SERIALIZED_NAME_ASK_ID = "ask_id";
 
     @SerializedName(SERIALIZED_NAME_ASK_ID)
-    @javax.annotation.Nullable private String askId;
+    @jakarta.annotation.Nullable private String askId;
 
     public TaskSource() {}
 
-    public TaskSource type(@javax.annotation.Nonnull TypeEnum type) {
+    public TaskSource type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -123,16 +123,16 @@ public class TaskSource {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public TaskSource runId(@javax.annotation.Nonnull String runId) {
+    public TaskSource runId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
         return this;
     }
@@ -141,16 +141,16 @@ public class TaskSource {
      * Get runId
      * @return runId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRunId() {
         return runId;
     }
 
-    public void setRunId(@javax.annotation.Nonnull String runId) {
+    public void setRunId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
     }
 
-    public TaskSource node(@javax.annotation.Nullable String node) {
+    public TaskSource node(@jakarta.annotation.Nullable String node) {
         this.node = node;
         return this;
     }
@@ -159,15 +159,15 @@ public class TaskSource {
      * Get node
      * @return node
      */
-    @javax.annotation.Nullable public String getNode() {
+    @jakarta.annotation.Nullable public String getNode() {
         return node;
     }
 
-    public void setNode(@javax.annotation.Nullable String node) {
+    public void setNode(@jakarta.annotation.Nullable String node) {
         this.node = node;
     }
 
-    public TaskSource askId(@javax.annotation.Nullable String askId) {
+    public TaskSource askId(@jakarta.annotation.Nullable String askId) {
         this.askId = askId;
         return this;
     }
@@ -176,11 +176,11 @@ public class TaskSource {
      * Get askId
      * @return askId
      */
-    @javax.annotation.Nullable public String getAskId() {
+    @jakarta.annotation.Nullable public String getAskId() {
         return askId;
     }
 
-    public void setAskId(@javax.annotation.Nullable String askId) {
+    public void setAskId(@jakarta.annotation.Nullable String askId) {
         this.askId = askId;
     }
 

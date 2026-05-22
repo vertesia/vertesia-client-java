@@ -30,31 +30,31 @@ import java.util.Objects;
 /**
  * ExaConfigurationInput
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ExaConfigurationInput {
     public static final String SERIALIZED_NAME_INTEGRATION = "integration";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SupportedIntegrationsExa integration;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean enabled;
 
     public static final String SERIALIZED_NAME_API_KEY = "api_key";
 
     @SerializedName(SERIALIZED_NAME_API_KEY)
-    @javax.annotation.Nullable private String apiKey;
+    @jakarta.annotation.Nullable private String apiKey;
 
     public ExaConfigurationInput() {}
 
     public ExaConfigurationInput integration(
-            @javax.annotation.Nonnull SupportedIntegrationsExa integration) {
+            @jakarta.annotation.Nonnull SupportedIntegrationsExa integration) {
         this.integration = integration;
         return this;
     }
@@ -63,16 +63,16 @@ public class ExaConfigurationInput {
      * Get integration
      * @return integration
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SupportedIntegrationsExa getIntegration() {
         return integration;
     }
 
-    public void setIntegration(@javax.annotation.Nonnull SupportedIntegrationsExa integration) {
+    public void setIntegration(@jakarta.annotation.Nonnull SupportedIntegrationsExa integration) {
         this.integration = integration;
     }
 
-    public ExaConfigurationInput enabled(@javax.annotation.Nonnull Boolean enabled) {
+    public ExaConfigurationInput enabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -81,16 +81,16 @@ public class ExaConfigurationInput {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public ExaConfigurationInput apiKey(@javax.annotation.Nullable String apiKey) {
+    public ExaConfigurationInput apiKey(@jakarta.annotation.Nullable String apiKey) {
         this.apiKey = apiKey;
         return this;
     }
@@ -99,11 +99,11 @@ public class ExaConfigurationInput {
      * Get apiKey
      * @return apiKey
      */
-    @javax.annotation.Nullable public String getApiKey() {
+    @jakarta.annotation.Nullable public String getApiKey() {
         return apiKey;
     }
 
-    public void setApiKey(@javax.annotation.Nullable String apiKey) {
+    public void setApiKey(@jakarta.annotation.Nullable String apiKey) {
         this.apiKey = apiKey;
     }
 

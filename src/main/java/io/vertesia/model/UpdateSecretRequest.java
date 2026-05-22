@@ -30,48 +30,48 @@ import java.util.Objects;
 /**
  * UpdateSecretRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UpdateSecretRequest {
     public static final String SERIALIZED_NAME_KIND = "kind";
 
     @SerializedName(SERIALIZED_NAME_KIND)
-    @javax.annotation.Nullable private SecretKind kind;
+    @jakarta.annotation.Nullable private SecretKind kind;
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @javax.annotation.Nullable private PartialWebsiteCredentialMetadata metadata;
+    @jakarta.annotation.Nullable private PartialWebsiteCredentialMetadata metadata;
 
     public static final String SERIALIZED_NAME_SECRET = "secret";
 
     @SerializedName(SERIALIZED_NAME_SECRET)
-    @javax.annotation.Nullable private WebsiteCredentialSecretInput secret;
+    @jakarta.annotation.Nullable private WebsiteCredentialSecretInput secret;
 
     public static final String SERIALIZED_NAME_CLEAR_USERNAME_SECRET = "clear_username_secret";
 
     @SerializedName(SERIALIZED_NAME_CLEAR_USERNAME_SECRET)
-    @javax.annotation.Nullable private Boolean clearUsernameSecret;
+    @jakarta.annotation.Nullable private Boolean clearUsernameSecret;
 
     public static final String SERIALIZED_NAME_CLEAR_PASSWORD = "clear_password";
 
     @SerializedName(SERIALIZED_NAME_CLEAR_PASSWORD)
-    @javax.annotation.Nullable private Boolean clearPassword;
+    @jakarta.annotation.Nullable private Boolean clearPassword;
 
     public static final String SERIALIZED_NAME_CLEAR_TOTP = "clear_totp";
 
     @SerializedName(SERIALIZED_NAME_CLEAR_TOTP)
-    @javax.annotation.Nullable private Boolean clearTotp;
+    @jakarta.annotation.Nullable private Boolean clearTotp;
 
     public static final String SERIALIZED_NAME_CLEAR_OAUTH = "clear_oauth";
 
     @SerializedName(SERIALIZED_NAME_CLEAR_OAUTH)
-    @javax.annotation.Nullable private Boolean clearOauth;
+    @jakarta.annotation.Nullable private Boolean clearOauth;
 
     public UpdateSecretRequest() {}
 
-    public UpdateSecretRequest kind(@javax.annotation.Nullable SecretKind kind) {
+    public UpdateSecretRequest kind(@jakarta.annotation.Nullable SecretKind kind) {
         this.kind = kind;
         return this;
     }
@@ -80,16 +80,16 @@ public class UpdateSecretRequest {
      * Get kind
      * @return kind
      */
-    @javax.annotation.Nullable public SecretKind getKind() {
+    @jakarta.annotation.Nullable public SecretKind getKind() {
         return kind;
     }
 
-    public void setKind(@javax.annotation.Nullable SecretKind kind) {
+    public void setKind(@jakarta.annotation.Nullable SecretKind kind) {
         this.kind = kind;
     }
 
     public UpdateSecretRequest metadata(
-            @javax.annotation.Nullable PartialWebsiteCredentialMetadata metadata) {
+            @jakarta.annotation.Nullable PartialWebsiteCredentialMetadata metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -98,16 +98,17 @@ public class UpdateSecretRequest {
      * Get metadata
      * @return metadata
      */
-    @javax.annotation.Nullable public PartialWebsiteCredentialMetadata getMetadata() {
+    @jakarta.annotation.Nullable public PartialWebsiteCredentialMetadata getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@javax.annotation.Nullable PartialWebsiteCredentialMetadata metadata) {
+    public void setMetadata(
+            @jakarta.annotation.Nullable PartialWebsiteCredentialMetadata metadata) {
         this.metadata = metadata;
     }
 
     public UpdateSecretRequest secret(
-            @javax.annotation.Nullable WebsiteCredentialSecretInput secret) {
+            @jakarta.annotation.Nullable WebsiteCredentialSecretInput secret) {
         this.secret = secret;
         return this;
     }
@@ -116,16 +117,16 @@ public class UpdateSecretRequest {
      * Get secret
      * @return secret
      */
-    @javax.annotation.Nullable public WebsiteCredentialSecretInput getSecret() {
+    @jakarta.annotation.Nullable public WebsiteCredentialSecretInput getSecret() {
         return secret;
     }
 
-    public void setSecret(@javax.annotation.Nullable WebsiteCredentialSecretInput secret) {
+    public void setSecret(@jakarta.annotation.Nullable WebsiteCredentialSecretInput secret) {
         this.secret = secret;
     }
 
     public UpdateSecretRequest clearUsernameSecret(
-            @javax.annotation.Nullable Boolean clearUsernameSecret) {
+            @jakarta.annotation.Nullable Boolean clearUsernameSecret) {
         this.clearUsernameSecret = clearUsernameSecret;
         return this;
     }
@@ -134,15 +135,15 @@ public class UpdateSecretRequest {
      * Get clearUsernameSecret
      * @return clearUsernameSecret
      */
-    @javax.annotation.Nullable public Boolean getClearUsernameSecret() {
+    @jakarta.annotation.Nullable public Boolean getClearUsernameSecret() {
         return clearUsernameSecret;
     }
 
-    public void setClearUsernameSecret(@javax.annotation.Nullable Boolean clearUsernameSecret) {
+    public void setClearUsernameSecret(@jakarta.annotation.Nullable Boolean clearUsernameSecret) {
         this.clearUsernameSecret = clearUsernameSecret;
     }
 
-    public UpdateSecretRequest clearPassword(@javax.annotation.Nullable Boolean clearPassword) {
+    public UpdateSecretRequest clearPassword(@jakarta.annotation.Nullable Boolean clearPassword) {
         this.clearPassword = clearPassword;
         return this;
     }
@@ -151,15 +152,15 @@ public class UpdateSecretRequest {
      * Get clearPassword
      * @return clearPassword
      */
-    @javax.annotation.Nullable public Boolean getClearPassword() {
+    @jakarta.annotation.Nullable public Boolean getClearPassword() {
         return clearPassword;
     }
 
-    public void setClearPassword(@javax.annotation.Nullable Boolean clearPassword) {
+    public void setClearPassword(@jakarta.annotation.Nullable Boolean clearPassword) {
         this.clearPassword = clearPassword;
     }
 
-    public UpdateSecretRequest clearTotp(@javax.annotation.Nullable Boolean clearTotp) {
+    public UpdateSecretRequest clearTotp(@jakarta.annotation.Nullable Boolean clearTotp) {
         this.clearTotp = clearTotp;
         return this;
     }
@@ -168,15 +169,15 @@ public class UpdateSecretRequest {
      * Get clearTotp
      * @return clearTotp
      */
-    @javax.annotation.Nullable public Boolean getClearTotp() {
+    @jakarta.annotation.Nullable public Boolean getClearTotp() {
         return clearTotp;
     }
 
-    public void setClearTotp(@javax.annotation.Nullable Boolean clearTotp) {
+    public void setClearTotp(@jakarta.annotation.Nullable Boolean clearTotp) {
         this.clearTotp = clearTotp;
     }
 
-    public UpdateSecretRequest clearOauth(@javax.annotation.Nullable Boolean clearOauth) {
+    public UpdateSecretRequest clearOauth(@jakarta.annotation.Nullable Boolean clearOauth) {
         this.clearOauth = clearOauth;
         return this;
     }
@@ -185,11 +186,11 @@ public class UpdateSecretRequest {
      * Get clearOauth
      * @return clearOauth
      */
-    @javax.annotation.Nullable public Boolean getClearOauth() {
+    @jakarta.annotation.Nullable public Boolean getClearOauth() {
         return clearOauth;
     }
 
-    public void setClearOauth(@javax.annotation.Nullable Boolean clearOauth) {
+    public void setClearOauth(@jakarta.annotation.Nullable Boolean clearOauth) {
         this.clearOauth = clearOauth;
     }
 

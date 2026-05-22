@@ -31,38 +31,38 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * WorkflowRunEventActivity
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WorkflowRunEventActivity {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nullable private String id;
+    @jakarta.annotation.Nullable private String id;
 
     public static final String SERIALIZED_NAME_INPUT = "input";
 
     @SerializedName(SERIALIZED_NAME_INPUT)
-    @javax.annotation.Nullable private Object input = null;
+    @jakarta.annotation.Nullable private Object input = null;
 
     public static final String SERIALIZED_NAME_SCHEDULED_EVENT_ID = "scheduledEventId";
 
     @SerializedName(SERIALIZED_NAME_SCHEDULED_EVENT_ID)
-    @javax.annotation.Nullable private String scheduledEventId;
+    @jakarta.annotation.Nullable private String scheduledEventId;
 
     public static final String SERIALIZED_NAME_STARTED_EVENT_ID = "startedEventId";
 
     @SerializedName(SERIALIZED_NAME_STARTED_EVENT_ID)
-    @javax.annotation.Nullable private String startedEventId;
+    @jakarta.annotation.Nullable private String startedEventId;
 
     public WorkflowRunEventActivity() {}
 
-    public WorkflowRunEventActivity name(@javax.annotation.Nullable String name) {
+    public WorkflowRunEventActivity name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -71,15 +71,15 @@ public class WorkflowRunEventActivity {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public WorkflowRunEventActivity id(@javax.annotation.Nullable String id) {
+    public WorkflowRunEventActivity id(@jakarta.annotation.Nullable String id) {
         this.id = id;
         return this;
     }
@@ -88,15 +88,15 @@ public class WorkflowRunEventActivity {
      * Get id
      * @return id
      */
-    @javax.annotation.Nullable public String getId() {
+    @jakarta.annotation.Nullable public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nullable String id) {
+    public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
     }
 
-    public WorkflowRunEventActivity input(@javax.annotation.Nullable Object input) {
+    public WorkflowRunEventActivity input(@jakarta.annotation.Nullable Object input) {
         this.input = input;
         return this;
     }
@@ -105,16 +105,16 @@ public class WorkflowRunEventActivity {
      * Get input
      * @return input
      */
-    @javax.annotation.Nullable public Object getInput() {
+    @jakarta.annotation.Nullable public Object getInput() {
         return input;
     }
 
-    public void setInput(@javax.annotation.Nullable Object input) {
+    public void setInput(@jakarta.annotation.Nullable Object input) {
         this.input = input;
     }
 
     public WorkflowRunEventActivity scheduledEventId(
-            @javax.annotation.Nullable String scheduledEventId) {
+            @jakarta.annotation.Nullable String scheduledEventId) {
         this.scheduledEventId = scheduledEventId;
         return this;
     }
@@ -123,16 +123,16 @@ public class WorkflowRunEventActivity {
      * Get scheduledEventId
      * @return scheduledEventId
      */
-    @javax.annotation.Nullable public String getScheduledEventId() {
+    @jakarta.annotation.Nullable public String getScheduledEventId() {
         return scheduledEventId;
     }
 
-    public void setScheduledEventId(@javax.annotation.Nullable String scheduledEventId) {
+    public void setScheduledEventId(@jakarta.annotation.Nullable String scheduledEventId) {
         this.scheduledEventId = scheduledEventId;
     }
 
     public WorkflowRunEventActivity startedEventId(
-            @javax.annotation.Nullable String startedEventId) {
+            @jakarta.annotation.Nullable String startedEventId) {
         this.startedEventId = startedEventId;
         return this;
     }
@@ -141,11 +141,11 @@ public class WorkflowRunEventActivity {
      * Get startedEventId
      * @return startedEventId
      */
-    @javax.annotation.Nullable public String getStartedEventId() {
+    @jakarta.annotation.Nullable public String getStartedEventId() {
         return startedEventId;
     }
 
-    public void setStartedEventId(@javax.annotation.Nullable String startedEventId) {
+    public void setStartedEventId(@jakarta.annotation.Nullable String startedEventId) {
         this.startedEventId = startedEventId;
     }
 

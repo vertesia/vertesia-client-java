@@ -35,7 +35,7 @@ import java.util.Objects;
 /**
  * ActivityFetchSpec
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ActivityFetchSpec {
@@ -99,29 +99,29 @@ public class ActivityFetchSpec {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nullable private String source;
+    @jakarta.annotation.Nullable private String source;
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> query = new HashMap<>();
 
     public static final String SERIALIZED_NAME_SELECT = "select";
 
     @SerializedName(SERIALIZED_NAME_SELECT)
-    @javax.annotation.Nullable private String select;
+    @jakarta.annotation.Nullable private String select;
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nullable private BigDecimal limit;
+    @jakarta.annotation.Nullable private BigDecimal limit;
 
     /**
      * How to handle not found objects. 1. ignore - Ignore and return an empty array for multi objects query (or undefined for single object query) or empty array for multiple objects throw an error. 2. throw - Throw an error if the object or no objects are found.
@@ -181,11 +181,11 @@ public class ActivityFetchSpec {
     public static final String SERIALIZED_NAME_ON_NOT_FOUND = "on_not_found";
 
     @SerializedName(SERIALIZED_NAME_ON_NOT_FOUND)
-    @javax.annotation.Nullable private OnNotFoundEnum onNotFound;
+    @jakarta.annotation.Nullable private OnNotFoundEnum onNotFound;
 
     public ActivityFetchSpec() {}
 
-    public ActivityFetchSpec type(@javax.annotation.Nonnull TypeEnum type) {
+    public ActivityFetchSpec type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -194,16 +194,16 @@ public class ActivityFetchSpec {
      * The data provider name
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public ActivityFetchSpec source(@javax.annotation.Nullable String source) {
+    public ActivityFetchSpec source(@jakarta.annotation.Nullable String source) {
         this.source = source;
         return this;
     }
@@ -212,15 +212,15 @@ public class ActivityFetchSpec {
      * An optional URI to the data source.
      * @return source
      */
-    @javax.annotation.Nullable public String getSource() {
+    @jakarta.annotation.Nullable public String getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nullable String source) {
+    public void setSource(@jakarta.annotation.Nullable String source) {
         this.source = source;
     }
 
-    public ActivityFetchSpec query(@javax.annotation.Nonnull Map<String, Object> query) {
+    public ActivityFetchSpec query(@jakarta.annotation.Nonnull Map<String, Object> query) {
         this.query = query;
         return this;
     }
@@ -237,16 +237,16 @@ public class ActivityFetchSpec {
      * The query to be executed by the data provider
      * @return query
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getQuery() {
         return query;
     }
 
-    public void setQuery(@javax.annotation.Nonnull Map<String, Object> query) {
+    public void setQuery(@jakarta.annotation.Nonnull Map<String, Object> query) {
         this.query = query;
     }
 
-    public ActivityFetchSpec select(@javax.annotation.Nullable String select) {
+    public ActivityFetchSpec select(@jakarta.annotation.Nullable String select) {
         this.select = select;
         return this;
     }
@@ -255,15 +255,15 @@ public class ActivityFetchSpec {
      * a string of space separated field names. Prefix a field name with \&quot;-\&quot; to exclude it from the result.
      * @return select
      */
-    @javax.annotation.Nullable public String getSelect() {
+    @jakarta.annotation.Nullable public String getSelect() {
         return select;
     }
 
-    public void setSelect(@javax.annotation.Nullable String select) {
+    public void setSelect(@jakarta.annotation.Nullable String select) {
         this.select = select;
     }
 
-    public ActivityFetchSpec limit(@javax.annotation.Nullable BigDecimal limit) {
+    public ActivityFetchSpec limit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -272,15 +272,15 @@ public class ActivityFetchSpec {
      * The number of results to return. If the result is limited to 1 the result will be a single object
      * @return limit
      */
-    @javax.annotation.Nullable public BigDecimal getLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nullable BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
     }
 
-    public ActivityFetchSpec onNotFound(@javax.annotation.Nullable OnNotFoundEnum onNotFound) {
+    public ActivityFetchSpec onNotFound(@jakarta.annotation.Nullable OnNotFoundEnum onNotFound) {
         this.onNotFound = onNotFound;
         return this;
     }
@@ -289,11 +289,11 @@ public class ActivityFetchSpec {
      * How to handle not found objects. 1. ignore - Ignore and return an empty array for multi objects query (or undefined for single object query) or empty array for multiple objects throw an error. 2. throw - Throw an error if the object or no objects are found.
      * @return onNotFound
      */
-    @javax.annotation.Nullable public OnNotFoundEnum getOnNotFound() {
+    @jakarta.annotation.Nullable public OnNotFoundEnum getOnNotFound() {
         return onNotFound;
     }
 
-    public void setOnNotFound(@javax.annotation.Nullable OnNotFoundEnum onNotFound) {
+    public void setOnNotFound(@jakarta.annotation.Nullable OnNotFoundEnum onNotFound) {
         this.onNotFound = onNotFound;
     }
 

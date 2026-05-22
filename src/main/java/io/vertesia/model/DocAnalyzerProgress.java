@@ -31,53 +31,53 @@ import java.util.Objects;
 /**
  * DocAnalyzerProgress
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DocAnalyzerProgress {
     public static final String SERIALIZED_NAME_PAGES = "pages";
 
     @SerializedName(SERIALIZED_NAME_PAGES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DocAnalyzerProgressStatus pages;
 
     public static final String SERIALIZED_NAME_IMAGES = "images";
 
     @SerializedName(SERIALIZED_NAME_IMAGES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DocAnalyzerProgressStatus images;
 
     public static final String SERIALIZED_NAME_TABLES = "tables";
 
     @SerializedName(SERIALIZED_NAME_TABLES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DocAnalyzerProgressStatus tables;
 
     public static final String SERIALIZED_NAME_VISUALS = "visuals";
 
     @SerializedName(SERIALIZED_NAME_VISUALS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DocAnalyzerProgressStatus visuals;
 
     public static final String SERIALIZED_NAME_STARTED_AT = "started_at";
 
     @SerializedName(SERIALIZED_NAME_STARTED_AT)
-    @javax.annotation.Nullable private BigDecimal startedAt;
+    @jakarta.annotation.Nullable private BigDecimal startedAt;
 
     public static final String SERIALIZED_NAME_PERCENT = "percent";
 
     @SerializedName(SERIALIZED_NAME_PERCENT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal percent;
 
     public static final String SERIALIZED_NAME_OUTPUT_FORMAT = "output_format";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT_FORMAT)
-    @javax.annotation.Nullable private DocProcessorOutputFormat outputFormat;
+    @jakarta.annotation.Nullable private DocProcessorOutputFormat outputFormat;
 
     public DocAnalyzerProgress() {}
 
-    public DocAnalyzerProgress pages(@javax.annotation.Nonnull DocAnalyzerProgressStatus pages) {
+    public DocAnalyzerProgress pages(@jakarta.annotation.Nonnull DocAnalyzerProgressStatus pages) {
         this.pages = pages;
         return this;
     }
@@ -86,16 +86,17 @@ public class DocAnalyzerProgress {
      * Get pages
      * @return pages
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DocAnalyzerProgressStatus getPages() {
         return pages;
     }
 
-    public void setPages(@javax.annotation.Nonnull DocAnalyzerProgressStatus pages) {
+    public void setPages(@jakarta.annotation.Nonnull DocAnalyzerProgressStatus pages) {
         this.pages = pages;
     }
 
-    public DocAnalyzerProgress images(@javax.annotation.Nonnull DocAnalyzerProgressStatus images) {
+    public DocAnalyzerProgress images(
+            @jakarta.annotation.Nonnull DocAnalyzerProgressStatus images) {
         this.images = images;
         return this;
     }
@@ -104,16 +105,17 @@ public class DocAnalyzerProgress {
      * Get images
      * @return images
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DocAnalyzerProgressStatus getImages() {
         return images;
     }
 
-    public void setImages(@javax.annotation.Nonnull DocAnalyzerProgressStatus images) {
+    public void setImages(@jakarta.annotation.Nonnull DocAnalyzerProgressStatus images) {
         this.images = images;
     }
 
-    public DocAnalyzerProgress tables(@javax.annotation.Nonnull DocAnalyzerProgressStatus tables) {
+    public DocAnalyzerProgress tables(
+            @jakarta.annotation.Nonnull DocAnalyzerProgressStatus tables) {
         this.tables = tables;
         return this;
     }
@@ -122,17 +124,17 @@ public class DocAnalyzerProgress {
      * Get tables
      * @return tables
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DocAnalyzerProgressStatus getTables() {
         return tables;
     }
 
-    public void setTables(@javax.annotation.Nonnull DocAnalyzerProgressStatus tables) {
+    public void setTables(@jakarta.annotation.Nonnull DocAnalyzerProgressStatus tables) {
         this.tables = tables;
     }
 
     public DocAnalyzerProgress visuals(
-            @javax.annotation.Nonnull DocAnalyzerProgressStatus visuals) {
+            @jakarta.annotation.Nonnull DocAnalyzerProgressStatus visuals) {
         this.visuals = visuals;
         return this;
     }
@@ -141,16 +143,16 @@ public class DocAnalyzerProgress {
      * Get visuals
      * @return visuals
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DocAnalyzerProgressStatus getVisuals() {
         return visuals;
     }
 
-    public void setVisuals(@javax.annotation.Nonnull DocAnalyzerProgressStatus visuals) {
+    public void setVisuals(@jakarta.annotation.Nonnull DocAnalyzerProgressStatus visuals) {
         this.visuals = visuals;
     }
 
-    public DocAnalyzerProgress startedAt(@javax.annotation.Nullable BigDecimal startedAt) {
+    public DocAnalyzerProgress startedAt(@jakarta.annotation.Nullable BigDecimal startedAt) {
         this.startedAt = startedAt;
         return this;
     }
@@ -159,15 +161,15 @@ public class DocAnalyzerProgress {
      * Get startedAt
      * @return startedAt
      */
-    @javax.annotation.Nullable public BigDecimal getStartedAt() {
+    @jakarta.annotation.Nullable public BigDecimal getStartedAt() {
         return startedAt;
     }
 
-    public void setStartedAt(@javax.annotation.Nullable BigDecimal startedAt) {
+    public void setStartedAt(@jakarta.annotation.Nullable BigDecimal startedAt) {
         this.startedAt = startedAt;
     }
 
-    public DocAnalyzerProgress percent(@javax.annotation.Nonnull BigDecimal percent) {
+    public DocAnalyzerProgress percent(@jakarta.annotation.Nonnull BigDecimal percent) {
         this.percent = percent;
         return this;
     }
@@ -176,17 +178,17 @@ public class DocAnalyzerProgress {
      * Get percent
      * @return percent
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getPercent() {
         return percent;
     }
 
-    public void setPercent(@javax.annotation.Nonnull BigDecimal percent) {
+    public void setPercent(@jakarta.annotation.Nonnull BigDecimal percent) {
         this.percent = percent;
     }
 
     public DocAnalyzerProgress outputFormat(
-            @javax.annotation.Nullable DocProcessorOutputFormat outputFormat) {
+            @jakarta.annotation.Nullable DocProcessorOutputFormat outputFormat) {
         this.outputFormat = outputFormat;
         return this;
     }
@@ -195,11 +197,12 @@ public class DocAnalyzerProgress {
      * The output format being used for processing (markdown or xml)
      * @return outputFormat
      */
-    @javax.annotation.Nullable public DocProcessorOutputFormat getOutputFormat() {
+    @jakarta.annotation.Nullable public DocProcessorOutputFormat getOutputFormat() {
         return outputFormat;
     }
 
-    public void setOutputFormat(@javax.annotation.Nullable DocProcessorOutputFormat outputFormat) {
+    public void setOutputFormat(
+            @jakarta.annotation.Nullable DocProcessorOutputFormat outputFormat) {
         this.outputFormat = outputFormat;
     }
 

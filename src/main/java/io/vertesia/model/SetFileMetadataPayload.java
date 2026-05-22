@@ -32,25 +32,25 @@ import java.util.Objects;
 /**
  * SetFileMetadataPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class SetFileMetadataPayload {
     public static final String SERIALIZED_NAME_FILE = "file";
 
     @SerializedName(SERIALIZED_NAME_FILE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String _file;
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, String> metadata;
 
     public SetFileMetadataPayload() {}
 
-    public SetFileMetadataPayload _file(@javax.annotation.Nonnull String _file) {
+    public SetFileMetadataPayload _file(@jakarta.annotation.Nonnull String _file) {
         this._file = _file;
         return this;
     }
@@ -59,16 +59,17 @@ public class SetFileMetadataPayload {
      * The file path (relative to bucket) or full URI
      * @return _file
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getFile() {
         return _file;
     }
 
-    public void setFile(@javax.annotation.Nonnull String _file) {
+    public void setFile(@jakarta.annotation.Nonnull String _file) {
         this._file = _file;
     }
 
-    public SetFileMetadataPayload metadata(@javax.annotation.Nonnull Map<String, String> metadata) {
+    public SetFileMetadataPayload metadata(
+            @jakarta.annotation.Nonnull Map<String, String> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -85,12 +86,12 @@ public class SetFileMetadataPayload {
      * Custom metadata key-value pairs to set on the file
      * @return metadata
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, String> getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@javax.annotation.Nonnull Map<String, String> metadata) {
+    public void setMetadata(@jakarta.annotation.Nonnull Map<String, String> metadata) {
         this.metadata = metadata;
     }
 

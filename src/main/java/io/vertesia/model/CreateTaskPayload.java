@@ -34,45 +34,45 @@ import java.util.Objects;
 /**
  * CreateTaskPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateTaskPayload {
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String title;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_ASSIGNEE = "assignee";
 
     @SerializedName(SERIALIZED_NAME_ASSIGNEE)
-    @javax.annotation.Nullable private String assignee;
+    @jakarta.annotation.Nullable private String assignee;
 
     public static final String SERIALIZED_NAME_FIELDS = "fields";
 
     @SerializedName(SERIALIZED_NAME_FIELDS)
-    @javax.annotation.Nullable private List<TaskField> fields = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<TaskField> fields = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TaskSource source;
 
     public static final String SERIALIZED_NAME_DUE_AT = "due_at";
 
     @SerializedName(SERIALIZED_NAME_DUE_AT)
-    @javax.annotation.Nullable private OffsetDateTime dueAt;
+    @jakarta.annotation.Nullable private OffsetDateTime dueAt;
 
     public CreateTaskPayload() {}
 
-    public CreateTaskPayload title(@javax.annotation.Nonnull String title) {
+    public CreateTaskPayload title(@jakarta.annotation.Nonnull String title) {
         this.title = title;
         return this;
     }
@@ -81,16 +81,16 @@ public class CreateTaskPayload {
      * Get title
      * @return title
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nonnull String title) {
+    public void setTitle(@jakarta.annotation.Nonnull String title) {
         this.title = title;
     }
 
-    public CreateTaskPayload description(@javax.annotation.Nullable String description) {
+    public CreateTaskPayload description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -99,15 +99,15 @@ public class CreateTaskPayload {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public CreateTaskPayload assignee(@javax.annotation.Nullable String assignee) {
+    public CreateTaskPayload assignee(@jakarta.annotation.Nullable String assignee) {
         this.assignee = assignee;
         return this;
     }
@@ -116,15 +116,15 @@ public class CreateTaskPayload {
      * Get assignee
      * @return assignee
      */
-    @javax.annotation.Nullable public String getAssignee() {
+    @jakarta.annotation.Nullable public String getAssignee() {
         return assignee;
     }
 
-    public void setAssignee(@javax.annotation.Nullable String assignee) {
+    public void setAssignee(@jakarta.annotation.Nullable String assignee) {
         this.assignee = assignee;
     }
 
-    public CreateTaskPayload fields(@javax.annotation.Nullable List<TaskField> fields) {
+    public CreateTaskPayload fields(@jakarta.annotation.Nullable List<TaskField> fields) {
         this.fields = fields;
         return this;
     }
@@ -141,15 +141,15 @@ public class CreateTaskPayload {
      * Get fields
      * @return fields
      */
-    @javax.annotation.Nullable public List<TaskField> getFields() {
+    @jakarta.annotation.Nullable public List<TaskField> getFields() {
         return fields;
     }
 
-    public void setFields(@javax.annotation.Nullable List<TaskField> fields) {
+    public void setFields(@jakarta.annotation.Nullable List<TaskField> fields) {
         this.fields = fields;
     }
 
-    public CreateTaskPayload source(@javax.annotation.Nonnull TaskSource source) {
+    public CreateTaskPayload source(@jakarta.annotation.Nonnull TaskSource source) {
         this.source = source;
         return this;
     }
@@ -158,16 +158,16 @@ public class CreateTaskPayload {
      * Get source
      * @return source
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TaskSource getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nonnull TaskSource source) {
+    public void setSource(@jakarta.annotation.Nonnull TaskSource source) {
         this.source = source;
     }
 
-    public CreateTaskPayload dueAt(@javax.annotation.Nullable OffsetDateTime dueAt) {
+    public CreateTaskPayload dueAt(@jakarta.annotation.Nullable OffsetDateTime dueAt) {
         this.dueAt = dueAt;
         return this;
     }
@@ -176,11 +176,11 @@ public class CreateTaskPayload {
      * Get dueAt
      * @return dueAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getDueAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getDueAt() {
         return dueAt;
     }
 
-    public void setDueAt(@javax.annotation.Nullable OffsetDateTime dueAt) {
+    public void setDueAt(@jakarta.annotation.Nullable OffsetDateTime dueAt) {
         this.dueAt = dueAt;
     }
 

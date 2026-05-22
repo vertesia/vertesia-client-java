@@ -33,30 +33,30 @@ import java.util.Objects;
 /**
  * A description of the tools provided by an app
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AppToolCollection {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TOOLS = "tools";
 
     @SerializedName(SERIALIZED_NAME_TOOLS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<AgentToolDefinition> tools = new ArrayList<>();
 
     public AppToolCollection() {}
 
-    public AppToolCollection name(@javax.annotation.Nonnull String name) {
+    public AppToolCollection name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -65,16 +65,16 @@ public class AppToolCollection {
      * The collection name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public AppToolCollection description(@javax.annotation.Nullable String description) {
+    public AppToolCollection description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -83,15 +83,15 @@ public class AppToolCollection {
      * Optional collection description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public AppToolCollection tools(@javax.annotation.Nonnull List<AgentToolDefinition> tools) {
+    public AppToolCollection tools(@jakarta.annotation.Nonnull List<AgentToolDefinition> tools) {
         this.tools = tools;
         return this;
     }
@@ -108,12 +108,12 @@ public class AppToolCollection {
      * the tools provided by this collection
      * @return tools
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<AgentToolDefinition> getTools() {
         return tools;
     }
 
-    public void setTools(@javax.annotation.Nonnull List<AgentToolDefinition> tools) {
+    public void setTools(@jakarta.annotation.Nonnull List<AgentToolDefinition> tools) {
         this.tools = tools;
     }
 

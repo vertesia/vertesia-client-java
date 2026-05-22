@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * AlterTableOperationOneOf3
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AlterTableOperationOneOf3 {
@@ -91,24 +91,24 @@ public class AlterTableOperationOneOf3 {
     public static final String SERIALIZED_NAME_OP = "op";
 
     @SerializedName(SERIALIZED_NAME_OP)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OpEnum op;
 
     public static final String SERIALIZED_NAME_COLUMN = "column";
 
     @SerializedName(SERIALIZED_NAME_COLUMN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String column;
 
     public static final String SERIALIZED_NAME_UPDATES = "updates";
 
     @SerializedName(SERIALIZED_NAME_UPDATES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private PartialOmitDataColumnName updates;
 
     public AlterTableOperationOneOf3() {}
 
-    public AlterTableOperationOneOf3 op(@javax.annotation.Nonnull OpEnum op) {
+    public AlterTableOperationOneOf3 op(@jakarta.annotation.Nonnull OpEnum op) {
         this.op = op;
         return this;
     }
@@ -117,16 +117,16 @@ public class AlterTableOperationOneOf3 {
      * Get op
      * @return op
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OpEnum getOp() {
         return op;
     }
 
-    public void setOp(@javax.annotation.Nonnull OpEnum op) {
+    public void setOp(@jakarta.annotation.Nonnull OpEnum op) {
         this.op = op;
     }
 
-    public AlterTableOperationOneOf3 column(@javax.annotation.Nonnull String column) {
+    public AlterTableOperationOneOf3 column(@jakarta.annotation.Nonnull String column) {
         this.column = column;
         return this;
     }
@@ -135,17 +135,17 @@ public class AlterTableOperationOneOf3 {
      * Get column
      * @return column
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getColumn() {
         return column;
     }
 
-    public void setColumn(@javax.annotation.Nonnull String column) {
+    public void setColumn(@jakarta.annotation.Nonnull String column) {
         this.column = column;
     }
 
     public AlterTableOperationOneOf3 updates(
-            @javax.annotation.Nonnull PartialOmitDataColumnName updates) {
+            @jakarta.annotation.Nonnull PartialOmitDataColumnName updates) {
         this.updates = updates;
         return this;
     }
@@ -154,12 +154,12 @@ public class AlterTableOperationOneOf3 {
      * Get updates
      * @return updates
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public PartialOmitDataColumnName getUpdates() {
         return updates;
     }
 
-    public void setUpdates(@javax.annotation.Nonnull PartialOmitDataColumnName updates) {
+    public void setUpdates(@jakarta.annotation.Nonnull PartialOmitDataColumnName updates) {
         this.updates = updates;
     }
 

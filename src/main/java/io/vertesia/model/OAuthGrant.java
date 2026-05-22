@@ -33,105 +33,105 @@ import java.util.Objects;
 /**
  * OAuthGrant
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OAuthGrant {
     public static final String SERIALIZED_NAME_GRANT_ID = "grant_id";
 
     @SerializedName(SERIALIZED_NAME_GRANT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String grantId;
 
     public static final String SERIALIZED_NAME_CLIENT_ID = "client_id";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String clientId;
 
     public static final String SERIALIZED_NAME_CLIENT_NAME = "client_name";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String clientName;
 
     public static final String SERIALIZED_NAME_USER_ID = "user_id";
 
     @SerializedName(SERIALIZED_NAME_USER_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String userId;
 
     public static final String SERIALIZED_NAME_USER_NAME = "user_name";
 
     @SerializedName(SERIALIZED_NAME_USER_NAME)
-    @javax.annotation.Nullable private String userName;
+    @jakarta.annotation.Nullable private String userName;
 
     public static final String SERIALIZED_NAME_USER_EMAIL = "user_email";
 
     @SerializedName(SERIALIZED_NAME_USER_EMAIL)
-    @javax.annotation.Nullable private String userEmail;
+    @jakarta.annotation.Nullable private String userEmail;
 
     public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String accountId;
 
     public static final String SERIALIZED_NAME_PROJECT_ID = "project_id";
 
     @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String projectId;
 
     public static final String SERIALIZED_NAME_RESOURCE = "resource";
 
     @SerializedName(SERIALIZED_NAME_RESOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String resource;
 
     public static final String SERIALIZED_NAME_SCOPE = "scope";
 
     @SerializedName(SERIALIZED_NAME_SCOPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> scope = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OAuthGrantStatus status;
 
     public static final String SERIALIZED_NAME_TOKEN_COUNT = "token_count";
 
     @SerializedName(SERIALIZED_NAME_TOKEN_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal tokenCount;
 
     public static final String SERIALIZED_NAME_GRANTED_AT = "granted_at";
 
     @SerializedName(SERIALIZED_NAME_GRANTED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String grantedAt;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_LAST_USED_AT = "last_used_at";
 
     @SerializedName(SERIALIZED_NAME_LAST_USED_AT)
-    @javax.annotation.Nullable private String lastUsedAt;
+    @jakarta.annotation.Nullable private String lastUsedAt;
 
     public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
 
     @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
-    @javax.annotation.Nullable private String expiresAt;
+    @jakarta.annotation.Nullable private String expiresAt;
 
     public OAuthGrant() {}
 
-    public OAuthGrant grantId(@javax.annotation.Nonnull String grantId) {
+    public OAuthGrant grantId(@jakarta.annotation.Nonnull String grantId) {
         this.grantId = grantId;
         return this;
     }
@@ -140,16 +140,16 @@ public class OAuthGrant {
      * Get grantId
      * @return grantId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getGrantId() {
         return grantId;
     }
 
-    public void setGrantId(@javax.annotation.Nonnull String grantId) {
+    public void setGrantId(@jakarta.annotation.Nonnull String grantId) {
         this.grantId = grantId;
     }
 
-    public OAuthGrant clientId(@javax.annotation.Nonnull String clientId) {
+    public OAuthGrant clientId(@jakarta.annotation.Nonnull String clientId) {
         this.clientId = clientId;
         return this;
     }
@@ -158,16 +158,16 @@ public class OAuthGrant {
      * Get clientId
      * @return clientId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getClientId() {
         return clientId;
     }
 
-    public void setClientId(@javax.annotation.Nonnull String clientId) {
+    public void setClientId(@jakarta.annotation.Nonnull String clientId) {
         this.clientId = clientId;
     }
 
-    public OAuthGrant clientName(@javax.annotation.Nonnull String clientName) {
+    public OAuthGrant clientName(@jakarta.annotation.Nonnull String clientName) {
         this.clientName = clientName;
         return this;
     }
@@ -176,16 +176,16 @@ public class OAuthGrant {
      * Get clientName
      * @return clientName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getClientName() {
         return clientName;
     }
 
-    public void setClientName(@javax.annotation.Nonnull String clientName) {
+    public void setClientName(@jakarta.annotation.Nonnull String clientName) {
         this.clientName = clientName;
     }
 
-    public OAuthGrant userId(@javax.annotation.Nonnull String userId) {
+    public OAuthGrant userId(@jakarta.annotation.Nonnull String userId) {
         this.userId = userId;
         return this;
     }
@@ -194,16 +194,16 @@ public class OAuthGrant {
      * Get userId
      * @return userId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUserId() {
         return userId;
     }
 
-    public void setUserId(@javax.annotation.Nonnull String userId) {
+    public void setUserId(@jakarta.annotation.Nonnull String userId) {
         this.userId = userId;
     }
 
-    public OAuthGrant userName(@javax.annotation.Nullable String userName) {
+    public OAuthGrant userName(@jakarta.annotation.Nullable String userName) {
         this.userName = userName;
         return this;
     }
@@ -212,15 +212,15 @@ public class OAuthGrant {
      * Get userName
      * @return userName
      */
-    @javax.annotation.Nullable public String getUserName() {
+    @jakarta.annotation.Nullable public String getUserName() {
         return userName;
     }
 
-    public void setUserName(@javax.annotation.Nullable String userName) {
+    public void setUserName(@jakarta.annotation.Nullable String userName) {
         this.userName = userName;
     }
 
-    public OAuthGrant userEmail(@javax.annotation.Nullable String userEmail) {
+    public OAuthGrant userEmail(@jakarta.annotation.Nullable String userEmail) {
         this.userEmail = userEmail;
         return this;
     }
@@ -229,15 +229,15 @@ public class OAuthGrant {
      * Get userEmail
      * @return userEmail
      */
-    @javax.annotation.Nullable public String getUserEmail() {
+    @jakarta.annotation.Nullable public String getUserEmail() {
         return userEmail;
     }
 
-    public void setUserEmail(@javax.annotation.Nullable String userEmail) {
+    public void setUserEmail(@jakarta.annotation.Nullable String userEmail) {
         this.userEmail = userEmail;
     }
 
-    public OAuthGrant accountId(@javax.annotation.Nonnull String accountId) {
+    public OAuthGrant accountId(@jakarta.annotation.Nonnull String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -246,16 +246,16 @@ public class OAuthGrant {
      * Get accountId
      * @return accountId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(@javax.annotation.Nonnull String accountId) {
+    public void setAccountId(@jakarta.annotation.Nonnull String accountId) {
         this.accountId = accountId;
     }
 
-    public OAuthGrant projectId(@javax.annotation.Nonnull String projectId) {
+    public OAuthGrant projectId(@jakarta.annotation.Nonnull String projectId) {
         this.projectId = projectId;
         return this;
     }
@@ -264,16 +264,16 @@ public class OAuthGrant {
      * Get projectId
      * @return projectId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(@javax.annotation.Nonnull String projectId) {
+    public void setProjectId(@jakarta.annotation.Nonnull String projectId) {
         this.projectId = projectId;
     }
 
-    public OAuthGrant resource(@javax.annotation.Nonnull String resource) {
+    public OAuthGrant resource(@jakarta.annotation.Nonnull String resource) {
         this.resource = resource;
         return this;
     }
@@ -282,16 +282,16 @@ public class OAuthGrant {
      * Get resource
      * @return resource
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getResource() {
         return resource;
     }
 
-    public void setResource(@javax.annotation.Nonnull String resource) {
+    public void setResource(@jakarta.annotation.Nonnull String resource) {
         this.resource = resource;
     }
 
-    public OAuthGrant scope(@javax.annotation.Nonnull List<String> scope) {
+    public OAuthGrant scope(@jakarta.annotation.Nonnull List<String> scope) {
         this.scope = scope;
         return this;
     }
@@ -308,16 +308,16 @@ public class OAuthGrant {
      * Get scope
      * @return scope
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getScope() {
         return scope;
     }
 
-    public void setScope(@javax.annotation.Nonnull List<String> scope) {
+    public void setScope(@jakarta.annotation.Nonnull List<String> scope) {
         this.scope = scope;
     }
 
-    public OAuthGrant status(@javax.annotation.Nonnull OAuthGrantStatus status) {
+    public OAuthGrant status(@jakarta.annotation.Nonnull OAuthGrantStatus status) {
         this.status = status;
         return this;
     }
@@ -326,16 +326,16 @@ public class OAuthGrant {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OAuthGrantStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull OAuthGrantStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull OAuthGrantStatus status) {
         this.status = status;
     }
 
-    public OAuthGrant tokenCount(@javax.annotation.Nonnull BigDecimal tokenCount) {
+    public OAuthGrant tokenCount(@jakarta.annotation.Nonnull BigDecimal tokenCount) {
         this.tokenCount = tokenCount;
         return this;
     }
@@ -344,16 +344,16 @@ public class OAuthGrant {
      * Get tokenCount
      * @return tokenCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTokenCount() {
         return tokenCount;
     }
 
-    public void setTokenCount(@javax.annotation.Nonnull BigDecimal tokenCount) {
+    public void setTokenCount(@jakarta.annotation.Nonnull BigDecimal tokenCount) {
         this.tokenCount = tokenCount;
     }
 
-    public OAuthGrant grantedAt(@javax.annotation.Nonnull String grantedAt) {
+    public OAuthGrant grantedAt(@jakarta.annotation.Nonnull String grantedAt) {
         this.grantedAt = grantedAt;
         return this;
     }
@@ -362,16 +362,16 @@ public class OAuthGrant {
      * Get grantedAt
      * @return grantedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getGrantedAt() {
         return grantedAt;
     }
 
-    public void setGrantedAt(@javax.annotation.Nonnull String grantedAt) {
+    public void setGrantedAt(@jakarta.annotation.Nonnull String grantedAt) {
         this.grantedAt = grantedAt;
     }
 
-    public OAuthGrant createdAt(@javax.annotation.Nonnull String createdAt) {
+    public OAuthGrant createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -380,16 +380,16 @@ public class OAuthGrant {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public OAuthGrant lastUsedAt(@javax.annotation.Nullable String lastUsedAt) {
+    public OAuthGrant lastUsedAt(@jakarta.annotation.Nullable String lastUsedAt) {
         this.lastUsedAt = lastUsedAt;
         return this;
     }
@@ -398,15 +398,15 @@ public class OAuthGrant {
      * Get lastUsedAt
      * @return lastUsedAt
      */
-    @javax.annotation.Nullable public String getLastUsedAt() {
+    @jakarta.annotation.Nullable public String getLastUsedAt() {
         return lastUsedAt;
     }
 
-    public void setLastUsedAt(@javax.annotation.Nullable String lastUsedAt) {
+    public void setLastUsedAt(@jakarta.annotation.Nullable String lastUsedAt) {
         this.lastUsedAt = lastUsedAt;
     }
 
-    public OAuthGrant expiresAt(@javax.annotation.Nullable String expiresAt) {
+    public OAuthGrant expiresAt(@jakarta.annotation.Nullable String expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -415,11 +415,11 @@ public class OAuthGrant {
      * Get expiresAt
      * @return expiresAt
      */
-    @javax.annotation.Nullable public String getExpiresAt() {
+    @jakarta.annotation.Nullable public String getExpiresAt() {
         return expiresAt;
     }
 
-    public void setExpiresAt(@javax.annotation.Nullable String expiresAt) {
+    public void setExpiresAt(@jakarta.annotation.Nullable String expiresAt) {
         this.expiresAt = expiresAt;
     }
 

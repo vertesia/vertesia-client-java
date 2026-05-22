@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * Payload for creating a named snapshot.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateDashboardSnapshotPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String message;
 
     public CreateDashboardSnapshotPayload() {}
 
-    public CreateDashboardSnapshotPayload name(@javax.annotation.Nonnull String name) {
+    public CreateDashboardSnapshotPayload name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -57,16 +57,16 @@ public class CreateDashboardSnapshotPayload {
      * Snapshot name (must be unique within dashboard)
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public CreateDashboardSnapshotPayload message(@javax.annotation.Nonnull String message) {
+    public CreateDashboardSnapshotPayload message(@jakarta.annotation.Nonnull String message) {
         this.message = message;
         return this;
     }
@@ -75,12 +75,12 @@ public class CreateDashboardSnapshotPayload {
      * Snapshot description/message
      * @return message
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nonnull String message) {
+    public void setMessage(@jakarta.annotation.Nonnull String message) {
         this.message = message;
     }
 

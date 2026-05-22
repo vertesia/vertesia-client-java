@@ -36,135 +36,135 @@ import java.util.Objects;
 /**
  * Full dashboard with SQL query and Vega-Lite specification.  **New architecture (v2):** - Single &#x60;query&#x60; field with SQL (use JOINs/CTEs for complex data needs) - Single &#x60;spec&#x60; field with complete Vega-Lite spec (vconcat/hconcat for multiple panels) - Cross-panel interactivity via Vega selections  **Legacy architecture (v1, deprecated):** - Multiple &#x60;queries&#x60; with named data sources - Multiple &#x60;panels&#x60; with separate specs and dataSources references - &#x60;layout&#x60; for grid positioning - No cross-panel interactivity
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class Dashboard {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public static final String SERIALIZED_NAME_STORE_ID = "store_id";
 
     @SerializedName(SERIALIZED_NAME_STORE_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String storeId;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DashboardStatus status;
 
     public static final String SERIALIZED_NAME_PANEL_COUNT = "panel_count";
 
     @SerializedName(SERIALIZED_NAME_PANEL_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal panelCount;
 
     public static final String SERIALIZED_NAME_QUERY_COUNT = "query_count";
 
     @SerializedName(SERIALIZED_NAME_QUERY_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal queryCount;
 
     public static final String SERIALIZED_NAME_LAST_RENDERED_AT = "last_rendered_at";
 
     @SerializedName(SERIALIZED_NAME_LAST_RENDERED_AT)
-    @javax.annotation.Nullable private String lastRenderedAt;
+    @jakarta.annotation.Nullable private String lastRenderedAt;
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @javax.annotation.Nullable private String query;
+    @jakarta.annotation.Nullable private String query;
 
     public static final String SERIALIZED_NAME_QUERY_LIMIT = "queryLimit";
 
     @SerializedName(SERIALIZED_NAME_QUERY_LIMIT)
-    @javax.annotation.Nullable private BigDecimal queryLimit;
+    @jakarta.annotation.Nullable private BigDecimal queryLimit;
 
     public static final String SERIALIZED_NAME_QUERY_PARAMETERS = "queryParameters";
 
     @SerializedName(SERIALIZED_NAME_QUERY_PARAMETERS)
-    @javax.annotation.Nullable private Map<String, String> queryParameters;
+    @jakarta.annotation.Nullable private Map<String, String> queryParameters;
 
     public static final String SERIALIZED_NAME_SPEC = "spec";
 
     @SerializedName(SERIALIZED_NAME_SPEC)
-    @javax.annotation.Nullable private Map<String, Object> spec = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> spec = new HashMap<>();
 
     public static final String SERIALIZED_NAME_QUERIES = "queries";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_QUERIES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<DashboardQuery> queries = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PANELS = "panels";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_PANELS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<DashboardPanel> panels = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LAYOUT = "layout";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_LAYOUT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DashboardLayout layout;
 
     public static final String SERIALIZED_NAME_LAST_RENDER_URL = "last_render_url";
 
     @SerializedName(SERIALIZED_NAME_LAST_RENDER_URL)
-    @javax.annotation.Nullable private String lastRenderUrl;
+    @jakarta.annotation.Nullable private String lastRenderUrl;
 
     public Dashboard() {}
 
-    public Dashboard id(@javax.annotation.Nonnull String id) {
+    public Dashboard id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -173,16 +173,16 @@ public class Dashboard {
      * Unique identifier for the object
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public Dashboard name(@javax.annotation.Nonnull String name) {
+    public Dashboard name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -191,16 +191,16 @@ public class Dashboard {
      * Human-readable name or title
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public Dashboard description(@javax.annotation.Nullable String description) {
+    public Dashboard description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -209,15 +209,15 @@ public class Dashboard {
      * Optional detailed description of the object
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public Dashboard tags(@javax.annotation.Nonnull List<String> tags) {
+    public Dashboard tags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -234,16 +234,16 @@ public class Dashboard {
      * Tags for organization
      * @return tags
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nonnull List<String> tags) {
+    public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
     }
 
-    public Dashboard updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public Dashboard updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -252,16 +252,16 @@ public class Dashboard {
      * Identifier of the user who last modified the object
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public Dashboard createdBy(@javax.annotation.Nonnull String createdBy) {
+    public Dashboard createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -270,16 +270,16 @@ public class Dashboard {
      * Identifier of the user who created the object
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public Dashboard createdAt(@javax.annotation.Nonnull String createdAt) {
+    public Dashboard createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -288,16 +288,16 @@ public class Dashboard {
      * ISO timestamp of when the object was created
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Dashboard updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public Dashboard updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -306,16 +306,16 @@ public class Dashboard {
      * ISO timestamp of when the object was last updated
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public Dashboard storeId(@javax.annotation.Nonnull String storeId) {
+    public Dashboard storeId(@jakarta.annotation.Nonnull String storeId) {
         this.storeId = storeId;
         return this;
     }
@@ -324,16 +324,16 @@ public class Dashboard {
      * Parent data store ID
      * @return storeId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStoreId() {
         return storeId;
     }
 
-    public void setStoreId(@javax.annotation.Nonnull String storeId) {
+    public void setStoreId(@jakarta.annotation.Nonnull String storeId) {
         this.storeId = storeId;
     }
 
-    public Dashboard status(@javax.annotation.Nonnull DashboardStatus status) {
+    public Dashboard status(@jakarta.annotation.Nonnull DashboardStatus status) {
         this.status = status;
         return this;
     }
@@ -342,16 +342,16 @@ public class Dashboard {
      * Current status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DashboardStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull DashboardStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull DashboardStatus status) {
         this.status = status;
     }
 
-    public Dashboard panelCount(@javax.annotation.Nonnull BigDecimal panelCount) {
+    public Dashboard panelCount(@jakarta.annotation.Nonnull BigDecimal panelCount) {
         this.panelCount = panelCount;
         return this;
     }
@@ -360,16 +360,16 @@ public class Dashboard {
      * Number of panels (deprecated, kept for backwards compat)
      * @return panelCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getPanelCount() {
         return panelCount;
     }
 
-    public void setPanelCount(@javax.annotation.Nonnull BigDecimal panelCount) {
+    public void setPanelCount(@jakarta.annotation.Nonnull BigDecimal panelCount) {
         this.panelCount = panelCount;
     }
 
-    public Dashboard queryCount(@javax.annotation.Nonnull BigDecimal queryCount) {
+    public Dashboard queryCount(@jakarta.annotation.Nonnull BigDecimal queryCount) {
         this.queryCount = queryCount;
         return this;
     }
@@ -378,16 +378,16 @@ public class Dashboard {
      * Number of queries (deprecated, kept for backwards compat)
      * @return queryCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getQueryCount() {
         return queryCount;
     }
 
-    public void setQueryCount(@javax.annotation.Nonnull BigDecimal queryCount) {
+    public void setQueryCount(@jakarta.annotation.Nonnull BigDecimal queryCount) {
         this.queryCount = queryCount;
     }
 
-    public Dashboard lastRenderedAt(@javax.annotation.Nullable String lastRenderedAt) {
+    public Dashboard lastRenderedAt(@jakarta.annotation.Nullable String lastRenderedAt) {
         this.lastRenderedAt = lastRenderedAt;
         return this;
     }
@@ -396,15 +396,15 @@ public class Dashboard {
      * Last render timestamp
      * @return lastRenderedAt
      */
-    @javax.annotation.Nullable public String getLastRenderedAt() {
+    @jakarta.annotation.Nullable public String getLastRenderedAt() {
         return lastRenderedAt;
     }
 
-    public void setLastRenderedAt(@javax.annotation.Nullable String lastRenderedAt) {
+    public void setLastRenderedAt(@jakarta.annotation.Nullable String lastRenderedAt) {
         this.lastRenderedAt = lastRenderedAt;
     }
 
-    public Dashboard query(@javax.annotation.Nullable String query) {
+    public Dashboard query(@jakarta.annotation.Nullable String query) {
         this.query = query;
         return this;
     }
@@ -413,15 +413,15 @@ public class Dashboard {
      * SQL query that returns all data for the dashboard. Use JOINs, CTEs, or UNION ALL to combine data from multiple tables. Can include {{param_name}} placeholders for dynamic values.
      * @return query
      */
-    @javax.annotation.Nullable public String getQuery() {
+    @jakarta.annotation.Nullable public String getQuery() {
         return query;
     }
 
-    public void setQuery(@javax.annotation.Nullable String query) {
+    public void setQuery(@jakarta.annotation.Nullable String query) {
         this.query = query;
     }
 
-    public Dashboard queryLimit(@javax.annotation.Nullable BigDecimal queryLimit) {
+    public Dashboard queryLimit(@jakarta.annotation.Nullable BigDecimal queryLimit) {
         this.queryLimit = queryLimit;
         return this;
     }
@@ -430,16 +430,16 @@ public class Dashboard {
      * Maximum rows to return from the query (default: 10000).
      * @return queryLimit
      */
-    @javax.annotation.Nullable public BigDecimal getQueryLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getQueryLimit() {
         return queryLimit;
     }
 
-    public void setQueryLimit(@javax.annotation.Nullable BigDecimal queryLimit) {
+    public void setQueryLimit(@jakarta.annotation.Nullable BigDecimal queryLimit) {
         this.queryLimit = queryLimit;
     }
 
     public Dashboard queryParameters(
-            @javax.annotation.Nullable Map<String, String> queryParameters) {
+            @jakarta.annotation.Nullable Map<String, String> queryParameters) {
         this.queryParameters = queryParameters;
         return this;
     }
@@ -456,15 +456,16 @@ public class Dashboard {
      * Default values for SQL parameters.
      * @return queryParameters
      */
-    @javax.annotation.Nullable public Map<String, String> getQueryParameters() {
+    @jakarta.annotation.Nullable public Map<String, String> getQueryParameters() {
         return queryParameters;
     }
 
-    public void setQueryParameters(@javax.annotation.Nullable Map<String, String> queryParameters) {
+    public void setQueryParameters(
+            @jakarta.annotation.Nullable Map<String, String> queryParameters) {
         this.queryParameters = queryParameters;
     }
 
-    public Dashboard spec(@javax.annotation.Nullable Map<String, Object> spec) {
+    public Dashboard spec(@jakarta.annotation.Nullable Map<String, Object> spec) {
         this.spec = spec;
         return this;
     }
@@ -481,16 +482,16 @@ public class Dashboard {
      * Complete Vega-Lite specification for the entire dashboard. Use vconcat/hconcat for multiple panels, params for interactivity. Data is injected at runtime from query results.
      * @return spec
      */
-    @javax.annotation.Nullable public Map<String, Object> getSpec() {
+    @jakarta.annotation.Nullable public Map<String, Object> getSpec() {
         return spec;
     }
 
-    public void setSpec(@javax.annotation.Nullable Map<String, Object> spec) {
+    public void setSpec(@jakarta.annotation.Nullable Map<String, Object> spec) {
         this.spec = spec;
     }
 
     @Deprecated
-    public Dashboard queries(@javax.annotation.Nonnull List<DashboardQuery> queries) {
+    public Dashboard queries(@jakarta.annotation.Nonnull List<DashboardQuery> queries) {
         this.queries = queries;
         return this;
     }
@@ -509,18 +510,18 @@ public class Dashboard {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<DashboardQuery> getQueries() {
         return queries;
     }
 
     @Deprecated
-    public void setQueries(@javax.annotation.Nonnull List<DashboardQuery> queries) {
+    public void setQueries(@jakarta.annotation.Nonnull List<DashboardQuery> queries) {
         this.queries = queries;
     }
 
     @Deprecated
-    public Dashboard panels(@javax.annotation.Nonnull List<DashboardPanel> panels) {
+    public Dashboard panels(@jakarta.annotation.Nonnull List<DashboardPanel> panels) {
         this.panels = panels;
         return this;
     }
@@ -539,18 +540,18 @@ public class Dashboard {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<DashboardPanel> getPanels() {
         return panels;
     }
 
     @Deprecated
-    public void setPanels(@javax.annotation.Nonnull List<DashboardPanel> panels) {
+    public void setPanels(@jakarta.annotation.Nonnull List<DashboardPanel> panels) {
         this.panels = panels;
     }
 
     @Deprecated
-    public Dashboard layout(@javax.annotation.Nonnull DashboardLayout layout) {
+    public Dashboard layout(@jakarta.annotation.Nonnull DashboardLayout layout) {
         this.layout = layout;
         return this;
     }
@@ -561,17 +562,17 @@ public class Dashboard {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DashboardLayout getLayout() {
         return layout;
     }
 
     @Deprecated
-    public void setLayout(@javax.annotation.Nonnull DashboardLayout layout) {
+    public void setLayout(@jakarta.annotation.Nonnull DashboardLayout layout) {
         this.layout = layout;
     }
 
-    public Dashboard lastRenderUrl(@javax.annotation.Nullable String lastRenderUrl) {
+    public Dashboard lastRenderUrl(@jakarta.annotation.Nullable String lastRenderUrl) {
         this.lastRenderUrl = lastRenderUrl;
         return this;
     }
@@ -580,11 +581,11 @@ public class Dashboard {
      * URL of last rendered image
      * @return lastRenderUrl
      */
-    @javax.annotation.Nullable public String getLastRenderUrl() {
+    @jakarta.annotation.Nullable public String getLastRenderUrl() {
         return lastRenderUrl;
     }
 
-    public void setLastRenderUrl(@javax.annotation.Nullable String lastRenderUrl) {
+    public void setLastRenderUrl(@jakarta.annotation.Nullable String lastRenderUrl) {
         this.lastRenderUrl = lastRenderUrl;
     }
 

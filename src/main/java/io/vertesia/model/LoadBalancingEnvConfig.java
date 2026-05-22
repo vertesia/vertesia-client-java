@@ -33,24 +33,24 @@ import java.util.Objects;
 /**
  * Custom configuration for virtual environments
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class LoadBalancingEnvConfig {
     public static final String SERIALIZED_NAME_ENTRIES = "entries";
 
     @SerializedName(SERIALIZED_NAME_ENTRIES)
-    @javax.annotation.Nullable private List<LoadBalancingEnvEntryConfig> entries = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<LoadBalancingEnvEntryConfig> entries = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_FAILOVER = "failover";
 
     @SerializedName(SERIALIZED_NAME_FAILOVER)
-    @javax.annotation.Nullable private Boolean failover;
+    @jakarta.annotation.Nullable private Boolean failover;
 
     public LoadBalancingEnvConfig() {}
 
     public LoadBalancingEnvConfig entries(
-            @javax.annotation.Nullable List<LoadBalancingEnvEntryConfig> entries) {
+            @jakarta.annotation.Nullable List<LoadBalancingEnvEntryConfig> entries) {
         this.entries = entries;
         return this;
     }
@@ -67,15 +67,15 @@ public class LoadBalancingEnvConfig {
      * Get entries
      * @return entries
      */
-    @javax.annotation.Nullable public List<LoadBalancingEnvEntryConfig> getEntries() {
+    @jakarta.annotation.Nullable public List<LoadBalancingEnvEntryConfig> getEntries() {
         return entries;
     }
 
-    public void setEntries(@javax.annotation.Nullable List<LoadBalancingEnvEntryConfig> entries) {
+    public void setEntries(@jakarta.annotation.Nullable List<LoadBalancingEnvEntryConfig> entries) {
         this.entries = entries;
     }
 
-    public LoadBalancingEnvConfig failover(@javax.annotation.Nullable Boolean failover) {
+    public LoadBalancingEnvConfig failover(@jakarta.annotation.Nullable Boolean failover) {
         this.failover = failover;
         return this;
     }
@@ -84,11 +84,11 @@ public class LoadBalancingEnvConfig {
      * Get failover
      * @return failover
      */
-    @javax.annotation.Nullable public Boolean getFailover() {
+    @jakarta.annotation.Nullable public Boolean getFailover() {
         return failover;
     }
 
-    public void setFailover(@javax.annotation.Nullable Boolean failover) {
+    public void setFailover(@jakarta.annotation.Nullable Boolean failover) {
         this.failover = failover;
     }
 

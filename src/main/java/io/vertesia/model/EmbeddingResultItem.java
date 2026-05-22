@@ -34,24 +34,24 @@ import java.util.Objects;
 /**
  * EmbeddingResultItem
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EmbeddingResultItem {
     public static final String SERIALIZED_NAME_OUTPUTS = "outputs";
 
     @SerializedName(SERIALIZED_NAME_OUTPUTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<EmbeddingOutput> outputs = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_INPUT_TOKENS = "input_tokens";
 
     @SerializedName(SERIALIZED_NAME_INPUT_TOKENS)
-    @javax.annotation.Nullable private BigDecimal inputTokens;
+    @jakarta.annotation.Nullable private BigDecimal inputTokens;
 
     public EmbeddingResultItem() {}
 
-    public EmbeddingResultItem outputs(@javax.annotation.Nonnull List<EmbeddingOutput> outputs) {
+    public EmbeddingResultItem outputs(@jakarta.annotation.Nonnull List<EmbeddingOutput> outputs) {
         this.outputs = outputs;
         return this;
     }
@@ -68,16 +68,16 @@ public class EmbeddingResultItem {
      * One or more vectors produced for this input. Single vector for text/image; multiple for segmented video/audio or joint-multimodal models that return per-modality vectors.
      * @return outputs
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<EmbeddingOutput> getOutputs() {
         return outputs;
     }
 
-    public void setOutputs(@javax.annotation.Nonnull List<EmbeddingOutput> outputs) {
+    public void setOutputs(@jakarta.annotation.Nonnull List<EmbeddingOutput> outputs) {
         this.outputs = outputs;
     }
 
-    public EmbeddingResultItem inputTokens(@javax.annotation.Nullable BigDecimal inputTokens) {
+    public EmbeddingResultItem inputTokens(@jakarta.annotation.Nullable BigDecimal inputTokens) {
         this.inputTokens = inputTokens;
         return this;
     }
@@ -86,11 +86,11 @@ public class EmbeddingResultItem {
      * Token count attributed to this input, when reported by the provider.
      * @return inputTokens
      */
-    @javax.annotation.Nullable public BigDecimal getInputTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getInputTokens() {
         return inputTokens;
     }
 
-    public void setInputTokens(@javax.annotation.Nullable BigDecimal inputTokens) {
+    public void setInputTokens(@jakarta.annotation.Nullable BigDecimal inputTokens) {
         this.inputTokens = inputTokens;
     }
 

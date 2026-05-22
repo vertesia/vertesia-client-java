@@ -32,48 +32,48 @@ import java.util.Objects;
 /**
  * AnalyticsAxis
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AnalyticsAxis {
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @javax.annotation.Nullable private String environment;
+    @jakarta.annotation.Nullable private String environment;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nullable private String project;
+    @jakarta.annotation.Nullable private String project;
 
     public static final String SERIALIZED_NAME_INTERACTIONS = "interactions";
 
     @SerializedName(SERIALIZED_NAME_INTERACTIONS)
-    @javax.annotation.Nullable private List<String> interactions = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> interactions = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_MODELS = "models";
 
     @SerializedName(SERIALIZED_NAME_MODELS)
-    @javax.annotation.Nullable private List<String> models = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> models = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private List<String> status = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> status = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SELECTED_ONLY = "selectedOnly";
 
     @SerializedName(SERIALIZED_NAME_SELECTED_ONLY)
-    @javax.annotation.Nullable private Boolean selectedOnly;
+    @jakarta.annotation.Nullable private Boolean selectedOnly;
 
     public AnalyticsAxis() {}
 
-    public AnalyticsAxis environment(@javax.annotation.Nullable String environment) {
+    public AnalyticsAxis environment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
         return this;
     }
@@ -82,15 +82,15 @@ public class AnalyticsAxis {
      * Get environment
      * @return environment
      */
-    @javax.annotation.Nullable public String getEnvironment() {
+    @jakarta.annotation.Nullable public String getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@javax.annotation.Nullable String environment) {
+    public void setEnvironment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
     }
 
-    public AnalyticsAxis project(@javax.annotation.Nullable String project) {
+    public AnalyticsAxis project(@jakarta.annotation.Nullable String project) {
         this.project = project;
         return this;
     }
@@ -99,15 +99,15 @@ public class AnalyticsAxis {
      * Get project
      * @return project
      */
-    @javax.annotation.Nullable public String getProject() {
+    @jakarta.annotation.Nullable public String getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nullable String project) {
+    public void setProject(@jakarta.annotation.Nullable String project) {
         this.project = project;
     }
 
-    public AnalyticsAxis interactions(@javax.annotation.Nullable List<String> interactions) {
+    public AnalyticsAxis interactions(@jakarta.annotation.Nullable List<String> interactions) {
         this.interactions = interactions;
         return this;
     }
@@ -124,15 +124,15 @@ public class AnalyticsAxis {
      * Get interactions
      * @return interactions
      */
-    @javax.annotation.Nullable public List<String> getInteractions() {
+    @jakarta.annotation.Nullable public List<String> getInteractions() {
         return interactions;
     }
 
-    public void setInteractions(@javax.annotation.Nullable List<String> interactions) {
+    public void setInteractions(@jakarta.annotation.Nullable List<String> interactions) {
         this.interactions = interactions;
     }
 
-    public AnalyticsAxis models(@javax.annotation.Nullable List<String> models) {
+    public AnalyticsAxis models(@jakarta.annotation.Nullable List<String> models) {
         this.models = models;
         return this;
     }
@@ -149,15 +149,15 @@ public class AnalyticsAxis {
      * Get models
      * @return models
      */
-    @javax.annotation.Nullable public List<String> getModels() {
+    @jakarta.annotation.Nullable public List<String> getModels() {
         return models;
     }
 
-    public void setModels(@javax.annotation.Nullable List<String> models) {
+    public void setModels(@jakarta.annotation.Nullable List<String> models) {
         this.models = models;
     }
 
-    public AnalyticsAxis status(@javax.annotation.Nullable List<String> status) {
+    public AnalyticsAxis status(@jakarta.annotation.Nullable List<String> status) {
         this.status = status;
         return this;
     }
@@ -174,15 +174,15 @@ public class AnalyticsAxis {
      * Get status
      * @return status
      */
-    @javax.annotation.Nullable public List<String> getStatus() {
+    @jakarta.annotation.Nullable public List<String> getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable List<String> status) {
+    public void setStatus(@jakarta.annotation.Nullable List<String> status) {
         this.status = status;
     }
 
-    public AnalyticsAxis tags(@javax.annotation.Nullable List<String> tags) {
+    public AnalyticsAxis tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -199,15 +199,15 @@ public class AnalyticsAxis {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public AnalyticsAxis selectedOnly(@javax.annotation.Nullable Boolean selectedOnly) {
+    public AnalyticsAxis selectedOnly(@jakarta.annotation.Nullable Boolean selectedOnly) {
         this.selectedOnly = selectedOnly;
         return this;
     }
@@ -216,11 +216,11 @@ public class AnalyticsAxis {
      * Get selectedOnly
      * @return selectedOnly
      */
-    @javax.annotation.Nullable public Boolean getSelectedOnly() {
+    @jakarta.annotation.Nullable public Boolean getSelectedOnly() {
         return selectedOnly;
     }
 
-    public void setSelectedOnly(@javax.annotation.Nullable Boolean selectedOnly) {
+    public void setSelectedOnly(@jakarta.annotation.Nullable Boolean selectedOnly) {
         this.selectedOnly = selectedOnly;
     }
 

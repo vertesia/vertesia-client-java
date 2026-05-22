@@ -35,39 +35,39 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * JSONSchema
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class JSONSchema {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private Object type = null;
+    @jakarta.annotation.Nullable private Object type = null;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private Map<String, JSONSchema> properties = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, JSONSchema> properties = new HashMap<>();
 
     public static final String SERIALIZED_NAME_SCHEMA_ADDITIONAL_PROPERTIES =
             "additionalProperties";
 
     @SerializedName(SERIALIZED_NAME_SCHEMA_ADDITIONAL_PROPERTIES)
-    @javax.annotation.Nullable private JSONSchemaAdditionalProperties schemaAdditionalProperties;
+    @jakarta.annotation.Nullable private JSONSchemaAdditionalProperties schemaAdditionalProperties;
 
     public static final String SERIALIZED_NAME_REQUIRED = "required";
 
     @SerializedName(SERIALIZED_NAME_REQUIRED)
-    @javax.annotation.Nullable private List<String> required = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> required = new ArrayList<>();
 
     public JSONSchema() {}
 
-    public JSONSchema type(@javax.annotation.Nullable Object type) {
+    public JSONSchema type(@jakarta.annotation.Nullable Object type) {
         this.type = type;
         return this;
     }
@@ -76,15 +76,15 @@ public class JSONSchema {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public Object getType() {
+    @jakarta.annotation.Nullable public Object getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable Object type) {
+    public void setType(@jakarta.annotation.Nullable Object type) {
         this.type = type;
     }
 
-    public JSONSchema description(@javax.annotation.Nullable String description) {
+    public JSONSchema description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -93,15 +93,15 @@ public class JSONSchema {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public JSONSchema properties(@javax.annotation.Nullable Map<String, JSONSchema> properties) {
+    public JSONSchema properties(@jakarta.annotation.Nullable Map<String, JSONSchema> properties) {
         this.properties = properties;
         return this;
     }
@@ -118,16 +118,16 @@ public class JSONSchema {
      * Get properties
      * @return properties
      */
-    @javax.annotation.Nullable public Map<String, JSONSchema> getProperties() {
+    @jakarta.annotation.Nullable public Map<String, JSONSchema> getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable Map<String, JSONSchema> properties) {
+    public void setProperties(@jakarta.annotation.Nullable Map<String, JSONSchema> properties) {
         this.properties = properties;
     }
 
     public JSONSchema schemaAdditionalProperties(
-            @javax.annotation.Nullable JSONSchemaAdditionalProperties schemaAdditionalProperties) {
+            @jakarta.annotation.Nullable JSONSchemaAdditionalProperties schemaAdditionalProperties) {
         this.schemaAdditionalProperties = schemaAdditionalProperties;
         return this;
     }
@@ -136,16 +136,16 @@ public class JSONSchema {
      * Get schemaAdditionalProperties
      * @return schemaAdditionalProperties
      */
-    @javax.annotation.Nullable public JSONSchemaAdditionalProperties getSchemaAdditionalProperties() {
+    @jakarta.annotation.Nullable public JSONSchemaAdditionalProperties getSchemaAdditionalProperties() {
         return schemaAdditionalProperties;
     }
 
     public void setSchemaAdditionalProperties(
-            @javax.annotation.Nullable JSONSchemaAdditionalProperties schemaAdditionalProperties) {
+            @jakarta.annotation.Nullable JSONSchemaAdditionalProperties schemaAdditionalProperties) {
         this.schemaAdditionalProperties = schemaAdditionalProperties;
     }
 
-    public JSONSchema required(@javax.annotation.Nullable List<String> required) {
+    public JSONSchema required(@jakarta.annotation.Nullable List<String> required) {
         this.required = required;
         return this;
     }
@@ -162,11 +162,11 @@ public class JSONSchema {
      * Get required
      * @return required
      */
-    @javax.annotation.Nullable public List<String> getRequired() {
+    @jakarta.annotation.Nullable public List<String> getRequired() {
         return required;
     }
 
-    public void setRequired(@javax.annotation.Nullable List<String> required) {
+    public void setRequired(@jakarta.annotation.Nullable List<String> required) {
         this.required = required;
     }
 

@@ -34,61 +34,61 @@ import java.util.Objects;
 /**
  * Tool definition with optional activation control for agent exposure.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AgentToolDefinition {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_INPUT_SCHEMA = "input_schema";
 
     @SerializedName(SERIALIZED_NAME_INPUT_SCHEMA)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> inputSchema = new HashMap<>();
 
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nullable private String url;
+    @jakarta.annotation.Nullable private String url;
 
     public static final String SERIALIZED_NAME_CATEGORY = "category";
 
     @SerializedName(SERIALIZED_NAME_CATEGORY)
-    @javax.annotation.Nullable private String category;
+    @jakarta.annotation.Nullable private String category;
 
     public static final String SERIALIZED_NAME_DEFAULT = "default";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT)
-    @javax.annotation.Nullable private Boolean _default;
+    @jakarta.annotation.Nullable private Boolean _default;
 
     public static final String SERIALIZED_NAME_TOOLS = "tools";
 
     @SerializedName(SERIALIZED_NAME_TOOLS)
-    @javax.annotation.Nullable private List<String> tools = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tools = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ANNOTATIONS = "annotations";
 
     @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
-    @javax.annotation.Nullable private MCPToolAnnotations annotations;
+    @jakarta.annotation.Nullable private MCPToolAnnotations annotations;
 
     public static final String SERIALIZED_NAME_REQUIRES_USER_CONFIRMATION =
             "requires_user_confirmation";
 
     @SerializedName(SERIALIZED_NAME_REQUIRES_USER_CONFIRMATION)
-    @javax.annotation.Nullable private Boolean requiresUserConfirmation;
+    @jakarta.annotation.Nullable private Boolean requiresUserConfirmation;
 
     public AgentToolDefinition() {}
 
-    public AgentToolDefinition name(@javax.annotation.Nonnull String name) {
+    public AgentToolDefinition name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -97,16 +97,16 @@ public class AgentToolDefinition {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public AgentToolDefinition description(@javax.annotation.Nullable String description) {
+    public AgentToolDefinition description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -115,16 +115,16 @@ public class AgentToolDefinition {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
     public AgentToolDefinition inputSchema(
-            @javax.annotation.Nonnull Map<String, Object> inputSchema) {
+            @jakarta.annotation.Nonnull Map<String, Object> inputSchema) {
         this.inputSchema = inputSchema;
         return this;
     }
@@ -141,16 +141,16 @@ public class AgentToolDefinition {
      * Get inputSchema
      * @return inputSchema
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getInputSchema() {
         return inputSchema;
     }
 
-    public void setInputSchema(@javax.annotation.Nonnull Map<String, Object> inputSchema) {
+    public void setInputSchema(@jakarta.annotation.Nonnull Map<String, Object> inputSchema) {
         this.inputSchema = inputSchema;
     }
 
-    public AgentToolDefinition url(@javax.annotation.Nullable String url) {
+    public AgentToolDefinition url(@jakarta.annotation.Nullable String url) {
         this.url = url;
         return this;
     }
@@ -159,15 +159,15 @@ public class AgentToolDefinition {
      * The tool execution URL. It can be an absolute URL or a path in which case the URL is obtained  using the base URL of the tool server API. Ex: http://tool-server.com/api/ Example of relative URLs: \&quot;tools/my-tool-collection\&quot; or \&quot;/api/tools/my-tool-collection\&quot;
      * @return url
      */
-    @javax.annotation.Nullable public String getUrl() {
+    @jakarta.annotation.Nullable public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nullable String url) {
+    public void setUrl(@jakarta.annotation.Nullable String url) {
         this.url = url;
     }
 
-    public AgentToolDefinition category(@javax.annotation.Nullable String category) {
+    public AgentToolDefinition category(@jakarta.annotation.Nullable String category) {
         this.category = category;
         return this;
     }
@@ -176,15 +176,15 @@ public class AgentToolDefinition {
      * The tool category if any - for UI purposes.
      * @return category
      */
-    @javax.annotation.Nullable public String getCategory() {
+    @jakarta.annotation.Nullable public String getCategory() {
         return category;
     }
 
-    public void setCategory(@javax.annotation.Nullable String category) {
+    public void setCategory(@jakarta.annotation.Nullable String category) {
         this.category = category;
     }
 
-    public AgentToolDefinition _default(@javax.annotation.Nullable Boolean _default) {
+    public AgentToolDefinition _default(@jakarta.annotation.Nullable Boolean _default) {
         this._default = _default;
         return this;
     }
@@ -193,15 +193,15 @@ public class AgentToolDefinition {
      * Whether this tool is available by default. - true/undefined: Tool is always available to agents - false: Tool is only available when enabled by a skill via &#x60;tools&#x60;
      * @return _default
      */
-    @javax.annotation.Nullable public Boolean getDefault() {
+    @jakarta.annotation.Nullable public Boolean getDefault() {
         return _default;
     }
 
-    public void setDefault(@javax.annotation.Nullable Boolean _default) {
+    public void setDefault(@jakarta.annotation.Nullable Boolean _default) {
         this._default = _default;
     }
 
-    public AgentToolDefinition tools(@javax.annotation.Nullable List<String> tools) {
+    public AgentToolDefinition tools(@jakarta.annotation.Nullable List<String> tools) {
         this.tools = tools;
         return this;
     }
@@ -218,16 +218,16 @@ public class AgentToolDefinition {
      * For skill tools (&#x60;learn_*&#x60;): the tool names this skill enables when called. Matches the &#x60;tools:&#x60; key used in SKILL.md frontmatter and built-in skill definitions — one name across the whole stack.
      * @return tools
      */
-    @javax.annotation.Nullable public List<String> getTools() {
+    @jakarta.annotation.Nullable public List<String> getTools() {
         return tools;
     }
 
-    public void setTools(@javax.annotation.Nullable List<String> tools) {
+    public void setTools(@jakarta.annotation.Nullable List<String> tools) {
         this.tools = tools;
     }
 
     public AgentToolDefinition annotations(
-            @javax.annotation.Nullable MCPToolAnnotations annotations) {
+            @jakarta.annotation.Nullable MCPToolAnnotations annotations) {
         this.annotations = annotations;
         return this;
     }
@@ -236,16 +236,16 @@ public class AgentToolDefinition {
      * MCP tool annotations providing hints about tool behavior and safety.
      * @return annotations
      */
-    @javax.annotation.Nullable public MCPToolAnnotations getAnnotations() {
+    @jakarta.annotation.Nullable public MCPToolAnnotations getAnnotations() {
         return annotations;
     }
 
-    public void setAnnotations(@javax.annotation.Nullable MCPToolAnnotations annotations) {
+    public void setAnnotations(@jakarta.annotation.Nullable MCPToolAnnotations annotations) {
         this.annotations = annotations;
     }
 
     public AgentToolDefinition requiresUserConfirmation(
-            @javax.annotation.Nullable Boolean requiresUserConfirmation) {
+            @jakarta.annotation.Nullable Boolean requiresUserConfirmation) {
         this.requiresUserConfirmation = requiresUserConfirmation;
         return this;
     }
@@ -254,12 +254,12 @@ public class AgentToolDefinition {
      * When true, agents must obtain explicit user confirmation via &#x60;ask_user&#x60; (Yes/No) before invoking this tool. If the user answers No, the tool must not run and should return an error indicating the user declined.  Stronger than &#x60;annotations.destructiveHint&#x60; (which is only a hint) — this is a hard contract the agent is expected to honor. Set on tools that perform irreversible or destructive actions (e.g. delete_*).
      * @return requiresUserConfirmation
      */
-    @javax.annotation.Nullable public Boolean getRequiresUserConfirmation() {
+    @jakarta.annotation.Nullable public Boolean getRequiresUserConfirmation() {
         return requiresUserConfirmation;
     }
 
     public void setRequiresUserConfirmation(
-            @javax.annotation.Nullable Boolean requiresUserConfirmation) {
+            @jakarta.annotation.Nullable Boolean requiresUserConfirmation) {
         this.requiresUserConfirmation = requiresUserConfirmation;
     }
 

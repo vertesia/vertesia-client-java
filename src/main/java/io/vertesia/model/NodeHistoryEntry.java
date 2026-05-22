@@ -36,36 +36,36 @@ import java.util.Objects;
 /**
  * NodeHistoryEntry
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class NodeHistoryEntry {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nullable private String id;
+    @jakarta.annotation.Nullable private String id;
 
     public static final String SERIALIZED_NAME_NODE = "node";
 
     @SerializedName(SERIALIZED_NAME_NODE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String node;
 
     public static final String SERIALIZED_NAME_ATTEMPT = "attempt";
 
     @SerializedName(SERIALIZED_NAME_ATTEMPT)
-    @javax.annotation.Nullable private BigDecimal attempt;
+    @jakarta.annotation.Nullable private BigDecimal attempt;
 
     public static final String SERIALIZED_NAME_ENTERED_AT = "entered_at";
 
     @SerializedName(SERIALIZED_NAME_ENTERED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime enteredAt;
 
     public static final String SERIALIZED_NAME_EXITED_AT = "exited_at";
 
     @SerializedName(SERIALIZED_NAME_EXITED_AT)
-    @javax.annotation.Nullable private OffsetDateTime exitedAt;
+    @jakarta.annotation.Nullable private OffsetDateTime exitedAt;
 
     /**
      * Gets or Sets status
@@ -131,42 +131,42 @@ public class NodeHistoryEntry {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private StatusEnum status;
 
     public static final String SERIALIZED_NAME_CONTEXT_DIFF = "context_diff";
 
     @SerializedName(SERIALIZED_NAME_CONTEXT_DIFF)
-    @javax.annotation.Nullable private Map<String, Object> contextDiff = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> contextDiff = new HashMap<>();
 
     public static final String SERIALIZED_NAME_DATA_REF = "data_ref";
 
     @SerializedName(SERIALIZED_NAME_DATA_REF)
-    @javax.annotation.Nullable private String dataRef;
+    @jakarta.annotation.Nullable private String dataRef;
 
     public static final String SERIALIZED_NAME_SEQUENCE = "sequence";
 
     @SerializedName(SERIALIZED_NAME_SEQUENCE)
-    @javax.annotation.Nullable private BigDecimal sequence;
+    @jakarta.annotation.Nullable private BigDecimal sequence;
 
     public static final String SERIALIZED_NAME_CHILD_RUN_ID = "child_run_id";
 
     @SerializedName(SERIALIZED_NAME_CHILD_RUN_ID)
-    @javax.annotation.Nullable private String childRunId;
+    @jakarta.annotation.Nullable private String childRunId;
 
     public static final String SERIALIZED_NAME_CHILD_WORKFLOW_ID = "child_workflow_id";
 
     @SerializedName(SERIALIZED_NAME_CHILD_WORKFLOW_ID)
-    @javax.annotation.Nullable private String childWorkflowId;
+    @jakarta.annotation.Nullable private String childWorkflowId;
 
     public static final String SERIALIZED_NAME_CHILD_WORKFLOW_RUN_ID = "child_workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_CHILD_WORKFLOW_RUN_ID)
-    @javax.annotation.Nullable private String childWorkflowRunId;
+    @jakarta.annotation.Nullable private String childWorkflowRunId;
 
     public NodeHistoryEntry() {}
 
-    public NodeHistoryEntry id(@javax.annotation.Nullable String id) {
+    public NodeHistoryEntry id(@jakarta.annotation.Nullable String id) {
         this.id = id;
         return this;
     }
@@ -175,15 +175,15 @@ public class NodeHistoryEntry {
      * Get id
      * @return id
      */
-    @javax.annotation.Nullable public String getId() {
+    @jakarta.annotation.Nullable public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nullable String id) {
+    public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
     }
 
-    public NodeHistoryEntry node(@javax.annotation.Nonnull String node) {
+    public NodeHistoryEntry node(@jakarta.annotation.Nonnull String node) {
         this.node = node;
         return this;
     }
@@ -192,16 +192,16 @@ public class NodeHistoryEntry {
      * Get node
      * @return node
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getNode() {
         return node;
     }
 
-    public void setNode(@javax.annotation.Nonnull String node) {
+    public void setNode(@jakarta.annotation.Nonnull String node) {
         this.node = node;
     }
 
-    public NodeHistoryEntry attempt(@javax.annotation.Nullable BigDecimal attempt) {
+    public NodeHistoryEntry attempt(@jakarta.annotation.Nullable BigDecimal attempt) {
         this.attempt = attempt;
         return this;
     }
@@ -210,15 +210,15 @@ public class NodeHistoryEntry {
      * Get attempt
      * @return attempt
      */
-    @javax.annotation.Nullable public BigDecimal getAttempt() {
+    @jakarta.annotation.Nullable public BigDecimal getAttempt() {
         return attempt;
     }
 
-    public void setAttempt(@javax.annotation.Nullable BigDecimal attempt) {
+    public void setAttempt(@jakarta.annotation.Nullable BigDecimal attempt) {
         this.attempt = attempt;
     }
 
-    public NodeHistoryEntry enteredAt(@javax.annotation.Nonnull OffsetDateTime enteredAt) {
+    public NodeHistoryEntry enteredAt(@jakarta.annotation.Nonnull OffsetDateTime enteredAt) {
         this.enteredAt = enteredAt;
         return this;
     }
@@ -227,16 +227,16 @@ public class NodeHistoryEntry {
      * Get enteredAt
      * @return enteredAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getEnteredAt() {
         return enteredAt;
     }
 
-    public void setEnteredAt(@javax.annotation.Nonnull OffsetDateTime enteredAt) {
+    public void setEnteredAt(@jakarta.annotation.Nonnull OffsetDateTime enteredAt) {
         this.enteredAt = enteredAt;
     }
 
-    public NodeHistoryEntry exitedAt(@javax.annotation.Nullable OffsetDateTime exitedAt) {
+    public NodeHistoryEntry exitedAt(@jakarta.annotation.Nullable OffsetDateTime exitedAt) {
         this.exitedAt = exitedAt;
         return this;
     }
@@ -245,15 +245,15 @@ public class NodeHistoryEntry {
      * Get exitedAt
      * @return exitedAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getExitedAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getExitedAt() {
         return exitedAt;
     }
 
-    public void setExitedAt(@javax.annotation.Nullable OffsetDateTime exitedAt) {
+    public void setExitedAt(@jakarta.annotation.Nullable OffsetDateTime exitedAt) {
         this.exitedAt = exitedAt;
     }
 
-    public NodeHistoryEntry status(@javax.annotation.Nonnull StatusEnum status) {
+    public NodeHistoryEntry status(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
         return this;
     }
@@ -262,17 +262,17 @@ public class NodeHistoryEntry {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
+    public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
     }
 
     public NodeHistoryEntry contextDiff(
-            @javax.annotation.Nullable Map<String, Object> contextDiff) {
+            @jakarta.annotation.Nullable Map<String, Object> contextDiff) {
         this.contextDiff = contextDiff;
         return this;
     }
@@ -289,15 +289,15 @@ public class NodeHistoryEntry {
      * Get contextDiff
      * @return contextDiff
      */
-    @javax.annotation.Nullable public Map<String, Object> getContextDiff() {
+    @jakarta.annotation.Nullable public Map<String, Object> getContextDiff() {
         return contextDiff;
     }
 
-    public void setContextDiff(@javax.annotation.Nullable Map<String, Object> contextDiff) {
+    public void setContextDiff(@jakarta.annotation.Nullable Map<String, Object> contextDiff) {
         this.contextDiff = contextDiff;
     }
 
-    public NodeHistoryEntry dataRef(@javax.annotation.Nullable String dataRef) {
+    public NodeHistoryEntry dataRef(@jakarta.annotation.Nullable String dataRef) {
         this.dataRef = dataRef;
         return this;
     }
@@ -306,15 +306,15 @@ public class NodeHistoryEntry {
      * Get dataRef
      * @return dataRef
      */
-    @javax.annotation.Nullable public String getDataRef() {
+    @jakarta.annotation.Nullable public String getDataRef() {
         return dataRef;
     }
 
-    public void setDataRef(@javax.annotation.Nullable String dataRef) {
+    public void setDataRef(@jakarta.annotation.Nullable String dataRef) {
         this.dataRef = dataRef;
     }
 
-    public NodeHistoryEntry sequence(@javax.annotation.Nullable BigDecimal sequence) {
+    public NodeHistoryEntry sequence(@jakarta.annotation.Nullable BigDecimal sequence) {
         this.sequence = sequence;
         return this;
     }
@@ -323,15 +323,15 @@ public class NodeHistoryEntry {
      * Get sequence
      * @return sequence
      */
-    @javax.annotation.Nullable public BigDecimal getSequence() {
+    @jakarta.annotation.Nullable public BigDecimal getSequence() {
         return sequence;
     }
 
-    public void setSequence(@javax.annotation.Nullable BigDecimal sequence) {
+    public void setSequence(@jakarta.annotation.Nullable BigDecimal sequence) {
         this.sequence = sequence;
     }
 
-    public NodeHistoryEntry childRunId(@javax.annotation.Nullable String childRunId) {
+    public NodeHistoryEntry childRunId(@jakarta.annotation.Nullable String childRunId) {
         this.childRunId = childRunId;
         return this;
     }
@@ -340,15 +340,15 @@ public class NodeHistoryEntry {
      * Get childRunId
      * @return childRunId
      */
-    @javax.annotation.Nullable public String getChildRunId() {
+    @jakarta.annotation.Nullable public String getChildRunId() {
         return childRunId;
     }
 
-    public void setChildRunId(@javax.annotation.Nullable String childRunId) {
+    public void setChildRunId(@jakarta.annotation.Nullable String childRunId) {
         this.childRunId = childRunId;
     }
 
-    public NodeHistoryEntry childWorkflowId(@javax.annotation.Nullable String childWorkflowId) {
+    public NodeHistoryEntry childWorkflowId(@jakarta.annotation.Nullable String childWorkflowId) {
         this.childWorkflowId = childWorkflowId;
         return this;
     }
@@ -357,16 +357,16 @@ public class NodeHistoryEntry {
      * Get childWorkflowId
      * @return childWorkflowId
      */
-    @javax.annotation.Nullable public String getChildWorkflowId() {
+    @jakarta.annotation.Nullable public String getChildWorkflowId() {
         return childWorkflowId;
     }
 
-    public void setChildWorkflowId(@javax.annotation.Nullable String childWorkflowId) {
+    public void setChildWorkflowId(@jakarta.annotation.Nullable String childWorkflowId) {
         this.childWorkflowId = childWorkflowId;
     }
 
     public NodeHistoryEntry childWorkflowRunId(
-            @javax.annotation.Nullable String childWorkflowRunId) {
+            @jakarta.annotation.Nullable String childWorkflowRunId) {
         this.childWorkflowRunId = childWorkflowRunId;
         return this;
     }
@@ -375,11 +375,11 @@ public class NodeHistoryEntry {
      * Get childWorkflowRunId
      * @return childWorkflowRunId
      */
-    @javax.annotation.Nullable public String getChildWorkflowRunId() {
+    @jakarta.annotation.Nullable public String getChildWorkflowRunId() {
         return childWorkflowRunId;
     }
 
-    public void setChildWorkflowRunId(@javax.annotation.Nullable String childWorkflowRunId) {
+    public void setChildWorkflowRunId(@jakarta.annotation.Nullable String childWorkflowRunId) {
         this.childWorkflowRunId = childWorkflowRunId;
     }
 

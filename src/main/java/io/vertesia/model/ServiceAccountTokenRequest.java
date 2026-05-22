@@ -33,7 +33,7 @@ import java.util.Objects;
 /**
  * ServiceAccountTokenRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ServiceAccountTokenRequest {
@@ -93,44 +93,44 @@ public class ServiceAccountTokenRequest {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_AUDIENCE = "audience";
 
     @SerializedName(SERIALIZED_NAME_AUDIENCE)
-    @javax.annotation.Nullable private String audience;
+    @jakarta.annotation.Nullable private String audience;
 
     public static final String SERIALIZED_NAME_ALGORITHM = "algorithm";
 
     @SerializedName(SERIALIZED_NAME_ALGORITHM)
-    @javax.annotation.Nullable private SigningAlgorithm algorithm;
+    @jakarta.annotation.Nullable private SigningAlgorithm algorithm;
 
     public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String accountId;
 
     public static final String SERIALIZED_NAME_PROJECT_ID = "project_id";
 
     @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String projectId;
 
     public static final String SERIALIZED_NAME_ROLES = "roles";
 
     @SerializedName(SERIALIZED_NAME_ROLES)
-    @javax.annotation.Nullable private List<String> roles = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> roles = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public ServiceAccountTokenRequest() {}
 
-    public ServiceAccountTokenRequest type(@javax.annotation.Nonnull TypeEnum type) {
+    public ServiceAccountTokenRequest type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -139,16 +139,16 @@ public class ServiceAccountTokenRequest {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public ServiceAccountTokenRequest audience(@javax.annotation.Nullable String audience) {
+    public ServiceAccountTokenRequest audience(@jakarta.annotation.Nullable String audience) {
         this.audience = audience;
         return this;
     }
@@ -157,16 +157,16 @@ public class ServiceAccountTokenRequest {
      * Get audience
      * @return audience
      */
-    @javax.annotation.Nullable public String getAudience() {
+    @jakarta.annotation.Nullable public String getAudience() {
         return audience;
     }
 
-    public void setAudience(@javax.annotation.Nullable String audience) {
+    public void setAudience(@jakarta.annotation.Nullable String audience) {
         this.audience = audience;
     }
 
     public ServiceAccountTokenRequest algorithm(
-            @javax.annotation.Nullable SigningAlgorithm algorithm) {
+            @jakarta.annotation.Nullable SigningAlgorithm algorithm) {
         this.algorithm = algorithm;
         return this;
     }
@@ -175,15 +175,15 @@ public class ServiceAccountTokenRequest {
      * Signing algorithm - defaults to ES256. Use RS256 for Azure AD compatibility.
      * @return algorithm
      */
-    @javax.annotation.Nullable public SigningAlgorithm getAlgorithm() {
+    @jakarta.annotation.Nullable public SigningAlgorithm getAlgorithm() {
         return algorithm;
     }
 
-    public void setAlgorithm(@javax.annotation.Nullable SigningAlgorithm algorithm) {
+    public void setAlgorithm(@jakarta.annotation.Nullable SigningAlgorithm algorithm) {
         this.algorithm = algorithm;
     }
 
-    public ServiceAccountTokenRequest accountId(@javax.annotation.Nonnull String accountId) {
+    public ServiceAccountTokenRequest accountId(@jakarta.annotation.Nonnull String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -192,16 +192,16 @@ public class ServiceAccountTokenRequest {
      * Get accountId
      * @return accountId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(@javax.annotation.Nonnull String accountId) {
+    public void setAccountId(@jakarta.annotation.Nonnull String accountId) {
         this.accountId = accountId;
     }
 
-    public ServiceAccountTokenRequest projectId(@javax.annotation.Nonnull String projectId) {
+    public ServiceAccountTokenRequest projectId(@jakarta.annotation.Nonnull String projectId) {
         this.projectId = projectId;
         return this;
     }
@@ -210,16 +210,16 @@ public class ServiceAccountTokenRequest {
      * Get projectId
      * @return projectId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(@javax.annotation.Nonnull String projectId) {
+    public void setProjectId(@jakarta.annotation.Nonnull String projectId) {
         this.projectId = projectId;
     }
 
-    public ServiceAccountTokenRequest roles(@javax.annotation.Nullable List<String> roles) {
+    public ServiceAccountTokenRequest roles(@jakarta.annotation.Nullable List<String> roles) {
         this.roles = roles;
         return this;
     }
@@ -236,15 +236,15 @@ public class ServiceAccountTokenRequest {
      * Get roles
      * @return roles
      */
-    @javax.annotation.Nullable public List<String> getRoles() {
+    @jakarta.annotation.Nullable public List<String> getRoles() {
         return roles;
     }
 
-    public void setRoles(@javax.annotation.Nullable List<String> roles) {
+    public void setRoles(@jakarta.annotation.Nullable List<String> roles) {
         this.roles = roles;
     }
 
-    public ServiceAccountTokenRequest name(@javax.annotation.Nullable String name) {
+    public ServiceAccountTokenRequest name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -253,11 +253,11 @@ public class ServiceAccountTokenRequest {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 

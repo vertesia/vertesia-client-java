@@ -38,65 +38,65 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * AsyncConversationExecutionPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AsyncConversationExecutionPayload {
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String interaction;
 
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    @javax.annotation.Nullable private Object data = null;
+    @jakarta.annotation.Nullable private Object data = null;
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nullable private InteractionExecutionConfiguration config;
+    @jakarta.annotation.Nullable private InteractionExecutionConfiguration config;
 
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema resultSchema;
+    @jakarta.annotation.Nullable private JSONSchema resultSchema;
 
     public static final String SERIALIZED_NAME_DO_VALIDATE = "do_validate";
 
     @SerializedName(SERIALIZED_NAME_DO_VALIDATE)
-    @javax.annotation.Nullable private Boolean doValidate;
+    @jakarta.annotation.Nullable private Boolean doValidate;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CONVERSATION = "conversation";
 
     @SerializedName(SERIALIZED_NAME_CONVERSATION)
-    @javax.annotation.Nullable private Object conversation = null;
+    @jakarta.annotation.Nullable private Object conversation = null;
 
     public static final String SERIALIZED_NAME_TOOL_DEFINITIONS = "tool_definitions";
 
     @SerializedName(SERIALIZED_NAME_TOOL_DEFINITIONS)
-    @javax.annotation.Nullable private List<ToolDefinition> toolDefinitions = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<ToolDefinition> toolDefinitions = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_WORKFLOW = "workflow";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW)
-    @javax.annotation.Nullable private ExecutionRunWorkflow workflow;
+    @jakarta.annotation.Nullable private ExecutionRunWorkflow workflow;
 
     public static final String SERIALIZED_NAME_PROMPTS = "prompts";
 
     @SerializedName(SERIALIZED_NAME_PROMPTS)
-    @javax.annotation.Nullable private List<InCodePrompt> prompts = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<InCodePrompt> prompts = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ASYNC_COMPLETION = "asyncCompletion";
 
     @SerializedName(SERIALIZED_NAME_ASYNC_COMPLETION)
-    @javax.annotation.Nullable private AsyncCompletionOptions asyncCompletion;
+    @jakarta.annotation.Nullable private AsyncCompletionOptions asyncCompletion;
 
     /**
      * Gets or Sets type
@@ -154,132 +154,132 @@ public class AsyncConversationExecutionPayload {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_NOTIFY_ENDPOINTS = "notify_endpoints";
 
     @SerializedName(SERIALIZED_NAME_NOTIFY_ENDPOINTS)
-    @javax.annotation.Nullable private List<String> notifyEndpoints = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> notifyEndpoints = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TASK_QUEUE = "task_queue";
 
     @SerializedName(SERIALIZED_NAME_TASK_QUEUE)
-    @javax.annotation.Nullable private String taskQueue;
+    @jakarta.annotation.Nullable private String taskQueue;
 
     public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
     @SerializedName(SERIALIZED_NAME_VISIBILITY)
-    @javax.annotation.Nullable private ConversationVisibility visibility;
+    @jakarta.annotation.Nullable private ConversationVisibility visibility;
 
     public static final String SERIALIZED_NAME_TOOL_NAMES = "tool_names";
 
     @SerializedName(SERIALIZED_NAME_TOOL_NAMES)
-    @javax.annotation.Nullable private List<String> toolNames = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> toolNames = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_MAX_ITERATIONS = "max_iterations";
 
     @SerializedName(SERIALIZED_NAME_MAX_ITERATIONS)
-    @javax.annotation.Nullable private BigDecimal maxIterations;
+    @jakarta.annotation.Nullable private BigDecimal maxIterations;
 
     public static final String SERIALIZED_NAME_INTERACTIVE = "interactive";
 
     @SerializedName(SERIALIZED_NAME_INTERACTIVE)
-    @javax.annotation.Nullable private Boolean interactive;
+    @jakarta.annotation.Nullable private Boolean interactive;
 
     public static final String SERIALIZED_NAME_USER_CHANNELS = "user_channels";
 
     @SerializedName(SERIALIZED_NAME_USER_CHANNELS)
-    @javax.annotation.Nullable private List<UserChannel> userChannels = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<UserChannel> userChannels = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DISABLE_INTERACTION_TOOLS =
             "disable_interaction_tools";
 
     @SerializedName(SERIALIZED_NAME_DISABLE_INTERACTION_TOOLS)
-    @javax.annotation.Nullable private Boolean disableInteractionTools;
+    @jakarta.annotation.Nullable private Boolean disableInteractionTools;
 
     public static final String SERIALIZED_NAME_SEARCH_SCOPE = "search_scope";
 
     @SerializedName(SERIALIZED_NAME_SEARCH_SCOPE)
-    @javax.annotation.Nullable private AgentSearchScopeCollection searchScope;
+    @jakarta.annotation.Nullable private AgentSearchScopeCollection searchScope;
 
     public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
-    @javax.annotation.Nullable private String collectionId;
+    @jakarta.annotation.Nullable private String collectionId;
 
     public static final String SERIALIZED_NAME_CHECKPOINT_TOKENS = "checkpoint_tokens";
 
     @SerializedName(SERIALIZED_NAME_CHECKPOINT_TOKENS)
-    @javax.annotation.Nullable private BigDecimal checkpointTokens;
+    @jakarta.annotation.Nullable private BigDecimal checkpointTokens;
 
     public static final String SERIALIZED_NAME_STRIP_OPTIONS = "strip_options";
 
     @SerializedName(SERIALIZED_NAME_STRIP_OPTIONS)
-    @javax.annotation.Nullable private ConversationStripOptions stripOptions;
+    @jakarta.annotation.Nullable private ConversationStripOptions stripOptions;
 
     public static final String SERIALIZED_NAME_TASK_ID = "task_id";
 
     @SerializedName(SERIALIZED_NAME_TASK_ID)
-    @javax.annotation.Nullable private String taskId;
+    @jakarta.annotation.Nullable private String taskId;
 
     public static final String SERIALIZED_NAME_LAUNCH_ID = "launch_id";
 
     @SerializedName(SERIALIZED_NAME_LAUNCH_ID)
-    @javax.annotation.Nullable private String launchId;
+    @jakarta.annotation.Nullable private String launchId;
 
     public static final String SERIALIZED_NAME_DEBUG_MODE = "debug_mode";
 
     @SerializedName(SERIALIZED_NAME_DEBUG_MODE)
-    @javax.annotation.Nullable private Boolean debugMode;
+    @jakarta.annotation.Nullable private Boolean debugMode;
 
     public static final String SERIALIZED_NAME_MAX_NESTED_CONVERSATION_DEPTH =
             "max_nested_conversation_depth";
 
     @SerializedName(SERIALIZED_NAME_MAX_NESTED_CONVERSATION_DEPTH)
-    @javax.annotation.Nullable private BigDecimal maxNestedConversationDepth;
+    @jakarta.annotation.Nullable private BigDecimal maxNestedConversationDepth;
 
     public static final String SERIALIZED_NAME_PARENT_METADATA = "parent_metadata";
 
     @SerializedName(SERIALIZED_NAME_PARENT_METADATA)
-    @javax.annotation.Nullable private Map<String, Object> parentMetadata = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> parentMetadata = new HashMap<>();
 
     public static final String SERIALIZED_NAME_NON_BLOCKING_SUBAGENTS = "non_blocking_subagents";
 
     @SerializedName(SERIALIZED_NAME_NON_BLOCKING_SUBAGENTS)
-    @javax.annotation.Nullable private Boolean nonBlockingSubagents;
+    @jakarta.annotation.Nullable private Boolean nonBlockingSubagents;
 
     public static final String SERIALIZED_NAME_RESTART_FROM_WORKFLOW_RUN_ID =
             "restart_from_workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_RESTART_FROM_WORKFLOW_RUN_ID)
-    @javax.annotation.Nullable private String restartFromWorkflowRunId;
+    @jakarta.annotation.Nullable private String restartFromWorkflowRunId;
 
     public static final String SERIALIZED_NAME_SOURCE_FIRST_WORKFLOW_RUN_ID =
             "source_first_workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_SOURCE_FIRST_WORKFLOW_RUN_ID)
-    @javax.annotation.Nullable private String sourceFirstWorkflowRunId;
+    @jakarta.annotation.Nullable private String sourceFirstWorkflowRunId;
 
     public static final String SERIALIZED_NAME_IS_FORK = "is_fork";
 
     @SerializedName(SERIALIZED_NAME_IS_FORK)
-    @javax.annotation.Nullable private Boolean isFork;
+    @jakarta.annotation.Nullable private Boolean isFork;
 
     public static final String SERIALIZED_NAME_AGENT_RUN_ID = "agent_run_id";
 
     @SerializedName(SERIALIZED_NAME_AGENT_RUN_ID)
-    @javax.annotation.Nullable private String agentRunId;
+    @jakarta.annotation.Nullable private String agentRunId;
 
     public static final String SERIALIZED_NAME_SCHEDULE_ID = "schedule_id";
 
     @SerializedName(SERIALIZED_NAME_SCHEDULE_ID)
-    @javax.annotation.Nullable private String scheduleId;
+    @jakarta.annotation.Nullable private String scheduleId;
 
     public AsyncConversationExecutionPayload() {}
 
     public AsyncConversationExecutionPayload interaction(
-            @javax.annotation.Nonnull String interaction) {
+            @jakarta.annotation.Nonnull String interaction) {
         this.interaction = interaction;
         return this;
     }
@@ -288,16 +288,16 @@ public class AsyncConversationExecutionPayload {
      * The interaction name and suffixed by an optional tag or version separated from the name using a @ character If no version/tag part is specified then the latest version is used. Example: ReviewContract, ReviewContract@draft, ReviewContract@1, ReviewContract@some-tag
      * @return interaction
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getInteraction() {
         return interaction;
     }
 
-    public void setInteraction(@javax.annotation.Nonnull String interaction) {
+    public void setInteraction(@jakarta.annotation.Nonnull String interaction) {
         this.interaction = interaction;
     }
 
-    public AsyncConversationExecutionPayload data(@javax.annotation.Nullable Object data) {
+    public AsyncConversationExecutionPayload data(@jakarta.annotation.Nullable Object data) {
         this.data = data;
         return this;
     }
@@ -306,16 +306,16 @@ public class AsyncConversationExecutionPayload {
      * Get data
      * @return data
      */
-    @javax.annotation.Nullable public Object getData() {
+    @jakarta.annotation.Nullable public Object getData() {
         return data;
     }
 
-    public void setData(@javax.annotation.Nullable Object data) {
+    public void setData(@jakarta.annotation.Nullable Object data) {
         this.data = data;
     }
 
     public AsyncConversationExecutionPayload config(
-            @javax.annotation.Nullable InteractionExecutionConfiguration config) {
+            @jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
         this.config = config;
         return this;
     }
@@ -324,16 +324,16 @@ public class AsyncConversationExecutionPayload {
      * Get config
      * @return config
      */
-    @javax.annotation.Nullable public InteractionExecutionConfiguration getConfig() {
+    @jakarta.annotation.Nullable public InteractionExecutionConfiguration getConfig() {
         return config;
     }
 
-    public void setConfig(@javax.annotation.Nullable InteractionExecutionConfiguration config) {
+    public void setConfig(@jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
         this.config = config;
     }
 
     public AsyncConversationExecutionPayload resultSchema(
-            @javax.annotation.Nullable JSONSchema resultSchema) {
+            @jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
         return this;
     }
@@ -342,16 +342,16 @@ public class AsyncConversationExecutionPayload {
      * Get resultSchema
      * @return resultSchema
      */
-    @javax.annotation.Nullable public JSONSchema getResultSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getResultSchema() {
         return resultSchema;
     }
 
-    public void setResultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public void setResultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
     }
 
     public AsyncConversationExecutionPayload doValidate(
-            @javax.annotation.Nullable Boolean doValidate) {
+            @jakarta.annotation.Nullable Boolean doValidate) {
         this.doValidate = doValidate;
         return this;
     }
@@ -360,15 +360,15 @@ public class AsyncConversationExecutionPayload {
      * Get doValidate
      * @return doValidate
      */
-    @javax.annotation.Nullable public Boolean getDoValidate() {
+    @jakarta.annotation.Nullable public Boolean getDoValidate() {
         return doValidate;
     }
 
-    public void setDoValidate(@javax.annotation.Nullable Boolean doValidate) {
+    public void setDoValidate(@jakarta.annotation.Nullable Boolean doValidate) {
         this.doValidate = doValidate;
     }
 
-    public AsyncConversationExecutionPayload tags(@javax.annotation.Nullable List<String> tags) {
+    public AsyncConversationExecutionPayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -385,16 +385,16 @@ public class AsyncConversationExecutionPayload {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
     public AsyncConversationExecutionPayload conversation(
-            @javax.annotation.Nullable Object conversation) {
+            @jakarta.annotation.Nullable Object conversation) {
         this.conversation = conversation;
         return this;
     }
@@ -403,16 +403,16 @@ public class AsyncConversationExecutionPayload {
      * Get conversation
      * @return conversation
      */
-    @javax.annotation.Nullable public Object getConversation() {
+    @jakarta.annotation.Nullable public Object getConversation() {
         return conversation;
     }
 
-    public void setConversation(@javax.annotation.Nullable Object conversation) {
+    public void setConversation(@jakarta.annotation.Nullable Object conversation) {
         this.conversation = conversation;
     }
 
     public AsyncConversationExecutionPayload toolDefinitions(
-            @javax.annotation.Nullable List<ToolDefinition> toolDefinitions) {
+            @jakarta.annotation.Nullable List<ToolDefinition> toolDefinitions) {
         this.toolDefinitions = toolDefinitions;
         return this;
     }
@@ -430,17 +430,17 @@ public class AsyncConversationExecutionPayload {
      * The tools to be used in the execution
      * @return toolDefinitions
      */
-    @javax.annotation.Nullable public List<ToolDefinition> getToolDefinitions() {
+    @jakarta.annotation.Nullable public List<ToolDefinition> getToolDefinitions() {
         return toolDefinitions;
     }
 
     public void setToolDefinitions(
-            @javax.annotation.Nullable List<ToolDefinition> toolDefinitions) {
+            @jakarta.annotation.Nullable List<ToolDefinition> toolDefinitions) {
         this.toolDefinitions = toolDefinitions;
     }
 
     public AsyncConversationExecutionPayload workflow(
-            @javax.annotation.Nullable ExecutionRunWorkflow workflow) {
+            @jakarta.annotation.Nullable ExecutionRunWorkflow workflow) {
         this.workflow = workflow;
         return this;
     }
@@ -449,16 +449,16 @@ public class AsyncConversationExecutionPayload {
      * The workflow related to this Interaction Run.
      * @return workflow
      */
-    @javax.annotation.Nullable public ExecutionRunWorkflow getWorkflow() {
+    @jakarta.annotation.Nullable public ExecutionRunWorkflow getWorkflow() {
         return workflow;
     }
 
-    public void setWorkflow(@javax.annotation.Nullable ExecutionRunWorkflow workflow) {
+    public void setWorkflow(@jakarta.annotation.Nullable ExecutionRunWorkflow workflow) {
         this.workflow = workflow;
     }
 
     public AsyncConversationExecutionPayload prompts(
-            @javax.annotation.Nullable List<InCodePrompt> prompts) {
+            @jakarta.annotation.Nullable List<InCodePrompt> prompts) {
         this.prompts = prompts;
         return this;
     }
@@ -475,16 +475,16 @@ public class AsyncConversationExecutionPayload {
      * Only used by ad-hoc interactions which defines the prompt in the execution payload itself These are temporary interactions using \&quot;tmp:\&quot; suffix.
      * @return prompts
      */
-    @javax.annotation.Nullable public List<InCodePrompt> getPrompts() {
+    @jakarta.annotation.Nullable public List<InCodePrompt> getPrompts() {
         return prompts;
     }
 
-    public void setPrompts(@javax.annotation.Nullable List<InCodePrompt> prompts) {
+    public void setPrompts(@jakarta.annotation.Nullable List<InCodePrompt> prompts) {
         this.prompts = prompts;
     }
 
     public AsyncConversationExecutionPayload asyncCompletion(
-            @javax.annotation.Nullable AsyncCompletionOptions asyncCompletion) {
+            @jakarta.annotation.Nullable AsyncCompletionOptions asyncCompletion) {
         this.asyncCompletion = asyncCompletion;
         return this;
     }
@@ -493,16 +493,16 @@ public class AsyncConversationExecutionPayload {
      * Options for async completion and/or streaming LLM response chunks to Redis. Used by agent workflows for async activity completion and real-time streaming.
      * @return asyncCompletion
      */
-    @javax.annotation.Nullable public AsyncCompletionOptions getAsyncCompletion() {
+    @jakarta.annotation.Nullable public AsyncCompletionOptions getAsyncCompletion() {
         return asyncCompletion;
     }
 
     public void setAsyncCompletion(
-            @javax.annotation.Nullable AsyncCompletionOptions asyncCompletion) {
+            @jakarta.annotation.Nullable AsyncCompletionOptions asyncCompletion) {
         this.asyncCompletion = asyncCompletion;
     }
 
-    public AsyncConversationExecutionPayload type(@javax.annotation.Nonnull TypeEnum type) {
+    public AsyncConversationExecutionPayload type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -511,17 +511,17 @@ public class AsyncConversationExecutionPayload {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
     public AsyncConversationExecutionPayload notifyEndpoints(
-            @javax.annotation.Nullable List<String> notifyEndpoints) {
+            @jakarta.annotation.Nullable List<String> notifyEndpoints) {
         this.notifyEndpoints = notifyEndpoints;
         return this;
     }
@@ -538,16 +538,16 @@ public class AsyncConversationExecutionPayload {
      * An array of endpoint URLs to be notified upon execution
      * @return notifyEndpoints
      */
-    @javax.annotation.Nullable public List<String> getNotifyEndpoints() {
+    @jakarta.annotation.Nullable public List<String> getNotifyEndpoints() {
         return notifyEndpoints;
     }
 
-    public void setNotifyEndpoints(@javax.annotation.Nullable List<String> notifyEndpoints) {
+    public void setNotifyEndpoints(@jakarta.annotation.Nullable List<String> notifyEndpoints) {
         this.notifyEndpoints = notifyEndpoints;
     }
 
     public AsyncConversationExecutionPayload taskQueue(
-            @javax.annotation.Nullable String taskQueue) {
+            @jakarta.annotation.Nullable String taskQueue) {
         this.taskQueue = taskQueue;
         return this;
     }
@@ -556,16 +556,16 @@ public class AsyncConversationExecutionPayload {
      * Get taskQueue
      * @return taskQueue
      */
-    @javax.annotation.Nullable public String getTaskQueue() {
+    @jakarta.annotation.Nullable public String getTaskQueue() {
         return taskQueue;
     }
 
-    public void setTaskQueue(@javax.annotation.Nullable String taskQueue) {
+    public void setTaskQueue(@jakarta.annotation.Nullable String taskQueue) {
         this.taskQueue = taskQueue;
     }
 
     public AsyncConversationExecutionPayload visibility(
-            @javax.annotation.Nullable ConversationVisibility visibility) {
+            @jakarta.annotation.Nullable ConversationVisibility visibility) {
         this.visibility = visibility;
         return this;
     }
@@ -574,16 +574,16 @@ public class AsyncConversationExecutionPayload {
      * Visibility determine if the conversation should be seen by the user only or by anyone with access to the project If not specified, the default is project
      * @return visibility
      */
-    @javax.annotation.Nullable public ConversationVisibility getVisibility() {
+    @jakarta.annotation.Nullable public ConversationVisibility getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(@javax.annotation.Nullable ConversationVisibility visibility) {
+    public void setVisibility(@jakarta.annotation.Nullable ConversationVisibility visibility) {
         this.visibility = visibility;
     }
 
     public AsyncConversationExecutionPayload toolNames(
-            @javax.annotation.Nullable List<String> toolNames) {
+            @jakarta.annotation.Nullable List<String> toolNames) {
         this.toolNames = toolNames;
         return this;
     }
@@ -600,16 +600,16 @@ public class AsyncConversationExecutionPayload {
      * The tools to use, list of tool or function names. You can use + and - to add or remove from default, if no sign, then list replaces default
      * @return toolNames
      */
-    @javax.annotation.Nullable public List<String> getToolNames() {
+    @jakarta.annotation.Nullable public List<String> getToolNames() {
         return toolNames;
     }
 
-    public void setToolNames(@javax.annotation.Nullable List<String> toolNames) {
+    public void setToolNames(@jakarta.annotation.Nullable List<String> toolNames) {
         this.toolNames = toolNames;
     }
 
     public AsyncConversationExecutionPayload maxIterations(
-            @javax.annotation.Nullable BigDecimal maxIterations) {
+            @jakarta.annotation.Nullable BigDecimal maxIterations) {
         this.maxIterations = maxIterations;
         return this;
     }
@@ -618,16 +618,16 @@ public class AsyncConversationExecutionPayload {
      * The maximum number of iterations in case of a conversation. If &lt;&#x3D;0 the default of 20 will be used.
      * @return maxIterations
      */
-    @javax.annotation.Nullable public BigDecimal getMaxIterations() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxIterations() {
         return maxIterations;
     }
 
-    public void setMaxIterations(@javax.annotation.Nullable BigDecimal maxIterations) {
+    public void setMaxIterations(@jakarta.annotation.Nullable BigDecimal maxIterations) {
         this.maxIterations = maxIterations;
     }
 
     public AsyncConversationExecutionPayload interactive(
-            @javax.annotation.Nullable Boolean interactive) {
+            @jakarta.annotation.Nullable Boolean interactive) {
         this.interactive = interactive;
         return this;
     }
@@ -636,16 +636,16 @@ public class AsyncConversationExecutionPayload {
      * Whether the conversation should be interactive or not
      * @return interactive
      */
-    @javax.annotation.Nullable public Boolean getInteractive() {
+    @jakarta.annotation.Nullable public Boolean getInteractive() {
         return interactive;
     }
 
-    public void setInteractive(@javax.annotation.Nullable Boolean interactive) {
+    public void setInteractive(@jakarta.annotation.Nullable Boolean interactive) {
         this.interactive = interactive;
     }
 
     public AsyncConversationExecutionPayload userChannels(
-            @javax.annotation.Nullable List<UserChannel> userChannels) {
+            @jakarta.annotation.Nullable List<UserChannel> userChannels) {
         this.userChannels = userChannels;
         return this;
     }
@@ -662,16 +662,16 @@ public class AsyncConversationExecutionPayload {
      * Array of channels to use for user communication. Multiple channels can be active simultaneously (e.g., both email and interactive). Each channel contains its own configuration and state (e.g., email threading info).
      * @return userChannels
      */
-    @javax.annotation.Nullable public List<UserChannel> getUserChannels() {
+    @jakarta.annotation.Nullable public List<UserChannel> getUserChannels() {
         return userChannels;
     }
 
-    public void setUserChannels(@javax.annotation.Nullable List<UserChannel> userChannels) {
+    public void setUserChannels(@jakarta.annotation.Nullable List<UserChannel> userChannels) {
         this.userChannels = userChannels;
     }
 
     public AsyncConversationExecutionPayload disableInteractionTools(
-            @javax.annotation.Nullable Boolean disableInteractionTools) {
+            @jakarta.annotation.Nullable Boolean disableInteractionTools) {
         this.disableInteractionTools = disableInteractionTools;
         return this;
     }
@@ -680,17 +680,17 @@ public class AsyncConversationExecutionPayload {
      * Whether to disable the generation of interaction tools or not.
      * @return disableInteractionTools
      */
-    @javax.annotation.Nullable public Boolean getDisableInteractionTools() {
+    @jakarta.annotation.Nullable public Boolean getDisableInteractionTools() {
         return disableInteractionTools;
     }
 
     public void setDisableInteractionTools(
-            @javax.annotation.Nullable Boolean disableInteractionTools) {
+            @jakarta.annotation.Nullable Boolean disableInteractionTools) {
         this.disableInteractionTools = disableInteractionTools;
     }
 
     public AsyncConversationExecutionPayload searchScope(
-            @javax.annotation.Nullable AgentSearchScopeCollection searchScope) {
+            @jakarta.annotation.Nullable AgentSearchScopeCollection searchScope) {
         this.searchScope = searchScope;
         return this;
     }
@@ -699,16 +699,17 @@ public class AsyncConversationExecutionPayload {
      * On which scope should the searched by applied, by the search_tool. Only supports collection scope or null for now.
      * @return searchScope
      */
-    @javax.annotation.Nullable public AgentSearchScopeCollection getSearchScope() {
+    @jakarta.annotation.Nullable public AgentSearchScopeCollection getSearchScope() {
         return searchScope;
     }
 
-    public void setSearchScope(@javax.annotation.Nullable AgentSearchScopeCollection searchScope) {
+    public void setSearchScope(
+            @jakarta.annotation.Nullable AgentSearchScopeCollection searchScope) {
         this.searchScope = searchScope;
     }
 
     public AsyncConversationExecutionPayload collectionId(
-            @javax.annotation.Nullable String collectionId) {
+            @jakarta.annotation.Nullable String collectionId) {
         this.collectionId = collectionId;
         return this;
     }
@@ -717,16 +718,16 @@ public class AsyncConversationExecutionPayload {
      * The collection in which this workflow is executing
      * @return collectionId
      */
-    @javax.annotation.Nullable public String getCollectionId() {
+    @jakarta.annotation.Nullable public String getCollectionId() {
         return collectionId;
     }
 
-    public void setCollectionId(@javax.annotation.Nullable String collectionId) {
+    public void setCollectionId(@jakarta.annotation.Nullable String collectionId) {
         this.collectionId = collectionId;
     }
 
     public AsyncConversationExecutionPayload checkpointTokens(
-            @javax.annotation.Nullable BigDecimal checkpointTokens) {
+            @jakarta.annotation.Nullable BigDecimal checkpointTokens) {
         this.checkpointTokens = checkpointTokens;
         return this;
     }
@@ -735,16 +736,16 @@ public class AsyncConversationExecutionPayload {
      * The token threshold in thousands (K) for creating checkpoints. If total tokens exceed this value, a checkpoint will be created. If not specified, the default is computed from the selected model context window (75%).
      * @return checkpointTokens
      */
-    @javax.annotation.Nullable public BigDecimal getCheckpointTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getCheckpointTokens() {
         return checkpointTokens;
     }
 
-    public void setCheckpointTokens(@javax.annotation.Nullable BigDecimal checkpointTokens) {
+    public void setCheckpointTokens(@jakarta.annotation.Nullable BigDecimal checkpointTokens) {
         this.checkpointTokens = checkpointTokens;
     }
 
     public AsyncConversationExecutionPayload stripOptions(
-            @javax.annotation.Nullable ConversationStripOptions stripOptions) {
+            @jakarta.annotation.Nullable ConversationStripOptions stripOptions) {
         this.stripOptions = stripOptions;
         return this;
     }
@@ -753,15 +754,16 @@ public class AsyncConversationExecutionPayload {
      * Configuration for stripping large data (images, text) from conversation history to prevent JSON serialization issues and reduce storage bloat.
      * @return stripOptions
      */
-    @javax.annotation.Nullable public ConversationStripOptions getStripOptions() {
+    @jakarta.annotation.Nullable public ConversationStripOptions getStripOptions() {
         return stripOptions;
     }
 
-    public void setStripOptions(@javax.annotation.Nullable ConversationStripOptions stripOptions) {
+    public void setStripOptions(
+            @jakarta.annotation.Nullable ConversationStripOptions stripOptions) {
         this.stripOptions = stripOptions;
     }
 
-    public AsyncConversationExecutionPayload taskId(@javax.annotation.Nullable String taskId) {
+    public AsyncConversationExecutionPayload taskId(@jakarta.annotation.Nullable String taskId) {
         this.taskId = taskId;
         return this;
     }
@@ -770,15 +772,16 @@ public class AsyncConversationExecutionPayload {
      * In child execution workflow, this is the curent task_id
      * @return taskId
      */
-    @javax.annotation.Nullable public String getTaskId() {
+    @jakarta.annotation.Nullable public String getTaskId() {
         return taskId;
     }
 
-    public void setTaskId(@javax.annotation.Nullable String taskId) {
+    public void setTaskId(@jakarta.annotation.Nullable String taskId) {
         this.taskId = taskId;
     }
 
-    public AsyncConversationExecutionPayload launchId(@javax.annotation.Nullable String launchId) {
+    public AsyncConversationExecutionPayload launchId(
+            @jakarta.annotation.Nullable String launchId) {
         this.launchId = launchId;
         return this;
     }
@@ -787,16 +790,16 @@ public class AsyncConversationExecutionPayload {
      * Parent-assigned launch ID for non-blocking workstreams. The child uses this when signaling progress/completion back to the parent.
      * @return launchId
      */
-    @javax.annotation.Nullable public String getLaunchId() {
+    @jakarta.annotation.Nullable public String getLaunchId() {
         return launchId;
     }
 
-    public void setLaunchId(@javax.annotation.Nullable String launchId) {
+    public void setLaunchId(@jakarta.annotation.Nullable String launchId) {
         this.launchId = launchId;
     }
 
     public AsyncConversationExecutionPayload debugMode(
-            @javax.annotation.Nullable Boolean debugMode) {
+            @jakarta.annotation.Nullable Boolean debugMode) {
         this.debugMode = debugMode;
         return this;
     }
@@ -805,16 +808,16 @@ public class AsyncConversationExecutionPayload {
      * Whether to enable debug mode
      * @return debugMode
      */
-    @javax.annotation.Nullable public Boolean getDebugMode() {
+    @jakarta.annotation.Nullable public Boolean getDebugMode() {
         return debugMode;
     }
 
-    public void setDebugMode(@javax.annotation.Nullable Boolean debugMode) {
+    public void setDebugMode(@jakarta.annotation.Nullable Boolean debugMode) {
         this.debugMode = debugMode;
     }
 
     public AsyncConversationExecutionPayload maxNestedConversationDepth(
-            @javax.annotation.Nullable BigDecimal maxNestedConversationDepth) {
+            @jakarta.annotation.Nullable BigDecimal maxNestedConversationDepth) {
         this.maxNestedConversationDepth = maxNestedConversationDepth;
         return this;
     }
@@ -823,17 +826,17 @@ public class AsyncConversationExecutionPayload {
      * Maximum depth for nested conversations to prevent infinite recursion (default: 5)
      * @return maxNestedConversationDepth
      */
-    @javax.annotation.Nullable public BigDecimal getMaxNestedConversationDepth() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxNestedConversationDepth() {
         return maxNestedConversationDepth;
     }
 
     public void setMaxNestedConversationDepth(
-            @javax.annotation.Nullable BigDecimal maxNestedConversationDepth) {
+            @jakarta.annotation.Nullable BigDecimal maxNestedConversationDepth) {
         this.maxNestedConversationDepth = maxNestedConversationDepth;
     }
 
     public AsyncConversationExecutionPayload parentMetadata(
-            @javax.annotation.Nullable Map<String, Object> parentMetadata) {
+            @jakarta.annotation.Nullable Map<String, Object> parentMetadata) {
         this.parentMetadata = parentMetadata;
         return this;
     }
@@ -851,16 +854,16 @@ public class AsyncConversationExecutionPayload {
      * Metadata inherited from parent workflow. Used to propagate context (e.g., apiKey, session info) to child workflows/workstreams. When a workstream is spawned, the parent&#39;s &#x60;data&#x60; is preserved here so that child tools can access it via metadata.parent_metadata.
      * @return parentMetadata
      */
-    @javax.annotation.Nullable public Map<String, Object> getParentMetadata() {
+    @jakarta.annotation.Nullable public Map<String, Object> getParentMetadata() {
         return parentMetadata;
     }
 
-    public void setParentMetadata(@javax.annotation.Nullable Map<String, Object> parentMetadata) {
+    public void setParentMetadata(@jakarta.annotation.Nullable Map<String, Object> parentMetadata) {
         this.parentMetadata = parentMetadata;
     }
 
     public AsyncConversationExecutionPayload nonBlockingSubagents(
-            @javax.annotation.Nullable Boolean nonBlockingSubagents) {
+            @jakarta.annotation.Nullable Boolean nonBlockingSubagents) {
         this.nonBlockingSubagents = nonBlockingSubagents;
         return this;
     }
@@ -869,16 +872,16 @@ public class AsyncConversationExecutionPayload {
      * When true, subagent/workstream tool calls use fire-and-forget &#x60;startChild()&#x60; instead of blocking &#x60;executeChild()&#x60;. The parent continues reasoning while children run, receiving progress/completion via Temporal signals.
      * @return nonBlockingSubagents
      */
-    @javax.annotation.Nullable public Boolean getNonBlockingSubagents() {
+    @jakarta.annotation.Nullable public Boolean getNonBlockingSubagents() {
         return nonBlockingSubagents;
     }
 
-    public void setNonBlockingSubagents(@javax.annotation.Nullable Boolean nonBlockingSubagents) {
+    public void setNonBlockingSubagents(@jakarta.annotation.Nullable Boolean nonBlockingSubagents) {
         this.nonBlockingSubagents = nonBlockingSubagents;
     }
 
     public AsyncConversationExecutionPayload restartFromWorkflowRunId(
-            @javax.annotation.Nullable String restartFromWorkflowRunId) {
+            @jakarta.annotation.Nullable String restartFromWorkflowRunId) {
         this.restartFromWorkflowRunId = restartFromWorkflowRunId;
         return this;
     }
@@ -887,17 +890,17 @@ public class AsyncConversationExecutionPayload {
      * Temporal runId of a previous workflow to restart/fork from. When set, conversation history is loaded from the old run&#39;s GCS storage instead of calling startConversation fresh.
      * @return restartFromWorkflowRunId
      */
-    @javax.annotation.Nullable public String getRestartFromWorkflowRunId() {
+    @jakarta.annotation.Nullable public String getRestartFromWorkflowRunId() {
         return restartFromWorkflowRunId;
     }
 
     public void setRestartFromWorkflowRunId(
-            @javax.annotation.Nullable String restartFromWorkflowRunId) {
+            @jakarta.annotation.Nullable String restartFromWorkflowRunId) {
         this.restartFromWorkflowRunId = restartFromWorkflowRunId;
     }
 
     public AsyncConversationExecutionPayload sourceFirstWorkflowRunId(
-            @javax.annotation.Nullable String sourceFirstWorkflowRunId) {
+            @jakarta.annotation.Nullable String sourceFirstWorkflowRunId) {
         this.sourceFirstWorkflowRunId = sourceFirstWorkflowRunId;
         return this;
     }
@@ -906,16 +909,16 @@ public class AsyncConversationExecutionPayload {
      * The Temporal firstExecutionRunId of the original workflow being restarted/forked. Used by loadConversationForRestart to look up the original ExecutionRun so that token accumulation and status updates target a valid run.
      * @return sourceFirstWorkflowRunId
      */
-    @javax.annotation.Nullable public String getSourceFirstWorkflowRunId() {
+    @jakarta.annotation.Nullable public String getSourceFirstWorkflowRunId() {
         return sourceFirstWorkflowRunId;
     }
 
     public void setSourceFirstWorkflowRunId(
-            @javax.annotation.Nullable String sourceFirstWorkflowRunId) {
+            @jakarta.annotation.Nullable String sourceFirstWorkflowRunId) {
         this.sourceFirstWorkflowRunId = sourceFirstWorkflowRunId;
     }
 
-    public AsyncConversationExecutionPayload isFork(@javax.annotation.Nullable Boolean isFork) {
+    public AsyncConversationExecutionPayload isFork(@jakarta.annotation.Nullable Boolean isFork) {
         this.isFork = isFork;
         return this;
     }
@@ -924,16 +927,16 @@ public class AsyncConversationExecutionPayload {
      * When true, indicates this is a fork (new ExecutionRun) rather than a restart (reuse original).
      * @return isFork
      */
-    @javax.annotation.Nullable public Boolean getIsFork() {
+    @jakarta.annotation.Nullable public Boolean getIsFork() {
         return isFork;
     }
 
-    public void setIsFork(@javax.annotation.Nullable Boolean isFork) {
+    public void setIsFork(@jakarta.annotation.Nullable Boolean isFork) {
         this.isFork = isFork;
     }
 
     public AsyncConversationExecutionPayload agentRunId(
-            @javax.annotation.Nullable String agentRunId) {
+            @jakarta.annotation.Nullable String agentRunId) {
         this.agentRunId = agentRunId;
         return this;
     }
@@ -942,16 +945,16 @@ public class AsyncConversationExecutionPayload {
      * The AgentRun MongoDB _id. Used for artifact storage paths: agents/{agent_run_id}/ Flows into ConversationState and down to workstreams. Undefined for legacy workflows started before the AgentRun system.
      * @return agentRunId
      */
-    @javax.annotation.Nullable public String getAgentRunId() {
+    @jakarta.annotation.Nullable public String getAgentRunId() {
         return agentRunId;
     }
 
-    public void setAgentRunId(@javax.annotation.Nullable String agentRunId) {
+    public void setAgentRunId(@jakarta.annotation.Nullable String agentRunId) {
         this.agentRunId = agentRunId;
     }
 
     public AsyncConversationExecutionPayload scheduleId(
-            @javax.annotation.Nullable String scheduleId) {
+            @jakarta.annotation.Nullable String scheduleId) {
         this.scheduleId = scheduleId;
         return this;
     }
@@ -960,11 +963,11 @@ public class AsyncConversationExecutionPayload {
      * The Schedule MongoDB _id. Set when this execution was triggered by a Temporal schedule. Used by the workflow to create an AgentRun on first run if agent_run_id is absent.
      * @return scheduleId
      */
-    @javax.annotation.Nullable public String getScheduleId() {
+    @jakarta.annotation.Nullable public String getScheduleId() {
         return scheduleId;
     }
 
-    public void setScheduleId(@javax.annotation.Nullable String scheduleId) {
+    public void setScheduleId(@jakarta.annotation.Nullable String scheduleId) {
         this.scheduleId = scheduleId;
     }
 

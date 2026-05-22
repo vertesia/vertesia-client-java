@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * WorkflowHistoryOneOf2
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WorkflowHistoryOneOf2 {
@@ -94,18 +94,18 @@ public class WorkflowHistoryOneOf2 {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_AGENT_TASKS = "agentTasks";
 
     @SerializedName(SERIALIZED_NAME_AGENT_TASKS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<AgentTask> agentTasks = new ArrayList<>();
 
     public WorkflowHistoryOneOf2() {}
 
-    public WorkflowHistoryOneOf2 type(@javax.annotation.Nonnull TypeEnum type) {
+    public WorkflowHistoryOneOf2 type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -114,16 +114,17 @@ public class WorkflowHistoryOneOf2 {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public WorkflowHistoryOneOf2 agentTasks(@javax.annotation.Nonnull List<AgentTask> agentTasks) {
+    public WorkflowHistoryOneOf2 agentTasks(
+            @jakarta.annotation.Nonnull List<AgentTask> agentTasks) {
         this.agentTasks = agentTasks;
         return this;
     }
@@ -140,12 +141,12 @@ public class WorkflowHistoryOneOf2 {
      * Get agentTasks
      * @return agentTasks
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<AgentTask> getAgentTasks() {
         return agentTasks;
     }
 
-    public void setAgentTasks(@javax.annotation.Nonnull List<AgentTask> agentTasks) {
+    public void setAgentTasks(@jakarta.annotation.Nonnull List<AgentTask> agentTasks) {
         this.agentTasks = agentTasks;
     }
 

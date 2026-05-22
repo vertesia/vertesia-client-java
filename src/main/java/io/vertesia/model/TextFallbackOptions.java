@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * TextFallbackOptions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class TextFallbackOptions {
@@ -94,47 +94,47 @@ public class TextFallbackOptions {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OptionIdEnum optionId;
 
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
-    @javax.annotation.Nullable private BigDecimal maxTokens;
+    @jakarta.annotation.Nullable private BigDecimal maxTokens;
 
     public static final String SERIALIZED_NAME_TEMPERATURE = "temperature";
 
     @SerializedName(SERIALIZED_NAME_TEMPERATURE)
-    @javax.annotation.Nullable private BigDecimal temperature;
+    @jakarta.annotation.Nullable private BigDecimal temperature;
 
     public static final String SERIALIZED_NAME_TOP_P = "top_p";
 
     @SerializedName(SERIALIZED_NAME_TOP_P)
-    @javax.annotation.Nullable private BigDecimal topP;
+    @jakarta.annotation.Nullable private BigDecimal topP;
 
     public static final String SERIALIZED_NAME_TOP_K = "top_k";
 
     @SerializedName(SERIALIZED_NAME_TOP_K)
-    @javax.annotation.Nullable private BigDecimal topK;
+    @jakarta.annotation.Nullable private BigDecimal topK;
 
     public static final String SERIALIZED_NAME_PRESENCE_PENALTY = "presence_penalty";
 
     @SerializedName(SERIALIZED_NAME_PRESENCE_PENALTY)
-    @javax.annotation.Nullable private BigDecimal presencePenalty;
+    @jakarta.annotation.Nullable private BigDecimal presencePenalty;
 
     public static final String SERIALIZED_NAME_FREQUENCY_PENALTY = "frequency_penalty";
 
     @SerializedName(SERIALIZED_NAME_FREQUENCY_PENALTY)
-    @javax.annotation.Nullable private BigDecimal frequencyPenalty;
+    @jakarta.annotation.Nullable private BigDecimal frequencyPenalty;
 
     public static final String SERIALIZED_NAME_STOP_SEQUENCE = "stop_sequence";
 
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
-    @javax.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
     public TextFallbackOptions() {}
 
-    public TextFallbackOptions optionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public TextFallbackOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -143,16 +143,16 @@ public class TextFallbackOptions {
      * Get optionId
      * @return optionId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
-    public TextFallbackOptions maxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public TextFallbackOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
         return this;
     }
@@ -161,15 +161,15 @@ public class TextFallbackOptions {
      * Get maxTokens
      * @return maxTokens
      */
-    @javax.annotation.Nullable public BigDecimal getMaxTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxTokens() {
         return maxTokens;
     }
 
-    public void setMaxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public void setMaxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
     }
 
-    public TextFallbackOptions temperature(@javax.annotation.Nullable BigDecimal temperature) {
+    public TextFallbackOptions temperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
         return this;
     }
@@ -178,15 +178,15 @@ public class TextFallbackOptions {
      * Get temperature
      * @return temperature
      */
-    @javax.annotation.Nullable public BigDecimal getTemperature() {
+    @jakarta.annotation.Nullable public BigDecimal getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(@javax.annotation.Nullable BigDecimal temperature) {
+    public void setTemperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
     }
 
-    public TextFallbackOptions topP(@javax.annotation.Nullable BigDecimal topP) {
+    public TextFallbackOptions topP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
         return this;
     }
@@ -195,15 +195,15 @@ public class TextFallbackOptions {
      * Get topP
      * @return topP
      */
-    @javax.annotation.Nullable public BigDecimal getTopP() {
+    @jakarta.annotation.Nullable public BigDecimal getTopP() {
         return topP;
     }
 
-    public void setTopP(@javax.annotation.Nullable BigDecimal topP) {
+    public void setTopP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
     }
 
-    public TextFallbackOptions topK(@javax.annotation.Nullable BigDecimal topK) {
+    public TextFallbackOptions topK(@jakarta.annotation.Nullable BigDecimal topK) {
         this.topK = topK;
         return this;
     }
@@ -212,16 +212,16 @@ public class TextFallbackOptions {
      * Get topK
      * @return topK
      */
-    @javax.annotation.Nullable public BigDecimal getTopK() {
+    @jakarta.annotation.Nullable public BigDecimal getTopK() {
         return topK;
     }
 
-    public void setTopK(@javax.annotation.Nullable BigDecimal topK) {
+    public void setTopK(@jakarta.annotation.Nullable BigDecimal topK) {
         this.topK = topK;
     }
 
     public TextFallbackOptions presencePenalty(
-            @javax.annotation.Nullable BigDecimal presencePenalty) {
+            @jakarta.annotation.Nullable BigDecimal presencePenalty) {
         this.presencePenalty = presencePenalty;
         return this;
     }
@@ -230,16 +230,16 @@ public class TextFallbackOptions {
      * Get presencePenalty
      * @return presencePenalty
      */
-    @javax.annotation.Nullable public BigDecimal getPresencePenalty() {
+    @jakarta.annotation.Nullable public BigDecimal getPresencePenalty() {
         return presencePenalty;
     }
 
-    public void setPresencePenalty(@javax.annotation.Nullable BigDecimal presencePenalty) {
+    public void setPresencePenalty(@jakarta.annotation.Nullable BigDecimal presencePenalty) {
         this.presencePenalty = presencePenalty;
     }
 
     public TextFallbackOptions frequencyPenalty(
-            @javax.annotation.Nullable BigDecimal frequencyPenalty) {
+            @jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
         this.frequencyPenalty = frequencyPenalty;
         return this;
     }
@@ -248,15 +248,16 @@ public class TextFallbackOptions {
      * Get frequencyPenalty
      * @return frequencyPenalty
      */
-    @javax.annotation.Nullable public BigDecimal getFrequencyPenalty() {
+    @jakarta.annotation.Nullable public BigDecimal getFrequencyPenalty() {
         return frequencyPenalty;
     }
 
-    public void setFrequencyPenalty(@javax.annotation.Nullable BigDecimal frequencyPenalty) {
+    public void setFrequencyPenalty(@jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
         this.frequencyPenalty = frequencyPenalty;
     }
 
-    public TextFallbackOptions stopSequence(@javax.annotation.Nullable List<String> stopSequence) {
+    public TextFallbackOptions stopSequence(
+            @jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
         return this;
     }
@@ -273,11 +274,11 @@ public class TextFallbackOptions {
      * Get stopSequence
      * @return stopSequence
      */
-    @javax.annotation.Nullable public List<String> getStopSequence() {
+    @jakarta.annotation.Nullable public List<String> getStopSequence() {
         return stopSequence;
     }
 
-    public void setStopSequence(@javax.annotation.Nullable List<String> stopSequence) {
+    public void setStopSequence(@jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
     }
 

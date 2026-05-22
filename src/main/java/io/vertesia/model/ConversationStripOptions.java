@@ -31,29 +31,29 @@ import java.util.Objects;
 /**
  * Configuration for stripping large data from conversation history to prevent JSON serialization issues and reduce storage bloat.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ConversationStripOptions {
     public static final String SERIALIZED_NAME_IMAGES_AFTER_TURNS = "images_after_turns";
 
     @SerializedName(SERIALIZED_NAME_IMAGES_AFTER_TURNS)
-    @javax.annotation.Nullable private BigDecimal imagesAfterTurns;
+    @jakarta.annotation.Nullable private BigDecimal imagesAfterTurns;
 
     public static final String SERIALIZED_NAME_TEXT_MAX_TOKENS = "text_max_tokens";
 
     @SerializedName(SERIALIZED_NAME_TEXT_MAX_TOKENS)
-    @javax.annotation.Nullable private BigDecimal textMaxTokens;
+    @jakarta.annotation.Nullable private BigDecimal textMaxTokens;
 
     public static final String SERIALIZED_NAME_HEARTBEATS_AFTER_TURNS = "heartbeats_after_turns";
 
     @SerializedName(SERIALIZED_NAME_HEARTBEATS_AFTER_TURNS)
-    @javax.annotation.Nullable private BigDecimal heartbeatsAfterTurns;
+    @jakarta.annotation.Nullable private BigDecimal heartbeatsAfterTurns;
 
     public ConversationStripOptions() {}
 
     public ConversationStripOptions imagesAfterTurns(
-            @javax.annotation.Nullable BigDecimal imagesAfterTurns) {
+            @jakarta.annotation.Nullable BigDecimal imagesAfterTurns) {
         this.imagesAfterTurns = imagesAfterTurns;
         return this;
     }
@@ -62,16 +62,16 @@ public class ConversationStripOptions {
      * Number of turns to keep images before stripping them. - 0: Strip images immediately after each turn - N &gt; 0: Keep images for N turns before stripping (default: 5) - Infinity: Never strip images
      * @return imagesAfterTurns
      */
-    @javax.annotation.Nullable public BigDecimal getImagesAfterTurns() {
+    @jakarta.annotation.Nullable public BigDecimal getImagesAfterTurns() {
         return imagesAfterTurns;
     }
 
-    public void setImagesAfterTurns(@javax.annotation.Nullable BigDecimal imagesAfterTurns) {
+    public void setImagesAfterTurns(@jakarta.annotation.Nullable BigDecimal imagesAfterTurns) {
         this.imagesAfterTurns = imagesAfterTurns;
     }
 
     public ConversationStripOptions textMaxTokens(
-            @javax.annotation.Nullable BigDecimal textMaxTokens) {
+            @jakarta.annotation.Nullable BigDecimal textMaxTokens) {
         this.textMaxTokens = textMaxTokens;
         return this;
     }
@@ -80,16 +80,16 @@ public class ConversationStripOptions {
      * Maximum tokens for text content before truncation. Text content exceeding this limit will be truncated with a marker. Uses ~4 characters per token estimate.
      * @return textMaxTokens
      */
-    @javax.annotation.Nullable public BigDecimal getTextMaxTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getTextMaxTokens() {
         return textMaxTokens;
     }
 
-    public void setTextMaxTokens(@javax.annotation.Nullable BigDecimal textMaxTokens) {
+    public void setTextMaxTokens(@jakarta.annotation.Nullable BigDecimal textMaxTokens) {
         this.textMaxTokens = textMaxTokens;
     }
 
     public ConversationStripOptions heartbeatsAfterTurns(
-            @javax.annotation.Nullable BigDecimal heartbeatsAfterTurns) {
+            @jakarta.annotation.Nullable BigDecimal heartbeatsAfterTurns) {
         this.heartbeatsAfterTurns = heartbeatsAfterTurns;
         return this;
     }
@@ -98,12 +98,12 @@ public class ConversationStripOptions {
      * Number of turns to keep heartbeat messages before stripping them. Heartbeat messages are periodic workstream status updates wrapped in &#x60;&lt;heartbeat&gt;...&lt;/heartbeat&gt;&#x60; tags that clutter conversation history. - 0: Strip heartbeats immediately after each turn - 1 (default): Keep only the most recent heartbeat - N &gt; 0: Keep heartbeats for N turns before stripping - Infinity: Never strip heartbeats
      * @return heartbeatsAfterTurns
      */
-    @javax.annotation.Nullable public BigDecimal getHeartbeatsAfterTurns() {
+    @jakarta.annotation.Nullable public BigDecimal getHeartbeatsAfterTurns() {
         return heartbeatsAfterTurns;
     }
 
     public void setHeartbeatsAfterTurns(
-            @javax.annotation.Nullable BigDecimal heartbeatsAfterTurns) {
+            @jakarta.annotation.Nullable BigDecimal heartbeatsAfterTurns) {
         this.heartbeatsAfterTurns = heartbeatsAfterTurns;
     }
 

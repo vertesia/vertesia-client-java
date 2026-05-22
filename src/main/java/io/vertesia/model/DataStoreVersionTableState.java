@@ -31,25 +31,25 @@ import java.util.Objects;
 /**
  * Table state within a version.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataStoreVersionTableState {
     public static final String SERIALIZED_NAME_ROW_COUNT = "row_count";
 
     @SerializedName(SERIALIZED_NAME_ROW_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal rowCount;
 
     public static final String SERIALIZED_NAME_CHECKSUM = "checksum";
 
     @SerializedName(SERIALIZED_NAME_CHECKSUM)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String checksum;
 
     public DataStoreVersionTableState() {}
 
-    public DataStoreVersionTableState rowCount(@javax.annotation.Nonnull BigDecimal rowCount) {
+    public DataStoreVersionTableState rowCount(@jakarta.annotation.Nonnull BigDecimal rowCount) {
         this.rowCount = rowCount;
         return this;
     }
@@ -58,16 +58,16 @@ public class DataStoreVersionTableState {
      * Row count at this version
      * @return rowCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getRowCount() {
         return rowCount;
     }
 
-    public void setRowCount(@javax.annotation.Nonnull BigDecimal rowCount) {
+    public void setRowCount(@jakarta.annotation.Nonnull BigDecimal rowCount) {
         this.rowCount = rowCount;
     }
 
-    public DataStoreVersionTableState checksum(@javax.annotation.Nonnull String checksum) {
+    public DataStoreVersionTableState checksum(@jakarta.annotation.Nonnull String checksum) {
         this.checksum = checksum;
         return this;
     }
@@ -76,12 +76,12 @@ public class DataStoreVersionTableState {
      * Content checksum
      * @return checksum
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getChecksum() {
         return checksum;
     }
 
-    public void setChecksum(@javax.annotation.Nonnull String checksum) {
+    public void setChecksum(@jakarta.annotation.Nonnull String checksum) {
         this.checksum = checksum;
     }
 

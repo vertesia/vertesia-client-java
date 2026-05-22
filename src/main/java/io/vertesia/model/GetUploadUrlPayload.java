@@ -31,34 +31,34 @@ import java.util.Objects;
 /**
  * GetUploadUrlPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GetUploadUrlPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nullable private String id;
+    @jakarta.annotation.Nullable private String id;
 
     public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
 
     @SerializedName(SERIALIZED_NAME_MIME_TYPE)
-    @javax.annotation.Nullable private String mimeType;
+    @jakarta.annotation.Nullable private String mimeType;
 
     public static final String SERIALIZED_NAME_TTL = "ttl";
 
     @SerializedName(SERIALIZED_NAME_TTL)
-    @javax.annotation.Nullable private BigDecimal ttl;
+    @jakarta.annotation.Nullable private BigDecimal ttl;
 
     public GetUploadUrlPayload() {}
 
-    public GetUploadUrlPayload name(@javax.annotation.Nonnull String name) {
+    public GetUploadUrlPayload name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -67,16 +67,16 @@ public class GetUploadUrlPayload {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public GetUploadUrlPayload id(@javax.annotation.Nullable String id) {
+    public GetUploadUrlPayload id(@jakarta.annotation.Nullable String id) {
         this.id = id;
         return this;
     }
@@ -85,15 +85,15 @@ public class GetUploadUrlPayload {
      * Get id
      * @return id
      */
-    @javax.annotation.Nullable public String getId() {
+    @jakarta.annotation.Nullable public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nullable String id) {
+    public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
     }
 
-    public GetUploadUrlPayload mimeType(@javax.annotation.Nullable String mimeType) {
+    public GetUploadUrlPayload mimeType(@jakarta.annotation.Nullable String mimeType) {
         this.mimeType = mimeType;
         return this;
     }
@@ -102,15 +102,15 @@ public class GetUploadUrlPayload {
      * Get mimeType
      * @return mimeType
      */
-    @javax.annotation.Nullable public String getMimeType() {
+    @jakarta.annotation.Nullable public String getMimeType() {
         return mimeType;
     }
 
-    public void setMimeType(@javax.annotation.Nullable String mimeType) {
+    public void setMimeType(@jakarta.annotation.Nullable String mimeType) {
         this.mimeType = mimeType;
     }
 
-    public GetUploadUrlPayload ttl(@javax.annotation.Nullable BigDecimal ttl) {
+    public GetUploadUrlPayload ttl(@jakarta.annotation.Nullable BigDecimal ttl) {
         this.ttl = ttl;
         return this;
     }
@@ -119,11 +119,11 @@ public class GetUploadUrlPayload {
      * Get ttl
      * @return ttl
      */
-    @javax.annotation.Nullable public BigDecimal getTtl() {
+    @jakarta.annotation.Nullable public BigDecimal getTtl() {
         return ttl;
     }
 
-    public void setTtl(@javax.annotation.Nullable BigDecimal ttl) {
+    public void setTtl(@jakarta.annotation.Nullable BigDecimal ttl) {
         this.ttl = ttl;
     }
 

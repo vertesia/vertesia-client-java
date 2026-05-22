@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * BulkOperationResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BulkOperationResult {
@@ -91,7 +91,7 @@ public class BulkOperationResult {
     public static final String SERIALIZED_NAME_OPERATION = "operation";
 
     @SerializedName(SERIALIZED_NAME_OPERATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OperationEnum operation;
 
     /**
@@ -154,12 +154,12 @@ public class BulkOperationResult {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private StatusEnum status;
 
     public BulkOperationResult() {}
 
-    public BulkOperationResult operation(@javax.annotation.Nonnull OperationEnum operation) {
+    public BulkOperationResult operation(@jakarta.annotation.Nonnull OperationEnum operation) {
         this.operation = operation;
         return this;
     }
@@ -168,16 +168,16 @@ public class BulkOperationResult {
      * Get operation
      * @return operation
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OperationEnum getOperation() {
         return operation;
     }
 
-    public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
+    public void setOperation(@jakarta.annotation.Nonnull OperationEnum operation) {
         this.operation = operation;
     }
 
-    public BulkOperationResult status(@javax.annotation.Nonnull StatusEnum status) {
+    public BulkOperationResult status(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
         return this;
     }
@@ -186,12 +186,12 @@ public class BulkOperationResult {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
+    public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
     }
 

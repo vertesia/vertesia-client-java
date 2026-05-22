@@ -30,31 +30,31 @@ import java.util.Objects;
 /**
  * LinkupConfigurationInput
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class LinkupConfigurationInput {
     public static final String SERIALIZED_NAME_INTEGRATION = "integration";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SupportedIntegrationsLinkup integration;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean enabled;
 
     public static final String SERIALIZED_NAME_API_KEY = "api_key";
 
     @SerializedName(SERIALIZED_NAME_API_KEY)
-    @javax.annotation.Nullable private String apiKey;
+    @jakarta.annotation.Nullable private String apiKey;
 
     public LinkupConfigurationInput() {}
 
     public LinkupConfigurationInput integration(
-            @javax.annotation.Nonnull SupportedIntegrationsLinkup integration) {
+            @jakarta.annotation.Nonnull SupportedIntegrationsLinkup integration) {
         this.integration = integration;
         return this;
     }
@@ -63,16 +63,17 @@ public class LinkupConfigurationInput {
      * Get integration
      * @return integration
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SupportedIntegrationsLinkup getIntegration() {
         return integration;
     }
 
-    public void setIntegration(@javax.annotation.Nonnull SupportedIntegrationsLinkup integration) {
+    public void setIntegration(
+            @jakarta.annotation.Nonnull SupportedIntegrationsLinkup integration) {
         this.integration = integration;
     }
 
-    public LinkupConfigurationInput enabled(@javax.annotation.Nonnull Boolean enabled) {
+    public LinkupConfigurationInput enabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -81,16 +82,16 @@ public class LinkupConfigurationInput {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public LinkupConfigurationInput apiKey(@javax.annotation.Nullable String apiKey) {
+    public LinkupConfigurationInput apiKey(@jakarta.annotation.Nullable String apiKey) {
         this.apiKey = apiKey;
         return this;
     }
@@ -99,11 +100,11 @@ public class LinkupConfigurationInput {
      * Get apiKey
      * @return apiKey
      */
-    @javax.annotation.Nullable public String getApiKey() {
+    @jakarta.annotation.Nullable public String getApiKey() {
         return apiKey;
     }
 
-    public void setApiKey(@javax.annotation.Nullable String apiKey) {
+    public void setApiKey(@jakarta.annotation.Nullable String apiKey) {
         this.apiKey = apiKey;
     }
 

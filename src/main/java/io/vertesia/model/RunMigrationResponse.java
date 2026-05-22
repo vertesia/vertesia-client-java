@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * RunMigrationResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RunMigrationResponse {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String status;
 
     public RunMigrationResponse() {}
 
-    public RunMigrationResponse status(@javax.annotation.Nonnull String status) {
+    public RunMigrationResponse status(@jakarta.annotation.Nonnull String status) {
         this.status = status;
         return this;
     }
@@ -51,12 +51,12 @@ public class RunMigrationResponse {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull String status) {
+    public void setStatus(@jakarta.annotation.Nonnull String status) {
         this.status = status;
     }
 

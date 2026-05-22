@@ -32,32 +32,32 @@ import java.util.Objects;
 /**
  * GithubConfiguration
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GithubConfiguration {
     public static final String SERIALIZED_NAME_INTEGRATION = "integration";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SupportedIntegrationsGithub integration;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean enabled;
 
     public static final String SERIALIZED_NAME_ALLOWED_REPOSITORIES = "allowed_repositories";
 
     @SerializedName(SERIALIZED_NAME_ALLOWED_REPOSITORIES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> allowedRepositories = new ArrayList<>();
 
     public GithubConfiguration() {}
 
     public GithubConfiguration integration(
-            @javax.annotation.Nonnull SupportedIntegrationsGithub integration) {
+            @jakarta.annotation.Nonnull SupportedIntegrationsGithub integration) {
         this.integration = integration;
         return this;
     }
@@ -66,16 +66,17 @@ public class GithubConfiguration {
      * Get integration
      * @return integration
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SupportedIntegrationsGithub getIntegration() {
         return integration;
     }
 
-    public void setIntegration(@javax.annotation.Nonnull SupportedIntegrationsGithub integration) {
+    public void setIntegration(
+            @jakarta.annotation.Nonnull SupportedIntegrationsGithub integration) {
         this.integration = integration;
     }
 
-    public GithubConfiguration enabled(@javax.annotation.Nonnull Boolean enabled) {
+    public GithubConfiguration enabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -84,17 +85,17 @@ public class GithubConfiguration {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
     }
 
     public GithubConfiguration allowedRepositories(
-            @javax.annotation.Nonnull List<String> allowedRepositories) {
+            @jakarta.annotation.Nonnull List<String> allowedRepositories) {
         this.allowedRepositories = allowedRepositories;
         return this;
     }
@@ -111,12 +112,13 @@ public class GithubConfiguration {
      * Get allowedRepositories
      * @return allowedRepositories
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getAllowedRepositories() {
         return allowedRepositories;
     }
 
-    public void setAllowedRepositories(@javax.annotation.Nonnull List<String> allowedRepositories) {
+    public void setAllowedRepositories(
+            @jakarta.annotation.Nonnull List<String> allowedRepositories) {
         this.allowedRepositories = allowedRepositories;
     }
 

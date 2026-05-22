@@ -91,18 +91,18 @@ public class AuditTrailApi {
      * </table>
      */
     public okhttp3.Call listAuditTrailEventsCall(
-            @javax.annotation.Nullable List<String> actions,
-            @javax.annotation.Nullable List<String> resourceTypes,
-            @javax.annotation.Nullable String resourceId,
-            @javax.annotation.Nullable String principalId,
-            @javax.annotation.Nullable String principalType,
-            @javax.annotation.Nullable String effectivePrincipalId,
-            @javax.annotation.Nullable Boolean hasEffectivePrincipal,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String from,
-            @javax.annotation.Nullable String to,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable List<String> actions,
+            @jakarta.annotation.Nullable List<String> resourceTypes,
+            @jakarta.annotation.Nullable String resourceId,
+            @jakarta.annotation.Nullable String principalId,
+            @jakarta.annotation.Nullable String principalType,
+            @jakarta.annotation.Nullable String effectivePrincipalId,
+            @jakarta.annotation.Nullable Boolean hasEffectivePrincipal,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String from,
+            @jakarta.annotation.Nullable String to,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -215,18 +215,18 @@ public class AuditTrailApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAuditTrailEventsValidateBeforeCall(
-            @javax.annotation.Nullable List<String> actions,
-            @javax.annotation.Nullable List<String> resourceTypes,
-            @javax.annotation.Nullable String resourceId,
-            @javax.annotation.Nullable String principalId,
-            @javax.annotation.Nullable String principalType,
-            @javax.annotation.Nullable String effectivePrincipalId,
-            @javax.annotation.Nullable Boolean hasEffectivePrincipal,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String from,
-            @javax.annotation.Nullable String to,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable List<String> actions,
+            @jakarta.annotation.Nullable List<String> resourceTypes,
+            @jakarta.annotation.Nullable String resourceId,
+            @jakarta.annotation.Nullable String principalId,
+            @jakarta.annotation.Nullable String principalType,
+            @jakarta.annotation.Nullable String effectivePrincipalId,
+            @jakarta.annotation.Nullable Boolean hasEffectivePrincipal,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String from,
+            @jakarta.annotation.Nullable String to,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         return listAuditTrailEventsCall(
@@ -272,18 +272,18 @@ public class AuditTrailApi {
      * </table>
      */
     public AuditTrailResponse listAuditTrailEvents(
-            @javax.annotation.Nullable List<String> actions,
-            @javax.annotation.Nullable List<String> resourceTypes,
-            @javax.annotation.Nullable String resourceId,
-            @javax.annotation.Nullable String principalId,
-            @javax.annotation.Nullable String principalType,
-            @javax.annotation.Nullable String effectivePrincipalId,
-            @javax.annotation.Nullable Boolean hasEffectivePrincipal,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String from,
-            @javax.annotation.Nullable String to,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nullable List<String> actions,
+            @jakarta.annotation.Nullable List<String> resourceTypes,
+            @jakarta.annotation.Nullable String resourceId,
+            @jakarta.annotation.Nullable String principalId,
+            @jakarta.annotation.Nullable String principalType,
+            @jakarta.annotation.Nullable String effectivePrincipalId,
+            @jakarta.annotation.Nullable Boolean hasEffectivePrincipal,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String from,
+            @jakarta.annotation.Nullable String to,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         ApiResponse<AuditTrailResponse> localVarResp =
                 listAuditTrailEventsWithHttpInfo(
@@ -329,18 +329,18 @@ public class AuditTrailApi {
      * </table>
      */
     public ApiResponse<AuditTrailResponse> listAuditTrailEventsWithHttpInfo(
-            @javax.annotation.Nullable List<String> actions,
-            @javax.annotation.Nullable List<String> resourceTypes,
-            @javax.annotation.Nullable String resourceId,
-            @javax.annotation.Nullable String principalId,
-            @javax.annotation.Nullable String principalType,
-            @javax.annotation.Nullable String effectivePrincipalId,
-            @javax.annotation.Nullable Boolean hasEffectivePrincipal,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String from,
-            @javax.annotation.Nullable String to,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nullable List<String> actions,
+            @jakarta.annotation.Nullable List<String> resourceTypes,
+            @jakarta.annotation.Nullable String resourceId,
+            @jakarta.annotation.Nullable String principalId,
+            @jakarta.annotation.Nullable String principalType,
+            @jakarta.annotation.Nullable String effectivePrincipalId,
+            @jakarta.annotation.Nullable Boolean hasEffectivePrincipal,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String from,
+            @jakarta.annotation.Nullable String to,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listAuditTrailEventsValidateBeforeCall(
@@ -389,18 +389,18 @@ public class AuditTrailApi {
      * </table>
      */
     public okhttp3.Call listAuditTrailEventsAsync(
-            @javax.annotation.Nullable List<String> actions,
-            @javax.annotation.Nullable List<String> resourceTypes,
-            @javax.annotation.Nullable String resourceId,
-            @javax.annotation.Nullable String principalId,
-            @javax.annotation.Nullable String principalType,
-            @javax.annotation.Nullable String effectivePrincipalId,
-            @javax.annotation.Nullable Boolean hasEffectivePrincipal,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String from,
-            @javax.annotation.Nullable String to,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable List<String> actions,
+            @jakarta.annotation.Nullable List<String> resourceTypes,
+            @jakarta.annotation.Nullable String resourceId,
+            @jakarta.annotation.Nullable String principalId,
+            @jakarta.annotation.Nullable String principalType,
+            @jakarta.annotation.Nullable String effectivePrincipalId,
+            @jakarta.annotation.Nullable Boolean hasEffectivePrincipal,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String from,
+            @jakarta.annotation.Nullable String to,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback<AuditTrailResponse> _callback)
             throws ApiException {
 

@@ -33,80 +33,80 @@ import java.util.Objects;
 /**
  * A description of an interaction endpoint.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InteractionEndpoint {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_ENDPOINT = "endpoint";
 
     @SerializedName(SERIALIZED_NAME_ENDPOINT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String endpoint;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private InteractionStatus status;
 
     public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
     @SerializedName(SERIALIZED_NAME_VISIBILITY)
-    @javax.annotation.Nullable private InteractionVisibility visibility;
+    @jakarta.annotation.Nullable private InteractionVisibility visibility;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal version;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_AGENT_RUNNER_OPTIONS = "agent_runner_options";
 
     @SerializedName(SERIALIZED_NAME_AGENT_RUNNER_OPTIONS)
-    @javax.annotation.Nullable private AgentRunnerOptions agentRunnerOptions;
+    @jakarta.annotation.Nullable private AgentRunnerOptions agentRunnerOptions;
 
     public static final String SERIALIZED_NAME_OUTPUT_MODALITY = "output_modality";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_OUTPUT_MODALITY)
-    @javax.annotation.Nullable private Modalities outputModality;
+    @jakarta.annotation.Nullable private Modalities outputModality;
 
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema resultSchema;
+    @jakarta.annotation.Nullable private JSONSchema resultSchema;
 
     public static final String SERIALIZED_NAME_PARAMS_SCHEMA = "params_schema";
 
     @SerializedName(SERIALIZED_NAME_PARAMS_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema paramsSchema;
+    @jakarta.annotation.Nullable private JSONSchema paramsSchema;
 
     public InteractionEndpoint() {}
 
-    public InteractionEndpoint id(@javax.annotation.Nonnull String id) {
+    public InteractionEndpoint id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -115,16 +115,16 @@ public class InteractionEndpoint {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public InteractionEndpoint name(@javax.annotation.Nonnull String name) {
+    public InteractionEndpoint name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -133,16 +133,16 @@ public class InteractionEndpoint {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public InteractionEndpoint endpoint(@javax.annotation.Nonnull String endpoint) {
+    public InteractionEndpoint endpoint(@jakarta.annotation.Nonnull String endpoint) {
         this.endpoint = endpoint;
         return this;
     }
@@ -151,16 +151,16 @@ public class InteractionEndpoint {
      * Get endpoint
      * @return endpoint
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getEndpoint() {
         return endpoint;
     }
 
-    public void setEndpoint(@javax.annotation.Nonnull String endpoint) {
+    public void setEndpoint(@jakarta.annotation.Nonnull String endpoint) {
         this.endpoint = endpoint;
     }
 
-    public InteractionEndpoint description(@javax.annotation.Nullable String description) {
+    public InteractionEndpoint description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -169,15 +169,15 @@ public class InteractionEndpoint {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public InteractionEndpoint status(@javax.annotation.Nonnull InteractionStatus status) {
+    public InteractionEndpoint status(@jakarta.annotation.Nonnull InteractionStatus status) {
         this.status = status;
         return this;
     }
@@ -186,17 +186,17 @@ public class InteractionEndpoint {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public InteractionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull InteractionStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull InteractionStatus status) {
         this.status = status;
     }
 
     public InteractionEndpoint visibility(
-            @javax.annotation.Nullable InteractionVisibility visibility) {
+            @jakarta.annotation.Nullable InteractionVisibility visibility) {
         this.visibility = visibility;
         return this;
     }
@@ -205,15 +205,15 @@ public class InteractionEndpoint {
      * Get visibility
      * @return visibility
      */
-    @javax.annotation.Nullable public InteractionVisibility getVisibility() {
+    @jakarta.annotation.Nullable public InteractionVisibility getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(@javax.annotation.Nullable InteractionVisibility visibility) {
+    public void setVisibility(@jakarta.annotation.Nullable InteractionVisibility visibility) {
         this.visibility = visibility;
     }
 
-    public InteractionEndpoint version(@javax.annotation.Nonnull BigDecimal version) {
+    public InteractionEndpoint version(@jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
         return this;
     }
@@ -222,16 +222,16 @@ public class InteractionEndpoint {
      * Get version
      * @return version
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getVersion() {
         return version;
     }
 
-    public void setVersion(@javax.annotation.Nonnull BigDecimal version) {
+    public void setVersion(@jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
     }
 
-    public InteractionEndpoint tags(@javax.annotation.Nonnull List<String> tags) {
+    public InteractionEndpoint tags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -248,17 +248,17 @@ public class InteractionEndpoint {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nonnull List<String> tags) {
+    public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
     }
 
     public InteractionEndpoint agentRunnerOptions(
-            @javax.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
+            @jakarta.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
         this.agentRunnerOptions = agentRunnerOptions;
         return this;
     }
@@ -267,18 +267,18 @@ public class InteractionEndpoint {
      * Get agentRunnerOptions
      * @return agentRunnerOptions
      */
-    @javax.annotation.Nullable public AgentRunnerOptions getAgentRunnerOptions() {
+    @jakarta.annotation.Nullable public AgentRunnerOptions getAgentRunnerOptions() {
         return agentRunnerOptions;
     }
 
     public void setAgentRunnerOptions(
-            @javax.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
+            @jakarta.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
         this.agentRunnerOptions = agentRunnerOptions;
     }
 
     @Deprecated
     public InteractionEndpoint outputModality(
-            @javax.annotation.Nullable Modalities outputModality) {
+            @jakarta.annotation.Nullable Modalities outputModality) {
         this.outputModality = outputModality;
         return this;
     }
@@ -289,16 +289,16 @@ public class InteractionEndpoint {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nullable public Modalities getOutputModality() {
+    @jakarta.annotation.Nullable public Modalities getOutputModality() {
         return outputModality;
     }
 
     @Deprecated
-    public void setOutputModality(@javax.annotation.Nullable Modalities outputModality) {
+    public void setOutputModality(@jakarta.annotation.Nullable Modalities outputModality) {
         this.outputModality = outputModality;
     }
 
-    public InteractionEndpoint resultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public InteractionEndpoint resultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
         return this;
     }
@@ -307,15 +307,15 @@ public class InteractionEndpoint {
      * Get resultSchema
      * @return resultSchema
      */
-    @javax.annotation.Nullable public JSONSchema getResultSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getResultSchema() {
         return resultSchema;
     }
 
-    public void setResultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public void setResultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
     }
 
-    public InteractionEndpoint paramsSchema(@javax.annotation.Nullable JSONSchema paramsSchema) {
+    public InteractionEndpoint paramsSchema(@jakarta.annotation.Nullable JSONSchema paramsSchema) {
         this.paramsSchema = paramsSchema;
         return this;
     }
@@ -324,11 +324,11 @@ public class InteractionEndpoint {
      * Get paramsSchema
      * @return paramsSchema
      */
-    @javax.annotation.Nullable public JSONSchema getParamsSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getParamsSchema() {
         return paramsSchema;
     }
 
-    public void setParamsSchema(@javax.annotation.Nullable JSONSchema paramsSchema) {
+    public void setParamsSchema(@jakarta.annotation.Nullable JSONSchema paramsSchema) {
         this.paramsSchema = paramsSchema;
     }
 

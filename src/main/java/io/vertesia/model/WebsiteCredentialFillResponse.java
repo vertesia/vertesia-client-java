@@ -33,43 +33,43 @@ import java.util.Objects;
 /**
  * WebsiteCredentialFillResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WebsiteCredentialFillResponse {
     public static final String SERIALIZED_NAME_OK = "ok";
 
     @SerializedName(SERIALIZED_NAME_OK)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean ok;
 
     public static final String SERIALIZED_NAME_CREDENTIAL_REF = "credential_ref";
 
     @SerializedName(SERIALIZED_NAME_CREDENTIAL_REF)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String credentialRef;
 
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String url;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String title;
 
     public static final String SERIALIZED_NAME_FILLED = "filled";
 
     @SerializedName(SERIALIZED_NAME_FILLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private WebsiteCredentialFillResponseFilled filled;
 
     public WebsiteCredentialFillResponse() {}
 
-    public WebsiteCredentialFillResponse ok(@javax.annotation.Nonnull Boolean ok) {
+    public WebsiteCredentialFillResponse ok(@jakarta.annotation.Nonnull Boolean ok) {
         this.ok = ok;
         return this;
     }
@@ -78,17 +78,17 @@ public class WebsiteCredentialFillResponse {
      * Get ok
      * @return ok
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getOk() {
         return ok;
     }
 
-    public void setOk(@javax.annotation.Nonnull Boolean ok) {
+    public void setOk(@jakarta.annotation.Nonnull Boolean ok) {
         this.ok = ok;
     }
 
     public WebsiteCredentialFillResponse credentialRef(
-            @javax.annotation.Nonnull String credentialRef) {
+            @jakarta.annotation.Nonnull String credentialRef) {
         this.credentialRef = credentialRef;
         return this;
     }
@@ -97,16 +97,16 @@ public class WebsiteCredentialFillResponse {
      * Get credentialRef
      * @return credentialRef
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCredentialRef() {
         return credentialRef;
     }
 
-    public void setCredentialRef(@javax.annotation.Nonnull String credentialRef) {
+    public void setCredentialRef(@jakarta.annotation.Nonnull String credentialRef) {
         this.credentialRef = credentialRef;
     }
 
-    public WebsiteCredentialFillResponse url(@javax.annotation.Nonnull String url) {
+    public WebsiteCredentialFillResponse url(@jakarta.annotation.Nonnull String url) {
         this.url = url;
         return this;
     }
@@ -115,16 +115,16 @@ public class WebsiteCredentialFillResponse {
      * Get url
      * @return url
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nonnull String url) {
+    public void setUrl(@jakarta.annotation.Nonnull String url) {
         this.url = url;
     }
 
-    public WebsiteCredentialFillResponse title(@javax.annotation.Nonnull String title) {
+    public WebsiteCredentialFillResponse title(@jakarta.annotation.Nonnull String title) {
         this.title = title;
         return this;
     }
@@ -133,17 +133,17 @@ public class WebsiteCredentialFillResponse {
      * Get title
      * @return title
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nonnull String title) {
+    public void setTitle(@jakarta.annotation.Nonnull String title) {
         this.title = title;
     }
 
     public WebsiteCredentialFillResponse filled(
-            @javax.annotation.Nonnull WebsiteCredentialFillResponseFilled filled) {
+            @jakarta.annotation.Nonnull WebsiteCredentialFillResponseFilled filled) {
         this.filled = filled;
         return this;
     }
@@ -152,12 +152,12 @@ public class WebsiteCredentialFillResponse {
      * Get filled
      * @return filled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public WebsiteCredentialFillResponseFilled getFilled() {
         return filled;
     }
 
-    public void setFilled(@javax.annotation.Nonnull WebsiteCredentialFillResponseFilled filled) {
+    public void setFilled(@jakarta.annotation.Nonnull WebsiteCredentialFillResponseFilled filled) {
         this.filled = filled;
     }
 

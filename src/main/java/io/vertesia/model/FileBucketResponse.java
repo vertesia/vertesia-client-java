@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * FileBucketResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class FileBucketResponse {
     public static final String SERIALIZED_NAME_BUCKET = "bucket";
 
     @SerializedName(SERIALIZED_NAME_BUCKET)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String bucket;
 
     public FileBucketResponse() {}
 
-    public FileBucketResponse bucket(@javax.annotation.Nonnull String bucket) {
+    public FileBucketResponse bucket(@jakarta.annotation.Nonnull String bucket) {
         this.bucket = bucket;
         return this;
     }
@@ -51,12 +51,12 @@ public class FileBucketResponse {
      * Get bucket
      * @return bucket
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getBucket() {
         return bucket;
     }
 
-    public void setBucket(@javax.annotation.Nonnull String bucket) {
+    public void setBucket(@jakarta.annotation.Nonnull String bucket) {
         this.bucket = bucket;
     }
 

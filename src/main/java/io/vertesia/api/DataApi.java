@@ -116,8 +116,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call archiveDashboardsBulkCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -178,8 +178,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call archiveDashboardsBulkValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -214,8 +214,8 @@ public class DataApi {
      * </table>
      */
     public DashboardBulkArchiveResult archiveDashboardsBulk(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody)
             throws ApiException {
         ApiResponse<DashboardBulkArchiveResult> localVarResp =
                 archiveDashboardsBulkWithHttpInfo(storeId, requestBody);
@@ -239,8 +239,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DashboardBulkArchiveResult> archiveDashboardsBulkWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody)
             throws ApiException {
         okhttp3.Call localVarCall =
                 archiveDashboardsBulkValidateBeforeCall(storeId, requestBody, null);
@@ -266,8 +266,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call archiveDashboardsBulkAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback<DashboardBulkArchiveResult> _callback)
             throws ApiException {
 
@@ -295,8 +295,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call createDashboardCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateDashboardPayload createDashboardPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateDashboardPayload createDashboardPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -357,8 +357,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createDashboardValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateDashboardPayload createDashboardPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateDashboardPayload createDashboardPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -393,8 +393,8 @@ public class DataApi {
      * </table>
      */
     public Dashboard createDashboard(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateDashboardPayload createDashboardPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateDashboardPayload createDashboardPayload)
             throws ApiException {
         ApiResponse<Dashboard> localVarResp =
                 createDashboardWithHttpInfo(storeId, createDashboardPayload);
@@ -418,8 +418,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<Dashboard> createDashboardWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateDashboardPayload createDashboardPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateDashboardPayload createDashboardPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createDashboardValidateBeforeCall(storeId, createDashboardPayload, null);
@@ -445,8 +445,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call createDashboardAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateDashboardPayload createDashboardPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateDashboardPayload createDashboardPayload,
             final ApiCallback<Dashboard> _callback)
             throws ApiException {
 
@@ -475,9 +475,10 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call createDashboardSnapshotCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull CreateDashboardSnapshotPayload createDashboardSnapshotPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull
+                    CreateDashboardSnapshotPayload createDashboardSnapshotPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -541,9 +542,10 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createDashboardSnapshotValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull CreateDashboardSnapshotPayload createDashboardSnapshotPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull
+                    CreateDashboardSnapshotPayload createDashboardSnapshotPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -586,9 +588,10 @@ public class DataApi {
      * </table>
      */
     public DashboardVersionItem createDashboardSnapshot(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull CreateDashboardSnapshotPayload createDashboardSnapshotPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull
+                    CreateDashboardSnapshotPayload createDashboardSnapshotPayload)
             throws ApiException {
         ApiResponse<DashboardVersionItem> localVarResp =
                 createDashboardSnapshotWithHttpInfo(
@@ -614,9 +617,10 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DashboardVersionItem> createDashboardSnapshotWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull CreateDashboardSnapshotPayload createDashboardSnapshotPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull
+                    CreateDashboardSnapshotPayload createDashboardSnapshotPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createDashboardSnapshotValidateBeforeCall(
@@ -644,9 +648,10 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call createDashboardSnapshotAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull CreateDashboardSnapshotPayload createDashboardSnapshotPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull
+                    CreateDashboardSnapshotPayload createDashboardSnapshotPayload,
             final ApiCallback<DashboardVersionItem> _callback)
             throws ApiException {
 
@@ -674,7 +679,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call createDataStoreCall(
-            @javax.annotation.Nonnull CreateDataStorePayload createDataStorePayload,
+            @jakarta.annotation.Nonnull CreateDataStorePayload createDataStorePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -731,7 +736,7 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createDataStoreValidateBeforeCall(
-            @javax.annotation.Nonnull CreateDataStorePayload createDataStorePayload,
+            @jakarta.annotation.Nonnull CreateDataStorePayload createDataStorePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'createDataStorePayload' is set
@@ -759,7 +764,7 @@ public class DataApi {
      * </table>
      */
     public DataStore createDataStore(
-            @javax.annotation.Nonnull CreateDataStorePayload createDataStorePayload)
+            @jakarta.annotation.Nonnull CreateDataStorePayload createDataStorePayload)
             throws ApiException {
         ApiResponse<DataStore> localVarResp = createDataStoreWithHttpInfo(createDataStorePayload);
         return localVarResp.getData();
@@ -781,7 +786,7 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DataStore> createDataStoreWithHttpInfo(
-            @javax.annotation.Nonnull CreateDataStorePayload createDataStorePayload)
+            @jakarta.annotation.Nonnull CreateDataStorePayload createDataStorePayload)
             throws ApiException {
         okhttp3.Call localVarCall = createDataStoreValidateBeforeCall(createDataStorePayload, null);
         Type localVarReturnType = new TypeToken<DataStore>() {}.getType();
@@ -805,7 +810,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call createDataStoreAsync(
-            @javax.annotation.Nonnull CreateDataStorePayload createDataStorePayload,
+            @jakarta.annotation.Nonnull CreateDataStorePayload createDataStorePayload,
             final ApiCallback<DataStore> _callback)
             throws ApiException {
 
@@ -832,7 +837,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call createDataStoreDownloadUrlCall(
-            @javax.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -892,7 +897,7 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createDataStoreDownloadUrlValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
         if (storeId == null) {
@@ -919,7 +924,7 @@ public class DataApi {
      * </table>
      */
     public DataStoreDownloadInfo createDataStoreDownloadUrl(
-            @javax.annotation.Nonnull String storeId) throws ApiException {
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
         ApiResponse<DataStoreDownloadInfo> localVarResp =
                 createDataStoreDownloadUrlWithHttpInfo(storeId);
         return localVarResp.getData();
@@ -941,7 +946,7 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DataStoreDownloadInfo> createDataStoreDownloadUrlWithHttpInfo(
-            @javax.annotation.Nonnull String storeId) throws ApiException {
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
         okhttp3.Call localVarCall = createDataStoreDownloadUrlValidateBeforeCall(storeId, null);
         Type localVarReturnType = new TypeToken<DataStoreDownloadInfo>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -964,7 +969,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call createDataStoreDownloadUrlAsync(
-            @javax.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String storeId,
             final ApiCallback<DataStoreDownloadInfo> _callback)
             throws ApiException {
 
@@ -992,8 +997,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call createDataStoreSnapshotCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1054,8 +1059,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createDataStoreSnapshotValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -1090,8 +1095,8 @@ public class DataApi {
      * </table>
      */
     public DataStoreVersion createDataStoreSnapshot(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload)
             throws ApiException {
         ApiResponse<DataStoreVersion> localVarResp =
                 createDataStoreSnapshotWithHttpInfo(storeId, createSnapshotPayload);
@@ -1115,8 +1120,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DataStoreVersion> createDataStoreSnapshotWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createDataStoreSnapshotValidateBeforeCall(storeId, createSnapshotPayload, null);
@@ -1142,8 +1147,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call createDataStoreSnapshotAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateSnapshotPayload createSnapshotPayload,
             final ApiCallback<DataStoreVersion> _callback)
             throws ApiException {
 
@@ -1172,8 +1177,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call createDataStoreTablesCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateTablesPayload createTablesPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateTablesPayload createTablesPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1234,8 +1239,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createDataStoreTablesValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateTablesPayload createTablesPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateTablesPayload createTablesPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -1270,8 +1275,8 @@ public class DataApi {
      * </table>
      */
     public List<DataTable> createDataStoreTables(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateTablesPayload createTablesPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateTablesPayload createTablesPayload)
             throws ApiException {
         ApiResponse<List<DataTable>> localVarResp =
                 createDataStoreTablesWithHttpInfo(storeId, createTablesPayload);
@@ -1295,8 +1300,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<List<DataTable>> createDataStoreTablesWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateTablesPayload createTablesPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateTablesPayload createTablesPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createDataStoreTablesValidateBeforeCall(storeId, createTablesPayload, null);
@@ -1322,8 +1327,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call createDataStoreTablesAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull CreateTablesPayload createTablesPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull CreateTablesPayload createTablesPayload,
             final ApiCallback<List<DataTable>> _callback)
             throws ApiException {
 
@@ -1351,8 +1356,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call deleteDashboardCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1416,8 +1421,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteDashboardValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -1452,7 +1457,8 @@ public class DataApi {
      * </table>
      */
     public DashboardArchiveResult deleteDashboard(
-            @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull String dashboardId)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId)
             throws ApiException {
         ApiResponse<DashboardArchiveResult> localVarResp =
                 deleteDashboardWithHttpInfo(storeId, dashboardId);
@@ -1476,7 +1482,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DashboardArchiveResult> deleteDashboardWithHttpInfo(
-            @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull String dashboardId)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId)
             throws ApiException {
         okhttp3.Call localVarCall = deleteDashboardValidateBeforeCall(storeId, dashboardId, null);
         Type localVarReturnType = new TypeToken<DashboardArchiveResult>() {}.getType();
@@ -1501,8 +1508,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call deleteDashboardAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
             final ApiCallback<DashboardArchiveResult> _callback)
             throws ApiException {
 
@@ -1530,8 +1537,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call deleteDashboardsBulkCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1592,8 +1599,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteDashboardsBulkValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -1628,8 +1635,8 @@ public class DataApi {
      * </table>
      */
     public DashboardBulkDeleteResult deleteDashboardsBulk(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody)
             throws ApiException {
         ApiResponse<DashboardBulkDeleteResult> localVarResp =
                 deleteDashboardsBulkWithHttpInfo(storeId, requestBody);
@@ -1653,8 +1660,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DashboardBulkDeleteResult> deleteDashboardsBulkWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody)
             throws ApiException {
         okhttp3.Call localVarCall =
                 deleteDashboardsBulkValidateBeforeCall(storeId, requestBody, null);
@@ -1680,8 +1687,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call deleteDashboardsBulkAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull Map<String, List<String>> requestBody,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull Map<String, List<String>> requestBody,
             final ApiCallback<DashboardBulkDeleteResult> _callback)
             throws ApiException {
 
@@ -1708,7 +1715,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call deleteDataStoreCall(
-            @javax.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1768,7 +1775,7 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteDataStoreValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
         if (storeId == null) {
@@ -1794,7 +1801,7 @@ public class DataApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DataStoreArchiveResult deleteDataStore(@javax.annotation.Nonnull String storeId)
+    public DataStoreArchiveResult deleteDataStore(@jakarta.annotation.Nonnull String storeId)
             throws ApiException {
         ApiResponse<DataStoreArchiveResult> localVarResp = deleteDataStoreWithHttpInfo(storeId);
         return localVarResp.getData();
@@ -1816,7 +1823,7 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DataStoreArchiveResult> deleteDataStoreWithHttpInfo(
-            @javax.annotation.Nonnull String storeId) throws ApiException {
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
         okhttp3.Call localVarCall = deleteDataStoreValidateBeforeCall(storeId, null);
         Type localVarReturnType = new TypeToken<DataStoreArchiveResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1839,7 +1846,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call deleteDataStoreAsync(
-            @javax.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String storeId,
             final ApiCallback<DataStoreArchiveResult> _callback)
             throws ApiException {
 
@@ -1866,8 +1873,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call deleteDataStoreTableCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String tableName,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1931,8 +1938,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteDataStoreTableValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String tableName,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -1967,7 +1974,8 @@ public class DataApi {
      * </table>
      */
     public DataStoreTableDropResult deleteDataStoreTable(
-            @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull String tableName)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName)
             throws ApiException {
         ApiResponse<DataStoreTableDropResult> localVarResp =
                 deleteDataStoreTableWithHttpInfo(storeId, tableName);
@@ -1991,7 +1999,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DataStoreTableDropResult> deleteDataStoreTableWithHttpInfo(
-            @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull String tableName)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName)
             throws ApiException {
         okhttp3.Call localVarCall =
                 deleteDataStoreTableValidateBeforeCall(storeId, tableName, null);
@@ -2017,8 +2026,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call deleteDataStoreTableAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String tableName,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
             final ApiCallback<DataStoreTableDropResult> _callback)
             throws ApiException {
 
@@ -2046,8 +2055,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call getDashboardCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2111,8 +2120,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDashboardValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -2147,7 +2156,8 @@ public class DataApi {
      * </table>
      */
     public Dashboard getDashboard(
-            @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull String dashboardId)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId)
             throws ApiException {
         ApiResponse<Dashboard> localVarResp = getDashboardWithHttpInfo(storeId, dashboardId);
         return localVarResp.getData();
@@ -2170,7 +2180,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<Dashboard> getDashboardWithHttpInfo(
-            @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull String dashboardId)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId)
             throws ApiException {
         okhttp3.Call localVarCall = getDashboardValidateBeforeCall(storeId, dashboardId, null);
         Type localVarReturnType = new TypeToken<Dashboard>() {}.getType();
@@ -2195,8 +2206,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call getDashboardAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
             final ApiCallback<Dashboard> _callback)
             throws ApiException {
 
@@ -2224,9 +2235,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call getDashboardVersionCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String versionId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2293,9 +2304,9 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDashboardVersionValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String versionId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -2337,9 +2348,9 @@ public class DataApi {
      * </table>
      */
     public DashboardVersion getDashboardVersion(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull String versionId)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String versionId)
             throws ApiException {
         ApiResponse<DashboardVersion> localVarResp =
                 getDashboardVersionWithHttpInfo(storeId, dashboardId, versionId);
@@ -2364,9 +2375,9 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DashboardVersion> getDashboardVersionWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull String versionId)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String versionId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getDashboardVersionValidateBeforeCall(storeId, dashboardId, versionId, null);
@@ -2393,9 +2404,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call getDashboardVersionAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String versionId,
             final ApiCallback<DashboardVersion> _callback)
             throws ApiException {
 
@@ -2422,7 +2433,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call getDataStoreCall(
-            @javax.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2482,7 +2493,7 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDataStoreValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
         if (storeId == null) {
@@ -2508,7 +2519,7 @@ public class DataApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DataStore getDataStore(@javax.annotation.Nonnull String storeId) throws ApiException {
+    public DataStore getDataStore(@jakarta.annotation.Nonnull String storeId) throws ApiException {
         ApiResponse<DataStore> localVarResp = getDataStoreWithHttpInfo(storeId);
         return localVarResp.getData();
     }
@@ -2528,8 +2539,8 @@ public class DataApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<DataStore> getDataStoreWithHttpInfo(@javax.annotation.Nonnull String storeId)
-            throws ApiException {
+    public ApiResponse<DataStore> getDataStoreWithHttpInfo(
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
         okhttp3.Call localVarCall = getDataStoreValidateBeforeCall(storeId, null);
         Type localVarReturnType = new TypeToken<DataStore>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2552,7 +2563,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call getDataStoreAsync(
-            @javax.annotation.Nonnull String storeId, final ApiCallback<DataStore> _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback<DataStore> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getDataStoreValidateBeforeCall(storeId, _callback);
@@ -2578,8 +2589,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call getDataStoreImportStatusCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String importId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String importId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2643,8 +2654,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDataStoreImportStatusValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String importId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String importId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -2679,7 +2690,7 @@ public class DataApi {
      * </table>
      */
     public ImportJob getDataStoreImportStatus(
-            @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull String importId)
+            @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nonnull String importId)
             throws ApiException {
         ApiResponse<ImportJob> localVarResp =
                 getDataStoreImportStatusWithHttpInfo(storeId, importId);
@@ -2703,7 +2714,7 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<ImportJob> getDataStoreImportStatusWithHttpInfo(
-            @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull String importId)
+            @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nonnull String importId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getDataStoreImportStatusValidateBeforeCall(storeId, importId, null);
@@ -2729,8 +2740,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call getDataStoreImportStatusAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String importId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String importId,
             final ApiCallback<ImportJob> _callback)
             throws ApiException {
 
@@ -2757,7 +2768,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call getDataStoreSchemaCall(
-            @javax.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2817,7 +2828,7 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDataStoreSchemaValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
         if (storeId == null) {
@@ -2843,7 +2854,7 @@ public class DataApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DataStoreSchemaResponse getDataStoreSchema(@javax.annotation.Nonnull String storeId)
+    public DataStoreSchemaResponse getDataStoreSchema(@jakarta.annotation.Nonnull String storeId)
             throws ApiException {
         ApiResponse<DataStoreSchemaResponse> localVarResp = getDataStoreSchemaWithHttpInfo(storeId);
         return localVarResp.getData();
@@ -2865,7 +2876,7 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DataStoreSchemaResponse> getDataStoreSchemaWithHttpInfo(
-            @javax.annotation.Nonnull String storeId) throws ApiException {
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
         okhttp3.Call localVarCall = getDataStoreSchemaValidateBeforeCall(storeId, null);
         Type localVarReturnType = new TypeToken<DataStoreSchemaResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2888,7 +2899,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call getDataStoreSchemaAsync(
-            @javax.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String storeId,
             final ApiCallback<DataStoreSchemaResponse> _callback)
             throws ApiException {
 
@@ -2916,9 +2927,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call getDataStoreTableCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String tableName,
-            @javax.annotation.Nullable Boolean sample,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
+            @jakarta.annotation.Nullable Boolean sample,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2986,9 +2997,9 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getDataStoreTableValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String tableName,
-            @javax.annotation.Nullable Boolean sample,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
+            @jakarta.annotation.Nullable Boolean sample,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -3024,9 +3035,9 @@ public class DataApi {
      * </table>
      */
     public DataStoreTableDetail getDataStoreTable(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String tableName,
-            @javax.annotation.Nullable Boolean sample)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
+            @jakarta.annotation.Nullable Boolean sample)
             throws ApiException {
         ApiResponse<DataStoreTableDetail> localVarResp =
                 getDataStoreTableWithHttpInfo(storeId, tableName, sample);
@@ -3051,9 +3062,9 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DataStoreTableDetail> getDataStoreTableWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String tableName,
-            @javax.annotation.Nullable Boolean sample)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
+            @jakarta.annotation.Nullable Boolean sample)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getDataStoreTableValidateBeforeCall(storeId, tableName, sample, null);
@@ -3080,9 +3091,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call getDataStoreTableAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String tableName,
-            @javax.annotation.Nullable Boolean sample,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
+            @jakarta.annotation.Nullable Boolean sample,
             final ApiCallback<DataStoreTableDetail> _callback)
             throws ApiException {
 
@@ -3110,8 +3121,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call importDataStoreDataCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull ImportDataPayload importDataPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull ImportDataPayload importDataPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3172,8 +3183,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call importDataStoreDataValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull ImportDataPayload importDataPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull ImportDataPayload importDataPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -3208,8 +3219,8 @@ public class DataApi {
      * </table>
      */
     public ImportJob importDataStoreData(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull ImportDataPayload importDataPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull ImportDataPayload importDataPayload)
             throws ApiException {
         ApiResponse<ImportJob> localVarResp =
                 importDataStoreDataWithHttpInfo(storeId, importDataPayload);
@@ -3233,8 +3244,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<ImportJob> importDataStoreDataWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull ImportDataPayload importDataPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull ImportDataPayload importDataPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 importDataStoreDataValidateBeforeCall(storeId, importDataPayload, null);
@@ -3260,8 +3271,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call importDataStoreDataAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull ImportDataPayload importDataPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull ImportDataPayload importDataPayload,
             final ApiCallback<ImportJob> _callback)
             throws ApiException {
 
@@ -3289,8 +3300,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call listDashboardVersionsCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3354,8 +3365,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDashboardVersionsValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -3390,7 +3401,8 @@ public class DataApi {
      * </table>
      */
     public List<DashboardVersionItem> listDashboardVersions(
-            @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull String dashboardId)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId)
             throws ApiException {
         ApiResponse<List<DashboardVersionItem>> localVarResp =
                 listDashboardVersionsWithHttpInfo(storeId, dashboardId);
@@ -3414,7 +3426,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<List<DashboardVersionItem>> listDashboardVersionsWithHttpInfo(
-            @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull String dashboardId)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listDashboardVersionsValidateBeforeCall(storeId, dashboardId, null);
@@ -3440,8 +3453,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call listDashboardVersionsAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
             final ApiCallback<List<DashboardVersionItem>> _callback)
             throws ApiException {
 
@@ -3468,7 +3481,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call listDashboardsCall(
-            @javax.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3528,7 +3541,7 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDashboardsValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
         if (storeId == null) {
@@ -3554,7 +3567,7 @@ public class DataApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<DashboardItem> listDashboards(@javax.annotation.Nonnull String storeId)
+    public List<DashboardItem> listDashboards(@jakarta.annotation.Nonnull String storeId)
             throws ApiException {
         ApiResponse<List<DashboardItem>> localVarResp = listDashboardsWithHttpInfo(storeId);
         return localVarResp.getData();
@@ -3576,7 +3589,7 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<List<DashboardItem>> listDashboardsWithHttpInfo(
-            @javax.annotation.Nonnull String storeId) throws ApiException {
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
         okhttp3.Call localVarCall = listDashboardsValidateBeforeCall(storeId, null);
         Type localVarReturnType = new TypeToken<List<DashboardItem>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3599,7 +3612,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call listDashboardsAsync(
-            @javax.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String storeId,
             final ApiCallback<List<DashboardItem>> _callback)
             throws ApiException {
 
@@ -3625,7 +3638,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call listDataStoreSchemaHistoryCall(
-            @javax.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3685,7 +3698,7 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDataStoreSchemaHistoryValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
         if (storeId == null) {
@@ -3712,7 +3725,7 @@ public class DataApi {
      * </table>
      */
     public List<DataStoreVersion> listDataStoreSchemaHistory(
-            @javax.annotation.Nonnull String storeId) throws ApiException {
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
         ApiResponse<List<DataStoreVersion>> localVarResp =
                 listDataStoreSchemaHistoryWithHttpInfo(storeId);
         return localVarResp.getData();
@@ -3734,7 +3747,7 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<List<DataStoreVersion>> listDataStoreSchemaHistoryWithHttpInfo(
-            @javax.annotation.Nonnull String storeId) throws ApiException {
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
         okhttp3.Call localVarCall = listDataStoreSchemaHistoryValidateBeforeCall(storeId, null);
         Type localVarReturnType = new TypeToken<List<DataStoreVersion>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3757,7 +3770,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call listDataStoreSchemaHistoryAsync(
-            @javax.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String storeId,
             final ApiCallback<List<DataStoreVersion>> _callback)
             throws ApiException {
 
@@ -3784,7 +3797,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call listDataStoreTablesCall(
-            @javax.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3844,7 +3857,7 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDataStoreTablesValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String storeId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
         if (storeId == null) {
@@ -3870,7 +3883,7 @@ public class DataApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<DataTableSummary> listDataStoreTables(@javax.annotation.Nonnull String storeId)
+    public List<DataTableSummary> listDataStoreTables(@jakarta.annotation.Nonnull String storeId)
             throws ApiException {
         ApiResponse<List<DataTableSummary>> localVarResp = listDataStoreTablesWithHttpInfo(storeId);
         return localVarResp.getData();
@@ -3892,7 +3905,7 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<List<DataTableSummary>> listDataStoreTablesWithHttpInfo(
-            @javax.annotation.Nonnull String storeId) throws ApiException {
+            @jakarta.annotation.Nonnull String storeId) throws ApiException {
         okhttp3.Call localVarCall = listDataStoreTablesValidateBeforeCall(storeId, null);
         Type localVarReturnType = new TypeToken<List<DataTableSummary>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3915,7 +3928,7 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call listDataStoreTablesAsync(
-            @javax.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String storeId,
             final ApiCallback<List<DataTableSummary>> _callback)
             throws ApiException {
 
@@ -3943,9 +3956,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call listDataStoreVersionsCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable Boolean snapshotsOnly,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable Boolean snapshotsOnly,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4015,9 +4028,9 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listDataStoreVersionsValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable Boolean snapshotsOnly,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable Boolean snapshotsOnly,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -4047,9 +4060,9 @@ public class DataApi {
      * </table>
      */
     public List<DataStoreVersion> listDataStoreVersions(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable Boolean snapshotsOnly)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable Boolean snapshotsOnly)
             throws ApiException {
         ApiResponse<List<DataStoreVersion>> localVarResp =
                 listDataStoreVersionsWithHttpInfo(storeId, limit, snapshotsOnly);
@@ -4074,9 +4087,9 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<List<DataStoreVersion>> listDataStoreVersionsWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable Boolean snapshotsOnly)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable Boolean snapshotsOnly)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listDataStoreVersionsValidateBeforeCall(storeId, limit, snapshotsOnly, null);
@@ -4103,9 +4116,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call listDataStoreVersionsAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable Boolean snapshotsOnly,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable Boolean snapshotsOnly,
             final ApiCallback<List<DataStoreVersion>> _callback)
             throws ApiException {
 
@@ -4271,10 +4284,11 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call promoteDashboardVersionCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull String versionId,
-            @javax.annotation.Nonnull PromoteDashboardVersionPayload promoteDashboardVersionPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull
+                    PromoteDashboardVersionPayload promoteDashboardVersionPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4341,10 +4355,11 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call promoteDashboardVersionValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull String versionId,
-            @javax.annotation.Nonnull PromoteDashboardVersionPayload promoteDashboardVersionPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull
+                    PromoteDashboardVersionPayload promoteDashboardVersionPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -4394,10 +4409,11 @@ public class DataApi {
      * </table>
      */
     public Dashboard promoteDashboardVersion(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull String versionId,
-            @javax.annotation.Nonnull PromoteDashboardVersionPayload promoteDashboardVersionPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull
+                    PromoteDashboardVersionPayload promoteDashboardVersionPayload)
             throws ApiException {
         ApiResponse<Dashboard> localVarResp =
                 promoteDashboardVersionWithHttpInfo(
@@ -4424,10 +4440,11 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<Dashboard> promoteDashboardVersionWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull String versionId,
-            @javax.annotation.Nonnull PromoteDashboardVersionPayload promoteDashboardVersionPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull
+                    PromoteDashboardVersionPayload promoteDashboardVersionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 promoteDashboardVersionValidateBeforeCall(
@@ -4456,10 +4473,11 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call promoteDashboardVersionAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull String versionId,
-            @javax.annotation.Nonnull PromoteDashboardVersionPayload promoteDashboardVersionPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull
+                    PromoteDashboardVersionPayload promoteDashboardVersionPayload,
             final ApiCallback<Dashboard> _callback)
             throws ApiException {
 
@@ -4488,8 +4506,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call queryDataStoreCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull QueryPayload queryPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull QueryPayload queryPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4550,8 +4568,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call queryDataStoreValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull QueryPayload queryPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull QueryPayload queryPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -4586,8 +4604,8 @@ public class DataApi {
      * </table>
      */
     public QueryResult queryDataStore(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull QueryPayload queryPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull QueryPayload queryPayload)
             throws ApiException {
         ApiResponse<QueryResult> localVarResp = queryDataStoreWithHttpInfo(storeId, queryPayload);
         return localVarResp.getData();
@@ -4610,8 +4628,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<QueryResult> queryDataStoreWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull QueryPayload queryPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull QueryPayload queryPayload)
             throws ApiException {
         okhttp3.Call localVarCall = queryDataStoreValidateBeforeCall(storeId, queryPayload, null);
         Type localVarReturnType = new TypeToken<QueryResult>() {}.getType();
@@ -4636,8 +4654,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call queryDataStoreAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull QueryPayload queryPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull QueryPayload queryPayload,
             final ApiCallback<QueryResult> _callback)
             throws ApiException {
 
@@ -4665,8 +4683,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call queryDataStoreBatchCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull BatchQueryPayload batchQueryPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull BatchQueryPayload batchQueryPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4727,8 +4745,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call queryDataStoreBatchValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull BatchQueryPayload batchQueryPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull BatchQueryPayload batchQueryPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -4763,8 +4781,8 @@ public class DataApi {
      * </table>
      */
     public BatchQueryResult queryDataStoreBatch(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull BatchQueryPayload batchQueryPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull BatchQueryPayload batchQueryPayload)
             throws ApiException {
         ApiResponse<BatchQueryResult> localVarResp =
                 queryDataStoreBatchWithHttpInfo(storeId, batchQueryPayload);
@@ -4788,8 +4806,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<BatchQueryResult> queryDataStoreBatchWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull BatchQueryPayload batchQueryPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull BatchQueryPayload batchQueryPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 queryDataStoreBatchValidateBeforeCall(storeId, batchQueryPayload, null);
@@ -4815,8 +4833,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call queryDataStoreBatchAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull BatchQueryPayload batchQueryPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull BatchQueryPayload batchQueryPayload,
             final ApiCallback<BatchQueryResult> _callback)
             throws ApiException {
 
@@ -4845,9 +4863,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call queryDataStoreVersionCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String versionId,
-            @javax.annotation.Nonnull QueryPayload queryPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull QueryPayload queryPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4911,9 +4929,9 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call queryDataStoreVersionValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String versionId,
-            @javax.annotation.Nonnull QueryPayload queryPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull QueryPayload queryPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -4955,9 +4973,9 @@ public class DataApi {
      * </table>
      */
     public QueryResult queryDataStoreVersion(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String versionId,
-            @javax.annotation.Nonnull QueryPayload queryPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull QueryPayload queryPayload)
             throws ApiException {
         ApiResponse<QueryResult> localVarResp =
                 queryDataStoreVersionWithHttpInfo(storeId, versionId, queryPayload);
@@ -4982,9 +5000,9 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<QueryResult> queryDataStoreVersionWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String versionId,
-            @javax.annotation.Nonnull QueryPayload queryPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull QueryPayload queryPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 queryDataStoreVersionValidateBeforeCall(storeId, versionId, queryPayload, null);
@@ -5011,9 +5029,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call queryDataStoreVersionAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String versionId,
-            @javax.annotation.Nonnull QueryPayload queryPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull QueryPayload queryPayload,
             final ApiCallback<QueryResult> _callback)
             throws ApiException {
 
@@ -5042,8 +5060,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call rollbackDataStoreVersionCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String versionId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -5107,8 +5125,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call rollbackDataStoreVersionValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String versionId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -5143,7 +5161,8 @@ public class DataApi {
      * </table>
      */
     public DataStore rollbackDataStoreVersion(
-            @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull String versionId)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String versionId)
             throws ApiException {
         ApiResponse<DataStore> localVarResp =
                 rollbackDataStoreVersionWithHttpInfo(storeId, versionId);
@@ -5167,7 +5186,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DataStore> rollbackDataStoreVersionWithHttpInfo(
-            @javax.annotation.Nonnull String storeId, @javax.annotation.Nonnull String versionId)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String versionId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 rollbackDataStoreVersionValidateBeforeCall(storeId, versionId, null);
@@ -5193,8 +5213,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call rollbackDataStoreVersionAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String versionId,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String versionId,
             final ApiCallback<DataStore> _callback)
             throws ApiException {
 
@@ -5223,9 +5243,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call setDashboardVersioningCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -5289,9 +5309,9 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call setDashboardVersioningValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -5334,9 +5354,9 @@ public class DataApi {
      * </table>
      */
     public DashboardVersioningStatusResponse setDashboardVersioning(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload)
             throws ApiException {
         ApiResponse<DashboardVersioningStatusResponse> localVarResp =
                 setDashboardVersioningWithHttpInfo(
@@ -5362,9 +5382,9 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DashboardVersioningStatusResponse> setDashboardVersioningWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 setDashboardVersioningValidateBeforeCall(
@@ -5392,9 +5412,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call setDashboardVersioningAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull DashboardVersioningPayload dashboardVersioningPayload,
             final ApiCallback<DashboardVersioningStatusResponse> _callback)
             throws ApiException {
 
@@ -5424,9 +5444,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call updateDashboardCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -5490,9 +5510,9 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateDashboardValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -5534,9 +5554,9 @@ public class DataApi {
      * </table>
      */
     public Dashboard updateDashboard(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload)
             throws ApiException {
         ApiResponse<Dashboard> localVarResp =
                 updateDashboardWithHttpInfo(storeId, dashboardId, updateDashboardPayload);
@@ -5561,9 +5581,9 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<Dashboard> updateDashboardWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateDashboardValidateBeforeCall(
@@ -5591,9 +5611,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call updateDashboardAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String dashboardId,
-            @javax.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull UpdateDashboardPayload updateDashboardPayload,
             final ApiCallback<Dashboard> _callback)
             throws ApiException {
 
@@ -5622,8 +5642,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call updateDataStoreSchemaCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -5684,8 +5704,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateDataStoreSchemaValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -5720,8 +5740,8 @@ public class DataApi {
      * </table>
      */
     public DataStoreSchemaResponse updateDataStoreSchema(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload)
             throws ApiException {
         ApiResponse<DataStoreSchemaResponse> localVarResp =
                 updateDataStoreSchemaWithHttpInfo(storeId, updateSchemaPayload);
@@ -5745,8 +5765,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DataStoreSchemaResponse> updateDataStoreSchemaWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateDataStoreSchemaValidateBeforeCall(storeId, updateSchemaPayload, null);
@@ -5772,8 +5792,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call updateDataStoreSchemaAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull UpdateSchemaPayload updateSchemaPayload,
             final ApiCallback<DataStoreSchemaResponse> _callback)
             throws ApiException {
 
@@ -5802,9 +5822,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call updateDataStoreTableCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String tableName,
-            @javax.annotation.Nonnull AlterTablePayload alterTablePayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
+            @jakarta.annotation.Nonnull AlterTablePayload alterTablePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -5868,9 +5888,9 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateDataStoreTableValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String tableName,
-            @javax.annotation.Nonnull AlterTablePayload alterTablePayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
+            @jakarta.annotation.Nonnull AlterTablePayload alterTablePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -5912,9 +5932,9 @@ public class DataApi {
      * </table>
      */
     public DataTable updateDataStoreTable(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String tableName,
-            @javax.annotation.Nonnull AlterTablePayload alterTablePayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
+            @jakarta.annotation.Nonnull AlterTablePayload alterTablePayload)
             throws ApiException {
         ApiResponse<DataTable> localVarResp =
                 updateDataStoreTableWithHttpInfo(storeId, tableName, alterTablePayload);
@@ -5939,9 +5959,9 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<DataTable> updateDataStoreTableWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String tableName,
-            @javax.annotation.Nonnull AlterTablePayload alterTablePayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
+            @jakarta.annotation.Nonnull AlterTablePayload alterTablePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateDataStoreTableValidateBeforeCall(storeId, tableName, alterTablePayload, null);
@@ -5968,9 +5988,9 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call updateDataStoreTableAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull String tableName,
-            @javax.annotation.Nonnull AlterTablePayload alterTablePayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String tableName,
+            @jakarta.annotation.Nonnull AlterTablePayload alterTablePayload,
             final ApiCallback<DataTable> _callback)
             throws ApiException {
 
@@ -5999,8 +6019,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call validateDataStoreQueriesCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull QueryValidationPayload queryValidationPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull QueryValidationPayload queryValidationPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -6061,8 +6081,8 @@ public class DataApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call validateDataStoreQueriesValidateBeforeCall(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull QueryValidationPayload queryValidationPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull QueryValidationPayload queryValidationPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'storeId' is set
@@ -6097,8 +6117,8 @@ public class DataApi {
      * </table>
      */
     public QueryValidationResult validateDataStoreQueries(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull QueryValidationPayload queryValidationPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull QueryValidationPayload queryValidationPayload)
             throws ApiException {
         ApiResponse<QueryValidationResult> localVarResp =
                 validateDataStoreQueriesWithHttpInfo(storeId, queryValidationPayload);
@@ -6122,8 +6142,8 @@ public class DataApi {
      * </table>
      */
     public ApiResponse<QueryValidationResult> validateDataStoreQueriesWithHttpInfo(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull QueryValidationPayload queryValidationPayload)
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull QueryValidationPayload queryValidationPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 validateDataStoreQueriesValidateBeforeCall(storeId, queryValidationPayload, null);
@@ -6149,8 +6169,8 @@ public class DataApi {
      * </table>
      */
     public okhttp3.Call validateDataStoreQueriesAsync(
-            @javax.annotation.Nonnull String storeId,
-            @javax.annotation.Nonnull QueryValidationPayload queryValidationPayload,
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull QueryValidationPayload queryValidationPayload,
             final ApiCallback<QueryValidationResult> _callback)
             throws ApiException {
 

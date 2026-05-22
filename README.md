@@ -4,6 +4,8 @@ Java client for the Vertesia API.
 
 The client combines a small hand-written facade with OpenAPI-generated API and model classes. Application code should usually start with `VertesiaClient`; the generated APIs and models remain available under `io.vertesia.api` and `io.vertesia.model`.
 
+Requires Java 17 or newer.
+
 ## Installation
 
 The package coordinates are:
@@ -103,6 +105,7 @@ To regenerate locally:
 openapi-generator generate -c openapi-generator-config.yaml
 python3 scripts/patch_forward_compat_validation.py
 python3 scripts/patch_generated_security.py
+python3 scripts/patch_generated_jakarta_annotations.py
 mvn -B spotless:apply test
 ```
 

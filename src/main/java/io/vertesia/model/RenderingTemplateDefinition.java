@@ -33,31 +33,31 @@ import java.util.Objects;
 /**
  * RenderingTemplateDefinition
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RenderingTemplateDefinition {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nullable private String title;
+    @jakarta.annotation.Nullable private String title;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String description;
 
     /**
@@ -118,29 +118,29 @@ public class RenderingTemplateDefinition {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ASSETS = "assets";
 
     @SerializedName(SERIALIZED_NAME_ASSETS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> assets = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_INSTRUCTIONS = "instructions";
 
     @SerializedName(SERIALIZED_NAME_INSTRUCTIONS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String instructions;
 
     public RenderingTemplateDefinition() {}
 
-    public RenderingTemplateDefinition id(@javax.annotation.Nonnull String id) {
+    public RenderingTemplateDefinition id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -149,16 +149,16 @@ public class RenderingTemplateDefinition {
      * Unique template id: \&quot;collection:name\&quot;
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public RenderingTemplateDefinition name(@javax.annotation.Nonnull String name) {
+    public RenderingTemplateDefinition name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -167,16 +167,16 @@ public class RenderingTemplateDefinition {
      * Unique template name (kebab-case)
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public RenderingTemplateDefinition title(@javax.annotation.Nullable String title) {
+    public RenderingTemplateDefinition title(@jakarta.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -185,15 +185,15 @@ public class RenderingTemplateDefinition {
      * Display title
      * @return title
      */
-    @javax.annotation.Nullable public String getTitle() {
+    @jakarta.annotation.Nullable public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nullable String title) {
+    public void setTitle(@jakarta.annotation.Nullable String title) {
         this.title = title;
     }
 
-    public RenderingTemplateDefinition description(@javax.annotation.Nonnull String description) {
+    public RenderingTemplateDefinition description(@jakarta.annotation.Nonnull String description) {
         this.description = description;
         return this;
     }
@@ -202,16 +202,16 @@ public class RenderingTemplateDefinition {
      * Short description
      * @return description
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nonnull String description) {
+    public void setDescription(@jakarta.annotation.Nonnull String description) {
         this.description = description;
     }
 
-    public RenderingTemplateDefinition type(@javax.annotation.Nonnull TypeEnum type) {
+    public RenderingTemplateDefinition type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -220,16 +220,16 @@ public class RenderingTemplateDefinition {
      * Template type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public RenderingTemplateDefinition tags(@javax.annotation.Nullable List<String> tags) {
+    public RenderingTemplateDefinition tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -246,15 +246,15 @@ public class RenderingTemplateDefinition {
      * Tags for categorization
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public RenderingTemplateDefinition assets(@javax.annotation.Nonnull List<String> assets) {
+    public RenderingTemplateDefinition assets(@jakarta.annotation.Nonnull List<String> assets) {
         this.assets = assets;
         return this;
     }
@@ -271,16 +271,17 @@ public class RenderingTemplateDefinition {
      * Absolute paths to asset files
      * @return assets
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getAssets() {
         return assets;
     }
 
-    public void setAssets(@javax.annotation.Nonnull List<String> assets) {
+    public void setAssets(@jakarta.annotation.Nonnull List<String> assets) {
         this.assets = assets;
     }
 
-    public RenderingTemplateDefinition instructions(@javax.annotation.Nonnull String instructions) {
+    public RenderingTemplateDefinition instructions(
+            @jakarta.annotation.Nonnull String instructions) {
         this.instructions = instructions;
         return this;
     }
@@ -289,12 +290,12 @@ public class RenderingTemplateDefinition {
      * The template instructions (markdown)
      * @return instructions
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getInstructions() {
         return instructions;
     }
 
-    public void setInstructions(@javax.annotation.Nonnull String instructions) {
+    public void setInstructions(@jakarta.annotation.Nonnull String instructions) {
         this.instructions = instructions;
     }
 

@@ -32,96 +32,96 @@ import java.util.Objects;
 /**
  * AIModel
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AIModel {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_PROVIDER = "provider";
 
     @SerializedName(SERIALIZED_NAME_PROVIDER)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String provider;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nullable private String version;
+    @jakarta.annotation.Nullable private String version;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private ModelType type;
+    @jakarta.annotation.Nullable private ModelType type;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_OWNER = "owner";
 
     @SerializedName(SERIALIZED_NAME_OWNER)
-    @javax.annotation.Nullable private String owner;
+    @jakarta.annotation.Nullable private String owner;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private AIModelStatus status;
+    @jakarta.annotation.Nullable private AIModelStatus status;
 
     public static final String SERIALIZED_NAME_CAN_STREAM = "can_stream";
 
     @SerializedName(SERIALIZED_NAME_CAN_STREAM)
-    @javax.annotation.Nullable private Boolean canStream;
+    @jakarta.annotation.Nullable private Boolean canStream;
 
     public static final String SERIALIZED_NAME_IS_CUSTOM = "is_custom";
 
     @SerializedName(SERIALIZED_NAME_IS_CUSTOM)
-    @javax.annotation.Nullable private Boolean isCustom;
+    @jakarta.annotation.Nullable private Boolean isCustom;
 
     public static final String SERIALIZED_NAME_IS_MULTIMODAL = "is_multimodal";
 
     @SerializedName(SERIALIZED_NAME_IS_MULTIMODAL)
-    @javax.annotation.Nullable private Boolean isMultimodal;
+    @jakarta.annotation.Nullable private Boolean isMultimodal;
 
     public static final String SERIALIZED_NAME_INPUT_MODALITIES = "input_modalities";
 
     @SerializedName(SERIALIZED_NAME_INPUT_MODALITIES)
-    @javax.annotation.Nullable private List<String> inputModalities = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> inputModalities = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_OUTPUT_MODALITIES = "output_modalities";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT_MODALITIES)
-    @javax.annotation.Nullable private List<String> outputModalities = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> outputModalities = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TOOL_SUPPORT = "tool_support";
 
     @SerializedName(SERIALIZED_NAME_TOOL_SUPPORT)
-    @javax.annotation.Nullable private Boolean toolSupport;
+    @jakarta.annotation.Nullable private Boolean toolSupport;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @javax.annotation.Nullable private String environment;
+    @jakarta.annotation.Nullable private String environment;
 
     public AIModel() {}
 
-    public AIModel id(@javax.annotation.Nonnull String id) {
+    public AIModel id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -130,16 +130,16 @@ public class AIModel {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public AIModel name(@javax.annotation.Nonnull String name) {
+    public AIModel name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -148,16 +148,16 @@ public class AIModel {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public AIModel provider(@javax.annotation.Nonnull String provider) {
+    public AIModel provider(@jakarta.annotation.Nonnull String provider) {
         this.provider = provider;
         return this;
     }
@@ -166,16 +166,16 @@ public class AIModel {
      * Get provider
      * @return provider
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProvider() {
         return provider;
     }
 
-    public void setProvider(@javax.annotation.Nonnull String provider) {
+    public void setProvider(@jakarta.annotation.Nonnull String provider) {
         this.provider = provider;
     }
 
-    public AIModel description(@javax.annotation.Nullable String description) {
+    public AIModel description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -184,15 +184,15 @@ public class AIModel {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public AIModel version(@javax.annotation.Nullable String version) {
+    public AIModel version(@jakarta.annotation.Nullable String version) {
         this.version = version;
         return this;
     }
@@ -201,15 +201,15 @@ public class AIModel {
      * Get version
      * @return version
      */
-    @javax.annotation.Nullable public String getVersion() {
+    @jakarta.annotation.Nullable public String getVersion() {
         return version;
     }
 
-    public void setVersion(@javax.annotation.Nullable String version) {
+    public void setVersion(@jakarta.annotation.Nullable String version) {
         this.version = version;
     }
 
-    public AIModel type(@javax.annotation.Nullable ModelType type) {
+    public AIModel type(@jakarta.annotation.Nullable ModelType type) {
         this.type = type;
         return this;
     }
@@ -218,15 +218,15 @@ public class AIModel {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public ModelType getType() {
+    @jakarta.annotation.Nullable public ModelType getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable ModelType type) {
+    public void setType(@jakarta.annotation.Nullable ModelType type) {
         this.type = type;
     }
 
-    public AIModel tags(@javax.annotation.Nullable List<String> tags) {
+    public AIModel tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -243,15 +243,15 @@ public class AIModel {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public AIModel owner(@javax.annotation.Nullable String owner) {
+    public AIModel owner(@jakarta.annotation.Nullable String owner) {
         this.owner = owner;
         return this;
     }
@@ -260,15 +260,15 @@ public class AIModel {
      * Get owner
      * @return owner
      */
-    @javax.annotation.Nullable public String getOwner() {
+    @jakarta.annotation.Nullable public String getOwner() {
         return owner;
     }
 
-    public void setOwner(@javax.annotation.Nullable String owner) {
+    public void setOwner(@jakarta.annotation.Nullable String owner) {
         this.owner = owner;
     }
 
-    public AIModel status(@javax.annotation.Nullable AIModelStatus status) {
+    public AIModel status(@jakarta.annotation.Nullable AIModelStatus status) {
         this.status = status;
         return this;
     }
@@ -277,15 +277,15 @@ public class AIModel {
      * Get status
      * @return status
      */
-    @javax.annotation.Nullable public AIModelStatus getStatus() {
+    @jakarta.annotation.Nullable public AIModelStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable AIModelStatus status) {
+    public void setStatus(@jakarta.annotation.Nullable AIModelStatus status) {
         this.status = status;
     }
 
-    public AIModel canStream(@javax.annotation.Nullable Boolean canStream) {
+    public AIModel canStream(@jakarta.annotation.Nullable Boolean canStream) {
         this.canStream = canStream;
         return this;
     }
@@ -294,15 +294,15 @@ public class AIModel {
      * Get canStream
      * @return canStream
      */
-    @javax.annotation.Nullable public Boolean getCanStream() {
+    @jakarta.annotation.Nullable public Boolean getCanStream() {
         return canStream;
     }
 
-    public void setCanStream(@javax.annotation.Nullable Boolean canStream) {
+    public void setCanStream(@jakarta.annotation.Nullable Boolean canStream) {
         this.canStream = canStream;
     }
 
-    public AIModel isCustom(@javax.annotation.Nullable Boolean isCustom) {
+    public AIModel isCustom(@jakarta.annotation.Nullable Boolean isCustom) {
         this.isCustom = isCustom;
         return this;
     }
@@ -311,15 +311,15 @@ public class AIModel {
      * Get isCustom
      * @return isCustom
      */
-    @javax.annotation.Nullable public Boolean getIsCustom() {
+    @jakarta.annotation.Nullable public Boolean getIsCustom() {
         return isCustom;
     }
 
-    public void setIsCustom(@javax.annotation.Nullable Boolean isCustom) {
+    public void setIsCustom(@jakarta.annotation.Nullable Boolean isCustom) {
         this.isCustom = isCustom;
     }
 
-    public AIModel isMultimodal(@javax.annotation.Nullable Boolean isMultimodal) {
+    public AIModel isMultimodal(@jakarta.annotation.Nullable Boolean isMultimodal) {
         this.isMultimodal = isMultimodal;
         return this;
     }
@@ -328,15 +328,15 @@ public class AIModel {
      * Get isMultimodal
      * @return isMultimodal
      */
-    @javax.annotation.Nullable public Boolean getIsMultimodal() {
+    @jakarta.annotation.Nullable public Boolean getIsMultimodal() {
         return isMultimodal;
     }
 
-    public void setIsMultimodal(@javax.annotation.Nullable Boolean isMultimodal) {
+    public void setIsMultimodal(@jakarta.annotation.Nullable Boolean isMultimodal) {
         this.isMultimodal = isMultimodal;
     }
 
-    public AIModel inputModalities(@javax.annotation.Nullable List<String> inputModalities) {
+    public AIModel inputModalities(@jakarta.annotation.Nullable List<String> inputModalities) {
         this.inputModalities = inputModalities;
         return this;
     }
@@ -353,15 +353,15 @@ public class AIModel {
      * Get inputModalities
      * @return inputModalities
      */
-    @javax.annotation.Nullable public List<String> getInputModalities() {
+    @jakarta.annotation.Nullable public List<String> getInputModalities() {
         return inputModalities;
     }
 
-    public void setInputModalities(@javax.annotation.Nullable List<String> inputModalities) {
+    public void setInputModalities(@jakarta.annotation.Nullable List<String> inputModalities) {
         this.inputModalities = inputModalities;
     }
 
-    public AIModel outputModalities(@javax.annotation.Nullable List<String> outputModalities) {
+    public AIModel outputModalities(@jakarta.annotation.Nullable List<String> outputModalities) {
         this.outputModalities = outputModalities;
         return this;
     }
@@ -378,15 +378,15 @@ public class AIModel {
      * Get outputModalities
      * @return outputModalities
      */
-    @javax.annotation.Nullable public List<String> getOutputModalities() {
+    @jakarta.annotation.Nullable public List<String> getOutputModalities() {
         return outputModalities;
     }
 
-    public void setOutputModalities(@javax.annotation.Nullable List<String> outputModalities) {
+    public void setOutputModalities(@jakarta.annotation.Nullable List<String> outputModalities) {
         this.outputModalities = outputModalities;
     }
 
-    public AIModel toolSupport(@javax.annotation.Nullable Boolean toolSupport) {
+    public AIModel toolSupport(@jakarta.annotation.Nullable Boolean toolSupport) {
         this.toolSupport = toolSupport;
         return this;
     }
@@ -395,15 +395,15 @@ public class AIModel {
      * Get toolSupport
      * @return toolSupport
      */
-    @javax.annotation.Nullable public Boolean getToolSupport() {
+    @jakarta.annotation.Nullable public Boolean getToolSupport() {
         return toolSupport;
     }
 
-    public void setToolSupport(@javax.annotation.Nullable Boolean toolSupport) {
+    public void setToolSupport(@jakarta.annotation.Nullable Boolean toolSupport) {
         this.toolSupport = toolSupport;
     }
 
-    public AIModel environment(@javax.annotation.Nullable String environment) {
+    public AIModel environment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
         return this;
     }
@@ -412,11 +412,11 @@ public class AIModel {
      * Get environment
      * @return environment
      */
-    @javax.annotation.Nullable public String getEnvironment() {
+    @jakarta.annotation.Nullable public String getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@javax.annotation.Nullable String environment) {
+    public void setEnvironment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
     }
 

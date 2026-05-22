@@ -30,7 +30,7 @@ import java.util.Objects;
 /**
  * ExecutionRunWorkflow
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ExecutionRunWorkflow {
@@ -38,25 +38,25 @@ public class ExecutionRunWorkflow {
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_RUN_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String runId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflow_id";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String workflowId;
 
     public static final String SERIALIZED_NAME_ACTIVITY_TYPE = "activity_type";
 
     @SerializedName(SERIALIZED_NAME_ACTIVITY_TYPE)
-    @javax.annotation.Nullable private String activityType;
+    @jakarta.annotation.Nullable private String activityType;
 
     public ExecutionRunWorkflow() {}
 
     @Deprecated
-    public ExecutionRunWorkflow runId(@javax.annotation.Nonnull String runId) {
+    public ExecutionRunWorkflow runId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
         return this;
     }
@@ -67,18 +67,18 @@ public class ExecutionRunWorkflow {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRunId() {
         return runId;
     }
 
     @Deprecated
-    public void setRunId(@javax.annotation.Nonnull String runId) {
+    public void setRunId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
     }
 
     @Deprecated
-    public ExecutionRunWorkflow workflowId(@javax.annotation.Nonnull String workflowId) {
+    public ExecutionRunWorkflow workflowId(@jakarta.annotation.Nonnull String workflowId) {
         this.workflowId = workflowId;
         return this;
     }
@@ -89,17 +89,17 @@ public class ExecutionRunWorkflow {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getWorkflowId() {
         return workflowId;
     }
 
     @Deprecated
-    public void setWorkflowId(@javax.annotation.Nonnull String workflowId) {
+    public void setWorkflowId(@jakarta.annotation.Nonnull String workflowId) {
         this.workflowId = workflowId;
     }
 
-    public ExecutionRunWorkflow activityType(@javax.annotation.Nullable String activityType) {
+    public ExecutionRunWorkflow activityType(@jakarta.annotation.Nullable String activityType) {
         this.activityType = activityType;
         return this;
     }
@@ -108,11 +108,11 @@ public class ExecutionRunWorkflow {
      * The Temporal Activity Type used for executing this Interaction. Undefined if the interaction was not executed as part of a workflow (such as Agent Runner).
      * @return activityType
      */
-    @javax.annotation.Nullable public String getActivityType() {
+    @jakarta.annotation.Nullable public String getActivityType() {
         return activityType;
     }
 
-    public void setActivityType(@javax.annotation.Nullable String activityType) {
+    public void setActivityType(@jakarta.annotation.Nullable String activityType) {
         this.activityType = activityType;
     }
 

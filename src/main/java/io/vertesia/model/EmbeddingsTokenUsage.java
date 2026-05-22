@@ -31,28 +31,28 @@ import java.util.Objects;
 /**
  * EmbeddingsTokenUsage
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EmbeddingsTokenUsage {
     public static final String SERIALIZED_NAME_INPUT_TOKENS = "input_tokens";
 
     @SerializedName(SERIALIZED_NAME_INPUT_TOKENS)
-    @javax.annotation.Nullable private BigDecimal inputTokens;
+    @jakarta.annotation.Nullable private BigDecimal inputTokens;
 
     public static final String SERIALIZED_NAME_INPUT_TEXT_TOKENS = "input_text_tokens";
 
     @SerializedName(SERIALIZED_NAME_INPUT_TEXT_TOKENS)
-    @javax.annotation.Nullable private BigDecimal inputTextTokens;
+    @jakarta.annotation.Nullable private BigDecimal inputTextTokens;
 
     public static final String SERIALIZED_NAME_INPUT_IMAGE_TOKENS = "input_image_tokens";
 
     @SerializedName(SERIALIZED_NAME_INPUT_IMAGE_TOKENS)
-    @javax.annotation.Nullable private BigDecimal inputImageTokens;
+    @jakarta.annotation.Nullable private BigDecimal inputImageTokens;
 
     public EmbeddingsTokenUsage() {}
 
-    public EmbeddingsTokenUsage inputTokens(@javax.annotation.Nullable BigDecimal inputTokens) {
+    public EmbeddingsTokenUsage inputTokens(@jakarta.annotation.Nullable BigDecimal inputTokens) {
         this.inputTokens = inputTokens;
         return this;
     }
@@ -61,16 +61,16 @@ public class EmbeddingsTokenUsage {
      * Get inputTokens
      * @return inputTokens
      */
-    @javax.annotation.Nullable public BigDecimal getInputTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getInputTokens() {
         return inputTokens;
     }
 
-    public void setInputTokens(@javax.annotation.Nullable BigDecimal inputTokens) {
+    public void setInputTokens(@jakarta.annotation.Nullable BigDecimal inputTokens) {
         this.inputTokens = inputTokens;
     }
 
     public EmbeddingsTokenUsage inputTextTokens(
-            @javax.annotation.Nullable BigDecimal inputTextTokens) {
+            @jakarta.annotation.Nullable BigDecimal inputTextTokens) {
         this.inputTextTokens = inputTextTokens;
         return this;
     }
@@ -79,16 +79,16 @@ public class EmbeddingsTokenUsage {
      * Get inputTextTokens
      * @return inputTextTokens
      */
-    @javax.annotation.Nullable public BigDecimal getInputTextTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getInputTextTokens() {
         return inputTextTokens;
     }
 
-    public void setInputTextTokens(@javax.annotation.Nullable BigDecimal inputTextTokens) {
+    public void setInputTextTokens(@jakarta.annotation.Nullable BigDecimal inputTextTokens) {
         this.inputTextTokens = inputTextTokens;
     }
 
     public EmbeddingsTokenUsage inputImageTokens(
-            @javax.annotation.Nullable BigDecimal inputImageTokens) {
+            @jakarta.annotation.Nullable BigDecimal inputImageTokens) {
         this.inputImageTokens = inputImageTokens;
         return this;
     }
@@ -97,11 +97,11 @@ public class EmbeddingsTokenUsage {
      * Get inputImageTokens
      * @return inputImageTokens
      */
-    @javax.annotation.Nullable public BigDecimal getInputImageTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getInputImageTokens() {
         return inputImageTokens;
     }
 
-    public void setInputImageTokens(@javax.annotation.Nullable BigDecimal inputImageTokens) {
+    public void setInputImageTokens(@jakarta.annotation.Nullable BigDecimal inputImageTokens) {
         this.inputImageTokens = inputImageTokens;
     }
 

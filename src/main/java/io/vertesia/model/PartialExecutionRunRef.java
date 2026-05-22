@@ -37,149 +37,149 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * PartialExecutionRunRef
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PartialExecutionRunRef {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nullable private String id;
+    @jakarta.annotation.Nullable private String id;
 
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private InteractionExecutionResultParent parent;
+    @jakarta.annotation.Nullable private InteractionExecutionResultParent parent;
 
     public static final String SERIALIZED_NAME_EVALUATION = "evaluation";
 
     @SerializedName(SERIALIZED_NAME_EVALUATION)
-    @javax.annotation.Nullable private InteractionExecutionResultEvaluation evaluation;
+    @jakarta.annotation.Nullable private InteractionExecutionResultEvaluation evaluation;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_INTERACTION_CODE = "interaction_code";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION_CODE)
-    @javax.annotation.Nullable private String interactionCode;
+    @jakarta.annotation.Nullable private String interactionCode;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @javax.annotation.Nullable private ExecutionEnvironmentRef environment;
+    @jakarta.annotation.Nullable private ExecutionEnvironmentRef environment;
 
     public static final String SERIALIZED_NAME_MODEL_ID = "modelId";
 
     @SerializedName(SERIALIZED_NAME_MODEL_ID)
-    @javax.annotation.Nullable private String modelId;
+    @jakarta.annotation.Nullable private String modelId;
 
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema resultSchema;
+    @jakarta.annotation.Nullable private JSONSchema resultSchema;
 
     public static final String SERIALIZED_NAME_TTL = "ttl";
 
     @SerializedName(SERIALIZED_NAME_TTL)
-    @javax.annotation.Nullable private BigDecimal ttl;
+    @jakarta.annotation.Nullable private BigDecimal ttl;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private ExecutionRunStatus status;
+    @jakarta.annotation.Nullable private ExecutionRunStatus status;
 
     public static final String SERIALIZED_NAME_FINISH_REASON = "finish_reason";
 
     @SerializedName(SERIALIZED_NAME_FINISH_REASON)
-    @javax.annotation.Nullable private String finishReason;
+    @jakarta.annotation.Nullable private String finishReason;
 
     public static final String SERIALIZED_NAME_PROMPT = "prompt";
 
     @SerializedName(SERIALIZED_NAME_PROMPT)
-    @javax.annotation.Nullable private Object prompt = null;
+    @jakarta.annotation.Nullable private Object prompt = null;
 
     public static final String SERIALIZED_NAME_TOKEN_USE = "token_use";
 
     @SerializedName(SERIALIZED_NAME_TOKEN_USE)
-    @javax.annotation.Nullable private ExecutionTokenUsage tokenUse;
+    @jakarta.annotation.Nullable private ExecutionTokenUsage tokenUse;
 
     public static final String SERIALIZED_NAME_CHUNKS = "chunks";
 
     @SerializedName(SERIALIZED_NAME_CHUNKS)
-    @javax.annotation.Nullable private BigDecimal chunks;
+    @jakarta.annotation.Nullable private BigDecimal chunks;
 
     public static final String SERIALIZED_NAME_EXECUTION_TIME = "execution_time";
 
     @SerializedName(SERIALIZED_NAME_EXECUTION_TIME)
-    @javax.annotation.Nullable private BigDecimal executionTime;
+    @jakarta.annotation.Nullable private BigDecimal executionTime;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nullable private OffsetDateTime createdAt;
+    @jakarta.annotation.Nullable private OffsetDateTime createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nullable private OffsetDateTime updatedAt;
+    @jakarta.annotation.Nullable private OffsetDateTime updatedAt;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nullable private AccountRef account;
+    @jakarta.annotation.Nullable private AccountRef account;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nullable private ProjectRef project;
+    @jakarta.annotation.Nullable private ProjectRef project;
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nullable private InteractionExecutionConfiguration config;
+    @jakarta.annotation.Nullable private InteractionExecutionConfiguration config;
 
     public static final String SERIALIZED_NAME_ERROR = "error";
 
     @SerializedName(SERIALIZED_NAME_ERROR)
-    @javax.annotation.Nullable private InteractionExecutionError error;
+    @jakarta.annotation.Nullable private InteractionExecutionError error;
 
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nullable private RunSource source;
+    @jakarta.annotation.Nullable private RunSource source;
 
     public static final String SERIALIZED_NAME_OUTPUT_MODALITY = "output_modality";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_OUTPUT_MODALITY)
-    @javax.annotation.Nullable private Modalities outputModality;
+    @jakarta.annotation.Nullable private Modalities outputModality;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nullable private String createdBy;
+    @jakarta.annotation.Nullable private String createdBy;
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nullable private String updatedBy;
+    @jakarta.annotation.Nullable private String updatedBy;
 
     public static final String SERIALIZED_NAME_WORKFLOW = "workflow";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW)
-    @javax.annotation.Nullable private ExecutionRunWorkflow workflow;
+    @jakarta.annotation.Nullable private ExecutionRunWorkflow workflow;
 
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
-    @javax.annotation.Nullable private InteractionRef interaction;
+    @jakarta.annotation.Nullable private InteractionRef interaction;
 
     public PartialExecutionRunRef() {}
 
-    public PartialExecutionRunRef id(@javax.annotation.Nullable String id) {
+    public PartialExecutionRunRef id(@jakarta.annotation.Nullable String id) {
         this.id = id;
         return this;
     }
@@ -188,16 +188,16 @@ public class PartialExecutionRunRef {
      * Get id
      * @return id
      */
-    @javax.annotation.Nullable public String getId() {
+    @jakarta.annotation.Nullable public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nullable String id) {
+    public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
     }
 
     public PartialExecutionRunRef parent(
-            @javax.annotation.Nullable InteractionExecutionResultParent parent) {
+            @jakarta.annotation.Nullable InteractionExecutionResultParent parent) {
         this.parent = parent;
         return this;
     }
@@ -206,16 +206,16 @@ public class PartialExecutionRunRef {
      * Get parent
      * @return parent
      */
-    @javax.annotation.Nullable public InteractionExecutionResultParent getParent() {
+    @jakarta.annotation.Nullable public InteractionExecutionResultParent getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable InteractionExecutionResultParent parent) {
+    public void setParent(@jakarta.annotation.Nullable InteractionExecutionResultParent parent) {
         this.parent = parent;
     }
 
     public PartialExecutionRunRef evaluation(
-            @javax.annotation.Nullable InteractionExecutionResultEvaluation evaluation) {
+            @jakarta.annotation.Nullable InteractionExecutionResultEvaluation evaluation) {
         this.evaluation = evaluation;
         return this;
     }
@@ -224,16 +224,16 @@ public class PartialExecutionRunRef {
      * Get evaluation
      * @return evaluation
      */
-    @javax.annotation.Nullable public InteractionExecutionResultEvaluation getEvaluation() {
+    @jakarta.annotation.Nullable public InteractionExecutionResultEvaluation getEvaluation() {
         return evaluation;
     }
 
     public void setEvaluation(
-            @javax.annotation.Nullable InteractionExecutionResultEvaluation evaluation) {
+            @jakarta.annotation.Nullable InteractionExecutionResultEvaluation evaluation) {
         this.evaluation = evaluation;
     }
 
-    public PartialExecutionRunRef tags(@javax.annotation.Nullable List<String> tags) {
+    public PartialExecutionRunRef tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -250,16 +250,16 @@ public class PartialExecutionRunRef {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
     public PartialExecutionRunRef interactionCode(
-            @javax.annotation.Nullable String interactionCode) {
+            @jakarta.annotation.Nullable String interactionCode) {
         this.interactionCode = interactionCode;
         return this;
     }
@@ -268,16 +268,16 @@ public class PartialExecutionRunRef {
      * Get interactionCode
      * @return interactionCode
      */
-    @javax.annotation.Nullable public String getInteractionCode() {
+    @jakarta.annotation.Nullable public String getInteractionCode() {
         return interactionCode;
     }
 
-    public void setInteractionCode(@javax.annotation.Nullable String interactionCode) {
+    public void setInteractionCode(@jakarta.annotation.Nullable String interactionCode) {
         this.interactionCode = interactionCode;
     }
 
     public PartialExecutionRunRef environment(
-            @javax.annotation.Nullable ExecutionEnvironmentRef environment) {
+            @jakarta.annotation.Nullable ExecutionEnvironmentRef environment) {
         this.environment = environment;
         return this;
     }
@@ -286,15 +286,15 @@ public class PartialExecutionRunRef {
      * Environment reference - populated with full object in API responses
      * @return environment
      */
-    @javax.annotation.Nullable public ExecutionEnvironmentRef getEnvironment() {
+    @jakarta.annotation.Nullable public ExecutionEnvironmentRef getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@javax.annotation.Nullable ExecutionEnvironmentRef environment) {
+    public void setEnvironment(@jakarta.annotation.Nullable ExecutionEnvironmentRef environment) {
         this.environment = environment;
     }
 
-    public PartialExecutionRunRef modelId(@javax.annotation.Nullable String modelId) {
+    public PartialExecutionRunRef modelId(@jakarta.annotation.Nullable String modelId) {
         this.modelId = modelId;
         return this;
     }
@@ -303,15 +303,16 @@ public class PartialExecutionRunRef {
      * Get modelId
      * @return modelId
      */
-    @javax.annotation.Nullable public String getModelId() {
+    @jakarta.annotation.Nullable public String getModelId() {
         return modelId;
     }
 
-    public void setModelId(@javax.annotation.Nullable String modelId) {
+    public void setModelId(@jakarta.annotation.Nullable String modelId) {
         this.modelId = modelId;
     }
 
-    public PartialExecutionRunRef resultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public PartialExecutionRunRef resultSchema(
+            @jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
         return this;
     }
@@ -320,15 +321,15 @@ public class PartialExecutionRunRef {
      * Get resultSchema
      * @return resultSchema
      */
-    @javax.annotation.Nullable public JSONSchema getResultSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getResultSchema() {
         return resultSchema;
     }
 
-    public void setResultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public void setResultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
     }
 
-    public PartialExecutionRunRef ttl(@javax.annotation.Nullable BigDecimal ttl) {
+    public PartialExecutionRunRef ttl(@jakarta.annotation.Nullable BigDecimal ttl) {
         this.ttl = ttl;
         return this;
     }
@@ -337,15 +338,15 @@ public class PartialExecutionRunRef {
      * Get ttl
      * @return ttl
      */
-    @javax.annotation.Nullable public BigDecimal getTtl() {
+    @jakarta.annotation.Nullable public BigDecimal getTtl() {
         return ttl;
     }
 
-    public void setTtl(@javax.annotation.Nullable BigDecimal ttl) {
+    public void setTtl(@jakarta.annotation.Nullable BigDecimal ttl) {
         this.ttl = ttl;
     }
 
-    public PartialExecutionRunRef status(@javax.annotation.Nullable ExecutionRunStatus status) {
+    public PartialExecutionRunRef status(@jakarta.annotation.Nullable ExecutionRunStatus status) {
         this.status = status;
         return this;
     }
@@ -354,15 +355,15 @@ public class PartialExecutionRunRef {
      * Get status
      * @return status
      */
-    @javax.annotation.Nullable public ExecutionRunStatus getStatus() {
+    @jakarta.annotation.Nullable public ExecutionRunStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable ExecutionRunStatus status) {
+    public void setStatus(@jakarta.annotation.Nullable ExecutionRunStatus status) {
         this.status = status;
     }
 
-    public PartialExecutionRunRef finishReason(@javax.annotation.Nullable String finishReason) {
+    public PartialExecutionRunRef finishReason(@jakarta.annotation.Nullable String finishReason) {
         this.finishReason = finishReason;
         return this;
     }
@@ -371,15 +372,15 @@ public class PartialExecutionRunRef {
      * Get finishReason
      * @return finishReason
      */
-    @javax.annotation.Nullable public String getFinishReason() {
+    @jakarta.annotation.Nullable public String getFinishReason() {
         return finishReason;
     }
 
-    public void setFinishReason(@javax.annotation.Nullable String finishReason) {
+    public void setFinishReason(@jakarta.annotation.Nullable String finishReason) {
         this.finishReason = finishReason;
     }
 
-    public PartialExecutionRunRef prompt(@javax.annotation.Nullable Object prompt) {
+    public PartialExecutionRunRef prompt(@jakarta.annotation.Nullable Object prompt) {
         this.prompt = prompt;
         return this;
     }
@@ -388,16 +389,16 @@ public class PartialExecutionRunRef {
      * Get prompt
      * @return prompt
      */
-    @javax.annotation.Nullable public Object getPrompt() {
+    @jakarta.annotation.Nullable public Object getPrompt() {
         return prompt;
     }
 
-    public void setPrompt(@javax.annotation.Nullable Object prompt) {
+    public void setPrompt(@jakarta.annotation.Nullable Object prompt) {
         this.prompt = prompt;
     }
 
     public PartialExecutionRunRef tokenUse(
-            @javax.annotation.Nullable ExecutionTokenUsage tokenUse) {
+            @jakarta.annotation.Nullable ExecutionTokenUsage tokenUse) {
         this.tokenUse = tokenUse;
         return this;
     }
@@ -406,15 +407,15 @@ public class PartialExecutionRunRef {
      * Get tokenUse
      * @return tokenUse
      */
-    @javax.annotation.Nullable public ExecutionTokenUsage getTokenUse() {
+    @jakarta.annotation.Nullable public ExecutionTokenUsage getTokenUse() {
         return tokenUse;
     }
 
-    public void setTokenUse(@javax.annotation.Nullable ExecutionTokenUsage tokenUse) {
+    public void setTokenUse(@jakarta.annotation.Nullable ExecutionTokenUsage tokenUse) {
         this.tokenUse = tokenUse;
     }
 
-    public PartialExecutionRunRef chunks(@javax.annotation.Nullable BigDecimal chunks) {
+    public PartialExecutionRunRef chunks(@jakarta.annotation.Nullable BigDecimal chunks) {
         this.chunks = chunks;
         return this;
     }
@@ -423,16 +424,16 @@ public class PartialExecutionRunRef {
      * Get chunks
      * @return chunks
      */
-    @javax.annotation.Nullable public BigDecimal getChunks() {
+    @jakarta.annotation.Nullable public BigDecimal getChunks() {
         return chunks;
     }
 
-    public void setChunks(@javax.annotation.Nullable BigDecimal chunks) {
+    public void setChunks(@jakarta.annotation.Nullable BigDecimal chunks) {
         this.chunks = chunks;
     }
 
     public PartialExecutionRunRef executionTime(
-            @javax.annotation.Nullable BigDecimal executionTime) {
+            @jakarta.annotation.Nullable BigDecimal executionTime) {
         this.executionTime = executionTime;
         return this;
     }
@@ -441,15 +442,15 @@ public class PartialExecutionRunRef {
      * Get executionTime
      * @return executionTime
      */
-    @javax.annotation.Nullable public BigDecimal getExecutionTime() {
+    @jakarta.annotation.Nullable public BigDecimal getExecutionTime() {
         return executionTime;
     }
 
-    public void setExecutionTime(@javax.annotation.Nullable BigDecimal executionTime) {
+    public void setExecutionTime(@jakarta.annotation.Nullable BigDecimal executionTime) {
         this.executionTime = executionTime;
     }
 
-    public PartialExecutionRunRef createdAt(@javax.annotation.Nullable OffsetDateTime createdAt) {
+    public PartialExecutionRunRef createdAt(@jakarta.annotation.Nullable OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -458,15 +459,15 @@ public class PartialExecutionRunRef {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getCreatedAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nullable OffsetDateTime createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nullable OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public PartialExecutionRunRef updatedAt(@javax.annotation.Nullable OffsetDateTime updatedAt) {
+    public PartialExecutionRunRef updatedAt(@jakarta.annotation.Nullable OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -475,15 +476,15 @@ public class PartialExecutionRunRef {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getUpdatedAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nullable OffsetDateTime updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nullable OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public PartialExecutionRunRef account(@javax.annotation.Nullable AccountRef account) {
+    public PartialExecutionRunRef account(@jakarta.annotation.Nullable AccountRef account) {
         this.account = account;
         return this;
     }
@@ -492,15 +493,15 @@ public class PartialExecutionRunRef {
      * Get account
      * @return account
      */
-    @javax.annotation.Nullable public AccountRef getAccount() {
+    @jakarta.annotation.Nullable public AccountRef getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nullable AccountRef account) {
+    public void setAccount(@jakarta.annotation.Nullable AccountRef account) {
         this.account = account;
     }
 
-    public PartialExecutionRunRef project(@javax.annotation.Nullable ProjectRef project) {
+    public PartialExecutionRunRef project(@jakarta.annotation.Nullable ProjectRef project) {
         this.project = project;
         return this;
     }
@@ -509,16 +510,16 @@ public class PartialExecutionRunRef {
      * Get project
      * @return project
      */
-    @javax.annotation.Nullable public ProjectRef getProject() {
+    @jakarta.annotation.Nullable public ProjectRef getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nullable ProjectRef project) {
+    public void setProject(@jakarta.annotation.Nullable ProjectRef project) {
         this.project = project;
     }
 
     public PartialExecutionRunRef config(
-            @javax.annotation.Nullable InteractionExecutionConfiguration config) {
+            @jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
         this.config = config;
         return this;
     }
@@ -527,16 +528,16 @@ public class PartialExecutionRunRef {
      * Get config
      * @return config
      */
-    @javax.annotation.Nullable public InteractionExecutionConfiguration getConfig() {
+    @jakarta.annotation.Nullable public InteractionExecutionConfiguration getConfig() {
         return config;
     }
 
-    public void setConfig(@javax.annotation.Nullable InteractionExecutionConfiguration config) {
+    public void setConfig(@jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
         this.config = config;
     }
 
     public PartialExecutionRunRef error(
-            @javax.annotation.Nullable InteractionExecutionError error) {
+            @jakarta.annotation.Nullable InteractionExecutionError error) {
         this.error = error;
         return this;
     }
@@ -545,15 +546,15 @@ public class PartialExecutionRunRef {
      * Get error
      * @return error
      */
-    @javax.annotation.Nullable public InteractionExecutionError getError() {
+    @jakarta.annotation.Nullable public InteractionExecutionError getError() {
         return error;
     }
 
-    public void setError(@javax.annotation.Nullable InteractionExecutionError error) {
+    public void setError(@jakarta.annotation.Nullable InteractionExecutionError error) {
         this.error = error;
     }
 
-    public PartialExecutionRunRef source(@javax.annotation.Nullable RunSource source) {
+    public PartialExecutionRunRef source(@jakarta.annotation.Nullable RunSource source) {
         this.source = source;
         return this;
     }
@@ -562,17 +563,17 @@ public class PartialExecutionRunRef {
      * Get source
      * @return source
      */
-    @javax.annotation.Nullable public RunSource getSource() {
+    @jakarta.annotation.Nullable public RunSource getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nullable RunSource source) {
+    public void setSource(@jakarta.annotation.Nullable RunSource source) {
         this.source = source;
     }
 
     @Deprecated
     public PartialExecutionRunRef outputModality(
-            @javax.annotation.Nullable Modalities outputModality) {
+            @jakarta.annotation.Nullable Modalities outputModality) {
         this.outputModality = outputModality;
         return this;
     }
@@ -583,16 +584,16 @@ public class PartialExecutionRunRef {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nullable public Modalities getOutputModality() {
+    @jakarta.annotation.Nullable public Modalities getOutputModality() {
         return outputModality;
     }
 
     @Deprecated
-    public void setOutputModality(@javax.annotation.Nullable Modalities outputModality) {
+    public void setOutputModality(@jakarta.annotation.Nullable Modalities outputModality) {
         this.outputModality = outputModality;
     }
 
-    public PartialExecutionRunRef createdBy(@javax.annotation.Nullable String createdBy) {
+    public PartialExecutionRunRef createdBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -601,15 +602,15 @@ public class PartialExecutionRunRef {
      * Get createdBy
      * @return createdBy
      */
-    @javax.annotation.Nullable public String getCreatedBy() {
+    @jakarta.annotation.Nullable public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public PartialExecutionRunRef updatedBy(@javax.annotation.Nullable String updatedBy) {
+    public PartialExecutionRunRef updatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -618,16 +619,16 @@ public class PartialExecutionRunRef {
      * Get updatedBy
      * @return updatedBy
      */
-    @javax.annotation.Nullable public String getUpdatedBy() {
+    @jakarta.annotation.Nullable public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nullable String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
     public PartialExecutionRunRef workflow(
-            @javax.annotation.Nullable ExecutionRunWorkflow workflow) {
+            @jakarta.annotation.Nullable ExecutionRunWorkflow workflow) {
         this.workflow = workflow;
         return this;
     }
@@ -636,16 +637,16 @@ public class PartialExecutionRunRef {
      * The Vertesia Workflow related to this Interaction Run.  This is only set when the interaction is executed as part of a workflow.
      * @return workflow
      */
-    @javax.annotation.Nullable public ExecutionRunWorkflow getWorkflow() {
+    @jakarta.annotation.Nullable public ExecutionRunWorkflow getWorkflow() {
         return workflow;
     }
 
-    public void setWorkflow(@javax.annotation.Nullable ExecutionRunWorkflow workflow) {
+    public void setWorkflow(@jakarta.annotation.Nullable ExecutionRunWorkflow workflow) {
         this.workflow = workflow;
     }
 
     public PartialExecutionRunRef interaction(
-            @javax.annotation.Nullable InteractionRef interaction) {
+            @jakarta.annotation.Nullable InteractionRef interaction) {
         this.interaction = interaction;
         return this;
     }
@@ -654,11 +655,11 @@ public class PartialExecutionRunRef {
      * Get interaction
      * @return interaction
      */
-    @javax.annotation.Nullable public InteractionRef getInteraction() {
+    @jakarta.annotation.Nullable public InteractionRef getInteraction() {
         return interaction;
     }
 
-    public void setInteraction(@javax.annotation.Nullable InteractionRef interaction) {
+    public void setInteraction(@jakarta.annotation.Nullable InteractionRef interaction) {
         this.interaction = interaction;
     }
 

@@ -32,88 +32,88 @@ import java.util.Objects;
 /**
  * ModelPriceComparison
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ModelPriceComparison {
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String model;
 
     public static final String SERIALIZED_NAME_PROVIDER = "provider";
 
     @SerializedName(SERIALIZED_NAME_PROVIDER)
-    @javax.annotation.Nullable private String provider;
+    @jakarta.annotation.Nullable private String provider;
 
     public static final String SERIALIZED_NAME_PROVIDER_ACCOUNT_ID = "provider_account_id";
 
     @SerializedName(SERIALIZED_NAME_PROVIDER_ACCOUNT_ID)
-    @javax.annotation.Nullable private String providerAccountId;
+    @jakarta.annotation.Nullable private String providerAccountId;
 
     public static final String SERIALIZED_NAME_LIST_PRICE_DATE = "list_price_date";
 
     @SerializedName(SERIALIZED_NAME_LIST_PRICE_DATE)
-    @javax.annotation.Nullable private String listPriceDate;
+    @jakarta.annotation.Nullable private String listPriceDate;
 
     public static final String SERIALIZED_NAME_EFFECTIVE_FROM = "effective_from";
 
     @SerializedName(SERIALIZED_NAME_EFFECTIVE_FROM)
-    @javax.annotation.Nullable private String effectiveFrom;
+    @jakarta.annotation.Nullable private String effectiveFrom;
 
     public static final String SERIALIZED_NAME_EFFECTIVE_TO = "effective_to";
 
     @SerializedName(SERIALIZED_NAME_EFFECTIVE_TO)
-    @javax.annotation.Nullable private String effectiveTo;
+    @jakarta.annotation.Nullable private String effectiveTo;
 
     public static final String SERIALIZED_NAME_INPUT_LIST_PRICE_PER_M_TOKENS =
             "input_list_price_per_m_tokens";
 
     @SerializedName(SERIALIZED_NAME_INPUT_LIST_PRICE_PER_M_TOKENS)
-    @javax.annotation.Nullable private BigDecimal inputListPricePerMTokens;
+    @jakarta.annotation.Nullable private BigDecimal inputListPricePerMTokens;
 
     public static final String SERIALIZED_NAME_INPUT_EFFECTIVE_PRICE_PER_M_TOKENS =
             "input_effective_price_per_m_tokens";
 
     @SerializedName(SERIALIZED_NAME_INPUT_EFFECTIVE_PRICE_PER_M_TOKENS)
-    @javax.annotation.Nullable private BigDecimal inputEffectivePricePerMTokens;
+    @jakarta.annotation.Nullable private BigDecimal inputEffectivePricePerMTokens;
 
     public static final String SERIALIZED_NAME_CACHED_INPUT_LIST_PRICE_PER_M_TOKENS =
             "cached_input_list_price_per_m_tokens";
 
     @SerializedName(SERIALIZED_NAME_CACHED_INPUT_LIST_PRICE_PER_M_TOKENS)
-    @javax.annotation.Nullable private BigDecimal cachedInputListPricePerMTokens;
+    @jakarta.annotation.Nullable private BigDecimal cachedInputListPricePerMTokens;
 
     public static final String SERIALIZED_NAME_CACHED_INPUT_EFFECTIVE_PRICE_PER_M_TOKENS =
             "cached_input_effective_price_per_m_tokens";
 
     @SerializedName(SERIALIZED_NAME_CACHED_INPUT_EFFECTIVE_PRICE_PER_M_TOKENS)
-    @javax.annotation.Nullable private BigDecimal cachedInputEffectivePricePerMTokens;
+    @jakarta.annotation.Nullable private BigDecimal cachedInputEffectivePricePerMTokens;
 
     public static final String SERIALIZED_NAME_CACHE_WRITE_INPUT_LIST_PRICE_PER_M_TOKENS =
             "cache_write_input_list_price_per_m_tokens";
 
     @SerializedName(SERIALIZED_NAME_CACHE_WRITE_INPUT_LIST_PRICE_PER_M_TOKENS)
-    @javax.annotation.Nullable private BigDecimal cacheWriteInputListPricePerMTokens;
+    @jakarta.annotation.Nullable private BigDecimal cacheWriteInputListPricePerMTokens;
 
     public static final String SERIALIZED_NAME_CACHE_WRITE_INPUT_EFFECTIVE_PRICE_PER_M_TOKENS =
             "cache_write_input_effective_price_per_m_tokens";
 
     @SerializedName(SERIALIZED_NAME_CACHE_WRITE_INPUT_EFFECTIVE_PRICE_PER_M_TOKENS)
-    @javax.annotation.Nullable private BigDecimal cacheWriteInputEffectivePricePerMTokens;
+    @jakarta.annotation.Nullable private BigDecimal cacheWriteInputEffectivePricePerMTokens;
 
     public static final String SERIALIZED_NAME_OUTPUT_LIST_PRICE_PER_M_TOKENS =
             "output_list_price_per_m_tokens";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT_LIST_PRICE_PER_M_TOKENS)
-    @javax.annotation.Nullable private BigDecimal outputListPricePerMTokens;
+    @jakarta.annotation.Nullable private BigDecimal outputListPricePerMTokens;
 
     public static final String SERIALIZED_NAME_OUTPUT_EFFECTIVE_PRICE_PER_M_TOKENS =
             "output_effective_price_per_m_tokens";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT_EFFECTIVE_PRICE_PER_M_TOKENS)
-    @javax.annotation.Nullable private BigDecimal outputEffectivePricePerMTokens;
+    @jakarta.annotation.Nullable private BigDecimal outputEffectivePricePerMTokens;
 
     /**
      * Gets or Sets source
@@ -171,12 +171,12 @@ public class ModelPriceComparison {
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SourceEnum source;
 
     public ModelPriceComparison() {}
 
-    public ModelPriceComparison model(@javax.annotation.Nonnull String model) {
+    public ModelPriceComparison model(@jakarta.annotation.Nonnull String model) {
         this.model = model;
         return this;
     }
@@ -185,16 +185,16 @@ public class ModelPriceComparison {
      * Get model
      * @return model
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nonnull String model) {
+    public void setModel(@jakarta.annotation.Nonnull String model) {
         this.model = model;
     }
 
-    public ModelPriceComparison provider(@javax.annotation.Nullable String provider) {
+    public ModelPriceComparison provider(@jakarta.annotation.Nullable String provider) {
         this.provider = provider;
         return this;
     }
@@ -203,16 +203,16 @@ public class ModelPriceComparison {
      * Get provider
      * @return provider
      */
-    @javax.annotation.Nullable public String getProvider() {
+    @jakarta.annotation.Nullable public String getProvider() {
         return provider;
     }
 
-    public void setProvider(@javax.annotation.Nullable String provider) {
+    public void setProvider(@jakarta.annotation.Nullable String provider) {
         this.provider = provider;
     }
 
     public ModelPriceComparison providerAccountId(
-            @javax.annotation.Nullable String providerAccountId) {
+            @jakarta.annotation.Nullable String providerAccountId) {
         this.providerAccountId = providerAccountId;
         return this;
     }
@@ -221,15 +221,15 @@ public class ModelPriceComparison {
      * Get providerAccountId
      * @return providerAccountId
      */
-    @javax.annotation.Nullable public String getProviderAccountId() {
+    @jakarta.annotation.Nullable public String getProviderAccountId() {
         return providerAccountId;
     }
 
-    public void setProviderAccountId(@javax.annotation.Nullable String providerAccountId) {
+    public void setProviderAccountId(@jakarta.annotation.Nullable String providerAccountId) {
         this.providerAccountId = providerAccountId;
     }
 
-    public ModelPriceComparison listPriceDate(@javax.annotation.Nullable String listPriceDate) {
+    public ModelPriceComparison listPriceDate(@jakarta.annotation.Nullable String listPriceDate) {
         this.listPriceDate = listPriceDate;
         return this;
     }
@@ -238,15 +238,15 @@ public class ModelPriceComparison {
      * Get listPriceDate
      * @return listPriceDate
      */
-    @javax.annotation.Nullable public String getListPriceDate() {
+    @jakarta.annotation.Nullable public String getListPriceDate() {
         return listPriceDate;
     }
 
-    public void setListPriceDate(@javax.annotation.Nullable String listPriceDate) {
+    public void setListPriceDate(@jakarta.annotation.Nullable String listPriceDate) {
         this.listPriceDate = listPriceDate;
     }
 
-    public ModelPriceComparison effectiveFrom(@javax.annotation.Nullable String effectiveFrom) {
+    public ModelPriceComparison effectiveFrom(@jakarta.annotation.Nullable String effectiveFrom) {
         this.effectiveFrom = effectiveFrom;
         return this;
     }
@@ -255,15 +255,15 @@ public class ModelPriceComparison {
      * Get effectiveFrom
      * @return effectiveFrom
      */
-    @javax.annotation.Nullable public String getEffectiveFrom() {
+    @jakarta.annotation.Nullable public String getEffectiveFrom() {
         return effectiveFrom;
     }
 
-    public void setEffectiveFrom(@javax.annotation.Nullable String effectiveFrom) {
+    public void setEffectiveFrom(@jakarta.annotation.Nullable String effectiveFrom) {
         this.effectiveFrom = effectiveFrom;
     }
 
-    public ModelPriceComparison effectiveTo(@javax.annotation.Nullable String effectiveTo) {
+    public ModelPriceComparison effectiveTo(@jakarta.annotation.Nullable String effectiveTo) {
         this.effectiveTo = effectiveTo;
         return this;
     }
@@ -272,16 +272,16 @@ public class ModelPriceComparison {
      * Get effectiveTo
      * @return effectiveTo
      */
-    @javax.annotation.Nullable public String getEffectiveTo() {
+    @jakarta.annotation.Nullable public String getEffectiveTo() {
         return effectiveTo;
     }
 
-    public void setEffectiveTo(@javax.annotation.Nullable String effectiveTo) {
+    public void setEffectiveTo(@jakarta.annotation.Nullable String effectiveTo) {
         this.effectiveTo = effectiveTo;
     }
 
     public ModelPriceComparison inputListPricePerMTokens(
-            @javax.annotation.Nullable BigDecimal inputListPricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal inputListPricePerMTokens) {
         this.inputListPricePerMTokens = inputListPricePerMTokens;
         return this;
     }
@@ -290,17 +290,17 @@ public class ModelPriceComparison {
      * Get inputListPricePerMTokens
      * @return inputListPricePerMTokens
      */
-    @javax.annotation.Nullable public BigDecimal getInputListPricePerMTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getInputListPricePerMTokens() {
         return inputListPricePerMTokens;
     }
 
     public void setInputListPricePerMTokens(
-            @javax.annotation.Nullable BigDecimal inputListPricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal inputListPricePerMTokens) {
         this.inputListPricePerMTokens = inputListPricePerMTokens;
     }
 
     public ModelPriceComparison inputEffectivePricePerMTokens(
-            @javax.annotation.Nullable BigDecimal inputEffectivePricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal inputEffectivePricePerMTokens) {
         this.inputEffectivePricePerMTokens = inputEffectivePricePerMTokens;
         return this;
     }
@@ -309,17 +309,17 @@ public class ModelPriceComparison {
      * Get inputEffectivePricePerMTokens
      * @return inputEffectivePricePerMTokens
      */
-    @javax.annotation.Nullable public BigDecimal getInputEffectivePricePerMTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getInputEffectivePricePerMTokens() {
         return inputEffectivePricePerMTokens;
     }
 
     public void setInputEffectivePricePerMTokens(
-            @javax.annotation.Nullable BigDecimal inputEffectivePricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal inputEffectivePricePerMTokens) {
         this.inputEffectivePricePerMTokens = inputEffectivePricePerMTokens;
     }
 
     public ModelPriceComparison cachedInputListPricePerMTokens(
-            @javax.annotation.Nullable BigDecimal cachedInputListPricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal cachedInputListPricePerMTokens) {
         this.cachedInputListPricePerMTokens = cachedInputListPricePerMTokens;
         return this;
     }
@@ -328,17 +328,17 @@ public class ModelPriceComparison {
      * Get cachedInputListPricePerMTokens
      * @return cachedInputListPricePerMTokens
      */
-    @javax.annotation.Nullable public BigDecimal getCachedInputListPricePerMTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getCachedInputListPricePerMTokens() {
         return cachedInputListPricePerMTokens;
     }
 
     public void setCachedInputListPricePerMTokens(
-            @javax.annotation.Nullable BigDecimal cachedInputListPricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal cachedInputListPricePerMTokens) {
         this.cachedInputListPricePerMTokens = cachedInputListPricePerMTokens;
     }
 
     public ModelPriceComparison cachedInputEffectivePricePerMTokens(
-            @javax.annotation.Nullable BigDecimal cachedInputEffectivePricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal cachedInputEffectivePricePerMTokens) {
         this.cachedInputEffectivePricePerMTokens = cachedInputEffectivePricePerMTokens;
         return this;
     }
@@ -347,17 +347,17 @@ public class ModelPriceComparison {
      * Get cachedInputEffectivePricePerMTokens
      * @return cachedInputEffectivePricePerMTokens
      */
-    @javax.annotation.Nullable public BigDecimal getCachedInputEffectivePricePerMTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getCachedInputEffectivePricePerMTokens() {
         return cachedInputEffectivePricePerMTokens;
     }
 
     public void setCachedInputEffectivePricePerMTokens(
-            @javax.annotation.Nullable BigDecimal cachedInputEffectivePricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal cachedInputEffectivePricePerMTokens) {
         this.cachedInputEffectivePricePerMTokens = cachedInputEffectivePricePerMTokens;
     }
 
     public ModelPriceComparison cacheWriteInputListPricePerMTokens(
-            @javax.annotation.Nullable BigDecimal cacheWriteInputListPricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal cacheWriteInputListPricePerMTokens) {
         this.cacheWriteInputListPricePerMTokens = cacheWriteInputListPricePerMTokens;
         return this;
     }
@@ -366,17 +366,17 @@ public class ModelPriceComparison {
      * Get cacheWriteInputListPricePerMTokens
      * @return cacheWriteInputListPricePerMTokens
      */
-    @javax.annotation.Nullable public BigDecimal getCacheWriteInputListPricePerMTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getCacheWriteInputListPricePerMTokens() {
         return cacheWriteInputListPricePerMTokens;
     }
 
     public void setCacheWriteInputListPricePerMTokens(
-            @javax.annotation.Nullable BigDecimal cacheWriteInputListPricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal cacheWriteInputListPricePerMTokens) {
         this.cacheWriteInputListPricePerMTokens = cacheWriteInputListPricePerMTokens;
     }
 
     public ModelPriceComparison cacheWriteInputEffectivePricePerMTokens(
-            @javax.annotation.Nullable BigDecimal cacheWriteInputEffectivePricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal cacheWriteInputEffectivePricePerMTokens) {
         this.cacheWriteInputEffectivePricePerMTokens = cacheWriteInputEffectivePricePerMTokens;
         return this;
     }
@@ -385,17 +385,17 @@ public class ModelPriceComparison {
      * Get cacheWriteInputEffectivePricePerMTokens
      * @return cacheWriteInputEffectivePricePerMTokens
      */
-    @javax.annotation.Nullable public BigDecimal getCacheWriteInputEffectivePricePerMTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getCacheWriteInputEffectivePricePerMTokens() {
         return cacheWriteInputEffectivePricePerMTokens;
     }
 
     public void setCacheWriteInputEffectivePricePerMTokens(
-            @javax.annotation.Nullable BigDecimal cacheWriteInputEffectivePricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal cacheWriteInputEffectivePricePerMTokens) {
         this.cacheWriteInputEffectivePricePerMTokens = cacheWriteInputEffectivePricePerMTokens;
     }
 
     public ModelPriceComparison outputListPricePerMTokens(
-            @javax.annotation.Nullable BigDecimal outputListPricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal outputListPricePerMTokens) {
         this.outputListPricePerMTokens = outputListPricePerMTokens;
         return this;
     }
@@ -404,17 +404,17 @@ public class ModelPriceComparison {
      * Get outputListPricePerMTokens
      * @return outputListPricePerMTokens
      */
-    @javax.annotation.Nullable public BigDecimal getOutputListPricePerMTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getOutputListPricePerMTokens() {
         return outputListPricePerMTokens;
     }
 
     public void setOutputListPricePerMTokens(
-            @javax.annotation.Nullable BigDecimal outputListPricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal outputListPricePerMTokens) {
         this.outputListPricePerMTokens = outputListPricePerMTokens;
     }
 
     public ModelPriceComparison outputEffectivePricePerMTokens(
-            @javax.annotation.Nullable BigDecimal outputEffectivePricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal outputEffectivePricePerMTokens) {
         this.outputEffectivePricePerMTokens = outputEffectivePricePerMTokens;
         return this;
     }
@@ -423,16 +423,16 @@ public class ModelPriceComparison {
      * Get outputEffectivePricePerMTokens
      * @return outputEffectivePricePerMTokens
      */
-    @javax.annotation.Nullable public BigDecimal getOutputEffectivePricePerMTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getOutputEffectivePricePerMTokens() {
         return outputEffectivePricePerMTokens;
     }
 
     public void setOutputEffectivePricePerMTokens(
-            @javax.annotation.Nullable BigDecimal outputEffectivePricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal outputEffectivePricePerMTokens) {
         this.outputEffectivePricePerMTokens = outputEffectivePricePerMTokens;
     }
 
-    public ModelPriceComparison source(@javax.annotation.Nonnull SourceEnum source) {
+    public ModelPriceComparison source(@jakarta.annotation.Nonnull SourceEnum source) {
         this.source = source;
         return this;
     }
@@ -441,12 +441,12 @@ public class ModelPriceComparison {
      * Get source
      * @return source
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SourceEnum getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nonnull SourceEnum source) {
+    public void setSource(@jakarta.annotation.Nonnull SourceEnum source) {
         this.source = source;
     }
 

@@ -33,40 +33,40 @@ import java.util.Objects;
 /**
  * PromptSegment
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromptSegment {
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private PromptRole role;
 
     public static final String SERIALIZED_NAME_CONTENT = "content";
 
     @SerializedName(SERIALIZED_NAME_CONTENT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String content;
 
     public static final String SERIALIZED_NAME_TOOL_USE_ID = "tool_use_id";
 
     @SerializedName(SERIALIZED_NAME_TOOL_USE_ID)
-    @javax.annotation.Nullable private String toolUseId;
+    @jakarta.annotation.Nullable private String toolUseId;
 
     public static final String SERIALIZED_NAME_THOUGHT_SIGNATURE = "thought_signature";
 
     @SerializedName(SERIALIZED_NAME_THOUGHT_SIGNATURE)
-    @javax.annotation.Nullable private String thoughtSignature;
+    @jakarta.annotation.Nullable private String thoughtSignature;
 
     public static final String SERIALIZED_NAME_FILES = "files";
 
     @SerializedName(SERIALIZED_NAME_FILES)
-    @javax.annotation.Nullable private List<DataSource> files = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<DataSource> files = new ArrayList<>();
 
     public PromptSegment() {}
 
-    public PromptSegment role(@javax.annotation.Nonnull PromptRole role) {
+    public PromptSegment role(@jakarta.annotation.Nonnull PromptRole role) {
         this.role = role;
         return this;
     }
@@ -75,16 +75,16 @@ public class PromptSegment {
      * Get role
      * @return role
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public PromptRole getRole() {
         return role;
     }
 
-    public void setRole(@javax.annotation.Nonnull PromptRole role) {
+    public void setRole(@jakarta.annotation.Nonnull PromptRole role) {
         this.role = role;
     }
 
-    public PromptSegment content(@javax.annotation.Nonnull String content) {
+    public PromptSegment content(@jakarta.annotation.Nonnull String content) {
         this.content = content;
         return this;
     }
@@ -93,16 +93,16 @@ public class PromptSegment {
      * Get content
      * @return content
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getContent() {
         return content;
     }
 
-    public void setContent(@javax.annotation.Nonnull String content) {
+    public void setContent(@jakarta.annotation.Nonnull String content) {
         this.content = content;
     }
 
-    public PromptSegment toolUseId(@javax.annotation.Nullable String toolUseId) {
+    public PromptSegment toolUseId(@jakarta.annotation.Nullable String toolUseId) {
         this.toolUseId = toolUseId;
         return this;
     }
@@ -111,15 +111,15 @@ public class PromptSegment {
      * The tool use id if the segment is a tool response
      * @return toolUseId
      */
-    @javax.annotation.Nullable public String getToolUseId() {
+    @jakarta.annotation.Nullable public String getToolUseId() {
         return toolUseId;
     }
 
-    public void setToolUseId(@javax.annotation.Nullable String toolUseId) {
+    public void setToolUseId(@jakarta.annotation.Nullable String toolUseId) {
         this.toolUseId = toolUseId;
     }
 
-    public PromptSegment thoughtSignature(@javax.annotation.Nullable String thoughtSignature) {
+    public PromptSegment thoughtSignature(@jakarta.annotation.Nullable String thoughtSignature) {
         this.thoughtSignature = thoughtSignature;
         return this;
     }
@@ -128,15 +128,15 @@ public class PromptSegment {
      * Gemini thinking models require thought_signature to be passed back with tool results. This should be copied from the ToolUse.thought_signature when sending tool responses.
      * @return thoughtSignature
      */
-    @javax.annotation.Nullable public String getThoughtSignature() {
+    @jakarta.annotation.Nullable public String getThoughtSignature() {
         return thoughtSignature;
     }
 
-    public void setThoughtSignature(@javax.annotation.Nullable String thoughtSignature) {
+    public void setThoughtSignature(@jakarta.annotation.Nullable String thoughtSignature) {
         this.thoughtSignature = thoughtSignature;
     }
 
-    public PromptSegment files(@javax.annotation.Nullable List<DataSource> files) {
+    public PromptSegment files(@jakarta.annotation.Nullable List<DataSource> files) {
         this.files = files;
         return this;
     }
@@ -153,11 +153,11 @@ public class PromptSegment {
      * Get files
      * @return files
      */
-    @javax.annotation.Nullable public List<DataSource> getFiles() {
+    @jakarta.annotation.Nullable public List<DataSource> getFiles() {
         return files;
     }
 
-    public void setFiles(@javax.annotation.Nullable List<DataSource> files) {
+    public void setFiles(@jakarta.annotation.Nullable List<DataSource> files) {
         this.files = files;
     }
 

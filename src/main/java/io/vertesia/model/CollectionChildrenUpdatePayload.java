@@ -33,7 +33,7 @@ import java.util.Objects;
 /**
  * CollectionChildrenUpdatePayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CollectionChildrenUpdatePayload {
@@ -95,18 +95,18 @@ public class CollectionChildrenUpdatePayload {
     public static final String SERIALIZED_NAME_ACTION = "action";
 
     @SerializedName(SERIALIZED_NAME_ACTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ActionEnum action;
 
     public static final String SERIALIZED_NAME_CHILDREN = "children";
 
     @SerializedName(SERIALIZED_NAME_CHILDREN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> children = new ArrayList<>();
 
     public CollectionChildrenUpdatePayload() {}
 
-    public CollectionChildrenUpdatePayload action(@javax.annotation.Nonnull ActionEnum action) {
+    public CollectionChildrenUpdatePayload action(@jakarta.annotation.Nonnull ActionEnum action) {
         this.action = action;
         return this;
     }
@@ -115,17 +115,17 @@ public class CollectionChildrenUpdatePayload {
      * Get action
      * @return action
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ActionEnum getAction() {
         return action;
     }
 
-    public void setAction(@javax.annotation.Nonnull ActionEnum action) {
+    public void setAction(@jakarta.annotation.Nonnull ActionEnum action) {
         this.action = action;
     }
 
     public CollectionChildrenUpdatePayload children(
-            @javax.annotation.Nonnull List<String> children) {
+            @jakarta.annotation.Nonnull List<String> children) {
         this.children = children;
         return this;
     }
@@ -142,12 +142,12 @@ public class CollectionChildrenUpdatePayload {
      * Get children
      * @return children
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getChildren() {
         return children;
     }
 
-    public void setChildren(@javax.annotation.Nonnull List<String> children) {
+    public void setChildren(@jakarta.annotation.Nonnull List<String> children) {
         this.children = children;
     }
 

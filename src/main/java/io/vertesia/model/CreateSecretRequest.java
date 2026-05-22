@@ -30,30 +30,30 @@ import java.util.Objects;
 /**
  * CreateSecretRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateSecretRequest {
     public static final String SERIALIZED_NAME_KIND = "kind";
 
     @SerializedName(SERIALIZED_NAME_KIND)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SecretKind kind;
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private WebsiteCredentialMetadata metadata;
 
     public static final String SERIALIZED_NAME_SECRET = "secret";
 
     @SerializedName(SERIALIZED_NAME_SECRET)
-    @javax.annotation.Nullable private WebsiteCredentialSecretInput secret;
+    @jakarta.annotation.Nullable private WebsiteCredentialSecretInput secret;
 
     public CreateSecretRequest() {}
 
-    public CreateSecretRequest kind(@javax.annotation.Nonnull SecretKind kind) {
+    public CreateSecretRequest kind(@jakarta.annotation.Nonnull SecretKind kind) {
         this.kind = kind;
         return this;
     }
@@ -62,17 +62,17 @@ public class CreateSecretRequest {
      * Get kind
      * @return kind
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SecretKind getKind() {
         return kind;
     }
 
-    public void setKind(@javax.annotation.Nonnull SecretKind kind) {
+    public void setKind(@jakarta.annotation.Nonnull SecretKind kind) {
         this.kind = kind;
     }
 
     public CreateSecretRequest metadata(
-            @javax.annotation.Nonnull WebsiteCredentialMetadata metadata) {
+            @jakarta.annotation.Nonnull WebsiteCredentialMetadata metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -81,17 +81,17 @@ public class CreateSecretRequest {
      * Get metadata
      * @return metadata
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public WebsiteCredentialMetadata getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@javax.annotation.Nonnull WebsiteCredentialMetadata metadata) {
+    public void setMetadata(@jakarta.annotation.Nonnull WebsiteCredentialMetadata metadata) {
         this.metadata = metadata;
     }
 
     public CreateSecretRequest secret(
-            @javax.annotation.Nullable WebsiteCredentialSecretInput secret) {
+            @jakarta.annotation.Nullable WebsiteCredentialSecretInput secret) {
         this.secret = secret;
         return this;
     }
@@ -100,11 +100,11 @@ public class CreateSecretRequest {
      * Get secret
      * @return secret
      */
-    @javax.annotation.Nullable public WebsiteCredentialSecretInput getSecret() {
+    @jakarta.annotation.Nullable public WebsiteCredentialSecretInput getSecret() {
         return secret;
     }
 
-    public void setSecret(@javax.annotation.Nullable WebsiteCredentialSecretInput secret) {
+    public void setSecret(@jakarta.annotation.Nullable WebsiteCredentialSecretInput secret) {
         this.secret = secret;
     }
 

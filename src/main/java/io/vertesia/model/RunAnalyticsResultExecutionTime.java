@@ -31,31 +31,31 @@ import java.util.Objects;
 /**
  * RunAnalyticsResultExecutionTime
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RunAnalyticsResultExecutionTime {
     public static final String SERIALIZED_NAME_AVG = "avg";
 
     @SerializedName(SERIALIZED_NAME_AVG)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal avg;
 
     public static final String SERIALIZED_NAME_MIN = "min";
 
     @SerializedName(SERIALIZED_NAME_MIN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal min;
 
     public static final String SERIALIZED_NAME_MAX = "max";
 
     @SerializedName(SERIALIZED_NAME_MAX)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal max;
 
     public RunAnalyticsResultExecutionTime() {}
 
-    public RunAnalyticsResultExecutionTime avg(@javax.annotation.Nonnull BigDecimal avg) {
+    public RunAnalyticsResultExecutionTime avg(@jakarta.annotation.Nonnull BigDecimal avg) {
         this.avg = avg;
         return this;
     }
@@ -64,16 +64,16 @@ public class RunAnalyticsResultExecutionTime {
      * Get avg
      * @return avg
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getAvg() {
         return avg;
     }
 
-    public void setAvg(@javax.annotation.Nonnull BigDecimal avg) {
+    public void setAvg(@jakarta.annotation.Nonnull BigDecimal avg) {
         this.avg = avg;
     }
 
-    public RunAnalyticsResultExecutionTime min(@javax.annotation.Nonnull BigDecimal min) {
+    public RunAnalyticsResultExecutionTime min(@jakarta.annotation.Nonnull BigDecimal min) {
         this.min = min;
         return this;
     }
@@ -82,16 +82,16 @@ public class RunAnalyticsResultExecutionTime {
      * Get min
      * @return min
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getMin() {
         return min;
     }
 
-    public void setMin(@javax.annotation.Nonnull BigDecimal min) {
+    public void setMin(@jakarta.annotation.Nonnull BigDecimal min) {
         this.min = min;
     }
 
-    public RunAnalyticsResultExecutionTime max(@javax.annotation.Nonnull BigDecimal max) {
+    public RunAnalyticsResultExecutionTime max(@jakarta.annotation.Nonnull BigDecimal max) {
         this.max = max;
         return this;
     }
@@ -100,12 +100,12 @@ public class RunAnalyticsResultExecutionTime {
      * Get max
      * @return max
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getMax() {
         return max;
     }
 
-    public void setMax(@javax.annotation.Nonnull BigDecimal max) {
+    public void setMax(@jakarta.annotation.Nonnull BigDecimal max) {
         this.max = max;
     }
 

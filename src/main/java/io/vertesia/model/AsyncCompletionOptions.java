@@ -31,59 +31,59 @@ import java.util.Objects;
 /**
  * Options for async completion and/or streaming LLM responses
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AsyncCompletionOptions {
     public static final String SERIALIZED_NAME_RUN_ID = "run_id";
 
     @SerializedName(SERIALIZED_NAME_RUN_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String runId;
 
     public static final String SERIALIZED_NAME_STREAM = "stream";
 
     @SerializedName(SERIALIZED_NAME_STREAM)
-    @javax.annotation.Nullable private Boolean stream;
+    @jakarta.annotation.Nullable private Boolean stream;
 
     public static final String SERIALIZED_NAME_STREAMING = "streaming";
 
     @SerializedName(SERIALIZED_NAME_STREAMING)
-    @javax.annotation.Nullable private StreamingOptions streaming;
+    @jakarta.annotation.Nullable private StreamingOptions streaming;
 
     public static final String SERIALIZED_NAME_TASK_TOKEN = "task_token";
 
     @SerializedName(SERIALIZED_NAME_TASK_TOKEN)
-    @javax.annotation.Nullable private String taskToken;
+    @jakarta.annotation.Nullable private String taskToken;
 
     public static final String SERIALIZED_NAME_ACTIVITY_ID = "activity_id";
 
     @SerializedName(SERIALIZED_NAME_ACTIVITY_ID)
-    @javax.annotation.Nullable private String activityId;
+    @jakarta.annotation.Nullable private String activityId;
 
     public static final String SERIALIZED_NAME_CURRENT_STATE = "current_state";
 
     @SerializedName(SERIALIZED_NAME_CURRENT_STATE)
-    @javax.annotation.Nullable private ConversationState currentState;
+    @jakarta.annotation.Nullable private ConversationState currentState;
 
     public static final String SERIALIZED_NAME_HEARTBEAT_INTERVAL_MS = "heartbeat_interval_ms";
 
     @SerializedName(SERIALIZED_NAME_HEARTBEAT_INTERVAL_MS)
-    @javax.annotation.Nullable private BigDecimal heartbeatIntervalMs;
+    @jakarta.annotation.Nullable private BigDecimal heartbeatIntervalMs;
 
     public static final String SERIALIZED_NAME_TELEMETRY = "telemetry";
 
     @SerializedName(SERIALIZED_NAME_TELEMETRY)
-    @javax.annotation.Nullable private StreamingTelemetryContext telemetry;
+    @jakarta.annotation.Nullable private StreamingTelemetryContext telemetry;
 
     public static final String SERIALIZED_NAME_RESULT_STORAGE = "result_storage";
 
     @SerializedName(SERIALIZED_NAME_RESULT_STORAGE)
-    @javax.annotation.Nullable private ResultStorageOptions resultStorage;
+    @jakarta.annotation.Nullable private ResultStorageOptions resultStorage;
 
     public AsyncCompletionOptions() {}
 
-    public AsyncCompletionOptions runId(@javax.annotation.Nonnull String runId) {
+    public AsyncCompletionOptions runId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
         return this;
     }
@@ -92,16 +92,16 @@ public class AsyncCompletionOptions {
      * Workflow run ID for message context
      * @return runId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRunId() {
         return runId;
     }
 
-    public void setRunId(@javax.annotation.Nonnull String runId) {
+    public void setRunId(@jakarta.annotation.Nonnull String runId) {
         this.runId = runId;
     }
 
-    public AsyncCompletionOptions stream(@javax.annotation.Nullable Boolean stream) {
+    public AsyncCompletionOptions stream(@jakarta.annotation.Nullable Boolean stream) {
         this.stream = stream;
         return this;
     }
@@ -110,15 +110,16 @@ public class AsyncCompletionOptions {
      * Whether to stream chunks to Redis
      * @return stream
      */
-    @javax.annotation.Nullable public Boolean getStream() {
+    @jakarta.annotation.Nullable public Boolean getStream() {
         return stream;
     }
 
-    public void setStream(@javax.annotation.Nullable Boolean stream) {
+    public void setStream(@jakarta.annotation.Nullable Boolean stream) {
         this.stream = stream;
     }
 
-    public AsyncCompletionOptions streaming(@javax.annotation.Nullable StreamingOptions streaming) {
+    public AsyncCompletionOptions streaming(
+            @jakarta.annotation.Nullable StreamingOptions streaming) {
         this.streaming = streaming;
         return this;
     }
@@ -127,15 +128,15 @@ public class AsyncCompletionOptions {
      * Streaming-specific options (required if stream&#x3D;true)
      * @return streaming
      */
-    @javax.annotation.Nullable public StreamingOptions getStreaming() {
+    @jakarta.annotation.Nullable public StreamingOptions getStreaming() {
         return streaming;
     }
 
-    public void setStreaming(@javax.annotation.Nullable StreamingOptions streaming) {
+    public void setStreaming(@jakarta.annotation.Nullable StreamingOptions streaming) {
         this.streaming = streaming;
     }
 
-    public AsyncCompletionOptions taskToken(@javax.annotation.Nullable String taskToken) {
+    public AsyncCompletionOptions taskToken(@jakarta.annotation.Nullable String taskToken) {
         this.taskToken = taskToken;
         return this;
     }
@@ -144,15 +145,15 @@ public class AsyncCompletionOptions {
      * Temporal task token for async activity completion (base64url encoded). When provided, Studio will complete the activity after execution finishes, allowing the worker to release the activity slot immediately.
      * @return taskToken
      */
-    @javax.annotation.Nullable public String getTaskToken() {
+    @jakarta.annotation.Nullable public String getTaskToken() {
         return taskToken;
     }
 
-    public void setTaskToken(@javax.annotation.Nullable String taskToken) {
+    public void setTaskToken(@jakarta.annotation.Nullable String taskToken) {
         this.taskToken = taskToken;
     }
 
-    public AsyncCompletionOptions activityId(@javax.annotation.Nullable String activityId) {
+    public AsyncCompletionOptions activityId(@jakarta.annotation.Nullable String activityId) {
         this.activityId = activityId;
         return this;
     }
@@ -161,16 +162,16 @@ public class AsyncCompletionOptions {
      * Activity ID for idempotency metadata when storing conversation. Required when task_token is provided.
      * @return activityId
      */
-    @javax.annotation.Nullable public String getActivityId() {
+    @jakarta.annotation.Nullable public String getActivityId() {
         return activityId;
     }
 
-    public void setActivityId(@javax.annotation.Nullable String activityId) {
+    public void setActivityId(@jakarta.annotation.Nullable String activityId) {
         this.activityId = activityId;
     }
 
     public AsyncCompletionOptions currentState(
-            @javax.annotation.Nullable ConversationState currentState) {
+            @jakarta.annotation.Nullable ConversationState currentState) {
         this.currentState = currentState;
         return this;
     }
@@ -179,16 +180,16 @@ public class AsyncCompletionOptions {
      * Current conversation state to merge with execution result. Studio will store the conversation and complete the activity with merged state. Required when task_token is provided.
      * @return currentState
      */
-    @javax.annotation.Nullable public ConversationState getCurrentState() {
+    @jakarta.annotation.Nullable public ConversationState getCurrentState() {
         return currentState;
     }
 
-    public void setCurrentState(@javax.annotation.Nullable ConversationState currentState) {
+    public void setCurrentState(@jakarta.annotation.Nullable ConversationState currentState) {
         this.currentState = currentState;
     }
 
     public AsyncCompletionOptions heartbeatIntervalMs(
-            @javax.annotation.Nullable BigDecimal heartbeatIntervalMs) {
+            @jakarta.annotation.Nullable BigDecimal heartbeatIntervalMs) {
         this.heartbeatIntervalMs = heartbeatIntervalMs;
         return this;
     }
@@ -197,16 +198,17 @@ public class AsyncCompletionOptions {
      * Interval in milliseconds for sending heartbeats to Temporal during streaming. When provided, Studio will send periodic heartbeats to keep the activity alive. Recommended: 10000 (10 seconds). Activity heartbeat timeout should be ~3x this value.
      * @return heartbeatIntervalMs
      */
-    @javax.annotation.Nullable public BigDecimal getHeartbeatIntervalMs() {
+    @jakarta.annotation.Nullable public BigDecimal getHeartbeatIntervalMs() {
         return heartbeatIntervalMs;
     }
 
-    public void setHeartbeatIntervalMs(@javax.annotation.Nullable BigDecimal heartbeatIntervalMs) {
+    public void setHeartbeatIntervalMs(
+            @jakarta.annotation.Nullable BigDecimal heartbeatIntervalMs) {
         this.heartbeatIntervalMs = heartbeatIntervalMs;
     }
 
     public AsyncCompletionOptions telemetry(
-            @javax.annotation.Nullable StreamingTelemetryContext telemetry) {
+            @jakarta.annotation.Nullable StreamingTelemetryContext telemetry) {
         this.telemetry = telemetry;
         return this;
     }
@@ -215,16 +217,16 @@ public class AsyncCompletionOptions {
      * Telemetry context for sending LlmCallEvent after streaming completes. Studio will use this to send token usage telemetry since the activity exits before the response is available in async completion mode.
      * @return telemetry
      */
-    @javax.annotation.Nullable public StreamingTelemetryContext getTelemetry() {
+    @jakarta.annotation.Nullable public StreamingTelemetryContext getTelemetry() {
         return telemetry;
     }
 
-    public void setTelemetry(@javax.annotation.Nullable StreamingTelemetryContext telemetry) {
+    public void setTelemetry(@jakarta.annotation.Nullable StreamingTelemetryContext telemetry) {
         this.telemetry = telemetry;
     }
 
     public AsyncCompletionOptions resultStorage(
-            @javax.annotation.Nullable ResultStorageOptions resultStorage) {
+            @jakarta.annotation.Nullable ResultStorageOptions resultStorage) {
         this.resultStorage = resultStorage;
         return this;
     }
@@ -233,11 +235,11 @@ public class AsyncCompletionOptions {
      * Storage options for inference result. When provided, Studio will store the result to the specified path after inference completes (before completing the Temporal activity).
      * @return resultStorage
      */
-    @javax.annotation.Nullable public ResultStorageOptions getResultStorage() {
+    @jakarta.annotation.Nullable public ResultStorageOptions getResultStorage() {
         return resultStorage;
     }
 
-    public void setResultStorage(@javax.annotation.Nullable ResultStorageOptions resultStorage) {
+    public void setResultStorage(@jakarta.annotation.Nullable ResultStorageOptions resultStorage) {
         this.resultStorage = resultStorage;
     }
 

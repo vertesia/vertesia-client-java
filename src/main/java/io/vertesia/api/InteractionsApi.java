@@ -107,7 +107,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call computeInteractionFacetsCall(
-            @javax.annotation.Nonnull ComputeInteractionFacetPayload computeInteractionFacetPayload,
+            @jakarta.annotation.Nonnull
+                    ComputeInteractionFacetPayload computeInteractionFacetPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -164,7 +165,8 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call computeInteractionFacetsValidateBeforeCall(
-            @javax.annotation.Nonnull ComputeInteractionFacetPayload computeInteractionFacetPayload,
+            @jakarta.annotation.Nonnull
+                    ComputeInteractionFacetPayload computeInteractionFacetPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'computeInteractionFacetPayload' is set
@@ -192,7 +194,8 @@ public class InteractionsApi {
      * </table>
      */
     public ComputedFacetResponse computeInteractionFacets(
-            @javax.annotation.Nonnull ComputeInteractionFacetPayload computeInteractionFacetPayload)
+            @jakarta.annotation.Nonnull
+                    ComputeInteractionFacetPayload computeInteractionFacetPayload)
             throws ApiException {
         ApiResponse<ComputedFacetResponse> localVarResp =
                 computeInteractionFacetsWithHttpInfo(computeInteractionFacetPayload);
@@ -215,7 +218,8 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<ComputedFacetResponse> computeInteractionFacetsWithHttpInfo(
-            @javax.annotation.Nonnull ComputeInteractionFacetPayload computeInteractionFacetPayload)
+            @jakarta.annotation.Nonnull
+                    ComputeInteractionFacetPayload computeInteractionFacetPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 computeInteractionFacetsValidateBeforeCall(computeInteractionFacetPayload, null);
@@ -240,7 +244,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call computeInteractionFacetsAsync(
-            @javax.annotation.Nonnull ComputeInteractionFacetPayload computeInteractionFacetPayload,
+            @jakarta.annotation.Nonnull
+                    ComputeInteractionFacetPayload computeInteractionFacetPayload,
             final ApiCallback<ComputedFacetResponse> _callback)
             throws ApiException {
 
@@ -268,7 +273,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call createInteractionCall(
-            @javax.annotation.Nonnull InteractionCreatePayload interactionCreatePayload,
+            @jakarta.annotation.Nonnull InteractionCreatePayload interactionCreatePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -325,7 +330,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createInteractionValidateBeforeCall(
-            @javax.annotation.Nonnull InteractionCreatePayload interactionCreatePayload,
+            @jakarta.annotation.Nonnull InteractionCreatePayload interactionCreatePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionCreatePayload' is set
@@ -353,7 +358,7 @@ public class InteractionsApi {
      * </table>
      */
     public Interaction createInteraction(
-            @javax.annotation.Nonnull InteractionCreatePayload interactionCreatePayload)
+            @jakarta.annotation.Nonnull InteractionCreatePayload interactionCreatePayload)
             throws ApiException {
         ApiResponse<Interaction> localVarResp =
                 createInteractionWithHttpInfo(interactionCreatePayload);
@@ -376,7 +381,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<Interaction> createInteractionWithHttpInfo(
-            @javax.annotation.Nonnull InteractionCreatePayload interactionCreatePayload)
+            @jakarta.annotation.Nonnull InteractionCreatePayload interactionCreatePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createInteractionValidateBeforeCall(interactionCreatePayload, null);
@@ -401,7 +406,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call createInteractionAsync(
-            @javax.annotation.Nonnull InteractionCreatePayload interactionCreatePayload,
+            @jakarta.annotation.Nonnull InteractionCreatePayload interactionCreatePayload,
             final ApiCallback<Interaction> _callback)
             throws ApiException {
 
@@ -428,7 +433,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call deleteInteractionCall(
-            @javax.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -488,7 +493,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteInteractionValidateBeforeCall(
-            @javax.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionId' is set
         if (interactionId == null) {
@@ -514,7 +519,7 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteByIdResult deleteInteraction(@javax.annotation.Nonnull String interactionId)
+    public DeleteByIdResult deleteInteraction(@jakarta.annotation.Nonnull String interactionId)
             throws ApiException {
         ApiResponse<DeleteByIdResult> localVarResp = deleteInteractionWithHttpInfo(interactionId);
         return localVarResp.getData();
@@ -536,7 +541,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<DeleteByIdResult> deleteInteractionWithHttpInfo(
-            @javax.annotation.Nonnull String interactionId) throws ApiException {
+            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         okhttp3.Call localVarCall = deleteInteractionValidateBeforeCall(interactionId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -559,7 +564,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call deleteInteractionAsync(
-            @javax.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull String interactionId,
             final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
 
@@ -586,8 +591,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call executeInteractionCall(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -648,8 +653,8 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call executeInteractionValidateBeforeCall(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionId' is set
@@ -684,8 +689,8 @@ public class InteractionsApi {
      * </table>
      */
     public InteractionExecutionResult executeInteraction(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload)
             throws ApiException {
         ApiResponse<InteractionExecutionResult> localVarResp =
                 executeInteractionWithHttpInfo(interactionId, interactionExecutionPayload);
@@ -709,8 +714,8 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<InteractionExecutionResult> executeInteractionWithHttpInfo(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 executeInteractionValidateBeforeCall(
@@ -737,8 +742,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call executeInteractionAsync(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
             final ApiCallback<InteractionExecutionResult> _callback)
             throws ApiException {
 
@@ -766,7 +771,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call executeInteractionAsyncCall(
-            @javax.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload,
+            @jakarta.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -823,7 +828,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call executeInteractionAsyncValidateBeforeCall(
-            @javax.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload,
+            @jakarta.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'asyncExecutionPayload' is set
@@ -851,7 +856,7 @@ public class InteractionsApi {
      * </table>
      */
     public AsyncExecutionResult executeInteractionAsync(
-            @javax.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload)
+            @jakarta.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload)
             throws ApiException {
         ApiResponse<AsyncExecutionResult> localVarResp =
                 executeInteractionAsyncWithHttpInfo(asyncExecutionPayload);
@@ -874,7 +879,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<AsyncExecutionResult> executeInteractionAsyncWithHttpInfo(
-            @javax.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload)
+            @jakarta.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 executeInteractionAsyncValidateBeforeCall(asyncExecutionPayload, null);
@@ -899,7 +904,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call executeInteractionAsyncAsync(
-            @javax.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload,
+            @jakarta.annotation.Nonnull AsyncExecutionPayload asyncExecutionPayload,
             final ApiCallback<AsyncExecutionResult> _callback)
             throws ApiException {
 
@@ -929,10 +934,10 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call executeInteractionByEndpointCall(
-            @javax.annotation.Nonnull String endpoint,
-            @javax.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable String xInteractionTag,
+            @jakarta.annotation.Nonnull String endpoint,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable String xInteractionTag,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1002,10 +1007,10 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call executeInteractionByEndpointValidateBeforeCall(
-            @javax.annotation.Nonnull String endpoint,
-            @javax.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable String xInteractionTag,
+            @jakarta.annotation.Nonnull String endpoint,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable String xInteractionTag,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'endpoint' is set
@@ -1043,10 +1048,10 @@ public class InteractionsApi {
      * </table>
      */
     public InteractionExecutionResult executeInteractionByEndpoint(
-            @javax.annotation.Nonnull String endpoint,
-            @javax.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable String xInteractionTag)
+            @jakarta.annotation.Nonnull String endpoint,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable String xInteractionTag)
             throws ApiException {
         ApiResponse<InteractionExecutionResult> localVarResp =
                 executeInteractionByEndpointWithHttpInfo(
@@ -1073,10 +1078,10 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<InteractionExecutionResult> executeInteractionByEndpointWithHttpInfo(
-            @javax.annotation.Nonnull String endpoint,
-            @javax.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable String xInteractionTag)
+            @jakarta.annotation.Nonnull String endpoint,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable String xInteractionTag)
             throws ApiException {
         okhttp3.Call localVarCall =
                 executeInteractionByEndpointValidateBeforeCall(
@@ -1105,10 +1110,10 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call executeInteractionByEndpointAsync(
-            @javax.annotation.Nonnull String endpoint,
-            @javax.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable String xInteractionTag,
+            @jakarta.annotation.Nonnull String endpoint,
+            @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable String xInteractionTag,
             final ApiCallback<InteractionExecutionResult> _callback)
             throws ApiException {
 
@@ -1136,7 +1141,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call executeNamedInteractionCall(
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull
                     NamedInteractionExecutionPayload namedInteractionExecutionPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1194,7 +1199,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call executeNamedInteractionValidateBeforeCall(
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull
                     NamedInteractionExecutionPayload namedInteractionExecutionPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1223,7 +1228,7 @@ public class InteractionsApi {
      * </table>
      */
     public InteractionExecutionResult executeNamedInteraction(
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull
                     NamedInteractionExecutionPayload namedInteractionExecutionPayload)
             throws ApiException {
         ApiResponse<InteractionExecutionResult> localVarResp =
@@ -1247,7 +1252,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<InteractionExecutionResult> executeNamedInteractionWithHttpInfo(
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull
                     NamedInteractionExecutionPayload namedInteractionExecutionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1273,7 +1278,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call executeNamedInteractionAsync(
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull
                     NamedInteractionExecutionPayload namedInteractionExecutionPayload,
             final ApiCallback<InteractionExecutionResult> _callback)
             throws ApiException {
@@ -1302,7 +1307,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call exportInteractionsCall(
-            @javax.annotation.Nonnull InteractionsExportPayload interactionsExportPayload,
+            @jakarta.annotation.Nonnull InteractionsExportPayload interactionsExportPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1359,7 +1364,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call exportInteractionsValidateBeforeCall(
-            @javax.annotation.Nonnull InteractionsExportPayload interactionsExportPayload,
+            @jakarta.annotation.Nonnull InteractionsExportPayload interactionsExportPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionsExportPayload' is set
@@ -1387,7 +1392,7 @@ public class InteractionsApi {
      * </table>
      */
     public List<Interaction> exportInteractions(
-            @javax.annotation.Nonnull InteractionsExportPayload interactionsExportPayload)
+            @jakarta.annotation.Nonnull InteractionsExportPayload interactionsExportPayload)
             throws ApiException {
         ApiResponse<List<Interaction>> localVarResp =
                 exportInteractionsWithHttpInfo(interactionsExportPayload);
@@ -1410,7 +1415,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<List<Interaction>> exportInteractionsWithHttpInfo(
-            @javax.annotation.Nonnull InteractionsExportPayload interactionsExportPayload)
+            @jakarta.annotation.Nonnull InteractionsExportPayload interactionsExportPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 exportInteractionsValidateBeforeCall(interactionsExportPayload, null);
@@ -1435,7 +1440,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call exportInteractionsAsync(
-            @javax.annotation.Nonnull InteractionsExportPayload interactionsExportPayload,
+            @jakarta.annotation.Nonnull InteractionsExportPayload interactionsExportPayload,
             final ApiCallback<List<Interaction>> _callback)
             throws ApiException {
 
@@ -1463,8 +1468,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call forkInteractionCall(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionForkPayload interactionForkPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionForkPayload interactionForkPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1525,8 +1530,8 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call forkInteractionValidateBeforeCall(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionForkPayload interactionForkPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionForkPayload interactionForkPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionId' is set
@@ -1561,8 +1566,8 @@ public class InteractionsApi {
      * </table>
      */
     public Interaction forkInteraction(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionForkPayload interactionForkPayload)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionForkPayload interactionForkPayload)
             throws ApiException {
         ApiResponse<Interaction> localVarResp =
                 forkInteractionWithHttpInfo(interactionId, interactionForkPayload);
@@ -1586,8 +1591,8 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<Interaction> forkInteractionWithHttpInfo(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionForkPayload interactionForkPayload)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionForkPayload interactionForkPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 forkInteractionValidateBeforeCall(interactionId, interactionForkPayload, null);
@@ -1613,8 +1618,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call forkInteractionAsync(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionForkPayload interactionForkPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionForkPayload interactionForkPayload,
             final ApiCallback<Interaction> _callback)
             throws ApiException {
 
@@ -1642,8 +1647,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call generateInteractionCall(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull GenerateInteractionPayload generateInteractionPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull GenerateInteractionPayload generateInteractionPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1704,8 +1709,8 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call generateInteractionValidateBeforeCall(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull GenerateInteractionPayload generateInteractionPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull GenerateInteractionPayload generateInteractionPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionId' is set
@@ -1740,8 +1745,8 @@ public class InteractionsApi {
      * </table>
      */
     public List<GeneratedInteractionDefinition> generateInteraction(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull GenerateInteractionPayload generateInteractionPayload)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull GenerateInteractionPayload generateInteractionPayload)
             throws ApiException {
         ApiResponse<List<GeneratedInteractionDefinition>> localVarResp =
                 generateInteractionWithHttpInfo(interactionId, generateInteractionPayload);
@@ -1765,8 +1770,8 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<List<GeneratedInteractionDefinition>> generateInteractionWithHttpInfo(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull GenerateInteractionPayload generateInteractionPayload)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull GenerateInteractionPayload generateInteractionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 generateInteractionValidateBeforeCall(
@@ -1794,8 +1799,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call generateInteractionAsync(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull GenerateInteractionPayload generateInteractionPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull GenerateInteractionPayload generateInteractionPayload,
             final ApiCallback<List<GeneratedInteractionDefinition>> _callback)
             throws ApiException {
 
@@ -1825,8 +1830,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call generateInteractionTestDataCall(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1887,8 +1892,8 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call generateInteractionTestDataValidateBeforeCall(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionId' is set
@@ -1923,8 +1928,8 @@ public class InteractionsApi {
      * </table>
      */
     public List<Map<String, Object>> generateInteractionTestData(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload)
             throws ApiException {
         ApiResponse<List<Map<String, Object>>> localVarResp =
                 generateInteractionTestDataWithHttpInfo(interactionId, generateTestDataPayload);
@@ -1948,8 +1953,8 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<List<Map<String, Object>>> generateInteractionTestDataWithHttpInfo(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 generateInteractionTestDataValidateBeforeCall(
@@ -1976,8 +1981,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call generateInteractionTestDataAsync(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload,
             final ApiCallback<List<Map<String, Object>>> _callback)
             throws ApiException {
 
@@ -2005,7 +2010,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call getInteractionCall(
-            @javax.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2065,7 +2070,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getInteractionValidateBeforeCall(
-            @javax.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionId' is set
         if (interactionId == null) {
@@ -2091,7 +2096,7 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public Interaction getInteraction(@javax.annotation.Nonnull String interactionId)
+    public Interaction getInteraction(@jakarta.annotation.Nonnull String interactionId)
             throws ApiException {
         ApiResponse<Interaction> localVarResp = getInteractionWithHttpInfo(interactionId);
         return localVarResp.getData();
@@ -2113,7 +2118,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<Interaction> getInteractionWithHttpInfo(
-            @javax.annotation.Nonnull String interactionId) throws ApiException {
+            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         okhttp3.Call localVarCall = getInteractionValidateBeforeCall(interactionId, null);
         Type localVarReturnType = new TypeToken<Interaction>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2136,7 +2141,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call getInteractionAsync(
-            @javax.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull String interactionId,
             final ApiCallback<Interaction> _callback)
             throws ApiException {
 
@@ -2162,7 +2167,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call improvePromptCall(
-            @javax.annotation.Nonnull ImprovePromptPayload improvePromptPayload,
+            @jakarta.annotation.Nonnull ImprovePromptPayload improvePromptPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2219,7 +2224,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call improvePromptValidateBeforeCall(
-            @javax.annotation.Nonnull ImprovePromptPayload improvePromptPayload,
+            @jakarta.annotation.Nonnull ImprovePromptPayload improvePromptPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'improvePromptPayload' is set
@@ -2247,7 +2252,7 @@ public class InteractionsApi {
      * </table>
      */
     public PromptImprovementResponse improvePrompt(
-            @javax.annotation.Nonnull ImprovePromptPayload improvePromptPayload)
+            @jakarta.annotation.Nonnull ImprovePromptPayload improvePromptPayload)
             throws ApiException {
         ApiResponse<PromptImprovementResponse> localVarResp =
                 improvePromptWithHttpInfo(improvePromptPayload);
@@ -2270,7 +2275,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<PromptImprovementResponse> improvePromptWithHttpInfo(
-            @javax.annotation.Nonnull ImprovePromptPayload improvePromptPayload)
+            @jakarta.annotation.Nonnull ImprovePromptPayload improvePromptPayload)
             throws ApiException {
         okhttp3.Call localVarCall = improvePromptValidateBeforeCall(improvePromptPayload, null);
         Type localVarReturnType = new TypeToken<PromptImprovementResponse>() {}.getType();
@@ -2294,7 +2299,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call improvePromptAsync(
-            @javax.annotation.Nonnull ImprovePromptPayload improvePromptPayload,
+            @jakarta.annotation.Nonnull ImprovePromptPayload improvePromptPayload,
             final ApiCallback<PromptImprovementResponse> _callback)
             throws ApiException {
 
@@ -2321,7 +2326,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listAllAppInteractionsCall(
-            @javax.annotation.Nullable String tag, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String tag, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2381,7 +2386,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAllAppInteractionsValidateBeforeCall(
-            @javax.annotation.Nullable String tag, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String tag, final ApiCallback _callback)
             throws ApiException {
         return listAllAppInteractionsCall(tag, _callback);
     }
@@ -2401,8 +2406,8 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<CatalogInteractionRef> listAllAppInteractions(@javax.annotation.Nullable String tag)
-            throws ApiException {
+    public List<CatalogInteractionRef> listAllAppInteractions(
+            @jakarta.annotation.Nullable String tag) throws ApiException {
         ApiResponse<List<CatalogInteractionRef>> localVarResp =
                 listAllAppInteractionsWithHttpInfo(tag);
         return localVarResp.getData();
@@ -2424,7 +2429,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<List<CatalogInteractionRef>> listAllAppInteractionsWithHttpInfo(
-            @javax.annotation.Nullable String tag) throws ApiException {
+            @jakarta.annotation.Nullable String tag) throws ApiException {
         okhttp3.Call localVarCall = listAllAppInteractionsValidateBeforeCall(tag, null);
         Type localVarReturnType = new TypeToken<List<CatalogInteractionRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2447,7 +2452,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listAllAppInteractionsAsync(
-            @javax.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable String tag,
             final ApiCallback<List<CatalogInteractionRef>> _callback)
             throws ApiException {
 
@@ -2474,8 +2479,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listAppInteractionsCall(
-            @javax.annotation.Nonnull String appName,
-            @javax.annotation.Nullable String tag,
+            @jakarta.annotation.Nonnull String appName,
+            @jakarta.annotation.Nullable String tag,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2540,8 +2545,8 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAppInteractionsValidateBeforeCall(
-            @javax.annotation.Nonnull String appName,
-            @javax.annotation.Nullable String tag,
+            @jakarta.annotation.Nonnull String appName,
+            @jakarta.annotation.Nullable String tag,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'appName' is set
@@ -2570,7 +2575,7 @@ public class InteractionsApi {
      * </table>
      */
     public List<CatalogInteractionRef> listAppInteractions(
-            @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String tag)
+            @jakarta.annotation.Nonnull String appName, @jakarta.annotation.Nullable String tag)
             throws ApiException {
         ApiResponse<List<CatalogInteractionRef>> localVarResp =
                 listAppInteractionsWithHttpInfo(appName, tag);
@@ -2594,7 +2599,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<List<CatalogInteractionRef>> listAppInteractionsWithHttpInfo(
-            @javax.annotation.Nonnull String appName, @javax.annotation.Nullable String tag)
+            @jakarta.annotation.Nonnull String appName, @jakarta.annotation.Nullable String tag)
             throws ApiException {
         okhttp3.Call localVarCall = listAppInteractionsValidateBeforeCall(appName, tag, null);
         Type localVarReturnType = new TypeToken<List<CatalogInteractionRef>>() {}.getType();
@@ -2619,8 +2624,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listAppInteractionsAsync(
-            @javax.annotation.Nonnull String appName,
-            @javax.annotation.Nullable String tag,
+            @jakarta.annotation.Nonnull String appName,
+            @jakarta.annotation.Nullable String tag,
             final ApiCallback<List<CatalogInteractionRef>> _callback)
             throws ApiException {
 
@@ -2646,7 +2651,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listInteractionEndpointsCall(
-            @javax.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery,
+            @jakarta.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2703,7 +2708,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listInteractionEndpointsValidateBeforeCall(
-            @javax.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery,
+            @jakarta.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionEndpointQuery' is set
@@ -2731,7 +2736,7 @@ public class InteractionsApi {
      * </table>
      */
     public List<InteractionEndpoint> listInteractionEndpoints(
-            @javax.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery)
+            @jakarta.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery)
             throws ApiException {
         ApiResponse<List<InteractionEndpoint>> localVarResp =
                 listInteractionEndpointsWithHttpInfo(interactionEndpointQuery);
@@ -2754,7 +2759,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<List<InteractionEndpoint>> listInteractionEndpointsWithHttpInfo(
-            @javax.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery)
+            @jakarta.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listInteractionEndpointsValidateBeforeCall(interactionEndpointQuery, null);
@@ -2779,7 +2784,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listInteractionEndpointsAsync(
-            @javax.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery,
+            @jakarta.annotation.Nonnull InteractionEndpointQuery interactionEndpointQuery,
             final ApiCallback<List<InteractionEndpoint>> _callback)
             throws ApiException {
 
@@ -2806,7 +2811,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listInteractionForksCall(
-            @javax.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2866,7 +2871,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listInteractionForksValidateBeforeCall(
-            @javax.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionId' is set
         if (interactionId == null) {
@@ -2892,7 +2897,7 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<Interaction> listInteractionForks(@javax.annotation.Nonnull String interactionId)
+    public List<Interaction> listInteractionForks(@jakarta.annotation.Nonnull String interactionId)
             throws ApiException {
         ApiResponse<List<Interaction>> localVarResp =
                 listInteractionForksWithHttpInfo(interactionId);
@@ -2915,7 +2920,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<List<Interaction>> listInteractionForksWithHttpInfo(
-            @javax.annotation.Nonnull String interactionId) throws ApiException {
+            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         okhttp3.Call localVarCall = listInteractionForksValidateBeforeCall(interactionId, null);
         Type localVarReturnType = new TypeToken<List<Interaction>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2938,7 +2943,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listInteractionForksAsync(
-            @javax.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull String interactionId,
             final ApiCallback<List<Interaction>> _callback)
             throws ApiException {
 
@@ -3114,20 +3119,20 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listInteractionTagsCall(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String prompt,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String version,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable Boolean isAgent,
-            @javax.annotation.Nullable Boolean isTool,
-            @javax.annotation.Nullable Boolean isSkill,
-            @javax.annotation.Nullable Boolean isBasic,
-            @javax.annotation.Nullable Boolean isSubAgent,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String version,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable Boolean isAgent,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3244,20 +3249,20 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listInteractionTagsValidateBeforeCall(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String prompt,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String version,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable Boolean isAgent,
-            @javax.annotation.Nullable Boolean isTool,
-            @javax.annotation.Nullable Boolean isSkill,
-            @javax.annotation.Nullable Boolean isBasic,
-            @javax.annotation.Nullable Boolean isSubAgent,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String version,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable Boolean isAgent,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
             final ApiCallback _callback)
             throws ApiException {
         return listInteractionTagsCall(
@@ -3307,20 +3312,20 @@ public class InteractionsApi {
      * </table>
      */
     public List<InteractionTags> listInteractionTags(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String prompt,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String version,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable Boolean isAgent,
-            @javax.annotation.Nullable Boolean isTool,
-            @javax.annotation.Nullable Boolean isSkill,
-            @javax.annotation.Nullable Boolean isBasic,
-            @javax.annotation.Nullable Boolean isSubAgent)
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String version,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable Boolean isAgent,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isSubAgent)
             throws ApiException {
         ApiResponse<List<InteractionTags>> localVarResp =
                 listInteractionTagsWithHttpInfo(
@@ -3370,20 +3375,20 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<List<InteractionTags>> listInteractionTagsWithHttpInfo(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String prompt,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String version,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable Boolean isAgent,
-            @javax.annotation.Nullable Boolean isTool,
-            @javax.annotation.Nullable Boolean isSkill,
-            @javax.annotation.Nullable Boolean isBasic,
-            @javax.annotation.Nullable Boolean isSubAgent)
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String version,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable Boolean isAgent,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isSubAgent)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listInteractionTagsValidateBeforeCall(
@@ -3436,20 +3441,20 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listInteractionTagsAsync(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String prompt,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String version,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable Boolean isAgent,
-            @javax.annotation.Nullable Boolean isTool,
-            @javax.annotation.Nullable Boolean isSkill,
-            @javax.annotation.Nullable Boolean isBasic,
-            @javax.annotation.Nullable Boolean isSubAgent,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String version,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable Boolean isAgent,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
             final ApiCallback<List<InteractionTags>> _callback)
             throws ApiException {
 
@@ -3491,7 +3496,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listInteractionVersionsCall(
-            @javax.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3551,7 +3556,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listInteractionVersionsValidateBeforeCall(
-            @javax.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionId' is set
         if (interactionId == null) {
@@ -3577,8 +3582,8 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<Interaction> listInteractionVersions(@javax.annotation.Nonnull String interactionId)
-            throws ApiException {
+    public List<Interaction> listInteractionVersions(
+            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         ApiResponse<List<Interaction>> localVarResp =
                 listInteractionVersionsWithHttpInfo(interactionId);
         return localVarResp.getData();
@@ -3600,7 +3605,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<List<Interaction>> listInteractionVersionsWithHttpInfo(
-            @javax.annotation.Nonnull String interactionId) throws ApiException {
+            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         okhttp3.Call localVarCall = listInteractionVersionsValidateBeforeCall(interactionId, null);
         Type localVarReturnType = new TypeToken<List<Interaction>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3623,7 +3628,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listInteractionVersionsAsync(
-            @javax.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull String interactionId,
             final ApiCallback<List<Interaction>> _callback)
             throws ApiException {
 
@@ -3650,7 +3655,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listInteractionVersionsByNameCall(
-            @javax.annotation.Nonnull String name, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String name, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3710,7 +3715,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listInteractionVersionsByNameValidateBeforeCall(
-            @javax.annotation.Nonnull String name, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String name, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'name' is set
         if (name == null) {
@@ -3736,7 +3741,7 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<Interaction> listInteractionVersionsByName(@javax.annotation.Nonnull String name)
+    public List<Interaction> listInteractionVersionsByName(@jakarta.annotation.Nonnull String name)
             throws ApiException {
         ApiResponse<List<Interaction>> localVarResp =
                 listInteractionVersionsByNameWithHttpInfo(name);
@@ -3759,7 +3764,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<List<Interaction>> listInteractionVersionsByNameWithHttpInfo(
-            @javax.annotation.Nonnull String name) throws ApiException {
+            @jakarta.annotation.Nonnull String name) throws ApiException {
         okhttp3.Call localVarCall = listInteractionVersionsByNameValidateBeforeCall(name, null);
         Type localVarReturnType = new TypeToken<List<Interaction>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3782,7 +3787,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listInteractionVersionsByNameAsync(
-            @javax.annotation.Nonnull String name, final ApiCallback<List<Interaction>> _callback)
+            @jakarta.annotation.Nonnull String name, final ApiCallback<List<Interaction>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
@@ -3821,20 +3826,20 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listInteractionsCall(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String prompt,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String version,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable Boolean isAgent,
-            @javax.annotation.Nullable Boolean isTool,
-            @javax.annotation.Nullable Boolean isSkill,
-            @javax.annotation.Nullable Boolean isBasic,
-            @javax.annotation.Nullable Boolean isSubAgent,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String version,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable Boolean isAgent,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3951,20 +3956,20 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listInteractionsValidateBeforeCall(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String prompt,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String version,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable Boolean isAgent,
-            @javax.annotation.Nullable Boolean isTool,
-            @javax.annotation.Nullable Boolean isSkill,
-            @javax.annotation.Nullable Boolean isBasic,
-            @javax.annotation.Nullable Boolean isSubAgent,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String version,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable Boolean isAgent,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
             final ApiCallback _callback)
             throws ApiException {
         return listInteractionsCall(
@@ -4014,20 +4019,20 @@ public class InteractionsApi {
      * </table>
      */
     public List<InteractionRef> listInteractions(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String prompt,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String version,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable Boolean isAgent,
-            @javax.annotation.Nullable Boolean isTool,
-            @javax.annotation.Nullable Boolean isSkill,
-            @javax.annotation.Nullable Boolean isBasic,
-            @javax.annotation.Nullable Boolean isSubAgent)
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String version,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable Boolean isAgent,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isSubAgent)
             throws ApiException {
         ApiResponse<List<InteractionRef>> localVarResp =
                 listInteractionsWithHttpInfo(
@@ -4077,20 +4082,20 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<List<InteractionRef>> listInteractionsWithHttpInfo(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String prompt,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String version,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable Boolean isAgent,
-            @javax.annotation.Nullable Boolean isTool,
-            @javax.annotation.Nullable Boolean isSkill,
-            @javax.annotation.Nullable Boolean isBasic,
-            @javax.annotation.Nullable Boolean isSubAgent)
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String version,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable Boolean isAgent,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isSubAgent)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listInteractionsValidateBeforeCall(
@@ -4143,20 +4148,20 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listInteractionsAsync(
-            @javax.annotation.Nullable String name,
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String prompt,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String version,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable Boolean isAgent,
-            @javax.annotation.Nullable Boolean isTool,
-            @javax.annotation.Nullable Boolean isSkill,
-            @javax.annotation.Nullable Boolean isBasic,
-            @javax.annotation.Nullable Boolean isSubAgent,
+            @jakarta.annotation.Nullable String name,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String prompt,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String version,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable Boolean isAgent,
+            @jakarta.annotation.Nullable Boolean isTool,
+            @jakarta.annotation.Nullable Boolean isSkill,
+            @jakarta.annotation.Nullable Boolean isBasic,
+            @jakarta.annotation.Nullable Boolean isSubAgent,
             final ApiCallback<List<InteractionRef>> _callback)
             throws ApiException {
 
@@ -4200,9 +4205,9 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listStoredCatalogInteractionsCall(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable Boolean published,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable Boolean published,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4271,9 +4276,9 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listStoredCatalogInteractionsValidateBeforeCall(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable Boolean published,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable Boolean published,
             final ApiCallback _callback)
             throws ApiException {
         return listStoredCatalogInteractionsCall(tag, status, published, _callback);
@@ -4297,9 +4302,9 @@ public class InteractionsApi {
      * </table>
      */
     public List<CatalogInteractionRef> listStoredCatalogInteractions(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable Boolean published)
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable Boolean published)
             throws ApiException {
         ApiResponse<List<CatalogInteractionRef>> localVarResp =
                 listStoredCatalogInteractionsWithHttpInfo(tag, status, published);
@@ -4324,9 +4329,9 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<List<CatalogInteractionRef>> listStoredCatalogInteractionsWithHttpInfo(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable Boolean published)
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable Boolean published)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listStoredCatalogInteractionsValidateBeforeCall(tag, status, published, null);
@@ -4353,9 +4358,9 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listStoredCatalogInteractionsAsync(
-            @javax.annotation.Nullable String tag,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable Boolean published,
+            @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable Boolean published,
             final ApiCallback<List<CatalogInteractionRef>> _callback)
             throws ApiException {
 
@@ -4382,7 +4387,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listSystemInteractionsCall(
-            @javax.annotation.Nullable String tag, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String tag, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4442,7 +4447,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSystemInteractionsValidateBeforeCall(
-            @javax.annotation.Nullable String tag, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String tag, final ApiCallback _callback)
             throws ApiException {
         return listSystemInteractionsCall(tag, _callback);
     }
@@ -4462,8 +4467,8 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<CatalogInteractionRef> listSystemInteractions(@javax.annotation.Nullable String tag)
-            throws ApiException {
+    public List<CatalogInteractionRef> listSystemInteractions(
+            @jakarta.annotation.Nullable String tag) throws ApiException {
         ApiResponse<List<CatalogInteractionRef>> localVarResp =
                 listSystemInteractionsWithHttpInfo(tag);
         return localVarResp.getData();
@@ -4485,7 +4490,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<List<CatalogInteractionRef>> listSystemInteractionsWithHttpInfo(
-            @javax.annotation.Nullable String tag) throws ApiException {
+            @jakarta.annotation.Nullable String tag) throws ApiException {
         okhttp3.Call localVarCall = listSystemInteractionsValidateBeforeCall(tag, null);
         Type localVarReturnType = new TypeToken<List<CatalogInteractionRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4508,7 +4513,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listSystemInteractionsAsync(
-            @javax.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable String tag,
             final ApiCallback<List<CatalogInteractionRef>> _callback)
             throws ApiException {
 
@@ -4535,8 +4540,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call publishInteractionCall(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionPublishPayload interactionPublishPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionPublishPayload interactionPublishPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4597,8 +4602,8 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call publishInteractionValidateBeforeCall(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionPublishPayload interactionPublishPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionPublishPayload interactionPublishPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionId' is set
@@ -4633,8 +4638,8 @@ public class InteractionsApi {
      * </table>
      */
     public Interaction publishInteraction(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionPublishPayload interactionPublishPayload)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionPublishPayload interactionPublishPayload)
             throws ApiException {
         ApiResponse<Interaction> localVarResp =
                 publishInteractionWithHttpInfo(interactionId, interactionPublishPayload);
@@ -4658,8 +4663,8 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<Interaction> publishInteractionWithHttpInfo(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionPublishPayload interactionPublishPayload)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionPublishPayload interactionPublishPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 publishInteractionValidateBeforeCall(
@@ -4686,8 +4691,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call publishInteractionAsync(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionPublishPayload interactionPublishPayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionPublishPayload interactionPublishPayload,
             final ApiCallback<Interaction> _callback)
             throws ApiException {
 
@@ -4715,7 +4720,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call requestInteractionRateLimitSlotCall(
-            @javax.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload,
+            @jakarta.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4772,7 +4777,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call requestInteractionRateLimitSlotValidateBeforeCall(
-            @javax.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload,
+            @jakarta.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'rateLimitRequestPayload' is set
@@ -4800,7 +4805,7 @@ public class InteractionsApi {
      * </table>
      */
     public RateLimitRequestResponse requestInteractionRateLimitSlot(
-            @javax.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload)
+            @jakarta.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload)
             throws ApiException {
         ApiResponse<RateLimitRequestResponse> localVarResp =
                 requestInteractionRateLimitSlotWithHttpInfo(rateLimitRequestPayload);
@@ -4823,7 +4828,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<RateLimitRequestResponse> requestInteractionRateLimitSlotWithHttpInfo(
-            @javax.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload)
+            @jakarta.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 requestInteractionRateLimitSlotValidateBeforeCall(rateLimitRequestPayload, null);
@@ -4848,7 +4853,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call requestInteractionRateLimitSlotAsync(
-            @javax.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload,
+            @jakarta.annotation.Nonnull RateLimitRequestPayload rateLimitRequestPayload,
             final ApiCallback<RateLimitRequestResponse> _callback)
             throws ApiException {
 
@@ -4876,7 +4881,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call resolveCatalogInteractionCall(
-            @javax.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4936,7 +4941,7 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call resolveCatalogInteractionValidateBeforeCall(
-            @javax.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionId' is set
         if (interactionId == null) {
@@ -4963,7 +4968,7 @@ public class InteractionsApi {
      * </table>
      */
     public CatalogInteractionRef resolveCatalogInteraction(
-            @javax.annotation.Nonnull String interactionId) throws ApiException {
+            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         ApiResponse<CatalogInteractionRef> localVarResp =
                 resolveCatalogInteractionWithHttpInfo(interactionId);
         return localVarResp.getData();
@@ -4985,7 +4990,7 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<CatalogInteractionRef> resolveCatalogInteractionWithHttpInfo(
-            @javax.annotation.Nonnull String interactionId) throws ApiException {
+            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         okhttp3.Call localVarCall =
                 resolveCatalogInteractionValidateBeforeCall(interactionId, null);
         Type localVarReturnType = new TypeToken<CatalogInteractionRef>() {}.getType();
@@ -5009,7 +5014,7 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call resolveCatalogInteractionAsync(
-            @javax.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull String interactionId,
             final ApiCallback<CatalogInteractionRef> _callback)
             throws ApiException {
 
@@ -5040,11 +5045,11 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call resolveInteractionCall(
-            @javax.annotation.Nonnull String nameOrId,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable Boolean hasImage,
-            @javax.annotation.Nullable Boolean hasVideo,
+            @jakarta.annotation.Nonnull String nameOrId,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable Boolean hasImage,
+            @jakarta.annotation.Nullable Boolean hasVideo,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -5122,11 +5127,11 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call resolveInteractionValidateBeforeCall(
-            @javax.annotation.Nonnull String nameOrId,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable Boolean hasImage,
-            @javax.annotation.Nullable Boolean hasVideo,
+            @jakarta.annotation.Nonnull String nameOrId,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable Boolean hasImage,
+            @jakarta.annotation.Nullable Boolean hasVideo,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'nameOrId' is set
@@ -5158,11 +5163,11 @@ public class InteractionsApi {
      * </table>
      */
     public ResolvedInteractionExecutionInfo resolveInteraction(
-            @javax.annotation.Nonnull String nameOrId,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable Boolean hasImage,
-            @javax.annotation.Nullable Boolean hasVideo)
+            @jakarta.annotation.Nonnull String nameOrId,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable Boolean hasImage,
+            @jakarta.annotation.Nullable Boolean hasVideo)
             throws ApiException {
         ApiResponse<ResolvedInteractionExecutionInfo> localVarResp =
                 resolveInteractionWithHttpInfo(nameOrId, environment, model, hasImage, hasVideo);
@@ -5189,11 +5194,11 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<ResolvedInteractionExecutionInfo> resolveInteractionWithHttpInfo(
-            @javax.annotation.Nonnull String nameOrId,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable Boolean hasImage,
-            @javax.annotation.Nullable Boolean hasVideo)
+            @jakarta.annotation.Nonnull String nameOrId,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable Boolean hasImage,
+            @jakarta.annotation.Nullable Boolean hasVideo)
             throws ApiException {
         okhttp3.Call localVarCall =
                 resolveInteractionValidateBeforeCall(
@@ -5223,11 +5228,11 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call resolveInteractionAsync(
-            @javax.annotation.Nonnull String nameOrId,
-            @javax.annotation.Nullable String environment,
-            @javax.annotation.Nullable String model,
-            @javax.annotation.Nullable Boolean hasImage,
-            @javax.annotation.Nullable Boolean hasVideo,
+            @jakarta.annotation.Nonnull String nameOrId,
+            @jakarta.annotation.Nullable String environment,
+            @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable Boolean hasImage,
+            @jakarta.annotation.Nullable Boolean hasVideo,
             final ApiCallback<ResolvedInteractionExecutionInfo> _callback)
             throws ApiException {
 
@@ -5256,8 +5261,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call suggestPromptImprovementsForInteractionCall(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull ImprovePromptPayloadConfig improvePromptPayloadConfig,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull ImprovePromptPayloadConfig improvePromptPayloadConfig,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -5318,8 +5323,8 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call suggestPromptImprovementsForInteractionValidateBeforeCall(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull ImprovePromptPayloadConfig improvePromptPayloadConfig,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull ImprovePromptPayloadConfig improvePromptPayloadConfig,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionId' is set
@@ -5355,8 +5360,8 @@ public class InteractionsApi {
      * </table>
      */
     public PromptImprovementResponse suggestPromptImprovementsForInteraction(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull ImprovePromptPayloadConfig improvePromptPayloadConfig)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull ImprovePromptPayloadConfig improvePromptPayloadConfig)
             throws ApiException {
         ApiResponse<PromptImprovementResponse> localVarResp =
                 suggestPromptImprovementsForInteractionWithHttpInfo(
@@ -5382,8 +5387,9 @@ public class InteractionsApi {
      */
     public ApiResponse<PromptImprovementResponse>
             suggestPromptImprovementsForInteractionWithHttpInfo(
-                    @javax.annotation.Nonnull String interactionId,
-                    @javax.annotation.Nonnull ImprovePromptPayloadConfig improvePromptPayloadConfig)
+                    @jakarta.annotation.Nonnull String interactionId,
+                    @jakarta.annotation.Nonnull
+                            ImprovePromptPayloadConfig improvePromptPayloadConfig)
                     throws ApiException {
         okhttp3.Call localVarCall =
                 suggestPromptImprovementsForInteractionValidateBeforeCall(
@@ -5410,8 +5416,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call suggestPromptImprovementsForInteractionAsync(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull ImprovePromptPayloadConfig improvePromptPayloadConfig,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull ImprovePromptPayloadConfig improvePromptPayloadConfig,
             final ApiCallback<PromptImprovementResponse> _callback)
             throws ApiException {
 
@@ -5440,8 +5446,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call updateInteractionCall(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -5502,8 +5508,8 @@ public class InteractionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateInteractionValidateBeforeCall(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'interactionId' is set
@@ -5538,8 +5544,8 @@ public class InteractionsApi {
      * </table>
      */
     public Interaction updateInteraction(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload)
             throws ApiException {
         ApiResponse<Interaction> localVarResp =
                 updateInteractionWithHttpInfo(interactionId, interactionUpdatePayload);
@@ -5563,8 +5569,8 @@ public class InteractionsApi {
      * </table>
      */
     public ApiResponse<Interaction> updateInteractionWithHttpInfo(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload)
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateInteractionValidateBeforeCall(interactionId, interactionUpdatePayload, null);
@@ -5590,8 +5596,8 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call updateInteractionAsync(
-            @javax.annotation.Nonnull String interactionId,
-            @javax.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload,
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull InteractionUpdatePayload interactionUpdatePayload,
             final ApiCallback<Interaction> _callback)
             throws ApiException {
 

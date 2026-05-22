@@ -34,74 +34,74 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * NamedInteractionExecutionPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class NamedInteractionExecutionPayload {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    @javax.annotation.Nullable private Object data = null;
+    @jakarta.annotation.Nullable private Object data = null;
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nullable private InteractionExecutionConfiguration config;
+    @jakarta.annotation.Nullable private InteractionExecutionConfiguration config;
 
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema resultSchema;
+    @jakarta.annotation.Nullable private JSONSchema resultSchema;
 
     public static final String SERIALIZED_NAME_STREAM = "stream";
 
     @SerializedName(SERIALIZED_NAME_STREAM)
-    @javax.annotation.Nullable private Boolean stream;
+    @jakarta.annotation.Nullable private Boolean stream;
 
     public static final String SERIALIZED_NAME_DO_VALIDATE = "do_validate";
 
     @SerializedName(SERIALIZED_NAME_DO_VALIDATE)
-    @javax.annotation.Nullable private Boolean doValidate;
+    @jakarta.annotation.Nullable private Boolean doValidate;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CONVERSATION = "conversation";
 
     @SerializedName(SERIALIZED_NAME_CONVERSATION)
-    @javax.annotation.Nullable private Object conversation = null;
+    @jakarta.annotation.Nullable private Object conversation = null;
 
     public static final String SERIALIZED_NAME_TOOL_DEFINITIONS = "tool_definitions";
 
     @SerializedName(SERIALIZED_NAME_TOOL_DEFINITIONS)
-    @javax.annotation.Nullable private List<ToolDefinition> toolDefinitions = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<ToolDefinition> toolDefinitions = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_WORKFLOW = "workflow";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW)
-    @javax.annotation.Nullable private ExecutionRunWorkflow workflow;
+    @jakarta.annotation.Nullable private ExecutionRunWorkflow workflow;
 
     public static final String SERIALIZED_NAME_PROMPTS = "prompts";
 
     @SerializedName(SERIALIZED_NAME_PROMPTS)
-    @javax.annotation.Nullable private List<InCodePrompt> prompts = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<InCodePrompt> prompts = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ASYNC_COMPLETION = "asyncCompletion";
 
     @SerializedName(SERIALIZED_NAME_ASYNC_COMPLETION)
-    @javax.annotation.Nullable private AsyncCompletionOptions asyncCompletion;
+    @jakarta.annotation.Nullable private AsyncCompletionOptions asyncCompletion;
 
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String interaction;
 
     public NamedInteractionExecutionPayload() {}
 
-    public NamedInteractionExecutionPayload data(@javax.annotation.Nullable Object data) {
+    public NamedInteractionExecutionPayload data(@jakarta.annotation.Nullable Object data) {
         this.data = data;
         return this;
     }
@@ -110,16 +110,16 @@ public class NamedInteractionExecutionPayload {
      * Get data
      * @return data
      */
-    @javax.annotation.Nullable public Object getData() {
+    @jakarta.annotation.Nullable public Object getData() {
         return data;
     }
 
-    public void setData(@javax.annotation.Nullable Object data) {
+    public void setData(@jakarta.annotation.Nullable Object data) {
         this.data = data;
     }
 
     public NamedInteractionExecutionPayload config(
-            @javax.annotation.Nullable InteractionExecutionConfiguration config) {
+            @jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
         this.config = config;
         return this;
     }
@@ -128,16 +128,16 @@ public class NamedInteractionExecutionPayload {
      * Get config
      * @return config
      */
-    @javax.annotation.Nullable public InteractionExecutionConfiguration getConfig() {
+    @jakarta.annotation.Nullable public InteractionExecutionConfiguration getConfig() {
         return config;
     }
 
-    public void setConfig(@javax.annotation.Nullable InteractionExecutionConfiguration config) {
+    public void setConfig(@jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
         this.config = config;
     }
 
     public NamedInteractionExecutionPayload resultSchema(
-            @javax.annotation.Nullable JSONSchema resultSchema) {
+            @jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
         return this;
     }
@@ -146,15 +146,15 @@ public class NamedInteractionExecutionPayload {
      * Get resultSchema
      * @return resultSchema
      */
-    @javax.annotation.Nullable public JSONSchema getResultSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getResultSchema() {
         return resultSchema;
     }
 
-    public void setResultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public void setResultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
     }
 
-    public NamedInteractionExecutionPayload stream(@javax.annotation.Nullable Boolean stream) {
+    public NamedInteractionExecutionPayload stream(@jakarta.annotation.Nullable Boolean stream) {
         this.stream = stream;
         return this;
     }
@@ -163,16 +163,16 @@ public class NamedInteractionExecutionPayload {
      * Get stream
      * @return stream
      */
-    @javax.annotation.Nullable public Boolean getStream() {
+    @jakarta.annotation.Nullable public Boolean getStream() {
         return stream;
     }
 
-    public void setStream(@javax.annotation.Nullable Boolean stream) {
+    public void setStream(@jakarta.annotation.Nullable Boolean stream) {
         this.stream = stream;
     }
 
     public NamedInteractionExecutionPayload doValidate(
-            @javax.annotation.Nullable Boolean doValidate) {
+            @jakarta.annotation.Nullable Boolean doValidate) {
         this.doValidate = doValidate;
         return this;
     }
@@ -181,15 +181,15 @@ public class NamedInteractionExecutionPayload {
      * Get doValidate
      * @return doValidate
      */
-    @javax.annotation.Nullable public Boolean getDoValidate() {
+    @jakarta.annotation.Nullable public Boolean getDoValidate() {
         return doValidate;
     }
 
-    public void setDoValidate(@javax.annotation.Nullable Boolean doValidate) {
+    public void setDoValidate(@jakarta.annotation.Nullable Boolean doValidate) {
         this.doValidate = doValidate;
     }
 
-    public NamedInteractionExecutionPayload tags(@javax.annotation.Nullable List<String> tags) {
+    public NamedInteractionExecutionPayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -206,16 +206,16 @@ public class NamedInteractionExecutionPayload {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
     public NamedInteractionExecutionPayload conversation(
-            @javax.annotation.Nullable Object conversation) {
+            @jakarta.annotation.Nullable Object conversation) {
         this.conversation = conversation;
         return this;
     }
@@ -224,16 +224,16 @@ public class NamedInteractionExecutionPayload {
      * Get conversation
      * @return conversation
      */
-    @javax.annotation.Nullable public Object getConversation() {
+    @jakarta.annotation.Nullable public Object getConversation() {
         return conversation;
     }
 
-    public void setConversation(@javax.annotation.Nullable Object conversation) {
+    public void setConversation(@jakarta.annotation.Nullable Object conversation) {
         this.conversation = conversation;
     }
 
     public NamedInteractionExecutionPayload toolDefinitions(
-            @javax.annotation.Nullable List<ToolDefinition> toolDefinitions) {
+            @jakarta.annotation.Nullable List<ToolDefinition> toolDefinitions) {
         this.toolDefinitions = toolDefinitions;
         return this;
     }
@@ -251,17 +251,17 @@ public class NamedInteractionExecutionPayload {
      * The tools to be used in the execution
      * @return toolDefinitions
      */
-    @javax.annotation.Nullable public List<ToolDefinition> getToolDefinitions() {
+    @jakarta.annotation.Nullable public List<ToolDefinition> getToolDefinitions() {
         return toolDefinitions;
     }
 
     public void setToolDefinitions(
-            @javax.annotation.Nullable List<ToolDefinition> toolDefinitions) {
+            @jakarta.annotation.Nullable List<ToolDefinition> toolDefinitions) {
         this.toolDefinitions = toolDefinitions;
     }
 
     public NamedInteractionExecutionPayload workflow(
-            @javax.annotation.Nullable ExecutionRunWorkflow workflow) {
+            @jakarta.annotation.Nullable ExecutionRunWorkflow workflow) {
         this.workflow = workflow;
         return this;
     }
@@ -270,16 +270,16 @@ public class NamedInteractionExecutionPayload {
      * The workflow related to this Interaction Run.
      * @return workflow
      */
-    @javax.annotation.Nullable public ExecutionRunWorkflow getWorkflow() {
+    @jakarta.annotation.Nullable public ExecutionRunWorkflow getWorkflow() {
         return workflow;
     }
 
-    public void setWorkflow(@javax.annotation.Nullable ExecutionRunWorkflow workflow) {
+    public void setWorkflow(@jakarta.annotation.Nullable ExecutionRunWorkflow workflow) {
         this.workflow = workflow;
     }
 
     public NamedInteractionExecutionPayload prompts(
-            @javax.annotation.Nullable List<InCodePrompt> prompts) {
+            @jakarta.annotation.Nullable List<InCodePrompt> prompts) {
         this.prompts = prompts;
         return this;
     }
@@ -296,16 +296,16 @@ public class NamedInteractionExecutionPayload {
      * Only used by ad-hoc interactions which defines the prompt in the execution payload itself These are temporary interactions using \&quot;tmp:\&quot; suffix.
      * @return prompts
      */
-    @javax.annotation.Nullable public List<InCodePrompt> getPrompts() {
+    @jakarta.annotation.Nullable public List<InCodePrompt> getPrompts() {
         return prompts;
     }
 
-    public void setPrompts(@javax.annotation.Nullable List<InCodePrompt> prompts) {
+    public void setPrompts(@jakarta.annotation.Nullable List<InCodePrompt> prompts) {
         this.prompts = prompts;
     }
 
     public NamedInteractionExecutionPayload asyncCompletion(
-            @javax.annotation.Nullable AsyncCompletionOptions asyncCompletion) {
+            @jakarta.annotation.Nullable AsyncCompletionOptions asyncCompletion) {
         this.asyncCompletion = asyncCompletion;
         return this;
     }
@@ -314,17 +314,17 @@ public class NamedInteractionExecutionPayload {
      * Options for async completion and/or streaming LLM response chunks to Redis. Used by agent workflows for async activity completion and real-time streaming.
      * @return asyncCompletion
      */
-    @javax.annotation.Nullable public AsyncCompletionOptions getAsyncCompletion() {
+    @jakarta.annotation.Nullable public AsyncCompletionOptions getAsyncCompletion() {
         return asyncCompletion;
     }
 
     public void setAsyncCompletion(
-            @javax.annotation.Nullable AsyncCompletionOptions asyncCompletion) {
+            @jakarta.annotation.Nullable AsyncCompletionOptions asyncCompletion) {
         this.asyncCompletion = asyncCompletion;
     }
 
     public NamedInteractionExecutionPayload interaction(
-            @javax.annotation.Nonnull String interaction) {
+            @jakarta.annotation.Nonnull String interaction) {
         this.interaction = interaction;
         return this;
     }
@@ -333,12 +333,12 @@ public class NamedInteractionExecutionPayload {
      * The interaction name and suffixed by an optional tag or version separated from the name using a @ character If no version/tag part is specified then the latest version is used. Example: ReviewContract, ReviewContract@draft, ReviewContract@1, ReviewContract@some-tag
      * @return interaction
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getInteraction() {
         return interaction;
     }
 
-    public void setInteraction(@javax.annotation.Nonnull String interaction) {
+    public void setInteraction(@jakarta.annotation.Nonnull String interaction) {
         this.interaction = interaction;
     }
 

@@ -33,55 +33,55 @@ import java.util.Objects;
 /**
  * DataStoreDownloadInfo
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataStoreDownloadInfo {
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String url;
 
     public static final String SERIALIZED_NAME_GCS_GENERATION = "gcs_generation";
 
     @SerializedName(SERIALIZED_NAME_GCS_GENERATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal gcsGeneration;
 
     public static final String SERIALIZED_NAME_SCHEMA_VERSION = "schema_version";
 
     @SerializedName(SERIALIZED_NAME_SCHEMA_VERSION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String schemaVersion;
 
     public static final String SERIALIZED_NAME_STORE_ID = "store_id";
 
     @SerializedName(SERIALIZED_NAME_STORE_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String storeId;
 
     public static final String SERIALIZED_NAME_STORE_NAME = "store_name";
 
     @SerializedName(SERIALIZED_NAME_STORE_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String storeName;
 
     public static final String SERIALIZED_NAME_TABLES = "tables";
 
     @SerializedName(SERIALIZED_NAME_TABLES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> tables = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_EXPIRES_IN = "expires_in";
 
     @SerializedName(SERIALIZED_NAME_EXPIRES_IN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal expiresIn;
 
     public DataStoreDownloadInfo() {}
 
-    public DataStoreDownloadInfo url(@javax.annotation.Nonnull String url) {
+    public DataStoreDownloadInfo url(@jakarta.annotation.Nonnull String url) {
         this.url = url;
         return this;
     }
@@ -90,16 +90,17 @@ public class DataStoreDownloadInfo {
      * Get url
      * @return url
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nonnull String url) {
+    public void setUrl(@jakarta.annotation.Nonnull String url) {
         this.url = url;
     }
 
-    public DataStoreDownloadInfo gcsGeneration(@javax.annotation.Nonnull BigDecimal gcsGeneration) {
+    public DataStoreDownloadInfo gcsGeneration(
+            @jakarta.annotation.Nonnull BigDecimal gcsGeneration) {
         this.gcsGeneration = gcsGeneration;
         return this;
     }
@@ -108,16 +109,16 @@ public class DataStoreDownloadInfo {
      * Get gcsGeneration
      * @return gcsGeneration
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getGcsGeneration() {
         return gcsGeneration;
     }
 
-    public void setGcsGeneration(@javax.annotation.Nonnull BigDecimal gcsGeneration) {
+    public void setGcsGeneration(@jakarta.annotation.Nonnull BigDecimal gcsGeneration) {
         this.gcsGeneration = gcsGeneration;
     }
 
-    public DataStoreDownloadInfo schemaVersion(@javax.annotation.Nonnull String schemaVersion) {
+    public DataStoreDownloadInfo schemaVersion(@jakarta.annotation.Nonnull String schemaVersion) {
         this.schemaVersion = schemaVersion;
         return this;
     }
@@ -126,16 +127,16 @@ public class DataStoreDownloadInfo {
      * Get schemaVersion
      * @return schemaVersion
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSchemaVersion() {
         return schemaVersion;
     }
 
-    public void setSchemaVersion(@javax.annotation.Nonnull String schemaVersion) {
+    public void setSchemaVersion(@jakarta.annotation.Nonnull String schemaVersion) {
         this.schemaVersion = schemaVersion;
     }
 
-    public DataStoreDownloadInfo storeId(@javax.annotation.Nonnull String storeId) {
+    public DataStoreDownloadInfo storeId(@jakarta.annotation.Nonnull String storeId) {
         this.storeId = storeId;
         return this;
     }
@@ -144,16 +145,16 @@ public class DataStoreDownloadInfo {
      * Get storeId
      * @return storeId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStoreId() {
         return storeId;
     }
 
-    public void setStoreId(@javax.annotation.Nonnull String storeId) {
+    public void setStoreId(@jakarta.annotation.Nonnull String storeId) {
         this.storeId = storeId;
     }
 
-    public DataStoreDownloadInfo storeName(@javax.annotation.Nonnull String storeName) {
+    public DataStoreDownloadInfo storeName(@jakarta.annotation.Nonnull String storeName) {
         this.storeName = storeName;
         return this;
     }
@@ -162,16 +163,16 @@ public class DataStoreDownloadInfo {
      * Get storeName
      * @return storeName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStoreName() {
         return storeName;
     }
 
-    public void setStoreName(@javax.annotation.Nonnull String storeName) {
+    public void setStoreName(@jakarta.annotation.Nonnull String storeName) {
         this.storeName = storeName;
     }
 
-    public DataStoreDownloadInfo tables(@javax.annotation.Nonnull List<String> tables) {
+    public DataStoreDownloadInfo tables(@jakarta.annotation.Nonnull List<String> tables) {
         this.tables = tables;
         return this;
     }
@@ -188,16 +189,16 @@ public class DataStoreDownloadInfo {
      * Get tables
      * @return tables
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getTables() {
         return tables;
     }
 
-    public void setTables(@javax.annotation.Nonnull List<String> tables) {
+    public void setTables(@jakarta.annotation.Nonnull List<String> tables) {
         this.tables = tables;
     }
 
-    public DataStoreDownloadInfo expiresIn(@javax.annotation.Nonnull BigDecimal expiresIn) {
+    public DataStoreDownloadInfo expiresIn(@jakarta.annotation.Nonnull BigDecimal expiresIn) {
         this.expiresIn = expiresIn;
         return this;
     }
@@ -206,12 +207,12 @@ public class DataStoreDownloadInfo {
      * Get expiresIn
      * @return expiresIn
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getExpiresIn() {
         return expiresIn;
     }
 
-    public void setExpiresIn(@javax.annotation.Nonnull BigDecimal expiresIn) {
+    public void setExpiresIn(@jakarta.annotation.Nonnull BigDecimal expiresIn) {
         this.expiresIn = expiresIn;
     }
 

@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * WorkflowActionResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WorkflowActionResponse {
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String message;
 
     public WorkflowActionResponse() {}
 
-    public WorkflowActionResponse message(@javax.annotation.Nonnull String message) {
+    public WorkflowActionResponse message(@jakarta.annotation.Nonnull String message) {
         this.message = message;
         return this;
     }
@@ -51,12 +51,12 @@ public class WorkflowActionResponse {
      * Get message
      * @return message
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nonnull String message) {
+    public void setMessage(@jakarta.annotation.Nonnull String message) {
         this.message = message;
     }
 

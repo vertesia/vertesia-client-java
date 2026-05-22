@@ -36,42 +36,42 @@ import java.util.Objects;
 /**
  * ProcessState
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProcessState {
     public static final String SERIALIZED_NAME_CONTEXT = "context";
 
     @SerializedName(SERIALIZED_NAME_CONTEXT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> context = new HashMap<>();
 
     public static final String SERIALIZED_NAME_CURRENT_NODE = "current_node";
 
     @SerializedName(SERIALIZED_NAME_CURRENT_NODE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String currentNode;
 
     public static final String SERIALIZED_NAME_NODE_HISTORY = "node_history";
 
     @SerializedName(SERIALIZED_NAME_NODE_HISTORY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<NodeHistoryEntry> nodeHistory = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_NODE_HISTORY_REF = "node_history_ref";
 
     @SerializedName(SERIALIZED_NAME_NODE_HISTORY_REF)
-    @javax.annotation.Nullable private ProcessHistoryRef nodeHistoryRef;
+    @jakarta.annotation.Nullable private ProcessHistoryRef nodeHistoryRef;
 
     public static final String SERIALIZED_NAME_SEQUENCE = "sequence";
 
     @SerializedName(SERIALIZED_NAME_SEQUENCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal sequence;
 
     public ProcessState() {}
 
-    public ProcessState context(@javax.annotation.Nonnull Map<String, Object> context) {
+    public ProcessState context(@jakarta.annotation.Nonnull Map<String, Object> context) {
         this.context = context;
         return this;
     }
@@ -88,16 +88,16 @@ public class ProcessState {
      * Get context
      * @return context
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getContext() {
         return context;
     }
 
-    public void setContext(@javax.annotation.Nonnull Map<String, Object> context) {
+    public void setContext(@jakarta.annotation.Nonnull Map<String, Object> context) {
         this.context = context;
     }
 
-    public ProcessState currentNode(@javax.annotation.Nonnull String currentNode) {
+    public ProcessState currentNode(@jakarta.annotation.Nonnull String currentNode) {
         this.currentNode = currentNode;
         return this;
     }
@@ -106,16 +106,17 @@ public class ProcessState {
      * Get currentNode
      * @return currentNode
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCurrentNode() {
         return currentNode;
     }
 
-    public void setCurrentNode(@javax.annotation.Nonnull String currentNode) {
+    public void setCurrentNode(@jakarta.annotation.Nonnull String currentNode) {
         this.currentNode = currentNode;
     }
 
-    public ProcessState nodeHistory(@javax.annotation.Nonnull List<NodeHistoryEntry> nodeHistory) {
+    public ProcessState nodeHistory(
+            @jakarta.annotation.Nonnull List<NodeHistoryEntry> nodeHistory) {
         this.nodeHistory = nodeHistory;
         return this;
     }
@@ -132,17 +133,17 @@ public class ProcessState {
      * Get nodeHistory
      * @return nodeHistory
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<NodeHistoryEntry> getNodeHistory() {
         return nodeHistory;
     }
 
-    public void setNodeHistory(@javax.annotation.Nonnull List<NodeHistoryEntry> nodeHistory) {
+    public void setNodeHistory(@jakarta.annotation.Nonnull List<NodeHistoryEntry> nodeHistory) {
         this.nodeHistory = nodeHistory;
     }
 
     public ProcessState nodeHistoryRef(
-            @javax.annotation.Nullable ProcessHistoryRef nodeHistoryRef) {
+            @jakarta.annotation.Nullable ProcessHistoryRef nodeHistoryRef) {
         this.nodeHistoryRef = nodeHistoryRef;
         return this;
     }
@@ -151,15 +152,15 @@ public class ProcessState {
      * Get nodeHistoryRef
      * @return nodeHistoryRef
      */
-    @javax.annotation.Nullable public ProcessHistoryRef getNodeHistoryRef() {
+    @jakarta.annotation.Nullable public ProcessHistoryRef getNodeHistoryRef() {
         return nodeHistoryRef;
     }
 
-    public void setNodeHistoryRef(@javax.annotation.Nullable ProcessHistoryRef nodeHistoryRef) {
+    public void setNodeHistoryRef(@jakarta.annotation.Nullable ProcessHistoryRef nodeHistoryRef) {
         this.nodeHistoryRef = nodeHistoryRef;
     }
 
-    public ProcessState sequence(@javax.annotation.Nonnull BigDecimal sequence) {
+    public ProcessState sequence(@jakarta.annotation.Nonnull BigDecimal sequence) {
         this.sequence = sequence;
         return this;
     }
@@ -168,12 +169,12 @@ public class ProcessState {
      * Get sequence
      * @return sequence
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getSequence() {
         return sequence;
     }
 
-    public void setSequence(@javax.annotation.Nonnull BigDecimal sequence) {
+    public void setSequence(@jakarta.annotation.Nonnull BigDecimal sequence) {
         this.sequence = sequence;
     }
 

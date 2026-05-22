@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * DataStoreArchiveResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataStoreArchiveResult {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DataStoreStatus status;
 
     public DataStoreArchiveResult() {}
 
-    public DataStoreArchiveResult id(@javax.annotation.Nonnull String id) {
+    public DataStoreArchiveResult id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -57,16 +57,16 @@ public class DataStoreArchiveResult {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public DataStoreArchiveResult status(@javax.annotation.Nonnull DataStoreStatus status) {
+    public DataStoreArchiveResult status(@jakarta.annotation.Nonnull DataStoreStatus status) {
         this.status = status;
         return this;
     }
@@ -75,12 +75,12 @@ public class DataStoreArchiveResult {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DataStoreStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull DataStoreStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull DataStoreStatus status) {
         this.status = status;
     }
 

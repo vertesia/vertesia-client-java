@@ -33,19 +33,19 @@ import java.util.Objects;
 /**
  * AccountProjectsResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AccountProjectsResponse {
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<ProjectRef> data = new ArrayList<>();
 
     public AccountProjectsResponse() {}
 
-    public AccountProjectsResponse data(@javax.annotation.Nonnull List<ProjectRef> data) {
+    public AccountProjectsResponse data(@jakarta.annotation.Nonnull List<ProjectRef> data) {
         this.data = data;
         return this;
     }
@@ -62,12 +62,12 @@ public class AccountProjectsResponse {
      * Get data
      * @return data
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<ProjectRef> getData() {
         return data;
     }
 
-    public void setData(@javax.annotation.Nonnull List<ProjectRef> data) {
+    public void setData(@jakarta.annotation.Nonnull List<ProjectRef> data) {
         this.data = data;
     }
 

@@ -33,48 +33,48 @@ import java.util.Objects;
 /**
  * DocumentMetadataContentProcessor
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DocumentMetadataContentProcessor {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private String type;
+    @jakarta.annotation.Nullable private String type;
 
     public static final String SERIALIZED_NAME_FEATURES_REQUESTED = "features_requested";
 
     @SerializedName(SERIALIZED_NAME_FEATURES_REQUESTED)
-    @javax.annotation.Nullable private List<String> featuresRequested = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> featuresRequested = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ZONES_REQUESTED = "zones_requested";
 
     @SerializedName(SERIALIZED_NAME_ZONES_REQUESTED)
-    @javax.annotation.Nullable private List<String> zonesRequested = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> zonesRequested = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TABLE_COUNT = "table_count";
 
     @SerializedName(SERIALIZED_NAME_TABLE_COUNT)
-    @javax.annotation.Nullable private BigDecimal tableCount;
+    @jakarta.annotation.Nullable private BigDecimal tableCount;
 
     public static final String SERIALIZED_NAME_IMAGE_COUNT = "image_count";
 
     @SerializedName(SERIALIZED_NAME_IMAGE_COUNT)
-    @javax.annotation.Nullable private BigDecimal imageCount;
+    @jakarta.annotation.Nullable private BigDecimal imageCount;
 
     public static final String SERIALIZED_NAME_ZONE_COUNT = "zone_count";
 
     @SerializedName(SERIALIZED_NAME_ZONE_COUNT)
-    @javax.annotation.Nullable private BigDecimal zoneCount;
+    @jakarta.annotation.Nullable private BigDecimal zoneCount;
 
     public static final String SERIALIZED_NAME_NEEDS_OCR_COUNT = "needs_ocr_count";
 
     @SerializedName(SERIALIZED_NAME_NEEDS_OCR_COUNT)
-    @javax.annotation.Nullable private BigDecimal needsOcrCount;
+    @jakarta.annotation.Nullable private BigDecimal needsOcrCount;
 
     public DocumentMetadataContentProcessor() {}
 
-    public DocumentMetadataContentProcessor type(@javax.annotation.Nullable String type) {
+    public DocumentMetadataContentProcessor type(@jakarta.annotation.Nullable String type) {
         this.type = type;
         return this;
     }
@@ -83,16 +83,16 @@ public class DocumentMetadataContentProcessor {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public String getType() {
+    @jakarta.annotation.Nullable public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable String type) {
+    public void setType(@jakarta.annotation.Nullable String type) {
         this.type = type;
     }
 
     public DocumentMetadataContentProcessor featuresRequested(
-            @javax.annotation.Nullable List<String> featuresRequested) {
+            @jakarta.annotation.Nullable List<String> featuresRequested) {
         this.featuresRequested = featuresRequested;
         return this;
     }
@@ -109,16 +109,16 @@ public class DocumentMetadataContentProcessor {
      * Get featuresRequested
      * @return featuresRequested
      */
-    @javax.annotation.Nullable public List<String> getFeaturesRequested() {
+    @jakarta.annotation.Nullable public List<String> getFeaturesRequested() {
         return featuresRequested;
     }
 
-    public void setFeaturesRequested(@javax.annotation.Nullable List<String> featuresRequested) {
+    public void setFeaturesRequested(@jakarta.annotation.Nullable List<String> featuresRequested) {
         this.featuresRequested = featuresRequested;
     }
 
     public DocumentMetadataContentProcessor zonesRequested(
-            @javax.annotation.Nullable List<String> zonesRequested) {
+            @jakarta.annotation.Nullable List<String> zonesRequested) {
         this.zonesRequested = zonesRequested;
         return this;
     }
@@ -135,16 +135,16 @@ public class DocumentMetadataContentProcessor {
      * Get zonesRequested
      * @return zonesRequested
      */
-    @javax.annotation.Nullable public List<String> getZonesRequested() {
+    @jakarta.annotation.Nullable public List<String> getZonesRequested() {
         return zonesRequested;
     }
 
-    public void setZonesRequested(@javax.annotation.Nullable List<String> zonesRequested) {
+    public void setZonesRequested(@jakarta.annotation.Nullable List<String> zonesRequested) {
         this.zonesRequested = zonesRequested;
     }
 
     public DocumentMetadataContentProcessor tableCount(
-            @javax.annotation.Nullable BigDecimal tableCount) {
+            @jakarta.annotation.Nullable BigDecimal tableCount) {
         this.tableCount = tableCount;
         return this;
     }
@@ -153,16 +153,16 @@ public class DocumentMetadataContentProcessor {
      * Get tableCount
      * @return tableCount
      */
-    @javax.annotation.Nullable public BigDecimal getTableCount() {
+    @jakarta.annotation.Nullable public BigDecimal getTableCount() {
         return tableCount;
     }
 
-    public void setTableCount(@javax.annotation.Nullable BigDecimal tableCount) {
+    public void setTableCount(@jakarta.annotation.Nullable BigDecimal tableCount) {
         this.tableCount = tableCount;
     }
 
     public DocumentMetadataContentProcessor imageCount(
-            @javax.annotation.Nullable BigDecimal imageCount) {
+            @jakarta.annotation.Nullable BigDecimal imageCount) {
         this.imageCount = imageCount;
         return this;
     }
@@ -171,16 +171,16 @@ public class DocumentMetadataContentProcessor {
      * Get imageCount
      * @return imageCount
      */
-    @javax.annotation.Nullable public BigDecimal getImageCount() {
+    @jakarta.annotation.Nullable public BigDecimal getImageCount() {
         return imageCount;
     }
 
-    public void setImageCount(@javax.annotation.Nullable BigDecimal imageCount) {
+    public void setImageCount(@jakarta.annotation.Nullable BigDecimal imageCount) {
         this.imageCount = imageCount;
     }
 
     public DocumentMetadataContentProcessor zoneCount(
-            @javax.annotation.Nullable BigDecimal zoneCount) {
+            @jakarta.annotation.Nullable BigDecimal zoneCount) {
         this.zoneCount = zoneCount;
         return this;
     }
@@ -189,16 +189,16 @@ public class DocumentMetadataContentProcessor {
      * Get zoneCount
      * @return zoneCount
      */
-    @javax.annotation.Nullable public BigDecimal getZoneCount() {
+    @jakarta.annotation.Nullable public BigDecimal getZoneCount() {
         return zoneCount;
     }
 
-    public void setZoneCount(@javax.annotation.Nullable BigDecimal zoneCount) {
+    public void setZoneCount(@jakarta.annotation.Nullable BigDecimal zoneCount) {
         this.zoneCount = zoneCount;
     }
 
     public DocumentMetadataContentProcessor needsOcrCount(
-            @javax.annotation.Nullable BigDecimal needsOcrCount) {
+            @jakarta.annotation.Nullable BigDecimal needsOcrCount) {
         this.needsOcrCount = needsOcrCount;
         return this;
     }
@@ -207,11 +207,11 @@ public class DocumentMetadataContentProcessor {
      * Get needsOcrCount
      * @return needsOcrCount
      */
-    @javax.annotation.Nullable public BigDecimal getNeedsOcrCount() {
+    @jakarta.annotation.Nullable public BigDecimal getNeedsOcrCount() {
         return needsOcrCount;
     }
 
-    public void setNeedsOcrCount(@javax.annotation.Nullable BigDecimal needsOcrCount) {
+    public void setNeedsOcrCount(@jakarta.annotation.Nullable BigDecimal needsOcrCount) {
         this.needsOcrCount = needsOcrCount;
     }
 

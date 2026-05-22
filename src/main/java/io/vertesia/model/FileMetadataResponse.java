@@ -33,46 +33,46 @@ import java.util.Objects;
 /**
  * FileMetadataResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class FileMetadataResponse {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_SIZE = "size";
 
     @SerializedName(SERIALIZED_NAME_SIZE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal size;
 
     public static final String SERIALIZED_NAME_CONTENT_TYPE = "contentType";
 
     @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String contentType;
 
     public static final String SERIALIZED_NAME_CONTENT_DISPOSITION = "contentDisposition";
 
     @SerializedName(SERIALIZED_NAME_CONTENT_DISPOSITION)
-    @javax.annotation.Nullable private String contentDisposition;
+    @jakarta.annotation.Nullable private String contentDisposition;
 
     public static final String SERIALIZED_NAME_ETAG = "etag";
 
     @SerializedName(SERIALIZED_NAME_ETAG)
-    @javax.annotation.Nullable private String etag;
+    @jakarta.annotation.Nullable private String etag;
 
     public static final String SERIALIZED_NAME_CUSTOM_METADATA = "customMetadata";
 
     @SerializedName(SERIALIZED_NAME_CUSTOM_METADATA)
-    @javax.annotation.Nullable private Map<String, String> customMetadata = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, String> customMetadata = new HashMap<>();
 
     public FileMetadataResponse() {}
 
-    public FileMetadataResponse name(@javax.annotation.Nonnull String name) {
+    public FileMetadataResponse name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -81,16 +81,16 @@ public class FileMetadataResponse {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public FileMetadataResponse size(@javax.annotation.Nonnull BigDecimal size) {
+    public FileMetadataResponse size(@jakarta.annotation.Nonnull BigDecimal size) {
         this.size = size;
         return this;
     }
@@ -99,16 +99,16 @@ public class FileMetadataResponse {
      * Get size
      * @return size
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getSize() {
         return size;
     }
 
-    public void setSize(@javax.annotation.Nonnull BigDecimal size) {
+    public void setSize(@jakarta.annotation.Nonnull BigDecimal size) {
         this.size = size;
     }
 
-    public FileMetadataResponse contentType(@javax.annotation.Nonnull String contentType) {
+    public FileMetadataResponse contentType(@jakarta.annotation.Nonnull String contentType) {
         this.contentType = contentType;
         return this;
     }
@@ -117,17 +117,17 @@ public class FileMetadataResponse {
      * Get contentType
      * @return contentType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getContentType() {
         return contentType;
     }
 
-    public void setContentType(@javax.annotation.Nonnull String contentType) {
+    public void setContentType(@jakarta.annotation.Nonnull String contentType) {
         this.contentType = contentType;
     }
 
     public FileMetadataResponse contentDisposition(
-            @javax.annotation.Nullable String contentDisposition) {
+            @jakarta.annotation.Nullable String contentDisposition) {
         this.contentDisposition = contentDisposition;
         return this;
     }
@@ -136,15 +136,15 @@ public class FileMetadataResponse {
      * Get contentDisposition
      * @return contentDisposition
      */
-    @javax.annotation.Nullable public String getContentDisposition() {
+    @jakarta.annotation.Nullable public String getContentDisposition() {
         return contentDisposition;
     }
 
-    public void setContentDisposition(@javax.annotation.Nullable String contentDisposition) {
+    public void setContentDisposition(@jakarta.annotation.Nullable String contentDisposition) {
         this.contentDisposition = contentDisposition;
     }
 
-    public FileMetadataResponse etag(@javax.annotation.Nullable String etag) {
+    public FileMetadataResponse etag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
         return this;
     }
@@ -153,16 +153,16 @@ public class FileMetadataResponse {
      * Get etag
      * @return etag
      */
-    @javax.annotation.Nullable public String getEtag() {
+    @jakarta.annotation.Nullable public String getEtag() {
         return etag;
     }
 
-    public void setEtag(@javax.annotation.Nullable String etag) {
+    public void setEtag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
     }
 
     public FileMetadataResponse customMetadata(
-            @javax.annotation.Nullable Map<String, String> customMetadata) {
+            @jakarta.annotation.Nullable Map<String, String> customMetadata) {
         this.customMetadata = customMetadata;
         return this;
     }
@@ -179,11 +179,11 @@ public class FileMetadataResponse {
      * Get customMetadata
      * @return customMetadata
      */
-    @javax.annotation.Nullable public Map<String, String> getCustomMetadata() {
+    @jakarta.annotation.Nullable public Map<String, String> getCustomMetadata() {
         return customMetadata;
     }
 
-    public void setCustomMetadata(@javax.annotation.Nullable Map<String, String> customMetadata) {
+    public void setCustomMetadata(@jakarta.annotation.Nullable Map<String, String> customMetadata) {
         this.customMetadata = customMetadata;
     }
 

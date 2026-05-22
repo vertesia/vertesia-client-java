@@ -34,66 +34,66 @@ import java.util.Objects;
 /**
  * Table definition within a data schema.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataTable {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_COLUMNS = "columns";
 
     @SerializedName(SERIALIZED_NAME_COLUMNS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<DataColumn> columns = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_FOREIGN_KEYS = "foreign_keys";
 
     @SerializedName(SERIALIZED_NAME_FOREIGN_KEYS)
-    @javax.annotation.Nullable private List<DataForeignKey> foreignKeys = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<DataForeignKey> foreignKeys = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_INDEXES = "indexes";
 
     @SerializedName(SERIALIZED_NAME_INDEXES)
-    @javax.annotation.Nullable private List<DataIndex> indexes = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<DataIndex> indexes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SEMANTIC_TYPE = "semantic_type";
 
     @SerializedName(SERIALIZED_NAME_SEMANTIC_TYPE)
-    @javax.annotation.Nullable private DataTableSemanticType semanticType;
+    @jakarta.annotation.Nullable private DataTableSemanticType semanticType;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ROW_COUNT = "row_count";
 
     @SerializedName(SERIALIZED_NAME_ROW_COUNT)
-    @javax.annotation.Nullable private BigDecimal rowCount;
+    @jakarta.annotation.Nullable private BigDecimal rowCount;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nullable private String createdAt;
+    @jakarta.annotation.Nullable private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nullable private String updatedAt;
+    @jakarta.annotation.Nullable private String updatedAt;
 
     public DataTable() {}
 
-    public DataTable name(@javax.annotation.Nonnull String name) {
+    public DataTable name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -102,16 +102,16 @@ public class DataTable {
      * Table name (must be valid SQL identifier)
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public DataTable description(@javax.annotation.Nullable String description) {
+    public DataTable description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -120,15 +120,15 @@ public class DataTable {
      * Human-readable description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public DataTable columns(@javax.annotation.Nonnull List<DataColumn> columns) {
+    public DataTable columns(@jakarta.annotation.Nonnull List<DataColumn> columns) {
         this.columns = columns;
         return this;
     }
@@ -145,16 +145,16 @@ public class DataTable {
      * Column definitions
      * @return columns
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<DataColumn> getColumns() {
         return columns;
     }
 
-    public void setColumns(@javax.annotation.Nonnull List<DataColumn> columns) {
+    public void setColumns(@jakarta.annotation.Nonnull List<DataColumn> columns) {
         this.columns = columns;
     }
 
-    public DataTable foreignKeys(@javax.annotation.Nullable List<DataForeignKey> foreignKeys) {
+    public DataTable foreignKeys(@jakarta.annotation.Nullable List<DataForeignKey> foreignKeys) {
         this.foreignKeys = foreignKeys;
         return this;
     }
@@ -171,15 +171,15 @@ public class DataTable {
      * Foreign key constraints
      * @return foreignKeys
      */
-    @javax.annotation.Nullable public List<DataForeignKey> getForeignKeys() {
+    @jakarta.annotation.Nullable public List<DataForeignKey> getForeignKeys() {
         return foreignKeys;
     }
 
-    public void setForeignKeys(@javax.annotation.Nullable List<DataForeignKey> foreignKeys) {
+    public void setForeignKeys(@jakarta.annotation.Nullable List<DataForeignKey> foreignKeys) {
         this.foreignKeys = foreignKeys;
     }
 
-    public DataTable indexes(@javax.annotation.Nullable List<DataIndex> indexes) {
+    public DataTable indexes(@jakarta.annotation.Nullable List<DataIndex> indexes) {
         this.indexes = indexes;
         return this;
     }
@@ -196,15 +196,15 @@ public class DataTable {
      * Index definitions
      * @return indexes
      */
-    @javax.annotation.Nullable public List<DataIndex> getIndexes() {
+    @jakarta.annotation.Nullable public List<DataIndex> getIndexes() {
         return indexes;
     }
 
-    public void setIndexes(@javax.annotation.Nullable List<DataIndex> indexes) {
+    public void setIndexes(@jakarta.annotation.Nullable List<DataIndex> indexes) {
         this.indexes = indexes;
     }
 
-    public DataTable semanticType(@javax.annotation.Nullable DataTableSemanticType semanticType) {
+    public DataTable semanticType(@jakarta.annotation.Nullable DataTableSemanticType semanticType) {
         this.semanticType = semanticType;
         return this;
     }
@@ -213,15 +213,15 @@ public class DataTable {
      * Semantic categorization for AI understanding
      * @return semanticType
      */
-    @javax.annotation.Nullable public DataTableSemanticType getSemanticType() {
+    @jakarta.annotation.Nullable public DataTableSemanticType getSemanticType() {
         return semanticType;
     }
 
-    public void setSemanticType(@javax.annotation.Nullable DataTableSemanticType semanticType) {
+    public void setSemanticType(@jakarta.annotation.Nullable DataTableSemanticType semanticType) {
         this.semanticType = semanticType;
     }
 
-    public DataTable tags(@javax.annotation.Nonnull List<String> tags) {
+    public DataTable tags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -238,16 +238,16 @@ public class DataTable {
      * Tags for organization
      * @return tags
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nonnull List<String> tags) {
+    public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
     }
 
-    public DataTable rowCount(@javax.annotation.Nullable BigDecimal rowCount) {
+    public DataTable rowCount(@jakarta.annotation.Nullable BigDecimal rowCount) {
         this.rowCount = rowCount;
         return this;
     }
@@ -256,15 +256,15 @@ public class DataTable {
      * Current row count (updated after imports)
      * @return rowCount
      */
-    @javax.annotation.Nullable public BigDecimal getRowCount() {
+    @jakarta.annotation.Nullable public BigDecimal getRowCount() {
         return rowCount;
     }
 
-    public void setRowCount(@javax.annotation.Nullable BigDecimal rowCount) {
+    public void setRowCount(@jakarta.annotation.Nullable BigDecimal rowCount) {
         this.rowCount = rowCount;
     }
 
-    public DataTable createdAt(@javax.annotation.Nullable String createdAt) {
+    public DataTable createdAt(@jakarta.annotation.Nullable String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -273,15 +273,15 @@ public class DataTable {
      * Table creation timestamp
      * @return createdAt
      */
-    @javax.annotation.Nullable public String getCreatedAt() {
+    @jakarta.annotation.Nullable public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nullable String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nullable String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public DataTable updatedAt(@javax.annotation.Nullable String updatedAt) {
+    public DataTable updatedAt(@jakarta.annotation.Nullable String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -290,11 +290,11 @@ public class DataTable {
      * Last modification timestamp
      * @return updatedAt
      */
-    @javax.annotation.Nullable public String getUpdatedAt() {
+    @jakarta.annotation.Nullable public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nullable String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nullable String updatedAt) {
         this.updatedAt = updatedAt;
     }
 

@@ -86,8 +86,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public okhttp3.Call authorizeRemoteMcpConnectionCall(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -151,8 +151,8 @@ public class RemoteMcpConnectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call authorizeRemoteMcpConnectionValidateBeforeCall(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'appInstallId' is set
@@ -187,8 +187,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public OAuthAuthorizeResponse authorizeRemoteMcpConnection(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId)
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
         ApiResponse<OAuthAuthorizeResponse> localVarResp =
                 authorizeRemoteMcpConnectionWithHttpInfo(appInstallId, collectionId);
@@ -212,8 +212,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public ApiResponse<OAuthAuthorizeResponse> authorizeRemoteMcpConnectionWithHttpInfo(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId)
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 authorizeRemoteMcpConnectionValidateBeforeCall(appInstallId, collectionId, null);
@@ -239,8 +239,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public okhttp3.Call authorizeRemoteMcpConnectionAsync(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<OAuthAuthorizeResponse> _callback)
             throws ApiException {
 
@@ -269,8 +269,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public okhttp3.Call connectRemoteMcpConnectionCall(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -334,8 +334,8 @@ public class RemoteMcpConnectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call connectRemoteMcpConnectionValidateBeforeCall(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'appInstallId' is set
@@ -370,8 +370,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public McpOAuthConnectResponse connectRemoteMcpConnection(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId)
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
         ApiResponse<McpOAuthConnectResponse> localVarResp =
                 connectRemoteMcpConnectionWithHttpInfo(appInstallId, collectionId);
@@ -395,8 +395,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public ApiResponse<McpOAuthConnectResponse> connectRemoteMcpConnectionWithHttpInfo(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId)
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 connectRemoteMcpConnectionValidateBeforeCall(appInstallId, collectionId, null);
@@ -422,8 +422,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public okhttp3.Call connectRemoteMcpConnectionAsync(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<McpOAuthConnectResponse> _callback)
             throws ApiException {
 
@@ -451,8 +451,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public okhttp3.Call disconnectRemoteMcpConnectionCall(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -516,8 +516,8 @@ public class RemoteMcpConnectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call disconnectRemoteMcpConnectionValidateBeforeCall(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'appInstallId' is set
@@ -552,8 +552,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public McpOAuthDisconnectResponse disconnectRemoteMcpConnection(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId)
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
         ApiResponse<McpOAuthDisconnectResponse> localVarResp =
                 disconnectRemoteMcpConnectionWithHttpInfo(appInstallId, collectionId);
@@ -577,8 +577,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public ApiResponse<McpOAuthDisconnectResponse> disconnectRemoteMcpConnectionWithHttpInfo(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId)
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 disconnectRemoteMcpConnectionValidateBeforeCall(appInstallId, collectionId, null);
@@ -604,8 +604,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public okhttp3.Call disconnectRemoteMcpConnectionAsync(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<McpOAuthDisconnectResponse> _callback)
             throws ApiException {
 
@@ -634,8 +634,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public okhttp3.Call getRemoteMcpConnectionMetadataCall(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -699,8 +699,8 @@ public class RemoteMcpConnectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getRemoteMcpConnectionMetadataValidateBeforeCall(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'appInstallId' is set
@@ -735,8 +735,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public OAuthMetadataResponse getRemoteMcpConnectionMetadata(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId)
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
         ApiResponse<OAuthMetadataResponse> localVarResp =
                 getRemoteMcpConnectionMetadataWithHttpInfo(appInstallId, collectionId);
@@ -760,8 +760,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public ApiResponse<OAuthMetadataResponse> getRemoteMcpConnectionMetadataWithHttpInfo(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId)
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getRemoteMcpConnectionMetadataValidateBeforeCall(appInstallId, collectionId, null);
@@ -787,8 +787,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public okhttp3.Call getRemoteMcpConnectionMetadataAsync(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<OAuthMetadataResponse> _callback)
             throws ApiException {
 
@@ -817,8 +817,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public okhttp3.Call getRemoteMcpConnectionStatusCall(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -882,8 +882,8 @@ public class RemoteMcpConnectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getRemoteMcpConnectionStatusValidateBeforeCall(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'appInstallId' is set
@@ -918,8 +918,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public OAuthAuthStatus getRemoteMcpConnectionStatus(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId)
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
         ApiResponse<OAuthAuthStatus> localVarResp =
                 getRemoteMcpConnectionStatusWithHttpInfo(appInstallId, collectionId);
@@ -943,8 +943,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public ApiResponse<OAuthAuthStatus> getRemoteMcpConnectionStatusWithHttpInfo(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId)
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getRemoteMcpConnectionStatusValidateBeforeCall(appInstallId, collectionId, null);
@@ -970,8 +970,8 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public okhttp3.Call getRemoteMcpConnectionStatusAsync(
-            @javax.annotation.Nonnull String appInstallId,
-            @javax.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String collectionId,
             final ApiCallback<OAuthAuthStatus> _callback)
             throws ApiException {
 
@@ -999,7 +999,7 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public okhttp3.Call getRemoteMcpConnectionTokenCall(
-            @javax.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest,
+            @jakarta.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1056,7 +1056,7 @@ public class RemoteMcpConnectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getRemoteMcpConnectionTokenValidateBeforeCall(
-            @javax.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest,
+            @jakarta.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'mcpOAuthTokenRequest' is set
@@ -1084,7 +1084,7 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public McpOAuthTokenResponse getRemoteMcpConnectionToken(
-            @javax.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest)
+            @jakarta.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest)
             throws ApiException {
         ApiResponse<McpOAuthTokenResponse> localVarResp =
                 getRemoteMcpConnectionTokenWithHttpInfo(mcpOAuthTokenRequest);
@@ -1107,7 +1107,7 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public ApiResponse<McpOAuthTokenResponse> getRemoteMcpConnectionTokenWithHttpInfo(
-            @javax.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest)
+            @jakarta.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getRemoteMcpConnectionTokenValidateBeforeCall(mcpOAuthTokenRequest, null);
@@ -1132,7 +1132,7 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public okhttp3.Call getRemoteMcpConnectionTokenAsync(
-            @javax.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest,
+            @jakarta.annotation.Nonnull McpOAuthTokenRequest mcpOAuthTokenRequest,
             final ApiCallback<McpOAuthTokenResponse> _callback)
             throws ApiException {
 
@@ -1159,7 +1159,7 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public okhttp3.Call listRemoteMcpConnectionStatusesCall(
-            @javax.annotation.Nonnull String appInstallId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String appInstallId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1219,7 +1219,7 @@ public class RemoteMcpConnectionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listRemoteMcpConnectionStatusesValidateBeforeCall(
-            @javax.annotation.Nonnull String appInstallId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String appInstallId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'appInstallId' is set
         if (appInstallId == null) {
@@ -1246,7 +1246,7 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public List<OAuthAuthStatus> listRemoteMcpConnectionStatuses(
-            @javax.annotation.Nonnull String appInstallId) throws ApiException {
+            @jakarta.annotation.Nonnull String appInstallId) throws ApiException {
         ApiResponse<List<OAuthAuthStatus>> localVarResp =
                 listRemoteMcpConnectionStatusesWithHttpInfo(appInstallId);
         return localVarResp.getData();
@@ -1268,7 +1268,7 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public ApiResponse<List<OAuthAuthStatus>> listRemoteMcpConnectionStatusesWithHttpInfo(
-            @javax.annotation.Nonnull String appInstallId) throws ApiException {
+            @jakarta.annotation.Nonnull String appInstallId) throws ApiException {
         okhttp3.Call localVarCall =
                 listRemoteMcpConnectionStatusesValidateBeforeCall(appInstallId, null);
         Type localVarReturnType = new TypeToken<List<OAuthAuthStatus>>() {}.getType();
@@ -1292,7 +1292,7 @@ public class RemoteMcpConnectionsApi {
      * </table>
      */
     public okhttp3.Call listRemoteMcpConnectionStatusesAsync(
-            @javax.annotation.Nonnull String appInstallId,
+            @jakarta.annotation.Nonnull String appInstallId,
             final ApiCallback<List<OAuthAuthStatus>> _callback)
             throws ApiException {
 

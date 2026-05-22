@@ -85,7 +85,8 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call createProcessDefinitionCall(
-            @javax.annotation.Nonnull CreateProcessDefinitionPayload createProcessDefinitionPayload,
+            @jakarta.annotation.Nonnull
+                    CreateProcessDefinitionPayload createProcessDefinitionPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -142,7 +143,8 @@ public class ProcessesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createProcessDefinitionValidateBeforeCall(
-            @javax.annotation.Nonnull CreateProcessDefinitionPayload createProcessDefinitionPayload,
+            @jakarta.annotation.Nonnull
+                    CreateProcessDefinitionPayload createProcessDefinitionPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'createProcessDefinitionPayload' is set
@@ -170,7 +172,8 @@ public class ProcessesApi {
      * </table>
      */
     public ProcessDefinition createProcessDefinition(
-            @javax.annotation.Nonnull CreateProcessDefinitionPayload createProcessDefinitionPayload)
+            @jakarta.annotation.Nonnull
+                    CreateProcessDefinitionPayload createProcessDefinitionPayload)
             throws ApiException {
         ApiResponse<ProcessDefinition> localVarResp =
                 createProcessDefinitionWithHttpInfo(createProcessDefinitionPayload);
@@ -193,7 +196,8 @@ public class ProcessesApi {
      * </table>
      */
     public ApiResponse<ProcessDefinition> createProcessDefinitionWithHttpInfo(
-            @javax.annotation.Nonnull CreateProcessDefinitionPayload createProcessDefinitionPayload)
+            @jakarta.annotation.Nonnull
+                    CreateProcessDefinitionPayload createProcessDefinitionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createProcessDefinitionValidateBeforeCall(createProcessDefinitionPayload, null);
@@ -218,7 +222,8 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call createProcessDefinitionAsync(
-            @javax.annotation.Nonnull CreateProcessDefinitionPayload createProcessDefinitionPayload,
+            @jakarta.annotation.Nonnull
+                    CreateProcessDefinitionPayload createProcessDefinitionPayload,
             final ApiCallback<ProcessDefinition> _callback)
             throws ApiException {
 
@@ -246,7 +251,7 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call deleteProcessDefinitionCall(
-            @javax.annotation.Nonnull String processId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String processId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -306,7 +311,7 @@ public class ProcessesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteProcessDefinitionValidateBeforeCall(
-            @javax.annotation.Nonnull String processId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String processId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'processId' is set
         if (processId == null) {
@@ -332,7 +337,7 @@ public class ProcessesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteCountResult deleteProcessDefinition(@javax.annotation.Nonnull String processId)
+    public DeleteCountResult deleteProcessDefinition(@jakarta.annotation.Nonnull String processId)
             throws ApiException {
         ApiResponse<DeleteCountResult> localVarResp =
                 deleteProcessDefinitionWithHttpInfo(processId);
@@ -355,7 +360,7 @@ public class ProcessesApi {
      * </table>
      */
     public ApiResponse<DeleteCountResult> deleteProcessDefinitionWithHttpInfo(
-            @javax.annotation.Nonnull String processId) throws ApiException {
+            @jakarta.annotation.Nonnull String processId) throws ApiException {
         okhttp3.Call localVarCall = deleteProcessDefinitionValidateBeforeCall(processId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -378,7 +383,7 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call deleteProcessDefinitionAsync(
-            @javax.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String processId,
             final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
 
@@ -404,7 +409,7 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call getProcessDefinitionCall(
-            @javax.annotation.Nonnull String processId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String processId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -464,7 +469,7 @@ public class ProcessesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProcessDefinitionValidateBeforeCall(
-            @javax.annotation.Nonnull String processId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String processId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'processId' is set
         if (processId == null) {
@@ -490,7 +495,7 @@ public class ProcessesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ProcessDefinition getProcessDefinition(@javax.annotation.Nonnull String processId)
+    public ProcessDefinition getProcessDefinition(@jakarta.annotation.Nonnull String processId)
             throws ApiException {
         ApiResponse<ProcessDefinition> localVarResp = getProcessDefinitionWithHttpInfo(processId);
         return localVarResp.getData();
@@ -512,7 +517,7 @@ public class ProcessesApi {
      * </table>
      */
     public ApiResponse<ProcessDefinition> getProcessDefinitionWithHttpInfo(
-            @javax.annotation.Nonnull String processId) throws ApiException {
+            @jakarta.annotation.Nonnull String processId) throws ApiException {
         okhttp3.Call localVarCall = getProcessDefinitionValidateBeforeCall(processId, null);
         Type localVarReturnType = new TypeToken<ProcessDefinition>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -535,7 +540,7 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call getProcessDefinitionAsync(
-            @javax.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String processId,
             final ApiCallback<ProcessDefinition> _callback)
             throws ApiException {
 
@@ -561,7 +566,7 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call listProcessDefinitionVersionsCall(
-            @javax.annotation.Nonnull String processId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String processId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -621,7 +626,7 @@ public class ProcessesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProcessDefinitionVersionsValidateBeforeCall(
-            @javax.annotation.Nonnull String processId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String processId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'processId' is set
         if (processId == null) {
@@ -648,7 +653,7 @@ public class ProcessesApi {
      * </table>
      */
     public List<ProcessDefinition> listProcessDefinitionVersions(
-            @javax.annotation.Nonnull String processId) throws ApiException {
+            @jakarta.annotation.Nonnull String processId) throws ApiException {
         ApiResponse<List<ProcessDefinition>> localVarResp =
                 listProcessDefinitionVersionsWithHttpInfo(processId);
         return localVarResp.getData();
@@ -670,7 +675,7 @@ public class ProcessesApi {
      * </table>
      */
     public ApiResponse<List<ProcessDefinition>> listProcessDefinitionVersionsWithHttpInfo(
-            @javax.annotation.Nonnull String processId) throws ApiException {
+            @jakarta.annotation.Nonnull String processId) throws ApiException {
         okhttp3.Call localVarCall =
                 listProcessDefinitionVersionsValidateBeforeCall(processId, null);
         Type localVarReturnType = new TypeToken<List<ProcessDefinition>>() {}.getType();
@@ -694,7 +699,7 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call listProcessDefinitionVersionsAsync(
-            @javax.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String processId,
             final ApiCallback<List<ProcessDefinition>> _callback)
             throws ApiException {
 
@@ -724,10 +729,10 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call listProcessDefinitionsCall(
-            @javax.annotation.Nullable String process,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable Boolean allVersions,
+            @jakarta.annotation.Nullable String process,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable Boolean allVersions,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -801,10 +806,10 @@ public class ProcessesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProcessDefinitionsValidateBeforeCall(
-            @javax.annotation.Nullable String process,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable Boolean allVersions,
+            @jakarta.annotation.Nullable String process,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable Boolean allVersions,
             final ApiCallback _callback)
             throws ApiException {
         return listProcessDefinitionsCall(process, limit, offset, allVersions, _callback);
@@ -829,10 +834,10 @@ public class ProcessesApi {
      * </table>
      */
     public List<ProcessDefinition> listProcessDefinitions(
-            @javax.annotation.Nullable String process,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable Boolean allVersions)
+            @jakarta.annotation.Nullable String process,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable Boolean allVersions)
             throws ApiException {
         ApiResponse<List<ProcessDefinition>> localVarResp =
                 listProcessDefinitionsWithHttpInfo(process, limit, offset, allVersions);
@@ -858,10 +863,10 @@ public class ProcessesApi {
      * </table>
      */
     public ApiResponse<List<ProcessDefinition>> listProcessDefinitionsWithHttpInfo(
-            @javax.annotation.Nullable String process,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable Boolean allVersions)
+            @jakarta.annotation.Nullable String process,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable Boolean allVersions)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listProcessDefinitionsValidateBeforeCall(process, limit, offset, allVersions, null);
@@ -889,10 +894,10 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call listProcessDefinitionsAsync(
-            @javax.annotation.Nullable String process,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable Boolean allVersions,
+            @jakarta.annotation.Nullable String process,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable Boolean allVersions,
             final ApiCallback<List<ProcessDefinition>> _callback)
             throws ApiException {
 
@@ -921,8 +926,8 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call publishProcessDefinitionCall(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
                     PublishProcessDefinitionPayload publishProcessDefinitionPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -984,8 +989,8 @@ public class ProcessesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call publishProcessDefinitionValidateBeforeCall(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
                     PublishProcessDefinitionPayload publishProcessDefinitionPayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1021,8 +1026,8 @@ public class ProcessesApi {
      * </table>
      */
     public ProcessDefinition publishProcessDefinition(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
                     PublishProcessDefinitionPayload publishProcessDefinitionPayload)
             throws ApiException {
         ApiResponse<ProcessDefinition> localVarResp =
@@ -1047,8 +1052,8 @@ public class ProcessesApi {
      * </table>
      */
     public ApiResponse<ProcessDefinition> publishProcessDefinitionWithHttpInfo(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
                     PublishProcessDefinitionPayload publishProcessDefinitionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1076,8 +1081,8 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call publishProcessDefinitionAsync(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
                     PublishProcessDefinitionPayload publishProcessDefinitionPayload,
             final ApiCallback<ProcessDefinition> _callback)
             throws ApiException {
@@ -1107,8 +1112,9 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call revertProcessDefinitionCall(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull RevertProcessDefinitionPayload revertProcessDefinitionPayload,
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
+                    RevertProcessDefinitionPayload revertProcessDefinitionPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1169,8 +1175,9 @@ public class ProcessesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call revertProcessDefinitionValidateBeforeCall(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull RevertProcessDefinitionPayload revertProcessDefinitionPayload,
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
+                    RevertProcessDefinitionPayload revertProcessDefinitionPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'processId' is set
@@ -1205,8 +1212,9 @@ public class ProcessesApi {
      * </table>
      */
     public ProcessDefinition revertProcessDefinition(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull RevertProcessDefinitionPayload revertProcessDefinitionPayload)
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
+                    RevertProcessDefinitionPayload revertProcessDefinitionPayload)
             throws ApiException {
         ApiResponse<ProcessDefinition> localVarResp =
                 revertProcessDefinitionWithHttpInfo(processId, revertProcessDefinitionPayload);
@@ -1230,8 +1238,9 @@ public class ProcessesApi {
      * </table>
      */
     public ApiResponse<ProcessDefinition> revertProcessDefinitionWithHttpInfo(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull RevertProcessDefinitionPayload revertProcessDefinitionPayload)
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
+                    RevertProcessDefinitionPayload revertProcessDefinitionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 revertProcessDefinitionValidateBeforeCall(
@@ -1258,8 +1267,9 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call revertProcessDefinitionAsync(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull RevertProcessDefinitionPayload revertProcessDefinitionPayload,
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
+                    RevertProcessDefinitionPayload revertProcessDefinitionPayload,
             final ApiCallback<ProcessDefinition> _callback)
             throws ApiException {
 
@@ -1288,8 +1298,9 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call updateProcessDefinitionCall(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull UpdateProcessDefinitionPayload updateProcessDefinitionPayload,
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
+                    UpdateProcessDefinitionPayload updateProcessDefinitionPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1350,8 +1361,9 @@ public class ProcessesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProcessDefinitionValidateBeforeCall(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull UpdateProcessDefinitionPayload updateProcessDefinitionPayload,
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
+                    UpdateProcessDefinitionPayload updateProcessDefinitionPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'processId' is set
@@ -1386,8 +1398,9 @@ public class ProcessesApi {
      * </table>
      */
     public ProcessDefinition updateProcessDefinition(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull UpdateProcessDefinitionPayload updateProcessDefinitionPayload)
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
+                    UpdateProcessDefinitionPayload updateProcessDefinitionPayload)
             throws ApiException {
         ApiResponse<ProcessDefinition> localVarResp =
                 updateProcessDefinitionWithHttpInfo(processId, updateProcessDefinitionPayload);
@@ -1411,8 +1424,9 @@ public class ProcessesApi {
      * </table>
      */
     public ApiResponse<ProcessDefinition> updateProcessDefinitionWithHttpInfo(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull UpdateProcessDefinitionPayload updateProcessDefinitionPayload)
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
+                    UpdateProcessDefinitionPayload updateProcessDefinitionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateProcessDefinitionValidateBeforeCall(
@@ -1439,8 +1453,9 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call updateProcessDefinitionAsync(
-            @javax.annotation.Nonnull String processId,
-            @javax.annotation.Nonnull UpdateProcessDefinitionPayload updateProcessDefinitionPayload,
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull
+                    UpdateProcessDefinitionPayload updateProcessDefinitionPayload,
             final ApiCallback<ProcessDefinition> _callback)
             throws ApiException {
 

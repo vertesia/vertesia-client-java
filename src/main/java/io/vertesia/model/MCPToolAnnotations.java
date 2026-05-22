@@ -30,38 +30,38 @@ import java.util.Objects;
 /**
  * Metadata hints from MCP tool annotations (per MCP spec).
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class MCPToolAnnotations {
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nullable private String title;
+    @jakarta.annotation.Nullable private String title;
 
     public static final String SERIALIZED_NAME_READ_ONLY_HINT = "readOnlyHint";
 
     @SerializedName(SERIALIZED_NAME_READ_ONLY_HINT)
-    @javax.annotation.Nullable private Boolean readOnlyHint;
+    @jakarta.annotation.Nullable private Boolean readOnlyHint;
 
     public static final String SERIALIZED_NAME_DESTRUCTIVE_HINT = "destructiveHint";
 
     @SerializedName(SERIALIZED_NAME_DESTRUCTIVE_HINT)
-    @javax.annotation.Nullable private Boolean destructiveHint;
+    @jakarta.annotation.Nullable private Boolean destructiveHint;
 
     public static final String SERIALIZED_NAME_IDEMPOTENT_HINT = "idempotentHint";
 
     @SerializedName(SERIALIZED_NAME_IDEMPOTENT_HINT)
-    @javax.annotation.Nullable private Boolean idempotentHint;
+    @jakarta.annotation.Nullable private Boolean idempotentHint;
 
     public static final String SERIALIZED_NAME_OPEN_WORLD_HINT = "openWorldHint";
 
     @SerializedName(SERIALIZED_NAME_OPEN_WORLD_HINT)
-    @javax.annotation.Nullable private Boolean openWorldHint;
+    @jakarta.annotation.Nullable private Boolean openWorldHint;
 
     public MCPToolAnnotations() {}
 
-    public MCPToolAnnotations title(@javax.annotation.Nullable String title) {
+    public MCPToolAnnotations title(@jakarta.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -70,15 +70,15 @@ public class MCPToolAnnotations {
      * Human-readable display name for the tool
      * @return title
      */
-    @javax.annotation.Nullable public String getTitle() {
+    @jakarta.annotation.Nullable public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nullable String title) {
+    public void setTitle(@jakarta.annotation.Nullable String title) {
         this.title = title;
     }
 
-    public MCPToolAnnotations readOnlyHint(@javax.annotation.Nullable Boolean readOnlyHint) {
+    public MCPToolAnnotations readOnlyHint(@jakarta.annotation.Nullable Boolean readOnlyHint) {
         this.readOnlyHint = readOnlyHint;
         return this;
     }
@@ -87,15 +87,16 @@ public class MCPToolAnnotations {
      * If true, the tool does not modify any state
      * @return readOnlyHint
      */
-    @javax.annotation.Nullable public Boolean getReadOnlyHint() {
+    @jakarta.annotation.Nullable public Boolean getReadOnlyHint() {
         return readOnlyHint;
     }
 
-    public void setReadOnlyHint(@javax.annotation.Nullable Boolean readOnlyHint) {
+    public void setReadOnlyHint(@jakarta.annotation.Nullable Boolean readOnlyHint) {
         this.readOnlyHint = readOnlyHint;
     }
 
-    public MCPToolAnnotations destructiveHint(@javax.annotation.Nullable Boolean destructiveHint) {
+    public MCPToolAnnotations destructiveHint(
+            @jakarta.annotation.Nullable Boolean destructiveHint) {
         this.destructiveHint = destructiveHint;
         return this;
     }
@@ -104,15 +105,15 @@ public class MCPToolAnnotations {
      * If true, the tool may perform irreversible destructive operations
      * @return destructiveHint
      */
-    @javax.annotation.Nullable public Boolean getDestructiveHint() {
+    @jakarta.annotation.Nullable public Boolean getDestructiveHint() {
         return destructiveHint;
     }
 
-    public void setDestructiveHint(@javax.annotation.Nullable Boolean destructiveHint) {
+    public void setDestructiveHint(@jakarta.annotation.Nullable Boolean destructiveHint) {
         this.destructiveHint = destructiveHint;
     }
 
-    public MCPToolAnnotations idempotentHint(@javax.annotation.Nullable Boolean idempotentHint) {
+    public MCPToolAnnotations idempotentHint(@jakarta.annotation.Nullable Boolean idempotentHint) {
         this.idempotentHint = idempotentHint;
         return this;
     }
@@ -121,15 +122,15 @@ public class MCPToolAnnotations {
      * If true, calling the tool multiple times with the same args has no additional effect
      * @return idempotentHint
      */
-    @javax.annotation.Nullable public Boolean getIdempotentHint() {
+    @jakarta.annotation.Nullable public Boolean getIdempotentHint() {
         return idempotentHint;
     }
 
-    public void setIdempotentHint(@javax.annotation.Nullable Boolean idempotentHint) {
+    public void setIdempotentHint(@jakarta.annotation.Nullable Boolean idempotentHint) {
         this.idempotentHint = idempotentHint;
     }
 
-    public MCPToolAnnotations openWorldHint(@javax.annotation.Nullable Boolean openWorldHint) {
+    public MCPToolAnnotations openWorldHint(@jakarta.annotation.Nullable Boolean openWorldHint) {
         this.openWorldHint = openWorldHint;
         return this;
     }
@@ -138,11 +139,11 @@ public class MCPToolAnnotations {
      * If true, the tool interacts with external entities outside the local environment
      * @return openWorldHint
      */
-    @javax.annotation.Nullable public Boolean getOpenWorldHint() {
+    @jakarta.annotation.Nullable public Boolean getOpenWorldHint() {
         return openWorldHint;
     }
 
-    public void setOpenWorldHint(@javax.annotation.Nullable Boolean openWorldHint) {
+    public void setOpenWorldHint(@jakarta.annotation.Nullable Boolean openWorldHint) {
         this.openWorldHint = openWorldHint;
     }
 

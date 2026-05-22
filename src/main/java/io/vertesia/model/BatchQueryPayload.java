@@ -35,20 +35,20 @@ import java.util.Objects;
 /**
  * BatchQueryPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BatchQueryPayload {
     public static final String SERIALIZED_NAME_QUERIES = "queries";
 
     @SerializedName(SERIALIZED_NAME_QUERIES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<BatchQueryPayloadQueriesInner> queries = new ArrayList<>();
 
     public BatchQueryPayload() {}
 
     public BatchQueryPayload queries(
-            @javax.annotation.Nonnull List<BatchQueryPayloadQueriesInner> queries) {
+            @jakarta.annotation.Nonnull List<BatchQueryPayloadQueriesInner> queries) {
         this.queries = queries;
         return this;
     }
@@ -65,12 +65,13 @@ public class BatchQueryPayload {
      * Get queries
      * @return queries
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<BatchQueryPayloadQueriesInner> getQueries() {
         return queries;
     }
 
-    public void setQueries(@javax.annotation.Nonnull List<BatchQueryPayloadQueriesInner> queries) {
+    public void setQueries(
+            @jakarta.annotation.Nonnull List<BatchQueryPayloadQueriesInner> queries) {
         this.queries = queries;
     }
 

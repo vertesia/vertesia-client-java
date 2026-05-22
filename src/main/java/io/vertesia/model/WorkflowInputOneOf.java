@@ -33,7 +33,7 @@ import java.util.Objects;
 /**
  * WorkflowInputOneOf
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WorkflowInputOneOf {
@@ -93,18 +93,18 @@ public class WorkflowInputOneOf {
     public static final String SERIALIZED_NAME_INPUT_TYPE = "inputType";
 
     @SerializedName(SERIALIZED_NAME_INPUT_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private InputTypeEnum inputType;
 
     public static final String SERIALIZED_NAME_OBJECT_IDS = "objectIds";
 
     @SerializedName(SERIALIZED_NAME_OBJECT_IDS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> objectIds = new ArrayList<>();
 
     public WorkflowInputOneOf() {}
 
-    public WorkflowInputOneOf inputType(@javax.annotation.Nonnull InputTypeEnum inputType) {
+    public WorkflowInputOneOf inputType(@jakarta.annotation.Nonnull InputTypeEnum inputType) {
         this.inputType = inputType;
         return this;
     }
@@ -113,16 +113,16 @@ public class WorkflowInputOneOf {
      * Get inputType
      * @return inputType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public InputTypeEnum getInputType() {
         return inputType;
     }
 
-    public void setInputType(@javax.annotation.Nonnull InputTypeEnum inputType) {
+    public void setInputType(@jakarta.annotation.Nonnull InputTypeEnum inputType) {
         this.inputType = inputType;
     }
 
-    public WorkflowInputOneOf objectIds(@javax.annotation.Nonnull List<String> objectIds) {
+    public WorkflowInputOneOf objectIds(@jakarta.annotation.Nonnull List<String> objectIds) {
         this.objectIds = objectIds;
         return this;
     }
@@ -139,12 +139,12 @@ public class WorkflowInputOneOf {
      * Get objectIds
      * @return objectIds
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getObjectIds() {
         return objectIds;
     }
 
-    public void setObjectIds(@javax.annotation.Nonnull List<String> objectIds) {
+    public void setObjectIds(@jakarta.annotation.Nonnull List<String> objectIds) {
         this.objectIds = objectIds;
     }
 

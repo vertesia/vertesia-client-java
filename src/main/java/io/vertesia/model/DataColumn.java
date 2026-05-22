@@ -32,60 +32,60 @@ import java.util.Objects;
 /**
  * Column definition for a data table.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataColumn {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DataColumnType type;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_NULLABLE = "nullable";
 
     @SerializedName(SERIALIZED_NAME_NULLABLE)
-    @javax.annotation.Nullable private Boolean nullable;
+    @jakarta.annotation.Nullable private Boolean nullable;
 
     public static final String SERIALIZED_NAME_DEFAULT = "default";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT)
-    @javax.annotation.Nullable private String _default;
+    @jakarta.annotation.Nullable private String _default;
 
     public static final String SERIALIZED_NAME_PRIMARY_KEY = "primary_key";
 
     @SerializedName(SERIALIZED_NAME_PRIMARY_KEY)
-    @javax.annotation.Nullable private Boolean primaryKey;
+    @jakarta.annotation.Nullable private Boolean primaryKey;
 
     public static final String SERIALIZED_NAME_UNIQUE = "unique";
 
     @SerializedName(SERIALIZED_NAME_UNIQUE)
-    @javax.annotation.Nullable private Boolean unique;
+    @jakarta.annotation.Nullable private Boolean unique;
 
     public static final String SERIALIZED_NAME_SEMANTIC_TYPE = "semantic_type";
 
     @SerializedName(SERIALIZED_NAME_SEMANTIC_TYPE)
-    @javax.annotation.Nullable private SemanticColumnType semanticType;
+    @jakarta.annotation.Nullable private SemanticColumnType semanticType;
 
     public static final String SERIALIZED_NAME_EXAMPLES = "examples";
 
     @SerializedName(SERIALIZED_NAME_EXAMPLES)
-    @javax.annotation.Nullable private List<String> examples = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> examples = new ArrayList<>();
 
     public DataColumn() {}
 
-    public DataColumn name(@javax.annotation.Nonnull String name) {
+    public DataColumn name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -94,16 +94,16 @@ public class DataColumn {
      * Column name (must be valid SQL identifier)
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public DataColumn type(@javax.annotation.Nonnull DataColumnType type) {
+    public DataColumn type(@jakarta.annotation.Nonnull DataColumnType type) {
         this.type = type;
         return this;
     }
@@ -112,16 +112,16 @@ public class DataColumn {
      * Data type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DataColumnType getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull DataColumnType type) {
+    public void setType(@jakarta.annotation.Nonnull DataColumnType type) {
         this.type = type;
     }
 
-    public DataColumn description(@javax.annotation.Nullable String description) {
+    public DataColumn description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -130,15 +130,15 @@ public class DataColumn {
      * Human-readable description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public DataColumn nullable(@javax.annotation.Nullable Boolean nullable) {
+    public DataColumn nullable(@jakarta.annotation.Nullable Boolean nullable) {
         this.nullable = nullable;
         return this;
     }
@@ -147,15 +147,15 @@ public class DataColumn {
      * Whether the column allows NULL values
      * @return nullable
      */
-    @javax.annotation.Nullable public Boolean getNullable() {
+    @jakarta.annotation.Nullable public Boolean getNullable() {
         return nullable;
     }
 
-    public void setNullable(@javax.annotation.Nullable Boolean nullable) {
+    public void setNullable(@jakarta.annotation.Nullable Boolean nullable) {
         this.nullable = nullable;
     }
 
-    public DataColumn _default(@javax.annotation.Nullable String _default) {
+    public DataColumn _default(@jakarta.annotation.Nullable String _default) {
         this._default = _default;
         return this;
     }
@@ -164,15 +164,15 @@ public class DataColumn {
      * Default value (SQL expression as string)
      * @return _default
      */
-    @javax.annotation.Nullable public String getDefault() {
+    @jakarta.annotation.Nullable public String getDefault() {
         return _default;
     }
 
-    public void setDefault(@javax.annotation.Nullable String _default) {
+    public void setDefault(@jakarta.annotation.Nullable String _default) {
         this._default = _default;
     }
 
-    public DataColumn primaryKey(@javax.annotation.Nullable Boolean primaryKey) {
+    public DataColumn primaryKey(@jakarta.annotation.Nullable Boolean primaryKey) {
         this.primaryKey = primaryKey;
         return this;
     }
@@ -181,15 +181,15 @@ public class DataColumn {
      * Whether this is the primary key
      * @return primaryKey
      */
-    @javax.annotation.Nullable public Boolean getPrimaryKey() {
+    @jakarta.annotation.Nullable public Boolean getPrimaryKey() {
         return primaryKey;
     }
 
-    public void setPrimaryKey(@javax.annotation.Nullable Boolean primaryKey) {
+    public void setPrimaryKey(@jakarta.annotation.Nullable Boolean primaryKey) {
         this.primaryKey = primaryKey;
     }
 
-    public DataColumn unique(@javax.annotation.Nullable Boolean unique) {
+    public DataColumn unique(@jakarta.annotation.Nullable Boolean unique) {
         this.unique = unique;
         return this;
     }
@@ -198,15 +198,15 @@ public class DataColumn {
      * Whether values must be unique
      * @return unique
      */
-    @javax.annotation.Nullable public Boolean getUnique() {
+    @jakarta.annotation.Nullable public Boolean getUnique() {
         return unique;
     }
 
-    public void setUnique(@javax.annotation.Nullable Boolean unique) {
+    public void setUnique(@jakarta.annotation.Nullable Boolean unique) {
         this.unique = unique;
     }
 
-    public DataColumn semanticType(@javax.annotation.Nullable SemanticColumnType semanticType) {
+    public DataColumn semanticType(@jakarta.annotation.Nullable SemanticColumnType semanticType) {
         this.semanticType = semanticType;
         return this;
     }
@@ -215,15 +215,15 @@ public class DataColumn {
      * Semantic type for AI understanding
      * @return semanticType
      */
-    @javax.annotation.Nullable public SemanticColumnType getSemanticType() {
+    @jakarta.annotation.Nullable public SemanticColumnType getSemanticType() {
         return semanticType;
     }
 
-    public void setSemanticType(@javax.annotation.Nullable SemanticColumnType semanticType) {
+    public void setSemanticType(@jakarta.annotation.Nullable SemanticColumnType semanticType) {
         this.semanticType = semanticType;
     }
 
-    public DataColumn examples(@javax.annotation.Nullable List<String> examples) {
+    public DataColumn examples(@jakarta.annotation.Nullable List<String> examples) {
         this.examples = examples;
         return this;
     }
@@ -240,11 +240,11 @@ public class DataColumn {
      * Example values for AI context
      * @return examples
      */
-    @javax.annotation.Nullable public List<String> getExamples() {
+    @jakarta.annotation.Nullable public List<String> getExamples() {
         return examples;
     }
 
-    public void setExamples(@javax.annotation.Nullable List<String> examples) {
+    public void setExamples(@jakarta.annotation.Nullable List<String> examples) {
         this.examples = examples;
     }
 

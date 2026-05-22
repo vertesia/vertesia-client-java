@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * InviteUserResponsePayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InviteUserResponsePayload {
@@ -93,12 +93,12 @@ public class InviteUserResponsePayload {
     public static final String SERIALIZED_NAME_ACTION = "action";
 
     @SerializedName(SERIALIZED_NAME_ACTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ActionEnum action;
 
     public InviteUserResponsePayload() {}
 
-    public InviteUserResponsePayload action(@javax.annotation.Nonnull ActionEnum action) {
+    public InviteUserResponsePayload action(@jakarta.annotation.Nonnull ActionEnum action) {
         this.action = action;
         return this;
     }
@@ -107,12 +107,12 @@ public class InviteUserResponsePayload {
      * Get action
      * @return action
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ActionEnum getAction() {
         return action;
     }
 
-    public void setAction(@javax.annotation.Nonnull ActionEnum action) {
+    public void setAction(@jakarta.annotation.Nonnull ActionEnum action) {
         this.action = action;
     }
 

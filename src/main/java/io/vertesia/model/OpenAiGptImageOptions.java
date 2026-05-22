@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * OpenAiGptImageOptions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OpenAiGptImageOptions {
@@ -91,7 +91,7 @@ public class OpenAiGptImageOptions {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OptionIdEnum optionId;
 
     /**
@@ -156,7 +156,7 @@ public class OpenAiGptImageOptions {
     public static final String SERIALIZED_NAME_SIZE = "size";
 
     @SerializedName(SERIALIZED_NAME_SIZE)
-    @javax.annotation.Nullable private SizeEnum size;
+    @jakarta.annotation.Nullable private SizeEnum size;
 
     /**
      * Gets or Sets imageQuality
@@ -220,7 +220,7 @@ public class OpenAiGptImageOptions {
     public static final String SERIALIZED_NAME_IMAGE_QUALITY = "image_quality";
 
     @SerializedName(SERIALIZED_NAME_IMAGE_QUALITY)
-    @javax.annotation.Nullable private ImageQualityEnum imageQuality;
+    @jakarta.annotation.Nullable private ImageQualityEnum imageQuality;
 
     /**
      * Gets or Sets background
@@ -282,7 +282,7 @@ public class OpenAiGptImageOptions {
     public static final String SERIALIZED_NAME_BACKGROUND = "background";
 
     @SerializedName(SERIALIZED_NAME_BACKGROUND)
-    @javax.annotation.Nullable private BackgroundEnum background;
+    @jakarta.annotation.Nullable private BackgroundEnum background;
 
     /**
      * Gets or Sets outputFormat
@@ -344,11 +344,11 @@ public class OpenAiGptImageOptions {
     public static final String SERIALIZED_NAME_OUTPUT_FORMAT = "output_format";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT_FORMAT)
-    @javax.annotation.Nullable private OutputFormatEnum outputFormat;
+    @jakarta.annotation.Nullable private OutputFormatEnum outputFormat;
 
     public OpenAiGptImageOptions() {}
 
-    public OpenAiGptImageOptions optionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public OpenAiGptImageOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -357,16 +357,16 @@ public class OpenAiGptImageOptions {
      * Get optionId
      * @return optionId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
-    public OpenAiGptImageOptions size(@javax.annotation.Nullable SizeEnum size) {
+    public OpenAiGptImageOptions size(@jakarta.annotation.Nullable SizeEnum size) {
         this.size = size;
         return this;
     }
@@ -375,16 +375,16 @@ public class OpenAiGptImageOptions {
      * Get size
      * @return size
      */
-    @javax.annotation.Nullable public SizeEnum getSize() {
+    @jakarta.annotation.Nullable public SizeEnum getSize() {
         return size;
     }
 
-    public void setSize(@javax.annotation.Nullable SizeEnum size) {
+    public void setSize(@jakarta.annotation.Nullable SizeEnum size) {
         this.size = size;
     }
 
     public OpenAiGptImageOptions imageQuality(
-            @javax.annotation.Nullable ImageQualityEnum imageQuality) {
+            @jakarta.annotation.Nullable ImageQualityEnum imageQuality) {
         this.imageQuality = imageQuality;
         return this;
     }
@@ -393,15 +393,16 @@ public class OpenAiGptImageOptions {
      * Get imageQuality
      * @return imageQuality
      */
-    @javax.annotation.Nullable public ImageQualityEnum getImageQuality() {
+    @jakarta.annotation.Nullable public ImageQualityEnum getImageQuality() {
         return imageQuality;
     }
 
-    public void setImageQuality(@javax.annotation.Nullable ImageQualityEnum imageQuality) {
+    public void setImageQuality(@jakarta.annotation.Nullable ImageQualityEnum imageQuality) {
         this.imageQuality = imageQuality;
     }
 
-    public OpenAiGptImageOptions background(@javax.annotation.Nullable BackgroundEnum background) {
+    public OpenAiGptImageOptions background(
+            @jakarta.annotation.Nullable BackgroundEnum background) {
         this.background = background;
         return this;
     }
@@ -410,16 +411,16 @@ public class OpenAiGptImageOptions {
      * Get background
      * @return background
      */
-    @javax.annotation.Nullable public BackgroundEnum getBackground() {
+    @jakarta.annotation.Nullable public BackgroundEnum getBackground() {
         return background;
     }
 
-    public void setBackground(@javax.annotation.Nullable BackgroundEnum background) {
+    public void setBackground(@jakarta.annotation.Nullable BackgroundEnum background) {
         this.background = background;
     }
 
     public OpenAiGptImageOptions outputFormat(
-            @javax.annotation.Nullable OutputFormatEnum outputFormat) {
+            @jakarta.annotation.Nullable OutputFormatEnum outputFormat) {
         this.outputFormat = outputFormat;
         return this;
     }
@@ -428,11 +429,11 @@ public class OpenAiGptImageOptions {
      * Get outputFormat
      * @return outputFormat
      */
-    @javax.annotation.Nullable public OutputFormatEnum getOutputFormat() {
+    @jakarta.annotation.Nullable public OutputFormatEnum getOutputFormat() {
         return outputFormat;
     }
 
-    public void setOutputFormat(@javax.annotation.Nullable OutputFormatEnum outputFormat) {
+    public void setOutputFormat(@jakarta.annotation.Nullable OutputFormatEnum outputFormat) {
         this.outputFormat = outputFormat;
     }
 

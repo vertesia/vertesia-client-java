@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * QueryValidationPayloadQueriesInner
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class QueryValidationPayloadQueriesInner {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_SQL = "sql";
 
     @SerializedName(SERIALIZED_NAME_SQL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String sql;
 
     public QueryValidationPayloadQueriesInner() {}
 
-    public QueryValidationPayloadQueriesInner name(@javax.annotation.Nonnull String name) {
+    public QueryValidationPayloadQueriesInner name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -57,16 +57,16 @@ public class QueryValidationPayloadQueriesInner {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public QueryValidationPayloadQueriesInner sql(@javax.annotation.Nonnull String sql) {
+    public QueryValidationPayloadQueriesInner sql(@jakarta.annotation.Nonnull String sql) {
         this.sql = sql;
         return this;
     }
@@ -75,12 +75,12 @@ public class QueryValidationPayloadQueriesInner {
      * Get sql
      * @return sql
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSql() {
         return sql;
     }
 
-    public void setSql(@javax.annotation.Nonnull String sql) {
+    public void setSql(@jakarta.annotation.Nonnull String sql) {
         this.sql = sql;
     }
 

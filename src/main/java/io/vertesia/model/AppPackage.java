@@ -35,65 +35,65 @@ import java.util.Objects;
 /**
  * AppPackage
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AppPackage {
     public static final String SERIALIZED_NAME_UI = "ui";
 
     @SerializedName(SERIALIZED_NAME_UI)
-    @javax.annotation.Nullable private AppUIConfig ui;
+    @jakarta.annotation.Nullable private AppUIConfig ui;
 
     public static final String SERIALIZED_NAME_TOOLS = "tools";
 
     @SerializedName(SERIALIZED_NAME_TOOLS)
-    @javax.annotation.Nullable private List<AgentToolDefinition> tools = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<AgentToolDefinition> tools = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SKILLS = "skills";
 
     @SerializedName(SERIALIZED_NAME_SKILLS)
-    @javax.annotation.Nullable private List<AgentToolDefinition> skills = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<AgentToolDefinition> skills = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_INTERACTIONS = "interactions";
 
     @SerializedName(SERIALIZED_NAME_INTERACTIONS)
-    @javax.annotation.Nullable private List<CatalogInteractionRef> interactions = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<CatalogInteractionRef> interactions = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TYPES = "types";
 
     @SerializedName(SERIALIZED_NAME_TYPES)
-    @javax.annotation.Nullable private List<
+    @jakarta.annotation.Nullable private List<
                     PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>
             types = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PROCESSES = "processes";
 
     @SerializedName(SERIALIZED_NAME_PROCESSES)
-    @javax.annotation.Nullable private List<InCodeProcessDefinition> processes = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<InCodeProcessDefinition> processes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TEMPLATES = "templates";
 
     @SerializedName(SERIALIZED_NAME_TEMPLATES)
-    @javax.annotation.Nullable private List<RenderingTemplateDefinitionRef> templates = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<RenderingTemplateDefinitionRef> templates = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_WIDGETS = "widgets";
 
     @SerializedName(SERIALIZED_NAME_WIDGETS)
-    @javax.annotation.Nullable private Map<String, AppWidgetInfo> widgets;
+    @jakarta.annotation.Nullable private Map<String, AppWidgetInfo> widgets;
 
     public static final String SERIALIZED_NAME_ACTIVITIES = "activities";
 
     @SerializedName(SERIALIZED_NAME_ACTIVITIES)
-    @javax.annotation.Nullable private List<RemoteActivityDefinition> activities = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<RemoteActivityDefinition> activities = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SETTINGS_SCHEMA = "settings_schema";
 
     @SerializedName(SERIALIZED_NAME_SETTINGS_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema settingsSchema;
+    @jakarta.annotation.Nullable private JSONSchema settingsSchema;
 
     public AppPackage() {}
 
-    public AppPackage ui(@javax.annotation.Nullable AppUIConfig ui) {
+    public AppPackage ui(@jakarta.annotation.Nullable AppUIConfig ui) {
         this.ui = ui;
         return this;
     }
@@ -102,15 +102,15 @@ public class AppPackage {
      * The UI configuration of the app
      * @return ui
      */
-    @javax.annotation.Nullable public AppUIConfig getUi() {
+    @jakarta.annotation.Nullable public AppUIConfig getUi() {
         return ui;
     }
 
-    public void setUi(@javax.annotation.Nullable AppUIConfig ui) {
+    public void setUi(@jakarta.annotation.Nullable AppUIConfig ui) {
         this.ui = ui;
     }
 
-    public AppPackage tools(@javax.annotation.Nullable List<AgentToolDefinition> tools) {
+    public AppPackage tools(@jakarta.annotation.Nullable List<AgentToolDefinition> tools) {
         this.tools = tools;
         return this;
     }
@@ -127,15 +127,15 @@ public class AppPackage {
      * A list of tools exposed by the app.
      * @return tools
      */
-    @javax.annotation.Nullable public List<AgentToolDefinition> getTools() {
+    @jakarta.annotation.Nullable public List<AgentToolDefinition> getTools() {
         return tools;
     }
 
-    public void setTools(@javax.annotation.Nullable List<AgentToolDefinition> tools) {
+    public void setTools(@jakarta.annotation.Nullable List<AgentToolDefinition> tools) {
         this.tools = tools;
     }
 
-    public AppPackage skills(@javax.annotation.Nullable List<AgentToolDefinition> skills) {
+    public AppPackage skills(@jakarta.annotation.Nullable List<AgentToolDefinition> skills) {
         this.skills = skills;
         return this;
     }
@@ -152,16 +152,16 @@ public class AppPackage {
      * A list of skills (&#x60;learn_*&#x60; tools) exposed by the app. Kept separate from &#x60;tools&#x60; so clients can render them distinctly — consumers that don&#39;t care (e.g. the worker building a combined tool registry) should concatenate the two lists.
      * @return skills
      */
-    @javax.annotation.Nullable public List<AgentToolDefinition> getSkills() {
+    @jakarta.annotation.Nullable public List<AgentToolDefinition> getSkills() {
         return skills;
     }
 
-    public void setSkills(@javax.annotation.Nullable List<AgentToolDefinition> skills) {
+    public void setSkills(@jakarta.annotation.Nullable List<AgentToolDefinition> skills) {
         this.skills = skills;
     }
 
     public AppPackage interactions(
-            @javax.annotation.Nullable List<CatalogInteractionRef> interactions) {
+            @jakarta.annotation.Nullable List<CatalogInteractionRef> interactions) {
         this.interactions = interactions;
         return this;
     }
@@ -178,17 +178,17 @@ public class AppPackage {
      * A list of interactions exposed by the app
      * @return interactions
      */
-    @javax.annotation.Nullable public List<CatalogInteractionRef> getInteractions() {
+    @jakarta.annotation.Nullable public List<CatalogInteractionRef> getInteractions() {
         return interactions;
     }
 
     public void setInteractions(
-            @javax.annotation.Nullable List<CatalogInteractionRef> interactions) {
+            @jakarta.annotation.Nullable List<CatalogInteractionRef> interactions) {
         this.interactions = interactions;
     }
 
     public AppPackage types(
-            @javax.annotation.Nullable List<
+            @jakarta.annotation.Nullable List<
                                     PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>
                             types) {
         this.types = types;
@@ -209,21 +209,21 @@ public class AppPackage {
      * A list of types.
      * @return types
      */
-    @javax.annotation.Nullable public List<
+    @jakarta.annotation.Nullable public List<
                     PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>
             getTypes() {
         return types;
     }
 
     public void setTypes(
-            @javax.annotation.Nullable List<
+            @jakarta.annotation.Nullable List<
                                     PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>
                             types) {
         this.types = types;
     }
 
     public AppPackage processes(
-            @javax.annotation.Nullable List<InCodeProcessDefinition> processes) {
+            @jakarta.annotation.Nullable List<InCodeProcessDefinition> processes) {
         this.processes = processes;
         return this;
     }
@@ -240,16 +240,16 @@ public class AppPackage {
      * A list of process definitions exposed by the app.
      * @return processes
      */
-    @javax.annotation.Nullable public List<InCodeProcessDefinition> getProcesses() {
+    @jakarta.annotation.Nullable public List<InCodeProcessDefinition> getProcesses() {
         return processes;
     }
 
-    public void setProcesses(@javax.annotation.Nullable List<InCodeProcessDefinition> processes) {
+    public void setProcesses(@jakarta.annotation.Nullable List<InCodeProcessDefinition> processes) {
         this.processes = processes;
     }
 
     public AppPackage templates(
-            @javax.annotation.Nullable List<RenderingTemplateDefinitionRef> templates) {
+            @jakarta.annotation.Nullable List<RenderingTemplateDefinitionRef> templates) {
         this.templates = templates;
         return this;
     }
@@ -266,16 +266,16 @@ public class AppPackage {
      * Templates provided by the app.
      * @return templates
      */
-    @javax.annotation.Nullable public List<RenderingTemplateDefinitionRef> getTemplates() {
+    @jakarta.annotation.Nullable public List<RenderingTemplateDefinitionRef> getTemplates() {
         return templates;
     }
 
     public void setTemplates(
-            @javax.annotation.Nullable List<RenderingTemplateDefinitionRef> templates) {
+            @jakarta.annotation.Nullable List<RenderingTemplateDefinitionRef> templates) {
         this.templates = templates;
     }
 
-    public AppPackage widgets(@javax.annotation.Nullable Map<String, AppWidgetInfo> widgets) {
+    public AppPackage widgets(@jakarta.annotation.Nullable Map<String, AppWidgetInfo> widgets) {
         this.widgets = widgets;
         return this;
     }
@@ -292,16 +292,16 @@ public class AppPackage {
      * Widgets provided by the app.
      * @return widgets
      */
-    @javax.annotation.Nullable public Map<String, AppWidgetInfo> getWidgets() {
+    @jakarta.annotation.Nullable public Map<String, AppWidgetInfo> getWidgets() {
         return widgets;
     }
 
-    public void setWidgets(@javax.annotation.Nullable Map<String, AppWidgetInfo> widgets) {
+    public void setWidgets(@jakarta.annotation.Nullable Map<String, AppWidgetInfo> widgets) {
         this.widgets = widgets;
     }
 
     public AppPackage activities(
-            @javax.annotation.Nullable List<RemoteActivityDefinition> activities) {
+            @jakarta.annotation.Nullable List<RemoteActivityDefinition> activities) {
         this.activities = activities;
         return this;
     }
@@ -318,16 +318,16 @@ public class AppPackage {
      * Remote activities exposed by the app for use in DSL workflows. Activities are discovered via &#x60;?scope&#x3D;activities&#x60; and referenced in workflow steps using colon-separated names: &#x60;app:&lt;app_name&gt;:&lt;collection&gt;:&lt;activity_name&gt;&#x60;.
      * @return activities
      */
-    @javax.annotation.Nullable public List<RemoteActivityDefinition> getActivities() {
+    @jakarta.annotation.Nullable public List<RemoteActivityDefinition> getActivities() {
         return activities;
     }
 
     public void setActivities(
-            @javax.annotation.Nullable List<RemoteActivityDefinition> activities) {
+            @jakarta.annotation.Nullable List<RemoteActivityDefinition> activities) {
         this.activities = activities;
     }
 
-    public AppPackage settingsSchema(@javax.annotation.Nullable JSONSchema settingsSchema) {
+    public AppPackage settingsSchema(@jakarta.annotation.Nullable JSONSchema settingsSchema) {
         this.settingsSchema = settingsSchema;
         return this;
     }
@@ -336,11 +336,11 @@ public class AppPackage {
      * A JSON chema for the app installation settings.
      * @return settingsSchema
      */
-    @javax.annotation.Nullable public JSONSchema getSettingsSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getSettingsSchema() {
         return settingsSchema;
     }
 
-    public void setSettingsSchema(@javax.annotation.Nullable JSONSchema settingsSchema) {
+    public void setSettingsSchema(@jakarta.annotation.Nullable JSONSchema settingsSchema) {
         this.settingsSchema = settingsSchema;
     }
 

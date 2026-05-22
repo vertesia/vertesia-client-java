@@ -33,33 +33,33 @@ import java.util.Objects;
 /**
  * WebsiteCredentialSecretInput
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WebsiteCredentialSecretInput {
     public static final String SERIALIZED_NAME_USERNAME = "username";
 
     @SerializedName(SERIALIZED_NAME_USERNAME)
-    @javax.annotation.Nullable private String username;
+    @jakarta.annotation.Nullable private String username;
 
     public static final String SERIALIZED_NAME_PASSWORD = "password";
 
     @SerializedName(SERIALIZED_NAME_PASSWORD)
-    @javax.annotation.Nullable private String password;
+    @jakarta.annotation.Nullable private String password;
 
     public static final String SERIALIZED_NAME_TOTP = "totp";
 
     @SerializedName(SERIALIZED_NAME_TOTP)
-    @javax.annotation.Nullable private WebsiteCredentialSecretInputTotp totp;
+    @jakarta.annotation.Nullable private WebsiteCredentialSecretInputTotp totp;
 
     public static final String SERIALIZED_NAME_OAUTH = "oauth";
 
     @SerializedName(SERIALIZED_NAME_OAUTH)
-    @javax.annotation.Nullable private WebsiteCredentialSecretInputOauth oauth;
+    @jakarta.annotation.Nullable private WebsiteCredentialSecretInputOauth oauth;
 
     public WebsiteCredentialSecretInput() {}
 
-    public WebsiteCredentialSecretInput username(@javax.annotation.Nullable String username) {
+    public WebsiteCredentialSecretInput username(@jakarta.annotation.Nullable String username) {
         this.username = username;
         return this;
     }
@@ -68,15 +68,15 @@ public class WebsiteCredentialSecretInput {
      * Optional encrypted username. Prefer metadata.username unless the username itself is sensitive.
      * @return username
      */
-    @javax.annotation.Nullable public String getUsername() {
+    @jakarta.annotation.Nullable public String getUsername() {
         return username;
     }
 
-    public void setUsername(@javax.annotation.Nullable String username) {
+    public void setUsername(@jakarta.annotation.Nullable String username) {
         this.username = username;
     }
 
-    public WebsiteCredentialSecretInput password(@javax.annotation.Nullable String password) {
+    public WebsiteCredentialSecretInput password(@jakarta.annotation.Nullable String password) {
         this.password = password;
         return this;
     }
@@ -85,16 +85,16 @@ public class WebsiteCredentialSecretInput {
      * Get password
      * @return password
      */
-    @javax.annotation.Nullable public String getPassword() {
+    @jakarta.annotation.Nullable public String getPassword() {
         return password;
     }
 
-    public void setPassword(@javax.annotation.Nullable String password) {
+    public void setPassword(@jakarta.annotation.Nullable String password) {
         this.password = password;
     }
 
     public WebsiteCredentialSecretInput totp(
-            @javax.annotation.Nullable WebsiteCredentialSecretInputTotp totp) {
+            @jakarta.annotation.Nullable WebsiteCredentialSecretInputTotp totp) {
         this.totp = totp;
         return this;
     }
@@ -103,16 +103,16 @@ public class WebsiteCredentialSecretInput {
      * Get totp
      * @return totp
      */
-    @javax.annotation.Nullable public WebsiteCredentialSecretInputTotp getTotp() {
+    @jakarta.annotation.Nullable public WebsiteCredentialSecretInputTotp getTotp() {
         return totp;
     }
 
-    public void setTotp(@javax.annotation.Nullable WebsiteCredentialSecretInputTotp totp) {
+    public void setTotp(@jakarta.annotation.Nullable WebsiteCredentialSecretInputTotp totp) {
         this.totp = totp;
     }
 
     public WebsiteCredentialSecretInput oauth(
-            @javax.annotation.Nullable WebsiteCredentialSecretInputOauth oauth) {
+            @jakarta.annotation.Nullable WebsiteCredentialSecretInputOauth oauth) {
         this.oauth = oauth;
         return this;
     }
@@ -121,11 +121,11 @@ public class WebsiteCredentialSecretInput {
      * Get oauth
      * @return oauth
      */
-    @javax.annotation.Nullable public WebsiteCredentialSecretInputOauth getOauth() {
+    @jakarta.annotation.Nullable public WebsiteCredentialSecretInputOauth getOauth() {
         return oauth;
     }
 
-    public void setOauth(@javax.annotation.Nullable WebsiteCredentialSecretInputOauth oauth) {
+    public void setOauth(@jakarta.annotation.Nullable WebsiteCredentialSecretInputOauth oauth) {
         this.oauth = oauth;
     }
 

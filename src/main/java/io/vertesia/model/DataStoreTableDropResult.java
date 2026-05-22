@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * DataStoreTableDropResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataStoreTableDropResult {
     public static final String SERIALIZED_NAME_DROPPED = "dropped";
 
     @SerializedName(SERIALIZED_NAME_DROPPED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String dropped;
 
     public DataStoreTableDropResult() {}
 
-    public DataStoreTableDropResult dropped(@javax.annotation.Nonnull String dropped) {
+    public DataStoreTableDropResult dropped(@jakarta.annotation.Nonnull String dropped) {
         this.dropped = dropped;
         return this;
     }
@@ -51,12 +51,12 @@ public class DataStoreTableDropResult {
      * Get dropped
      * @return dropped
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDropped() {
         return dropped;
     }
 
-    public void setDropped(@javax.annotation.Nonnull String dropped) {
+    public void setDropped(@jakarta.annotation.Nonnull String dropped) {
         this.dropped = dropped;
     }
 

@@ -32,20 +32,20 @@ import java.util.Objects;
 /**
  * WebsiteCredentialSecretInputTotp
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WebsiteCredentialSecretInputTotp {
     public static final String SERIALIZED_NAME_SEED = "seed";
 
     @SerializedName(SERIALIZED_NAME_SEED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String seed;
 
     public static final String SERIALIZED_NAME_ALGORITHM = "algorithm";
 
     @SerializedName(SERIALIZED_NAME_ALGORITHM)
-    @javax.annotation.Nullable private WebsiteCredentialTotpAlgorithm algorithm;
+    @jakarta.annotation.Nullable private WebsiteCredentialTotpAlgorithm algorithm;
 
     /**
      * Gets or Sets digits
@@ -105,26 +105,26 @@ public class WebsiteCredentialSecretInputTotp {
     public static final String SERIALIZED_NAME_DIGITS = "digits";
 
     @SerializedName(SERIALIZED_NAME_DIGITS)
-    @javax.annotation.Nullable private DigitsEnum digits;
+    @jakarta.annotation.Nullable private DigitsEnum digits;
 
     public static final String SERIALIZED_NAME_PERIOD = "period";
 
     @SerializedName(SERIALIZED_NAME_PERIOD)
-    @javax.annotation.Nullable private BigDecimal period;
+    @jakarta.annotation.Nullable private BigDecimal period;
 
     public static final String SERIALIZED_NAME_ISSUER = "issuer";
 
     @SerializedName(SERIALIZED_NAME_ISSUER)
-    @javax.annotation.Nullable private String issuer;
+    @jakarta.annotation.Nullable private String issuer;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nullable private String account;
+    @jakarta.annotation.Nullable private String account;
 
     public WebsiteCredentialSecretInputTotp() {}
 
-    public WebsiteCredentialSecretInputTotp seed(@javax.annotation.Nonnull String seed) {
+    public WebsiteCredentialSecretInputTotp seed(@jakarta.annotation.Nonnull String seed) {
         this.seed = seed;
         return this;
     }
@@ -133,17 +133,17 @@ public class WebsiteCredentialSecretInputTotp {
      * Get seed
      * @return seed
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSeed() {
         return seed;
     }
 
-    public void setSeed(@javax.annotation.Nonnull String seed) {
+    public void setSeed(@jakarta.annotation.Nonnull String seed) {
         this.seed = seed;
     }
 
     public WebsiteCredentialSecretInputTotp algorithm(
-            @javax.annotation.Nullable WebsiteCredentialTotpAlgorithm algorithm) {
+            @jakarta.annotation.Nullable WebsiteCredentialTotpAlgorithm algorithm) {
         this.algorithm = algorithm;
         return this;
     }
@@ -152,15 +152,16 @@ public class WebsiteCredentialSecretInputTotp {
      * Get algorithm
      * @return algorithm
      */
-    @javax.annotation.Nullable public WebsiteCredentialTotpAlgorithm getAlgorithm() {
+    @jakarta.annotation.Nullable public WebsiteCredentialTotpAlgorithm getAlgorithm() {
         return algorithm;
     }
 
-    public void setAlgorithm(@javax.annotation.Nullable WebsiteCredentialTotpAlgorithm algorithm) {
+    public void setAlgorithm(
+            @jakarta.annotation.Nullable WebsiteCredentialTotpAlgorithm algorithm) {
         this.algorithm = algorithm;
     }
 
-    public WebsiteCredentialSecretInputTotp digits(@javax.annotation.Nullable DigitsEnum digits) {
+    public WebsiteCredentialSecretInputTotp digits(@jakarta.annotation.Nullable DigitsEnum digits) {
         this.digits = digits;
         return this;
     }
@@ -169,15 +170,15 @@ public class WebsiteCredentialSecretInputTotp {
      * Get digits
      * @return digits
      */
-    @javax.annotation.Nullable public DigitsEnum getDigits() {
+    @jakarta.annotation.Nullable public DigitsEnum getDigits() {
         return digits;
     }
 
-    public void setDigits(@javax.annotation.Nullable DigitsEnum digits) {
+    public void setDigits(@jakarta.annotation.Nullable DigitsEnum digits) {
         this.digits = digits;
     }
 
-    public WebsiteCredentialSecretInputTotp period(@javax.annotation.Nullable BigDecimal period) {
+    public WebsiteCredentialSecretInputTotp period(@jakarta.annotation.Nullable BigDecimal period) {
         this.period = period;
         return this;
     }
@@ -186,15 +187,15 @@ public class WebsiteCredentialSecretInputTotp {
      * Get period
      * @return period
      */
-    @javax.annotation.Nullable public BigDecimal getPeriod() {
+    @jakarta.annotation.Nullable public BigDecimal getPeriod() {
         return period;
     }
 
-    public void setPeriod(@javax.annotation.Nullable BigDecimal period) {
+    public void setPeriod(@jakarta.annotation.Nullable BigDecimal period) {
         this.period = period;
     }
 
-    public WebsiteCredentialSecretInputTotp issuer(@javax.annotation.Nullable String issuer) {
+    public WebsiteCredentialSecretInputTotp issuer(@jakarta.annotation.Nullable String issuer) {
         this.issuer = issuer;
         return this;
     }
@@ -203,15 +204,15 @@ public class WebsiteCredentialSecretInputTotp {
      * Get issuer
      * @return issuer
      */
-    @javax.annotation.Nullable public String getIssuer() {
+    @jakarta.annotation.Nullable public String getIssuer() {
         return issuer;
     }
 
-    public void setIssuer(@javax.annotation.Nullable String issuer) {
+    public void setIssuer(@jakarta.annotation.Nullable String issuer) {
         this.issuer = issuer;
     }
 
-    public WebsiteCredentialSecretInputTotp account(@javax.annotation.Nullable String account) {
+    public WebsiteCredentialSecretInputTotp account(@jakarta.annotation.Nullable String account) {
         this.account = account;
         return this;
     }
@@ -220,11 +221,11 @@ public class WebsiteCredentialSecretInputTotp {
      * Get account
      * @return account
      */
-    @javax.annotation.Nullable public String getAccount() {
+    @jakarta.annotation.Nullable public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nullable String account) {
+    public void setAccount(@jakarta.annotation.Nullable String account) {
         this.account = account;
     }
 

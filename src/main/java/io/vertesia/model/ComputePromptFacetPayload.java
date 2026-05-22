@@ -33,24 +33,24 @@ import java.util.Objects;
 /**
  * ComputePromptFacetPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ComputePromptFacetPayload {
     public static final String SERIALIZED_NAME_FACETS = "facets";
 
     @SerializedName(SERIALIZED_NAME_FACETS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<FacetSpec> facets = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @javax.annotation.Nullable private PromptSearchQuery query;
+    @jakarta.annotation.Nullable private PromptSearchQuery query;
 
     public ComputePromptFacetPayload() {}
 
-    public ComputePromptFacetPayload facets(@javax.annotation.Nonnull List<FacetSpec> facets) {
+    public ComputePromptFacetPayload facets(@jakarta.annotation.Nonnull List<FacetSpec> facets) {
         this.facets = facets;
         return this;
     }
@@ -67,16 +67,16 @@ public class ComputePromptFacetPayload {
      * Get facets
      * @return facets
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<FacetSpec> getFacets() {
         return facets;
     }
 
-    public void setFacets(@javax.annotation.Nonnull List<FacetSpec> facets) {
+    public void setFacets(@jakarta.annotation.Nonnull List<FacetSpec> facets) {
         this.facets = facets;
     }
 
-    public ComputePromptFacetPayload query(@javax.annotation.Nullable PromptSearchQuery query) {
+    public ComputePromptFacetPayload query(@jakarta.annotation.Nullable PromptSearchQuery query) {
         this.query = query;
         return this;
     }
@@ -85,11 +85,11 @@ public class ComputePromptFacetPayload {
      * Get query
      * @return query
      */
-    @javax.annotation.Nullable public PromptSearchQuery getQuery() {
+    @jakarta.annotation.Nullable public PromptSearchQuery getQuery() {
         return query;
     }
 
-    public void setQuery(@javax.annotation.Nullable PromptSearchQuery query) {
+    public void setQuery(@jakarta.annotation.Nullable PromptSearchQuery query) {
         this.query = query;
     }
 

@@ -31,14 +31,14 @@ import java.util.Objects;
 /**
  * Future OAuth materialization hook. The token itself remains in the OAuth secret store.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WebsiteCredentialSecretInputOauth {
     public static final String SERIALIZED_NAME_PROVIDER_ID = "provider_id";
 
     @SerializedName(SERIALIZED_NAME_PROVIDER_ID)
-    @javax.annotation.Nullable private String providerId;
+    @jakarta.annotation.Nullable private String providerId;
 
     /**
      * Gets or Sets tokenOwner
@@ -98,17 +98,17 @@ public class WebsiteCredentialSecretInputOauth {
     public static final String SERIALIZED_NAME_TOKEN_OWNER = "token_owner";
 
     @SerializedName(SERIALIZED_NAME_TOKEN_OWNER)
-    @javax.annotation.Nullable private TokenOwnerEnum tokenOwner;
+    @jakarta.annotation.Nullable private TokenOwnerEnum tokenOwner;
 
     public static final String SERIALIZED_NAME_TOKEN_REF = "token_ref";
 
     @SerializedName(SERIALIZED_NAME_TOKEN_REF)
-    @javax.annotation.Nullable private String tokenRef;
+    @jakarta.annotation.Nullable private String tokenRef;
 
     public WebsiteCredentialSecretInputOauth() {}
 
     public WebsiteCredentialSecretInputOauth providerId(
-            @javax.annotation.Nullable String providerId) {
+            @jakarta.annotation.Nullable String providerId) {
         this.providerId = providerId;
         return this;
     }
@@ -117,16 +117,16 @@ public class WebsiteCredentialSecretInputOauth {
      * Get providerId
      * @return providerId
      */
-    @javax.annotation.Nullable public String getProviderId() {
+    @jakarta.annotation.Nullable public String getProviderId() {
         return providerId;
     }
 
-    public void setProviderId(@javax.annotation.Nullable String providerId) {
+    public void setProviderId(@jakarta.annotation.Nullable String providerId) {
         this.providerId = providerId;
     }
 
     public WebsiteCredentialSecretInputOauth tokenOwner(
-            @javax.annotation.Nullable TokenOwnerEnum tokenOwner) {
+            @jakarta.annotation.Nullable TokenOwnerEnum tokenOwner) {
         this.tokenOwner = tokenOwner;
         return this;
     }
@@ -135,15 +135,16 @@ public class WebsiteCredentialSecretInputOauth {
      * Get tokenOwner
      * @return tokenOwner
      */
-    @javax.annotation.Nullable public TokenOwnerEnum getTokenOwner() {
+    @jakarta.annotation.Nullable public TokenOwnerEnum getTokenOwner() {
         return tokenOwner;
     }
 
-    public void setTokenOwner(@javax.annotation.Nullable TokenOwnerEnum tokenOwner) {
+    public void setTokenOwner(@jakarta.annotation.Nullable TokenOwnerEnum tokenOwner) {
         this.tokenOwner = tokenOwner;
     }
 
-    public WebsiteCredentialSecretInputOauth tokenRef(@javax.annotation.Nullable String tokenRef) {
+    public WebsiteCredentialSecretInputOauth tokenRef(
+            @jakarta.annotation.Nullable String tokenRef) {
         this.tokenRef = tokenRef;
         return this;
     }
@@ -152,11 +153,11 @@ public class WebsiteCredentialSecretInputOauth {
      * Get tokenRef
      * @return tokenRef
      */
-    @javax.annotation.Nullable public String getTokenRef() {
+    @jakarta.annotation.Nullable public String getTokenRef() {
         return tokenRef;
     }
 
-    public void setTokenRef(@javax.annotation.Nullable String tokenRef) {
+    public void setTokenRef(@jakarta.annotation.Nullable String tokenRef) {
         this.tokenRef = tokenRef;
     }
 

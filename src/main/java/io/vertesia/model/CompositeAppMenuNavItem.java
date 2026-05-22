@@ -34,65 +34,65 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * A navigable item in the sidebar menu. An \&quot;app\&quot; is just a nav-item with &#x60;appName&#x60; + &#x60;route: \&quot;/\&quot;&#x60; that has children. Nav-items carry their own &#x60;appName&#x60; for routing, independent of position in the tree.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppMenuNavItem {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_LABEL = "label";
 
     @SerializedName(SERIALIZED_NAME_LABEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String label;
 
     public static final String SERIALIZED_NAME_ICON = "icon";
 
     @SerializedName(SERIALIZED_NAME_ICON)
-    @javax.annotation.Nullable private String icon;
+    @jakarta.annotation.Nullable private String icon;
 
     public static final String SERIALIZED_NAME_APP_NAME = "appName";
 
     @SerializedName(SERIALIZED_NAME_APP_NAME)
-    @javax.annotation.Nullable private String appName;
+    @jakarta.annotation.Nullable private String appName;
 
     public static final String SERIALIZED_NAME_ROUTE = "route";
 
     @SerializedName(SERIALIZED_NAME_ROUTE)
-    @javax.annotation.Nullable private String route;
+    @jakarta.annotation.Nullable private String route;
 
     public static final String SERIALIZED_NAME_HIDDEN = "hidden";
 
     @SerializedName(SERIALIZED_NAME_HIDDEN)
-    @javax.annotation.Nullable private Boolean hidden;
+    @jakarta.annotation.Nullable private Boolean hidden;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_HIDE_FROM_DASHBOARD = "hideFromDashboard";
 
     @SerializedName(SERIALIZED_NAME_HIDE_FROM_DASHBOARD)
-    @javax.annotation.Nullable private Boolean hideFromDashboard;
+    @jakarta.annotation.Nullable private Boolean hideFromDashboard;
 
     public static final String SERIALIZED_NAME_PERMISSIONS = "permissions";
 
     @SerializedName(SERIALIZED_NAME_PERMISSIONS)
-    @javax.annotation.Nullable private CompositeAppNavItemPermissions permissions;
+    @jakarta.annotation.Nullable private CompositeAppNavItemPermissions permissions;
 
     public static final String SERIALIZED_NAME_CHILDREN = "children";
 
     @SerializedName(SERIALIZED_NAME_CHILDREN)
-    @javax.annotation.Nullable private List<CompositeAppMenuNavItem> children = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<CompositeAppMenuNavItem> children = new ArrayList<>();
 
     public CompositeAppMenuNavItem() {}
 
-    public CompositeAppMenuNavItem id(@javax.annotation.Nonnull String id) {
+    public CompositeAppMenuNavItem id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -101,16 +101,16 @@ public class CompositeAppMenuNavItem {
      * Stable unique identifier
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public CompositeAppMenuNavItem label(@javax.annotation.Nonnull String label) {
+    public CompositeAppMenuNavItem label(@jakarta.annotation.Nonnull String label) {
         this.label = label;
         return this;
     }
@@ -119,16 +119,16 @@ public class CompositeAppMenuNavItem {
      * Display label shown in the sidebar
      * @return label
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getLabel() {
         return label;
     }
 
-    public void setLabel(@javax.annotation.Nonnull String label) {
+    public void setLabel(@jakarta.annotation.Nonnull String label) {
         this.label = label;
     }
 
-    public CompositeAppMenuNavItem icon(@javax.annotation.Nullable String icon) {
+    public CompositeAppMenuNavItem icon(@jakarta.annotation.Nullable String icon) {
         this.icon = icon;
         return this;
     }
@@ -137,15 +137,15 @@ public class CompositeAppMenuNavItem {
      * Lucide icon name or SVG content string
      * @return icon
      */
-    @javax.annotation.Nullable public String getIcon() {
+    @jakarta.annotation.Nullable public String getIcon() {
         return icon;
     }
 
-    public void setIcon(@javax.annotation.Nullable String icon) {
+    public void setIcon(@jakarta.annotation.Nullable String icon) {
         this.icon = icon;
     }
 
-    public CompositeAppMenuNavItem appName(@javax.annotation.Nullable String appName) {
+    public CompositeAppMenuNavItem appName(@jakarta.annotation.Nullable String appName) {
         this.appName = appName;
         return this;
     }
@@ -154,15 +154,15 @@ public class CompositeAppMenuNavItem {
      * Which installed app this item routes to
      * @return appName
      */
-    @javax.annotation.Nullable public String getAppName() {
+    @jakarta.annotation.Nullable public String getAppName() {
         return appName;
     }
 
-    public void setAppName(@javax.annotation.Nullable String appName) {
+    public void setAppName(@jakarta.annotation.Nullable String appName) {
         this.appName = appName;
     }
 
-    public CompositeAppMenuNavItem route(@javax.annotation.Nullable String route) {
+    public CompositeAppMenuNavItem route(@jakarta.annotation.Nullable String route) {
         this.route = route;
         return this;
     }
@@ -171,15 +171,15 @@ public class CompositeAppMenuNavItem {
      * Route path within the app (e.g. \&quot;/\&quot; or \&quot;/dashboard\&quot;)
      * @return route
      */
-    @javax.annotation.Nullable public String getRoute() {
+    @jakarta.annotation.Nullable public String getRoute() {
         return route;
     }
 
-    public void setRoute(@javax.annotation.Nullable String route) {
+    public void setRoute(@jakarta.annotation.Nullable String route) {
         this.route = route;
     }
 
-    public CompositeAppMenuNavItem hidden(@javax.annotation.Nullable Boolean hidden) {
+    public CompositeAppMenuNavItem hidden(@jakarta.annotation.Nullable Boolean hidden) {
         this.hidden = hidden;
         return this;
     }
@@ -188,15 +188,15 @@ public class CompositeAppMenuNavItem {
      * When true, this item is hidden from the sidebar
      * @return hidden
      */
-    @javax.annotation.Nullable public Boolean getHidden() {
+    @jakarta.annotation.Nullable public Boolean getHidden() {
         return hidden;
     }
 
-    public void setHidden(@javax.annotation.Nullable Boolean hidden) {
+    public void setHidden(@jakarta.annotation.Nullable Boolean hidden) {
         this.hidden = hidden;
     }
 
-    public CompositeAppMenuNavItem description(@javax.annotation.Nullable String description) {
+    public CompositeAppMenuNavItem description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -205,16 +205,16 @@ public class CompositeAppMenuNavItem {
      * Optional description for dashboard cards and summary views. &#x60;null&#x60; &#x3D; user explicitly cleared it (show no description, skip fallback). &#x60;undefined&#x60; / absent &#x3D; no override (fall back to manifest description).
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
     public CompositeAppMenuNavItem hideFromDashboard(
-            @javax.annotation.Nullable Boolean hideFromDashboard) {
+            @jakarta.annotation.Nullable Boolean hideFromDashboard) {
         this.hideFromDashboard = hideFromDashboard;
         return this;
     }
@@ -223,16 +223,16 @@ public class CompositeAppMenuNavItem {
      * When true, this item is excluded from the Composite App dashboard cards
      * @return hideFromDashboard
      */
-    @javax.annotation.Nullable public Boolean getHideFromDashboard() {
+    @jakarta.annotation.Nullable public Boolean getHideFromDashboard() {
         return hideFromDashboard;
     }
 
-    public void setHideFromDashboard(@javax.annotation.Nullable Boolean hideFromDashboard) {
+    public void setHideFromDashboard(@jakarta.annotation.Nullable Boolean hideFromDashboard) {
         this.hideFromDashboard = hideFromDashboard;
     }
 
     public CompositeAppMenuNavItem permissions(
-            @javax.annotation.Nullable CompositeAppNavItemPermissions permissions) {
+            @jakarta.annotation.Nullable CompositeAppNavItemPermissions permissions) {
         this.permissions = permissions;
         return this;
     }
@@ -241,17 +241,17 @@ public class CompositeAppMenuNavItem {
      * Optional access control settings for this nav item
      * @return permissions
      */
-    @javax.annotation.Nullable public CompositeAppNavItemPermissions getPermissions() {
+    @jakarta.annotation.Nullable public CompositeAppNavItemPermissions getPermissions() {
         return permissions;
     }
 
     public void setPermissions(
-            @javax.annotation.Nullable CompositeAppNavItemPermissions permissions) {
+            @jakarta.annotation.Nullable CompositeAppNavItemPermissions permissions) {
         this.permissions = permissions;
     }
 
     public CompositeAppMenuNavItem children(
-            @javax.annotation.Nullable List<CompositeAppMenuNavItem> children) {
+            @jakarta.annotation.Nullable List<CompositeAppMenuNavItem> children) {
         this.children = children;
         return this;
     }
@@ -268,11 +268,11 @@ public class CompositeAppMenuNavItem {
      * Ordered child nav-items
      * @return children
      */
-    @javax.annotation.Nullable public List<CompositeAppMenuNavItem> getChildren() {
+    @jakarta.annotation.Nullable public List<CompositeAppMenuNavItem> getChildren() {
         return children;
     }
 
-    public void setChildren(@javax.annotation.Nullable List<CompositeAppMenuNavItem> children) {
+    public void setChildren(@jakarta.annotation.Nullable List<CompositeAppMenuNavItem> children) {
         this.children = children;
     }
 

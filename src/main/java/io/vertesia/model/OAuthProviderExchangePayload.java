@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * OAuthProviderExchangePayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OAuthProviderExchangePayload {
     public static final String SERIALIZED_NAME_CODE = "code";
 
     @SerializedName(SERIALIZED_NAME_CODE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String code;
 
     public static final String SERIALIZED_NAME_STATE = "state";
 
     @SerializedName(SERIALIZED_NAME_STATE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String state;
 
     public OAuthProviderExchangePayload() {}
 
-    public OAuthProviderExchangePayload code(@javax.annotation.Nonnull String code) {
+    public OAuthProviderExchangePayload code(@jakarta.annotation.Nonnull String code) {
         this.code = code;
         return this;
     }
@@ -57,16 +57,16 @@ public class OAuthProviderExchangePayload {
      * Get code
      * @return code
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCode() {
         return code;
     }
 
-    public void setCode(@javax.annotation.Nonnull String code) {
+    public void setCode(@jakarta.annotation.Nonnull String code) {
         this.code = code;
     }
 
-    public OAuthProviderExchangePayload state(@javax.annotation.Nonnull String state) {
+    public OAuthProviderExchangePayload state(@jakarta.annotation.Nonnull String state) {
         this.state = state;
         return this;
     }
@@ -75,12 +75,12 @@ public class OAuthProviderExchangePayload {
      * Get state
      * @return state
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getState() {
         return state;
     }
 
-    public void setState(@javax.annotation.Nonnull String state) {
+    public void setState(@jakarta.annotation.Nonnull String state) {
         this.state = state;
     }
 

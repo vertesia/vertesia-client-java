@@ -33,28 +33,29 @@ import java.util.Objects;
 /**
  * InteractionExecutionResultEvaluation
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InteractionExecutionResultEvaluation {
     public static final String SERIALIZED_NAME_SCORE = "score";
 
     @SerializedName(SERIALIZED_NAME_SCORE)
-    @javax.annotation.Nullable private BigDecimal score;
+    @jakarta.annotation.Nullable private BigDecimal score;
 
     public static final String SERIALIZED_NAME_SELECTED = "selected";
 
     @SerializedName(SERIALIZED_NAME_SELECTED)
-    @javax.annotation.Nullable private Boolean selected;
+    @jakarta.annotation.Nullable private Boolean selected;
 
     public static final String SERIALIZED_NAME_SCORES = "scores";
 
     @SerializedName(SERIALIZED_NAME_SCORES)
-    @javax.annotation.Nullable private Map<String, BigDecimal> scores = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, BigDecimal> scores = new HashMap<>();
 
     public InteractionExecutionResultEvaluation() {}
 
-    public InteractionExecutionResultEvaluation score(@javax.annotation.Nullable BigDecimal score) {
+    public InteractionExecutionResultEvaluation score(
+            @jakarta.annotation.Nullable BigDecimal score) {
         this.score = score;
         return this;
     }
@@ -63,16 +64,16 @@ public class InteractionExecutionResultEvaluation {
      * Get score
      * @return score
      */
-    @javax.annotation.Nullable public BigDecimal getScore() {
+    @jakarta.annotation.Nullable public BigDecimal getScore() {
         return score;
     }
 
-    public void setScore(@javax.annotation.Nullable BigDecimal score) {
+    public void setScore(@jakarta.annotation.Nullable BigDecimal score) {
         this.score = score;
     }
 
     public InteractionExecutionResultEvaluation selected(
-            @javax.annotation.Nullable Boolean selected) {
+            @jakarta.annotation.Nullable Boolean selected) {
         this.selected = selected;
         return this;
     }
@@ -81,16 +82,16 @@ public class InteractionExecutionResultEvaluation {
      * Get selected
      * @return selected
      */
-    @javax.annotation.Nullable public Boolean getSelected() {
+    @jakarta.annotation.Nullable public Boolean getSelected() {
         return selected;
     }
 
-    public void setSelected(@javax.annotation.Nullable Boolean selected) {
+    public void setSelected(@jakarta.annotation.Nullable Boolean selected) {
         this.selected = selected;
     }
 
     public InteractionExecutionResultEvaluation scores(
-            @javax.annotation.Nullable Map<String, BigDecimal> scores) {
+            @jakarta.annotation.Nullable Map<String, BigDecimal> scores) {
         this.scores = scores;
         return this;
     }
@@ -107,11 +108,11 @@ public class InteractionExecutionResultEvaluation {
      * Get scores
      * @return scores
      */
-    @javax.annotation.Nullable public Map<String, BigDecimal> getScores() {
+    @jakarta.annotation.Nullable public Map<String, BigDecimal> getScores() {
         return scores;
     }
 
-    public void setScores(@javax.annotation.Nullable Map<String, BigDecimal> scores) {
+    public void setScores(@jakarta.annotation.Nullable Map<String, BigDecimal> scores) {
         this.scores = scores;
     }
 

@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * Metadata about a single inherited property.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InheritedPropertyMetadata {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_COLLECTION = "collection";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String collection;
 
     public InheritedPropertyMetadata() {}
 
-    public InheritedPropertyMetadata name(@javax.annotation.Nonnull String name) {
+    public InheritedPropertyMetadata name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -57,16 +57,16 @@ public class InheritedPropertyMetadata {
      * The property name that was inherited
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public InheritedPropertyMetadata collection(@javax.annotation.Nonnull String collection) {
+    public InheritedPropertyMetadata collection(@jakarta.annotation.Nonnull String collection) {
         this.collection = collection;
         return this;
     }
@@ -75,12 +75,12 @@ public class InheritedPropertyMetadata {
      * The collection ID that provided this property
      * @return collection
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCollection() {
         return collection;
     }
 
-    public void setCollection(@javax.annotation.Nonnull String collection) {
+    public void setCollection(@jakarta.annotation.Nonnull String collection) {
         this.collection = collection;
     }
 

@@ -30,31 +30,31 @@ import java.util.Objects;
 /**
  * AppWidgetInfo
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AppWidgetInfo {
     public static final String SERIALIZED_NAME_COLLECTION = "collection";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String collection;
 
     public static final String SERIALIZED_NAME_SKILL = "skill";
 
     @SerializedName(SERIALIZED_NAME_SKILL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String skill;
 
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String url;
 
     public AppWidgetInfo() {}
 
-    public AppWidgetInfo collection(@javax.annotation.Nonnull String collection) {
+    public AppWidgetInfo collection(@jakarta.annotation.Nonnull String collection) {
         this.collection = collection;
         return this;
     }
@@ -63,16 +63,16 @@ public class AppWidgetInfo {
      * Get collection
      * @return collection
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCollection() {
         return collection;
     }
 
-    public void setCollection(@javax.annotation.Nonnull String collection) {
+    public void setCollection(@jakarta.annotation.Nonnull String collection) {
         this.collection = collection;
     }
 
-    public AppWidgetInfo skill(@javax.annotation.Nonnull String skill) {
+    public AppWidgetInfo skill(@jakarta.annotation.Nonnull String skill) {
         this.skill = skill;
         return this;
     }
@@ -81,16 +81,16 @@ public class AppWidgetInfo {
      * Get skill
      * @return skill
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSkill() {
         return skill;
     }
 
-    public void setSkill(@javax.annotation.Nonnull String skill) {
+    public void setSkill(@jakarta.annotation.Nonnull String skill) {
         this.skill = skill;
     }
 
-    public AppWidgetInfo url(@javax.annotation.Nonnull String url) {
+    public AppWidgetInfo url(@jakarta.annotation.Nonnull String url) {
         this.url = url;
         return this;
     }
@@ -99,12 +99,12 @@ public class AppWidgetInfo {
      * Get url
      * @return url
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nonnull String url) {
+    public void setUrl(@jakarta.annotation.Nonnull String url) {
         this.url = url;
     }
 

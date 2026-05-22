@@ -33,25 +33,25 @@ import java.util.Objects;
 /**
  * ProcessContextDefinition
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProcessContextDefinition {
     public static final String SERIALIZED_NAME_SCHEMA = "schema";
 
     @SerializedName(SERIALIZED_NAME_SCHEMA)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private JSONSchema schema;
 
     public static final String SERIALIZED_NAME_INITIAL = "initial";
 
     @SerializedName(SERIALIZED_NAME_INITIAL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> initial = new HashMap<>();
 
     public ProcessContextDefinition() {}
 
-    public ProcessContextDefinition schema(@javax.annotation.Nonnull JSONSchema schema) {
+    public ProcessContextDefinition schema(@jakarta.annotation.Nonnull JSONSchema schema) {
         this.schema = schema;
         return this;
     }
@@ -60,16 +60,17 @@ public class ProcessContextDefinition {
      * Get schema
      * @return schema
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public JSONSchema getSchema() {
         return schema;
     }
 
-    public void setSchema(@javax.annotation.Nonnull JSONSchema schema) {
+    public void setSchema(@jakarta.annotation.Nonnull JSONSchema schema) {
         this.schema = schema;
     }
 
-    public ProcessContextDefinition initial(@javax.annotation.Nonnull Map<String, Object> initial) {
+    public ProcessContextDefinition initial(
+            @jakarta.annotation.Nonnull Map<String, Object> initial) {
         this.initial = initial;
         return this;
     }
@@ -86,12 +87,12 @@ public class ProcessContextDefinition {
      * Get initial
      * @return initial
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getInitial() {
         return initial;
     }
 
-    public void setInitial(@javax.annotation.Nonnull Map<String, Object> initial) {
+    public void setInitial(@jakarta.annotation.Nonnull Map<String, Object> initial) {
         this.initial = initial;
     }
 

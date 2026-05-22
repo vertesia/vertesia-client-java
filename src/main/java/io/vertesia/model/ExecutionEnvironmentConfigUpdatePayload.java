@@ -33,24 +33,24 @@ import java.util.Objects;
 /**
  * ExecutionEnvironmentConfigUpdatePayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ExecutionEnvironmentConfigUpdatePayload {
     public static final String SERIALIZED_NAME_ENABLED_MODELS = "enabled_models";
 
     @SerializedName(SERIALIZED_NAME_ENABLED_MODELS)
-    @javax.annotation.Nullable private List<AIModel> enabledModels = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<AIModel> enabledModels = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nullable private ExecutionEnvironmentConfigUpdatePayloadConfig config;
+    @jakarta.annotation.Nullable private ExecutionEnvironmentConfigUpdatePayloadConfig config;
 
     public ExecutionEnvironmentConfigUpdatePayload() {}
 
     public ExecutionEnvironmentConfigUpdatePayload enabledModels(
-            @javax.annotation.Nullable List<AIModel> enabledModels) {
+            @jakarta.annotation.Nullable List<AIModel> enabledModels) {
         this.enabledModels = enabledModels;
         return this;
     }
@@ -67,16 +67,16 @@ public class ExecutionEnvironmentConfigUpdatePayload {
      * Get enabledModels
      * @return enabledModels
      */
-    @javax.annotation.Nullable public List<AIModel> getEnabledModels() {
+    @jakarta.annotation.Nullable public List<AIModel> getEnabledModels() {
         return enabledModels;
     }
 
-    public void setEnabledModels(@javax.annotation.Nullable List<AIModel> enabledModels) {
+    public void setEnabledModels(@jakarta.annotation.Nullable List<AIModel> enabledModels) {
         this.enabledModels = enabledModels;
     }
 
     public ExecutionEnvironmentConfigUpdatePayload config(
-            @javax.annotation.Nullable ExecutionEnvironmentConfigUpdatePayloadConfig config) {
+            @jakarta.annotation.Nullable ExecutionEnvironmentConfigUpdatePayloadConfig config) {
         this.config = config;
         return this;
     }
@@ -85,12 +85,12 @@ public class ExecutionEnvironmentConfigUpdatePayload {
      * Get config
      * @return config
      */
-    @javax.annotation.Nullable public ExecutionEnvironmentConfigUpdatePayloadConfig getConfig() {
+    @jakarta.annotation.Nullable public ExecutionEnvironmentConfigUpdatePayloadConfig getConfig() {
         return config;
     }
 
     public void setConfig(
-            @javax.annotation.Nullable ExecutionEnvironmentConfigUpdatePayloadConfig config) {
+            @jakarta.annotation.Nullable ExecutionEnvironmentConfigUpdatePayloadConfig config) {
         this.config = config;
     }
 

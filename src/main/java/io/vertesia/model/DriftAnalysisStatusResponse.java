@@ -30,44 +30,44 @@ import java.util.Objects;
 /**
  * DriftAnalysisStatusResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DriftAnalysisStatusResponse {
     public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflow_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
-    @javax.annotation.Nullable private String workflowId;
+    @jakarta.annotation.Nullable private String workflowId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_RUN_ID = "workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_RUN_ID)
-    @javax.annotation.Nullable private String workflowRunId;
+    @jakarta.annotation.Nullable private String workflowRunId;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private WorkflowExecutionStatus status;
 
     public static final String SERIALIZED_NAME_PROGRESS = "progress";
 
     @SerializedName(SERIALIZED_NAME_PROGRESS)
-    @javax.annotation.Nullable private DriftAnalysisProgress progress;
+    @jakarta.annotation.Nullable private DriftAnalysisProgress progress;
 
     public static final String SERIALIZED_NAME_RESULT = "result";
 
     @SerializedName(SERIALIZED_NAME_RESULT)
-    @javax.annotation.Nullable private DriftAnalysisResult result;
+    @jakarta.annotation.Nullable private DriftAnalysisResult result;
 
     public static final String SERIALIZED_NAME_ERROR = "error";
 
     @SerializedName(SERIALIZED_NAME_ERROR)
-    @javax.annotation.Nullable private String error;
+    @jakarta.annotation.Nullable private String error;
 
     public DriftAnalysisStatusResponse() {}
 
-    public DriftAnalysisStatusResponse workflowId(@javax.annotation.Nullable String workflowId) {
+    public DriftAnalysisStatusResponse workflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
         return this;
     }
@@ -76,16 +76,16 @@ public class DriftAnalysisStatusResponse {
      * Get workflowId
      * @return workflowId
      */
-    @javax.annotation.Nullable public String getWorkflowId() {
+    @jakarta.annotation.Nullable public String getWorkflowId() {
         return workflowId;
     }
 
-    public void setWorkflowId(@javax.annotation.Nullable String workflowId) {
+    public void setWorkflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
     }
 
     public DriftAnalysisStatusResponse workflowRunId(
-            @javax.annotation.Nullable String workflowRunId) {
+            @jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
         return this;
     }
@@ -94,16 +94,16 @@ public class DriftAnalysisStatusResponse {
      * Get workflowRunId
      * @return workflowRunId
      */
-    @javax.annotation.Nullable public String getWorkflowRunId() {
+    @jakarta.annotation.Nullable public String getWorkflowRunId() {
         return workflowRunId;
     }
 
-    public void setWorkflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public void setWorkflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
     }
 
     public DriftAnalysisStatusResponse status(
-            @javax.annotation.Nonnull WorkflowExecutionStatus status) {
+            @jakarta.annotation.Nonnull WorkflowExecutionStatus status) {
         this.status = status;
         return this;
     }
@@ -112,17 +112,17 @@ public class DriftAnalysisStatusResponse {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public WorkflowExecutionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull WorkflowExecutionStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull WorkflowExecutionStatus status) {
         this.status = status;
     }
 
     public DriftAnalysisStatusResponse progress(
-            @javax.annotation.Nullable DriftAnalysisProgress progress) {
+            @jakarta.annotation.Nullable DriftAnalysisProgress progress) {
         this.progress = progress;
         return this;
     }
@@ -131,16 +131,16 @@ public class DriftAnalysisStatusResponse {
      * Get progress
      * @return progress
      */
-    @javax.annotation.Nullable public DriftAnalysisProgress getProgress() {
+    @jakarta.annotation.Nullable public DriftAnalysisProgress getProgress() {
         return progress;
     }
 
-    public void setProgress(@javax.annotation.Nullable DriftAnalysisProgress progress) {
+    public void setProgress(@jakarta.annotation.Nullable DriftAnalysisProgress progress) {
         this.progress = progress;
     }
 
     public DriftAnalysisStatusResponse result(
-            @javax.annotation.Nullable DriftAnalysisResult result) {
+            @jakarta.annotation.Nullable DriftAnalysisResult result) {
         this.result = result;
         return this;
     }
@@ -149,15 +149,15 @@ public class DriftAnalysisStatusResponse {
      * Get result
      * @return result
      */
-    @javax.annotation.Nullable public DriftAnalysisResult getResult() {
+    @jakarta.annotation.Nullable public DriftAnalysisResult getResult() {
         return result;
     }
 
-    public void setResult(@javax.annotation.Nullable DriftAnalysisResult result) {
+    public void setResult(@jakarta.annotation.Nullable DriftAnalysisResult result) {
         this.result = result;
     }
 
-    public DriftAnalysisStatusResponse error(@javax.annotation.Nullable String error) {
+    public DriftAnalysisStatusResponse error(@jakarta.annotation.Nullable String error) {
         this.error = error;
         return this;
     }
@@ -166,11 +166,11 @@ public class DriftAnalysisStatusResponse {
      * Get error
      * @return error
      */
-    @javax.annotation.Nullable public String getError() {
+    @jakarta.annotation.Nullable public String getError() {
         return error;
     }
 
-    public void setError(@javax.annotation.Nullable String error) {
+    public void setError(@jakarta.annotation.Nullable String error) {
         this.error = error;
     }
 

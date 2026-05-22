@@ -30,28 +30,28 @@ import java.util.Objects;
 /**
  * McpOAuthTokenRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class McpOAuthTokenRequest {
     public static final String SERIALIZED_NAME_APP_INSTALL_ID = "app_install_id";
 
     @SerializedName(SERIALIZED_NAME_APP_INSTALL_ID)
-    @javax.annotation.Nullable private String appInstallId;
+    @jakarta.annotation.Nullable private String appInstallId;
 
     public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
-    @javax.annotation.Nullable private String collectionId;
+    @jakarta.annotation.Nullable private String collectionId;
 
     public static final String SERIALIZED_NAME_MCP_SERVER_URL = "mcp_server_url";
 
     @SerializedName(SERIALIZED_NAME_MCP_SERVER_URL)
-    @javax.annotation.Nullable private String mcpServerUrl;
+    @jakarta.annotation.Nullable private String mcpServerUrl;
 
     public McpOAuthTokenRequest() {}
 
-    public McpOAuthTokenRequest appInstallId(@javax.annotation.Nullable String appInstallId) {
+    public McpOAuthTokenRequest appInstallId(@jakarta.annotation.Nullable String appInstallId) {
         this.appInstallId = appInstallId;
         return this;
     }
@@ -60,15 +60,15 @@ public class McpOAuthTokenRequest {
      * Get appInstallId
      * @return appInstallId
      */
-    @javax.annotation.Nullable public String getAppInstallId() {
+    @jakarta.annotation.Nullable public String getAppInstallId() {
         return appInstallId;
     }
 
-    public void setAppInstallId(@javax.annotation.Nullable String appInstallId) {
+    public void setAppInstallId(@jakarta.annotation.Nullable String appInstallId) {
         this.appInstallId = appInstallId;
     }
 
-    public McpOAuthTokenRequest collectionId(@javax.annotation.Nullable String collectionId) {
+    public McpOAuthTokenRequest collectionId(@jakarta.annotation.Nullable String collectionId) {
         this.collectionId = collectionId;
         return this;
     }
@@ -77,15 +77,15 @@ public class McpOAuthTokenRequest {
      * Get collectionId
      * @return collectionId
      */
-    @javax.annotation.Nullable public String getCollectionId() {
+    @jakarta.annotation.Nullable public String getCollectionId() {
         return collectionId;
     }
 
-    public void setCollectionId(@javax.annotation.Nullable String collectionId) {
+    public void setCollectionId(@jakarta.annotation.Nullable String collectionId) {
         this.collectionId = collectionId;
     }
 
-    public McpOAuthTokenRequest mcpServerUrl(@javax.annotation.Nullable String mcpServerUrl) {
+    public McpOAuthTokenRequest mcpServerUrl(@jakarta.annotation.Nullable String mcpServerUrl) {
         this.mcpServerUrl = mcpServerUrl;
         return this;
     }
@@ -94,11 +94,11 @@ public class McpOAuthTokenRequest {
      * Get mcpServerUrl
      * @return mcpServerUrl
      */
-    @javax.annotation.Nullable public String getMcpServerUrl() {
+    @jakarta.annotation.Nullable public String getMcpServerUrl() {
         return mcpServerUrl;
     }
 
-    public void setMcpServerUrl(@javax.annotation.Nullable String mcpServerUrl) {
+    public void setMcpServerUrl(@jakarta.annotation.Nullable String mcpServerUrl) {
         this.mcpServerUrl = mcpServerUrl;
     }
 

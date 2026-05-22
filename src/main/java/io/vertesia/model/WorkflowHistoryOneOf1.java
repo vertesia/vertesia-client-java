@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * WorkflowHistoryOneOf1
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WorkflowHistoryOneOf1 {
@@ -94,18 +94,18 @@ public class WorkflowHistoryOneOf1 {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_TASKS = "tasks";
 
     @SerializedName(SERIALIZED_NAME_TASKS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<WorkflowTask> tasks = new ArrayList<>();
 
     public WorkflowHistoryOneOf1() {}
 
-    public WorkflowHistoryOneOf1 type(@javax.annotation.Nonnull TypeEnum type) {
+    public WorkflowHistoryOneOf1 type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -114,16 +114,16 @@ public class WorkflowHistoryOneOf1 {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public WorkflowHistoryOneOf1 tasks(@javax.annotation.Nonnull List<WorkflowTask> tasks) {
+    public WorkflowHistoryOneOf1 tasks(@jakarta.annotation.Nonnull List<WorkflowTask> tasks) {
         this.tasks = tasks;
         return this;
     }
@@ -140,12 +140,12 @@ public class WorkflowHistoryOneOf1 {
      * Get tasks
      * @return tasks
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<WorkflowTask> getTasks() {
         return tasks;
     }
 
-    public void setTasks(@javax.annotation.Nonnull List<WorkflowTask> tasks) {
+    public void setTasks(@jakarta.annotation.Nonnull List<WorkflowTask> tasks) {
         this.tasks = tasks;
     }
 

@@ -30,28 +30,28 @@ import java.util.Objects;
 /**
  * Extensible project defaults using map/dictionary pattern.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProjectModelDefaults {
     public static final String SERIALIZED_NAME_BASE = "base";
 
     @SerializedName(SERIALIZED_NAME_BASE)
-    @javax.annotation.Nullable private ModelDefault base;
+    @jakarta.annotation.Nullable private ModelDefault base;
 
     public static final String SERIALIZED_NAME_MODALITY = "modality";
 
     @SerializedName(SERIALIZED_NAME_MODALITY)
-    @javax.annotation.Nullable private ModalityDefaults modality;
+    @jakarta.annotation.Nullable private ModalityDefaults modality;
 
     public static final String SERIALIZED_NAME_SYSTEM = "system";
 
     @SerializedName(SERIALIZED_NAME_SYSTEM)
-    @javax.annotation.Nullable private SystemDefaults system;
+    @jakarta.annotation.Nullable private SystemDefaults system;
 
     public ProjectModelDefaults() {}
 
-    public ProjectModelDefaults base(@javax.annotation.Nullable ModelDefault base) {
+    public ProjectModelDefaults base(@jakarta.annotation.Nullable ModelDefault base) {
         this.base = base;
         return this;
     }
@@ -60,15 +60,15 @@ public class ProjectModelDefaults {
      * Base default model - used when no other default applies
      * @return base
      */
-    @javax.annotation.Nullable public ModelDefault getBase() {
+    @jakarta.annotation.Nullable public ModelDefault getBase() {
         return base;
     }
 
-    public void setBase(@javax.annotation.Nullable ModelDefault base) {
+    public void setBase(@jakarta.annotation.Nullable ModelDefault base) {
         this.base = base;
     }
 
-    public ProjectModelDefaults modality(@javax.annotation.Nullable ModalityDefaults modality) {
+    public ProjectModelDefaults modality(@jakarta.annotation.Nullable ModalityDefaults modality) {
         this.modality = modality;
         return this;
     }
@@ -77,15 +77,15 @@ public class ProjectModelDefaults {
      * Modality-based overrides (image, video) - override base when specific input modalities detected
      * @return modality
      */
-    @javax.annotation.Nullable public ModalityDefaults getModality() {
+    @jakarta.annotation.Nullable public ModalityDefaults getModality() {
         return modality;
     }
 
-    public void setModality(@javax.annotation.Nullable ModalityDefaults modality) {
+    public void setModality(@jakarta.annotation.Nullable ModalityDefaults modality) {
         this.modality = modality;
     }
 
-    public ProjectModelDefaults system(@javax.annotation.Nullable SystemDefaults system) {
+    public ProjectModelDefaults system(@jakarta.annotation.Nullable SystemDefaults system) {
         this.system = system;
         return this;
     }
@@ -94,11 +94,11 @@ public class ProjectModelDefaults {
      * System interaction category defaults
      * @return system
      */
-    @javax.annotation.Nullable public SystemDefaults getSystem() {
+    @jakarta.annotation.Nullable public SystemDefaults getSystem() {
         return system;
     }
 
-    public void setSystem(@javax.annotation.Nullable SystemDefaults system) {
+    public void setSystem(@jakarta.annotation.Nullable SystemDefaults system) {
         this.system = system;
     }
 

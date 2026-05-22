@@ -33,40 +33,40 @@ import java.util.Objects;
 /**
  * Named SQL query that maps to a Vega data source. Supports parameterized SQL with {{param_name}} placeholders.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DashboardQuery {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_SQL = "sql";
 
     @SerializedName(SERIALIZED_NAME_SQL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String sql;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nullable private BigDecimal limit;
+    @jakarta.annotation.Nullable private BigDecimal limit;
 
     public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
 
     @SerializedName(SERIALIZED_NAME_PARAMETERS)
-    @javax.annotation.Nullable private Map<String, String> parameters;
+    @jakarta.annotation.Nullable private Map<String, String> parameters;
 
     public DashboardQuery() {}
 
-    public DashboardQuery name(@javax.annotation.Nonnull String name) {
+    public DashboardQuery name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -75,16 +75,16 @@ public class DashboardQuery {
      * Query name (used as data source reference in Vega specs)
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public DashboardQuery sql(@javax.annotation.Nonnull String sql) {
+    public DashboardQuery sql(@jakarta.annotation.Nonnull String sql) {
         this.sql = sql;
         return this;
     }
@@ -93,16 +93,16 @@ public class DashboardQuery {
      * SQL query (SELECT only). Can include {{param_name}} placeholders for dynamic values.
      * @return sql
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSql() {
         return sql;
     }
 
-    public void setSql(@javax.annotation.Nonnull String sql) {
+    public void setSql(@jakarta.annotation.Nonnull String sql) {
         this.sql = sql;
     }
 
-    public DashboardQuery description(@javax.annotation.Nullable String description) {
+    public DashboardQuery description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -111,15 +111,15 @@ public class DashboardQuery {
      * Human-readable description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public DashboardQuery limit(@javax.annotation.Nullable BigDecimal limit) {
+    public DashboardQuery limit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -128,15 +128,15 @@ public class DashboardQuery {
      * Maximum rows to return
      * @return limit
      */
-    @javax.annotation.Nullable public BigDecimal getLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nullable BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
     }
 
-    public DashboardQuery parameters(@javax.annotation.Nullable Map<String, String> parameters) {
+    public DashboardQuery parameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
         this.parameters = parameters;
         return this;
     }
@@ -153,11 +153,11 @@ public class DashboardQuery {
      * Default values for SQL parameters. Keys are parameter names (without braces).
      * @return parameters
      */
-    @javax.annotation.Nullable public Map<String, String> getParameters() {
+    @jakarta.annotation.Nullable public Map<String, String> getParameters() {
         return parameters;
     }
 
-    public void setParameters(@javax.annotation.Nullable Map<String, String> parameters) {
+    public void setParameters(@jakarta.annotation.Nullable Map<String, String> parameters) {
         this.parameters = parameters;
     }
 

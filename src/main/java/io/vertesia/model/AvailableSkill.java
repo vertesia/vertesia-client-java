@@ -30,24 +30,24 @@ import java.util.Objects;
 /**
  * Skill metadata collected at workflow start for upfront sandbox hydration
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AvailableSkill {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_SRC = "src";
 
     @SerializedName(SERIALIZED_NAME_SRC)
-    @javax.annotation.Nullable private String src;
+    @jakarta.annotation.Nullable private String src;
 
     public AvailableSkill() {}
 
-    public AvailableSkill name(@javax.annotation.Nonnull String name) {
+    public AvailableSkill name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -56,16 +56,16 @@ public class AvailableSkill {
      * Skill name (e.g., \&quot;analyze_data\&quot;) - without the \&quot;learn_\&quot; prefix
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public AvailableSkill src(@javax.annotation.Nullable String src) {
+    public AvailableSkill src(@jakarta.annotation.Nullable String src) {
         this.src = src;
         return this;
     }
@@ -74,11 +74,11 @@ public class AvailableSkill {
      * Source URL of the skill collection (e.g., \&quot;https://tools.vertesia.io/api/skills/data-analysis\&quot;). Undefined for interaction-based skills.
      * @return src
      */
-    @javax.annotation.Nullable public String getSrc() {
+    @jakarta.annotation.Nullable public String getSrc() {
         return src;
     }
 
-    public void setSrc(@javax.annotation.Nullable String src) {
+    public void setSrc(@jakarta.annotation.Nullable String src) {
         this.src = src;
     }
 

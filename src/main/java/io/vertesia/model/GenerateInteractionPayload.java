@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * GenerateInteractionPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GenerateInteractionPayload {
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String description;
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private InteractionExecutionConfiguration config;
 
     public GenerateInteractionPayload() {}
 
-    public GenerateInteractionPayload description(@javax.annotation.Nonnull String description) {
+    public GenerateInteractionPayload description(@jakarta.annotation.Nonnull String description) {
         this.description = description;
         return this;
     }
@@ -57,17 +57,17 @@ public class GenerateInteractionPayload {
      * Get description
      * @return description
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nonnull String description) {
+    public void setDescription(@jakarta.annotation.Nonnull String description) {
         this.description = description;
     }
 
     public GenerateInteractionPayload config(
-            @javax.annotation.Nonnull InteractionExecutionConfiguration config) {
+            @jakarta.annotation.Nonnull InteractionExecutionConfiguration config) {
         this.config = config;
         return this;
     }
@@ -76,12 +76,12 @@ public class GenerateInteractionPayload {
      * Get config
      * @return config
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public InteractionExecutionConfiguration getConfig() {
         return config;
     }
 
-    public void setConfig(@javax.annotation.Nonnull InteractionExecutionConfiguration config) {
+    public void setConfig(@jakarta.annotation.Nonnull InteractionExecutionConfiguration config) {
         this.config = config;
     }
 

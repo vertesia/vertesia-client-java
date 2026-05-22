@@ -33,34 +33,34 @@ import java.util.Objects;
 /**
  * AppInstallationPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AppInstallationPayload {
     public static final String SERIALIZED_NAME_APP_ID = "app_id";
 
     @SerializedName(SERIALIZED_NAME_APP_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String appId;
 
     public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
     @SerializedName(SERIALIZED_NAME_SETTINGS)
-    @javax.annotation.Nullable private Map<String, Object> settings = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> settings = new HashMap<>();
 
     public static final String SERIALIZED_NAME_OAUTH_PARAMS = "oauth_params";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_PARAMS)
-    @javax.annotation.Nullable private Map<String, OAuthClientCredentials> oauthParams;
+    @jakarta.annotation.Nullable private Map<String, OAuthClientCredentials> oauthParams;
 
     public static final String SERIALIZED_NAME_OAUTH_PROVIDER_PARAMS = "oauth_provider_params";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_PROVIDER_PARAMS)
-    @javax.annotation.Nullable private Map<String, OAuthClientCredentials> oauthProviderParams;
+    @jakarta.annotation.Nullable private Map<String, OAuthClientCredentials> oauthProviderParams;
 
     public AppInstallationPayload() {}
 
-    public AppInstallationPayload appId(@javax.annotation.Nonnull String appId) {
+    public AppInstallationPayload appId(@jakarta.annotation.Nonnull String appId) {
         this.appId = appId;
         return this;
     }
@@ -69,17 +69,17 @@ public class AppInstallationPayload {
      * Get appId
      * @return appId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAppId() {
         return appId;
     }
 
-    public void setAppId(@javax.annotation.Nonnull String appId) {
+    public void setAppId(@jakarta.annotation.Nonnull String appId) {
         this.appId = appId;
     }
 
     public AppInstallationPayload settings(
-            @javax.annotation.Nullable Map<String, Object> settings) {
+            @jakarta.annotation.Nullable Map<String, Object> settings) {
         this.settings = settings;
         return this;
     }
@@ -96,16 +96,16 @@ public class AppInstallationPayload {
      * Get settings
      * @return settings
      */
-    @javax.annotation.Nullable public Map<String, Object> getSettings() {
+    @jakarta.annotation.Nullable public Map<String, Object> getSettings() {
         return settings;
     }
 
-    public void setSettings(@javax.annotation.Nullable Map<String, Object> settings) {
+    public void setSettings(@jakarta.annotation.Nullable Map<String, Object> settings) {
         this.settings = settings;
     }
 
     public AppInstallationPayload oauthParams(
-            @javax.annotation.Nullable Map<String, OAuthClientCredentials> oauthParams) {
+            @jakarta.annotation.Nullable Map<String, OAuthClientCredentials> oauthParams) {
         this.oauthParams = oauthParams;
         return this;
     }
@@ -123,17 +123,17 @@ public class AppInstallationPayload {
      * OAuth credentials for each collection, keyed by collection.id. Legacy callers may still use collection.name for older manifests. Collected from the user at install time for collections with oauth_config.required_at_install.
      * @return oauthParams
      */
-    @javax.annotation.Nullable public Map<String, OAuthClientCredentials> getOauthParams() {
+    @jakarta.annotation.Nullable public Map<String, OAuthClientCredentials> getOauthParams() {
         return oauthParams;
     }
 
     public void setOauthParams(
-            @javax.annotation.Nullable Map<String, OAuthClientCredentials> oauthParams) {
+            @jakarta.annotation.Nullable Map<String, OAuthClientCredentials> oauthParams) {
         this.oauthParams = oauthParams;
     }
 
     public AppInstallationPayload oauthProviderParams(
-            @javax.annotation.Nullable Map<String, OAuthClientCredentials> oauthProviderParams) {
+            @jakarta.annotation.Nullable Map<String, OAuthClientCredentials> oauthProviderParams) {
         this.oauthProviderParams = oauthProviderParams;
         return this;
     }
@@ -151,12 +151,12 @@ public class AppInstallationPayload {
      * OAuth credentials for named providers, keyed by the provider key from oauth_providers. Collected from the user at install time for providers with required_at_install. Separate from oauth_params to avoid key collisions between provider keys and collection ids.
      * @return oauthProviderParams
      */
-    @javax.annotation.Nullable public Map<String, OAuthClientCredentials> getOauthProviderParams() {
+    @jakarta.annotation.Nullable public Map<String, OAuthClientCredentials> getOauthProviderParams() {
         return oauthProviderParams;
     }
 
     public void setOauthProviderParams(
-            @javax.annotation.Nullable Map<String, OAuthClientCredentials> oauthProviderParams) {
+            @jakarta.annotation.Nullable Map<String, OAuthClientCredentials> oauthProviderParams) {
         this.oauthProviderParams = oauthProviderParams;
     }
 

@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * OkBoolean
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OkBoolean {
     public static final String SERIALIZED_NAME_OK = "ok";
 
     @SerializedName(SERIALIZED_NAME_OK)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean ok;
 
     public OkBoolean() {}
 
-    public OkBoolean ok(@javax.annotation.Nonnull Boolean ok) {
+    public OkBoolean ok(@jakarta.annotation.Nonnull Boolean ok) {
         this.ok = ok;
         return this;
     }
@@ -51,12 +51,12 @@ public class OkBoolean {
      * Get ok
      * @return ok
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getOk() {
         return ok;
     }
 
-    public void setOk(@javax.annotation.Nonnull Boolean ok) {
+    public void setOk(@jakarta.annotation.Nonnull Boolean ok) {
         this.ok = ok;
     }
 

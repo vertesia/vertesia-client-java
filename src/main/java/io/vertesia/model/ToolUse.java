@@ -32,35 +32,35 @@ import java.util.Objects;
 /**
  * A tool use instance represents a call to a tool. The id property is used to identify the tool call.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ToolUse {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_TOOL_NAME = "tool_name";
 
     @SerializedName(SERIALIZED_NAME_TOOL_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String toolName;
 
     public static final String SERIALIZED_NAME_TOOL_INPUT = "tool_input";
 
     @SerializedName(SERIALIZED_NAME_TOOL_INPUT)
-    @javax.annotation.Nullable private Map<String, Object> toolInput;
+    @jakarta.annotation.Nullable private Map<String, Object> toolInput;
 
     public static final String SERIALIZED_NAME_THOUGHT_SIGNATURE = "thought_signature";
 
     @SerializedName(SERIALIZED_NAME_THOUGHT_SIGNATURE)
-    @javax.annotation.Nullable private String thoughtSignature;
+    @jakarta.annotation.Nullable private String thoughtSignature;
 
     public ToolUse() {}
 
-    public ToolUse id(@javax.annotation.Nonnull String id) {
+    public ToolUse id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -69,16 +69,16 @@ public class ToolUse {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public ToolUse toolName(@javax.annotation.Nonnull String toolName) {
+    public ToolUse toolName(@jakarta.annotation.Nonnull String toolName) {
         this.toolName = toolName;
         return this;
     }
@@ -87,16 +87,16 @@ public class ToolUse {
      * Get toolName
      * @return toolName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getToolName() {
         return toolName;
     }
 
-    public void setToolName(@javax.annotation.Nonnull String toolName) {
+    public void setToolName(@jakarta.annotation.Nonnull String toolName) {
         this.toolName = toolName;
     }
 
-    public ToolUse toolInput(@javax.annotation.Nullable Map<String, Object> toolInput) {
+    public ToolUse toolInput(@jakarta.annotation.Nullable Map<String, Object> toolInput) {
         this.toolInput = toolInput;
         return this;
     }
@@ -113,15 +113,15 @@ public class ToolUse {
      * Get toolInput
      * @return toolInput
      */
-    @javax.annotation.Nullable public Map<String, Object> getToolInput() {
+    @jakarta.annotation.Nullable public Map<String, Object> getToolInput() {
         return toolInput;
     }
 
-    public void setToolInput(@javax.annotation.Nullable Map<String, Object> toolInput) {
+    public void setToolInput(@jakarta.annotation.Nullable Map<String, Object> toolInput) {
         this.toolInput = toolInput;
     }
 
-    public ToolUse thoughtSignature(@javax.annotation.Nullable String thoughtSignature) {
+    public ToolUse thoughtSignature(@jakarta.annotation.Nullable String thoughtSignature) {
         this.thoughtSignature = thoughtSignature;
         return this;
     }
@@ -130,11 +130,11 @@ public class ToolUse {
      * Gemini thinking models require thought_signature to be passed back with tool results. This preserves the model&#39;s reasoning state during multi-turn tool use.
      * @return thoughtSignature
      */
-    @javax.annotation.Nullable public String getThoughtSignature() {
+    @jakarta.annotation.Nullable public String getThoughtSignature() {
         return thoughtSignature;
     }
 
-    public void setThoughtSignature(@javax.annotation.Nullable String thoughtSignature) {
+    public void setThoughtSignature(@jakarta.annotation.Nullable String thoughtSignature) {
         this.thoughtSignature = thoughtSignature;
     }
 

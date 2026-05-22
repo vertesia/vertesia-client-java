@@ -34,18 +34,18 @@ import java.util.Objects;
 /**
  * ComputedFacetResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ComputedFacetResponse {
     public static final String SERIALIZED_NAME_TOTAL = "total";
 
     @SerializedName(SERIALIZED_NAME_TOTAL)
-    @javax.annotation.Nullable private BigDecimal total;
+    @jakarta.annotation.Nullable private BigDecimal total;
 
     public ComputedFacetResponse() {}
 
-    public ComputedFacetResponse total(@javax.annotation.Nullable BigDecimal total) {
+    public ComputedFacetResponse total(@jakarta.annotation.Nullable BigDecimal total) {
         this.total = total;
         return this;
     }
@@ -54,11 +54,11 @@ public class ComputedFacetResponse {
      * Get total
      * @return total
      */
-    @javax.annotation.Nullable public BigDecimal getTotal() {
+    @jakarta.annotation.Nullable public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(@javax.annotation.Nullable BigDecimal total) {
+    public void setTotal(@jakarta.annotation.Nullable BigDecimal total) {
         this.total = total;
     }
 

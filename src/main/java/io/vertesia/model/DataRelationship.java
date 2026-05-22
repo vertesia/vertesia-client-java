@@ -30,54 +30,54 @@ import java.util.Objects;
 /**
  * Semantic relationship between tables for AI understanding.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataRelationship {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_FROM_TABLE = "from_table";
 
     @SerializedName(SERIALIZED_NAME_FROM_TABLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String fromTable;
 
     public static final String SERIALIZED_NAME_FROM_COLUMN = "from_column";
 
     @SerializedName(SERIALIZED_NAME_FROM_COLUMN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String fromColumn;
 
     public static final String SERIALIZED_NAME_TO_TABLE = "to_table";
 
     @SerializedName(SERIALIZED_NAME_TO_TABLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String toTable;
 
     public static final String SERIALIZED_NAME_TO_COLUMN = "to_column";
 
     @SerializedName(SERIALIZED_NAME_TO_COLUMN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String toColumn;
 
     public static final String SERIALIZED_NAME_RELATIONSHIP_TYPE = "relationship_type";
 
     @SerializedName(SERIALIZED_NAME_RELATIONSHIP_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DataRelationshipType relationshipType;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public DataRelationship() {}
 
-    public DataRelationship name(@javax.annotation.Nonnull String name) {
+    public DataRelationship name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -86,16 +86,16 @@ public class DataRelationship {
      * Relationship name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public DataRelationship fromTable(@javax.annotation.Nonnull String fromTable) {
+    public DataRelationship fromTable(@jakarta.annotation.Nonnull String fromTable) {
         this.fromTable = fromTable;
         return this;
     }
@@ -104,16 +104,16 @@ public class DataRelationship {
      * Source table
      * @return fromTable
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getFromTable() {
         return fromTable;
     }
 
-    public void setFromTable(@javax.annotation.Nonnull String fromTable) {
+    public void setFromTable(@jakarta.annotation.Nonnull String fromTable) {
         this.fromTable = fromTable;
     }
 
-    public DataRelationship fromColumn(@javax.annotation.Nonnull String fromColumn) {
+    public DataRelationship fromColumn(@jakarta.annotation.Nonnull String fromColumn) {
         this.fromColumn = fromColumn;
         return this;
     }
@@ -122,16 +122,16 @@ public class DataRelationship {
      * Source column
      * @return fromColumn
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getFromColumn() {
         return fromColumn;
     }
 
-    public void setFromColumn(@javax.annotation.Nonnull String fromColumn) {
+    public void setFromColumn(@jakarta.annotation.Nonnull String fromColumn) {
         this.fromColumn = fromColumn;
     }
 
-    public DataRelationship toTable(@javax.annotation.Nonnull String toTable) {
+    public DataRelationship toTable(@jakarta.annotation.Nonnull String toTable) {
         this.toTable = toTable;
         return this;
     }
@@ -140,16 +140,16 @@ public class DataRelationship {
      * Target table
      * @return toTable
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getToTable() {
         return toTable;
     }
 
-    public void setToTable(@javax.annotation.Nonnull String toTable) {
+    public void setToTable(@jakarta.annotation.Nonnull String toTable) {
         this.toTable = toTable;
     }
 
-    public DataRelationship toColumn(@javax.annotation.Nonnull String toColumn) {
+    public DataRelationship toColumn(@jakarta.annotation.Nonnull String toColumn) {
         this.toColumn = toColumn;
         return this;
     }
@@ -158,17 +158,17 @@ public class DataRelationship {
      * Target column
      * @return toColumn
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getToColumn() {
         return toColumn;
     }
 
-    public void setToColumn(@javax.annotation.Nonnull String toColumn) {
+    public void setToColumn(@jakarta.annotation.Nonnull String toColumn) {
         this.toColumn = toColumn;
     }
 
     public DataRelationship relationshipType(
-            @javax.annotation.Nonnull DataRelationshipType relationshipType) {
+            @jakarta.annotation.Nonnull DataRelationshipType relationshipType) {
         this.relationshipType = relationshipType;
         return this;
     }
@@ -177,17 +177,17 @@ public class DataRelationship {
      * Relationship cardinality
      * @return relationshipType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DataRelationshipType getRelationshipType() {
         return relationshipType;
     }
 
     public void setRelationshipType(
-            @javax.annotation.Nonnull DataRelationshipType relationshipType) {
+            @jakarta.annotation.Nonnull DataRelationshipType relationshipType) {
         this.relationshipType = relationshipType;
     }
 
-    public DataRelationship description(@javax.annotation.Nullable String description) {
+    public DataRelationship description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -196,11 +196,11 @@ public class DataRelationship {
      * Human-readable description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 

@@ -30,33 +30,33 @@ import java.util.Objects;
 /**
  * Error information from failed workflow events
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EventError {
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nullable private String message;
+    @jakarta.annotation.Nullable private String message;
 
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nullable private String source;
+    @jakarta.annotation.Nullable private String source;
 
     public static final String SERIALIZED_NAME_STACKTRACE = "stacktrace";
 
     @SerializedName(SERIALIZED_NAME_STACKTRACE)
-    @javax.annotation.Nullable private String stacktrace;
+    @jakarta.annotation.Nullable private String stacktrace;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private String type;
+    @jakarta.annotation.Nullable private String type;
 
     public EventError() {}
 
-    public EventError message(@javax.annotation.Nullable String message) {
+    public EventError message(@jakarta.annotation.Nullable String message) {
         this.message = message;
         return this;
     }
@@ -65,15 +65,15 @@ public class EventError {
      * Get message
      * @return message
      */
-    @javax.annotation.Nullable public String getMessage() {
+    @jakarta.annotation.Nullable public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nullable String message) {
+    public void setMessage(@jakarta.annotation.Nullable String message) {
         this.message = message;
     }
 
-    public EventError source(@javax.annotation.Nullable String source) {
+    public EventError source(@jakarta.annotation.Nullable String source) {
         this.source = source;
         return this;
     }
@@ -82,15 +82,15 @@ public class EventError {
      * Get source
      * @return source
      */
-    @javax.annotation.Nullable public String getSource() {
+    @jakarta.annotation.Nullable public String getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nullable String source) {
+    public void setSource(@jakarta.annotation.Nullable String source) {
         this.source = source;
     }
 
-    public EventError stacktrace(@javax.annotation.Nullable String stacktrace) {
+    public EventError stacktrace(@jakarta.annotation.Nullable String stacktrace) {
         this.stacktrace = stacktrace;
         return this;
     }
@@ -99,15 +99,15 @@ public class EventError {
      * Get stacktrace
      * @return stacktrace
      */
-    @javax.annotation.Nullable public String getStacktrace() {
+    @jakarta.annotation.Nullable public String getStacktrace() {
         return stacktrace;
     }
 
-    public void setStacktrace(@javax.annotation.Nullable String stacktrace) {
+    public void setStacktrace(@jakarta.annotation.Nullable String stacktrace) {
         this.stacktrace = stacktrace;
     }
 
-    public EventError type(@javax.annotation.Nullable String type) {
+    public EventError type(@jakarta.annotation.Nullable String type) {
         this.type = type;
         return this;
     }
@@ -116,11 +116,11 @@ public class EventError {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public String getType() {
+    @jakarta.annotation.Nullable public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable String type) {
+    public void setType(@jakarta.annotation.Nullable String type) {
         this.type = type;
     }
 

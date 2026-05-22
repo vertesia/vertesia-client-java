@@ -34,32 +34,32 @@ import java.util.Objects;
 /**
  * Import job tracking.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ImportJob {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_STORE_ID = "store_id";
 
     @SerializedName(SERIALIZED_NAME_STORE_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String storeId;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ImportStatus status;
 
     public static final String SERIALIZED_NAME_TABLES = "tables";
 
     @SerializedName(SERIALIZED_NAME_TABLES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> tables = new ArrayList<>();
 
     /**
@@ -120,49 +120,49 @@ public class ImportJob {
     public static final String SERIALIZED_NAME_MODE = "mode";
 
     @SerializedName(SERIALIZED_NAME_MODE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ModeEnum mode;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nullable private String message;
+    @jakarta.annotation.Nullable private String message;
 
     public static final String SERIALIZED_NAME_ERROR = "error";
 
     @SerializedName(SERIALIZED_NAME_ERROR)
-    @javax.annotation.Nullable private String error;
+    @jakarta.annotation.Nullable private String error;
 
     public static final String SERIALIZED_NAME_ROWS_IMPORTED = "rows_imported";
 
     @SerializedName(SERIALIZED_NAME_ROWS_IMPORTED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal rowsImported;
 
     public static final String SERIALIZED_NAME_STARTED_AT = "started_at";
 
     @SerializedName(SERIALIZED_NAME_STARTED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String startedAt;
 
     public static final String SERIALIZED_NAME_COMPLETED_AT = "completed_at";
 
     @SerializedName(SERIALIZED_NAME_COMPLETED_AT)
-    @javax.annotation.Nullable private String completedAt;
+    @jakarta.annotation.Nullable private String completedAt;
 
     public static final String SERIALIZED_NAME_VERSION_ID = "version_id";
 
     @SerializedName(SERIALIZED_NAME_VERSION_ID)
-    @javax.annotation.Nullable private String versionId;
+    @jakarta.annotation.Nullable private String versionId;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nullable private String createdBy;
+    @jakarta.annotation.Nullable private String createdBy;
 
     public ImportJob() {}
 
-    public ImportJob id(@javax.annotation.Nonnull String id) {
+    public ImportJob id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -171,16 +171,16 @@ public class ImportJob {
      * Job ID
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public ImportJob storeId(@javax.annotation.Nonnull String storeId) {
+    public ImportJob storeId(@jakarta.annotation.Nonnull String storeId) {
         this.storeId = storeId;
         return this;
     }
@@ -189,16 +189,16 @@ public class ImportJob {
      * Parent store ID
      * @return storeId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStoreId() {
         return storeId;
     }
 
-    public void setStoreId(@javax.annotation.Nonnull String storeId) {
+    public void setStoreId(@jakarta.annotation.Nonnull String storeId) {
         this.storeId = storeId;
     }
 
-    public ImportJob status(@javax.annotation.Nonnull ImportStatus status) {
+    public ImportJob status(@jakarta.annotation.Nonnull ImportStatus status) {
         this.status = status;
         return this;
     }
@@ -207,16 +207,16 @@ public class ImportJob {
      * Current status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ImportStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull ImportStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull ImportStatus status) {
         this.status = status;
     }
 
-    public ImportJob tables(@javax.annotation.Nonnull List<String> tables) {
+    public ImportJob tables(@jakarta.annotation.Nonnull List<String> tables) {
         this.tables = tables;
         return this;
     }
@@ -233,16 +233,16 @@ public class ImportJob {
      * Tables being imported
      * @return tables
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getTables() {
         return tables;
     }
 
-    public void setTables(@javax.annotation.Nonnull List<String> tables) {
+    public void setTables(@jakarta.annotation.Nonnull List<String> tables) {
         this.tables = tables;
     }
 
-    public ImportJob mode(@javax.annotation.Nonnull ModeEnum mode) {
+    public ImportJob mode(@jakarta.annotation.Nonnull ModeEnum mode) {
         this.mode = mode;
         return this;
     }
@@ -251,16 +251,16 @@ public class ImportJob {
      * Import mode
      * @return mode
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ModeEnum getMode() {
         return mode;
     }
 
-    public void setMode(@javax.annotation.Nonnull ModeEnum mode) {
+    public void setMode(@jakarta.annotation.Nonnull ModeEnum mode) {
         this.mode = mode;
     }
 
-    public ImportJob message(@javax.annotation.Nullable String message) {
+    public ImportJob message(@jakarta.annotation.Nullable String message) {
         this.message = message;
         return this;
     }
@@ -269,15 +269,15 @@ public class ImportJob {
      * Commit message
      * @return message
      */
-    @javax.annotation.Nullable public String getMessage() {
+    @jakarta.annotation.Nullable public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nullable String message) {
+    public void setMessage(@jakarta.annotation.Nullable String message) {
         this.message = message;
     }
 
-    public ImportJob error(@javax.annotation.Nullable String error) {
+    public ImportJob error(@jakarta.annotation.Nullable String error) {
         this.error = error;
         return this;
     }
@@ -286,15 +286,15 @@ public class ImportJob {
      * Error message (if failed)
      * @return error
      */
-    @javax.annotation.Nullable public String getError() {
+    @jakarta.annotation.Nullable public String getError() {
         return error;
     }
 
-    public void setError(@javax.annotation.Nullable String error) {
+    public void setError(@jakarta.annotation.Nullable String error) {
         this.error = error;
     }
 
-    public ImportJob rowsImported(@javax.annotation.Nonnull BigDecimal rowsImported) {
+    public ImportJob rowsImported(@jakarta.annotation.Nonnull BigDecimal rowsImported) {
         this.rowsImported = rowsImported;
         return this;
     }
@@ -303,16 +303,16 @@ public class ImportJob {
      * Total rows imported
      * @return rowsImported
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getRowsImported() {
         return rowsImported;
     }
 
-    public void setRowsImported(@javax.annotation.Nonnull BigDecimal rowsImported) {
+    public void setRowsImported(@jakarta.annotation.Nonnull BigDecimal rowsImported) {
         this.rowsImported = rowsImported;
     }
 
-    public ImportJob startedAt(@javax.annotation.Nonnull String startedAt) {
+    public ImportJob startedAt(@jakarta.annotation.Nonnull String startedAt) {
         this.startedAt = startedAt;
         return this;
     }
@@ -321,16 +321,16 @@ public class ImportJob {
      * Job start timestamp
      * @return startedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStartedAt() {
         return startedAt;
     }
 
-    public void setStartedAt(@javax.annotation.Nonnull String startedAt) {
+    public void setStartedAt(@jakarta.annotation.Nonnull String startedAt) {
         this.startedAt = startedAt;
     }
 
-    public ImportJob completedAt(@javax.annotation.Nullable String completedAt) {
+    public ImportJob completedAt(@jakarta.annotation.Nullable String completedAt) {
         this.completedAt = completedAt;
         return this;
     }
@@ -339,15 +339,15 @@ public class ImportJob {
      * Job completion timestamp
      * @return completedAt
      */
-    @javax.annotation.Nullable public String getCompletedAt() {
+    @jakarta.annotation.Nullable public String getCompletedAt() {
         return completedAt;
     }
 
-    public void setCompletedAt(@javax.annotation.Nullable String completedAt) {
+    public void setCompletedAt(@jakarta.annotation.Nullable String completedAt) {
         this.completedAt = completedAt;
     }
 
-    public ImportJob versionId(@javax.annotation.Nullable String versionId) {
+    public ImportJob versionId(@jakarta.annotation.Nullable String versionId) {
         this.versionId = versionId;
         return this;
     }
@@ -356,15 +356,15 @@ public class ImportJob {
      * Resulting version ID (if completed)
      * @return versionId
      */
-    @javax.annotation.Nullable public String getVersionId() {
+    @jakarta.annotation.Nullable public String getVersionId() {
         return versionId;
     }
 
-    public void setVersionId(@javax.annotation.Nullable String versionId) {
+    public void setVersionId(@jakarta.annotation.Nullable String versionId) {
         this.versionId = versionId;
     }
 
-    public ImportJob createdBy(@javax.annotation.Nullable String createdBy) {
+    public ImportJob createdBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -373,11 +373,11 @@ public class ImportJob {
      * User/agent who initiated
      * @return createdBy
      */
-    @javax.annotation.Nullable public String getCreatedBy() {
+    @jakarta.annotation.Nullable public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
     }
 

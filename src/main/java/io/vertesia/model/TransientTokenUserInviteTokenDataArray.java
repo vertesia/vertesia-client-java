@@ -31,42 +31,42 @@ import java.util.Objects;
 /**
  * TransientTokenUserInviteTokenDataArray
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class TransientTokenUserInviteTokenDataArray {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_EXPIRES = "expires";
 
     @SerializedName(SERIALIZED_NAME_EXPIRES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime expires;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nullable private String account;
+    @jakarta.annotation.Nullable private String account;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime updatedAt;
 
     public TransientTokenUserInviteTokenDataArray() {}
 
-    public TransientTokenUserInviteTokenDataArray id(@javax.annotation.Nonnull String id) {
+    public TransientTokenUserInviteTokenDataArray id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -75,17 +75,17 @@ public class TransientTokenUserInviteTokenDataArray {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
     public TransientTokenUserInviteTokenDataArray expires(
-            @javax.annotation.Nonnull OffsetDateTime expires) {
+            @jakarta.annotation.Nonnull OffsetDateTime expires) {
         this.expires = expires;
         return this;
     }
@@ -94,17 +94,17 @@ public class TransientTokenUserInviteTokenDataArray {
      * Get expires
      * @return expires
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getExpires() {
         return expires;
     }
 
-    public void setExpires(@javax.annotation.Nonnull OffsetDateTime expires) {
+    public void setExpires(@jakarta.annotation.Nonnull OffsetDateTime expires) {
         this.expires = expires;
     }
 
     public TransientTokenUserInviteTokenDataArray account(
-            @javax.annotation.Nullable String account) {
+            @jakarta.annotation.Nullable String account) {
         this.account = account;
         return this;
     }
@@ -113,16 +113,16 @@ public class TransientTokenUserInviteTokenDataArray {
      * Get account
      * @return account
      */
-    @javax.annotation.Nullable public String getAccount() {
+    @jakarta.annotation.Nullable public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nullable String account) {
+    public void setAccount(@jakarta.annotation.Nullable String account) {
         this.account = account;
     }
 
     public TransientTokenUserInviteTokenDataArray createdAt(
-            @javax.annotation.Nonnull OffsetDateTime createdAt) {
+            @jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -131,17 +131,17 @@ public class TransientTokenUserInviteTokenDataArray {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
     public TransientTokenUserInviteTokenDataArray updatedAt(
-            @javax.annotation.Nonnull OffsetDateTime updatedAt) {
+            @jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -150,12 +150,12 @@ public class TransientTokenUserInviteTokenDataArray {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 

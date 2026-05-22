@@ -91,7 +91,8 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call copyProjectFileCall(
-            @javax.annotation.Nonnull CopyFilePayload copyFilePayload, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull CopyFilePayload copyFilePayload,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -147,7 +148,8 @@ public class FilesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call copyProjectFileValidateBeforeCall(
-            @javax.annotation.Nonnull CopyFilePayload copyFilePayload, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull CopyFilePayload copyFilePayload,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'copyFilePayload' is set
         if (copyFilePayload == null) {
@@ -174,7 +176,7 @@ public class FilesApi {
      * </table>
      */
     public CopyFileResponse copyProjectFile(
-            @javax.annotation.Nonnull CopyFilePayload copyFilePayload) throws ApiException {
+            @jakarta.annotation.Nonnull CopyFilePayload copyFilePayload) throws ApiException {
         ApiResponse<CopyFileResponse> localVarResp = copyProjectFileWithHttpInfo(copyFilePayload);
         return localVarResp.getData();
     }
@@ -195,7 +197,7 @@ public class FilesApi {
      * </table>
      */
     public ApiResponse<CopyFileResponse> copyProjectFileWithHttpInfo(
-            @javax.annotation.Nonnull CopyFilePayload copyFilePayload) throws ApiException {
+            @jakarta.annotation.Nonnull CopyFilePayload copyFilePayload) throws ApiException {
         okhttp3.Call localVarCall = copyProjectFileValidateBeforeCall(copyFilePayload, null);
         Type localVarReturnType = new TypeToken<CopyFileResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -218,7 +220,7 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call copyProjectFileAsync(
-            @javax.annotation.Nonnull CopyFilePayload copyFilePayload,
+            @jakarta.annotation.Nonnull CopyFilePayload copyFilePayload,
             final ApiCallback<CopyFileResponse> _callback)
             throws ApiException {
 
@@ -245,8 +247,8 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call deleteProjectFileCall(
-            @javax.annotation.Nonnull String path,
-            @javax.annotation.Nullable Boolean prefix,
+            @jakarta.annotation.Nonnull String path,
+            @jakarta.annotation.Nullable Boolean prefix,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -311,8 +313,8 @@ public class FilesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteProjectFileValidateBeforeCall(
-            @javax.annotation.Nonnull String path,
-            @javax.annotation.Nullable Boolean prefix,
+            @jakarta.annotation.Nonnull String path,
+            @jakarta.annotation.Nullable Boolean prefix,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'path' is set
@@ -341,7 +343,7 @@ public class FilesApi {
      * </table>
      */
     public DeleteFileResult deleteProjectFile(
-            @javax.annotation.Nonnull String path, @javax.annotation.Nullable Boolean prefix)
+            @jakarta.annotation.Nonnull String path, @jakarta.annotation.Nullable Boolean prefix)
             throws ApiException {
         ApiResponse<DeleteFileResult> localVarResp = deleteProjectFileWithHttpInfo(path, prefix);
         return localVarResp.getData();
@@ -364,7 +366,7 @@ public class FilesApi {
      * </table>
      */
     public ApiResponse<DeleteFileResult> deleteProjectFileWithHttpInfo(
-            @javax.annotation.Nonnull String path, @javax.annotation.Nullable Boolean prefix)
+            @jakarta.annotation.Nonnull String path, @jakarta.annotation.Nullable Boolean prefix)
             throws ApiException {
         okhttp3.Call localVarCall = deleteProjectFileValidateBeforeCall(path, prefix, null);
         Type localVarReturnType = new TypeToken<DeleteFileResult>() {}.getType();
@@ -389,8 +391,8 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call deleteProjectFileAsync(
-            @javax.annotation.Nonnull String path,
-            @javax.annotation.Nullable Boolean prefix,
+            @jakarta.annotation.Nonnull String path,
+            @jakarta.annotation.Nullable Boolean prefix,
             final ApiCallback<DeleteFileResult> _callback)
             throws ApiException {
 
@@ -554,7 +556,7 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call getBulkFileUploadUrlsCall(
-            @javax.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload,
+            @jakarta.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -611,7 +613,7 @@ public class FilesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getBulkFileUploadUrlsValidateBeforeCall(
-            @javax.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload,
+            @jakarta.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'bulkUploadUrlsPayload' is set
@@ -639,7 +641,7 @@ public class FilesApi {
      * </table>
      */
     public BulkUploadUrlsResponse getBulkFileUploadUrls(
-            @javax.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload)
+            @jakarta.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload)
             throws ApiException {
         ApiResponse<BulkUploadUrlsResponse> localVarResp =
                 getBulkFileUploadUrlsWithHttpInfo(bulkUploadUrlsPayload);
@@ -662,7 +664,7 @@ public class FilesApi {
      * </table>
      */
     public ApiResponse<BulkUploadUrlsResponse> getBulkFileUploadUrlsWithHttpInfo(
-            @javax.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload)
+            @jakarta.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getBulkFileUploadUrlsValidateBeforeCall(bulkUploadUrlsPayload, null);
@@ -687,7 +689,7 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call getBulkFileUploadUrlsAsync(
-            @javax.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload,
+            @jakarta.annotation.Nonnull BulkUploadUrlsPayload bulkUploadUrlsPayload,
             final ApiCallback<BulkUploadUrlsResponse> _callback)
             throws ApiException {
 
@@ -714,7 +716,7 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call getFileDownloadUrlCall(
-            @javax.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
+            @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -771,7 +773,7 @@ public class FilesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFileDownloadUrlValidateBeforeCall(
-            @javax.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
+            @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'getFileUrlPayload' is set
@@ -799,7 +801,7 @@ public class FilesApi {
      * </table>
      */
     public GetFileUrlResponse getFileDownloadUrl(
-            @javax.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) throws ApiException {
+            @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) throws ApiException {
         ApiResponse<GetFileUrlResponse> localVarResp =
                 getFileDownloadUrlWithHttpInfo(getFileUrlPayload);
         return localVarResp.getData();
@@ -821,7 +823,7 @@ public class FilesApi {
      * </table>
      */
     public ApiResponse<GetFileUrlResponse> getFileDownloadUrlWithHttpInfo(
-            @javax.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) throws ApiException {
+            @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) throws ApiException {
         okhttp3.Call localVarCall = getFileDownloadUrlValidateBeforeCall(getFileUrlPayload, null);
         Type localVarReturnType = new TypeToken<GetFileUrlResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -844,7 +846,7 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call getFileDownloadUrlAsync(
-            @javax.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
+            @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
             final ApiCallback<GetFileUrlResponse> _callback)
             throws ApiException {
 
@@ -871,7 +873,7 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call getFileMetadataCall(
-            @javax.annotation.Nonnull String _file, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String _file, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -931,7 +933,7 @@ public class FilesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFileMetadataValidateBeforeCall(
-            @javax.annotation.Nonnull String _file, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String _file, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter '_file' is set
         if (_file == null) {
@@ -957,7 +959,7 @@ public class FilesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public FileMetadataResponse getFileMetadata(@javax.annotation.Nonnull String _file)
+    public FileMetadataResponse getFileMetadata(@jakarta.annotation.Nonnull String _file)
             throws ApiException {
         ApiResponse<FileMetadataResponse> localVarResp = getFileMetadataWithHttpInfo(_file);
         return localVarResp.getData();
@@ -979,7 +981,7 @@ public class FilesApi {
      * </table>
      */
     public ApiResponse<FileMetadataResponse> getFileMetadataWithHttpInfo(
-            @javax.annotation.Nonnull String _file) throws ApiException {
+            @jakarta.annotation.Nonnull String _file) throws ApiException {
         okhttp3.Call localVarCall = getFileMetadataValidateBeforeCall(_file, null);
         Type localVarReturnType = new TypeToken<FileMetadataResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1002,7 +1004,7 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call getFileMetadataAsync(
-            @javax.annotation.Nonnull String _file,
+            @jakarta.annotation.Nonnull String _file,
             final ApiCallback<FileMetadataResponse> _callback)
             throws ApiException {
 
@@ -1028,7 +1030,7 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call getFileUploadUrlCall(
-            @javax.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
+            @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1085,7 +1087,7 @@ public class FilesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getFileUploadUrlValidateBeforeCall(
-            @javax.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
+            @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'getUploadUrlPayload' is set
@@ -1113,7 +1115,8 @@ public class FilesApi {
      * </table>
      */
     public GetFileUrlResponse getFileUploadUrl(
-            @javax.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload) throws ApiException {
+            @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload)
+            throws ApiException {
         ApiResponse<GetFileUrlResponse> localVarResp =
                 getFileUploadUrlWithHttpInfo(getUploadUrlPayload);
         return localVarResp.getData();
@@ -1135,7 +1138,8 @@ public class FilesApi {
      * </table>
      */
     public ApiResponse<GetFileUrlResponse> getFileUploadUrlWithHttpInfo(
-            @javax.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload) throws ApiException {
+            @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload)
+            throws ApiException {
         okhttp3.Call localVarCall = getFileUploadUrlValidateBeforeCall(getUploadUrlPayload, null);
         Type localVarReturnType = new TypeToken<GetFileUrlResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1158,7 +1162,7 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call getFileUploadUrlAsync(
-            @javax.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
+            @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
             final ApiCallback<GetFileUrlResponse> _callback)
             throws ApiException {
 
@@ -1185,7 +1189,7 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call listProjectFilesCall(
-            @javax.annotation.Nonnull String prefix, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String prefix, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1245,7 +1249,7 @@ public class FilesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProjectFilesValidateBeforeCall(
-            @javax.annotation.Nonnull String prefix, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String prefix, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'prefix' is set
         if (prefix == null) {
@@ -1271,7 +1275,7 @@ public class FilesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public FileListResponse listProjectFiles(@javax.annotation.Nonnull String prefix)
+    public FileListResponse listProjectFiles(@jakarta.annotation.Nonnull String prefix)
             throws ApiException {
         ApiResponse<FileListResponse> localVarResp = listProjectFilesWithHttpInfo(prefix);
         return localVarResp.getData();
@@ -1293,7 +1297,7 @@ public class FilesApi {
      * </table>
      */
     public ApiResponse<FileListResponse> listProjectFilesWithHttpInfo(
-            @javax.annotation.Nonnull String prefix) throws ApiException {
+            @jakarta.annotation.Nonnull String prefix) throws ApiException {
         okhttp3.Call localVarCall = listProjectFilesValidateBeforeCall(prefix, null);
         Type localVarReturnType = new TypeToken<FileListResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1316,7 +1320,8 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call listProjectFilesAsync(
-            @javax.annotation.Nonnull String prefix, final ApiCallback<FileListResponse> _callback)
+            @jakarta.annotation.Nonnull String prefix,
+            final ApiCallback<FileListResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listProjectFilesValidateBeforeCall(prefix, _callback);
@@ -1341,7 +1346,7 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call setFileMetadataCall(
-            @javax.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload,
+            @jakarta.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1398,7 +1403,7 @@ public class FilesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call setFileMetadataValidateBeforeCall(
-            @javax.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload,
+            @jakarta.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'setFileMetadataPayload' is set
@@ -1426,7 +1431,7 @@ public class FilesApi {
      * </table>
      */
     public FileMetadataUpdateResult setFileMetadata(
-            @javax.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload)
+            @jakarta.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload)
             throws ApiException {
         ApiResponse<FileMetadataUpdateResult> localVarResp =
                 setFileMetadataWithHttpInfo(setFileMetadataPayload);
@@ -1449,7 +1454,7 @@ public class FilesApi {
      * </table>
      */
     public ApiResponse<FileMetadataUpdateResult> setFileMetadataWithHttpInfo(
-            @javax.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload)
+            @jakarta.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload)
             throws ApiException {
         okhttp3.Call localVarCall = setFileMetadataValidateBeforeCall(setFileMetadataPayload, null);
         Type localVarReturnType = new TypeToken<FileMetadataUpdateResult>() {}.getType();
@@ -1473,7 +1478,7 @@ public class FilesApi {
      * </table>
      */
     public okhttp3.Call setFileMetadataAsync(
-            @javax.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload,
+            @jakarta.annotation.Nonnull SetFileMetadataPayload setFileMetadataPayload,
             final ApiCallback<FileMetadataUpdateResult> _callback)
             throws ApiException {
 

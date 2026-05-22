@@ -30,23 +30,23 @@ import java.util.Objects;
 /**
  * RetryProcessNodePayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RetryProcessNodePayload {
     public static final String SERIALIZED_NAME_NODE = "node";
 
     @SerializedName(SERIALIZED_NAME_NODE)
-    @javax.annotation.Nullable private String node;
+    @jakarta.annotation.Nullable private String node;
 
     public static final String SERIALIZED_NAME_REASON = "reason";
 
     @SerializedName(SERIALIZED_NAME_REASON)
-    @javax.annotation.Nullable private String reason;
+    @jakarta.annotation.Nullable private String reason;
 
     public RetryProcessNodePayload() {}
 
-    public RetryProcessNodePayload node(@javax.annotation.Nullable String node) {
+    public RetryProcessNodePayload node(@jakarta.annotation.Nullable String node) {
         this.node = node;
         return this;
     }
@@ -55,15 +55,15 @@ public class RetryProcessNodePayload {
      * Get node
      * @return node
      */
-    @javax.annotation.Nullable public String getNode() {
+    @jakarta.annotation.Nullable public String getNode() {
         return node;
     }
 
-    public void setNode(@javax.annotation.Nullable String node) {
+    public void setNode(@jakarta.annotation.Nullable String node) {
         this.node = node;
     }
 
-    public RetryProcessNodePayload reason(@javax.annotation.Nullable String reason) {
+    public RetryProcessNodePayload reason(@jakarta.annotation.Nullable String reason) {
         this.reason = reason;
         return this;
     }
@@ -72,11 +72,11 @@ public class RetryProcessNodePayload {
      * Get reason
      * @return reason
      */
-    @javax.annotation.Nullable public String getReason() {
+    @jakarta.annotation.Nullable public String getReason() {
         return reason;
     }
 
-    public void setReason(@javax.annotation.Nullable String reason) {
+    public void setReason(@jakarta.annotation.Nullable String reason) {
         this.reason = reason;
     }
 

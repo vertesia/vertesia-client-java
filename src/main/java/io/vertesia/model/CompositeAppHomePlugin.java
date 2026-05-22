@@ -30,24 +30,24 @@ import java.util.Objects;
 /**
  * CompositeAppHomePlugin
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppHomePlugin {
     public static final String SERIALIZED_NAME_APP_NAME = "appName";
 
     @SerializedName(SERIALIZED_NAME_APP_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String appName;
 
     public static final String SERIALIZED_NAME_APP_ROUTE = "appRoute";
 
     @SerializedName(SERIALIZED_NAME_APP_ROUTE)
-    @javax.annotation.Nullable private String appRoute;
+    @jakarta.annotation.Nullable private String appRoute;
 
     public CompositeAppHomePlugin() {}
 
-    public CompositeAppHomePlugin appName(@javax.annotation.Nonnull String appName) {
+    public CompositeAppHomePlugin appName(@jakarta.annotation.Nonnull String appName) {
         this.appName = appName;
         return this;
     }
@@ -56,16 +56,16 @@ public class CompositeAppHomePlugin {
      * The app name to use as the home page
      * @return appName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAppName() {
         return appName;
     }
 
-    public void setAppName(@javax.annotation.Nonnull String appName) {
+    public void setAppName(@jakarta.annotation.Nonnull String appName) {
         this.appName = appName;
     }
 
-    public CompositeAppHomePlugin appRoute(@javax.annotation.Nullable String appRoute) {
+    public CompositeAppHomePlugin appRoute(@jakarta.annotation.Nullable String appRoute) {
         this.appRoute = appRoute;
         return this;
     }
@@ -74,11 +74,11 @@ public class CompositeAppHomePlugin {
      * Optional route within the app (e.g. \&quot;/dashboard\&quot;). Defaults to \&quot;/\&quot;
      * @return appRoute
      */
-    @javax.annotation.Nullable public String getAppRoute() {
+    @jakarta.annotation.Nullable public String getAppRoute() {
         return appRoute;
     }
 
-    public void setAppRoute(@javax.annotation.Nullable String appRoute) {
+    public void setAppRoute(@jakarta.annotation.Nullable String appRoute) {
         this.appRoute = appRoute;
     }
 

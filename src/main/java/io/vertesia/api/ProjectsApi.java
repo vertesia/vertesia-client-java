@@ -97,7 +97,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call createProjectCall(
-            @javax.annotation.Nonnull ICreateProjectPayload icreateProjectPayload,
+            @jakarta.annotation.Nonnull ICreateProjectPayload icreateProjectPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -154,7 +154,7 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createProjectValidateBeforeCall(
-            @javax.annotation.Nonnull ICreateProjectPayload icreateProjectPayload,
+            @jakarta.annotation.Nonnull ICreateProjectPayload icreateProjectPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'icreateProjectPayload' is set
@@ -182,7 +182,7 @@ public class ProjectsApi {
      * </table>
      */
     public Project createProject(
-            @javax.annotation.Nonnull ICreateProjectPayload icreateProjectPayload)
+            @jakarta.annotation.Nonnull ICreateProjectPayload icreateProjectPayload)
             throws ApiException {
         ApiResponse<Project> localVarResp = createProjectWithHttpInfo(icreateProjectPayload);
         return localVarResp.getData();
@@ -204,7 +204,7 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<Project> createProjectWithHttpInfo(
-            @javax.annotation.Nonnull ICreateProjectPayload icreateProjectPayload)
+            @jakarta.annotation.Nonnull ICreateProjectPayload icreateProjectPayload)
             throws ApiException {
         okhttp3.Call localVarCall = createProjectValidateBeforeCall(icreateProjectPayload, null);
         Type localVarReturnType = new TypeToken<Project>() {}.getType();
@@ -228,7 +228,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call createProjectAsync(
-            @javax.annotation.Nonnull ICreateProjectPayload icreateProjectPayload,
+            @jakarta.annotation.Nonnull ICreateProjectPayload icreateProjectPayload,
             final ApiCallback<Project> _callback)
             throws ApiException {
 
@@ -255,7 +255,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call deleteProjectCall(
-            @javax.annotation.Nonnull String projectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -315,7 +315,7 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteProjectValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
@@ -341,7 +341,7 @@ public class ProjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteByIdResult deleteProject(@javax.annotation.Nonnull String projectId)
+    public DeleteByIdResult deleteProject(@jakarta.annotation.Nonnull String projectId)
             throws ApiException {
         ApiResponse<DeleteByIdResult> localVarResp = deleteProjectWithHttpInfo(projectId);
         return localVarResp.getData();
@@ -363,7 +363,7 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<DeleteByIdResult> deleteProjectWithHttpInfo(
-            @javax.annotation.Nonnull String projectId) throws ApiException {
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
         okhttp3.Call localVarCall = deleteProjectValidateBeforeCall(projectId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -386,7 +386,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call deleteProjectAsync(
-            @javax.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String projectId,
             final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
 
@@ -412,7 +412,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call getProjectCall(
-            @javax.annotation.Nonnull String projectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -472,7 +472,7 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProjectValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
@@ -498,7 +498,7 @@ public class ProjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public Project getProject(@javax.annotation.Nonnull String projectId) throws ApiException {
+    public Project getProject(@jakarta.annotation.Nonnull String projectId) throws ApiException {
         ApiResponse<Project> localVarResp = getProjectWithHttpInfo(projectId);
         return localVarResp.getData();
     }
@@ -518,7 +518,7 @@ public class ProjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<Project> getProjectWithHttpInfo(@javax.annotation.Nonnull String projectId)
+    public ApiResponse<Project> getProjectWithHttpInfo(@jakarta.annotation.Nonnull String projectId)
             throws ApiException {
         okhttp3.Call localVarCall = getProjectValidateBeforeCall(projectId, null);
         Type localVarReturnType = new TypeToken<Project>() {}.getType();
@@ -542,7 +542,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call getProjectAsync(
-            @javax.annotation.Nonnull String projectId, final ApiCallback<Project> _callback)
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback<Project> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getProjectValidateBeforeCall(projectId, _callback);
@@ -568,8 +568,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call getProjectAppProcessCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String processId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -633,8 +633,8 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProjectAppProcessValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String processId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -669,7 +669,8 @@ public class ProjectsApi {
      * </table>
      */
     public InCodeProcessDefinition getProjectAppProcess(
-            @javax.annotation.Nonnull String projectId, @javax.annotation.Nonnull String processId)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String processId)
             throws ApiException {
         ApiResponse<InCodeProcessDefinition> localVarResp =
                 getProjectAppProcessWithHttpInfo(projectId, processId);
@@ -693,7 +694,8 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<InCodeProcessDefinition> getProjectAppProcessWithHttpInfo(
-            @javax.annotation.Nonnull String projectId, @javax.annotation.Nonnull String processId)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String processId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getProjectAppProcessValidateBeforeCall(projectId, processId, null);
@@ -719,8 +721,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call getProjectAppProcessAsync(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String processId,
             final ApiCallback<InCodeProcessDefinition> _callback)
             throws ApiException {
 
@@ -748,8 +750,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call getProjectAppTemplateCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String templateId,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String templateId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -813,8 +815,8 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProjectAppTemplateValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String templateId,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String templateId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -849,7 +851,8 @@ public class ProjectsApi {
      * </table>
      */
     public RenderingTemplateDefinition getProjectAppTemplate(
-            @javax.annotation.Nonnull String projectId, @javax.annotation.Nonnull String templateId)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String templateId)
             throws ApiException {
         ApiResponse<RenderingTemplateDefinition> localVarResp =
                 getProjectAppTemplateWithHttpInfo(projectId, templateId);
@@ -873,7 +876,8 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<RenderingTemplateDefinition> getProjectAppTemplateWithHttpInfo(
-            @javax.annotation.Nonnull String projectId, @javax.annotation.Nonnull String templateId)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String templateId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getProjectAppTemplateValidateBeforeCall(projectId, templateId, null);
@@ -899,8 +903,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call getProjectAppTemplateAsync(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String templateId,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String templateId,
             final ApiCallback<RenderingTemplateDefinition> _callback)
             throws ApiException {
 
@@ -928,8 +932,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call getProjectAppTypeCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String typeId,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String typeId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -993,8 +997,8 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProjectAppTypeValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String typeId,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String typeId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -1031,8 +1035,8 @@ public class ProjectsApi {
     public
     PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode
             getProjectAppType(
-                    @javax.annotation.Nonnull String projectId,
-                    @javax.annotation.Nonnull String typeId)
+                    @jakarta.annotation.Nonnull String projectId,
+                    @jakarta.annotation.Nonnull String typeId)
                     throws ApiException {
         ApiResponse<
                         PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>
@@ -1059,8 +1063,8 @@ public class ProjectsApi {
     public ApiResponse<
                     PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>
             getProjectAppTypeWithHttpInfo(
-                    @javax.annotation.Nonnull String projectId,
-                    @javax.annotation.Nonnull String typeId)
+                    @jakarta.annotation.Nonnull String projectId,
+                    @jakarta.annotation.Nonnull String typeId)
                     throws ApiException {
         okhttp3.Call localVarCall = getProjectAppTypeValidateBeforeCall(projectId, typeId, null);
         Type localVarReturnType =
@@ -1087,8 +1091,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call getProjectAppTypeAsync(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String typeId,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String typeId,
             final ApiCallback<
                             PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>
                     _callback)
@@ -1119,7 +1123,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call getProjectCompositeAppCall(
-            @javax.annotation.Nonnull String projectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1179,7 +1183,7 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProjectCompositeAppValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
@@ -1205,7 +1209,7 @@ public class ProjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public CompositeAppConfig getProjectCompositeApp(@javax.annotation.Nonnull String projectId)
+    public CompositeAppConfig getProjectCompositeApp(@jakarta.annotation.Nonnull String projectId)
             throws ApiException {
         ApiResponse<CompositeAppConfig> localVarResp =
                 getProjectCompositeAppWithHttpInfo(projectId);
@@ -1228,7 +1232,7 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<CompositeAppConfig> getProjectCompositeAppWithHttpInfo(
-            @javax.annotation.Nonnull String projectId) throws ApiException {
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
         okhttp3.Call localVarCall = getProjectCompositeAppValidateBeforeCall(projectId, null);
         Type localVarReturnType = new TypeToken<CompositeAppConfig>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1251,7 +1255,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call getProjectCompositeAppAsync(
-            @javax.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String projectId,
             final ApiCallback<CompositeAppConfig> _callback)
             throws ApiException {
 
@@ -1278,8 +1282,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call getProjectIntegrationCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String integrationId,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String integrationId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1343,8 +1347,8 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProjectIntegrationValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String integrationId,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String integrationId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -1379,8 +1383,8 @@ public class ProjectsApi {
      * </table>
      */
     public ProjectIntegrationConfigResponse getProjectIntegration(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String integrationId)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String integrationId)
             throws ApiException {
         ApiResponse<ProjectIntegrationConfigResponse> localVarResp =
                 getProjectIntegrationWithHttpInfo(projectId, integrationId);
@@ -1404,8 +1408,8 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<ProjectIntegrationConfigResponse> getProjectIntegrationWithHttpInfo(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String integrationId)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String integrationId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getProjectIntegrationValidateBeforeCall(projectId, integrationId, null);
@@ -1431,8 +1435,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call getProjectIntegrationAsync(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String integrationId,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String integrationId,
             final ApiCallback<ProjectIntegrationConfigResponse> _callback)
             throws ApiException {
 
@@ -1460,8 +1464,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call getProjectToolCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String toolName,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String toolName,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1525,8 +1529,8 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getProjectToolValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String toolName,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String toolName,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -1561,7 +1565,8 @@ public class ProjectsApi {
      * </table>
      */
     public ProjectToolInfo getProjectTool(
-            @javax.annotation.Nonnull String projectId, @javax.annotation.Nonnull String toolName)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String toolName)
             throws ApiException {
         ApiResponse<ProjectToolInfo> localVarResp = getProjectToolWithHttpInfo(projectId, toolName);
         return localVarResp.getData();
@@ -1584,7 +1589,8 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<ProjectToolInfo> getProjectToolWithHttpInfo(
-            @javax.annotation.Nonnull String projectId, @javax.annotation.Nonnull String toolName)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String toolName)
             throws ApiException {
         okhttp3.Call localVarCall = getProjectToolValidateBeforeCall(projectId, toolName, null);
         Type localVarReturnType = new TypeToken<ProjectToolInfo>() {}.getType();
@@ -1609,8 +1615,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call getProjectToolAsync(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String toolName,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String toolName,
             final ApiCallback<ProjectToolInfo> _callback)
             throws ApiException {
 
@@ -1638,8 +1644,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call listProjectAppProcessesCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nullable String tag,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nullable String tag,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1704,8 +1710,8 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProjectAppProcessesValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nullable String tag,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nullable String tag,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -1734,7 +1740,7 @@ public class ProjectsApi {
      * </table>
      */
     public List<InCodeProcessDefinition> listProjectAppProcesses(
-            @javax.annotation.Nonnull String projectId, @javax.annotation.Nullable String tag)
+            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
             throws ApiException {
         ApiResponse<List<InCodeProcessDefinition>> localVarResp =
                 listProjectAppProcessesWithHttpInfo(projectId, tag);
@@ -1758,7 +1764,7 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<List<InCodeProcessDefinition>> listProjectAppProcessesWithHttpInfo(
-            @javax.annotation.Nonnull String projectId, @javax.annotation.Nullable String tag)
+            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
             throws ApiException {
         okhttp3.Call localVarCall = listProjectAppProcessesValidateBeforeCall(projectId, tag, null);
         Type localVarReturnType = new TypeToken<List<InCodeProcessDefinition>>() {}.getType();
@@ -1783,8 +1789,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call listProjectAppProcessesAsync(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nullable String tag,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nullable String tag,
             final ApiCallback<List<InCodeProcessDefinition>> _callback)
             throws ApiException {
 
@@ -1812,8 +1818,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call listProjectAppTemplatesCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nullable String tag,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nullable String tag,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1878,8 +1884,8 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProjectAppTemplatesValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nullable String tag,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nullable String tag,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -1908,7 +1914,7 @@ public class ProjectsApi {
      * </table>
      */
     public List<RenderingTemplateDefinitionRef> listProjectAppTemplates(
-            @javax.annotation.Nonnull String projectId, @javax.annotation.Nullable String tag)
+            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
             throws ApiException {
         ApiResponse<List<RenderingTemplateDefinitionRef>> localVarResp =
                 listProjectAppTemplatesWithHttpInfo(projectId, tag);
@@ -1932,7 +1938,7 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<List<RenderingTemplateDefinitionRef>> listProjectAppTemplatesWithHttpInfo(
-            @javax.annotation.Nonnull String projectId, @javax.annotation.Nullable String tag)
+            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
             throws ApiException {
         okhttp3.Call localVarCall = listProjectAppTemplatesValidateBeforeCall(projectId, tag, null);
         Type localVarReturnType =
@@ -1958,8 +1964,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call listProjectAppTemplatesAsync(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nullable String tag,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nullable String tag,
             final ApiCallback<List<RenderingTemplateDefinitionRef>> _callback)
             throws ApiException {
 
@@ -1988,8 +1994,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call listProjectAppTypesCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nullable String tag,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nullable String tag,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2054,8 +2060,8 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProjectAppTypesValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nullable String tag,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nullable String tag,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -2086,8 +2092,8 @@ public class ProjectsApi {
     public List<
                     PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>
             listProjectAppTypes(
-                    @javax.annotation.Nonnull String projectId,
-                    @javax.annotation.Nullable String tag)
+                    @jakarta.annotation.Nonnull String projectId,
+                    @jakarta.annotation.Nullable String tag)
                     throws ApiException {
         ApiResponse<
                         List<
@@ -2116,8 +2122,8 @@ public class ProjectsApi {
                     List<
                             PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>>
             listProjectAppTypesWithHttpInfo(
-                    @javax.annotation.Nonnull String projectId,
-                    @javax.annotation.Nullable String tag)
+                    @jakarta.annotation.Nonnull String projectId,
+                    @jakarta.annotation.Nullable String tag)
                     throws ApiException {
         okhttp3.Call localVarCall = listProjectAppTypesValidateBeforeCall(projectId, tag, null);
         Type localVarReturnType =
@@ -2145,8 +2151,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call listProjectAppTypesAsync(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nullable String tag,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nullable String tag,
             final ApiCallback<
                             List<
                                     PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>>
@@ -2179,7 +2185,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call listProjectIntegrationsCall(
-            @javax.annotation.Nonnull String projectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2239,7 +2245,7 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProjectIntegrationsValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
@@ -2266,7 +2272,7 @@ public class ProjectsApi {
      * </table>
      */
     public ProjectIntegrationListResponse listProjectIntegrations(
-            @javax.annotation.Nonnull String projectId) throws ApiException {
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
         ApiResponse<ProjectIntegrationListResponse> localVarResp =
                 listProjectIntegrationsWithHttpInfo(projectId);
         return localVarResp.getData();
@@ -2288,7 +2294,7 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<ProjectIntegrationListResponse> listProjectIntegrationsWithHttpInfo(
-            @javax.annotation.Nonnull String projectId) throws ApiException {
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
         okhttp3.Call localVarCall = listProjectIntegrationsValidateBeforeCall(projectId, null);
         Type localVarReturnType = new TypeToken<ProjectIntegrationListResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2311,7 +2317,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call listProjectIntegrationsAsync(
-            @javax.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String projectId,
             final ApiCallback<ProjectIntegrationListResponse> _callback)
             throws ApiException {
 
@@ -2337,7 +2343,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call listProjectPluginsCall(
-            @javax.annotation.Nonnull String projectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2397,7 +2403,7 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProjectPluginsValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
@@ -2423,7 +2429,7 @@ public class ProjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<String> listProjectPlugins(@javax.annotation.Nonnull String projectId)
+    public List<String> listProjectPlugins(@jakarta.annotation.Nonnull String projectId)
             throws ApiException {
         ApiResponse<List<String>> localVarResp = listProjectPluginsWithHttpInfo(projectId);
         return localVarResp.getData();
@@ -2445,7 +2451,7 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<List<String>> listProjectPluginsWithHttpInfo(
-            @javax.annotation.Nonnull String projectId) throws ApiException {
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
         okhttp3.Call localVarCall = listProjectPluginsValidateBeforeCall(projectId, null);
         Type localVarReturnType = new TypeToken<List<String>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2468,7 +2474,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call listProjectPluginsAsync(
-            @javax.annotation.Nonnull String projectId, final ApiCallback<List<String>> _callback)
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback<List<String>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listProjectPluginsValidateBeforeCall(projectId, _callback);
@@ -2493,7 +2499,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call listProjectToolsCall(
-            @javax.annotation.Nonnull String projectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2553,7 +2559,7 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProjectToolsValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String projectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
         if (projectId == null) {
@@ -2579,7 +2585,7 @@ public class ProjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<ProjectToolInfo> listProjectTools(@javax.annotation.Nonnull String projectId)
+    public List<ProjectToolInfo> listProjectTools(@jakarta.annotation.Nonnull String projectId)
             throws ApiException {
         ApiResponse<List<ProjectToolInfo>> localVarResp = listProjectToolsWithHttpInfo(projectId);
         return localVarResp.getData();
@@ -2601,7 +2607,7 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<List<ProjectToolInfo>> listProjectToolsWithHttpInfo(
-            @javax.annotation.Nonnull String projectId) throws ApiException {
+            @jakarta.annotation.Nonnull String projectId) throws ApiException {
         okhttp3.Call localVarCall = listProjectToolsValidateBeforeCall(projectId, null);
         Type localVarReturnType = new TypeToken<List<ProjectToolInfo>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2624,7 +2630,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call listProjectToolsAsync(
-            @javax.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String projectId,
             final ApiCallback<List<ProjectToolInfo>> _callback)
             throws ApiException {
 
@@ -2650,7 +2656,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call listProjectsCall(
-            @javax.annotation.Nullable String account, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String account, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2710,7 +2716,7 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProjectsValidateBeforeCall(
-            @javax.annotation.Nullable String account, final ApiCallback _callback)
+            @jakarta.annotation.Nullable String account, final ApiCallback _callback)
             throws ApiException {
         return listProjectsCall(account, _callback);
     }
@@ -2730,7 +2736,7 @@ public class ProjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<ProjectRef> listProjects(@javax.annotation.Nullable String account)
+    public List<ProjectRef> listProjects(@jakarta.annotation.Nullable String account)
             throws ApiException {
         ApiResponse<List<ProjectRef>> localVarResp = listProjectsWithHttpInfo(account);
         return localVarResp.getData();
@@ -2752,7 +2758,7 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<List<ProjectRef>> listProjectsWithHttpInfo(
-            @javax.annotation.Nullable String account) throws ApiException {
+            @jakarta.annotation.Nullable String account) throws ApiException {
         okhttp3.Call localVarCall = listProjectsValidateBeforeCall(account, null);
         Type localVarReturnType = new TypeToken<List<ProjectRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2775,7 +2781,7 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call listProjectsAsync(
-            @javax.annotation.Nullable String account,
+            @jakarta.annotation.Nullable String account,
             final ApiCallback<List<ProjectRef>> _callback)
             throws ApiException {
 
@@ -2802,8 +2808,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call updateProjectCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialProject partialProject,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialProject partialProject,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2864,8 +2870,8 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProjectValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialProject partialProject,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialProject partialProject,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -2900,8 +2906,8 @@ public class ProjectsApi {
      * </table>
      */
     public Project updateProject(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialProject partialProject)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialProject partialProject)
             throws ApiException {
         ApiResponse<Project> localVarResp = updateProjectWithHttpInfo(projectId, partialProject);
         return localVarResp.getData();
@@ -2924,8 +2930,8 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<Project> updateProjectWithHttpInfo(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialProject partialProject)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialProject partialProject)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateProjectValidateBeforeCall(projectId, partialProject, null);
@@ -2951,8 +2957,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call updateProjectAsync(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialProject partialProject,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialProject partialProject,
             final ApiCallback<Project> _callback)
             throws ApiException {
 
@@ -2980,8 +2986,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call updateProjectCompositeAppCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3042,8 +3048,8 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProjectCompositeAppValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -3078,8 +3084,8 @@ public class ProjectsApi {
      * </table>
      */
     public CompositeAppConfig updateProjectCompositeApp(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body)
             throws ApiException {
         ApiResponse<CompositeAppConfig> localVarResp =
                 updateProjectCompositeAppWithHttpInfo(projectId, body);
@@ -3103,8 +3109,8 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<CompositeAppConfig> updateProjectCompositeAppWithHttpInfo(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateProjectCompositeAppValidateBeforeCall(projectId, body, null);
@@ -3130,8 +3136,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call updateProjectCompositeAppAsync(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body,
             final ApiCallback<CompositeAppConfig> _callback)
             throws ApiException {
 
@@ -3159,8 +3165,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call updateProjectConfigurationCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3221,8 +3227,8 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProjectConfigurationValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -3257,8 +3263,8 @@ public class ProjectsApi {
      * </table>
      */
     public ProjectConfiguration updateProjectConfiguration(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration)
             throws ApiException {
         ApiResponse<ProjectConfiguration> localVarResp =
                 updateProjectConfigurationWithHttpInfo(projectId, partialProjectConfiguration);
@@ -3282,8 +3288,8 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<ProjectConfiguration> updateProjectConfigurationWithHttpInfo(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateProjectConfigurationValidateBeforeCall(
@@ -3310,8 +3316,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call updateProjectConfigurationAsync(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration,
             final ApiCallback<ProjectConfiguration> _callback)
             throws ApiException {
 
@@ -3341,9 +3347,9 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call updateProjectIntegrationCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String integrationId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String integrationId,
+            @jakarta.annotation.Nonnull
                     ProjectIntegrationConfigRequest projectIntegrationConfigRequest,
             final ApiCallback _callback)
             throws ApiException {
@@ -3408,9 +3414,9 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProjectIntegrationValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String integrationId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String integrationId,
+            @jakarta.annotation.Nonnull
                     ProjectIntegrationConfigRequest projectIntegrationConfigRequest,
             final ApiCallback _callback)
             throws ApiException {
@@ -3454,9 +3460,9 @@ public class ProjectsApi {
      * </table>
      */
     public ProjectIntegrationConfigResponse updateProjectIntegration(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String integrationId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String integrationId,
+            @jakarta.annotation.Nonnull
                     ProjectIntegrationConfigRequest projectIntegrationConfigRequest)
             throws ApiException {
         ApiResponse<ProjectIntegrationConfigResponse> localVarResp =
@@ -3483,9 +3489,9 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<ProjectIntegrationConfigResponse> updateProjectIntegrationWithHttpInfo(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String integrationId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String integrationId,
+            @jakarta.annotation.Nonnull
                     ProjectIntegrationConfigRequest projectIntegrationConfigRequest)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -3514,9 +3520,9 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call updateProjectIntegrationAsync(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull String integrationId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String integrationId,
+            @jakarta.annotation.Nonnull
                     ProjectIntegrationConfigRequest projectIntegrationConfigRequest,
             final ApiCallback<ProjectIntegrationConfigResponse> _callback)
             throws ApiException {
@@ -3546,8 +3552,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call updateProjectPluginsCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3608,8 +3614,8 @@ public class ProjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProjectPluginsValidateBeforeCall(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -3644,8 +3650,8 @@ public class ProjectsApi {
      * </table>
      */
     public CountResult updateProjectPlugins(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload)
             throws ApiException {
         ApiResponse<CountResult> localVarResp =
                 updateProjectPluginsWithHttpInfo(projectId, projectPluginsUpdatePayload);
@@ -3669,8 +3675,8 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<CountResult> updateProjectPluginsWithHttpInfo(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload)
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateProjectPluginsValidateBeforeCall(
@@ -3697,8 +3703,8 @@ public class ProjectsApi {
      * </table>
      */
     public okhttp3.Call updateProjectPluginsAsync(
-            @javax.annotation.Nonnull String projectId,
-            @javax.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload,
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull ProjectPluginsUpdatePayload projectPluginsUpdatePayload,
             final ApiCallback<CountResult> _callback)
             throws ApiException {
 

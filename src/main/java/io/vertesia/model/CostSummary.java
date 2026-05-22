@@ -31,55 +31,55 @@ import java.util.Objects;
 /**
  * CostSummary
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CostSummary {
     public static final String SERIALIZED_NAME_TOTAL_COST = "total_cost";
 
     @SerializedName(SERIALIZED_NAME_TOTAL_COST)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal totalCost;
 
     public static final String SERIALIZED_NAME_TOTAL_INPUT_TOKENS = "total_input_tokens";
 
     @SerializedName(SERIALIZED_NAME_TOTAL_INPUT_TOKENS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal totalInputTokens;
 
     public static final String SERIALIZED_NAME_TOTAL_CACHED_INPUT_TOKENS =
             "total_cached_input_tokens";
 
     @SerializedName(SERIALIZED_NAME_TOTAL_CACHED_INPUT_TOKENS)
-    @javax.annotation.Nullable private BigDecimal totalCachedInputTokens;
+    @jakarta.annotation.Nullable private BigDecimal totalCachedInputTokens;
 
     public static final String SERIALIZED_NAME_TOTAL_CACHE_WRITE_INPUT_TOKENS =
             "total_cache_write_input_tokens";
 
     @SerializedName(SERIALIZED_NAME_TOTAL_CACHE_WRITE_INPUT_TOKENS)
-    @javax.annotation.Nullable private BigDecimal totalCacheWriteInputTokens;
+    @jakarta.annotation.Nullable private BigDecimal totalCacheWriteInputTokens;
 
     public static final String SERIALIZED_NAME_TOTAL_OUTPUT_TOKENS = "total_output_tokens";
 
     @SerializedName(SERIALIZED_NAME_TOTAL_OUTPUT_TOKENS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal totalOutputTokens;
 
     public static final String SERIALIZED_NAME_TOTAL_CALLS = "total_calls";
 
     @SerializedName(SERIALIZED_NAME_TOTAL_CALLS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal totalCalls;
 
     public static final String SERIALIZED_NAME_TOTAL_DURATION_MS = "total_duration_ms";
 
     @SerializedName(SERIALIZED_NAME_TOTAL_DURATION_MS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal totalDurationMs;
 
     public CostSummary() {}
 
-    public CostSummary totalCost(@javax.annotation.Nonnull BigDecimal totalCost) {
+    public CostSummary totalCost(@jakarta.annotation.Nonnull BigDecimal totalCost) {
         this.totalCost = totalCost;
         return this;
     }
@@ -88,16 +88,16 @@ public class CostSummary {
      * Get totalCost
      * @return totalCost
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTotalCost() {
         return totalCost;
     }
 
-    public void setTotalCost(@javax.annotation.Nonnull BigDecimal totalCost) {
+    public void setTotalCost(@jakarta.annotation.Nonnull BigDecimal totalCost) {
         this.totalCost = totalCost;
     }
 
-    public CostSummary totalInputTokens(@javax.annotation.Nonnull BigDecimal totalInputTokens) {
+    public CostSummary totalInputTokens(@jakarta.annotation.Nonnull BigDecimal totalInputTokens) {
         this.totalInputTokens = totalInputTokens;
         return this;
     }
@@ -106,17 +106,17 @@ public class CostSummary {
      * Get totalInputTokens
      * @return totalInputTokens
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTotalInputTokens() {
         return totalInputTokens;
     }
 
-    public void setTotalInputTokens(@javax.annotation.Nonnull BigDecimal totalInputTokens) {
+    public void setTotalInputTokens(@jakarta.annotation.Nonnull BigDecimal totalInputTokens) {
         this.totalInputTokens = totalInputTokens;
     }
 
     public CostSummary totalCachedInputTokens(
-            @javax.annotation.Nullable BigDecimal totalCachedInputTokens) {
+            @jakarta.annotation.Nullable BigDecimal totalCachedInputTokens) {
         this.totalCachedInputTokens = totalCachedInputTokens;
         return this;
     }
@@ -125,17 +125,17 @@ public class CostSummary {
      * Get totalCachedInputTokens
      * @return totalCachedInputTokens
      */
-    @javax.annotation.Nullable public BigDecimal getTotalCachedInputTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getTotalCachedInputTokens() {
         return totalCachedInputTokens;
     }
 
     public void setTotalCachedInputTokens(
-            @javax.annotation.Nullable BigDecimal totalCachedInputTokens) {
+            @jakarta.annotation.Nullable BigDecimal totalCachedInputTokens) {
         this.totalCachedInputTokens = totalCachedInputTokens;
     }
 
     public CostSummary totalCacheWriteInputTokens(
-            @javax.annotation.Nullable BigDecimal totalCacheWriteInputTokens) {
+            @jakarta.annotation.Nullable BigDecimal totalCacheWriteInputTokens) {
         this.totalCacheWriteInputTokens = totalCacheWriteInputTokens;
         return this;
     }
@@ -144,16 +144,16 @@ public class CostSummary {
      * Get totalCacheWriteInputTokens
      * @return totalCacheWriteInputTokens
      */
-    @javax.annotation.Nullable public BigDecimal getTotalCacheWriteInputTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getTotalCacheWriteInputTokens() {
         return totalCacheWriteInputTokens;
     }
 
     public void setTotalCacheWriteInputTokens(
-            @javax.annotation.Nullable BigDecimal totalCacheWriteInputTokens) {
+            @jakarta.annotation.Nullable BigDecimal totalCacheWriteInputTokens) {
         this.totalCacheWriteInputTokens = totalCacheWriteInputTokens;
     }
 
-    public CostSummary totalOutputTokens(@javax.annotation.Nonnull BigDecimal totalOutputTokens) {
+    public CostSummary totalOutputTokens(@jakarta.annotation.Nonnull BigDecimal totalOutputTokens) {
         this.totalOutputTokens = totalOutputTokens;
         return this;
     }
@@ -162,16 +162,16 @@ public class CostSummary {
      * Get totalOutputTokens
      * @return totalOutputTokens
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTotalOutputTokens() {
         return totalOutputTokens;
     }
 
-    public void setTotalOutputTokens(@javax.annotation.Nonnull BigDecimal totalOutputTokens) {
+    public void setTotalOutputTokens(@jakarta.annotation.Nonnull BigDecimal totalOutputTokens) {
         this.totalOutputTokens = totalOutputTokens;
     }
 
-    public CostSummary totalCalls(@javax.annotation.Nonnull BigDecimal totalCalls) {
+    public CostSummary totalCalls(@jakarta.annotation.Nonnull BigDecimal totalCalls) {
         this.totalCalls = totalCalls;
         return this;
     }
@@ -180,16 +180,16 @@ public class CostSummary {
      * Get totalCalls
      * @return totalCalls
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTotalCalls() {
         return totalCalls;
     }
 
-    public void setTotalCalls(@javax.annotation.Nonnull BigDecimal totalCalls) {
+    public void setTotalCalls(@jakarta.annotation.Nonnull BigDecimal totalCalls) {
         this.totalCalls = totalCalls;
     }
 
-    public CostSummary totalDurationMs(@javax.annotation.Nonnull BigDecimal totalDurationMs) {
+    public CostSummary totalDurationMs(@jakarta.annotation.Nonnull BigDecimal totalDurationMs) {
         this.totalDurationMs = totalDurationMs;
         return this;
     }
@@ -198,12 +198,12 @@ public class CostSummary {
      * Get totalDurationMs
      * @return totalDurationMs
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTotalDurationMs() {
         return totalDurationMs;
     }
 
-    public void setTotalDurationMs(@javax.annotation.Nonnull BigDecimal totalDurationMs) {
+    public void setTotalDurationMs(@jakarta.annotation.Nonnull BigDecimal totalDurationMs) {
         this.totalDurationMs = totalDurationMs;
     }
 

@@ -32,7 +32,7 @@ import java.util.Objects;
 /**
  * OpenAiDalleOptions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OpenAiDalleOptions {
@@ -92,7 +92,7 @@ public class OpenAiDalleOptions {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OptionIdEnum optionId;
 
     /**
@@ -159,7 +159,7 @@ public class OpenAiDalleOptions {
     public static final String SERIALIZED_NAME_SIZE = "size";
 
     @SerializedName(SERIALIZED_NAME_SIZE)
-    @javax.annotation.Nullable private SizeEnum size;
+    @jakarta.annotation.Nullable private SizeEnum size;
 
     /**
      * Gets or Sets imageQuality
@@ -219,7 +219,7 @@ public class OpenAiDalleOptions {
     public static final String SERIALIZED_NAME_IMAGE_QUALITY = "image_quality";
 
     @SerializedName(SERIALIZED_NAME_IMAGE_QUALITY)
-    @javax.annotation.Nullable private ImageQualityEnum imageQuality;
+    @jakarta.annotation.Nullable private ImageQualityEnum imageQuality;
 
     /**
      * Gets or Sets style
@@ -279,7 +279,7 @@ public class OpenAiDalleOptions {
     public static final String SERIALIZED_NAME_STYLE = "style";
 
     @SerializedName(SERIALIZED_NAME_STYLE)
-    @javax.annotation.Nullable private StyleEnum style;
+    @jakarta.annotation.Nullable private StyleEnum style;
 
     /**
      * Gets or Sets responseFormat
@@ -339,16 +339,16 @@ public class OpenAiDalleOptions {
     public static final String SERIALIZED_NAME_RESPONSE_FORMAT = "response_format";
 
     @SerializedName(SERIALIZED_NAME_RESPONSE_FORMAT)
-    @javax.annotation.Nullable private ResponseFormatEnum responseFormat;
+    @jakarta.annotation.Nullable private ResponseFormatEnum responseFormat;
 
     public static final String SERIALIZED_NAME_N = "n";
 
     @SerializedName(SERIALIZED_NAME_N)
-    @javax.annotation.Nullable private BigDecimal n;
+    @jakarta.annotation.Nullable private BigDecimal n;
 
     public OpenAiDalleOptions() {}
 
-    public OpenAiDalleOptions optionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public OpenAiDalleOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -357,16 +357,16 @@ public class OpenAiDalleOptions {
      * Get optionId
      * @return optionId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
-    public OpenAiDalleOptions size(@javax.annotation.Nullable SizeEnum size) {
+    public OpenAiDalleOptions size(@jakarta.annotation.Nullable SizeEnum size) {
         this.size = size;
         return this;
     }
@@ -375,16 +375,16 @@ public class OpenAiDalleOptions {
      * Get size
      * @return size
      */
-    @javax.annotation.Nullable public SizeEnum getSize() {
+    @jakarta.annotation.Nullable public SizeEnum getSize() {
         return size;
     }
 
-    public void setSize(@javax.annotation.Nullable SizeEnum size) {
+    public void setSize(@jakarta.annotation.Nullable SizeEnum size) {
         this.size = size;
     }
 
     public OpenAiDalleOptions imageQuality(
-            @javax.annotation.Nullable ImageQualityEnum imageQuality) {
+            @jakarta.annotation.Nullable ImageQualityEnum imageQuality) {
         this.imageQuality = imageQuality;
         return this;
     }
@@ -393,15 +393,15 @@ public class OpenAiDalleOptions {
      * Get imageQuality
      * @return imageQuality
      */
-    @javax.annotation.Nullable public ImageQualityEnum getImageQuality() {
+    @jakarta.annotation.Nullable public ImageQualityEnum getImageQuality() {
         return imageQuality;
     }
 
-    public void setImageQuality(@javax.annotation.Nullable ImageQualityEnum imageQuality) {
+    public void setImageQuality(@jakarta.annotation.Nullable ImageQualityEnum imageQuality) {
         this.imageQuality = imageQuality;
     }
 
-    public OpenAiDalleOptions style(@javax.annotation.Nullable StyleEnum style) {
+    public OpenAiDalleOptions style(@jakarta.annotation.Nullable StyleEnum style) {
         this.style = style;
         return this;
     }
@@ -410,16 +410,16 @@ public class OpenAiDalleOptions {
      * Get style
      * @return style
      */
-    @javax.annotation.Nullable public StyleEnum getStyle() {
+    @jakarta.annotation.Nullable public StyleEnum getStyle() {
         return style;
     }
 
-    public void setStyle(@javax.annotation.Nullable StyleEnum style) {
+    public void setStyle(@jakarta.annotation.Nullable StyleEnum style) {
         this.style = style;
     }
 
     public OpenAiDalleOptions responseFormat(
-            @javax.annotation.Nullable ResponseFormatEnum responseFormat) {
+            @jakarta.annotation.Nullable ResponseFormatEnum responseFormat) {
         this.responseFormat = responseFormat;
         return this;
     }
@@ -428,15 +428,15 @@ public class OpenAiDalleOptions {
      * Get responseFormat
      * @return responseFormat
      */
-    @javax.annotation.Nullable public ResponseFormatEnum getResponseFormat() {
+    @jakarta.annotation.Nullable public ResponseFormatEnum getResponseFormat() {
         return responseFormat;
     }
 
-    public void setResponseFormat(@javax.annotation.Nullable ResponseFormatEnum responseFormat) {
+    public void setResponseFormat(@jakarta.annotation.Nullable ResponseFormatEnum responseFormat) {
         this.responseFormat = responseFormat;
     }
 
-    public OpenAiDalleOptions n(@javax.annotation.Nullable BigDecimal n) {
+    public OpenAiDalleOptions n(@jakarta.annotation.Nullable BigDecimal n) {
         this.n = n;
         return this;
     }
@@ -445,11 +445,11 @@ public class OpenAiDalleOptions {
      * Get n
      * @return n
      */
-    @javax.annotation.Nullable public BigDecimal getN() {
+    @jakarta.annotation.Nullable public BigDecimal getN() {
         return n;
     }
 
-    public void setN(@javax.annotation.Nullable BigDecimal n) {
+    public void setN(@jakarta.annotation.Nullable BigDecimal n) {
         this.n = n;
     }
 

@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * CopyFilePayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CopyFilePayload {
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String source;
 
     public static final String SERIALIZED_NAME_DEST = "dest";
 
     @SerializedName(SERIALIZED_NAME_DEST)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String dest;
 
     public CopyFilePayload() {}
 
-    public CopyFilePayload source(@javax.annotation.Nonnull String source) {
+    public CopyFilePayload source(@jakarta.annotation.Nonnull String source) {
         this.source = source;
         return this;
     }
@@ -57,16 +57,16 @@ public class CopyFilePayload {
      * Get source
      * @return source
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nonnull String source) {
+    public void setSource(@jakarta.annotation.Nonnull String source) {
         this.source = source;
     }
 
-    public CopyFilePayload dest(@javax.annotation.Nonnull String dest) {
+    public CopyFilePayload dest(@jakarta.annotation.Nonnull String dest) {
         this.dest = dest;
         return this;
     }
@@ -75,12 +75,12 @@ public class CopyFilePayload {
      * Get dest
      * @return dest
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDest() {
         return dest;
     }
 
-    public void setDest(@javax.annotation.Nonnull String dest) {
+    public void setDest(@jakarta.annotation.Nonnull String dest) {
         this.dest = dest;
     }
 

@@ -32,19 +32,19 @@ import java.util.Objects;
 /**
  * FileListResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class FileListResponse {
     public static final String SERIALIZED_NAME_FILES = "files";
 
     @SerializedName(SERIALIZED_NAME_FILES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> files = new ArrayList<>();
 
     public FileListResponse() {}
 
-    public FileListResponse files(@javax.annotation.Nonnull List<String> files) {
+    public FileListResponse files(@jakarta.annotation.Nonnull List<String> files) {
         this.files = files;
         return this;
     }
@@ -61,12 +61,12 @@ public class FileListResponse {
      * Get files
      * @return files
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getFiles() {
         return files;
     }
 
-    public void setFiles(@javax.annotation.Nonnull List<String> files) {
+    public void setFiles(@jakarta.annotation.Nonnull List<String> files) {
         this.files = files;
     }
 

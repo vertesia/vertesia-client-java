@@ -32,50 +32,50 @@ import java.util.Objects;
 /**
  * ModelPricing
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ModelPricing {
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String model;
 
     public static final String SERIALIZED_NAME_PROVIDER = "provider";
 
     @SerializedName(SERIALIZED_NAME_PROVIDER)
-    @javax.annotation.Nullable private String provider;
+    @jakarta.annotation.Nullable private String provider;
 
     public static final String SERIALIZED_NAME_PROVIDER_ACCOUNT_ID = "provider_account_id";
 
     @SerializedName(SERIALIZED_NAME_PROVIDER_ACCOUNT_ID)
-    @javax.annotation.Nullable private String providerAccountId;
+    @jakarta.annotation.Nullable private String providerAccountId;
 
     public static final String SERIALIZED_NAME_INPUT_PRICE_PER_M_TOKENS =
             "input_price_per_m_tokens";
 
     @SerializedName(SERIALIZED_NAME_INPUT_PRICE_PER_M_TOKENS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal inputPricePerMTokens;
 
     public static final String SERIALIZED_NAME_CACHED_INPUT_PRICE_PER_M_TOKENS =
             "cached_input_price_per_m_tokens";
 
     @SerializedName(SERIALIZED_NAME_CACHED_INPUT_PRICE_PER_M_TOKENS)
-    @javax.annotation.Nullable private BigDecimal cachedInputPricePerMTokens;
+    @jakarta.annotation.Nullable private BigDecimal cachedInputPricePerMTokens;
 
     public static final String SERIALIZED_NAME_CACHE_WRITE_INPUT_PRICE_PER_M_TOKENS =
             "cache_write_input_price_per_m_tokens";
 
     @SerializedName(SERIALIZED_NAME_CACHE_WRITE_INPUT_PRICE_PER_M_TOKENS)
-    @javax.annotation.Nullable private BigDecimal cacheWriteInputPricePerMTokens;
+    @jakarta.annotation.Nullable private BigDecimal cacheWriteInputPricePerMTokens;
 
     public static final String SERIALIZED_NAME_OUTPUT_PRICE_PER_M_TOKENS =
             "output_price_per_m_tokens";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT_PRICE_PER_M_TOKENS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal outputPricePerMTokens;
 
     /**
@@ -138,12 +138,12 @@ public class ModelPricing {
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SourceEnum source;
 
     public ModelPricing() {}
 
-    public ModelPricing model(@javax.annotation.Nonnull String model) {
+    public ModelPricing model(@jakarta.annotation.Nonnull String model) {
         this.model = model;
         return this;
     }
@@ -152,16 +152,16 @@ public class ModelPricing {
      * Get model
      * @return model
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nonnull String model) {
+    public void setModel(@jakarta.annotation.Nonnull String model) {
         this.model = model;
     }
 
-    public ModelPricing provider(@javax.annotation.Nullable String provider) {
+    public ModelPricing provider(@jakarta.annotation.Nullable String provider) {
         this.provider = provider;
         return this;
     }
@@ -170,15 +170,15 @@ public class ModelPricing {
      * Get provider
      * @return provider
      */
-    @javax.annotation.Nullable public String getProvider() {
+    @jakarta.annotation.Nullable public String getProvider() {
         return provider;
     }
 
-    public void setProvider(@javax.annotation.Nullable String provider) {
+    public void setProvider(@jakarta.annotation.Nullable String provider) {
         this.provider = provider;
     }
 
-    public ModelPricing providerAccountId(@javax.annotation.Nullable String providerAccountId) {
+    public ModelPricing providerAccountId(@jakarta.annotation.Nullable String providerAccountId) {
         this.providerAccountId = providerAccountId;
         return this;
     }
@@ -187,16 +187,16 @@ public class ModelPricing {
      * Get providerAccountId
      * @return providerAccountId
      */
-    @javax.annotation.Nullable public String getProviderAccountId() {
+    @jakarta.annotation.Nullable public String getProviderAccountId() {
         return providerAccountId;
     }
 
-    public void setProviderAccountId(@javax.annotation.Nullable String providerAccountId) {
+    public void setProviderAccountId(@jakarta.annotation.Nullable String providerAccountId) {
         this.providerAccountId = providerAccountId;
     }
 
     public ModelPricing inputPricePerMTokens(
-            @javax.annotation.Nonnull BigDecimal inputPricePerMTokens) {
+            @jakarta.annotation.Nonnull BigDecimal inputPricePerMTokens) {
         this.inputPricePerMTokens = inputPricePerMTokens;
         return this;
     }
@@ -205,17 +205,18 @@ public class ModelPricing {
      * Get inputPricePerMTokens
      * @return inputPricePerMTokens
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getInputPricePerMTokens() {
         return inputPricePerMTokens;
     }
 
-    public void setInputPricePerMTokens(@javax.annotation.Nonnull BigDecimal inputPricePerMTokens) {
+    public void setInputPricePerMTokens(
+            @jakarta.annotation.Nonnull BigDecimal inputPricePerMTokens) {
         this.inputPricePerMTokens = inputPricePerMTokens;
     }
 
     public ModelPricing cachedInputPricePerMTokens(
-            @javax.annotation.Nullable BigDecimal cachedInputPricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal cachedInputPricePerMTokens) {
         this.cachedInputPricePerMTokens = cachedInputPricePerMTokens;
         return this;
     }
@@ -224,17 +225,17 @@ public class ModelPricing {
      * Get cachedInputPricePerMTokens
      * @return cachedInputPricePerMTokens
      */
-    @javax.annotation.Nullable public BigDecimal getCachedInputPricePerMTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getCachedInputPricePerMTokens() {
         return cachedInputPricePerMTokens;
     }
 
     public void setCachedInputPricePerMTokens(
-            @javax.annotation.Nullable BigDecimal cachedInputPricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal cachedInputPricePerMTokens) {
         this.cachedInputPricePerMTokens = cachedInputPricePerMTokens;
     }
 
     public ModelPricing cacheWriteInputPricePerMTokens(
-            @javax.annotation.Nullable BigDecimal cacheWriteInputPricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal cacheWriteInputPricePerMTokens) {
         this.cacheWriteInputPricePerMTokens = cacheWriteInputPricePerMTokens;
         return this;
     }
@@ -243,17 +244,17 @@ public class ModelPricing {
      * Get cacheWriteInputPricePerMTokens
      * @return cacheWriteInputPricePerMTokens
      */
-    @javax.annotation.Nullable public BigDecimal getCacheWriteInputPricePerMTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getCacheWriteInputPricePerMTokens() {
         return cacheWriteInputPricePerMTokens;
     }
 
     public void setCacheWriteInputPricePerMTokens(
-            @javax.annotation.Nullable BigDecimal cacheWriteInputPricePerMTokens) {
+            @jakarta.annotation.Nullable BigDecimal cacheWriteInputPricePerMTokens) {
         this.cacheWriteInputPricePerMTokens = cacheWriteInputPricePerMTokens;
     }
 
     public ModelPricing outputPricePerMTokens(
-            @javax.annotation.Nonnull BigDecimal outputPricePerMTokens) {
+            @jakarta.annotation.Nonnull BigDecimal outputPricePerMTokens) {
         this.outputPricePerMTokens = outputPricePerMTokens;
         return this;
     }
@@ -262,17 +263,17 @@ public class ModelPricing {
      * Get outputPricePerMTokens
      * @return outputPricePerMTokens
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getOutputPricePerMTokens() {
         return outputPricePerMTokens;
     }
 
     public void setOutputPricePerMTokens(
-            @javax.annotation.Nonnull BigDecimal outputPricePerMTokens) {
+            @jakarta.annotation.Nonnull BigDecimal outputPricePerMTokens) {
         this.outputPricePerMTokens = outputPricePerMTokens;
     }
 
-    public ModelPricing source(@javax.annotation.Nonnull SourceEnum source) {
+    public ModelPricing source(@jakarta.annotation.Nonnull SourceEnum source) {
         this.source = source;
         return this;
     }
@@ -281,12 +282,12 @@ public class ModelPricing {
      * Get source
      * @return source
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SourceEnum getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nonnull SourceEnum source) {
+    public void setSource(@jakarta.annotation.Nonnull SourceEnum source) {
         this.source = source;
     }
 

@@ -81,7 +81,7 @@ public class RenderingApi {
      * </table>
      */
     public okhttp3.Call createRenderingJobCall(
-            @javax.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload,
+            @jakarta.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -138,7 +138,7 @@ public class RenderingApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createRenderingJobValidateBeforeCall(
-            @javax.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload,
+            @jakarta.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'renderMarkdownPayload' is set
@@ -166,7 +166,7 @@ public class RenderingApi {
      * </table>
      */
     public RenderMarkdownStartResponse createRenderingJob(
-            @javax.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload)
+            @jakarta.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload)
             throws ApiException {
         ApiResponse<RenderMarkdownStartResponse> localVarResp =
                 createRenderingJobWithHttpInfo(renderMarkdownPayload);
@@ -189,7 +189,7 @@ public class RenderingApi {
      * </table>
      */
     public ApiResponse<RenderMarkdownStartResponse> createRenderingJobWithHttpInfo(
-            @javax.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload)
+            @jakarta.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createRenderingJobValidateBeforeCall(renderMarkdownPayload, null);
@@ -214,7 +214,7 @@ public class RenderingApi {
      * </table>
      */
     public okhttp3.Call createRenderingJobAsync(
-            @javax.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload,
+            @jakarta.annotation.Nonnull RenderMarkdownPayload renderMarkdownPayload,
             final ApiCallback<RenderMarkdownStartResponse> _callback)
             throws ApiException {
 
@@ -242,8 +242,8 @@ public class RenderingApi {
      * </table>
      */
     public okhttp3.Call getRenderingJobStatusCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String workflowRunId,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String workflowRunId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -310,8 +310,8 @@ public class RenderingApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getRenderingJobStatusValidateBeforeCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String workflowRunId,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String workflowRunId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'workflowId' is set
@@ -346,8 +346,8 @@ public class RenderingApi {
      * </table>
      */
     public RenderMarkdownStatusResponse getRenderingJobStatus(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String workflowRunId)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String workflowRunId)
             throws ApiException {
         ApiResponse<RenderMarkdownStatusResponse> localVarResp =
                 getRenderingJobStatusWithHttpInfo(workflowId, workflowRunId);
@@ -371,8 +371,8 @@ public class RenderingApi {
      * </table>
      */
     public ApiResponse<RenderMarkdownStatusResponse> getRenderingJobStatusWithHttpInfo(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String workflowRunId)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String workflowRunId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getRenderingJobStatusValidateBeforeCall(workflowId, workflowRunId, null);
@@ -398,8 +398,8 @@ public class RenderingApi {
      * </table>
      */
     public okhttp3.Call getRenderingJobStatusAsync(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String workflowRunId,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String workflowRunId,
             final ApiCallback<RenderMarkdownStatusResponse> _callback)
             throws ApiException {
 

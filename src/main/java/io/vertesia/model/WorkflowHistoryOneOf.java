@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * WorkflowHistoryOneOf
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WorkflowHistoryOneOf {
@@ -94,18 +94,18 @@ public class WorkflowHistoryOneOf {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_EVENTS = "events";
 
     @SerializedName(SERIALIZED_NAME_EVENTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<WorkflowRunEvent> events = new ArrayList<>();
 
     public WorkflowHistoryOneOf() {}
 
-    public WorkflowHistoryOneOf type(@javax.annotation.Nonnull TypeEnum type) {
+    public WorkflowHistoryOneOf type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -114,16 +114,16 @@ public class WorkflowHistoryOneOf {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public WorkflowHistoryOneOf events(@javax.annotation.Nonnull List<WorkflowRunEvent> events) {
+    public WorkflowHistoryOneOf events(@jakarta.annotation.Nonnull List<WorkflowRunEvent> events) {
         this.events = events;
         return this;
     }
@@ -140,12 +140,12 @@ public class WorkflowHistoryOneOf {
      * Get events
      * @return events
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<WorkflowRunEvent> getEvents() {
         return events;
     }
 
-    public void setEvents(@javax.annotation.Nonnull List<WorkflowRunEvent> events) {
+    public void setEvents(@jakarta.annotation.Nonnull List<WorkflowRunEvent> events) {
         this.events = events;
     }
 

@@ -31,35 +31,35 @@ import java.util.Objects;
 /**
  * Panel position within the dashboard grid.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DashboardPanelPosition {
     public static final String SERIALIZED_NAME_ROW = "row";
 
     @SerializedName(SERIALIZED_NAME_ROW)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal row;
 
     public static final String SERIALIZED_NAME_COL = "col";
 
     @SerializedName(SERIALIZED_NAME_COL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal col;
 
     public static final String SERIALIZED_NAME_WIDTH = "width";
 
     @SerializedName(SERIALIZED_NAME_WIDTH)
-    @javax.annotation.Nullable private BigDecimal width;
+    @jakarta.annotation.Nullable private BigDecimal width;
 
     public static final String SERIALIZED_NAME_HEIGHT = "height";
 
     @SerializedName(SERIALIZED_NAME_HEIGHT)
-    @javax.annotation.Nullable private BigDecimal height;
+    @jakarta.annotation.Nullable private BigDecimal height;
 
     public DashboardPanelPosition() {}
 
-    public DashboardPanelPosition row(@javax.annotation.Nonnull BigDecimal row) {
+    public DashboardPanelPosition row(@jakarta.annotation.Nonnull BigDecimal row) {
         this.row = row;
         return this;
     }
@@ -68,16 +68,16 @@ public class DashboardPanelPosition {
      * Row index (0-based)
      * @return row
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getRow() {
         return row;
     }
 
-    public void setRow(@javax.annotation.Nonnull BigDecimal row) {
+    public void setRow(@jakarta.annotation.Nonnull BigDecimal row) {
         this.row = row;
     }
 
-    public DashboardPanelPosition col(@javax.annotation.Nonnull BigDecimal col) {
+    public DashboardPanelPosition col(@jakarta.annotation.Nonnull BigDecimal col) {
         this.col = col;
         return this;
     }
@@ -86,16 +86,16 @@ public class DashboardPanelPosition {
      * Column index (0-based)
      * @return col
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCol() {
         return col;
     }
 
-    public void setCol(@javax.annotation.Nonnull BigDecimal col) {
+    public void setCol(@jakarta.annotation.Nonnull BigDecimal col) {
         this.col = col;
     }
 
-    public DashboardPanelPosition width(@javax.annotation.Nullable BigDecimal width) {
+    public DashboardPanelPosition width(@jakarta.annotation.Nullable BigDecimal width) {
         this.width = width;
         return this;
     }
@@ -104,15 +104,15 @@ public class DashboardPanelPosition {
      * Width in grid cells (default: 1)
      * @return width
      */
-    @javax.annotation.Nullable public BigDecimal getWidth() {
+    @jakarta.annotation.Nullable public BigDecimal getWidth() {
         return width;
     }
 
-    public void setWidth(@javax.annotation.Nullable BigDecimal width) {
+    public void setWidth(@jakarta.annotation.Nullable BigDecimal width) {
         this.width = width;
     }
 
-    public DashboardPanelPosition height(@javax.annotation.Nullable BigDecimal height) {
+    public DashboardPanelPosition height(@jakarta.annotation.Nullable BigDecimal height) {
         this.height = height;
         return this;
     }
@@ -121,11 +121,11 @@ public class DashboardPanelPosition {
      * Height in grid cells (default: 1)
      * @return height
      */
-    @javax.annotation.Nullable public BigDecimal getHeight() {
+    @jakarta.annotation.Nullable public BigDecimal getHeight() {
         return height;
     }
 
-    public void setHeight(@javax.annotation.Nullable BigDecimal height) {
+    public void setHeight(@jakarta.annotation.Nullable BigDecimal height) {
         this.height = height;
     }
 

@@ -30,36 +30,36 @@ import java.util.Objects;
 /**
  * GladiaConfigurationInput
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GladiaConfigurationInput {
     public static final String SERIALIZED_NAME_INTEGRATION = "integration";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SupportedIntegrationsGladia integration;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean enabled;
 
     public static final String SERIALIZED_NAME_API_KEY = "api_key";
 
     @SerializedName(SERIALIZED_NAME_API_KEY)
-    @javax.annotation.Nullable private String apiKey;
+    @jakarta.annotation.Nullable private String apiKey;
 
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nullable private String url;
+    @jakarta.annotation.Nullable private String url;
 
     public GladiaConfigurationInput() {}
 
     public GladiaConfigurationInput integration(
-            @javax.annotation.Nonnull SupportedIntegrationsGladia integration) {
+            @jakarta.annotation.Nonnull SupportedIntegrationsGladia integration) {
         this.integration = integration;
         return this;
     }
@@ -68,16 +68,17 @@ public class GladiaConfigurationInput {
      * Get integration
      * @return integration
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SupportedIntegrationsGladia getIntegration() {
         return integration;
     }
 
-    public void setIntegration(@javax.annotation.Nonnull SupportedIntegrationsGladia integration) {
+    public void setIntegration(
+            @jakarta.annotation.Nonnull SupportedIntegrationsGladia integration) {
         this.integration = integration;
     }
 
-    public GladiaConfigurationInput enabled(@javax.annotation.Nonnull Boolean enabled) {
+    public GladiaConfigurationInput enabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -86,16 +87,16 @@ public class GladiaConfigurationInput {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public GladiaConfigurationInput apiKey(@javax.annotation.Nullable String apiKey) {
+    public GladiaConfigurationInput apiKey(@jakarta.annotation.Nullable String apiKey) {
         this.apiKey = apiKey;
         return this;
     }
@@ -104,15 +105,15 @@ public class GladiaConfigurationInput {
      * Get apiKey
      * @return apiKey
      */
-    @javax.annotation.Nullable public String getApiKey() {
+    @jakarta.annotation.Nullable public String getApiKey() {
         return apiKey;
     }
 
-    public void setApiKey(@javax.annotation.Nullable String apiKey) {
+    public void setApiKey(@jakarta.annotation.Nullable String apiKey) {
         this.apiKey = apiKey;
     }
 
-    public GladiaConfigurationInput url(@javax.annotation.Nullable String url) {
+    public GladiaConfigurationInput url(@jakarta.annotation.Nullable String url) {
         this.url = url;
         return this;
     }
@@ -121,11 +122,11 @@ public class GladiaConfigurationInput {
      * Get url
      * @return url
      */
-    @javax.annotation.Nullable public String getUrl() {
+    @jakarta.annotation.Nullable public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nullable String url) {
+    public void setUrl(@jakarta.annotation.Nullable String url) {
         this.url = url;
     }
 

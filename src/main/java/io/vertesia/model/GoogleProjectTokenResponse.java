@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * GoogleProjectTokenResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GoogleProjectTokenResponse {
     public static final String SERIALIZED_NAME_PRINCIPAL = "principal";
 
     @SerializedName(SERIALIZED_NAME_PRINCIPAL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String principal;
 
     public static final String SERIALIZED_NAME_TOKEN = "token";
 
     @SerializedName(SERIALIZED_NAME_TOKEN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String token;
 
     public GoogleProjectTokenResponse() {}
 
-    public GoogleProjectTokenResponse principal(@javax.annotation.Nonnull String principal) {
+    public GoogleProjectTokenResponse principal(@jakarta.annotation.Nonnull String principal) {
         this.principal = principal;
         return this;
     }
@@ -57,16 +57,16 @@ public class GoogleProjectTokenResponse {
      * Get principal
      * @return principal
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getPrincipal() {
         return principal;
     }
 
-    public void setPrincipal(@javax.annotation.Nonnull String principal) {
+    public void setPrincipal(@jakarta.annotation.Nonnull String principal) {
         this.principal = principal;
     }
 
-    public GoogleProjectTokenResponse token(@javax.annotation.Nonnull String token) {
+    public GoogleProjectTokenResponse token(@jakarta.annotation.Nonnull String token) {
         this.token = token;
         return this;
     }
@@ -75,12 +75,12 @@ public class GoogleProjectTokenResponse {
      * Get token
      * @return token
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getToken() {
         return token;
     }
 
-    public void setToken(@javax.annotation.Nonnull String token) {
+    public void setToken(@jakarta.annotation.Nonnull String token) {
         this.token = token;
     }
 

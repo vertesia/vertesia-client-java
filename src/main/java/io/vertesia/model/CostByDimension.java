@@ -34,69 +34,69 @@ import java.util.Objects;
 /**
  * CostByDimension
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CostByDimension {
     public static final String SERIALIZED_NAME_DIMENSION = "dimension";
 
     @SerializedName(SERIALIZED_NAME_DIMENSION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String dimension;
 
     public static final String SERIALIZED_NAME_LABEL = "label";
 
     @SerializedName(SERIALIZED_NAME_LABEL)
-    @javax.annotation.Nullable private String label;
+    @jakarta.annotation.Nullable private String label;
 
     public static final String SERIALIZED_NAME_PROVIDER = "provider";
 
     @SerializedName(SERIALIZED_NAME_PROVIDER)
-    @javax.annotation.Nullable private String provider;
+    @jakarta.annotation.Nullable private String provider;
 
     public static final String SERIALIZED_NAME_COST = "cost";
 
     @SerializedName(SERIALIZED_NAME_COST)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal cost;
 
     public static final String SERIALIZED_NAME_INPUT_TOKENS = "input_tokens";
 
     @SerializedName(SERIALIZED_NAME_INPUT_TOKENS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal inputTokens;
 
     public static final String SERIALIZED_NAME_CACHED_INPUT_TOKENS = "cached_input_tokens";
 
     @SerializedName(SERIALIZED_NAME_CACHED_INPUT_TOKENS)
-    @javax.annotation.Nullable private BigDecimal cachedInputTokens;
+    @jakarta.annotation.Nullable private BigDecimal cachedInputTokens;
 
     public static final String SERIALIZED_NAME_CACHE_WRITE_INPUT_TOKENS =
             "cache_write_input_tokens";
 
     @SerializedName(SERIALIZED_NAME_CACHE_WRITE_INPUT_TOKENS)
-    @javax.annotation.Nullable private BigDecimal cacheWriteInputTokens;
+    @jakarta.annotation.Nullable private BigDecimal cacheWriteInputTokens;
 
     public static final String SERIALIZED_NAME_OUTPUT_TOKENS = "output_tokens";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT_TOKENS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal outputTokens;
 
     public static final String SERIALIZED_NAME_CALLS = "calls";
 
     @SerializedName(SERIALIZED_NAME_CALLS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal calls;
 
     public static final String SERIALIZED_NAME_PERIODS = "periods";
 
     @SerializedName(SERIALIZED_NAME_PERIODS)
-    @javax.annotation.Nullable private List<CostTimeSeriesPoint> periods = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<CostTimeSeriesPoint> periods = new ArrayList<>();
 
     public CostByDimension() {}
 
-    public CostByDimension dimension(@javax.annotation.Nonnull String dimension) {
+    public CostByDimension dimension(@jakarta.annotation.Nonnull String dimension) {
         this.dimension = dimension;
         return this;
     }
@@ -105,16 +105,16 @@ public class CostByDimension {
      * Get dimension
      * @return dimension
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDimension() {
         return dimension;
     }
 
-    public void setDimension(@javax.annotation.Nonnull String dimension) {
+    public void setDimension(@jakarta.annotation.Nonnull String dimension) {
         this.dimension = dimension;
     }
 
-    public CostByDimension label(@javax.annotation.Nullable String label) {
+    public CostByDimension label(@jakarta.annotation.Nullable String label) {
         this.label = label;
         return this;
     }
@@ -123,15 +123,15 @@ public class CostByDimension {
      * Get label
      * @return label
      */
-    @javax.annotation.Nullable public String getLabel() {
+    @jakarta.annotation.Nullable public String getLabel() {
         return label;
     }
 
-    public void setLabel(@javax.annotation.Nullable String label) {
+    public void setLabel(@jakarta.annotation.Nullable String label) {
         this.label = label;
     }
 
-    public CostByDimension provider(@javax.annotation.Nullable String provider) {
+    public CostByDimension provider(@jakarta.annotation.Nullable String provider) {
         this.provider = provider;
         return this;
     }
@@ -140,15 +140,15 @@ public class CostByDimension {
      * Get provider
      * @return provider
      */
-    @javax.annotation.Nullable public String getProvider() {
+    @jakarta.annotation.Nullable public String getProvider() {
         return provider;
     }
 
-    public void setProvider(@javax.annotation.Nullable String provider) {
+    public void setProvider(@jakarta.annotation.Nullable String provider) {
         this.provider = provider;
     }
 
-    public CostByDimension cost(@javax.annotation.Nonnull BigDecimal cost) {
+    public CostByDimension cost(@jakarta.annotation.Nonnull BigDecimal cost) {
         this.cost = cost;
         return this;
     }
@@ -157,16 +157,16 @@ public class CostByDimension {
      * Get cost
      * @return cost
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCost() {
         return cost;
     }
 
-    public void setCost(@javax.annotation.Nonnull BigDecimal cost) {
+    public void setCost(@jakarta.annotation.Nonnull BigDecimal cost) {
         this.cost = cost;
     }
 
-    public CostByDimension inputTokens(@javax.annotation.Nonnull BigDecimal inputTokens) {
+    public CostByDimension inputTokens(@jakarta.annotation.Nonnull BigDecimal inputTokens) {
         this.inputTokens = inputTokens;
         return this;
     }
@@ -175,17 +175,17 @@ public class CostByDimension {
      * Get inputTokens
      * @return inputTokens
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getInputTokens() {
         return inputTokens;
     }
 
-    public void setInputTokens(@javax.annotation.Nonnull BigDecimal inputTokens) {
+    public void setInputTokens(@jakarta.annotation.Nonnull BigDecimal inputTokens) {
         this.inputTokens = inputTokens;
     }
 
     public CostByDimension cachedInputTokens(
-            @javax.annotation.Nullable BigDecimal cachedInputTokens) {
+            @jakarta.annotation.Nullable BigDecimal cachedInputTokens) {
         this.cachedInputTokens = cachedInputTokens;
         return this;
     }
@@ -194,16 +194,16 @@ public class CostByDimension {
      * Get cachedInputTokens
      * @return cachedInputTokens
      */
-    @javax.annotation.Nullable public BigDecimal getCachedInputTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getCachedInputTokens() {
         return cachedInputTokens;
     }
 
-    public void setCachedInputTokens(@javax.annotation.Nullable BigDecimal cachedInputTokens) {
+    public void setCachedInputTokens(@jakarta.annotation.Nullable BigDecimal cachedInputTokens) {
         this.cachedInputTokens = cachedInputTokens;
     }
 
     public CostByDimension cacheWriteInputTokens(
-            @javax.annotation.Nullable BigDecimal cacheWriteInputTokens) {
+            @jakarta.annotation.Nullable BigDecimal cacheWriteInputTokens) {
         this.cacheWriteInputTokens = cacheWriteInputTokens;
         return this;
     }
@@ -212,16 +212,16 @@ public class CostByDimension {
      * Get cacheWriteInputTokens
      * @return cacheWriteInputTokens
      */
-    @javax.annotation.Nullable public BigDecimal getCacheWriteInputTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getCacheWriteInputTokens() {
         return cacheWriteInputTokens;
     }
 
     public void setCacheWriteInputTokens(
-            @javax.annotation.Nullable BigDecimal cacheWriteInputTokens) {
+            @jakarta.annotation.Nullable BigDecimal cacheWriteInputTokens) {
         this.cacheWriteInputTokens = cacheWriteInputTokens;
     }
 
-    public CostByDimension outputTokens(@javax.annotation.Nonnull BigDecimal outputTokens) {
+    public CostByDimension outputTokens(@jakarta.annotation.Nonnull BigDecimal outputTokens) {
         this.outputTokens = outputTokens;
         return this;
     }
@@ -230,16 +230,16 @@ public class CostByDimension {
      * Get outputTokens
      * @return outputTokens
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getOutputTokens() {
         return outputTokens;
     }
 
-    public void setOutputTokens(@javax.annotation.Nonnull BigDecimal outputTokens) {
+    public void setOutputTokens(@jakarta.annotation.Nonnull BigDecimal outputTokens) {
         this.outputTokens = outputTokens;
     }
 
-    public CostByDimension calls(@javax.annotation.Nonnull BigDecimal calls) {
+    public CostByDimension calls(@jakarta.annotation.Nonnull BigDecimal calls) {
         this.calls = calls;
         return this;
     }
@@ -248,16 +248,16 @@ public class CostByDimension {
      * Get calls
      * @return calls
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCalls() {
         return calls;
     }
 
-    public void setCalls(@javax.annotation.Nonnull BigDecimal calls) {
+    public void setCalls(@jakarta.annotation.Nonnull BigDecimal calls) {
         this.calls = calls;
     }
 
-    public CostByDimension periods(@javax.annotation.Nullable List<CostTimeSeriesPoint> periods) {
+    public CostByDimension periods(@jakarta.annotation.Nullable List<CostTimeSeriesPoint> periods) {
         this.periods = periods;
         return this;
     }
@@ -274,11 +274,11 @@ public class CostByDimension {
      * Get periods
      * @return periods
      */
-    @javax.annotation.Nullable public List<CostTimeSeriesPoint> getPeriods() {
+    @jakarta.annotation.Nullable public List<CostTimeSeriesPoint> getPeriods() {
         return periods;
     }
 
-    public void setPeriods(@javax.annotation.Nullable List<CostTimeSeriesPoint> periods) {
+    public void setPeriods(@jakarta.annotation.Nullable List<CostTimeSeriesPoint> periods) {
         this.periods = periods;
     }
 

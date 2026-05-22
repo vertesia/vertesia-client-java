@@ -30,20 +30,20 @@ import java.util.Objects;
 /**
  * ImprovePromptPayloadConfig
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ImprovePromptPayloadConfig {
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private InteractionExecutionConfiguration config;
 
     public ImprovePromptPayloadConfig() {}
 
     public ImprovePromptPayloadConfig config(
-            @javax.annotation.Nonnull InteractionExecutionConfiguration config) {
+            @jakarta.annotation.Nonnull InteractionExecutionConfiguration config) {
         this.config = config;
         return this;
     }
@@ -52,12 +52,12 @@ public class ImprovePromptPayloadConfig {
      * Get config
      * @return config
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public InteractionExecutionConfiguration getConfig() {
         return config;
     }
 
-    public void setConfig(@javax.annotation.Nonnull InteractionExecutionConfiguration config) {
+    public void setConfig(@jakarta.annotation.Nonnull InteractionExecutionConfiguration config) {
         this.config = config;
     }
 

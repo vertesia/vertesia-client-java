@@ -35,44 +35,44 @@ import java.util.Objects;
 /**
  * UpdateUserGroupPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UpdateUserGroupPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
 
     public static final String SERIALIZED_NAME_CLEARANCE = "clearance";
 
     @SerializedName(SERIALIZED_NAME_CLEARANCE)
-    @javax.annotation.Nullable private BigDecimal clearance;
+    @jakarta.annotation.Nullable private BigDecimal clearance;
 
     public static final String SERIALIZED_NAME_COMPARTMENTS = "compartments";
 
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
-    @javax.annotation.Nullable private List<String> compartments = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
     public UpdateUserGroupPayload() {}
 
-    public UpdateUserGroupPayload name(@javax.annotation.Nonnull String name) {
+    public UpdateUserGroupPayload name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -81,16 +81,16 @@ public class UpdateUserGroupPayload {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public UpdateUserGroupPayload description(@javax.annotation.Nullable String description) {
+    public UpdateUserGroupPayload description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -99,15 +99,15 @@ public class UpdateUserGroupPayload {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public UpdateUserGroupPayload tags(@javax.annotation.Nullable List<String> tags) {
+    public UpdateUserGroupPayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -124,16 +124,16 @@ public class UpdateUserGroupPayload {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
     public UpdateUserGroupPayload properties(
-            @javax.annotation.Nullable Map<String, Object> properties) {
+            @jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
         return this;
     }
@@ -150,15 +150,15 @@ public class UpdateUserGroupPayload {
      * Get properties
      * @return properties
      */
-    @javax.annotation.Nullable public Map<String, Object> getProperties() {
+    @jakarta.annotation.Nullable public Map<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public void setProperties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
     }
 
-    public UpdateUserGroupPayload clearance(@javax.annotation.Nullable BigDecimal clearance) {
+    public UpdateUserGroupPayload clearance(@jakarta.annotation.Nullable BigDecimal clearance) {
         this.clearance = clearance;
         return this;
     }
@@ -167,16 +167,16 @@ public class UpdateUserGroupPayload {
      * Get clearance
      * @return clearance
      */
-    @javax.annotation.Nullable public BigDecimal getClearance() {
+    @jakarta.annotation.Nullable public BigDecimal getClearance() {
         return clearance;
     }
 
-    public void setClearance(@javax.annotation.Nullable BigDecimal clearance) {
+    public void setClearance(@jakarta.annotation.Nullable BigDecimal clearance) {
         this.clearance = clearance;
     }
 
     public UpdateUserGroupPayload compartments(
-            @javax.annotation.Nullable List<String> compartments) {
+            @jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
         return this;
     }
@@ -193,11 +193,11 @@ public class UpdateUserGroupPayload {
      * Get compartments
      * @return compartments
      */
-    @javax.annotation.Nullable public List<String> getCompartments() {
+    @jakarta.annotation.Nullable public List<String> getCompartments() {
         return compartments;
     }
 
-    public void setCompartments(@javax.annotation.Nullable List<String> compartments) {
+    public void setCompartments(@jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
     }
 

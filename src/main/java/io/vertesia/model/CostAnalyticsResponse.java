@@ -35,49 +35,49 @@ import java.util.Objects;
 /**
  * CostAnalyticsResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CostAnalyticsResponse {
     public static final String SERIALIZED_NAME_SUMMARY = "summary";
 
     @SerializedName(SERIALIZED_NAME_SUMMARY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private CostSummary summary;
 
     public static final String SERIALIZED_NAME_BY_DIMENSION = "by_dimension";
 
     @SerializedName(SERIALIZED_NAME_BY_DIMENSION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<CostByDimension> byDimension = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TIME_SERIES = "time_series";
 
     @SerializedName(SERIALIZED_NAME_TIME_SERIES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<CostTimeSeriesPoint> timeSeries = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PRICING = "pricing";
 
     @SerializedName(SERIALIZED_NAME_PRICING)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<ModelPricing> pricing = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_QUERY_RANGE = "query_range";
 
     @SerializedName(SERIALIZED_NAME_QUERY_RANGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private CostAnalyticsResponseQueryRange queryRange;
 
     public static final String SERIALIZED_NAME_CACHED = "cached";
 
     @SerializedName(SERIALIZED_NAME_CACHED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean cached;
 
     public CostAnalyticsResponse() {}
 
-    public CostAnalyticsResponse summary(@javax.annotation.Nonnull CostSummary summary) {
+    public CostAnalyticsResponse summary(@jakarta.annotation.Nonnull CostSummary summary) {
         this.summary = summary;
         return this;
     }
@@ -86,17 +86,17 @@ public class CostAnalyticsResponse {
      * Get summary
      * @return summary
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public CostSummary getSummary() {
         return summary;
     }
 
-    public void setSummary(@javax.annotation.Nonnull CostSummary summary) {
+    public void setSummary(@jakarta.annotation.Nonnull CostSummary summary) {
         this.summary = summary;
     }
 
     public CostAnalyticsResponse byDimension(
-            @javax.annotation.Nonnull List<CostByDimension> byDimension) {
+            @jakarta.annotation.Nonnull List<CostByDimension> byDimension) {
         this.byDimension = byDimension;
         return this;
     }
@@ -113,17 +113,17 @@ public class CostAnalyticsResponse {
      * Get byDimension
      * @return byDimension
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<CostByDimension> getByDimension() {
         return byDimension;
     }
 
-    public void setByDimension(@javax.annotation.Nonnull List<CostByDimension> byDimension) {
+    public void setByDimension(@jakarta.annotation.Nonnull List<CostByDimension> byDimension) {
         this.byDimension = byDimension;
     }
 
     public CostAnalyticsResponse timeSeries(
-            @javax.annotation.Nonnull List<CostTimeSeriesPoint> timeSeries) {
+            @jakarta.annotation.Nonnull List<CostTimeSeriesPoint> timeSeries) {
         this.timeSeries = timeSeries;
         return this;
     }
@@ -140,16 +140,16 @@ public class CostAnalyticsResponse {
      * Get timeSeries
      * @return timeSeries
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<CostTimeSeriesPoint> getTimeSeries() {
         return timeSeries;
     }
 
-    public void setTimeSeries(@javax.annotation.Nonnull List<CostTimeSeriesPoint> timeSeries) {
+    public void setTimeSeries(@jakarta.annotation.Nonnull List<CostTimeSeriesPoint> timeSeries) {
         this.timeSeries = timeSeries;
     }
 
-    public CostAnalyticsResponse pricing(@javax.annotation.Nonnull List<ModelPricing> pricing) {
+    public CostAnalyticsResponse pricing(@jakarta.annotation.Nonnull List<ModelPricing> pricing) {
         this.pricing = pricing;
         return this;
     }
@@ -166,17 +166,17 @@ public class CostAnalyticsResponse {
      * Get pricing
      * @return pricing
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<ModelPricing> getPricing() {
         return pricing;
     }
 
-    public void setPricing(@javax.annotation.Nonnull List<ModelPricing> pricing) {
+    public void setPricing(@jakarta.annotation.Nonnull List<ModelPricing> pricing) {
         this.pricing = pricing;
     }
 
     public CostAnalyticsResponse queryRange(
-            @javax.annotation.Nonnull CostAnalyticsResponseQueryRange queryRange) {
+            @jakarta.annotation.Nonnull CostAnalyticsResponseQueryRange queryRange) {
         this.queryRange = queryRange;
         return this;
     }
@@ -185,17 +185,17 @@ public class CostAnalyticsResponse {
      * Get queryRange
      * @return queryRange
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public CostAnalyticsResponseQueryRange getQueryRange() {
         return queryRange;
     }
 
     public void setQueryRange(
-            @javax.annotation.Nonnull CostAnalyticsResponseQueryRange queryRange) {
+            @jakarta.annotation.Nonnull CostAnalyticsResponseQueryRange queryRange) {
         this.queryRange = queryRange;
     }
 
-    public CostAnalyticsResponse cached(@javax.annotation.Nonnull Boolean cached) {
+    public CostAnalyticsResponse cached(@jakarta.annotation.Nonnull Boolean cached) {
         this.cached = cached;
         return this;
     }
@@ -204,12 +204,12 @@ public class CostAnalyticsResponse {
      * Get cached
      * @return cached
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getCached() {
         return cached;
     }
 
-    public void setCached(@javax.annotation.Nonnull Boolean cached) {
+    public void setCached(@jakarta.annotation.Nonnull Boolean cached) {
         this.cached = cached;
     }
 

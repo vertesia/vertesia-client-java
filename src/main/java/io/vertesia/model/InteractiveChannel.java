@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * Interactive (UI chat) channel configuration. Used for real-time chat interface communication.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InteractiveChannel {
@@ -91,12 +91,12 @@ public class InteractiveChannel {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public InteractiveChannel() {}
 
-    public InteractiveChannel type(@javax.annotation.Nonnull TypeEnum type) {
+    public InteractiveChannel type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -105,12 +105,12 @@ public class InteractiveChannel {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 

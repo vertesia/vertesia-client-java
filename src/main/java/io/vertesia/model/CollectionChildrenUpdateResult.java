@@ -31,19 +31,19 @@ import java.util.Objects;
 /**
  * CollectionChildrenUpdateResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CollectionChildrenUpdateResult {
     public static final String SERIALIZED_NAME_COUNT = "count";
 
     @SerializedName(SERIALIZED_NAME_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal count;
 
     public CollectionChildrenUpdateResult() {}
 
-    public CollectionChildrenUpdateResult count(@javax.annotation.Nonnull BigDecimal count) {
+    public CollectionChildrenUpdateResult count(@jakarta.annotation.Nonnull BigDecimal count) {
         this.count = count;
         return this;
     }
@@ -52,12 +52,12 @@ public class CollectionChildrenUpdateResult {
      * Get count
      * @return count
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCount() {
         return count;
     }
 
-    public void setCount(@javax.annotation.Nonnull BigDecimal count) {
+    public void setCount(@jakarta.annotation.Nonnull BigDecimal count) {
         this.count = count;
     }
 

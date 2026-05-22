@@ -83,8 +83,8 @@ public class UserGroupsApi {
      * </table>
      */
     public okhttp3.Call addUserGroupMemberCall(
-            @javax.annotation.Nonnull String groupId,
-            @javax.annotation.Nonnull String userId,
+            @jakarta.annotation.Nonnull String groupId,
+            @jakarta.annotation.Nonnull String userId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -148,8 +148,8 @@ public class UserGroupsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call addUserGroupMemberValidateBeforeCall(
-            @javax.annotation.Nonnull String groupId,
-            @javax.annotation.Nonnull String userId,
+            @jakarta.annotation.Nonnull String groupId,
+            @jakarta.annotation.Nonnull String userId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'groupId' is set
@@ -184,7 +184,7 @@ public class UserGroupsApi {
      * </table>
      */
     public UserGroup addUserGroupMember(
-            @javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String userId)
+            @jakarta.annotation.Nonnull String groupId, @jakarta.annotation.Nonnull String userId)
             throws ApiException {
         ApiResponse<UserGroup> localVarResp = addUserGroupMemberWithHttpInfo(groupId, userId);
         return localVarResp.getData();
@@ -207,7 +207,7 @@ public class UserGroupsApi {
      * </table>
      */
     public ApiResponse<UserGroup> addUserGroupMemberWithHttpInfo(
-            @javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String userId)
+            @jakarta.annotation.Nonnull String groupId, @jakarta.annotation.Nonnull String userId)
             throws ApiException {
         okhttp3.Call localVarCall = addUserGroupMemberValidateBeforeCall(groupId, userId, null);
         Type localVarReturnType = new TypeToken<UserGroup>() {}.getType();
@@ -232,8 +232,8 @@ public class UserGroupsApi {
      * </table>
      */
     public okhttp3.Call addUserGroupMemberAsync(
-            @javax.annotation.Nonnull String groupId,
-            @javax.annotation.Nonnull String userId,
+            @jakarta.annotation.Nonnull String groupId,
+            @jakarta.annotation.Nonnull String userId,
             final ApiCallback<UserGroup> _callback)
             throws ApiException {
 
@@ -260,7 +260,7 @@ public class UserGroupsApi {
      * </table>
      */
     public okhttp3.Call createUserGroupCall(
-            @javax.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload,
+            @jakarta.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -317,7 +317,7 @@ public class UserGroupsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createUserGroupValidateBeforeCall(
-            @javax.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload,
+            @jakarta.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'createUserGroupPayload' is set
@@ -345,7 +345,7 @@ public class UserGroupsApi {
      * </table>
      */
     public UserGroup createUserGroup(
-            @javax.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload)
+            @jakarta.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload)
             throws ApiException {
         ApiResponse<UserGroup> localVarResp = createUserGroupWithHttpInfo(createUserGroupPayload);
         return localVarResp.getData();
@@ -367,7 +367,7 @@ public class UserGroupsApi {
      * </table>
      */
     public ApiResponse<UserGroup> createUserGroupWithHttpInfo(
-            @javax.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload)
+            @jakarta.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload)
             throws ApiException {
         okhttp3.Call localVarCall = createUserGroupValidateBeforeCall(createUserGroupPayload, null);
         Type localVarReturnType = new TypeToken<UserGroup>() {}.getType();
@@ -391,7 +391,7 @@ public class UserGroupsApi {
      * </table>
      */
     public okhttp3.Call createUserGroupAsync(
-            @javax.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload,
+            @jakarta.annotation.Nonnull CreateUserGroupPayload createUserGroupPayload,
             final ApiCallback<UserGroup> _callback)
             throws ApiException {
 
@@ -418,7 +418,7 @@ public class UserGroupsApi {
      * </table>
      */
     public okhttp3.Call getUserGroupCall(
-            @javax.annotation.Nonnull String groupId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String groupId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -478,7 +478,7 @@ public class UserGroupsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getUserGroupValidateBeforeCall(
-            @javax.annotation.Nonnull String groupId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String groupId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -504,7 +504,7 @@ public class UserGroupsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public UserGroup getUserGroup(@javax.annotation.Nonnull String groupId) throws ApiException {
+    public UserGroup getUserGroup(@jakarta.annotation.Nonnull String groupId) throws ApiException {
         ApiResponse<UserGroup> localVarResp = getUserGroupWithHttpInfo(groupId);
         return localVarResp.getData();
     }
@@ -524,8 +524,8 @@ public class UserGroupsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<UserGroup> getUserGroupWithHttpInfo(@javax.annotation.Nonnull String groupId)
-            throws ApiException {
+    public ApiResponse<UserGroup> getUserGroupWithHttpInfo(
+            @jakarta.annotation.Nonnull String groupId) throws ApiException {
         okhttp3.Call localVarCall = getUserGroupValidateBeforeCall(groupId, null);
         Type localVarReturnType = new TypeToken<UserGroup>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -548,7 +548,7 @@ public class UserGroupsApi {
      * </table>
      */
     public okhttp3.Call getUserGroupAsync(
-            @javax.annotation.Nonnull String groupId, final ApiCallback<UserGroup> _callback)
+            @jakarta.annotation.Nonnull String groupId, final ApiCallback<UserGroup> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getUserGroupValidateBeforeCall(groupId, _callback);
@@ -573,7 +573,7 @@ public class UserGroupsApi {
      * </table>
      */
     public okhttp3.Call listUserGroupMembersCall(
-            @javax.annotation.Nonnull String groupId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String groupId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -633,7 +633,7 @@ public class UserGroupsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listUserGroupMembersValidateBeforeCall(
-            @javax.annotation.Nonnull String groupId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String groupId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'groupId' is set
         if (groupId == null) {
@@ -659,7 +659,7 @@ public class UserGroupsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<UserRef> listUserGroupMembers(@javax.annotation.Nonnull String groupId)
+    public List<UserRef> listUserGroupMembers(@jakarta.annotation.Nonnull String groupId)
             throws ApiException {
         ApiResponse<List<UserRef>> localVarResp = listUserGroupMembersWithHttpInfo(groupId);
         return localVarResp.getData();
@@ -681,7 +681,7 @@ public class UserGroupsApi {
      * </table>
      */
     public ApiResponse<List<UserRef>> listUserGroupMembersWithHttpInfo(
-            @javax.annotation.Nonnull String groupId) throws ApiException {
+            @jakarta.annotation.Nonnull String groupId) throws ApiException {
         okhttp3.Call localVarCall = listUserGroupMembersValidateBeforeCall(groupId, null);
         Type localVarReturnType = new TypeToken<List<UserRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -704,7 +704,7 @@ public class UserGroupsApi {
      * </table>
      */
     public okhttp3.Call listUserGroupMembersAsync(
-            @javax.annotation.Nonnull String groupId, final ApiCallback<List<UserRef>> _callback)
+            @jakarta.annotation.Nonnull String groupId, final ApiCallback<List<UserRef>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listUserGroupMembersValidateBeforeCall(groupId, _callback);
@@ -866,8 +866,8 @@ public class UserGroupsApi {
      * </table>
      */
     public okhttp3.Call removeUserGroupMemberCall(
-            @javax.annotation.Nonnull String groupId,
-            @javax.annotation.Nonnull String userId,
+            @jakarta.annotation.Nonnull String groupId,
+            @jakarta.annotation.Nonnull String userId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -931,8 +931,8 @@ public class UserGroupsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call removeUserGroupMemberValidateBeforeCall(
-            @javax.annotation.Nonnull String groupId,
-            @javax.annotation.Nonnull String userId,
+            @jakarta.annotation.Nonnull String groupId,
+            @jakarta.annotation.Nonnull String userId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'groupId' is set
@@ -967,7 +967,7 @@ public class UserGroupsApi {
      * </table>
      */
     public UserGroup removeUserGroupMember(
-            @javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String userId)
+            @jakarta.annotation.Nonnull String groupId, @jakarta.annotation.Nonnull String userId)
             throws ApiException {
         ApiResponse<UserGroup> localVarResp = removeUserGroupMemberWithHttpInfo(groupId, userId);
         return localVarResp.getData();
@@ -990,7 +990,7 @@ public class UserGroupsApi {
      * </table>
      */
     public ApiResponse<UserGroup> removeUserGroupMemberWithHttpInfo(
-            @javax.annotation.Nonnull String groupId, @javax.annotation.Nonnull String userId)
+            @jakarta.annotation.Nonnull String groupId, @jakarta.annotation.Nonnull String userId)
             throws ApiException {
         okhttp3.Call localVarCall = removeUserGroupMemberValidateBeforeCall(groupId, userId, null);
         Type localVarReturnType = new TypeToken<UserGroup>() {}.getType();
@@ -1015,8 +1015,8 @@ public class UserGroupsApi {
      * </table>
      */
     public okhttp3.Call removeUserGroupMemberAsync(
-            @javax.annotation.Nonnull String groupId,
-            @javax.annotation.Nonnull String userId,
+            @jakarta.annotation.Nonnull String groupId,
+            @jakarta.annotation.Nonnull String userId,
             final ApiCallback<UserGroup> _callback)
             throws ApiException {
 
@@ -1180,8 +1180,8 @@ public class UserGroupsApi {
      * </table>
      */
     public okhttp3.Call updateUserGroupCall(
-            @javax.annotation.Nonnull String groupId,
-            @javax.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload,
+            @jakarta.annotation.Nonnull String groupId,
+            @jakarta.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1242,8 +1242,8 @@ public class UserGroupsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateUserGroupValidateBeforeCall(
-            @javax.annotation.Nonnull String groupId,
-            @javax.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload,
+            @jakarta.annotation.Nonnull String groupId,
+            @jakarta.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'groupId' is set
@@ -1278,8 +1278,8 @@ public class UserGroupsApi {
      * </table>
      */
     public UserGroup updateUserGroup(
-            @javax.annotation.Nonnull String groupId,
-            @javax.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload)
+            @jakarta.annotation.Nonnull String groupId,
+            @jakarta.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload)
             throws ApiException {
         ApiResponse<UserGroup> localVarResp =
                 updateUserGroupWithHttpInfo(groupId, updateUserGroupPayload);
@@ -1303,8 +1303,8 @@ public class UserGroupsApi {
      * </table>
      */
     public ApiResponse<UserGroup> updateUserGroupWithHttpInfo(
-            @javax.annotation.Nonnull String groupId,
-            @javax.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload)
+            @jakarta.annotation.Nonnull String groupId,
+            @jakarta.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateUserGroupValidateBeforeCall(groupId, updateUserGroupPayload, null);
@@ -1330,8 +1330,8 @@ public class UserGroupsApi {
      * </table>
      */
     public okhttp3.Call updateUserGroupAsync(
-            @javax.annotation.Nonnull String groupId,
-            @javax.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload,
+            @jakarta.annotation.Nonnull String groupId,
+            @jakarta.annotation.Nonnull UpdateUserGroupPayload updateUserGroupPayload,
             final ApiCallback<UserGroup> _callback)
             throws ApiException {
 

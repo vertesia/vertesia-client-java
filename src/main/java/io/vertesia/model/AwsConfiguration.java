@@ -30,32 +30,32 @@ import java.util.Objects;
 /**
  * AwsConfiguration
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AwsConfiguration {
     public static final String SERIALIZED_NAME_INTEGRATION = "integration";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SupportedIntegrationsAws integration;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean enabled;
 
     public static final String SERIALIZED_NAME_S3_ROLE_ARN = "s3_role_arn";
 
     @SerializedName(SERIALIZED_NAME_S3_ROLE_ARN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String s3RoleArn;
 
     public AwsConfiguration() {}
 
     public AwsConfiguration integration(
-            @javax.annotation.Nonnull SupportedIntegrationsAws integration) {
+            @jakarta.annotation.Nonnull SupportedIntegrationsAws integration) {
         this.integration = integration;
         return this;
     }
@@ -64,16 +64,16 @@ public class AwsConfiguration {
      * Get integration
      * @return integration
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SupportedIntegrationsAws getIntegration() {
         return integration;
     }
 
-    public void setIntegration(@javax.annotation.Nonnull SupportedIntegrationsAws integration) {
+    public void setIntegration(@jakarta.annotation.Nonnull SupportedIntegrationsAws integration) {
         this.integration = integration;
     }
 
-    public AwsConfiguration enabled(@javax.annotation.Nonnull Boolean enabled) {
+    public AwsConfiguration enabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -82,16 +82,16 @@ public class AwsConfiguration {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public AwsConfiguration s3RoleArn(@javax.annotation.Nonnull String s3RoleArn) {
+    public AwsConfiguration s3RoleArn(@jakarta.annotation.Nonnull String s3RoleArn) {
         this.s3RoleArn = s3RoleArn;
         return this;
     }
@@ -100,12 +100,12 @@ public class AwsConfiguration {
      * Get s3RoleArn
      * @return s3RoleArn
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getS3RoleArn() {
         return s3RoleArn;
     }
 
-    public void setS3RoleArn(@javax.annotation.Nonnull String s3RoleArn) {
+    public void setS3RoleArn(@jakarta.annotation.Nonnull String s3RoleArn) {
         this.s3RoleArn = s3RoleArn;
     }
 

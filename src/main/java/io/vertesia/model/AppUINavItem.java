@@ -34,42 +34,42 @@ import java.util.Objects;
 /**
  * Additional navigation item for an app&#39;s UI configuration. Used in AppUIConfig.navigation to define sidebar navigation entries in CompositeApp shell contexts. Icon values are Lucide icon component names or SVG content strings.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AppUINavItem {
     public static final String SERIALIZED_NAME_LABEL = "label";
 
     @SerializedName(SERIALIZED_NAME_LABEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String label;
 
     public static final String SERIALIZED_NAME_ICON = "icon";
 
     @SerializedName(SERIALIZED_NAME_ICON)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String icon;
 
     public static final String SERIALIZED_NAME_ROUTE = "route";
 
     @SerializedName(SERIALIZED_NAME_ROUTE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String route;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_CHILDREN = "children";
 
     @SerializedName(SERIALIZED_NAME_CHILDREN)
-    @javax.annotation.Nullable private List<AppUINavItem> children = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<AppUINavItem> children = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TOP_LEVEL = "topLevel";
 
     @SerializedName(SERIALIZED_NAME_TOP_LEVEL)
-    @javax.annotation.Nullable private Boolean topLevel;
+    @jakarta.annotation.Nullable private Boolean topLevel;
 
     /**
      * Which sidebar section this item should be placed in when first added. - \&quot;default\&quot; or unset: normal behavior (child of its app group) - \&quot;footer\&quot;: placed in the footer section - \&quot;settings\&quot;: placed in the settings section
@@ -131,11 +131,11 @@ public class AppUINavItem {
     public static final String SERIALIZED_NAME_PREFERRED_SECTION = "preferredSection";
 
     @SerializedName(SERIALIZED_NAME_PREFERRED_SECTION)
-    @javax.annotation.Nullable private PreferredSectionEnum preferredSection;
+    @jakarta.annotation.Nullable private PreferredSectionEnum preferredSection;
 
     public AppUINavItem() {}
 
-    public AppUINavItem label(@javax.annotation.Nonnull String label) {
+    public AppUINavItem label(@jakarta.annotation.Nonnull String label) {
         this.label = label;
         return this;
     }
@@ -144,16 +144,16 @@ public class AppUINavItem {
      * Display label
      * @return label
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getLabel() {
         return label;
     }
 
-    public void setLabel(@javax.annotation.Nonnull String label) {
+    public void setLabel(@jakarta.annotation.Nonnull String label) {
         this.label = label;
     }
 
-    public AppUINavItem icon(@javax.annotation.Nonnull String icon) {
+    public AppUINavItem icon(@jakarta.annotation.Nonnull String icon) {
         this.icon = icon;
         return this;
     }
@@ -162,16 +162,16 @@ public class AppUINavItem {
      * Lucide icon name or SVG content string
      * @return icon
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getIcon() {
         return icon;
     }
 
-    public void setIcon(@javax.annotation.Nonnull String icon) {
+    public void setIcon(@jakarta.annotation.Nonnull String icon) {
         this.icon = icon;
     }
 
-    public AppUINavItem route(@javax.annotation.Nonnull String route) {
+    public AppUINavItem route(@jakarta.annotation.Nonnull String route) {
         this.route = route;
         return this;
     }
@@ -180,16 +180,16 @@ public class AppUINavItem {
      * Route path relative to app base
      * @return route
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRoute() {
         return route;
     }
 
-    public void setRoute(@javax.annotation.Nonnull String route) {
+    public void setRoute(@jakarta.annotation.Nonnull String route) {
         this.route = route;
     }
 
-    public AppUINavItem description(@javax.annotation.Nullable String description) {
+    public AppUINavItem description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -198,15 +198,15 @@ public class AppUINavItem {
      * Optional description shown on dashboard cards and other summary views
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public AppUINavItem children(@javax.annotation.Nullable List<AppUINavItem> children) {
+    public AppUINavItem children(@jakarta.annotation.Nullable List<AppUINavItem> children) {
         this.children = children;
         return this;
     }
@@ -223,15 +223,15 @@ public class AppUINavItem {
      * Nested sub-items displayed within this item&#39;s collapsible section
      * @return children
      */
-    @javax.annotation.Nullable public List<AppUINavItem> getChildren() {
+    @jakarta.annotation.Nullable public List<AppUINavItem> getChildren() {
         return children;
     }
 
-    public void setChildren(@javax.annotation.Nullable List<AppUINavItem> children) {
+    public void setChildren(@jakarta.annotation.Nullable List<AppUINavItem> children) {
         this.children = children;
     }
 
-    public AppUINavItem topLevel(@javax.annotation.Nullable Boolean topLevel) {
+    public AppUINavItem topLevel(@jakarta.annotation.Nullable Boolean topLevel) {
         this.topLevel = topLevel;
         return this;
     }
@@ -240,16 +240,16 @@ public class AppUINavItem {
      * When true, this item appears as an independent entry in the sidebar (outside its parent app group)
      * @return topLevel
      */
-    @javax.annotation.Nullable public Boolean getTopLevel() {
+    @jakarta.annotation.Nullable public Boolean getTopLevel() {
         return topLevel;
     }
 
-    public void setTopLevel(@javax.annotation.Nullable Boolean topLevel) {
+    public void setTopLevel(@jakarta.annotation.Nullable Boolean topLevel) {
         this.topLevel = topLevel;
     }
 
     public AppUINavItem preferredSection(
-            @javax.annotation.Nullable PreferredSectionEnum preferredSection) {
+            @jakarta.annotation.Nullable PreferredSectionEnum preferredSection) {
         this.preferredSection = preferredSection;
         return this;
     }
@@ -258,12 +258,12 @@ public class AppUINavItem {
      * Which sidebar section this item should be placed in when first added. - \&quot;default\&quot; or unset: normal behavior (child of its app group) - \&quot;footer\&quot;: placed in the footer section - \&quot;settings\&quot;: placed in the settings section
      * @return preferredSection
      */
-    @javax.annotation.Nullable public PreferredSectionEnum getPreferredSection() {
+    @jakarta.annotation.Nullable public PreferredSectionEnum getPreferredSection() {
         return preferredSection;
     }
 
     public void setPreferredSection(
-            @javax.annotation.Nullable PreferredSectionEnum preferredSection) {
+            @jakarta.annotation.Nullable PreferredSectionEnum preferredSection) {
         this.preferredSection = preferredSection;
     }
 

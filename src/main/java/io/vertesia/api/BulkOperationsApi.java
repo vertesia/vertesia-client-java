@@ -80,7 +80,7 @@ public class BulkOperationsApi {
      * </table>
      */
     public okhttp3.Call runBulkContentOperationCall(
-            @javax.annotation.Nonnull BulkOperationPayload bulkOperationPayload,
+            @jakarta.annotation.Nonnull BulkOperationPayload bulkOperationPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -137,7 +137,7 @@ public class BulkOperationsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call runBulkContentOperationValidateBeforeCall(
-            @javax.annotation.Nonnull BulkOperationPayload bulkOperationPayload,
+            @jakarta.annotation.Nonnull BulkOperationPayload bulkOperationPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'bulkOperationPayload' is set
@@ -165,7 +165,7 @@ public class BulkOperationsApi {
      * </table>
      */
     public BulkOperationResponse runBulkContentOperation(
-            @javax.annotation.Nonnull BulkOperationPayload bulkOperationPayload)
+            @jakarta.annotation.Nonnull BulkOperationPayload bulkOperationPayload)
             throws ApiException {
         ApiResponse<BulkOperationResponse> localVarResp =
                 runBulkContentOperationWithHttpInfo(bulkOperationPayload);
@@ -188,7 +188,7 @@ public class BulkOperationsApi {
      * </table>
      */
     public ApiResponse<BulkOperationResponse> runBulkContentOperationWithHttpInfo(
-            @javax.annotation.Nonnull BulkOperationPayload bulkOperationPayload)
+            @jakarta.annotation.Nonnull BulkOperationPayload bulkOperationPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 runBulkContentOperationValidateBeforeCall(bulkOperationPayload, null);
@@ -213,7 +213,7 @@ public class BulkOperationsApi {
      * </table>
      */
     public okhttp3.Call runBulkContentOperationAsync(
-            @javax.annotation.Nonnull BulkOperationPayload bulkOperationPayload,
+            @jakarta.annotation.Nonnull BulkOperationPayload bulkOperationPayload,
             final ApiCallback<BulkOperationResponse> _callback)
             throws ApiException {
 

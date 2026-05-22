@@ -33,147 +33,147 @@ import java.util.Objects;
 /**
  * A single search hit from Elasticsearch.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AgentRunSearchHit {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_SCORE = "score";
 
     @SerializedName(SERIALIZED_NAME_SCORE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal score;
 
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
-    @javax.annotation.Nullable private String interaction;
+    @jakarta.annotation.Nullable private String interaction;
 
     public static final String SERIALIZED_NAME_RUN_TYPE = "run_type";
 
     @SerializedName(SERIALIZED_NAME_RUN_TYPE)
-    @javax.annotation.Nullable private RunType runType;
+    @jakarta.annotation.Nullable private RunType runType;
 
     public static final String SERIALIZED_NAME_RUN_KIND = "run_kind";
 
     @SerializedName(SERIALIZED_NAME_RUN_KIND)
-    @javax.annotation.Nullable private RunKind runKind;
+    @jakarta.annotation.Nullable private RunKind runKind;
 
     public static final String SERIALIZED_NAME_INTERACTION_NAME = "interaction_name";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION_NAME)
-    @javax.annotation.Nullable private String interactionName;
+    @jakarta.annotation.Nullable private String interactionName;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private AgentRunStatus status;
 
     public static final String SERIALIZED_NAME_ACTIVITY_STATE = "activity_state";
 
     @SerializedName(SERIALIZED_NAME_ACTIVITY_STATE)
-    @javax.annotation.Nullable private ConversationActivityState activityState;
+    @jakarta.annotation.Nullable private ConversationActivityState activityState;
 
     public static final String SERIALIZED_NAME_STARTED_AT = "started_at";
 
     @SerializedName(SERIALIZED_NAME_STARTED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String startedAt;
 
     public static final String SERIALIZED_NAME_COMPLETED_AT = "completed_at";
 
     @SerializedName(SERIALIZED_NAME_COMPLETED_AT)
-    @javax.annotation.Nullable private String completedAt;
+    @jakarta.annotation.Nullable private String completedAt;
 
     public static final String SERIALIZED_NAME_STARTED_BY = "started_by";
 
     @SerializedName(SERIALIZED_NAME_STARTED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String startedBy;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nullable private String title;
+    @jakarta.annotation.Nullable private String title;
 
     public static final String SERIALIZED_NAME_TOPIC = "topic";
 
     @SerializedName(SERIALIZED_NAME_TOPIC)
-    @javax.annotation.Nullable private String topic;
+    @jakarta.annotation.Nullable private String topic;
 
     public static final String SERIALIZED_NAME_LESSONS_LEARNED = "lessons_learned";
 
     @SerializedName(SERIALIZED_NAME_LESSONS_LEARNED)
-    @javax.annotation.Nullable private List<String> lessonsLearned = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> lessonsLearned = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CATEGORIES = "categories";
 
     @SerializedName(SERIALIZED_NAME_CATEGORIES)
-    @javax.annotation.Nullable private List<String> categories = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> categories = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_INTERACTIVE = "interactive";
 
     @SerializedName(SERIALIZED_NAME_INTERACTIVE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean interactive;
 
     public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
-    @javax.annotation.Nullable private String collectionId;
+    @jakarta.annotation.Nullable private String collectionId;
 
     public static final String SERIALIZED_NAME_CONTENT_TYPE = "content_type";
 
     @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
-    @javax.annotation.Nullable private ContentObjectTypeRef contentType;
+    @jakarta.annotation.Nullable private ContentObjectTypeRef contentType;
 
     public static final String SERIALIZED_NAME_TOOL_NAMES = "tool_names";
 
     @SerializedName(SERIALIZED_NAME_TOOL_NAMES)
-    @javax.annotation.Nullable private List<String> toolNames = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> toolNames = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SCHEDULE_ID = "schedule_id";
 
     @SerializedName(SERIALIZED_NAME_SCHEDULE_ID)
-    @javax.annotation.Nullable private String scheduleId;
+    @jakarta.annotation.Nullable private String scheduleId;
 
     public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
 
     @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
-    @javax.annotation.Nullable private AgentRunType sourceType;
+    @jakarta.annotation.Nullable private AgentRunType sourceType;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private AgentRunType type;
+    @jakarta.annotation.Nullable private AgentRunType type;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public AgentRunSearchHit() {}
 
-    public AgentRunSearchHit id(@javax.annotation.Nonnull String id) {
+    public AgentRunSearchHit id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -182,16 +182,16 @@ public class AgentRunSearchHit {
      * Agent run ID
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public AgentRunSearchHit score(@javax.annotation.Nonnull BigDecimal score) {
+    public AgentRunSearchHit score(@jakarta.annotation.Nonnull BigDecimal score) {
         this.score = score;
         return this;
     }
@@ -200,16 +200,16 @@ public class AgentRunSearchHit {
      * Relevance score
      * @return score
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getScore() {
         return score;
     }
 
-    public void setScore(@javax.annotation.Nonnull BigDecimal score) {
+    public void setScore(@jakarta.annotation.Nonnull BigDecimal score) {
         this.score = score;
     }
 
-    public AgentRunSearchHit interaction(@javax.annotation.Nullable String interaction) {
+    public AgentRunSearchHit interaction(@jakarta.annotation.Nullable String interaction) {
         this.interaction = interaction;
         return this;
     }
@@ -218,15 +218,15 @@ public class AgentRunSearchHit {
      * Interaction ID
      * @return interaction
      */
-    @javax.annotation.Nullable public String getInteraction() {
+    @jakarta.annotation.Nullable public String getInteraction() {
         return interaction;
     }
 
-    public void setInteraction(@javax.annotation.Nullable String interaction) {
+    public void setInteraction(@jakarta.annotation.Nullable String interaction) {
         this.interaction = interaction;
     }
 
-    public AgentRunSearchHit runType(@javax.annotation.Nullable RunType runType) {
+    public AgentRunSearchHit runType(@jakarta.annotation.Nullable RunType runType) {
         this.runType = runType;
         return this;
     }
@@ -235,15 +235,15 @@ public class AgentRunSearchHit {
      * Public-facing runtime mode
      * @return runType
      */
-    @javax.annotation.Nullable public RunType getRunType() {
+    @jakarta.annotation.Nullable public RunType getRunType() {
         return runType;
     }
 
-    public void setRunType(@javax.annotation.Nullable RunType runType) {
+    public void setRunType(@jakarta.annotation.Nullable RunType runType) {
         this.runType = runType;
     }
 
-    public AgentRunSearchHit runKind(@javax.annotation.Nullable RunKind runKind) {
+    public AgentRunSearchHit runKind(@jakarta.annotation.Nullable RunKind runKind) {
         this.runKind = runKind;
         return this;
     }
@@ -252,15 +252,15 @@ public class AgentRunSearchHit {
      * Internal run discriminator
      * @return runKind
      */
-    @javax.annotation.Nullable public RunKind getRunKind() {
+    @jakarta.annotation.Nullable public RunKind getRunKind() {
         return runKind;
     }
 
-    public void setRunKind(@javax.annotation.Nullable RunKind runKind) {
+    public void setRunKind(@jakarta.annotation.Nullable RunKind runKind) {
         this.runKind = runKind;
     }
 
-    public AgentRunSearchHit interactionName(@javax.annotation.Nullable String interactionName) {
+    public AgentRunSearchHit interactionName(@jakarta.annotation.Nullable String interactionName) {
         this.interactionName = interactionName;
         return this;
     }
@@ -269,15 +269,15 @@ public class AgentRunSearchHit {
      * Human-readable interaction name
      * @return interactionName
      */
-    @javax.annotation.Nullable public String getInteractionName() {
+    @jakarta.annotation.Nullable public String getInteractionName() {
         return interactionName;
     }
 
-    public void setInteractionName(@javax.annotation.Nullable String interactionName) {
+    public void setInteractionName(@jakarta.annotation.Nullable String interactionName) {
         this.interactionName = interactionName;
     }
 
-    public AgentRunSearchHit status(@javax.annotation.Nonnull AgentRunStatus status) {
+    public AgentRunSearchHit status(@jakarta.annotation.Nonnull AgentRunStatus status) {
         this.status = status;
         return this;
     }
@@ -286,17 +286,17 @@ public class AgentRunSearchHit {
      * Current status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public AgentRunStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull AgentRunStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull AgentRunStatus status) {
         this.status = status;
     }
 
     public AgentRunSearchHit activityState(
-            @javax.annotation.Nullable ConversationActivityState activityState) {
+            @jakarta.annotation.Nullable ConversationActivityState activityState) {
         this.activityState = activityState;
         return this;
     }
@@ -305,16 +305,16 @@ public class AgentRunSearchHit {
      * Whether the agent is currently working or idle
      * @return activityState
      */
-    @javax.annotation.Nullable public ConversationActivityState getActivityState() {
+    @jakarta.annotation.Nullable public ConversationActivityState getActivityState() {
         return activityState;
     }
 
     public void setActivityState(
-            @javax.annotation.Nullable ConversationActivityState activityState) {
+            @jakarta.annotation.Nullable ConversationActivityState activityState) {
         this.activityState = activityState;
     }
 
-    public AgentRunSearchHit startedAt(@javax.annotation.Nonnull String startedAt) {
+    public AgentRunSearchHit startedAt(@jakarta.annotation.Nonnull String startedAt) {
         this.startedAt = startedAt;
         return this;
     }
@@ -323,16 +323,16 @@ public class AgentRunSearchHit {
      * When the run started
      * @return startedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStartedAt() {
         return startedAt;
     }
 
-    public void setStartedAt(@javax.annotation.Nonnull String startedAt) {
+    public void setStartedAt(@jakarta.annotation.Nonnull String startedAt) {
         this.startedAt = startedAt;
     }
 
-    public AgentRunSearchHit completedAt(@javax.annotation.Nullable String completedAt) {
+    public AgentRunSearchHit completedAt(@jakarta.annotation.Nullable String completedAt) {
         this.completedAt = completedAt;
         return this;
     }
@@ -341,15 +341,15 @@ public class AgentRunSearchHit {
      * When the run completed
      * @return completedAt
      */
-    @javax.annotation.Nullable public String getCompletedAt() {
+    @jakarta.annotation.Nullable public String getCompletedAt() {
         return completedAt;
     }
 
-    public void setCompletedAt(@javax.annotation.Nullable String completedAt) {
+    public void setCompletedAt(@jakarta.annotation.Nullable String completedAt) {
         this.completedAt = completedAt;
     }
 
-    public AgentRunSearchHit startedBy(@javax.annotation.Nonnull String startedBy) {
+    public AgentRunSearchHit startedBy(@jakarta.annotation.Nonnull String startedBy) {
         this.startedBy = startedBy;
         return this;
     }
@@ -358,16 +358,16 @@ public class AgentRunSearchHit {
      * Who started the run
      * @return startedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStartedBy() {
         return startedBy;
     }
 
-    public void setStartedBy(@javax.annotation.Nonnull String startedBy) {
+    public void setStartedBy(@jakarta.annotation.Nonnull String startedBy) {
         this.startedBy = startedBy;
     }
 
-    public AgentRunSearchHit title(@javax.annotation.Nullable String title) {
+    public AgentRunSearchHit title(@jakarta.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -376,15 +376,15 @@ public class AgentRunSearchHit {
      * Conversation title
      * @return title
      */
-    @javax.annotation.Nullable public String getTitle() {
+    @jakarta.annotation.Nullable public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nullable String title) {
+    public void setTitle(@jakarta.annotation.Nullable String title) {
         this.title = title;
     }
 
-    public AgentRunSearchHit topic(@javax.annotation.Nullable String topic) {
+    public AgentRunSearchHit topic(@jakarta.annotation.Nullable String topic) {
         this.topic = topic;
         return this;
     }
@@ -393,16 +393,16 @@ public class AgentRunSearchHit {
      * Conversation topic
      * @return topic
      */
-    @javax.annotation.Nullable public String getTopic() {
+    @jakarta.annotation.Nullable public String getTopic() {
         return topic;
     }
 
-    public void setTopic(@javax.annotation.Nullable String topic) {
+    public void setTopic(@jakarta.annotation.Nullable String topic) {
         this.topic = topic;
     }
 
     public AgentRunSearchHit lessonsLearned(
-            @javax.annotation.Nullable List<String> lessonsLearned) {
+            @jakarta.annotation.Nullable List<String> lessonsLearned) {
         this.lessonsLearned = lessonsLearned;
         return this;
     }
@@ -419,15 +419,15 @@ public class AgentRunSearchHit {
      * Lessons learned from the conversation
      * @return lessonsLearned
      */
-    @javax.annotation.Nullable public List<String> getLessonsLearned() {
+    @jakarta.annotation.Nullable public List<String> getLessonsLearned() {
         return lessonsLearned;
     }
 
-    public void setLessonsLearned(@javax.annotation.Nullable List<String> lessonsLearned) {
+    public void setLessonsLearned(@jakarta.annotation.Nullable List<String> lessonsLearned) {
         this.lessonsLearned = lessonsLearned;
     }
 
-    public AgentRunSearchHit tags(@javax.annotation.Nullable List<String> tags) {
+    public AgentRunSearchHit tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -444,15 +444,15 @@ public class AgentRunSearchHit {
      * Tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public AgentRunSearchHit categories(@javax.annotation.Nullable List<String> categories) {
+    public AgentRunSearchHit categories(@jakarta.annotation.Nullable List<String> categories) {
         this.categories = categories;
         return this;
     }
@@ -469,15 +469,15 @@ public class AgentRunSearchHit {
      * Categories
      * @return categories
      */
-    @javax.annotation.Nullable public List<String> getCategories() {
+    @jakarta.annotation.Nullable public List<String> getCategories() {
         return categories;
     }
 
-    public void setCategories(@javax.annotation.Nullable List<String> categories) {
+    public void setCategories(@jakarta.annotation.Nullable List<String> categories) {
         this.categories = categories;
     }
 
-    public AgentRunSearchHit interactive(@javax.annotation.Nonnull Boolean interactive) {
+    public AgentRunSearchHit interactive(@jakarta.annotation.Nonnull Boolean interactive) {
         this.interactive = interactive;
         return this;
     }
@@ -486,16 +486,16 @@ public class AgentRunSearchHit {
      * Whether the agent accepts user input
      * @return interactive
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getInteractive() {
         return interactive;
     }
 
-    public void setInteractive(@javax.annotation.Nonnull Boolean interactive) {
+    public void setInteractive(@jakarta.annotation.Nonnull Boolean interactive) {
         this.interactive = interactive;
     }
 
-    public AgentRunSearchHit collectionId(@javax.annotation.Nullable String collectionId) {
+    public AgentRunSearchHit collectionId(@jakarta.annotation.Nullable String collectionId) {
         this.collectionId = collectionId;
         return this;
     }
@@ -504,16 +504,16 @@ public class AgentRunSearchHit {
      * Collection ID
      * @return collectionId
      */
-    @javax.annotation.Nullable public String getCollectionId() {
+    @jakarta.annotation.Nullable public String getCollectionId() {
         return collectionId;
     }
 
-    public void setCollectionId(@javax.annotation.Nullable String collectionId) {
+    public void setCollectionId(@jakarta.annotation.Nullable String collectionId) {
         this.collectionId = collectionId;
     }
 
     public AgentRunSearchHit contentType(
-            @javax.annotation.Nullable ContentObjectTypeRef contentType) {
+            @jakarta.annotation.Nullable ContentObjectTypeRef contentType) {
         this.contentType = contentType;
         return this;
     }
@@ -522,15 +522,15 @@ public class AgentRunSearchHit {
      * Content type
      * @return contentType
      */
-    @javax.annotation.Nullable public ContentObjectTypeRef getContentType() {
+    @jakarta.annotation.Nullable public ContentObjectTypeRef getContentType() {
         return contentType;
     }
 
-    public void setContentType(@javax.annotation.Nullable ContentObjectTypeRef contentType) {
+    public void setContentType(@jakarta.annotation.Nullable ContentObjectTypeRef contentType) {
         this.contentType = contentType;
     }
 
-    public AgentRunSearchHit toolNames(@javax.annotation.Nullable List<String> toolNames) {
+    public AgentRunSearchHit toolNames(@jakarta.annotation.Nullable List<String> toolNames) {
         this.toolNames = toolNames;
         return this;
     }
@@ -547,15 +547,15 @@ public class AgentRunSearchHit {
      * Tools configured for this run
      * @return toolNames
      */
-    @javax.annotation.Nullable public List<String> getToolNames() {
+    @jakarta.annotation.Nullable public List<String> getToolNames() {
         return toolNames;
     }
 
-    public void setToolNames(@javax.annotation.Nullable List<String> toolNames) {
+    public void setToolNames(@jakarta.annotation.Nullable List<String> toolNames) {
         this.toolNames = toolNames;
     }
 
-    public AgentRunSearchHit scheduleId(@javax.annotation.Nullable String scheduleId) {
+    public AgentRunSearchHit scheduleId(@jakarta.annotation.Nullable String scheduleId) {
         this.scheduleId = scheduleId;
         return this;
     }
@@ -564,15 +564,15 @@ public class AgentRunSearchHit {
      * Schedule ID (if schedule-triggered)
      * @return scheduleId
      */
-    @javax.annotation.Nullable public String getScheduleId() {
+    @jakarta.annotation.Nullable public String getScheduleId() {
         return scheduleId;
     }
 
-    public void setScheduleId(@javax.annotation.Nullable String scheduleId) {
+    public void setScheduleId(@jakarta.annotation.Nullable String scheduleId) {
         this.scheduleId = scheduleId;
     }
 
-    public AgentRunSearchHit sourceType(@javax.annotation.Nullable AgentRunType sourceType) {
+    public AgentRunSearchHit sourceType(@jakarta.annotation.Nullable AgentRunType sourceType) {
         this.sourceType = sourceType;
         return this;
     }
@@ -581,16 +581,16 @@ public class AgentRunSearchHit {
      * How the run was created
      * @return sourceType
      */
-    @javax.annotation.Nullable public AgentRunType getSourceType() {
+    @jakarta.annotation.Nullable public AgentRunType getSourceType() {
         return sourceType;
     }
 
-    public void setSourceType(@javax.annotation.Nullable AgentRunType sourceType) {
+    public void setSourceType(@jakarta.annotation.Nullable AgentRunType sourceType) {
         this.sourceType = sourceType;
     }
 
     @Deprecated
-    public AgentRunSearchHit type(@javax.annotation.Nullable AgentRunType type) {
+    public AgentRunSearchHit type(@jakarta.annotation.Nullable AgentRunType type) {
         this.type = type;
         return this;
     }
@@ -601,16 +601,16 @@ public class AgentRunSearchHit {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nullable public AgentRunType getType() {
+    @jakarta.annotation.Nullable public AgentRunType getType() {
         return type;
     }
 
     @Deprecated
-    public void setType(@javax.annotation.Nullable AgentRunType type) {
+    public void setType(@jakarta.annotation.Nullable AgentRunType type) {
         this.type = type;
     }
 
-    public AgentRunSearchHit createdAt(@javax.annotation.Nonnull String createdAt) {
+    public AgentRunSearchHit createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -619,16 +619,16 @@ public class AgentRunSearchHit {
      * Created timestamp
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public AgentRunSearchHit updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public AgentRunSearchHit updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -637,12 +637,12 @@ public class AgentRunSearchHit {
      * Updated timestamp
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 

@@ -33,89 +33,89 @@ import java.util.Objects;
 /**
  * Summary view of a dashboard (for listings).
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DashboardItem {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public static final String SERIALIZED_NAME_STORE_ID = "store_id";
 
     @SerializedName(SERIALIZED_NAME_STORE_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String storeId;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DashboardStatus status;
 
     public static final String SERIALIZED_NAME_PANEL_COUNT = "panel_count";
 
     @SerializedName(SERIALIZED_NAME_PANEL_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal panelCount;
 
     public static final String SERIALIZED_NAME_QUERY_COUNT = "query_count";
 
     @SerializedName(SERIALIZED_NAME_QUERY_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal queryCount;
 
     public static final String SERIALIZED_NAME_LAST_RENDERED_AT = "last_rendered_at";
 
     @SerializedName(SERIALIZED_NAME_LAST_RENDERED_AT)
-    @javax.annotation.Nullable private String lastRenderedAt;
+    @jakarta.annotation.Nullable private String lastRenderedAt;
 
     public DashboardItem() {}
 
-    public DashboardItem id(@javax.annotation.Nonnull String id) {
+    public DashboardItem id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -124,16 +124,16 @@ public class DashboardItem {
      * Unique identifier for the object
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public DashboardItem name(@javax.annotation.Nonnull String name) {
+    public DashboardItem name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -142,16 +142,16 @@ public class DashboardItem {
      * Human-readable name or title
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public DashboardItem description(@javax.annotation.Nullable String description) {
+    public DashboardItem description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -160,15 +160,15 @@ public class DashboardItem {
      * Optional detailed description of the object
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public DashboardItem tags(@javax.annotation.Nonnull List<String> tags) {
+    public DashboardItem tags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -185,16 +185,16 @@ public class DashboardItem {
      * Tags for organization
      * @return tags
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nonnull List<String> tags) {
+    public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
     }
 
-    public DashboardItem updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public DashboardItem updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -203,16 +203,16 @@ public class DashboardItem {
      * Identifier of the user who last modified the object
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public DashboardItem createdBy(@javax.annotation.Nonnull String createdBy) {
+    public DashboardItem createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -221,16 +221,16 @@ public class DashboardItem {
      * Identifier of the user who created the object
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public DashboardItem createdAt(@javax.annotation.Nonnull String createdAt) {
+    public DashboardItem createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -239,16 +239,16 @@ public class DashboardItem {
      * ISO timestamp of when the object was created
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public DashboardItem updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public DashboardItem updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -257,16 +257,16 @@ public class DashboardItem {
      * ISO timestamp of when the object was last updated
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public DashboardItem storeId(@javax.annotation.Nonnull String storeId) {
+    public DashboardItem storeId(@jakarta.annotation.Nonnull String storeId) {
         this.storeId = storeId;
         return this;
     }
@@ -275,16 +275,16 @@ public class DashboardItem {
      * Parent data store ID
      * @return storeId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStoreId() {
         return storeId;
     }
 
-    public void setStoreId(@javax.annotation.Nonnull String storeId) {
+    public void setStoreId(@jakarta.annotation.Nonnull String storeId) {
         this.storeId = storeId;
     }
 
-    public DashboardItem status(@javax.annotation.Nonnull DashboardStatus status) {
+    public DashboardItem status(@jakarta.annotation.Nonnull DashboardStatus status) {
         this.status = status;
         return this;
     }
@@ -293,16 +293,16 @@ public class DashboardItem {
      * Current status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DashboardStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull DashboardStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull DashboardStatus status) {
         this.status = status;
     }
 
-    public DashboardItem panelCount(@javax.annotation.Nonnull BigDecimal panelCount) {
+    public DashboardItem panelCount(@jakarta.annotation.Nonnull BigDecimal panelCount) {
         this.panelCount = panelCount;
         return this;
     }
@@ -311,16 +311,16 @@ public class DashboardItem {
      * Number of panels (deprecated, kept for backwards compat)
      * @return panelCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getPanelCount() {
         return panelCount;
     }
 
-    public void setPanelCount(@javax.annotation.Nonnull BigDecimal panelCount) {
+    public void setPanelCount(@jakarta.annotation.Nonnull BigDecimal panelCount) {
         this.panelCount = panelCount;
     }
 
-    public DashboardItem queryCount(@javax.annotation.Nonnull BigDecimal queryCount) {
+    public DashboardItem queryCount(@jakarta.annotation.Nonnull BigDecimal queryCount) {
         this.queryCount = queryCount;
         return this;
     }
@@ -329,16 +329,16 @@ public class DashboardItem {
      * Number of queries (deprecated, kept for backwards compat)
      * @return queryCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getQueryCount() {
         return queryCount;
     }
 
-    public void setQueryCount(@javax.annotation.Nonnull BigDecimal queryCount) {
+    public void setQueryCount(@jakarta.annotation.Nonnull BigDecimal queryCount) {
         this.queryCount = queryCount;
     }
 
-    public DashboardItem lastRenderedAt(@javax.annotation.Nullable String lastRenderedAt) {
+    public DashboardItem lastRenderedAt(@jakarta.annotation.Nullable String lastRenderedAt) {
         this.lastRenderedAt = lastRenderedAt;
         return this;
     }
@@ -347,11 +347,11 @@ public class DashboardItem {
      * Last render timestamp
      * @return lastRenderedAt
      */
-    @javax.annotation.Nullable public String getLastRenderedAt() {
+    @jakarta.annotation.Nullable public String getLastRenderedAt() {
         return lastRenderedAt;
     }
 
-    public void setLastRenderedAt(@javax.annotation.Nullable String lastRenderedAt) {
+    public void setLastRenderedAt(@jakarta.annotation.Nullable String lastRenderedAt) {
         this.lastRenderedAt = lastRenderedAt;
     }
 

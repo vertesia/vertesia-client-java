@@ -34,14 +34,14 @@ import java.util.Objects;
 /**
  * AppUIConfig
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AppUIConfig {
     public static final String SERIALIZED_NAME_SRC = "src";
 
     @SerializedName(SERIALIZED_NAME_SRC)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String src;
 
     /**
@@ -102,21 +102,21 @@ public class AppUIConfig {
     public static final String SERIALIZED_NAME_ISOLATION = "isolation";
 
     @SerializedName(SERIALIZED_NAME_ISOLATION)
-    @javax.annotation.Nullable private IsolationEnum isolation;
+    @jakarta.annotation.Nullable private IsolationEnum isolation;
 
     public static final String SERIALIZED_NAME_NAVIGATION = "navigation";
 
     @SerializedName(SERIALIZED_NAME_NAVIGATION)
-    @javax.annotation.Nullable private List<AppUINavItem> navigation = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<AppUINavItem> navigation = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_AVAILABLE_IN = "available_in";
 
     @SerializedName(SERIALIZED_NAME_AVAILABLE_IN)
-    @javax.annotation.Nullable private List<AppAvailableIn> availableIn = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<AppAvailableIn> availableIn = new ArrayList<>();
 
     public AppUIConfig() {}
 
-    public AppUIConfig src(@javax.annotation.Nonnull String src) {
+    public AppUIConfig src(@jakarta.annotation.Nonnull String src) {
         this.src = src;
         return this;
     }
@@ -125,16 +125,16 @@ public class AppUIConfig {
      * The source URL of the app. The src can be a template which contain a variable named &#x60;buildId&#x60; which will be replaced with the current build id. For example: &#x60;/plugins/vertesia-review-center-${buildId}&#x60;
      * @return src
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSrc() {
         return src;
     }
 
-    public void setSrc(@javax.annotation.Nonnull String src) {
+    public void setSrc(@jakarta.annotation.Nonnull String src) {
         this.src = src;
     }
 
-    public AppUIConfig isolation(@javax.annotation.Nullable IsolationEnum isolation) {
+    public AppUIConfig isolation(@jakarta.annotation.Nullable IsolationEnum isolation) {
         this.isolation = isolation;
         return this;
     }
@@ -143,15 +143,15 @@ public class AppUIConfig {
      * The isolation strategy. If not specified it defaults to shadow - shadow - use Shadow DOM to fully isolate the plugin from the host. - css - use CSS processing (like prefixing or other isolation techniques). Ligther but plugins may conflict with the host
      * @return isolation
      */
-    @javax.annotation.Nullable public IsolationEnum getIsolation() {
+    @jakarta.annotation.Nullable public IsolationEnum getIsolation() {
         return isolation;
     }
 
-    public void setIsolation(@javax.annotation.Nullable IsolationEnum isolation) {
+    public void setIsolation(@jakarta.annotation.Nullable IsolationEnum isolation) {
         this.isolation = isolation;
     }
 
-    public AppUIConfig navigation(@javax.annotation.Nullable List<AppUINavItem> navigation) {
+    public AppUIConfig navigation(@jakarta.annotation.Nullable List<AppUINavItem> navigation) {
         this.navigation = navigation;
         return this;
     }
@@ -168,15 +168,15 @@ public class AppUIConfig {
      * Navigation items for the app&#39;s sidebar UI. Only applicable for apps with UI capability in shell contexts (ie. CompositeApp shell).
      * @return navigation
      */
-    @javax.annotation.Nullable public List<AppUINavItem> getNavigation() {
+    @jakarta.annotation.Nullable public List<AppUINavItem> getNavigation() {
         return navigation;
     }
 
-    public void setNavigation(@javax.annotation.Nullable List<AppUINavItem> navigation) {
+    public void setNavigation(@jakarta.annotation.Nullable List<AppUINavItem> navigation) {
         this.navigation = navigation;
     }
 
-    public AppUIConfig availableIn(@javax.annotation.Nullable List<AppAvailableIn> availableIn) {
+    public AppUIConfig availableIn(@jakarta.annotation.Nullable List<AppAvailableIn> availableIn) {
         this.availableIn = availableIn;
         return this;
     }
@@ -193,11 +193,11 @@ public class AppUIConfig {
      * Where this app&#39;s UI can be displayed. - &#39;app_portal&#39;: Available in the main app portal (standalone) - &#39;composite_app&#39;: Available within a CompositeApp shell Defaults to [&#39;app_portal&#39;, &#39;composite_app&#39;] for new apps.
      * @return availableIn
      */
-    @javax.annotation.Nullable public List<AppAvailableIn> getAvailableIn() {
+    @jakarta.annotation.Nullable public List<AppAvailableIn> getAvailableIn() {
         return availableIn;
     }
 
-    public void setAvailableIn(@javax.annotation.Nullable List<AppAvailableIn> availableIn) {
+    public void setAvailableIn(@jakarta.annotation.Nullable List<AppAvailableIn> availableIn) {
         this.availableIn = availableIn;
     }
 

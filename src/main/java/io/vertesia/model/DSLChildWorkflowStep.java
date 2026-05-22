@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * DSLChildWorkflowStep
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DSLChildWorkflowStep {
@@ -94,48 +94,48 @@ public class DSLChildWorkflowStep {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_VARS = "vars";
 
     @SerializedName(SERIALIZED_NAME_VARS)
-    @javax.annotation.Nullable private Map<String, Object> vars = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> vars = new HashMap<>();
 
     public static final String SERIALIZED_NAME_ASYNC = "async";
 
     @SerializedName(SERIALIZED_NAME_ASYNC)
-    @javax.annotation.Nullable private Boolean async;
+    @jakarta.annotation.Nullable private Boolean async;
 
     public static final String SERIALIZED_NAME_OUTPUT = "output";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT)
-    @javax.annotation.Nullable private String output;
+    @jakarta.annotation.Nullable private String output;
 
     public static final String SERIALIZED_NAME_CONDITION = "condition";
 
     @SerializedName(SERIALIZED_NAME_CONDITION)
-    @javax.annotation.Nullable private Map<String, Object> condition = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> condition = new HashMap<>();
 
     public static final String SERIALIZED_NAME_SPEC = "spec";
 
     @SerializedName(SERIALIZED_NAME_SPEC)
-    @javax.annotation.Nullable private DSLWorkflowSpec spec;
+    @jakarta.annotation.Nullable private DSLWorkflowSpec spec;
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
-    @javax.annotation.Nullable private DSLChildWorkflowStepOptions options;
+    @jakarta.annotation.Nullable private DSLChildWorkflowStepOptions options;
 
     public DSLChildWorkflowStep() {}
 
-    public DSLChildWorkflowStep type(@javax.annotation.Nonnull TypeEnum type) {
+    public DSLChildWorkflowStep type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -144,16 +144,16 @@ public class DSLChildWorkflowStep {
      * The type fo the step. If not set defaults to \&quot;activity\&quot;
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public DSLChildWorkflowStep name(@javax.annotation.Nonnull String name) {
+    public DSLChildWorkflowStep name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -162,16 +162,16 @@ public class DSLChildWorkflowStep {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public DSLChildWorkflowStep vars(@javax.annotation.Nullable Map<String, Object> vars) {
+    public DSLChildWorkflowStep vars(@jakarta.annotation.Nullable Map<String, Object> vars) {
         this.vars = vars;
         return this;
     }
@@ -188,15 +188,15 @@ public class DSLChildWorkflowStep {
      * The parameters to pass to the child workflow. These parameters will be merged over the parent workflow vars and passed altogether to the child workflow.
      * @return vars
      */
-    @javax.annotation.Nullable public Map<String, Object> getVars() {
+    @jakarta.annotation.Nullable public Map<String, Object> getVars() {
         return vars;
     }
 
-    public void setVars(@javax.annotation.Nullable Map<String, Object> vars) {
+    public void setVars(@jakarta.annotation.Nullable Map<String, Object> vars) {
         this.vars = vars;
     }
 
-    public DSLChildWorkflowStep async(@javax.annotation.Nullable Boolean async) {
+    public DSLChildWorkflowStep async(@jakarta.annotation.Nullable Boolean async) {
         this.async = async;
         return this;
     }
@@ -205,15 +205,15 @@ public class DSLChildWorkflowStep {
      * Get async
      * @return async
      */
-    @javax.annotation.Nullable public Boolean getAsync() {
+    @jakarta.annotation.Nullable public Boolean getAsync() {
         return async;
     }
 
-    public void setAsync(@javax.annotation.Nullable Boolean async) {
+    public void setAsync(@jakarta.annotation.Nullable Boolean async) {
         this.async = async;
     }
 
-    public DSLChildWorkflowStep output(@javax.annotation.Nullable String output) {
+    public DSLChildWorkflowStep output(@jakarta.annotation.Nullable String output) {
         this.output = output;
         return this;
     }
@@ -222,16 +222,16 @@ public class DSLChildWorkflowStep {
      * The name of the workflow variable that will store the result of the child workflow (if async the workflow id is stored) If not specified the result will not be stored The parameters describe how the actual parameters will be obtained from the workflow execution vars. since it may contain references to workflow execution vars.
      * @return output
      */
-    @javax.annotation.Nullable public String getOutput() {
+    @jakarta.annotation.Nullable public String getOutput() {
         return output;
     }
 
-    public void setOutput(@javax.annotation.Nullable String output) {
+    public void setOutput(@jakarta.annotation.Nullable String output) {
         this.output = output;
     }
 
     public DSLChildWorkflowStep condition(
-            @javax.annotation.Nullable Map<String, Object> condition) {
+            @jakarta.annotation.Nullable Map<String, Object> condition) {
         this.condition = condition;
         return this;
     }
@@ -248,15 +248,15 @@ public class DSLChildWorkflowStep {
      * A JSON expression which evaluates to true or false similar to mongo matches. The child workflow will only execute if the condition is satisfied. Example: {$eq: {wfVarName: value}}
      * @return condition
      */
-    @javax.annotation.Nullable public Map<String, Object> getCondition() {
+    @jakarta.annotation.Nullable public Map<String, Object> getCondition() {
         return condition;
     }
 
-    public void setCondition(@javax.annotation.Nullable Map<String, Object> condition) {
+    public void setCondition(@jakarta.annotation.Nullable Map<String, Object> condition) {
         this.condition = condition;
     }
 
-    public DSLChildWorkflowStep spec(@javax.annotation.Nullable DSLWorkflowSpec spec) {
+    public DSLChildWorkflowStep spec(@jakarta.annotation.Nullable DSLWorkflowSpec spec) {
         this.spec = spec;
         return this;
     }
@@ -265,16 +265,16 @@ public class DSLChildWorkflowStep {
      * In case the dslWorkflow is used as a child workflow the spec is used to define the child workflow. If spec is defined then the name must be \&quot;dslWorkflow\&quot;
      * @return spec
      */
-    @javax.annotation.Nullable public DSLWorkflowSpec getSpec() {
+    @jakarta.annotation.Nullable public DSLWorkflowSpec getSpec() {
         return spec;
     }
 
-    public void setSpec(@javax.annotation.Nullable DSLWorkflowSpec spec) {
+    public void setSpec(@jakarta.annotation.Nullable DSLWorkflowSpec spec) {
         this.spec = spec;
     }
 
     public DSLChildWorkflowStep options(
-            @javax.annotation.Nullable DSLChildWorkflowStepOptions options) {
+            @jakarta.annotation.Nullable DSLChildWorkflowStepOptions options) {
         this.options = options;
         return this;
     }
@@ -283,11 +283,11 @@ public class DSLChildWorkflowStep {
      * Get options
      * @return options
      */
-    @javax.annotation.Nullable public DSLChildWorkflowStepOptions getOptions() {
+    @jakarta.annotation.Nullable public DSLChildWorkflowStepOptions getOptions() {
         return options;
     }
 
-    public void setOptions(@javax.annotation.Nullable DSLChildWorkflowStepOptions options) {
+    public void setOptions(@jakarta.annotation.Nullable DSLChildWorkflowStepOptions options) {
         this.options = options;
     }
 

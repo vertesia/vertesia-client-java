@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * Computed per-request permissions for the current user on a content object. Not stored in the database — computed on the fly by the API from the object&#39;s security field.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ContentObjectUserPermissions {
     public static final String SERIALIZED_NAME_CAN_WRITE = "can_write";
 
     @SerializedName(SERIALIZED_NAME_CAN_WRITE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean canWrite;
 
     public static final String SERIALIZED_NAME_CAN_DELETE = "can_delete";
 
     @SerializedName(SERIALIZED_NAME_CAN_DELETE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean canDelete;
 
     public ContentObjectUserPermissions() {}
 
-    public ContentObjectUserPermissions canWrite(@javax.annotation.Nonnull Boolean canWrite) {
+    public ContentObjectUserPermissions canWrite(@jakarta.annotation.Nonnull Boolean canWrite) {
         this.canWrite = canWrite;
         return this;
     }
@@ -57,16 +57,16 @@ public class ContentObjectUserPermissions {
      * Get canWrite
      * @return canWrite
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getCanWrite() {
         return canWrite;
     }
 
-    public void setCanWrite(@javax.annotation.Nonnull Boolean canWrite) {
+    public void setCanWrite(@jakarta.annotation.Nonnull Boolean canWrite) {
         this.canWrite = canWrite;
     }
 
-    public ContentObjectUserPermissions canDelete(@javax.annotation.Nonnull Boolean canDelete) {
+    public ContentObjectUserPermissions canDelete(@jakarta.annotation.Nonnull Boolean canDelete) {
         this.canDelete = canDelete;
         return this;
     }
@@ -75,12 +75,12 @@ public class ContentObjectUserPermissions {
      * Get canDelete
      * @return canDelete
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getCanDelete() {
         return canDelete;
     }
 
-    public void setCanDelete(@javax.annotation.Nonnull Boolean canDelete) {
+    public void setCanDelete(@jakarta.annotation.Nonnull Boolean canDelete) {
         this.canDelete = canDelete;
     }
 

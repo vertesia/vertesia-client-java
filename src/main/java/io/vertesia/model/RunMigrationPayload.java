@@ -30,18 +30,18 @@ import java.util.Objects;
 /**
  * RunMigrationPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RunMigrationPayload {
     public static final String SERIALIZED_NAME_FORCE = "force";
 
     @SerializedName(SERIALIZED_NAME_FORCE)
-    @javax.annotation.Nullable private Boolean force;
+    @jakarta.annotation.Nullable private Boolean force;
 
     public RunMigrationPayload() {}
 
-    public RunMigrationPayload force(@javax.annotation.Nullable Boolean force) {
+    public RunMigrationPayload force(@jakarta.annotation.Nullable Boolean force) {
         this.force = force;
         return this;
     }
@@ -50,11 +50,11 @@ public class RunMigrationPayload {
      * Get force
      * @return force
      */
-    @javax.annotation.Nullable public Boolean getForce() {
+    @jakarta.annotation.Nullable public Boolean getForce() {
         return force;
     }
 
-    public void setForce(@javax.annotation.Nullable Boolean force) {
+    public void setForce(@jakarta.annotation.Nullable Boolean force) {
         this.force = force;
     }
 

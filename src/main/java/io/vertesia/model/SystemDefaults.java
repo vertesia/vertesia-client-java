@@ -30,33 +30,33 @@ import java.util.Objects;
 /**
  * SystemDefaults
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class SystemDefaults {
     public static final String SERIALIZED_NAME_CONTENT_TYPE = "content_type";
 
     @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
-    @javax.annotation.Nullable private ModelDefault contentType;
+    @jakarta.annotation.Nullable private ModelDefault contentType;
 
     public static final String SERIALIZED_NAME_INTAKE = "intake";
 
     @SerializedName(SERIALIZED_NAME_INTAKE)
-    @javax.annotation.Nullable private ModelDefault intake;
+    @jakarta.annotation.Nullable private ModelDefault intake;
 
     public static final String SERIALIZED_NAME_ANALYSIS = "analysis";
 
     @SerializedName(SERIALIZED_NAME_ANALYSIS)
-    @javax.annotation.Nullable private ModelDefault analysis;
+    @jakarta.annotation.Nullable private ModelDefault analysis;
 
     public static final String SERIALIZED_NAME_NON_APPLICABLE = "non_applicable";
 
     @SerializedName(SERIALIZED_NAME_NON_APPLICABLE)
-    @javax.annotation.Nullable private ModelDefault nonApplicable;
+    @jakarta.annotation.Nullable private ModelDefault nonApplicable;
 
     public SystemDefaults() {}
 
-    public SystemDefaults contentType(@javax.annotation.Nullable ModelDefault contentType) {
+    public SystemDefaults contentType(@jakarta.annotation.Nullable ModelDefault contentType) {
         this.contentType = contentType;
         return this;
     }
@@ -65,15 +65,15 @@ public class SystemDefaults {
      * Get contentType
      * @return contentType
      */
-    @javax.annotation.Nullable public ModelDefault getContentType() {
+    @jakarta.annotation.Nullable public ModelDefault getContentType() {
         return contentType;
     }
 
-    public void setContentType(@javax.annotation.Nullable ModelDefault contentType) {
+    public void setContentType(@jakarta.annotation.Nullable ModelDefault contentType) {
         this.contentType = contentType;
     }
 
-    public SystemDefaults intake(@javax.annotation.Nullable ModelDefault intake) {
+    public SystemDefaults intake(@jakarta.annotation.Nullable ModelDefault intake) {
         this.intake = intake;
         return this;
     }
@@ -82,15 +82,15 @@ public class SystemDefaults {
      * Get intake
      * @return intake
      */
-    @javax.annotation.Nullable public ModelDefault getIntake() {
+    @jakarta.annotation.Nullable public ModelDefault getIntake() {
         return intake;
     }
 
-    public void setIntake(@javax.annotation.Nullable ModelDefault intake) {
+    public void setIntake(@jakarta.annotation.Nullable ModelDefault intake) {
         this.intake = intake;
     }
 
-    public SystemDefaults analysis(@javax.annotation.Nullable ModelDefault analysis) {
+    public SystemDefaults analysis(@jakarta.annotation.Nullable ModelDefault analysis) {
         this.analysis = analysis;
         return this;
     }
@@ -99,15 +99,15 @@ public class SystemDefaults {
      * Get analysis
      * @return analysis
      */
-    @javax.annotation.Nullable public ModelDefault getAnalysis() {
+    @jakarta.annotation.Nullable public ModelDefault getAnalysis() {
         return analysis;
     }
 
-    public void setAnalysis(@javax.annotation.Nullable ModelDefault analysis) {
+    public void setAnalysis(@jakarta.annotation.Nullable ModelDefault analysis) {
         this.analysis = analysis;
     }
 
-    public SystemDefaults nonApplicable(@javax.annotation.Nullable ModelDefault nonApplicable) {
+    public SystemDefaults nonApplicable(@jakarta.annotation.Nullable ModelDefault nonApplicable) {
         this.nonApplicable = nonApplicable;
         return this;
     }
@@ -116,11 +116,11 @@ public class SystemDefaults {
      * Get nonApplicable
      * @return nonApplicable
      */
-    @javax.annotation.Nullable public ModelDefault getNonApplicable() {
+    @jakarta.annotation.Nullable public ModelDefault getNonApplicable() {
         return nonApplicable;
     }
 
-    public void setNonApplicable(@javax.annotation.Nullable ModelDefault nonApplicable) {
+    public void setNonApplicable(@jakarta.annotation.Nullable ModelDefault nonApplicable) {
         this.nonApplicable = nonApplicable;
     }
 

@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * ImagenOptions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ImagenOptions {
@@ -94,18 +94,18 @@ public class ImagenOptions {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OptionIdEnum optionId;
 
     public static final String SERIALIZED_NAME_NUMBER_OF_IMAGES = "number_of_images";
 
     @SerializedName(SERIALIZED_NAME_NUMBER_OF_IMAGES)
-    @javax.annotation.Nullable private BigDecimal numberOfImages;
+    @jakarta.annotation.Nullable private BigDecimal numberOfImages;
 
     public static final String SERIALIZED_NAME_SEED = "seed";
 
     @SerializedName(SERIALIZED_NAME_SEED)
-    @javax.annotation.Nullable private BigDecimal seed;
+    @jakarta.annotation.Nullable private BigDecimal seed;
 
     /**
      * Gets or Sets personGeneration
@@ -167,7 +167,7 @@ public class ImagenOptions {
     public static final String SERIALIZED_NAME_PERSON_GENERATION = "person_generation";
 
     @SerializedName(SERIALIZED_NAME_PERSON_GENERATION)
-    @javax.annotation.Nullable private PersonGenerationEnum personGeneration;
+    @jakarta.annotation.Nullable private PersonGenerationEnum personGeneration;
 
     /**
      * Gets or Sets safetySetting
@@ -231,7 +231,7 @@ public class ImagenOptions {
     public static final String SERIALIZED_NAME_SAFETY_SETTING = "safety_setting";
 
     @SerializedName(SERIALIZED_NAME_SAFETY_SETTING)
-    @javax.annotation.Nullable private SafetySettingEnum safetySetting;
+    @jakarta.annotation.Nullable private SafetySettingEnum safetySetting;
 
     /**
      * Gets or Sets imageFileType
@@ -291,13 +291,13 @@ public class ImagenOptions {
     public static final String SERIALIZED_NAME_IMAGE_FILE_TYPE = "image_file_type";
 
     @SerializedName(SERIALIZED_NAME_IMAGE_FILE_TYPE)
-    @javax.annotation.Nullable private ImageFileTypeEnum imageFileType;
+    @jakarta.annotation.Nullable private ImageFileTypeEnum imageFileType;
 
     public static final String SERIALIZED_NAME_JPEG_COMPRESSION_QUALITY =
             "jpeg_compression_quality";
 
     @SerializedName(SERIALIZED_NAME_JPEG_COMPRESSION_QUALITY)
-    @javax.annotation.Nullable private BigDecimal jpegCompressionQuality;
+    @jakarta.annotation.Nullable private BigDecimal jpegCompressionQuality;
 
     /**
      * Gets or Sets aspectRatio
@@ -363,47 +363,47 @@ public class ImagenOptions {
     public static final String SERIALIZED_NAME_ASPECT_RATIO = "aspect_ratio";
 
     @SerializedName(SERIALIZED_NAME_ASPECT_RATIO)
-    @javax.annotation.Nullable private AspectRatioEnum aspectRatio;
+    @jakarta.annotation.Nullable private AspectRatioEnum aspectRatio;
 
     public static final String SERIALIZED_NAME_ADD_WATERMARK = "add_watermark";
 
     @SerializedName(SERIALIZED_NAME_ADD_WATERMARK)
-    @javax.annotation.Nullable private Boolean addWatermark;
+    @jakarta.annotation.Nullable private Boolean addWatermark;
 
     public static final String SERIALIZED_NAME_ENHANCE_PROMPT = "enhance_prompt";
 
     @SerializedName(SERIALIZED_NAME_ENHANCE_PROMPT)
-    @javax.annotation.Nullable private Boolean enhancePrompt;
+    @jakarta.annotation.Nullable private Boolean enhancePrompt;
 
     public static final String SERIALIZED_NAME_EDIT_MODE = "edit_mode";
 
     @SerializedName(SERIALIZED_NAME_EDIT_MODE)
-    @javax.annotation.Nullable private ImagenTaskType editMode;
+    @jakarta.annotation.Nullable private ImagenTaskType editMode;
 
     public static final String SERIALIZED_NAME_GUIDANCE_SCALE = "guidance_scale";
 
     @SerializedName(SERIALIZED_NAME_GUIDANCE_SCALE)
-    @javax.annotation.Nullable private BigDecimal guidanceScale;
+    @jakarta.annotation.Nullable private BigDecimal guidanceScale;
 
     public static final String SERIALIZED_NAME_EDIT_STEPS = "edit_steps";
 
     @SerializedName(SERIALIZED_NAME_EDIT_STEPS)
-    @javax.annotation.Nullable private BigDecimal editSteps;
+    @jakarta.annotation.Nullable private BigDecimal editSteps;
 
     public static final String SERIALIZED_NAME_MASK_MODE = "mask_mode";
 
     @SerializedName(SERIALIZED_NAME_MASK_MODE)
-    @javax.annotation.Nullable private ImagenMaskMode maskMode;
+    @jakarta.annotation.Nullable private ImagenMaskMode maskMode;
 
     public static final String SERIALIZED_NAME_MASK_DILATION = "mask_dilation";
 
     @SerializedName(SERIALIZED_NAME_MASK_DILATION)
-    @javax.annotation.Nullable private BigDecimal maskDilation;
+    @jakarta.annotation.Nullable private BigDecimal maskDilation;
 
     public static final String SERIALIZED_NAME_MASK_CLASS = "mask_class";
 
     @SerializedName(SERIALIZED_NAME_MASK_CLASS)
-    @javax.annotation.Nullable private List<BigDecimal> maskClass = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<BigDecimal> maskClass = new ArrayList<>();
 
     /**
      * Gets or Sets controlType
@@ -465,13 +465,13 @@ public class ImagenOptions {
     public static final String SERIALIZED_NAME_CONTROL_TYPE = "controlType";
 
     @SerializedName(SERIALIZED_NAME_CONTROL_TYPE)
-    @javax.annotation.Nullable private ControlTypeEnum controlType;
+    @jakarta.annotation.Nullable private ControlTypeEnum controlType;
 
     public static final String SERIALIZED_NAME_CONTROL_IMAGE_COMPUTATION =
             "controlImageComputation";
 
     @SerializedName(SERIALIZED_NAME_CONTROL_IMAGE_COMPUTATION)
-    @javax.annotation.Nullable private Boolean controlImageComputation;
+    @jakarta.annotation.Nullable private Boolean controlImageComputation;
 
     /**
      * Gets or Sets subjectType
@@ -535,11 +535,11 @@ public class ImagenOptions {
     public static final String SERIALIZED_NAME_SUBJECT_TYPE = "subjectType";
 
     @SerializedName(SERIALIZED_NAME_SUBJECT_TYPE)
-    @javax.annotation.Nullable private SubjectTypeEnum subjectType;
+    @jakarta.annotation.Nullable private SubjectTypeEnum subjectType;
 
     public ImagenOptions() {}
 
-    public ImagenOptions optionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public ImagenOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -548,16 +548,16 @@ public class ImagenOptions {
      * Get optionId
      * @return optionId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
-    public ImagenOptions numberOfImages(@javax.annotation.Nullable BigDecimal numberOfImages) {
+    public ImagenOptions numberOfImages(@jakarta.annotation.Nullable BigDecimal numberOfImages) {
         this.numberOfImages = numberOfImages;
         return this;
     }
@@ -566,15 +566,15 @@ public class ImagenOptions {
      * Get numberOfImages
      * @return numberOfImages
      */
-    @javax.annotation.Nullable public BigDecimal getNumberOfImages() {
+    @jakarta.annotation.Nullable public BigDecimal getNumberOfImages() {
         return numberOfImages;
     }
 
-    public void setNumberOfImages(@javax.annotation.Nullable BigDecimal numberOfImages) {
+    public void setNumberOfImages(@jakarta.annotation.Nullable BigDecimal numberOfImages) {
         this.numberOfImages = numberOfImages;
     }
 
-    public ImagenOptions seed(@javax.annotation.Nullable BigDecimal seed) {
+    public ImagenOptions seed(@jakarta.annotation.Nullable BigDecimal seed) {
         this.seed = seed;
         return this;
     }
@@ -583,16 +583,16 @@ public class ImagenOptions {
      * Get seed
      * @return seed
      */
-    @javax.annotation.Nullable public BigDecimal getSeed() {
+    @jakarta.annotation.Nullable public BigDecimal getSeed() {
         return seed;
     }
 
-    public void setSeed(@javax.annotation.Nullable BigDecimal seed) {
+    public void setSeed(@jakarta.annotation.Nullable BigDecimal seed) {
         this.seed = seed;
     }
 
     public ImagenOptions personGeneration(
-            @javax.annotation.Nullable PersonGenerationEnum personGeneration) {
+            @jakarta.annotation.Nullable PersonGenerationEnum personGeneration) {
         this.personGeneration = personGeneration;
         return this;
     }
@@ -601,16 +601,17 @@ public class ImagenOptions {
      * Get personGeneration
      * @return personGeneration
      */
-    @javax.annotation.Nullable public PersonGenerationEnum getPersonGeneration() {
+    @jakarta.annotation.Nullable public PersonGenerationEnum getPersonGeneration() {
         return personGeneration;
     }
 
     public void setPersonGeneration(
-            @javax.annotation.Nullable PersonGenerationEnum personGeneration) {
+            @jakarta.annotation.Nullable PersonGenerationEnum personGeneration) {
         this.personGeneration = personGeneration;
     }
 
-    public ImagenOptions safetySetting(@javax.annotation.Nullable SafetySettingEnum safetySetting) {
+    public ImagenOptions safetySetting(
+            @jakarta.annotation.Nullable SafetySettingEnum safetySetting) {
         this.safetySetting = safetySetting;
         return this;
     }
@@ -619,15 +620,16 @@ public class ImagenOptions {
      * Get safetySetting
      * @return safetySetting
      */
-    @javax.annotation.Nullable public SafetySettingEnum getSafetySetting() {
+    @jakarta.annotation.Nullable public SafetySettingEnum getSafetySetting() {
         return safetySetting;
     }
 
-    public void setSafetySetting(@javax.annotation.Nullable SafetySettingEnum safetySetting) {
+    public void setSafetySetting(@jakarta.annotation.Nullable SafetySettingEnum safetySetting) {
         this.safetySetting = safetySetting;
     }
 
-    public ImagenOptions imageFileType(@javax.annotation.Nullable ImageFileTypeEnum imageFileType) {
+    public ImagenOptions imageFileType(
+            @jakarta.annotation.Nullable ImageFileTypeEnum imageFileType) {
         this.imageFileType = imageFileType;
         return this;
     }
@@ -636,16 +638,16 @@ public class ImagenOptions {
      * Get imageFileType
      * @return imageFileType
      */
-    @javax.annotation.Nullable public ImageFileTypeEnum getImageFileType() {
+    @jakarta.annotation.Nullable public ImageFileTypeEnum getImageFileType() {
         return imageFileType;
     }
 
-    public void setImageFileType(@javax.annotation.Nullable ImageFileTypeEnum imageFileType) {
+    public void setImageFileType(@jakarta.annotation.Nullable ImageFileTypeEnum imageFileType) {
         this.imageFileType = imageFileType;
     }
 
     public ImagenOptions jpegCompressionQuality(
-            @javax.annotation.Nullable BigDecimal jpegCompressionQuality) {
+            @jakarta.annotation.Nullable BigDecimal jpegCompressionQuality) {
         this.jpegCompressionQuality = jpegCompressionQuality;
         return this;
     }
@@ -654,16 +656,16 @@ public class ImagenOptions {
      * Get jpegCompressionQuality
      * @return jpegCompressionQuality
      */
-    @javax.annotation.Nullable public BigDecimal getJpegCompressionQuality() {
+    @jakarta.annotation.Nullable public BigDecimal getJpegCompressionQuality() {
         return jpegCompressionQuality;
     }
 
     public void setJpegCompressionQuality(
-            @javax.annotation.Nullable BigDecimal jpegCompressionQuality) {
+            @jakarta.annotation.Nullable BigDecimal jpegCompressionQuality) {
         this.jpegCompressionQuality = jpegCompressionQuality;
     }
 
-    public ImagenOptions aspectRatio(@javax.annotation.Nullable AspectRatioEnum aspectRatio) {
+    public ImagenOptions aspectRatio(@jakarta.annotation.Nullable AspectRatioEnum aspectRatio) {
         this.aspectRatio = aspectRatio;
         return this;
     }
@@ -672,15 +674,15 @@ public class ImagenOptions {
      * Get aspectRatio
      * @return aspectRatio
      */
-    @javax.annotation.Nullable public AspectRatioEnum getAspectRatio() {
+    @jakarta.annotation.Nullable public AspectRatioEnum getAspectRatio() {
         return aspectRatio;
     }
 
-    public void setAspectRatio(@javax.annotation.Nullable AspectRatioEnum aspectRatio) {
+    public void setAspectRatio(@jakarta.annotation.Nullable AspectRatioEnum aspectRatio) {
         this.aspectRatio = aspectRatio;
     }
 
-    public ImagenOptions addWatermark(@javax.annotation.Nullable Boolean addWatermark) {
+    public ImagenOptions addWatermark(@jakarta.annotation.Nullable Boolean addWatermark) {
         this.addWatermark = addWatermark;
         return this;
     }
@@ -689,15 +691,15 @@ public class ImagenOptions {
      * Get addWatermark
      * @return addWatermark
      */
-    @javax.annotation.Nullable public Boolean getAddWatermark() {
+    @jakarta.annotation.Nullable public Boolean getAddWatermark() {
         return addWatermark;
     }
 
-    public void setAddWatermark(@javax.annotation.Nullable Boolean addWatermark) {
+    public void setAddWatermark(@jakarta.annotation.Nullable Boolean addWatermark) {
         this.addWatermark = addWatermark;
     }
 
-    public ImagenOptions enhancePrompt(@javax.annotation.Nullable Boolean enhancePrompt) {
+    public ImagenOptions enhancePrompt(@jakarta.annotation.Nullable Boolean enhancePrompt) {
         this.enhancePrompt = enhancePrompt;
         return this;
     }
@@ -706,15 +708,15 @@ public class ImagenOptions {
      * Get enhancePrompt
      * @return enhancePrompt
      */
-    @javax.annotation.Nullable public Boolean getEnhancePrompt() {
+    @jakarta.annotation.Nullable public Boolean getEnhancePrompt() {
         return enhancePrompt;
     }
 
-    public void setEnhancePrompt(@javax.annotation.Nullable Boolean enhancePrompt) {
+    public void setEnhancePrompt(@jakarta.annotation.Nullable Boolean enhancePrompt) {
         this.enhancePrompt = enhancePrompt;
     }
 
-    public ImagenOptions editMode(@javax.annotation.Nullable ImagenTaskType editMode) {
+    public ImagenOptions editMode(@jakarta.annotation.Nullable ImagenTaskType editMode) {
         this.editMode = editMode;
         return this;
     }
@@ -723,15 +725,15 @@ public class ImagenOptions {
      * Get editMode
      * @return editMode
      */
-    @javax.annotation.Nullable public ImagenTaskType getEditMode() {
+    @jakarta.annotation.Nullable public ImagenTaskType getEditMode() {
         return editMode;
     }
 
-    public void setEditMode(@javax.annotation.Nullable ImagenTaskType editMode) {
+    public void setEditMode(@jakarta.annotation.Nullable ImagenTaskType editMode) {
         this.editMode = editMode;
     }
 
-    public ImagenOptions guidanceScale(@javax.annotation.Nullable BigDecimal guidanceScale) {
+    public ImagenOptions guidanceScale(@jakarta.annotation.Nullable BigDecimal guidanceScale) {
         this.guidanceScale = guidanceScale;
         return this;
     }
@@ -740,15 +742,15 @@ public class ImagenOptions {
      * Get guidanceScale
      * @return guidanceScale
      */
-    @javax.annotation.Nullable public BigDecimal getGuidanceScale() {
+    @jakarta.annotation.Nullable public BigDecimal getGuidanceScale() {
         return guidanceScale;
     }
 
-    public void setGuidanceScale(@javax.annotation.Nullable BigDecimal guidanceScale) {
+    public void setGuidanceScale(@jakarta.annotation.Nullable BigDecimal guidanceScale) {
         this.guidanceScale = guidanceScale;
     }
 
-    public ImagenOptions editSteps(@javax.annotation.Nullable BigDecimal editSteps) {
+    public ImagenOptions editSteps(@jakarta.annotation.Nullable BigDecimal editSteps) {
         this.editSteps = editSteps;
         return this;
     }
@@ -757,15 +759,15 @@ public class ImagenOptions {
      * Get editSteps
      * @return editSteps
      */
-    @javax.annotation.Nullable public BigDecimal getEditSteps() {
+    @jakarta.annotation.Nullable public BigDecimal getEditSteps() {
         return editSteps;
     }
 
-    public void setEditSteps(@javax.annotation.Nullable BigDecimal editSteps) {
+    public void setEditSteps(@jakarta.annotation.Nullable BigDecimal editSteps) {
         this.editSteps = editSteps;
     }
 
-    public ImagenOptions maskMode(@javax.annotation.Nullable ImagenMaskMode maskMode) {
+    public ImagenOptions maskMode(@jakarta.annotation.Nullable ImagenMaskMode maskMode) {
         this.maskMode = maskMode;
         return this;
     }
@@ -774,15 +776,15 @@ public class ImagenOptions {
      * Get maskMode
      * @return maskMode
      */
-    @javax.annotation.Nullable public ImagenMaskMode getMaskMode() {
+    @jakarta.annotation.Nullable public ImagenMaskMode getMaskMode() {
         return maskMode;
     }
 
-    public void setMaskMode(@javax.annotation.Nullable ImagenMaskMode maskMode) {
+    public void setMaskMode(@jakarta.annotation.Nullable ImagenMaskMode maskMode) {
         this.maskMode = maskMode;
     }
 
-    public ImagenOptions maskDilation(@javax.annotation.Nullable BigDecimal maskDilation) {
+    public ImagenOptions maskDilation(@jakarta.annotation.Nullable BigDecimal maskDilation) {
         this.maskDilation = maskDilation;
         return this;
     }
@@ -791,15 +793,15 @@ public class ImagenOptions {
      * Get maskDilation
      * @return maskDilation
      */
-    @javax.annotation.Nullable public BigDecimal getMaskDilation() {
+    @jakarta.annotation.Nullable public BigDecimal getMaskDilation() {
         return maskDilation;
     }
 
-    public void setMaskDilation(@javax.annotation.Nullable BigDecimal maskDilation) {
+    public void setMaskDilation(@jakarta.annotation.Nullable BigDecimal maskDilation) {
         this.maskDilation = maskDilation;
     }
 
-    public ImagenOptions maskClass(@javax.annotation.Nullable List<BigDecimal> maskClass) {
+    public ImagenOptions maskClass(@jakarta.annotation.Nullable List<BigDecimal> maskClass) {
         this.maskClass = maskClass;
         return this;
     }
@@ -816,15 +818,15 @@ public class ImagenOptions {
      * Get maskClass
      * @return maskClass
      */
-    @javax.annotation.Nullable public List<BigDecimal> getMaskClass() {
+    @jakarta.annotation.Nullable public List<BigDecimal> getMaskClass() {
         return maskClass;
     }
 
-    public void setMaskClass(@javax.annotation.Nullable List<BigDecimal> maskClass) {
+    public void setMaskClass(@jakarta.annotation.Nullable List<BigDecimal> maskClass) {
         this.maskClass = maskClass;
     }
 
-    public ImagenOptions controlType(@javax.annotation.Nullable ControlTypeEnum controlType) {
+    public ImagenOptions controlType(@jakarta.annotation.Nullable ControlTypeEnum controlType) {
         this.controlType = controlType;
         return this;
     }
@@ -833,16 +835,16 @@ public class ImagenOptions {
      * Get controlType
      * @return controlType
      */
-    @javax.annotation.Nullable public ControlTypeEnum getControlType() {
+    @jakarta.annotation.Nullable public ControlTypeEnum getControlType() {
         return controlType;
     }
 
-    public void setControlType(@javax.annotation.Nullable ControlTypeEnum controlType) {
+    public void setControlType(@jakarta.annotation.Nullable ControlTypeEnum controlType) {
         this.controlType = controlType;
     }
 
     public ImagenOptions controlImageComputation(
-            @javax.annotation.Nullable Boolean controlImageComputation) {
+            @jakarta.annotation.Nullable Boolean controlImageComputation) {
         this.controlImageComputation = controlImageComputation;
         return this;
     }
@@ -851,16 +853,16 @@ public class ImagenOptions {
      * Get controlImageComputation
      * @return controlImageComputation
      */
-    @javax.annotation.Nullable public Boolean getControlImageComputation() {
+    @jakarta.annotation.Nullable public Boolean getControlImageComputation() {
         return controlImageComputation;
     }
 
     public void setControlImageComputation(
-            @javax.annotation.Nullable Boolean controlImageComputation) {
+            @jakarta.annotation.Nullable Boolean controlImageComputation) {
         this.controlImageComputation = controlImageComputation;
     }
 
-    public ImagenOptions subjectType(@javax.annotation.Nullable SubjectTypeEnum subjectType) {
+    public ImagenOptions subjectType(@jakarta.annotation.Nullable SubjectTypeEnum subjectType) {
         this.subjectType = subjectType;
         return this;
     }
@@ -869,11 +871,11 @@ public class ImagenOptions {
      * Get subjectType
      * @return subjectType
      */
-    @javax.annotation.Nullable public SubjectTypeEnum getSubjectType() {
+    @jakarta.annotation.Nullable public SubjectTypeEnum getSubjectType() {
         return subjectType;
     }
 
-    public void setSubjectType(@javax.annotation.Nullable SubjectTypeEnum subjectType) {
+    public void setSubjectType(@jakarta.annotation.Nullable SubjectTypeEnum subjectType) {
         this.subjectType = subjectType;
     }
 

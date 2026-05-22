@@ -30,32 +30,32 @@ import java.util.Objects;
 /**
  * Binding between a named OAuth provider and the OAuth provider created for it at install time. Stored on AppInstallation so the runtime can resolve the correct OAuth provider for collections that reference a shared provider via MCPToolCollectionObject.oauth_provider.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AppInstallationProviderBinding {
     public static final String SERIALIZED_NAME_PROVIDER_KEY = "provider_key";
 
     @SerializedName(SERIALIZED_NAME_PROVIDER_KEY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String providerKey;
 
     public static final String SERIALIZED_NAME_OAUTH_PROVIDER_ID = "oauth_provider_id";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_PROVIDER_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String oauthProviderId;
 
     public static final String SERIALIZED_NAME_OAUTH_PROVIDER_NAME = "oauth_provider_name";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_PROVIDER_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String oauthProviderName;
 
     public AppInstallationProviderBinding() {}
 
     public AppInstallationProviderBinding providerKey(
-            @javax.annotation.Nonnull String providerKey) {
+            @jakarta.annotation.Nonnull String providerKey) {
         this.providerKey = providerKey;
         return this;
     }
@@ -64,17 +64,17 @@ public class AppInstallationProviderBinding {
      * Key from AppManifestData.oauth_providers
      * @return providerKey
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProviderKey() {
         return providerKey;
     }
 
-    public void setProviderKey(@javax.annotation.Nonnull String providerKey) {
+    public void setProviderKey(@jakarta.annotation.Nonnull String providerKey) {
         this.providerKey = providerKey;
     }
 
     public AppInstallationProviderBinding oauthProviderId(
-            @javax.annotation.Nonnull String oauthProviderId) {
+            @jakarta.annotation.Nonnull String oauthProviderId) {
         this.oauthProviderId = oauthProviderId;
         return this;
     }
@@ -83,17 +83,17 @@ public class AppInstallationProviderBinding {
      * MongoDB ObjectId of the created OAuth provider
      * @return oauthProviderId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getOauthProviderId() {
         return oauthProviderId;
     }
 
-    public void setOauthProviderId(@javax.annotation.Nonnull String oauthProviderId) {
+    public void setOauthProviderId(@jakarta.annotation.Nonnull String oauthProviderId) {
         this.oauthProviderId = oauthProviderId;
     }
 
     public AppInstallationProviderBinding oauthProviderName(
-            @javax.annotation.Nonnull String oauthProviderName) {
+            @jakarta.annotation.Nonnull String oauthProviderName) {
         this.oauthProviderName = oauthProviderName;
         return this;
     }
@@ -102,12 +102,12 @@ public class AppInstallationProviderBinding {
      * Name of the OAuth provider at creation time (for audit/display only)
      * @return oauthProviderName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getOauthProviderName() {
         return oauthProviderName;
     }
 
-    public void setOauthProviderName(@javax.annotation.Nonnull String oauthProviderName) {
+    public void setOauthProviderName(@jakarta.annotation.Nonnull String oauthProviderName) {
         this.oauthProviderName = oauthProviderName;
     }
 

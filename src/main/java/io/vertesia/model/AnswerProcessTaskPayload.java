@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * AnswerProcessTaskPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AnswerProcessTaskPayload {
     public static final String SERIALIZED_NAME_TASK_ID = "task_id";
 
     @SerializedName(SERIALIZED_NAME_TASK_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String taskId;
 
     public AnswerProcessTaskPayload() {}
 
-    public AnswerProcessTaskPayload taskId(@javax.annotation.Nonnull String taskId) {
+    public AnswerProcessTaskPayload taskId(@jakarta.annotation.Nonnull String taskId) {
         this.taskId = taskId;
         return this;
     }
@@ -51,12 +51,12 @@ public class AnswerProcessTaskPayload {
      * Get taskId
      * @return taskId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTaskId() {
         return taskId;
     }
 
-    public void setTaskId(@javax.annotation.Nonnull String taskId) {
+    public void setTaskId(@jakarta.annotation.Nonnull String taskId) {
         this.taskId = taskId;
     }
 

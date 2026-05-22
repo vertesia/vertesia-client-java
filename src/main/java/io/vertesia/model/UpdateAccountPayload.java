@@ -32,28 +32,28 @@ import java.util.Objects;
 /**
  * UpdateAccountPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UpdateAccountPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_EMAIL_DOMAINS = "email_domains";
 
     @SerializedName(SERIALIZED_NAME_EMAIL_DOMAINS)
-    @javax.annotation.Nullable private List<String> emailDomains = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> emailDomains = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_BILLING = "billing";
 
     @SerializedName(SERIALIZED_NAME_BILLING)
-    @javax.annotation.Nullable private AccountBilling billing;
+    @jakarta.annotation.Nullable private AccountBilling billing;
 
     public UpdateAccountPayload() {}
 
-    public UpdateAccountPayload name(@javax.annotation.Nullable String name) {
+    public UpdateAccountPayload name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -62,15 +62,16 @@ public class UpdateAccountPayload {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public UpdateAccountPayload emailDomains(@javax.annotation.Nullable List<String> emailDomains) {
+    public UpdateAccountPayload emailDomains(
+            @jakarta.annotation.Nullable List<String> emailDomains) {
         this.emailDomains = emailDomains;
         return this;
     }
@@ -87,15 +88,15 @@ public class UpdateAccountPayload {
      * Get emailDomains
      * @return emailDomains
      */
-    @javax.annotation.Nullable public List<String> getEmailDomains() {
+    @jakarta.annotation.Nullable public List<String> getEmailDomains() {
         return emailDomains;
     }
 
-    public void setEmailDomains(@javax.annotation.Nullable List<String> emailDomains) {
+    public void setEmailDomains(@jakarta.annotation.Nullable List<String> emailDomains) {
         this.emailDomains = emailDomains;
     }
 
-    public UpdateAccountPayload billing(@javax.annotation.Nullable AccountBilling billing) {
+    public UpdateAccountPayload billing(@jakarta.annotation.Nullable AccountBilling billing) {
         this.billing = billing;
         return this;
     }
@@ -104,11 +105,11 @@ public class UpdateAccountPayload {
      * Get billing
      * @return billing
      */
-    @javax.annotation.Nullable public AccountBilling getBilling() {
+    @jakarta.annotation.Nullable public AccountBilling getBilling() {
         return billing;
     }
 
-    public void setBilling(@javax.annotation.Nullable AccountBilling billing) {
+    public void setBilling(@jakarta.annotation.Nullable AccountBilling billing) {
         this.billing = billing;
     }
 

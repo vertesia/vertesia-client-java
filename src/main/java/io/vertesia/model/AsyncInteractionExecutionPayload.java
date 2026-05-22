@@ -35,65 +35,65 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * AsyncInteractionExecutionPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AsyncInteractionExecutionPayload {
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String interaction;
 
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    @javax.annotation.Nullable private Object data = null;
+    @jakarta.annotation.Nullable private Object data = null;
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nullable private InteractionExecutionConfiguration config;
+    @jakarta.annotation.Nullable private InteractionExecutionConfiguration config;
 
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
-    @javax.annotation.Nullable private JSONSchema resultSchema;
+    @jakarta.annotation.Nullable private JSONSchema resultSchema;
 
     public static final String SERIALIZED_NAME_DO_VALIDATE = "do_validate";
 
     @SerializedName(SERIALIZED_NAME_DO_VALIDATE)
-    @javax.annotation.Nullable private Boolean doValidate;
+    @jakarta.annotation.Nullable private Boolean doValidate;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CONVERSATION = "conversation";
 
     @SerializedName(SERIALIZED_NAME_CONVERSATION)
-    @javax.annotation.Nullable private Object conversation = null;
+    @jakarta.annotation.Nullable private Object conversation = null;
 
     public static final String SERIALIZED_NAME_TOOL_DEFINITIONS = "tool_definitions";
 
     @SerializedName(SERIALIZED_NAME_TOOL_DEFINITIONS)
-    @javax.annotation.Nullable private List<ToolDefinition> toolDefinitions = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<ToolDefinition> toolDefinitions = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_WORKFLOW = "workflow";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW)
-    @javax.annotation.Nullable private ExecutionRunWorkflow workflow;
+    @jakarta.annotation.Nullable private ExecutionRunWorkflow workflow;
 
     public static final String SERIALIZED_NAME_PROMPTS = "prompts";
 
     @SerializedName(SERIALIZED_NAME_PROMPTS)
-    @javax.annotation.Nullable private List<InCodePrompt> prompts = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<InCodePrompt> prompts = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ASYNC_COMPLETION = "asyncCompletion";
 
     @SerializedName(SERIALIZED_NAME_ASYNC_COMPLETION)
-    @javax.annotation.Nullable private AsyncCompletionOptions asyncCompletion;
+    @jakarta.annotation.Nullable private AsyncCompletionOptions asyncCompletion;
 
     /**
      * Gets or Sets type
@@ -151,28 +151,28 @@ public class AsyncInteractionExecutionPayload {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_NOTIFY_ENDPOINTS = "notify_endpoints";
 
     @SerializedName(SERIALIZED_NAME_NOTIFY_ENDPOINTS)
-    @javax.annotation.Nullable private List<String> notifyEndpoints = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> notifyEndpoints = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TASK_QUEUE = "task_queue";
 
     @SerializedName(SERIALIZED_NAME_TASK_QUEUE)
-    @javax.annotation.Nullable private String taskQueue;
+    @jakarta.annotation.Nullable private String taskQueue;
 
     public static final String SERIALIZED_NAME_INCLUDE_PREVIOUS_ERROR = "include_previous_error";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_PREVIOUS_ERROR)
-    @javax.annotation.Nullable private Boolean includePreviousError;
+    @jakarta.annotation.Nullable private Boolean includePreviousError;
 
     public AsyncInteractionExecutionPayload() {}
 
     public AsyncInteractionExecutionPayload interaction(
-            @javax.annotation.Nonnull String interaction) {
+            @jakarta.annotation.Nonnull String interaction) {
         this.interaction = interaction;
         return this;
     }
@@ -181,16 +181,16 @@ public class AsyncInteractionExecutionPayload {
      * The interaction name and suffixed by an optional tag or version separated from the name using a @ character If no version/tag part is specified then the latest version is used. Example: ReviewContract, ReviewContract@draft, ReviewContract@1, ReviewContract@some-tag
      * @return interaction
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getInteraction() {
         return interaction;
     }
 
-    public void setInteraction(@javax.annotation.Nonnull String interaction) {
+    public void setInteraction(@jakarta.annotation.Nonnull String interaction) {
         this.interaction = interaction;
     }
 
-    public AsyncInteractionExecutionPayload data(@javax.annotation.Nullable Object data) {
+    public AsyncInteractionExecutionPayload data(@jakarta.annotation.Nullable Object data) {
         this.data = data;
         return this;
     }
@@ -199,16 +199,16 @@ public class AsyncInteractionExecutionPayload {
      * Get data
      * @return data
      */
-    @javax.annotation.Nullable public Object getData() {
+    @jakarta.annotation.Nullable public Object getData() {
         return data;
     }
 
-    public void setData(@javax.annotation.Nullable Object data) {
+    public void setData(@jakarta.annotation.Nullable Object data) {
         this.data = data;
     }
 
     public AsyncInteractionExecutionPayload config(
-            @javax.annotation.Nullable InteractionExecutionConfiguration config) {
+            @jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
         this.config = config;
         return this;
     }
@@ -217,16 +217,16 @@ public class AsyncInteractionExecutionPayload {
      * Get config
      * @return config
      */
-    @javax.annotation.Nullable public InteractionExecutionConfiguration getConfig() {
+    @jakarta.annotation.Nullable public InteractionExecutionConfiguration getConfig() {
         return config;
     }
 
-    public void setConfig(@javax.annotation.Nullable InteractionExecutionConfiguration config) {
+    public void setConfig(@jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
         this.config = config;
     }
 
     public AsyncInteractionExecutionPayload resultSchema(
-            @javax.annotation.Nullable JSONSchema resultSchema) {
+            @jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
         return this;
     }
@@ -235,16 +235,16 @@ public class AsyncInteractionExecutionPayload {
      * Get resultSchema
      * @return resultSchema
      */
-    @javax.annotation.Nullable public JSONSchema getResultSchema() {
+    @jakarta.annotation.Nullable public JSONSchema getResultSchema() {
         return resultSchema;
     }
 
-    public void setResultSchema(@javax.annotation.Nullable JSONSchema resultSchema) {
+    public void setResultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
     }
 
     public AsyncInteractionExecutionPayload doValidate(
-            @javax.annotation.Nullable Boolean doValidate) {
+            @jakarta.annotation.Nullable Boolean doValidate) {
         this.doValidate = doValidate;
         return this;
     }
@@ -253,15 +253,15 @@ public class AsyncInteractionExecutionPayload {
      * Get doValidate
      * @return doValidate
      */
-    @javax.annotation.Nullable public Boolean getDoValidate() {
+    @jakarta.annotation.Nullable public Boolean getDoValidate() {
         return doValidate;
     }
 
-    public void setDoValidate(@javax.annotation.Nullable Boolean doValidate) {
+    public void setDoValidate(@jakarta.annotation.Nullable Boolean doValidate) {
         this.doValidate = doValidate;
     }
 
-    public AsyncInteractionExecutionPayload tags(@javax.annotation.Nullable List<String> tags) {
+    public AsyncInteractionExecutionPayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -278,16 +278,16 @@ public class AsyncInteractionExecutionPayload {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
     public AsyncInteractionExecutionPayload conversation(
-            @javax.annotation.Nullable Object conversation) {
+            @jakarta.annotation.Nullable Object conversation) {
         this.conversation = conversation;
         return this;
     }
@@ -296,16 +296,16 @@ public class AsyncInteractionExecutionPayload {
      * Get conversation
      * @return conversation
      */
-    @javax.annotation.Nullable public Object getConversation() {
+    @jakarta.annotation.Nullable public Object getConversation() {
         return conversation;
     }
 
-    public void setConversation(@javax.annotation.Nullable Object conversation) {
+    public void setConversation(@jakarta.annotation.Nullable Object conversation) {
         this.conversation = conversation;
     }
 
     public AsyncInteractionExecutionPayload toolDefinitions(
-            @javax.annotation.Nullable List<ToolDefinition> toolDefinitions) {
+            @jakarta.annotation.Nullable List<ToolDefinition> toolDefinitions) {
         this.toolDefinitions = toolDefinitions;
         return this;
     }
@@ -323,17 +323,17 @@ public class AsyncInteractionExecutionPayload {
      * The tools to be used in the execution
      * @return toolDefinitions
      */
-    @javax.annotation.Nullable public List<ToolDefinition> getToolDefinitions() {
+    @jakarta.annotation.Nullable public List<ToolDefinition> getToolDefinitions() {
         return toolDefinitions;
     }
 
     public void setToolDefinitions(
-            @javax.annotation.Nullable List<ToolDefinition> toolDefinitions) {
+            @jakarta.annotation.Nullable List<ToolDefinition> toolDefinitions) {
         this.toolDefinitions = toolDefinitions;
     }
 
     public AsyncInteractionExecutionPayload workflow(
-            @javax.annotation.Nullable ExecutionRunWorkflow workflow) {
+            @jakarta.annotation.Nullable ExecutionRunWorkflow workflow) {
         this.workflow = workflow;
         return this;
     }
@@ -342,16 +342,16 @@ public class AsyncInteractionExecutionPayload {
      * The workflow related to this Interaction Run.
      * @return workflow
      */
-    @javax.annotation.Nullable public ExecutionRunWorkflow getWorkflow() {
+    @jakarta.annotation.Nullable public ExecutionRunWorkflow getWorkflow() {
         return workflow;
     }
 
-    public void setWorkflow(@javax.annotation.Nullable ExecutionRunWorkflow workflow) {
+    public void setWorkflow(@jakarta.annotation.Nullable ExecutionRunWorkflow workflow) {
         this.workflow = workflow;
     }
 
     public AsyncInteractionExecutionPayload prompts(
-            @javax.annotation.Nullable List<InCodePrompt> prompts) {
+            @jakarta.annotation.Nullable List<InCodePrompt> prompts) {
         this.prompts = prompts;
         return this;
     }
@@ -368,16 +368,16 @@ public class AsyncInteractionExecutionPayload {
      * Only used by ad-hoc interactions which defines the prompt in the execution payload itself These are temporary interactions using \&quot;tmp:\&quot; suffix.
      * @return prompts
      */
-    @javax.annotation.Nullable public List<InCodePrompt> getPrompts() {
+    @jakarta.annotation.Nullable public List<InCodePrompt> getPrompts() {
         return prompts;
     }
 
-    public void setPrompts(@javax.annotation.Nullable List<InCodePrompt> prompts) {
+    public void setPrompts(@jakarta.annotation.Nullable List<InCodePrompt> prompts) {
         this.prompts = prompts;
     }
 
     public AsyncInteractionExecutionPayload asyncCompletion(
-            @javax.annotation.Nullable AsyncCompletionOptions asyncCompletion) {
+            @jakarta.annotation.Nullable AsyncCompletionOptions asyncCompletion) {
         this.asyncCompletion = asyncCompletion;
         return this;
     }
@@ -386,16 +386,16 @@ public class AsyncInteractionExecutionPayload {
      * Options for async completion and/or streaming LLM response chunks to Redis. Used by agent workflows for async activity completion and real-time streaming.
      * @return asyncCompletion
      */
-    @javax.annotation.Nullable public AsyncCompletionOptions getAsyncCompletion() {
+    @jakarta.annotation.Nullable public AsyncCompletionOptions getAsyncCompletion() {
         return asyncCompletion;
     }
 
     public void setAsyncCompletion(
-            @javax.annotation.Nullable AsyncCompletionOptions asyncCompletion) {
+            @jakarta.annotation.Nullable AsyncCompletionOptions asyncCompletion) {
         this.asyncCompletion = asyncCompletion;
     }
 
-    public AsyncInteractionExecutionPayload type(@javax.annotation.Nonnull TypeEnum type) {
+    public AsyncInteractionExecutionPayload type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -404,17 +404,17 @@ public class AsyncInteractionExecutionPayload {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
     public AsyncInteractionExecutionPayload notifyEndpoints(
-            @javax.annotation.Nullable List<String> notifyEndpoints) {
+            @jakarta.annotation.Nullable List<String> notifyEndpoints) {
         this.notifyEndpoints = notifyEndpoints;
         return this;
     }
@@ -431,15 +431,16 @@ public class AsyncInteractionExecutionPayload {
      * An array of endpoint URLs to be notified upon execution
      * @return notifyEndpoints
      */
-    @javax.annotation.Nullable public List<String> getNotifyEndpoints() {
+    @jakarta.annotation.Nullable public List<String> getNotifyEndpoints() {
         return notifyEndpoints;
     }
 
-    public void setNotifyEndpoints(@javax.annotation.Nullable List<String> notifyEndpoints) {
+    public void setNotifyEndpoints(@jakarta.annotation.Nullable List<String> notifyEndpoints) {
         this.notifyEndpoints = notifyEndpoints;
     }
 
-    public AsyncInteractionExecutionPayload taskQueue(@javax.annotation.Nullable String taskQueue) {
+    public AsyncInteractionExecutionPayload taskQueue(
+            @jakarta.annotation.Nullable String taskQueue) {
         this.taskQueue = taskQueue;
         return this;
     }
@@ -448,16 +449,16 @@ public class AsyncInteractionExecutionPayload {
      * Get taskQueue
      * @return taskQueue
      */
-    @javax.annotation.Nullable public String getTaskQueue() {
+    @jakarta.annotation.Nullable public String getTaskQueue() {
         return taskQueue;
     }
 
-    public void setTaskQueue(@javax.annotation.Nullable String taskQueue) {
+    public void setTaskQueue(@jakarta.annotation.Nullable String taskQueue) {
         this.taskQueue = taskQueue;
     }
 
     public AsyncInteractionExecutionPayload includePreviousError(
-            @javax.annotation.Nullable Boolean includePreviousError) {
+            @jakarta.annotation.Nullable Boolean includePreviousError) {
         this.includePreviousError = includePreviousError;
         return this;
     }
@@ -466,11 +467,11 @@ public class AsyncInteractionExecutionPayload {
      * Only used for non conversation workflows to include the error on next retry. If tools is defined this is not used
      * @return includePreviousError
      */
-    @javax.annotation.Nullable public Boolean getIncludePreviousError() {
+    @jakarta.annotation.Nullable public Boolean getIncludePreviousError() {
         return includePreviousError;
     }
 
-    public void setIncludePreviousError(@javax.annotation.Nullable Boolean includePreviousError) {
+    public void setIncludePreviousError(@jakarta.annotation.Nullable Boolean includePreviousError) {
         this.includePreviousError = includePreviousError;
     }
 

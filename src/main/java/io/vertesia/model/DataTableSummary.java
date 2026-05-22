@@ -33,46 +33,46 @@ import java.util.Objects;
 /**
  * Summary view of a data table (for listings).
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataTableSummary {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_SEMANTIC_TYPE = "semantic_type";
 
     @SerializedName(SERIALIZED_NAME_SEMANTIC_TYPE)
-    @javax.annotation.Nullable private DataTableSemanticType semanticType;
+    @jakarta.annotation.Nullable private DataTableSemanticType semanticType;
 
     public static final String SERIALIZED_NAME_COLUMN_COUNT = "column_count";
 
     @SerializedName(SERIALIZED_NAME_COLUMN_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal columnCount;
 
     public static final String SERIALIZED_NAME_ROW_COUNT = "row_count";
 
     @SerializedName(SERIALIZED_NAME_ROW_COUNT)
-    @javax.annotation.Nullable private BigDecimal rowCount;
+    @jakarta.annotation.Nullable private BigDecimal rowCount;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> tags = new ArrayList<>();
 
     public DataTableSummary() {}
 
-    public DataTableSummary name(@javax.annotation.Nonnull String name) {
+    public DataTableSummary name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -81,16 +81,16 @@ public class DataTableSummary {
      * Table name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public DataTableSummary description(@javax.annotation.Nullable String description) {
+    public DataTableSummary description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -99,16 +99,16 @@ public class DataTableSummary {
      * Human-readable description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
     public DataTableSummary semanticType(
-            @javax.annotation.Nullable DataTableSemanticType semanticType) {
+            @jakarta.annotation.Nullable DataTableSemanticType semanticType) {
         this.semanticType = semanticType;
         return this;
     }
@@ -117,15 +117,15 @@ public class DataTableSummary {
      * Semantic categorization for AI understanding
      * @return semanticType
      */
-    @javax.annotation.Nullable public DataTableSemanticType getSemanticType() {
+    @jakarta.annotation.Nullable public DataTableSemanticType getSemanticType() {
         return semanticType;
     }
 
-    public void setSemanticType(@javax.annotation.Nullable DataTableSemanticType semanticType) {
+    public void setSemanticType(@jakarta.annotation.Nullable DataTableSemanticType semanticType) {
         this.semanticType = semanticType;
     }
 
-    public DataTableSummary columnCount(@javax.annotation.Nonnull BigDecimal columnCount) {
+    public DataTableSummary columnCount(@jakarta.annotation.Nonnull BigDecimal columnCount) {
         this.columnCount = columnCount;
         return this;
     }
@@ -134,16 +134,16 @@ public class DataTableSummary {
      * Number of columns
      * @return columnCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getColumnCount() {
         return columnCount;
     }
 
-    public void setColumnCount(@javax.annotation.Nonnull BigDecimal columnCount) {
+    public void setColumnCount(@jakarta.annotation.Nonnull BigDecimal columnCount) {
         this.columnCount = columnCount;
     }
 
-    public DataTableSummary rowCount(@javax.annotation.Nullable BigDecimal rowCount) {
+    public DataTableSummary rowCount(@jakarta.annotation.Nullable BigDecimal rowCount) {
         this.rowCount = rowCount;
         return this;
     }
@@ -152,15 +152,15 @@ public class DataTableSummary {
      * Current row count
      * @return rowCount
      */
-    @javax.annotation.Nullable public BigDecimal getRowCount() {
+    @jakarta.annotation.Nullable public BigDecimal getRowCount() {
         return rowCount;
     }
 
-    public void setRowCount(@javax.annotation.Nullable BigDecimal rowCount) {
+    public void setRowCount(@jakarta.annotation.Nullable BigDecimal rowCount) {
         this.rowCount = rowCount;
     }
 
-    public DataTableSummary tags(@javax.annotation.Nonnull List<String> tags) {
+    public DataTableSummary tags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -177,12 +177,12 @@ public class DataTableSummary {
      * Tags for organization
      * @return tags
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nonnull List<String> tags) {
+    public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
     }
 

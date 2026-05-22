@@ -30,18 +30,18 @@ import java.util.Objects;
 /**
  * ContentObjectTextResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ContentObjectTextResponse {
     public static final String SERIALIZED_NAME_TEXT = "text";
 
     @SerializedName(SERIALIZED_NAME_TEXT)
-    @javax.annotation.Nullable private String text;
+    @jakarta.annotation.Nullable private String text;
 
     public ContentObjectTextResponse() {}
 
-    public ContentObjectTextResponse text(@javax.annotation.Nullable String text) {
+    public ContentObjectTextResponse text(@jakarta.annotation.Nullable String text) {
         this.text = text;
         return this;
     }
@@ -50,11 +50,11 @@ public class ContentObjectTextResponse {
      * Get text
      * @return text
      */
-    @javax.annotation.Nullable public String getText() {
+    @jakarta.annotation.Nullable public String getText() {
         return text;
     }
 
-    public void setText(@javax.annotation.Nullable String text) {
+    public void setText(@jakarta.annotation.Nullable String text) {
         this.text = text;
     }
 

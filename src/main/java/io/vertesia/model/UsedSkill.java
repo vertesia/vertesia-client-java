@@ -32,40 +32,40 @@ import java.util.Objects;
 /**
  * Skill metadata tracked when a skill is used
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UsedSkill {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_SRC = "src";
 
     @SerializedName(SERIALIZED_NAME_SRC)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String src;
 
     public static final String SERIALIZED_NAME_LANGUAGE = "language";
 
     @SerializedName(SERIALIZED_NAME_LANGUAGE)
-    @javax.annotation.Nullable private String language;
+    @jakarta.annotation.Nullable private String language;
 
     public static final String SERIALIZED_NAME_PACKAGES = "packages";
 
     @SerializedName(SERIALIZED_NAME_PACKAGES)
-    @javax.annotation.Nullable private List<String> packages = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> packages = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SYSTEM_PACKAGES = "system_packages";
 
     @SerializedName(SERIALIZED_NAME_SYSTEM_PACKAGES)
-    @javax.annotation.Nullable private List<String> systemPackages = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> systemPackages = new ArrayList<>();
 
     public UsedSkill() {}
 
-    public UsedSkill name(@javax.annotation.Nonnull String name) {
+    public UsedSkill name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -74,16 +74,16 @@ public class UsedSkill {
      * Skill name (e.g., \&quot;analyze_data\&quot;)
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public UsedSkill src(@javax.annotation.Nonnull String src) {
+    public UsedSkill src(@jakarta.annotation.Nonnull String src) {
         this.src = src;
         return this;
     }
@@ -92,16 +92,16 @@ public class UsedSkill {
      * Source URL of the skill collection (e.g., \&quot;https://tools.vertesia.io/api/skills/data-analysis\&quot;)
      * @return src
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSrc() {
         return src;
     }
 
-    public void setSrc(@javax.annotation.Nonnull String src) {
+    public void setSrc(@jakarta.annotation.Nonnull String src) {
         this.src = src;
     }
 
-    public UsedSkill language(@javax.annotation.Nullable String language) {
+    public UsedSkill language(@jakarta.annotation.Nullable String language) {
         this.language = language;
         return this;
     }
@@ -110,15 +110,15 @@ public class UsedSkill {
      * Programming language (e.g., \&quot;python\&quot;)
      * @return language
      */
-    @javax.annotation.Nullable public String getLanguage() {
+    @jakarta.annotation.Nullable public String getLanguage() {
         return language;
     }
 
-    public void setLanguage(@javax.annotation.Nullable String language) {
+    public void setLanguage(@jakarta.annotation.Nullable String language) {
         this.language = language;
     }
 
-    public UsedSkill packages(@javax.annotation.Nullable List<String> packages) {
+    public UsedSkill packages(@jakarta.annotation.Nullable List<String> packages) {
         this.packages = packages;
         return this;
     }
@@ -135,15 +135,15 @@ public class UsedSkill {
      * Required packages (e.g., [\&quot;pandas\&quot;, \&quot;numpy\&quot;])
      * @return packages
      */
-    @javax.annotation.Nullable public List<String> getPackages() {
+    @jakarta.annotation.Nullable public List<String> getPackages() {
         return packages;
     }
 
-    public void setPackages(@javax.annotation.Nullable List<String> packages) {
+    public void setPackages(@jakarta.annotation.Nullable List<String> packages) {
         this.packages = packages;
     }
 
-    public UsedSkill systemPackages(@javax.annotation.Nullable List<String> systemPackages) {
+    public UsedSkill systemPackages(@jakarta.annotation.Nullable List<String> systemPackages) {
         this.systemPackages = systemPackages;
         return this;
     }
@@ -160,11 +160,11 @@ public class UsedSkill {
      * System-level packages to install via sudo apt-get (e.g., [\&quot;poppler-utils\&quot;])
      * @return systemPackages
      */
-    @javax.annotation.Nullable public List<String> getSystemPackages() {
+    @jakarta.annotation.Nullable public List<String> getSystemPackages() {
         return systemPackages;
     }
 
-    public void setSystemPackages(@javax.annotation.Nullable List<String> systemPackages) {
+    public void setSystemPackages(@jakarta.annotation.Nullable List<String> systemPackages) {
         this.systemPackages = systemPackages;
     }
 

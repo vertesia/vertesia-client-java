@@ -31,20 +31,20 @@ import java.util.Objects;
 /**
  * Vertesia SDK tool collection configuration
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class VertesiaSDKToolCollectionObject {
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String url;
 
     public static final String SERIALIZED_NAME_AUTH = "auth";
 
     @SerializedName(SERIALIZED_NAME_AUTH)
-    @javax.annotation.Nullable private ToolCollectionAuthType auth;
+    @jakarta.annotation.Nullable private ToolCollectionAuthType auth;
 
     /**
      * Gets or Sets type
@@ -102,27 +102,27 @@ public class VertesiaSDKToolCollectionObject {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_NAMESPACE = "namespace";
 
     @SerializedName(SERIALIZED_NAME_NAMESPACE)
-    @javax.annotation.Nullable private String namespace;
+    @jakarta.annotation.Nullable private String namespace;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public VertesiaSDKToolCollectionObject() {}
 
-    public VertesiaSDKToolCollectionObject url(@javax.annotation.Nonnull String url) {
+    public VertesiaSDKToolCollectionObject url(@jakarta.annotation.Nonnull String url) {
         this.url = url;
         return this;
     }
@@ -131,17 +131,17 @@ public class VertesiaSDKToolCollectionObject {
      * The URL endpoint for the tool collection
      * @return url
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nonnull String url) {
+    public void setUrl(@jakarta.annotation.Nonnull String url) {
         this.url = url;
     }
 
     public VertesiaSDKToolCollectionObject auth(
-            @javax.annotation.Nullable ToolCollectionAuthType auth) {
+            @jakarta.annotation.Nullable ToolCollectionAuthType auth) {
         this.auth = auth;
         return this;
     }
@@ -150,15 +150,15 @@ public class VertesiaSDKToolCollectionObject {
      * Optional authentication type required for this tool collection
      * @return auth
      */
-    @javax.annotation.Nullable public ToolCollectionAuthType getAuth() {
+    @jakarta.annotation.Nullable public ToolCollectionAuthType getAuth() {
         return auth;
     }
 
-    public void setAuth(@javax.annotation.Nullable ToolCollectionAuthType auth) {
+    public void setAuth(@jakarta.annotation.Nullable ToolCollectionAuthType auth) {
         this.auth = auth;
     }
 
-    public VertesiaSDKToolCollectionObject type(@javax.annotation.Nonnull TypeEnum type) {
+    public VertesiaSDKToolCollectionObject type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -167,16 +167,17 @@ public class VertesiaSDKToolCollectionObject {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public VertesiaSDKToolCollectionObject namespace(@javax.annotation.Nullable String namespace) {
+    public VertesiaSDKToolCollectionObject namespace(
+            @jakarta.annotation.Nullable String namespace) {
         this.namespace = namespace;
         return this;
     }
@@ -185,15 +186,15 @@ public class VertesiaSDKToolCollectionObject {
      * Optional namespace to use for tool names from this collection. If not provided, the tool server default will be used.
      * @return namespace
      */
-    @javax.annotation.Nullable public String getNamespace() {
+    @jakarta.annotation.Nullable public String getNamespace() {
         return namespace;
     }
 
-    public void setNamespace(@javax.annotation.Nullable String namespace) {
+    public void setNamespace(@jakarta.annotation.Nullable String namespace) {
         this.namespace = namespace;
     }
 
-    public VertesiaSDKToolCollectionObject name(@javax.annotation.Nullable String name) {
+    public VertesiaSDKToolCollectionObject name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -202,16 +203,16 @@ public class VertesiaSDKToolCollectionObject {
      * Optional name for the tool collection. If not provided, the tool server default will be used.
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
     public VertesiaSDKToolCollectionObject description(
-            @javax.annotation.Nullable String description) {
+            @jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -220,11 +221,11 @@ public class VertesiaSDKToolCollectionObject {
      * Optional description for the tool collection. If not provided, the tool server default will be used.
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 

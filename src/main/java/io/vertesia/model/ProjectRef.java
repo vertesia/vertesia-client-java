@@ -30,36 +30,36 @@ import java.util.Objects;
 /**
  * ProjectRef
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProjectRef {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String account;
 
     public static final String SERIALIZED_NAME_RESTRICTED = "restricted";
 
     @SerializedName(SERIALIZED_NAME_RESTRICTED)
-    @javax.annotation.Nullable private Boolean restricted;
+    @jakarta.annotation.Nullable private Boolean restricted;
 
     public ProjectRef() {}
 
-    public ProjectRef id(@javax.annotation.Nonnull String id) {
+    public ProjectRef id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -68,16 +68,16 @@ public class ProjectRef {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public ProjectRef name(@javax.annotation.Nonnull String name) {
+    public ProjectRef name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -86,16 +86,16 @@ public class ProjectRef {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public ProjectRef account(@javax.annotation.Nonnull String account) {
+    public ProjectRef account(@jakarta.annotation.Nonnull String account) {
         this.account = account;
         return this;
     }
@@ -104,16 +104,16 @@ public class ProjectRef {
      * Get account
      * @return account
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nonnull String account) {
+    public void setAccount(@jakarta.annotation.Nonnull String account) {
         this.account = account;
     }
 
-    public ProjectRef restricted(@javax.annotation.Nullable Boolean restricted) {
+    public ProjectRef restricted(@jakarta.annotation.Nullable Boolean restricted) {
         this.restricted = restricted;
         return this;
     }
@@ -122,11 +122,11 @@ public class ProjectRef {
      * Only set when fetching the list of projects visible to an user which is an org admin or owner. If present and true, it means that the project is not accessible to the user.(even if it visible in listing) If not present or false then the project is accessible to the user.
      * @return restricted
      */
-    @javax.annotation.Nullable public Boolean getRestricted() {
+    @jakarta.annotation.Nullable public Boolean getRestricted() {
         return restricted;
     }
 
-    public void setRestricted(@javax.annotation.Nullable Boolean restricted) {
+    public void setRestricted(@jakarta.annotation.Nullable Boolean restricted) {
         this.restricted = restricted;
     }
 

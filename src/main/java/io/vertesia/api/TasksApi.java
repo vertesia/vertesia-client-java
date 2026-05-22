@@ -84,7 +84,7 @@ public class TasksApi {
      * </table>
      */
     public okhttp3.Call cancelTaskCall(
-            @javax.annotation.Nonnull String taskId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String taskId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -144,7 +144,7 @@ public class TasksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call cancelTaskValidateBeforeCall(
-            @javax.annotation.Nonnull String taskId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String taskId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'taskId' is set
         if (taskId == null) {
@@ -170,7 +170,7 @@ public class TasksApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public Task cancelTask(@javax.annotation.Nonnull String taskId) throws ApiException {
+    public Task cancelTask(@jakarta.annotation.Nonnull String taskId) throws ApiException {
         ApiResponse<Task> localVarResp = cancelTaskWithHttpInfo(taskId);
         return localVarResp.getData();
     }
@@ -190,7 +190,7 @@ public class TasksApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<Task> cancelTaskWithHttpInfo(@javax.annotation.Nonnull String taskId)
+    public ApiResponse<Task> cancelTaskWithHttpInfo(@jakarta.annotation.Nonnull String taskId)
             throws ApiException {
         okhttp3.Call localVarCall = cancelTaskValidateBeforeCall(taskId, null);
         Type localVarReturnType = new TypeToken<Task>() {}.getType();
@@ -214,7 +214,7 @@ public class TasksApi {
      * </table>
      */
     public okhttp3.Call cancelTaskAsync(
-            @javax.annotation.Nonnull String taskId, final ApiCallback<Task> _callback)
+            @jakarta.annotation.Nonnull String taskId, final ApiCallback<Task> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = cancelTaskValidateBeforeCall(taskId, _callback);
@@ -240,8 +240,8 @@ public class TasksApi {
      * </table>
      */
     public okhttp3.Call completeTaskCall(
-            @javax.annotation.Nonnull String taskId,
-            @javax.annotation.Nonnull CompleteTaskPayload completeTaskPayload,
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull CompleteTaskPayload completeTaskPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -302,8 +302,8 @@ public class TasksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call completeTaskValidateBeforeCall(
-            @javax.annotation.Nonnull String taskId,
-            @javax.annotation.Nonnull CompleteTaskPayload completeTaskPayload,
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull CompleteTaskPayload completeTaskPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'taskId' is set
@@ -338,8 +338,8 @@ public class TasksApi {
      * </table>
      */
     public Task completeTask(
-            @javax.annotation.Nonnull String taskId,
-            @javax.annotation.Nonnull CompleteTaskPayload completeTaskPayload)
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull CompleteTaskPayload completeTaskPayload)
             throws ApiException {
         ApiResponse<Task> localVarResp = completeTaskWithHttpInfo(taskId, completeTaskPayload);
         return localVarResp.getData();
@@ -362,8 +362,8 @@ public class TasksApi {
      * </table>
      */
     public ApiResponse<Task> completeTaskWithHttpInfo(
-            @javax.annotation.Nonnull String taskId,
-            @javax.annotation.Nonnull CompleteTaskPayload completeTaskPayload)
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull CompleteTaskPayload completeTaskPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 completeTaskValidateBeforeCall(taskId, completeTaskPayload, null);
@@ -389,8 +389,8 @@ public class TasksApi {
      * </table>
      */
     public okhttp3.Call completeTaskAsync(
-            @javax.annotation.Nonnull String taskId,
-            @javax.annotation.Nonnull CompleteTaskPayload completeTaskPayload,
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull CompleteTaskPayload completeTaskPayload,
             final ApiCallback<Task> _callback)
             throws ApiException {
 
@@ -417,7 +417,7 @@ public class TasksApi {
      * </table>
      */
     public okhttp3.Call createTaskCall(
-            @javax.annotation.Nonnull CreateTaskPayload createTaskPayload,
+            @jakarta.annotation.Nonnull CreateTaskPayload createTaskPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -474,7 +474,7 @@ public class TasksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createTaskValidateBeforeCall(
-            @javax.annotation.Nonnull CreateTaskPayload createTaskPayload,
+            @jakarta.annotation.Nonnull CreateTaskPayload createTaskPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'createTaskPayload' is set
@@ -501,7 +501,7 @@ public class TasksApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public Task createTask(@javax.annotation.Nonnull CreateTaskPayload createTaskPayload)
+    public Task createTask(@jakarta.annotation.Nonnull CreateTaskPayload createTaskPayload)
             throws ApiException {
         ApiResponse<Task> localVarResp = createTaskWithHttpInfo(createTaskPayload);
         return localVarResp.getData();
@@ -523,7 +523,7 @@ public class TasksApi {
      * </table>
      */
     public ApiResponse<Task> createTaskWithHttpInfo(
-            @javax.annotation.Nonnull CreateTaskPayload createTaskPayload) throws ApiException {
+            @jakarta.annotation.Nonnull CreateTaskPayload createTaskPayload) throws ApiException {
         okhttp3.Call localVarCall = createTaskValidateBeforeCall(createTaskPayload, null);
         Type localVarReturnType = new TypeToken<Task>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -546,7 +546,7 @@ public class TasksApi {
      * </table>
      */
     public okhttp3.Call createTaskAsync(
-            @javax.annotation.Nonnull CreateTaskPayload createTaskPayload,
+            @jakarta.annotation.Nonnull CreateTaskPayload createTaskPayload,
             final ApiCallback<Task> _callback)
             throws ApiException {
 
@@ -572,7 +572,7 @@ public class TasksApi {
      * </table>
      */
     public okhttp3.Call deleteTaskCall(
-            @javax.annotation.Nonnull String taskId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String taskId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -632,7 +632,7 @@ public class TasksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteTaskValidateBeforeCall(
-            @javax.annotation.Nonnull String taskId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String taskId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'taskId' is set
         if (taskId == null) {
@@ -658,7 +658,7 @@ public class TasksApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteCountResult deleteTask(@javax.annotation.Nonnull String taskId)
+    public DeleteCountResult deleteTask(@jakarta.annotation.Nonnull String taskId)
             throws ApiException {
         ApiResponse<DeleteCountResult> localVarResp = deleteTaskWithHttpInfo(taskId);
         return localVarResp.getData();
@@ -680,7 +680,7 @@ public class TasksApi {
      * </table>
      */
     public ApiResponse<DeleteCountResult> deleteTaskWithHttpInfo(
-            @javax.annotation.Nonnull String taskId) throws ApiException {
+            @jakarta.annotation.Nonnull String taskId) throws ApiException {
         okhttp3.Call localVarCall = deleteTaskValidateBeforeCall(taskId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -703,7 +703,8 @@ public class TasksApi {
      * </table>
      */
     public okhttp3.Call deleteTaskAsync(
-            @javax.annotation.Nonnull String taskId, final ApiCallback<DeleteCountResult> _callback)
+            @jakarta.annotation.Nonnull String taskId,
+            final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = deleteTaskValidateBeforeCall(taskId, _callback);
@@ -728,7 +729,7 @@ public class TasksApi {
      * </table>
      */
     public okhttp3.Call getTaskCall(
-            @javax.annotation.Nonnull String taskId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String taskId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -788,7 +789,7 @@ public class TasksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getTaskValidateBeforeCall(
-            @javax.annotation.Nonnull String taskId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String taskId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'taskId' is set
         if (taskId == null) {
@@ -814,7 +815,7 @@ public class TasksApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public Task getTask(@javax.annotation.Nonnull String taskId) throws ApiException {
+    public Task getTask(@jakarta.annotation.Nonnull String taskId) throws ApiException {
         ApiResponse<Task> localVarResp = getTaskWithHttpInfo(taskId);
         return localVarResp.getData();
     }
@@ -834,7 +835,7 @@ public class TasksApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<Task> getTaskWithHttpInfo(@javax.annotation.Nonnull String taskId)
+    public ApiResponse<Task> getTaskWithHttpInfo(@jakarta.annotation.Nonnull String taskId)
             throws ApiException {
         okhttp3.Call localVarCall = getTaskValidateBeforeCall(taskId, null);
         Type localVarReturnType = new TypeToken<Task>() {}.getType();
@@ -858,7 +859,7 @@ public class TasksApi {
      * </table>
      */
     public okhttp3.Call getTaskAsync(
-            @javax.annotation.Nonnull String taskId, final ApiCallback<Task> _callback)
+            @jakarta.annotation.Nonnull String taskId, final ApiCallback<Task> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getTaskValidateBeforeCall(taskId, _callback);
@@ -888,12 +889,12 @@ public class TasksApi {
      * </table>
      */
     public okhttp3.Call listTasksCall(
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable String assignee,
-            @javax.annotation.Nullable String runId,
-            @javax.annotation.Nullable String sourceType,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable String assignee,
+            @jakarta.annotation.Nullable String runId,
+            @jakarta.annotation.Nullable String sourceType,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -976,12 +977,12 @@ public class TasksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listTasksValidateBeforeCall(
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable String assignee,
-            @javax.annotation.Nullable String runId,
-            @javax.annotation.Nullable String sourceType,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable String assignee,
+            @jakarta.annotation.Nullable String runId,
+            @jakarta.annotation.Nullable String sourceType,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback _callback)
             throws ApiException {
         return listTasksCall(status, assignee, runId, sourceType, limit, offset, _callback);
@@ -1008,12 +1009,12 @@ public class TasksApi {
      * </table>
      */
     public List<Task> listTasks(
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable String assignee,
-            @javax.annotation.Nullable String runId,
-            @javax.annotation.Nullable String sourceType,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable String assignee,
+            @jakarta.annotation.Nullable String runId,
+            @jakarta.annotation.Nullable String sourceType,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         ApiResponse<List<Task>> localVarResp =
                 listTasksWithHttpInfo(status, assignee, runId, sourceType, limit, offset);
@@ -1041,12 +1042,12 @@ public class TasksApi {
      * </table>
      */
     public ApiResponse<List<Task>> listTasksWithHttpInfo(
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable String assignee,
-            @javax.annotation.Nullable String runId,
-            @javax.annotation.Nullable String sourceType,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset)
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable String assignee,
+            @jakarta.annotation.Nullable String runId,
+            @jakarta.annotation.Nullable String sourceType,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listTasksValidateBeforeCall(
@@ -1077,12 +1078,12 @@ public class TasksApi {
      * </table>
      */
     public okhttp3.Call listTasksAsync(
-            @javax.annotation.Nullable List<String> status,
-            @javax.annotation.Nullable String assignee,
-            @javax.annotation.Nullable String runId,
-            @javax.annotation.Nullable String sourceType,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable String assignee,
+            @jakarta.annotation.Nullable String runId,
+            @jakarta.annotation.Nullable String sourceType,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
             final ApiCallback<List<Task>> _callback)
             throws ApiException {
 
@@ -1111,8 +1112,8 @@ public class TasksApi {
      * </table>
      */
     public okhttp3.Call updateTaskCall(
-            @javax.annotation.Nonnull String taskId,
-            @javax.annotation.Nonnull UpdateTaskPayload updateTaskPayload,
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull UpdateTaskPayload updateTaskPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1173,8 +1174,8 @@ public class TasksApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateTaskValidateBeforeCall(
-            @javax.annotation.Nonnull String taskId,
-            @javax.annotation.Nonnull UpdateTaskPayload updateTaskPayload,
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull UpdateTaskPayload updateTaskPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'taskId' is set
@@ -1209,8 +1210,8 @@ public class TasksApi {
      * </table>
      */
     public Task updateTask(
-            @javax.annotation.Nonnull String taskId,
-            @javax.annotation.Nonnull UpdateTaskPayload updateTaskPayload)
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull UpdateTaskPayload updateTaskPayload)
             throws ApiException {
         ApiResponse<Task> localVarResp = updateTaskWithHttpInfo(taskId, updateTaskPayload);
         return localVarResp.getData();
@@ -1233,8 +1234,8 @@ public class TasksApi {
      * </table>
      */
     public ApiResponse<Task> updateTaskWithHttpInfo(
-            @javax.annotation.Nonnull String taskId,
-            @javax.annotation.Nonnull UpdateTaskPayload updateTaskPayload)
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull UpdateTaskPayload updateTaskPayload)
             throws ApiException {
         okhttp3.Call localVarCall = updateTaskValidateBeforeCall(taskId, updateTaskPayload, null);
         Type localVarReturnType = new TypeToken<Task>() {}.getType();
@@ -1259,8 +1260,8 @@ public class TasksApi {
      * </table>
      */
     public okhttp3.Call updateTaskAsync(
-            @javax.annotation.Nonnull String taskId,
-            @javax.annotation.Nonnull UpdateTaskPayload updateTaskPayload,
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull UpdateTaskPayload updateTaskPayload,
             final ApiCallback<Task> _callback)
             throws ApiException {
 

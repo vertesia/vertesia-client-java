@@ -32,59 +32,59 @@ import java.util.Objects;
 /**
  * ProcessDefinitionBody
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProcessDefinitionBody {
     public static final String SERIALIZED_NAME_FORMAT_VERSION = "format_version";
 
     @SerializedName(SERIALIZED_NAME_FORMAT_VERSION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ProcessDefinitionFormatVersion formatVersion;
 
     public static final String SERIALIZED_NAME_PROCESS = "process";
 
     @SerializedName(SERIALIZED_NAME_PROCESS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String process;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_INITIAL = "initial";
 
     @SerializedName(SERIALIZED_NAME_INITIAL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String initial;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nullable private String model;
+    @jakarta.annotation.Nullable private String model;
 
     public static final String SERIALIZED_NAME_CONTEXT = "context";
 
     @SerializedName(SERIALIZED_NAME_CONTEXT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ProcessContextDefinition context;
 
     public static final String SERIALIZED_NAME_NODES = "nodes";
 
     @SerializedName(SERIALIZED_NAME_NODES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, NodeDefinition> nodes = new HashMap<>();
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @javax.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
 
     public ProcessDefinitionBody() {}
 
     public ProcessDefinitionBody formatVersion(
-            @javax.annotation.Nonnull ProcessDefinitionFormatVersion formatVersion) {
+            @jakarta.annotation.Nonnull ProcessDefinitionFormatVersion formatVersion) {
         this.formatVersion = formatVersion;
         return this;
     }
@@ -93,17 +93,17 @@ public class ProcessDefinitionBody {
      * Get formatVersion
      * @return formatVersion
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ProcessDefinitionFormatVersion getFormatVersion() {
         return formatVersion;
     }
 
     public void setFormatVersion(
-            @javax.annotation.Nonnull ProcessDefinitionFormatVersion formatVersion) {
+            @jakarta.annotation.Nonnull ProcessDefinitionFormatVersion formatVersion) {
         this.formatVersion = formatVersion;
     }
 
-    public ProcessDefinitionBody process(@javax.annotation.Nonnull String process) {
+    public ProcessDefinitionBody process(@jakarta.annotation.Nonnull String process) {
         this.process = process;
         return this;
     }
@@ -112,16 +112,16 @@ public class ProcessDefinitionBody {
      * Get process
      * @return process
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProcess() {
         return process;
     }
 
-    public void setProcess(@javax.annotation.Nonnull String process) {
+    public void setProcess(@jakarta.annotation.Nonnull String process) {
         this.process = process;
     }
 
-    public ProcessDefinitionBody description(@javax.annotation.Nullable String description) {
+    public ProcessDefinitionBody description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -130,15 +130,15 @@ public class ProcessDefinitionBody {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public ProcessDefinitionBody initial(@javax.annotation.Nonnull String initial) {
+    public ProcessDefinitionBody initial(@jakarta.annotation.Nonnull String initial) {
         this.initial = initial;
         return this;
     }
@@ -147,16 +147,16 @@ public class ProcessDefinitionBody {
      * Get initial
      * @return initial
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getInitial() {
         return initial;
     }
 
-    public void setInitial(@javax.annotation.Nonnull String initial) {
+    public void setInitial(@jakarta.annotation.Nonnull String initial) {
         this.initial = initial;
     }
 
-    public ProcessDefinitionBody model(@javax.annotation.Nullable String model) {
+    public ProcessDefinitionBody model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
@@ -165,16 +165,16 @@ public class ProcessDefinitionBody {
      * Get model
      * @return model
      */
-    @javax.annotation.Nullable public String getModel() {
+    @jakarta.annotation.Nullable public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nullable String model) {
+    public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
     }
 
     public ProcessDefinitionBody context(
-            @javax.annotation.Nonnull ProcessContextDefinition context) {
+            @jakarta.annotation.Nonnull ProcessContextDefinition context) {
         this.context = context;
         return this;
     }
@@ -183,17 +183,17 @@ public class ProcessDefinitionBody {
      * Get context
      * @return context
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ProcessContextDefinition getContext() {
         return context;
     }
 
-    public void setContext(@javax.annotation.Nonnull ProcessContextDefinition context) {
+    public void setContext(@jakarta.annotation.Nonnull ProcessContextDefinition context) {
         this.context = context;
     }
 
     public ProcessDefinitionBody nodes(
-            @javax.annotation.Nonnull Map<String, NodeDefinition> nodes) {
+            @jakarta.annotation.Nonnull Map<String, NodeDefinition> nodes) {
         this.nodes = nodes;
         return this;
     }
@@ -210,16 +210,17 @@ public class ProcessDefinitionBody {
      * Get nodes
      * @return nodes
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, NodeDefinition> getNodes() {
         return nodes;
     }
 
-    public void setNodes(@javax.annotation.Nonnull Map<String, NodeDefinition> nodes) {
+    public void setNodes(@jakarta.annotation.Nonnull Map<String, NodeDefinition> nodes) {
         this.nodes = nodes;
     }
 
-    public ProcessDefinitionBody metadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    public ProcessDefinitionBody metadata(
+            @jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -236,11 +237,11 @@ public class ProcessDefinitionBody {
      * Get metadata
      * @return metadata
      */
-    @javax.annotation.Nullable public Map<String, Object> getMetadata() {
+    @jakarta.annotation.Nullable public Map<String, Object> getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 

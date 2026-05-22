@@ -31,37 +31,37 @@ import java.util.Objects;
 /**
  * DocAnalyzerProgressStatus
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DocAnalyzerProgressStatus {
     public static final String SERIALIZED_NAME_TOTAL = "total";
 
     @SerializedName(SERIALIZED_NAME_TOTAL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal total;
 
     public static final String SERIALIZED_NAME_PROCESSED = "processed";
 
     @SerializedName(SERIALIZED_NAME_PROCESSED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal processed;
 
     public static final String SERIALIZED_NAME_SUCCESS = "success";
 
     @SerializedName(SERIALIZED_NAME_SUCCESS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal success;
 
     public static final String SERIALIZED_NAME_FAILED = "failed";
 
     @SerializedName(SERIALIZED_NAME_FAILED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal failed;
 
     public DocAnalyzerProgressStatus() {}
 
-    public DocAnalyzerProgressStatus total(@javax.annotation.Nonnull BigDecimal total) {
+    public DocAnalyzerProgressStatus total(@jakarta.annotation.Nonnull BigDecimal total) {
         this.total = total;
         return this;
     }
@@ -70,16 +70,16 @@ public class DocAnalyzerProgressStatus {
      * Get total
      * @return total
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(@javax.annotation.Nonnull BigDecimal total) {
+    public void setTotal(@jakarta.annotation.Nonnull BigDecimal total) {
         this.total = total;
     }
 
-    public DocAnalyzerProgressStatus processed(@javax.annotation.Nonnull BigDecimal processed) {
+    public DocAnalyzerProgressStatus processed(@jakarta.annotation.Nonnull BigDecimal processed) {
         this.processed = processed;
         return this;
     }
@@ -88,16 +88,16 @@ public class DocAnalyzerProgressStatus {
      * Get processed
      * @return processed
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getProcessed() {
         return processed;
     }
 
-    public void setProcessed(@javax.annotation.Nonnull BigDecimal processed) {
+    public void setProcessed(@jakarta.annotation.Nonnull BigDecimal processed) {
         this.processed = processed;
     }
 
-    public DocAnalyzerProgressStatus success(@javax.annotation.Nonnull BigDecimal success) {
+    public DocAnalyzerProgressStatus success(@jakarta.annotation.Nonnull BigDecimal success) {
         this.success = success;
         return this;
     }
@@ -106,16 +106,16 @@ public class DocAnalyzerProgressStatus {
      * Get success
      * @return success
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getSuccess() {
         return success;
     }
 
-    public void setSuccess(@javax.annotation.Nonnull BigDecimal success) {
+    public void setSuccess(@jakarta.annotation.Nonnull BigDecimal success) {
         this.success = success;
     }
 
-    public DocAnalyzerProgressStatus failed(@javax.annotation.Nonnull BigDecimal failed) {
+    public DocAnalyzerProgressStatus failed(@jakarta.annotation.Nonnull BigDecimal failed) {
         this.failed = failed;
         return this;
     }
@@ -124,12 +124,12 @@ public class DocAnalyzerProgressStatus {
      * Get failed
      * @return failed
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getFailed() {
         return failed;
     }
 
-    public void setFailed(@javax.annotation.Nonnull BigDecimal failed) {
+    public void setFailed(@jakarta.annotation.Nonnull BigDecimal failed) {
         this.failed = failed;
     }
 

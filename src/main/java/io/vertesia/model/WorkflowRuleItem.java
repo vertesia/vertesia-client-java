@@ -32,71 +32,71 @@ import java.util.Objects;
 /**
  * WorkflowRuleItem
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WorkflowRuleItem {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public static final String SERIALIZED_NAME_ENDPOINT = "endpoint";
 
     @SerializedName(SERIALIZED_NAME_ENDPOINT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String endpoint;
 
     public static final String SERIALIZED_NAME_INPUT_TYPE = "input_type";
 
     @SerializedName(SERIALIZED_NAME_INPUT_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private WorkflowRuleInputType inputType;
 
     public WorkflowRuleItem() {}
 
-    public WorkflowRuleItem id(@javax.annotation.Nonnull String id) {
+    public WorkflowRuleItem id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -105,16 +105,16 @@ public class WorkflowRuleItem {
      * Unique identifier for the object
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public WorkflowRuleItem name(@javax.annotation.Nonnull String name) {
+    public WorkflowRuleItem name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -123,16 +123,16 @@ public class WorkflowRuleItem {
      * Human-readable name or title
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public WorkflowRuleItem description(@javax.annotation.Nullable String description) {
+    public WorkflowRuleItem description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -141,15 +141,15 @@ public class WorkflowRuleItem {
      * Optional detailed description of the object
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public WorkflowRuleItem tags(@javax.annotation.Nullable List<String> tags) {
+    public WorkflowRuleItem tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -166,15 +166,15 @@ public class WorkflowRuleItem {
      * Optional array of categorization tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public WorkflowRuleItem updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public WorkflowRuleItem updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -183,16 +183,16 @@ public class WorkflowRuleItem {
      * Identifier of the user who last modified the object
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public WorkflowRuleItem createdBy(@javax.annotation.Nonnull String createdBy) {
+    public WorkflowRuleItem createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -201,16 +201,16 @@ public class WorkflowRuleItem {
      * Identifier of the user who created the object
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public WorkflowRuleItem createdAt(@javax.annotation.Nonnull String createdAt) {
+    public WorkflowRuleItem createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -219,16 +219,16 @@ public class WorkflowRuleItem {
      * ISO timestamp of when the object was created
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public WorkflowRuleItem updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public WorkflowRuleItem updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -237,16 +237,16 @@ public class WorkflowRuleItem {
      * ISO timestamp of when the object was last updated
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public WorkflowRuleItem endpoint(@javax.annotation.Nonnull String endpoint) {
+    public WorkflowRuleItem endpoint(@jakarta.annotation.Nonnull String endpoint) {
         this.endpoint = endpoint;
         return this;
     }
@@ -255,16 +255,16 @@ public class WorkflowRuleItem {
      * Get endpoint
      * @return endpoint
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getEndpoint() {
         return endpoint;
     }
 
-    public void setEndpoint(@javax.annotation.Nonnull String endpoint) {
+    public void setEndpoint(@jakarta.annotation.Nonnull String endpoint) {
         this.endpoint = endpoint;
     }
 
-    public WorkflowRuleItem inputType(@javax.annotation.Nonnull WorkflowRuleInputType inputType) {
+    public WorkflowRuleItem inputType(@jakarta.annotation.Nonnull WorkflowRuleInputType inputType) {
         this.inputType = inputType;
         return this;
     }
@@ -273,12 +273,12 @@ public class WorkflowRuleItem {
      * Get inputType
      * @return inputType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public WorkflowRuleInputType getInputType() {
         return inputType;
     }
 
-    public void setInputType(@javax.annotation.Nonnull WorkflowRuleInputType inputType) {
+    public void setInputType(@jakarta.annotation.Nonnull WorkflowRuleInputType inputType) {
         this.inputType = inputType;
     }
 

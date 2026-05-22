@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * GeneratedInteractionPromptSegment
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GeneratedInteractionPromptSegment {
@@ -91,18 +91,18 @@ public class GeneratedInteractionPromptSegment {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_TEMPLATE = "template";
 
     @SerializedName(SERIALIZED_NAME_TEMPLATE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private GeneratedInteractionPromptTemplate template;
 
     public GeneratedInteractionPromptSegment() {}
 
-    public GeneratedInteractionPromptSegment type(@javax.annotation.Nonnull TypeEnum type) {
+    public GeneratedInteractionPromptSegment type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -111,17 +111,17 @@ public class GeneratedInteractionPromptSegment {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
     public GeneratedInteractionPromptSegment template(
-            @javax.annotation.Nonnull GeneratedInteractionPromptTemplate template) {
+            @jakarta.annotation.Nonnull GeneratedInteractionPromptTemplate template) {
         this.template = template;
         return this;
     }
@@ -130,12 +130,13 @@ public class GeneratedInteractionPromptSegment {
      * Get template
      * @return template
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public GeneratedInteractionPromptTemplate getTemplate() {
         return template;
     }
 
-    public void setTemplate(@javax.annotation.Nonnull GeneratedInteractionPromptTemplate template) {
+    public void setTemplate(
+            @jakarta.annotation.Nonnull GeneratedInteractionPromptTemplate template) {
         this.template = template;
     }
 

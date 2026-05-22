@@ -30,23 +30,23 @@ import java.util.Objects;
 /**
  * PromptTemplateForkPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromptTemplateForkPayload {
     public static final String SERIALIZED_NAME_KEEP_TAGS = "keepTags";
 
     @SerializedName(SERIALIZED_NAME_KEEP_TAGS)
-    @javax.annotation.Nullable private Boolean keepTags;
+    @jakarta.annotation.Nullable private Boolean keepTags;
 
     public static final String SERIALIZED_NAME_TARGET_PROJECT = "targetProject";
 
     @SerializedName(SERIALIZED_NAME_TARGET_PROJECT)
-    @javax.annotation.Nullable private String targetProject;
+    @jakarta.annotation.Nullable private String targetProject;
 
     public PromptTemplateForkPayload() {}
 
-    public PromptTemplateForkPayload keepTags(@javax.annotation.Nullable Boolean keepTags) {
+    public PromptTemplateForkPayload keepTags(@jakarta.annotation.Nullable Boolean keepTags) {
         this.keepTags = keepTags;
         return this;
     }
@@ -55,16 +55,16 @@ public class PromptTemplateForkPayload {
      * Get keepTags
      * @return keepTags
      */
-    @javax.annotation.Nullable public Boolean getKeepTags() {
+    @jakarta.annotation.Nullable public Boolean getKeepTags() {
         return keepTags;
     }
 
-    public void setKeepTags(@javax.annotation.Nullable Boolean keepTags) {
+    public void setKeepTags(@jakarta.annotation.Nullable Boolean keepTags) {
         this.keepTags = keepTags;
     }
 
     public PromptTemplateForkPayload targetProject(
-            @javax.annotation.Nullable String targetProject) {
+            @jakarta.annotation.Nullable String targetProject) {
         this.targetProject = targetProject;
         return this;
     }
@@ -73,11 +73,11 @@ public class PromptTemplateForkPayload {
      * Get targetProject
      * @return targetProject
      */
-    @javax.annotation.Nullable public String getTargetProject() {
+    @jakarta.annotation.Nullable public String getTargetProject() {
         return targetProject;
     }
 
-    public void setTargetProject(@javax.annotation.Nullable String targetProject) {
+    public void setTargetProject(@jakarta.annotation.Nullable String targetProject) {
         this.targetProject = targetProject;
     }
 

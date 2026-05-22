@@ -33,25 +33,25 @@ import java.util.Objects;
 /**
  * PromptTemplateInteractionsResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromptTemplateInteractionsResponse {
     public static final String SERIALIZED_NAME_PROMPT = "prompt";
 
     @SerializedName(SERIALIZED_NAME_PROMPT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String prompt;
 
     public static final String SERIALIZED_NAME_INTERACTIONS = "interactions";
 
     @SerializedName(SERIALIZED_NAME_INTERACTIONS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<PromptTemplateInteractionUsage> interactions = new ArrayList<>();
 
     public PromptTemplateInteractionsResponse() {}
 
-    public PromptTemplateInteractionsResponse prompt(@javax.annotation.Nonnull String prompt) {
+    public PromptTemplateInteractionsResponse prompt(@jakarta.annotation.Nonnull String prompt) {
         this.prompt = prompt;
         return this;
     }
@@ -60,17 +60,17 @@ public class PromptTemplateInteractionsResponse {
      * Get prompt
      * @return prompt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getPrompt() {
         return prompt;
     }
 
-    public void setPrompt(@javax.annotation.Nonnull String prompt) {
+    public void setPrompt(@jakarta.annotation.Nonnull String prompt) {
         this.prompt = prompt;
     }
 
     public PromptTemplateInteractionsResponse interactions(
-            @javax.annotation.Nonnull List<PromptTemplateInteractionUsage> interactions) {
+            @jakarta.annotation.Nonnull List<PromptTemplateInteractionUsage> interactions) {
         this.interactions = interactions;
         return this;
     }
@@ -88,13 +88,13 @@ public class PromptTemplateInteractionsResponse {
      * Get interactions
      * @return interactions
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<PromptTemplateInteractionUsage> getInteractions() {
         return interactions;
     }
 
     public void setInteractions(
-            @javax.annotation.Nonnull List<PromptTemplateInteractionUsage> interactions) {
+            @jakarta.annotation.Nonnull List<PromptTemplateInteractionUsage> interactions) {
         this.interactions = interactions;
     }
 

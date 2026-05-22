@@ -33,19 +33,19 @@ import java.util.Objects;
 /**
  * ListSecretsResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ListSecretsResponse {
     public static final String SERIALIZED_NAME_SECRETS = "secrets";
 
     @SerializedName(SERIALIZED_NAME_SECRETS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<SecretRecord> secrets = new ArrayList<>();
 
     public ListSecretsResponse() {}
 
-    public ListSecretsResponse secrets(@javax.annotation.Nonnull List<SecretRecord> secrets) {
+    public ListSecretsResponse secrets(@jakarta.annotation.Nonnull List<SecretRecord> secrets) {
         this.secrets = secrets;
         return this;
     }
@@ -62,12 +62,12 @@ public class ListSecretsResponse {
      * Get secrets
      * @return secrets
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<SecretRecord> getSecrets() {
         return secrets;
     }
 
-    public void setSecrets(@javax.annotation.Nonnull List<SecretRecord> secrets) {
+    public void setSecrets(@jakarta.annotation.Nonnull List<SecretRecord> secrets) {
         this.secrets = secrets;
     }
 

@@ -88,6 +88,7 @@ This requires `openapi-generator` on `PATH`. The script runs:
 openapi-generator generate -c openapi-generator-config.yaml
 python3 scripts/patch_forward_compat_validation.py
 python3 scripts/patch_generated_security.py
+python3 scripts/patch_generated_jakarta_annotations.py
 mvn -q spotless:apply test
 ```
 
@@ -125,7 +126,7 @@ environment.
 
 ## Java Style
 
-- Source and target compatibility are Java 8.
+- Source compatibility is Java 17.
 - CI runs on JDK 17 with Maven.
 - Formatting is enforced by Spotless with Google Java Format in AOSP style.
 - Keep generated-code formatting changes out of hand-written work.
@@ -189,7 +190,7 @@ uvx zizmor@1.24.1 --no-exit-codes --persona=auditor .github
 ## Dependency Updates
 
 Runtime dependencies and Maven plugin versions live in `pom.xml`. There is no
-committed Maven lock file. Keep dependencies compatible with Java 8 and avoid
+committed Maven lock file. Keep dependencies compatible with Java 17 and avoid
 broad major version changes unless the user asks for that risk.
 
 Dependabot also manages GitHub Actions updates. When updating workflow action

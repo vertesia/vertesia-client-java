@@ -33,28 +33,28 @@ import java.util.Objects;
 /**
  * Transcript
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class Transcript {
     public static final String SERIALIZED_NAME_TEXT = "text";
 
     @SerializedName(SERIALIZED_NAME_TEXT)
-    @javax.annotation.Nullable private String text;
+    @jakarta.annotation.Nullable private String text;
 
     public static final String SERIALIZED_NAME_SEGMENTS = "segments";
 
     @SerializedName(SERIALIZED_NAME_SEGMENTS)
-    @javax.annotation.Nullable private List<TranscriptSegment> segments = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<TranscriptSegment> segments = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ETAG = "etag";
 
     @SerializedName(SERIALIZED_NAME_ETAG)
-    @javax.annotation.Nullable private String etag;
+    @jakarta.annotation.Nullable private String etag;
 
     public Transcript() {}
 
-    public Transcript text(@javax.annotation.Nullable String text) {
+    public Transcript text(@jakarta.annotation.Nullable String text) {
         this.text = text;
         return this;
     }
@@ -63,15 +63,15 @@ public class Transcript {
      * Get text
      * @return text
      */
-    @javax.annotation.Nullable public String getText() {
+    @jakarta.annotation.Nullable public String getText() {
         return text;
     }
 
-    public void setText(@javax.annotation.Nullable String text) {
+    public void setText(@jakarta.annotation.Nullable String text) {
         this.text = text;
     }
 
-    public Transcript segments(@javax.annotation.Nullable List<TranscriptSegment> segments) {
+    public Transcript segments(@jakarta.annotation.Nullable List<TranscriptSegment> segments) {
         this.segments = segments;
         return this;
     }
@@ -88,15 +88,15 @@ public class Transcript {
      * Get segments
      * @return segments
      */
-    @javax.annotation.Nullable public List<TranscriptSegment> getSegments() {
+    @jakarta.annotation.Nullable public List<TranscriptSegment> getSegments() {
         return segments;
     }
 
-    public void setSegments(@javax.annotation.Nullable List<TranscriptSegment> segments) {
+    public void setSegments(@jakarta.annotation.Nullable List<TranscriptSegment> segments) {
         this.segments = segments;
     }
 
-    public Transcript etag(@javax.annotation.Nullable String etag) {
+    public Transcript etag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
         return this;
     }
@@ -105,11 +105,11 @@ public class Transcript {
      * Get etag
      * @return etag
      */
-    @javax.annotation.Nullable public String getEtag() {
+    @jakarta.annotation.Nullable public String getEtag() {
         return etag;
     }
 
-    public void setEtag(@javax.annotation.Nullable String etag) {
+    public void setEtag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
     }
 

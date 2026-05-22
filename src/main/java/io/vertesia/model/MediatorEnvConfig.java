@@ -34,33 +34,33 @@ import java.util.Objects;
 /**
  * MediatorEnvConfig
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class MediatorEnvConfig {
     public static final String SERIALIZED_NAME_ENTRIES = "entries";
 
     @SerializedName(SERIALIZED_NAME_ENTRIES)
-    @javax.annotation.Nullable private List<VirtualEnvEntry> entries = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<VirtualEnvEntry> entries = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_MAX_CONCURRENT_REQUESTS = "max_concurrent_requests";
 
     @SerializedName(SERIALIZED_NAME_MAX_CONCURRENT_REQUESTS)
-    @javax.annotation.Nullable private BigDecimal maxConcurrentRequests;
+    @jakarta.annotation.Nullable private BigDecimal maxConcurrentRequests;
 
     public static final String SERIALIZED_NAME_MEDIATORS = "mediators";
 
     @SerializedName(SERIALIZED_NAME_MEDIATORS)
-    @javax.annotation.Nullable private List<VirtualEnvEntry> mediators = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<VirtualEnvEntry> mediators = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_MODEL_OPTIONS = "model_options";
 
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
-    @javax.annotation.Nullable private TextFallbackOptions modelOptions;
+    @jakarta.annotation.Nullable private TextFallbackOptions modelOptions;
 
     public MediatorEnvConfig() {}
 
-    public MediatorEnvConfig entries(@javax.annotation.Nullable List<VirtualEnvEntry> entries) {
+    public MediatorEnvConfig entries(@jakarta.annotation.Nullable List<VirtualEnvEntry> entries) {
         this.entries = entries;
         return this;
     }
@@ -77,16 +77,16 @@ public class MediatorEnvConfig {
      * Get entries
      * @return entries
      */
-    @javax.annotation.Nullable public List<VirtualEnvEntry> getEntries() {
+    @jakarta.annotation.Nullable public List<VirtualEnvEntry> getEntries() {
         return entries;
     }
 
-    public void setEntries(@javax.annotation.Nullable List<VirtualEnvEntry> entries) {
+    public void setEntries(@jakarta.annotation.Nullable List<VirtualEnvEntry> entries) {
         this.entries = entries;
     }
 
     public MediatorEnvConfig maxConcurrentRequests(
-            @javax.annotation.Nullable BigDecimal maxConcurrentRequests) {
+            @jakarta.annotation.Nullable BigDecimal maxConcurrentRequests) {
         this.maxConcurrentRequests = maxConcurrentRequests;
         return this;
     }
@@ -95,16 +95,17 @@ public class MediatorEnvConfig {
      * Get maxConcurrentRequests
      * @return maxConcurrentRequests
      */
-    @javax.annotation.Nullable public BigDecimal getMaxConcurrentRequests() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxConcurrentRequests() {
         return maxConcurrentRequests;
     }
 
     public void setMaxConcurrentRequests(
-            @javax.annotation.Nullable BigDecimal maxConcurrentRequests) {
+            @jakarta.annotation.Nullable BigDecimal maxConcurrentRequests) {
         this.maxConcurrentRequests = maxConcurrentRequests;
     }
 
-    public MediatorEnvConfig mediators(@javax.annotation.Nullable List<VirtualEnvEntry> mediators) {
+    public MediatorEnvConfig mediators(
+            @jakarta.annotation.Nullable List<VirtualEnvEntry> mediators) {
         this.mediators = mediators;
         return this;
     }
@@ -121,16 +122,16 @@ public class MediatorEnvConfig {
      * Get mediators
      * @return mediators
      */
-    @javax.annotation.Nullable public List<VirtualEnvEntry> getMediators() {
+    @jakarta.annotation.Nullable public List<VirtualEnvEntry> getMediators() {
         return mediators;
     }
 
-    public void setMediators(@javax.annotation.Nullable List<VirtualEnvEntry> mediators) {
+    public void setMediators(@jakarta.annotation.Nullable List<VirtualEnvEntry> mediators) {
         this.mediators = mediators;
     }
 
     public MediatorEnvConfig modelOptions(
-            @javax.annotation.Nullable TextFallbackOptions modelOptions) {
+            @jakarta.annotation.Nullable TextFallbackOptions modelOptions) {
         this.modelOptions = modelOptions;
         return this;
     }
@@ -139,11 +140,11 @@ public class MediatorEnvConfig {
      * Get modelOptions
      * @return modelOptions
      */
-    @javax.annotation.Nullable public TextFallbackOptions getModelOptions() {
+    @jakarta.annotation.Nullable public TextFallbackOptions getModelOptions() {
         return modelOptions;
     }
 
-    public void setModelOptions(@javax.annotation.Nullable TextFallbackOptions modelOptions) {
+    public void setModelOptions(@jakarta.annotation.Nullable TextFallbackOptions modelOptions) {
         this.modelOptions = modelOptions;
     }
 

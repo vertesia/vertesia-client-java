@@ -30,36 +30,36 @@ import java.util.Objects;
 /**
  * GenerationRunMetadata
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GenerationRunMetadata {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_DATE = "date";
 
     @SerializedName(SERIALIZED_NAME_DATE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String date;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String model;
 
     public static final String SERIALIZED_NAME_TARGET = "target";
 
     @SerializedName(SERIALIZED_NAME_TARGET)
-    @javax.annotation.Nullable private String target;
+    @jakarta.annotation.Nullable private String target;
 
     public GenerationRunMetadata() {}
 
-    public GenerationRunMetadata id(@javax.annotation.Nonnull String id) {
+    public GenerationRunMetadata id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -68,16 +68,16 @@ public class GenerationRunMetadata {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public GenerationRunMetadata date(@javax.annotation.Nonnull String date) {
+    public GenerationRunMetadata date(@jakarta.annotation.Nonnull String date) {
         this.date = date;
         return this;
     }
@@ -86,16 +86,16 @@ public class GenerationRunMetadata {
      * Get date
      * @return date
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDate() {
         return date;
     }
 
-    public void setDate(@javax.annotation.Nonnull String date) {
+    public void setDate(@jakarta.annotation.Nonnull String date) {
         this.date = date;
     }
 
-    public GenerationRunMetadata model(@javax.annotation.Nonnull String model) {
+    public GenerationRunMetadata model(@jakarta.annotation.Nonnull String model) {
         this.model = model;
         return this;
     }
@@ -104,16 +104,16 @@ public class GenerationRunMetadata {
      * Get model
      * @return model
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nonnull String model) {
+    public void setModel(@jakarta.annotation.Nonnull String model) {
         this.model = model;
     }
 
-    public GenerationRunMetadata target(@javax.annotation.Nullable String target) {
+    public GenerationRunMetadata target(@jakarta.annotation.Nullable String target) {
         this.target = target;
         return this;
     }
@@ -122,11 +122,11 @@ public class GenerationRunMetadata {
      * Get target
      * @return target
      */
-    @javax.annotation.Nullable public String getTarget() {
+    @jakarta.annotation.Nullable public String getTarget() {
         return target;
     }
 
-    public void setTarget(@javax.annotation.Nullable String target) {
+    public void setTarget(@jakarta.annotation.Nullable String target) {
         this.target = target;
     }
 

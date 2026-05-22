@@ -31,54 +31,54 @@ import java.util.Objects;
 /**
  * Index status
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class IndexingStatusResponseIndex {
     public static final String SERIALIZED_NAME_EXISTS = "exists";
 
     @SerializedName(SERIALIZED_NAME_EXISTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean exists;
 
     public static final String SERIALIZED_NAME_ALIAS_NAME = "alias_name";
 
     @SerializedName(SERIALIZED_NAME_ALIAS_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String aliasName;
 
     public static final String SERIALIZED_NAME_INDEX_NAME = "index_name";
 
     @SerializedName(SERIALIZED_NAME_INDEX_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String indexName;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal version;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nullable private String createdAt;
+    @jakarta.annotation.Nullable private String createdAt;
 
     public static final String SERIALIZED_NAME_DOCUMENT_COUNT = "document_count";
 
     @SerializedName(SERIALIZED_NAME_DOCUMENT_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal documentCount;
 
     public static final String SERIALIZED_NAME_SIZE_BYTES = "size_bytes";
 
     @SerializedName(SERIALIZED_NAME_SIZE_BYTES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal sizeBytes;
 
     public IndexingStatusResponseIndex() {}
 
-    public IndexingStatusResponseIndex exists(@javax.annotation.Nonnull Boolean exists) {
+    public IndexingStatusResponseIndex exists(@jakarta.annotation.Nonnull Boolean exists) {
         this.exists = exists;
         return this;
     }
@@ -87,16 +87,16 @@ public class IndexingStatusResponseIndex {
      * Whether the index exists
      * @return exists
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getExists() {
         return exists;
     }
 
-    public void setExists(@javax.annotation.Nonnull Boolean exists) {
+    public void setExists(@jakarta.annotation.Nonnull Boolean exists) {
         this.exists = exists;
     }
 
-    public IndexingStatusResponseIndex aliasName(@javax.annotation.Nonnull String aliasName) {
+    public IndexingStatusResponseIndex aliasName(@jakarta.annotation.Nonnull String aliasName) {
         this.aliasName = aliasName;
         return this;
     }
@@ -105,16 +105,16 @@ public class IndexingStatusResponseIndex {
      * Alias name (used for queries)
      * @return aliasName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAliasName() {
         return aliasName;
     }
 
-    public void setAliasName(@javax.annotation.Nonnull String aliasName) {
+    public void setAliasName(@jakarta.annotation.Nonnull String aliasName) {
         this.aliasName = aliasName;
     }
 
-    public IndexingStatusResponseIndex indexName(@javax.annotation.Nonnull String indexName) {
+    public IndexingStatusResponseIndex indexName(@jakarta.annotation.Nonnull String indexName) {
         this.indexName = indexName;
         return this;
     }
@@ -123,16 +123,16 @@ public class IndexingStatusResponseIndex {
      * Actual index name (versioned)
      * @return indexName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getIndexName() {
         return indexName;
     }
 
-    public void setIndexName(@javax.annotation.Nonnull String indexName) {
+    public void setIndexName(@jakarta.annotation.Nonnull String indexName) {
         this.indexName = indexName;
     }
 
-    public IndexingStatusResponseIndex version(@javax.annotation.Nonnull BigDecimal version) {
+    public IndexingStatusResponseIndex version(@jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
         return this;
     }
@@ -141,16 +141,16 @@ public class IndexingStatusResponseIndex {
      * Index version (timestamp when created)
      * @return version
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getVersion() {
         return version;
     }
 
-    public void setVersion(@javax.annotation.Nonnull BigDecimal version) {
+    public void setVersion(@jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
     }
 
-    public IndexingStatusResponseIndex createdAt(@javax.annotation.Nullable String createdAt) {
+    public IndexingStatusResponseIndex createdAt(@jakarta.annotation.Nullable String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -159,16 +159,16 @@ public class IndexingStatusResponseIndex {
      * When the current index was created
      * @return createdAt
      */
-    @javax.annotation.Nullable public String getCreatedAt() {
+    @jakarta.annotation.Nullable public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nullable String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nullable String createdAt) {
         this.createdAt = createdAt;
     }
 
     public IndexingStatusResponseIndex documentCount(
-            @javax.annotation.Nonnull BigDecimal documentCount) {
+            @jakarta.annotation.Nonnull BigDecimal documentCount) {
         this.documentCount = documentCount;
         return this;
     }
@@ -177,16 +177,16 @@ public class IndexingStatusResponseIndex {
      * Number of documents in the index
      * @return documentCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getDocumentCount() {
         return documentCount;
     }
 
-    public void setDocumentCount(@javax.annotation.Nonnull BigDecimal documentCount) {
+    public void setDocumentCount(@jakarta.annotation.Nonnull BigDecimal documentCount) {
         this.documentCount = documentCount;
     }
 
-    public IndexingStatusResponseIndex sizeBytes(@javax.annotation.Nonnull BigDecimal sizeBytes) {
+    public IndexingStatusResponseIndex sizeBytes(@jakarta.annotation.Nonnull BigDecimal sizeBytes) {
         this.sizeBytes = sizeBytes;
         return this;
     }
@@ -195,12 +195,12 @@ public class IndexingStatusResponseIndex {
      * Index size in bytes
      * @return sizeBytes
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getSizeBytes() {
         return sizeBytes;
     }
 
-    public void setSizeBytes(@javax.annotation.Nonnull BigDecimal sizeBytes) {
+    public void setSizeBytes(@jakarta.annotation.Nonnull BigDecimal sizeBytes) {
         this.sizeBytes = sizeBytes;
     }
 

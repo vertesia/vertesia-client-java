@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * CostAnalyticsResponseQueryRange
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CostAnalyticsResponseQueryRange {
     public static final String SERIALIZED_NAME_FROM = "from";
 
     @SerializedName(SERIALIZED_NAME_FROM)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String from;
 
     public static final String SERIALIZED_NAME_TO = "to";
 
     @SerializedName(SERIALIZED_NAME_TO)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String to;
 
     public CostAnalyticsResponseQueryRange() {}
 
-    public CostAnalyticsResponseQueryRange from(@javax.annotation.Nonnull String from) {
+    public CostAnalyticsResponseQueryRange from(@jakarta.annotation.Nonnull String from) {
         this.from = from;
         return this;
     }
@@ -57,16 +57,16 @@ public class CostAnalyticsResponseQueryRange {
      * Get from
      * @return from
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getFrom() {
         return from;
     }
 
-    public void setFrom(@javax.annotation.Nonnull String from) {
+    public void setFrom(@jakarta.annotation.Nonnull String from) {
         this.from = from;
     }
 
-    public CostAnalyticsResponseQueryRange to(@javax.annotation.Nonnull String to) {
+    public CostAnalyticsResponseQueryRange to(@jakarta.annotation.Nonnull String to) {
         this.to = to;
         return this;
     }
@@ -75,12 +75,12 @@ public class CostAnalyticsResponseQueryRange {
      * Get to
      * @return to
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTo() {
         return to;
     }
 
-    public void setTo(@javax.annotation.Nonnull String to) {
+    public void setTo(@jakarta.annotation.Nonnull String to) {
         this.to = to;
     }
 

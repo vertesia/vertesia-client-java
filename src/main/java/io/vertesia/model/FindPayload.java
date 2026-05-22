@@ -34,44 +34,44 @@ import java.util.Objects;
 /**
  * FindPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class FindPayload {
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> query = new HashMap<>();
 
     public static final String SERIALIZED_NAME_OFFSET = "offset";
 
     @SerializedName(SERIALIZED_NAME_OFFSET)
-    @javax.annotation.Nullable private BigDecimal offset;
+    @jakarta.annotation.Nullable private BigDecimal offset;
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nullable private BigDecimal limit;
+    @jakarta.annotation.Nullable private BigDecimal limit;
 
     public static final String SERIALIZED_NAME_SELECT = "select";
 
     @SerializedName(SERIALIZED_NAME_SELECT)
-    @javax.annotation.Nullable private String select;
+    @jakarta.annotation.Nullable private String select;
 
     public static final String SERIALIZED_NAME_ALL_REVISIONS = "all_revisions";
 
     @SerializedName(SERIALIZED_NAME_ALL_REVISIONS)
-    @javax.annotation.Nullable private Boolean allRevisions;
+    @jakarta.annotation.Nullable private Boolean allRevisions;
 
     public static final String SERIALIZED_NAME_FROM_ROOT = "from_root";
 
     @SerializedName(SERIALIZED_NAME_FROM_ROOT)
-    @javax.annotation.Nullable private String fromRoot;
+    @jakarta.annotation.Nullable private String fromRoot;
 
     public FindPayload() {}
 
-    public FindPayload query(@javax.annotation.Nonnull Map<String, Object> query) {
+    public FindPayload query(@jakarta.annotation.Nonnull Map<String, Object> query) {
         this.query = query;
         return this;
     }
@@ -88,16 +88,16 @@ public class FindPayload {
      * Get query
      * @return query
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getQuery() {
         return query;
     }
 
-    public void setQuery(@javax.annotation.Nonnull Map<String, Object> query) {
+    public void setQuery(@jakarta.annotation.Nonnull Map<String, Object> query) {
         this.query = query;
     }
 
-    public FindPayload offset(@javax.annotation.Nullable BigDecimal offset) {
+    public FindPayload offset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
         return this;
     }
@@ -106,15 +106,15 @@ public class FindPayload {
      * Get offset
      * @return offset
      */
-    @javax.annotation.Nullable public BigDecimal getOffset() {
+    @jakarta.annotation.Nullable public BigDecimal getOffset() {
         return offset;
     }
 
-    public void setOffset(@javax.annotation.Nullable BigDecimal offset) {
+    public void setOffset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
     }
 
-    public FindPayload limit(@javax.annotation.Nullable BigDecimal limit) {
+    public FindPayload limit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -123,15 +123,15 @@ public class FindPayload {
      * Get limit
      * @return limit
      */
-    @javax.annotation.Nullable public BigDecimal getLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nullable BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
     }
 
-    public FindPayload select(@javax.annotation.Nullable String select) {
+    public FindPayload select(@jakarta.annotation.Nullable String select) {
         this.select = select;
         return this;
     }
@@ -140,15 +140,15 @@ public class FindPayload {
      * Get select
      * @return select
      */
-    @javax.annotation.Nullable public String getSelect() {
+    @jakarta.annotation.Nullable public String getSelect() {
         return select;
     }
 
-    public void setSelect(@javax.annotation.Nullable String select) {
+    public void setSelect(@jakarta.annotation.Nullable String select) {
         this.select = select;
     }
 
-    public FindPayload allRevisions(@javax.annotation.Nullable Boolean allRevisions) {
+    public FindPayload allRevisions(@jakarta.annotation.Nullable Boolean allRevisions) {
         this.allRevisions = allRevisions;
         return this;
     }
@@ -157,15 +157,15 @@ public class FindPayload {
      * Get allRevisions
      * @return allRevisions
      */
-    @javax.annotation.Nullable public Boolean getAllRevisions() {
+    @jakarta.annotation.Nullable public Boolean getAllRevisions() {
         return allRevisions;
     }
 
-    public void setAllRevisions(@javax.annotation.Nullable Boolean allRevisions) {
+    public void setAllRevisions(@jakarta.annotation.Nullable Boolean allRevisions) {
         this.allRevisions = allRevisions;
     }
 
-    public FindPayload fromRoot(@javax.annotation.Nullable String fromRoot) {
+    public FindPayload fromRoot(@jakarta.annotation.Nullable String fromRoot) {
         this.fromRoot = fromRoot;
         return this;
     }
@@ -174,11 +174,11 @@ public class FindPayload {
      * Get fromRoot
      * @return fromRoot
      */
-    @javax.annotation.Nullable public String getFromRoot() {
+    @jakarta.annotation.Nullable public String getFromRoot() {
         return fromRoot;
     }
 
-    public void setFromRoot(@javax.annotation.Nullable String fromRoot) {
+    public void setFromRoot(@jakarta.annotation.Nullable String fromRoot) {
         this.fromRoot = fromRoot;
     }
 

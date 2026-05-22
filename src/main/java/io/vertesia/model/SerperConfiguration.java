@@ -30,41 +30,41 @@ import java.util.Objects;
 /**
  * SerperConfiguration
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class SerperConfiguration {
     public static final String SERIALIZED_NAME_INTEGRATION = "integration";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SupportedIntegrationsSerper integration;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean enabled;
 
     public static final String SERIALIZED_NAME_HAS_API_KEY = "has_api_key";
 
     @SerializedName(SERIALIZED_NAME_HAS_API_KEY)
-    @javax.annotation.Nullable private Boolean hasApiKey;
+    @jakarta.annotation.Nullable private Boolean hasApiKey;
 
     public static final String SERIALIZED_NAME_API_KEY_HINT = "api_key_hint";
 
     @SerializedName(SERIALIZED_NAME_API_KEY_HINT)
-    @javax.annotation.Nullable private String apiKeyHint;
+    @jakarta.annotation.Nullable private String apiKeyHint;
 
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nullable private String url;
+    @jakarta.annotation.Nullable private String url;
 
     public SerperConfiguration() {}
 
     public SerperConfiguration integration(
-            @javax.annotation.Nonnull SupportedIntegrationsSerper integration) {
+            @jakarta.annotation.Nonnull SupportedIntegrationsSerper integration) {
         this.integration = integration;
         return this;
     }
@@ -73,16 +73,17 @@ public class SerperConfiguration {
      * Get integration
      * @return integration
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SupportedIntegrationsSerper getIntegration() {
         return integration;
     }
 
-    public void setIntegration(@javax.annotation.Nonnull SupportedIntegrationsSerper integration) {
+    public void setIntegration(
+            @jakarta.annotation.Nonnull SupportedIntegrationsSerper integration) {
         this.integration = integration;
     }
 
-    public SerperConfiguration enabled(@javax.annotation.Nonnull Boolean enabled) {
+    public SerperConfiguration enabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -91,16 +92,16 @@ public class SerperConfiguration {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public SerperConfiguration hasApiKey(@javax.annotation.Nullable Boolean hasApiKey) {
+    public SerperConfiguration hasApiKey(@jakarta.annotation.Nullable Boolean hasApiKey) {
         this.hasApiKey = hasApiKey;
         return this;
     }
@@ -109,15 +110,15 @@ public class SerperConfiguration {
      * Get hasApiKey
      * @return hasApiKey
      */
-    @javax.annotation.Nullable public Boolean getHasApiKey() {
+    @jakarta.annotation.Nullable public Boolean getHasApiKey() {
         return hasApiKey;
     }
 
-    public void setHasApiKey(@javax.annotation.Nullable Boolean hasApiKey) {
+    public void setHasApiKey(@jakarta.annotation.Nullable Boolean hasApiKey) {
         this.hasApiKey = hasApiKey;
     }
 
-    public SerperConfiguration apiKeyHint(@javax.annotation.Nullable String apiKeyHint) {
+    public SerperConfiguration apiKeyHint(@jakarta.annotation.Nullable String apiKeyHint) {
         this.apiKeyHint = apiKeyHint;
         return this;
     }
@@ -126,15 +127,15 @@ public class SerperConfiguration {
      * Get apiKeyHint
      * @return apiKeyHint
      */
-    @javax.annotation.Nullable public String getApiKeyHint() {
+    @jakarta.annotation.Nullable public String getApiKeyHint() {
         return apiKeyHint;
     }
 
-    public void setApiKeyHint(@javax.annotation.Nullable String apiKeyHint) {
+    public void setApiKeyHint(@jakarta.annotation.Nullable String apiKeyHint) {
         this.apiKeyHint = apiKeyHint;
     }
 
-    public SerperConfiguration url(@javax.annotation.Nullable String url) {
+    public SerperConfiguration url(@jakarta.annotation.Nullable String url) {
         this.url = url;
         return this;
     }
@@ -143,11 +144,11 @@ public class SerperConfiguration {
      * Get url
      * @return url
      */
-    @javax.annotation.Nullable public String getUrl() {
+    @jakarta.annotation.Nullable public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nullable String url) {
+    public void setUrl(@jakarta.annotation.Nullable String url) {
         this.url = url;
     }
 

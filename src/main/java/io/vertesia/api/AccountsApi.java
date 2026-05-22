@@ -90,7 +90,7 @@ public class AccountsApi {
      * </table>
      */
     public okhttp3.Call acceptAccountInviteCall(
-            @javax.annotation.Nonnull String tokenId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String tokenId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -150,7 +150,7 @@ public class AccountsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call acceptAccountInviteValidateBeforeCall(
-            @javax.annotation.Nonnull String tokenId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String tokenId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'tokenId' is set
         if (tokenId == null) {
@@ -176,7 +176,7 @@ public class AccountsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public InviteAcceptanceResponse acceptAccountInvite(@javax.annotation.Nonnull String tokenId)
+    public InviteAcceptanceResponse acceptAccountInvite(@jakarta.annotation.Nonnull String tokenId)
             throws ApiException {
         ApiResponse<InviteAcceptanceResponse> localVarResp =
                 acceptAccountInviteWithHttpInfo(tokenId);
@@ -199,7 +199,7 @@ public class AccountsApi {
      * </table>
      */
     public ApiResponse<InviteAcceptanceResponse> acceptAccountInviteWithHttpInfo(
-            @javax.annotation.Nonnull String tokenId) throws ApiException {
+            @jakarta.annotation.Nonnull String tokenId) throws ApiException {
         okhttp3.Call localVarCall = acceptAccountInviteValidateBeforeCall(tokenId, null);
         Type localVarReturnType = new TypeToken<InviteAcceptanceResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -222,7 +222,7 @@ public class AccountsApi {
      * </table>
      */
     public okhttp3.Call acceptAccountInviteAsync(
-            @javax.annotation.Nonnull String tokenId,
+            @jakarta.annotation.Nonnull String tokenId,
             final ApiCallback<InviteAcceptanceResponse> _callback)
             throws ApiException {
 
@@ -248,7 +248,7 @@ public class AccountsApi {
      * </table>
      */
     public okhttp3.Call createAccountInviteCall(
-            @javax.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload,
+            @jakarta.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -305,7 +305,7 @@ public class AccountsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createAccountInviteValidateBeforeCall(
-            @javax.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload,
+            @jakarta.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'inviteUserRequestPayload' is set
@@ -333,7 +333,7 @@ public class AccountsApi {
      * </table>
      */
     public InviteUserResponsePayload createAccountInvite(
-            @javax.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload)
+            @jakarta.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload)
             throws ApiException {
         ApiResponse<InviteUserResponsePayload> localVarResp =
                 createAccountInviteWithHttpInfo(inviteUserRequestPayload);
@@ -356,7 +356,7 @@ public class AccountsApi {
      * </table>
      */
     public ApiResponse<InviteUserResponsePayload> createAccountInviteWithHttpInfo(
-            @javax.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload)
+            @jakarta.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createAccountInviteValidateBeforeCall(inviteUserRequestPayload, null);
@@ -381,7 +381,7 @@ public class AccountsApi {
      * </table>
      */
     public okhttp3.Call createAccountInviteAsync(
-            @javax.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload,
+            @jakarta.annotation.Nonnull InviteUserRequestPayload inviteUserRequestPayload,
             final ApiCallback<InviteUserResponsePayload> _callback)
             throws ApiException {
 
@@ -408,7 +408,7 @@ public class AccountsApi {
      * </table>
      */
     public okhttp3.Call declineAccountInviteCall(
-            @javax.annotation.Nonnull String tokenId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String tokenId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -468,7 +468,7 @@ public class AccountsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call declineAccountInviteValidateBeforeCall(
-            @javax.annotation.Nonnull String tokenId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String tokenId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'tokenId' is set
         if (tokenId == null) {
@@ -494,7 +494,7 @@ public class AccountsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public InviteDeclineResponse declineAccountInvite(@javax.annotation.Nonnull String tokenId)
+    public InviteDeclineResponse declineAccountInvite(@jakarta.annotation.Nonnull String tokenId)
             throws ApiException {
         ApiResponse<InviteDeclineResponse> localVarResp = declineAccountInviteWithHttpInfo(tokenId);
         return localVarResp.getData();
@@ -516,7 +516,7 @@ public class AccountsApi {
      * </table>
      */
     public ApiResponse<InviteDeclineResponse> declineAccountInviteWithHttpInfo(
-            @javax.annotation.Nonnull String tokenId) throws ApiException {
+            @jakarta.annotation.Nonnull String tokenId) throws ApiException {
         okhttp3.Call localVarCall = declineAccountInviteValidateBeforeCall(tokenId, null);
         Type localVarReturnType = new TypeToken<InviteDeclineResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -539,7 +539,7 @@ public class AccountsApi {
      * </table>
      */
     public okhttp3.Call declineAccountInviteAsync(
-            @javax.annotation.Nonnull String tokenId,
+            @jakarta.annotation.Nonnull String tokenId,
             final ApiCallback<InviteDeclineResponse> _callback)
             throws ApiException {
 
@@ -1811,7 +1811,7 @@ public class AccountsApi {
      * </table>
      */
     public okhttp3.Call updateCurrentAccountCall(
-            @javax.annotation.Nonnull UpdateAccountPayload updateAccountPayload,
+            @jakarta.annotation.Nonnull UpdateAccountPayload updateAccountPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1868,7 +1868,7 @@ public class AccountsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateCurrentAccountValidateBeforeCall(
-            @javax.annotation.Nonnull UpdateAccountPayload updateAccountPayload,
+            @jakarta.annotation.Nonnull UpdateAccountPayload updateAccountPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'updateAccountPayload' is set
@@ -1896,7 +1896,7 @@ public class AccountsApi {
      * </table>
      */
     public Account updateCurrentAccount(
-            @javax.annotation.Nonnull UpdateAccountPayload updateAccountPayload)
+            @jakarta.annotation.Nonnull UpdateAccountPayload updateAccountPayload)
             throws ApiException {
         ApiResponse<Account> localVarResp = updateCurrentAccountWithHttpInfo(updateAccountPayload);
         return localVarResp.getData();
@@ -1918,7 +1918,7 @@ public class AccountsApi {
      * </table>
      */
     public ApiResponse<Account> updateCurrentAccountWithHttpInfo(
-            @javax.annotation.Nonnull UpdateAccountPayload updateAccountPayload)
+            @jakarta.annotation.Nonnull UpdateAccountPayload updateAccountPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateCurrentAccountValidateBeforeCall(updateAccountPayload, null);
@@ -1943,7 +1943,7 @@ public class AccountsApi {
      * </table>
      */
     public okhttp3.Call updateCurrentAccountAsync(
-            @javax.annotation.Nonnull UpdateAccountPayload updateAccountPayload,
+            @jakarta.annotation.Nonnull UpdateAccountPayload updateAccountPayload,
             final ApiCallback<Account> _callback)
             throws ApiException {
 

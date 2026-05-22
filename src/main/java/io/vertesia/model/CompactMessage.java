@@ -33,30 +33,30 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * Compact message format for efficient wire transfer. Primary type used throughout the system. ~85% smaller than legacy AgentMessage format.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompactMessage {
     public static final String SERIALIZED_NAME_T = "t";
 
     @SerializedName(SERIALIZED_NAME_T)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private AgentMessageType t;
 
     public static final String SERIALIZED_NAME_M = "m";
 
     @SerializedName(SERIALIZED_NAME_M)
-    @javax.annotation.Nullable private String m;
+    @jakarta.annotation.Nullable private String m;
 
     public static final String SERIALIZED_NAME_W = "w";
 
     @SerializedName(SERIALIZED_NAME_W)
-    @javax.annotation.Nullable private String w;
+    @jakarta.annotation.Nullable private String w;
 
     public static final String SERIALIZED_NAME_D = "d";
 
     @SerializedName(SERIALIZED_NAME_D)
-    @javax.annotation.Nullable private Object d = null;
+    @jakarta.annotation.Nullable private Object d = null;
 
     /**
      * Is final chunk (only for STREAMING_CHUNK, 0 or 1)
@@ -116,21 +116,21 @@ public class CompactMessage {
     public static final String SERIALIZED_NAME_F = "f";
 
     @SerializedName(SERIALIZED_NAME_F)
-    @javax.annotation.Nullable private FEnum f;
+    @jakarta.annotation.Nullable private FEnum f;
 
     public static final String SERIALIZED_NAME_TS = "ts";
 
     @SerializedName(SERIALIZED_NAME_TS)
-    @javax.annotation.Nullable private BigDecimal ts;
+    @jakarta.annotation.Nullable private BigDecimal ts;
 
     public static final String SERIALIZED_NAME_I = "i";
 
     @SerializedName(SERIALIZED_NAME_I)
-    @javax.annotation.Nullable private String i;
+    @jakarta.annotation.Nullable private String i;
 
     public CompactMessage() {}
 
-    public CompactMessage t(@javax.annotation.Nonnull AgentMessageType t) {
+    public CompactMessage t(@jakarta.annotation.Nonnull AgentMessageType t) {
         this.t = t;
         return this;
     }
@@ -139,16 +139,16 @@ public class CompactMessage {
      * Message type (integer enum)
      * @return t
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public AgentMessageType getT() {
         return t;
     }
 
-    public void setT(@javax.annotation.Nonnull AgentMessageType t) {
+    public void setT(@jakarta.annotation.Nonnull AgentMessageType t) {
         this.t = t;
     }
 
-    public CompactMessage m(@javax.annotation.Nullable String m) {
+    public CompactMessage m(@jakarta.annotation.Nullable String m) {
         this.m = m;
         return this;
     }
@@ -157,15 +157,15 @@ public class CompactMessage {
      * Message content
      * @return m
      */
-    @javax.annotation.Nullable public String getM() {
+    @jakarta.annotation.Nullable public String getM() {
         return m;
     }
 
-    public void setM(@javax.annotation.Nullable String m) {
+    public void setM(@jakarta.annotation.Nullable String m) {
         this.m = m;
     }
 
-    public CompactMessage w(@javax.annotation.Nullable String w) {
+    public CompactMessage w(@jakarta.annotation.Nullable String w) {
         this.w = w;
         return this;
     }
@@ -174,15 +174,15 @@ public class CompactMessage {
      * Workstream ID (only when not \&quot;main\&quot;)
      * @return w
      */
-    @javax.annotation.Nullable public String getW() {
+    @jakarta.annotation.Nullable public String getW() {
         return w;
     }
 
-    public void setW(@javax.annotation.Nullable String w) {
+    public void setW(@jakarta.annotation.Nullable String w) {
         this.w = w;
     }
 
-    public CompactMessage d(@javax.annotation.Nullable Object d) {
+    public CompactMessage d(@jakarta.annotation.Nullable Object d) {
         this.d = d;
         return this;
     }
@@ -191,15 +191,15 @@ public class CompactMessage {
      * Get d
      * @return d
      */
-    @javax.annotation.Nullable public Object getD() {
+    @jakarta.annotation.Nullable public Object getD() {
         return d;
     }
 
-    public void setD(@javax.annotation.Nullable Object d) {
+    public void setD(@jakarta.annotation.Nullable Object d) {
         this.d = d;
     }
 
-    public CompactMessage f(@javax.annotation.Nullable FEnum f) {
+    public CompactMessage f(@jakarta.annotation.Nullable FEnum f) {
         this.f = f;
         return this;
     }
@@ -208,15 +208,15 @@ public class CompactMessage {
      * Is final chunk (only for STREAMING_CHUNK, 0 or 1)
      * @return f
      */
-    @javax.annotation.Nullable public FEnum getF() {
+    @jakarta.annotation.Nullable public FEnum getF() {
         return f;
     }
 
-    public void setF(@javax.annotation.Nullable FEnum f) {
+    public void setF(@jakarta.annotation.Nullable FEnum f) {
         this.f = f;
     }
 
-    public CompactMessage ts(@javax.annotation.Nullable BigDecimal ts) {
+    public CompactMessage ts(@jakarta.annotation.Nullable BigDecimal ts) {
         this.ts = ts;
         return this;
     }
@@ -225,15 +225,15 @@ public class CompactMessage {
      * Timestamp (only for stored/persisted messages)
      * @return ts
      */
-    @javax.annotation.Nullable public BigDecimal getTs() {
+    @jakarta.annotation.Nullable public BigDecimal getTs() {
         return ts;
     }
 
-    public void setTs(@javax.annotation.Nullable BigDecimal ts) {
+    public void setTs(@jakarta.annotation.Nullable BigDecimal ts) {
         this.ts = ts;
     }
 
-    public CompactMessage i(@javax.annotation.Nullable String i) {
+    public CompactMessage i(@jakarta.annotation.Nullable String i) {
         this.i = i;
         return this;
     }
@@ -242,11 +242,11 @@ public class CompactMessage {
      * Activity ID for deduplication between streaming chunks and final messages
      * @return i
      */
-    @javax.annotation.Nullable public String getI() {
+    @jakarta.annotation.Nullable public String getI() {
         return i;
     }
 
-    public void setI(@javax.annotation.Nullable String i) {
+    public void setI(@jakarta.annotation.Nullable String i) {
         this.i = i;
     }
 

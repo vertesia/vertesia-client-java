@@ -33,45 +33,45 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * TaskField
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class TaskField {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TaskFieldType type;
 
     public static final String SERIALIZED_NAME_REQUIRED = "required";
 
     @SerializedName(SERIALIZED_NAME_REQUIRED)
-    @javax.annotation.Nullable private Boolean required;
+    @jakarta.annotation.Nullable private Boolean required;
 
     public static final String SERIALIZED_NAME_LABEL = "label";
 
     @SerializedName(SERIALIZED_NAME_LABEL)
-    @javax.annotation.Nullable private String label;
+    @jakarta.annotation.Nullable private String label;
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
-    @javax.annotation.Nullable private List<String> options = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> options = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DEFAULT = "default";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT)
-    @javax.annotation.Nullable private Object _default = null;
+    @jakarta.annotation.Nullable private Object _default = null;
 
     public TaskField() {}
 
-    public TaskField name(@javax.annotation.Nonnull String name) {
+    public TaskField name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -80,16 +80,16 @@ public class TaskField {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public TaskField type(@javax.annotation.Nonnull TaskFieldType type) {
+    public TaskField type(@jakarta.annotation.Nonnull TaskFieldType type) {
         this.type = type;
         return this;
     }
@@ -98,16 +98,16 @@ public class TaskField {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TaskFieldType getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TaskFieldType type) {
+    public void setType(@jakarta.annotation.Nonnull TaskFieldType type) {
         this.type = type;
     }
 
-    public TaskField required(@javax.annotation.Nullable Boolean required) {
+    public TaskField required(@jakarta.annotation.Nullable Boolean required) {
         this.required = required;
         return this;
     }
@@ -116,15 +116,15 @@ public class TaskField {
      * Get required
      * @return required
      */
-    @javax.annotation.Nullable public Boolean getRequired() {
+    @jakarta.annotation.Nullable public Boolean getRequired() {
         return required;
     }
 
-    public void setRequired(@javax.annotation.Nullable Boolean required) {
+    public void setRequired(@jakarta.annotation.Nullable Boolean required) {
         this.required = required;
     }
 
-    public TaskField label(@javax.annotation.Nullable String label) {
+    public TaskField label(@jakarta.annotation.Nullable String label) {
         this.label = label;
         return this;
     }
@@ -133,15 +133,15 @@ public class TaskField {
      * Get label
      * @return label
      */
-    @javax.annotation.Nullable public String getLabel() {
+    @jakarta.annotation.Nullable public String getLabel() {
         return label;
     }
 
-    public void setLabel(@javax.annotation.Nullable String label) {
+    public void setLabel(@jakarta.annotation.Nullable String label) {
         this.label = label;
     }
 
-    public TaskField options(@javax.annotation.Nullable List<String> options) {
+    public TaskField options(@jakarta.annotation.Nullable List<String> options) {
         this.options = options;
         return this;
     }
@@ -158,15 +158,15 @@ public class TaskField {
      * Get options
      * @return options
      */
-    @javax.annotation.Nullable public List<String> getOptions() {
+    @jakarta.annotation.Nullable public List<String> getOptions() {
         return options;
     }
 
-    public void setOptions(@javax.annotation.Nullable List<String> options) {
+    public void setOptions(@jakarta.annotation.Nullable List<String> options) {
         this.options = options;
     }
 
-    public TaskField _default(@javax.annotation.Nullable Object _default) {
+    public TaskField _default(@jakarta.annotation.Nullable Object _default) {
         this._default = _default;
         return this;
     }
@@ -175,11 +175,11 @@ public class TaskField {
      * Get _default
      * @return _default
      */
-    @javax.annotation.Nullable public Object getDefault() {
+    @jakarta.annotation.Nullable public Object getDefault() {
         return _default;
     }
 
-    public void setDefault(@javax.annotation.Nullable Object _default) {
+    public void setDefault(@jakarta.annotation.Nullable Object _default) {
         this._default = _default;
     }
 

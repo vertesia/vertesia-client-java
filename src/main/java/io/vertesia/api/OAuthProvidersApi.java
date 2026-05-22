@@ -86,7 +86,8 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call authorizeOAuthProviderCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -143,7 +144,8 @@ public class OAuthProvidersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call authorizeOAuthProviderValidateBeforeCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException(
@@ -169,7 +171,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public OAuthProviderAuthorizeResponse authorizeOAuthProvider(
-            @javax.annotation.Nonnull String id) throws ApiException {
+            @jakarta.annotation.Nonnull String id) throws ApiException {
         ApiResponse<OAuthProviderAuthorizeResponse> localVarResp =
                 authorizeOAuthProviderWithHttpInfo(id);
         return localVarResp.getData();
@@ -191,7 +193,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public ApiResponse<OAuthProviderAuthorizeResponse> authorizeOAuthProviderWithHttpInfo(
-            @javax.annotation.Nonnull String id) throws ApiException {
+            @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = authorizeOAuthProviderValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<OAuthProviderAuthorizeResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -214,7 +216,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call authorizeOAuthProviderAsync(
-            @javax.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String id,
             final ApiCallback<OAuthProviderAuthorizeResponse> _callback)
             throws ApiException {
 
@@ -240,7 +242,8 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call connectOAuthProviderCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -297,7 +300,8 @@ public class OAuthProvidersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call connectOAuthProviderValidateBeforeCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException(
@@ -322,7 +326,7 @@ public class OAuthProvidersApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public SuccessResponse connectOAuthProvider(@javax.annotation.Nonnull String id)
+    public SuccessResponse connectOAuthProvider(@jakarta.annotation.Nonnull String id)
             throws ApiException {
         ApiResponse<SuccessResponse> localVarResp = connectOAuthProviderWithHttpInfo(id);
         return localVarResp.getData();
@@ -344,7 +348,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public ApiResponse<SuccessResponse> connectOAuthProviderWithHttpInfo(
-            @javax.annotation.Nonnull String id) throws ApiException {
+            @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = connectOAuthProviderValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<SuccessResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -367,7 +371,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call connectOAuthProviderAsync(
-            @javax.annotation.Nonnull String id, final ApiCallback<SuccessResponse> _callback)
+            @jakarta.annotation.Nonnull String id, final ApiCallback<SuccessResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = connectOAuthProviderValidateBeforeCall(id, _callback);
@@ -392,7 +396,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call createOAuthProviderCall(
-            @javax.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload,
+            @jakarta.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -449,7 +453,7 @@ public class OAuthProvidersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createOAuthProviderValidateBeforeCall(
-            @javax.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload,
+            @jakarta.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'createOAuthProviderPayload' is set
@@ -477,7 +481,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public OAuthProvider createOAuthProvider(
-            @javax.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload)
+            @jakarta.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload)
             throws ApiException {
         ApiResponse<OAuthProvider> localVarResp =
                 createOAuthProviderWithHttpInfo(createOAuthProviderPayload);
@@ -500,7 +504,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public ApiResponse<OAuthProvider> createOAuthProviderWithHttpInfo(
-            @javax.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload)
+            @jakarta.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createOAuthProviderValidateBeforeCall(createOAuthProviderPayload, null);
@@ -525,7 +529,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call createOAuthProviderAsync(
-            @javax.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload,
+            @jakarta.annotation.Nonnull CreateOAuthProviderPayload createOAuthProviderPayload,
             final ApiCallback<OAuthProvider> _callback)
             throws ApiException {
 
@@ -552,7 +556,8 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call deleteOAuthProviderCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -609,7 +614,8 @@ public class OAuthProvidersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteOAuthProviderValidateBeforeCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException(
@@ -634,7 +640,7 @@ public class OAuthProvidersApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public SuccessResponse deleteOAuthProvider(@javax.annotation.Nonnull String id)
+    public SuccessResponse deleteOAuthProvider(@jakarta.annotation.Nonnull String id)
             throws ApiException {
         ApiResponse<SuccessResponse> localVarResp = deleteOAuthProviderWithHttpInfo(id);
         return localVarResp.getData();
@@ -656,7 +662,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public ApiResponse<SuccessResponse> deleteOAuthProviderWithHttpInfo(
-            @javax.annotation.Nonnull String id) throws ApiException {
+            @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = deleteOAuthProviderValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<SuccessResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -679,7 +685,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call deleteOAuthProviderAsync(
-            @javax.annotation.Nonnull String id, final ApiCallback<SuccessResponse> _callback)
+            @jakarta.annotation.Nonnull String id, final ApiCallback<SuccessResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = deleteOAuthProviderValidateBeforeCall(id, _callback);
@@ -704,7 +710,8 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call disconnectOAuthProviderCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -761,7 +768,8 @@ public class OAuthProvidersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call disconnectOAuthProviderValidateBeforeCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException(
@@ -786,7 +794,7 @@ public class OAuthProvidersApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public SuccessResponse disconnectOAuthProvider(@javax.annotation.Nonnull String id)
+    public SuccessResponse disconnectOAuthProvider(@jakarta.annotation.Nonnull String id)
             throws ApiException {
         ApiResponse<SuccessResponse> localVarResp = disconnectOAuthProviderWithHttpInfo(id);
         return localVarResp.getData();
@@ -808,7 +816,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public ApiResponse<SuccessResponse> disconnectOAuthProviderWithHttpInfo(
-            @javax.annotation.Nonnull String id) throws ApiException {
+            @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = disconnectOAuthProviderValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<SuccessResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -831,7 +839,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call disconnectOAuthProviderAsync(
-            @javax.annotation.Nonnull String id, final ApiCallback<SuccessResponse> _callback)
+            @jakarta.annotation.Nonnull String id, final ApiCallback<SuccessResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = disconnectOAuthProviderValidateBeforeCall(id, _callback);
@@ -856,7 +864,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call exchangeOAuthProviderCodeCall(
-            @javax.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload,
+            @jakarta.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -913,7 +921,7 @@ public class OAuthProvidersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call exchangeOAuthProviderCodeValidateBeforeCall(
-            @javax.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload,
+            @jakarta.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'oauthProviderExchangePayload' is set
@@ -941,7 +949,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public SuccessResponse exchangeOAuthProviderCode(
-            @javax.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload)
+            @jakarta.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload)
             throws ApiException {
         ApiResponse<SuccessResponse> localVarResp =
                 exchangeOAuthProviderCodeWithHttpInfo(oauthProviderExchangePayload);
@@ -964,7 +972,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public ApiResponse<SuccessResponse> exchangeOAuthProviderCodeWithHttpInfo(
-            @javax.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload)
+            @jakarta.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 exchangeOAuthProviderCodeValidateBeforeCall(oauthProviderExchangePayload, null);
@@ -989,7 +997,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call exchangeOAuthProviderCodeAsync(
-            @javax.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload,
+            @jakarta.annotation.Nonnull OAuthProviderExchangePayload oauthProviderExchangePayload,
             final ApiCallback<SuccessResponse> _callback)
             throws ApiException {
 
@@ -1017,7 +1025,8 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call getOAuthProviderCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1074,7 +1083,8 @@ public class OAuthProvidersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getOAuthProviderValidateBeforeCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException(
@@ -1099,7 +1109,8 @@ public class OAuthProvidersApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public OAuthProvider getOAuthProvider(@javax.annotation.Nonnull String id) throws ApiException {
+    public OAuthProvider getOAuthProvider(@jakarta.annotation.Nonnull String id)
+            throws ApiException {
         ApiResponse<OAuthProvider> localVarResp = getOAuthProviderWithHttpInfo(id);
         return localVarResp.getData();
     }
@@ -1120,7 +1131,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public ApiResponse<OAuthProvider> getOAuthProviderWithHttpInfo(
-            @javax.annotation.Nonnull String id) throws ApiException {
+            @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getOAuthProviderValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<OAuthProvider>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1143,7 +1154,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call getOAuthProviderAsync(
-            @javax.annotation.Nonnull String id, final ApiCallback<OAuthProvider> _callback)
+            @jakarta.annotation.Nonnull String id, final ApiCallback<OAuthProvider> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getOAuthProviderValidateBeforeCall(id, _callback);
@@ -1168,7 +1179,8 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call getOAuthProviderStatusCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1225,7 +1237,8 @@ public class OAuthProvidersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getOAuthProviderStatusValidateBeforeCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException(
@@ -1250,7 +1263,7 @@ public class OAuthProvidersApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public OAuthProviderAuthStatus getOAuthProviderStatus(@javax.annotation.Nonnull String id)
+    public OAuthProviderAuthStatus getOAuthProviderStatus(@jakarta.annotation.Nonnull String id)
             throws ApiException {
         ApiResponse<OAuthProviderAuthStatus> localVarResp = getOAuthProviderStatusWithHttpInfo(id);
         return localVarResp.getData();
@@ -1272,7 +1285,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public ApiResponse<OAuthProviderAuthStatus> getOAuthProviderStatusWithHttpInfo(
-            @javax.annotation.Nonnull String id) throws ApiException {
+            @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getOAuthProviderStatusValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<OAuthProviderAuthStatus>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1295,7 +1308,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call getOAuthProviderStatusAsync(
-            @javax.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String id,
             final ApiCallback<OAuthProviderAuthStatus> _callback)
             throws ApiException {
 
@@ -1321,7 +1334,8 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call getOAuthProviderTokenCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -1378,7 +1392,8 @@ public class OAuthProvidersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getOAuthProviderTokenValidateBeforeCall(
-            @javax.annotation.Nonnull String id, final ApiCallback _callback) throws ApiException {
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
             throw new ApiException(
@@ -1404,7 +1419,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public OAuthProviderAccessTokenResponse getOAuthProviderToken(
-            @javax.annotation.Nonnull String id) throws ApiException {
+            @jakarta.annotation.Nonnull String id) throws ApiException {
         ApiResponse<OAuthProviderAccessTokenResponse> localVarResp =
                 getOAuthProviderTokenWithHttpInfo(id);
         return localVarResp.getData();
@@ -1426,7 +1441,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public ApiResponse<OAuthProviderAccessTokenResponse> getOAuthProviderTokenWithHttpInfo(
-            @javax.annotation.Nonnull String id) throws ApiException {
+            @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = getOAuthProviderTokenValidateBeforeCall(id, null);
         Type localVarReturnType = new TypeToken<OAuthProviderAccessTokenResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1449,7 +1464,7 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call getOAuthProviderTokenAsync(
-            @javax.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String id,
             final ApiCallback<OAuthProviderAccessTokenResponse> _callback)
             throws ApiException {
 
@@ -1612,8 +1627,8 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call updateOAuthProviderCall(
-            @javax.annotation.Nonnull String id,
-            @javax.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload,
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1672,8 +1687,8 @@ public class OAuthProvidersApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateOAuthProviderValidateBeforeCall(
-            @javax.annotation.Nonnull String id,
-            @javax.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload,
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'id' is set
@@ -1708,8 +1723,8 @@ public class OAuthProvidersApi {
      * </table>
      */
     public OAuthProvider updateOAuthProvider(
-            @javax.annotation.Nonnull String id,
-            @javax.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload)
             throws ApiException {
         ApiResponse<OAuthProvider> localVarResp =
                 updateOAuthProviderWithHttpInfo(id, updateOAuthProviderPayload);
@@ -1733,8 +1748,8 @@ public class OAuthProvidersApi {
      * </table>
      */
     public ApiResponse<OAuthProvider> updateOAuthProviderWithHttpInfo(
-            @javax.annotation.Nonnull String id,
-            @javax.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateOAuthProviderValidateBeforeCall(id, updateOAuthProviderPayload, null);
@@ -1760,8 +1775,8 @@ public class OAuthProvidersApi {
      * </table>
      */
     public okhttp3.Call updateOAuthProviderAsync(
-            @javax.annotation.Nonnull String id,
-            @javax.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload,
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull UpdateOAuthProviderPayload updateOAuthProviderPayload,
             final ApiCallback<OAuthProvider> _callback)
             throws ApiException {
 

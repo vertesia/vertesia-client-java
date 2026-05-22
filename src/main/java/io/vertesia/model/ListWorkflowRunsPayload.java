@@ -31,93 +31,93 @@ import java.util.Objects;
 /**
  * ListWorkflowRunsPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ListWorkflowRunsPayload {
     public static final String SERIALIZED_NAME_DOCUMENT_ID = "document_id";
 
     @SerializedName(SERIALIZED_NAME_DOCUMENT_ID)
-    @javax.annotation.Nullable private String documentId;
+    @jakarta.annotation.Nullable private String documentId;
 
     public static final String SERIALIZED_NAME_EVENT_NAME = "event_name";
 
     @SerializedName(SERIALIZED_NAME_EVENT_NAME)
-    @javax.annotation.Nullable private String eventName;
+    @jakarta.annotation.Nullable private String eventName;
 
     public static final String SERIALIZED_NAME_RULE_ID = "rule_id";
 
     @SerializedName(SERIALIZED_NAME_RULE_ID)
-    @javax.annotation.Nullable private String ruleId;
+    @jakarta.annotation.Nullable private String ruleId;
 
     public static final String SERIALIZED_NAME_START = "start";
 
     @SerializedName(SERIALIZED_NAME_START)
-    @javax.annotation.Nullable private String start;
+    @jakarta.annotation.Nullable private String start;
 
     public static final String SERIALIZED_NAME_END = "end";
 
     @SerializedName(SERIALIZED_NAME_END)
-    @javax.annotation.Nullable private String end;
+    @jakarta.annotation.Nullable private String end;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private String status;
+    @jakarta.annotation.Nullable private String status;
 
     public static final String SERIALIZED_NAME_SEARCH_TERM = "search_term";
 
     @SerializedName(SERIALIZED_NAME_SEARCH_TERM)
-    @javax.annotation.Nullable private String searchTerm;
+    @jakarta.annotation.Nullable private String searchTerm;
 
     public static final String SERIALIZED_NAME_INITIATED_BY = "initiated_by";
 
     @SerializedName(SERIALIZED_NAME_INITIATED_BY)
-    @javax.annotation.Nullable private String initiatedBy;
+    @jakarta.annotation.Nullable private String initiatedBy;
 
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
-    @javax.annotation.Nullable private String interaction;
+    @jakarta.annotation.Nullable private String interaction;
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @javax.annotation.Nullable private String query;
+    @jakarta.annotation.Nullable private String query;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private String type;
+    @jakarta.annotation.Nullable private String type;
 
     public static final String SERIALIZED_NAME_PAGE_SIZE = "page_size";
 
     @SerializedName(SERIALIZED_NAME_PAGE_SIZE)
-    @javax.annotation.Nullable private BigDecimal pageSize;
+    @jakarta.annotation.Nullable private BigDecimal pageSize;
 
     public static final String SERIALIZED_NAME_NEXT_PAGE_TOKEN = "next_page_token";
 
     @SerializedName(SERIALIZED_NAME_NEXT_PAGE_TOKEN)
-    @javax.annotation.Nullable private String nextPageToken;
+    @jakarta.annotation.Nullable private String nextPageToken;
 
     public static final String SERIALIZED_NAME_HAS_REPORTED_ERRORS = "has_reported_errors";
 
     @SerializedName(SERIALIZED_NAME_HAS_REPORTED_ERRORS)
-    @javax.annotation.Nullable private Boolean hasReportedErrors;
+    @jakarta.annotation.Nullable private Boolean hasReportedErrors;
 
     public static final String SERIALIZED_NAME_ACTIVITY_STATE = "activity_state";
 
     @SerializedName(SERIALIZED_NAME_ACTIVITY_STATE)
-    @javax.annotation.Nullable private ConversationActivityState activityState;
+    @jakarta.annotation.Nullable private ConversationActivityState activityState;
 
     public static final String SERIALIZED_NAME_INTERACTIVE = "interactive";
 
     @SerializedName(SERIALIZED_NAME_INTERACTIVE)
-    @javax.annotation.Nullable private Boolean interactive;
+    @jakarta.annotation.Nullable private Boolean interactive;
 
     public ListWorkflowRunsPayload() {}
 
-    public ListWorkflowRunsPayload documentId(@javax.annotation.Nullable String documentId) {
+    public ListWorkflowRunsPayload documentId(@jakarta.annotation.Nullable String documentId) {
         this.documentId = documentId;
         return this;
     }
@@ -126,15 +126,15 @@ public class ListWorkflowRunsPayload {
      * The document ID passed to a workflow run.
      * @return documentId
      */
-    @javax.annotation.Nullable public String getDocumentId() {
+    @jakarta.annotation.Nullable public String getDocumentId() {
         return documentId;
     }
 
-    public void setDocumentId(@javax.annotation.Nullable String documentId) {
+    public void setDocumentId(@jakarta.annotation.Nullable String documentId) {
         this.documentId = documentId;
     }
 
-    public ListWorkflowRunsPayload eventName(@javax.annotation.Nullable String eventName) {
+    public ListWorkflowRunsPayload eventName(@jakarta.annotation.Nullable String eventName) {
         this.eventName = eventName;
         return this;
     }
@@ -143,15 +143,15 @@ public class ListWorkflowRunsPayload {
      * The event name that triggered the workflow.
      * @return eventName
      */
-    @javax.annotation.Nullable public String getEventName() {
+    @jakarta.annotation.Nullable public String getEventName() {
         return eventName;
     }
 
-    public void setEventName(@javax.annotation.Nullable String eventName) {
+    public void setEventName(@jakarta.annotation.Nullable String eventName) {
         this.eventName = eventName;
     }
 
-    public ListWorkflowRunsPayload ruleId(@javax.annotation.Nullable String ruleId) {
+    public ListWorkflowRunsPayload ruleId(@jakarta.annotation.Nullable String ruleId) {
         this.ruleId = ruleId;
         return this;
     }
@@ -160,15 +160,15 @@ public class ListWorkflowRunsPayload {
      * The workflow rule ID that triggered the workflow.
      * @return ruleId
      */
-    @javax.annotation.Nullable public String getRuleId() {
+    @jakarta.annotation.Nullable public String getRuleId() {
         return ruleId;
     }
 
-    public void setRuleId(@javax.annotation.Nullable String ruleId) {
+    public void setRuleId(@jakarta.annotation.Nullable String ruleId) {
         this.ruleId = ruleId;
     }
 
-    public ListWorkflowRunsPayload start(@javax.annotation.Nullable String start) {
+    public ListWorkflowRunsPayload start(@jakarta.annotation.Nullable String start) {
         this.start = start;
         return this;
     }
@@ -177,15 +177,15 @@ public class ListWorkflowRunsPayload {
      * The start time for filtering workflow runs.
      * @return start
      */
-    @javax.annotation.Nullable public String getStart() {
+    @jakarta.annotation.Nullable public String getStart() {
         return start;
     }
 
-    public void setStart(@javax.annotation.Nullable String start) {
+    public void setStart(@jakarta.annotation.Nullable String start) {
         this.start = start;
     }
 
-    public ListWorkflowRunsPayload end(@javax.annotation.Nullable String end) {
+    public ListWorkflowRunsPayload end(@jakarta.annotation.Nullable String end) {
         this.end = end;
         return this;
     }
@@ -194,15 +194,15 @@ public class ListWorkflowRunsPayload {
      * The end time for filtering workflow runs.
      * @return end
      */
-    @javax.annotation.Nullable public String getEnd() {
+    @jakarta.annotation.Nullable public String getEnd() {
         return end;
     }
 
-    public void setEnd(@javax.annotation.Nullable String end) {
+    public void setEnd(@jakarta.annotation.Nullable String end) {
         this.end = end;
     }
 
-    public ListWorkflowRunsPayload status(@javax.annotation.Nullable String status) {
+    public ListWorkflowRunsPayload status(@jakarta.annotation.Nullable String status) {
         this.status = status;
         return this;
     }
@@ -211,15 +211,15 @@ public class ListWorkflowRunsPayload {
      * The status of the workflow run.
      * @return status
      */
-    @javax.annotation.Nullable public String getStatus() {
+    @jakarta.annotation.Nullable public String getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable String status) {
+    public void setStatus(@jakarta.annotation.Nullable String status) {
         this.status = status;
     }
 
-    public ListWorkflowRunsPayload searchTerm(@javax.annotation.Nullable String searchTerm) {
+    public ListWorkflowRunsPayload searchTerm(@jakarta.annotation.Nullable String searchTerm) {
         this.searchTerm = searchTerm;
         return this;
     }
@@ -228,15 +228,15 @@ public class ListWorkflowRunsPayload {
      * search term to filter on workflow id and run id
      * @return searchTerm
      */
-    @javax.annotation.Nullable public String getSearchTerm() {
+    @jakarta.annotation.Nullable public String getSearchTerm() {
         return searchTerm;
     }
 
-    public void setSearchTerm(@javax.annotation.Nullable String searchTerm) {
+    public void setSearchTerm(@jakarta.annotation.Nullable String searchTerm) {
         this.searchTerm = searchTerm;
     }
 
-    public ListWorkflowRunsPayload initiatedBy(@javax.annotation.Nullable String initiatedBy) {
+    public ListWorkflowRunsPayload initiatedBy(@jakarta.annotation.Nullable String initiatedBy) {
         this.initiatedBy = initiatedBy;
         return this;
     }
@@ -245,15 +245,15 @@ public class ListWorkflowRunsPayload {
      * The user or service account that initiated the workflow run.
      * @return initiatedBy
      */
-    @javax.annotation.Nullable public String getInitiatedBy() {
+    @jakarta.annotation.Nullable public String getInitiatedBy() {
         return initiatedBy;
     }
 
-    public void setInitiatedBy(@javax.annotation.Nullable String initiatedBy) {
+    public void setInitiatedBy(@jakarta.annotation.Nullable String initiatedBy) {
         this.initiatedBy = initiatedBy;
     }
 
-    public ListWorkflowRunsPayload interaction(@javax.annotation.Nullable String interaction) {
+    public ListWorkflowRunsPayload interaction(@jakarta.annotation.Nullable String interaction) {
         this.interaction = interaction;
         return this;
     }
@@ -262,15 +262,15 @@ public class ListWorkflowRunsPayload {
      * The interaction name used to filter conversations.
      * @return interaction
      */
-    @javax.annotation.Nullable public String getInteraction() {
+    @jakarta.annotation.Nullable public String getInteraction() {
         return interaction;
     }
 
-    public void setInteraction(@javax.annotation.Nullable String interaction) {
+    public void setInteraction(@jakarta.annotation.Nullable String interaction) {
         this.interaction = interaction;
     }
 
-    public ListWorkflowRunsPayload query(@javax.annotation.Nullable String query) {
+    public ListWorkflowRunsPayload query(@jakarta.annotation.Nullable String query) {
         this.query = query;
         return this;
     }
@@ -279,15 +279,15 @@ public class ListWorkflowRunsPayload {
      * Lucene query string to search for the workflow runs. This is a full text search on the workflow run history.
      * @return query
      */
-    @javax.annotation.Nullable public String getQuery() {
+    @jakarta.annotation.Nullable public String getQuery() {
         return query;
     }
 
-    public void setQuery(@javax.annotation.Nullable String query) {
+    public void setQuery(@jakarta.annotation.Nullable String query) {
         this.query = query;
     }
 
-    public ListWorkflowRunsPayload type(@javax.annotation.Nullable String type) {
+    public ListWorkflowRunsPayload type(@jakarta.annotation.Nullable String type) {
         this.type = type;
         return this;
     }
@@ -296,15 +296,15 @@ public class ListWorkflowRunsPayload {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public String getType() {
+    @jakarta.annotation.Nullable public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable String type) {
+    public void setType(@jakarta.annotation.Nullable String type) {
         this.type = type;
     }
 
-    public ListWorkflowRunsPayload pageSize(@javax.annotation.Nullable BigDecimal pageSize) {
+    public ListWorkflowRunsPayload pageSize(@jakarta.annotation.Nullable BigDecimal pageSize) {
         this.pageSize = pageSize;
         return this;
     }
@@ -313,15 +313,16 @@ public class ListWorkflowRunsPayload {
      * The maximum number of results to return per page.
      * @return pageSize
      */
-    @javax.annotation.Nullable public BigDecimal getPageSize() {
+    @jakarta.annotation.Nullable public BigDecimal getPageSize() {
         return pageSize;
     }
 
-    public void setPageSize(@javax.annotation.Nullable BigDecimal pageSize) {
+    public void setPageSize(@jakarta.annotation.Nullable BigDecimal pageSize) {
         this.pageSize = pageSize;
     }
 
-    public ListWorkflowRunsPayload nextPageToken(@javax.annotation.Nullable String nextPageToken) {
+    public ListWorkflowRunsPayload nextPageToken(
+            @jakarta.annotation.Nullable String nextPageToken) {
         this.nextPageToken = nextPageToken;
         return this;
     }
@@ -330,16 +331,16 @@ public class ListWorkflowRunsPayload {
      * The page token for Temporal pagination.
      * @return nextPageToken
      */
-    @javax.annotation.Nullable public String getNextPageToken() {
+    @jakarta.annotation.Nullable public String getNextPageToken() {
         return nextPageToken;
     }
 
-    public void setNextPageToken(@javax.annotation.Nullable String nextPageToken) {
+    public void setNextPageToken(@jakarta.annotation.Nullable String nextPageToken) {
         this.nextPageToken = nextPageToken;
     }
 
     public ListWorkflowRunsPayload hasReportedErrors(
-            @javax.annotation.Nullable Boolean hasReportedErrors) {
+            @jakarta.annotation.Nullable Boolean hasReportedErrors) {
         this.hasReportedErrors = hasReportedErrors;
         return this;
     }
@@ -348,16 +349,16 @@ public class ListWorkflowRunsPayload {
      * Filter by whether the workflow has reported errors (TemporalReportedProblems).
      * @return hasReportedErrors
      */
-    @javax.annotation.Nullable public Boolean getHasReportedErrors() {
+    @jakarta.annotation.Nullable public Boolean getHasReportedErrors() {
         return hasReportedErrors;
     }
 
-    public void setHasReportedErrors(@javax.annotation.Nullable Boolean hasReportedErrors) {
+    public void setHasReportedErrors(@jakarta.annotation.Nullable Boolean hasReportedErrors) {
         this.hasReportedErrors = hasReportedErrors;
     }
 
     public ListWorkflowRunsPayload activityState(
-            @javax.annotation.Nullable ConversationActivityState activityState) {
+            @jakarta.annotation.Nullable ConversationActivityState activityState) {
         this.activityState = activityState;
         return this;
     }
@@ -366,16 +367,16 @@ public class ListWorkflowRunsPayload {
      * Filter by the activity state of the conversation (running or idle).
      * @return activityState
      */
-    @javax.annotation.Nullable public ConversationActivityState getActivityState() {
+    @jakarta.annotation.Nullable public ConversationActivityState getActivityState() {
         return activityState;
     }
 
     public void setActivityState(
-            @javax.annotation.Nullable ConversationActivityState activityState) {
+            @jakarta.annotation.Nullable ConversationActivityState activityState) {
         this.activityState = activityState;
     }
 
-    public ListWorkflowRunsPayload interactive(@javax.annotation.Nullable Boolean interactive) {
+    public ListWorkflowRunsPayload interactive(@jakarta.annotation.Nullable Boolean interactive) {
         this.interactive = interactive;
         return this;
     }
@@ -384,11 +385,11 @@ public class ListWorkflowRunsPayload {
      * Filter by whether the conversation is interactive.
      * @return interactive
      */
-    @javax.annotation.Nullable public Boolean getInteractive() {
+    @jakarta.annotation.Nullable public Boolean getInteractive() {
         return interactive;
     }
 
-    public void setInteractive(@javax.annotation.Nullable Boolean interactive) {
+    public void setInteractive(@jakarta.annotation.Nullable Boolean interactive) {
         this.interactive = interactive;
     }
 

@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * FacetSpec
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class FacetSpec {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_FIELD = "field";
 
     @SerializedName(SERIALIZED_NAME_FIELD)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String field;
 
     public FacetSpec() {}
 
-    public FacetSpec name(@javax.annotation.Nonnull String name) {
+    public FacetSpec name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -57,16 +57,16 @@ public class FacetSpec {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public FacetSpec field(@javax.annotation.Nonnull String field) {
+    public FacetSpec field(@jakarta.annotation.Nonnull String field) {
         this.field = field;
         return this;
     }
@@ -75,12 +75,12 @@ public class FacetSpec {
      * Get field
      * @return field
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getField() {
         return field;
     }
 
-    public void setField(@javax.annotation.Nonnull String field) {
+    public void setField(@jakarta.annotation.Nonnull String field) {
         this.field = field;
     }
 

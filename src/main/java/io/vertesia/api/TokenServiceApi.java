@@ -80,7 +80,7 @@ public class TokenServiceApi {
      * </table>
      */
     public okhttp3.Call issueTokenCall(
-            @javax.annotation.Nullable IssueTokenRequest issueTokenRequest,
+            @jakarta.annotation.Nullable IssueTokenRequest issueTokenRequest,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -137,7 +137,7 @@ public class TokenServiceApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call issueTokenValidateBeforeCall(
-            @javax.annotation.Nullable IssueTokenRequest issueTokenRequest,
+            @jakarta.annotation.Nullable IssueTokenRequest issueTokenRequest,
             final ApiCallback _callback)
             throws ApiException {
         return issueTokenCall(issueTokenRequest, _callback);
@@ -159,7 +159,7 @@ public class TokenServiceApi {
      * </table>
      */
     public IssueTokenResponse issueToken(
-            @javax.annotation.Nullable IssueTokenRequest issueTokenRequest) throws ApiException {
+            @jakarta.annotation.Nullable IssueTokenRequest issueTokenRequest) throws ApiException {
         ApiResponse<IssueTokenResponse> localVarResp = issueTokenWithHttpInfo(issueTokenRequest);
         return localVarResp.getData();
     }
@@ -180,7 +180,7 @@ public class TokenServiceApi {
      * </table>
      */
     public ApiResponse<IssueTokenResponse> issueTokenWithHttpInfo(
-            @javax.annotation.Nullable IssueTokenRequest issueTokenRequest) throws ApiException {
+            @jakarta.annotation.Nullable IssueTokenRequest issueTokenRequest) throws ApiException {
         okhttp3.Call localVarCall = issueTokenValidateBeforeCall(issueTokenRequest, null);
         Type localVarReturnType = new TypeToken<IssueTokenResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -203,7 +203,7 @@ public class TokenServiceApi {
      * </table>
      */
     public okhttp3.Call issueTokenAsync(
-            @javax.annotation.Nullable IssueTokenRequest issueTokenRequest,
+            @jakarta.annotation.Nullable IssueTokenRequest issueTokenRequest,
             final ApiCallback<IssueTokenResponse> _callback)
             throws ApiException {
 

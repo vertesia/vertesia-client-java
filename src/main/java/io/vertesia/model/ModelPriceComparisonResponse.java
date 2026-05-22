@@ -35,31 +35,31 @@ import java.util.Objects;
 /**
  * ModelPriceComparisonResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ModelPriceComparisonResponse {
     public static final String SERIALIZED_NAME_PRICES = "prices";
 
     @SerializedName(SERIALIZED_NAME_PRICES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<ModelPriceComparison> prices = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_EFFECTIVE_RANGE = "effective_range";
 
     @SerializedName(SERIALIZED_NAME_EFFECTIVE_RANGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private CostAnalyticsResponseQueryRange effectiveRange;
 
     public static final String SERIALIZED_NAME_LIST_PRICE_DATE = "list_price_date";
 
     @SerializedName(SERIALIZED_NAME_LIST_PRICE_DATE)
-    @javax.annotation.Nullable private String listPriceDate;
+    @jakarta.annotation.Nullable private String listPriceDate;
 
     public ModelPriceComparisonResponse() {}
 
     public ModelPriceComparisonResponse prices(
-            @javax.annotation.Nonnull List<ModelPriceComparison> prices) {
+            @jakarta.annotation.Nonnull List<ModelPriceComparison> prices) {
         this.prices = prices;
         return this;
     }
@@ -76,17 +76,17 @@ public class ModelPriceComparisonResponse {
      * Get prices
      * @return prices
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<ModelPriceComparison> getPrices() {
         return prices;
     }
 
-    public void setPrices(@javax.annotation.Nonnull List<ModelPriceComparison> prices) {
+    public void setPrices(@jakarta.annotation.Nonnull List<ModelPriceComparison> prices) {
         this.prices = prices;
     }
 
     public ModelPriceComparisonResponse effectiveRange(
-            @javax.annotation.Nonnull CostAnalyticsResponseQueryRange effectiveRange) {
+            @jakarta.annotation.Nonnull CostAnalyticsResponseQueryRange effectiveRange) {
         this.effectiveRange = effectiveRange;
         return this;
     }
@@ -95,18 +95,18 @@ public class ModelPriceComparisonResponse {
      * Get effectiveRange
      * @return effectiveRange
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public CostAnalyticsResponseQueryRange getEffectiveRange() {
         return effectiveRange;
     }
 
     public void setEffectiveRange(
-            @javax.annotation.Nonnull CostAnalyticsResponseQueryRange effectiveRange) {
+            @jakarta.annotation.Nonnull CostAnalyticsResponseQueryRange effectiveRange) {
         this.effectiveRange = effectiveRange;
     }
 
     public ModelPriceComparisonResponse listPriceDate(
-            @javax.annotation.Nullable String listPriceDate) {
+            @jakarta.annotation.Nullable String listPriceDate) {
         this.listPriceDate = listPriceDate;
         return this;
     }
@@ -115,11 +115,11 @@ public class ModelPriceComparisonResponse {
      * Get listPriceDate
      * @return listPriceDate
      */
-    @javax.annotation.Nullable public String getListPriceDate() {
+    @jakarta.annotation.Nullable public String getListPriceDate() {
         return listPriceDate;
     }
 
-    public void setListPriceDate(@javax.annotation.Nullable String listPriceDate) {
+    public void setListPriceDate(@jakarta.annotation.Nullable String listPriceDate) {
         this.listPriceDate = listPriceDate;
     }
 

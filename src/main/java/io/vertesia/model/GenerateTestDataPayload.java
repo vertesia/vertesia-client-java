@@ -31,29 +31,29 @@ import java.util.Objects;
 /**
  * GenerateTestDataPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GenerateTestDataPayload {
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nullable private String message;
+    @jakarta.annotation.Nullable private String message;
 
     public static final String SERIALIZED_NAME_COUNT = "count";
 
     @SerializedName(SERIALIZED_NAME_COUNT)
-    @javax.annotation.Nullable private BigDecimal count;
+    @jakarta.annotation.Nullable private BigDecimal count;
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private InteractionExecutionConfiguration config;
 
     public GenerateTestDataPayload() {}
 
-    public GenerateTestDataPayload message(@javax.annotation.Nullable String message) {
+    public GenerateTestDataPayload message(@jakarta.annotation.Nullable String message) {
         this.message = message;
         return this;
     }
@@ -62,15 +62,15 @@ public class GenerateTestDataPayload {
      * Get message
      * @return message
      */
-    @javax.annotation.Nullable public String getMessage() {
+    @jakarta.annotation.Nullable public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nullable String message) {
+    public void setMessage(@jakarta.annotation.Nullable String message) {
         this.message = message;
     }
 
-    public GenerateTestDataPayload count(@javax.annotation.Nullable BigDecimal count) {
+    public GenerateTestDataPayload count(@jakarta.annotation.Nullable BigDecimal count) {
         this.count = count;
         return this;
     }
@@ -79,16 +79,16 @@ public class GenerateTestDataPayload {
      * Get count
      * @return count
      */
-    @javax.annotation.Nullable public BigDecimal getCount() {
+    @jakarta.annotation.Nullable public BigDecimal getCount() {
         return count;
     }
 
-    public void setCount(@javax.annotation.Nullable BigDecimal count) {
+    public void setCount(@jakarta.annotation.Nullable BigDecimal count) {
         this.count = count;
     }
 
     public GenerateTestDataPayload config(
-            @javax.annotation.Nonnull InteractionExecutionConfiguration config) {
+            @jakarta.annotation.Nonnull InteractionExecutionConfiguration config) {
         this.config = config;
         return this;
     }
@@ -97,12 +97,12 @@ public class GenerateTestDataPayload {
      * Get config
      * @return config
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public InteractionExecutionConfiguration getConfig() {
         return config;
     }
 
-    public void setConfig(@javax.annotation.Nonnull InteractionExecutionConfiguration config) {
+    public void setConfig(@jakarta.annotation.Nonnull InteractionExecutionConfiguration config) {
         this.config = config;
     }
 

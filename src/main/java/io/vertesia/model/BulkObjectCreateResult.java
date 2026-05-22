@@ -37,7 +37,7 @@ import java.util.Objects;
 /**
  * BulkObjectCreateResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BulkObjectCreateResult {
@@ -97,7 +97,7 @@ public class BulkObjectCreateResult {
     public static final String SERIALIZED_NAME_OPERATION = "operation";
 
     @SerializedName(SERIALIZED_NAME_OPERATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OperationEnum operation;
 
     /**
@@ -160,30 +160,30 @@ public class BulkObjectCreateResult {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private StatusEnum status;
 
     public static final String SERIALIZED_NAME_CREATED = "created";
 
     @SerializedName(SERIALIZED_NAME_CREATED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal created;
 
     public static final String SERIALIZED_NAME_OBJECTS = "objects";
 
     @SerializedName(SERIALIZED_NAME_OBJECTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<BulkObjectCreateResultObjectsInner> objects = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_FAILED = "failed";
 
     @SerializedName(SERIALIZED_NAME_FAILED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<BulkObjectCreateResultFailedInner> failed = new ArrayList<>();
 
     public BulkObjectCreateResult() {}
 
-    public BulkObjectCreateResult operation(@javax.annotation.Nonnull OperationEnum operation) {
+    public BulkObjectCreateResult operation(@jakarta.annotation.Nonnull OperationEnum operation) {
         this.operation = operation;
         return this;
     }
@@ -192,16 +192,16 @@ public class BulkObjectCreateResult {
      * Get operation
      * @return operation
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OperationEnum getOperation() {
         return operation;
     }
 
-    public void setOperation(@javax.annotation.Nonnull OperationEnum operation) {
+    public void setOperation(@jakarta.annotation.Nonnull OperationEnum operation) {
         this.operation = operation;
     }
 
-    public BulkObjectCreateResult status(@javax.annotation.Nonnull StatusEnum status) {
+    public BulkObjectCreateResult status(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
         return this;
     }
@@ -210,16 +210,16 @@ public class BulkObjectCreateResult {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
+    public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
     }
 
-    public BulkObjectCreateResult created(@javax.annotation.Nonnull BigDecimal created) {
+    public BulkObjectCreateResult created(@jakarta.annotation.Nonnull BigDecimal created) {
         this.created = created;
         return this;
     }
@@ -228,17 +228,17 @@ public class BulkObjectCreateResult {
      * Number of documents successfully created
      * @return created
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCreated() {
         return created;
     }
 
-    public void setCreated(@javax.annotation.Nonnull BigDecimal created) {
+    public void setCreated(@jakarta.annotation.Nonnull BigDecimal created) {
         this.created = created;
     }
 
     public BulkObjectCreateResult objects(
-            @javax.annotation.Nonnull List<BulkObjectCreateResultObjectsInner> objects) {
+            @jakarta.annotation.Nonnull List<BulkObjectCreateResultObjectsInner> objects) {
         this.objects = objects;
         return this;
     }
@@ -255,18 +255,18 @@ public class BulkObjectCreateResult {
      * Successfully created objects with their IDs
      * @return objects
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<BulkObjectCreateResultObjectsInner> getObjects() {
         return objects;
     }
 
     public void setObjects(
-            @javax.annotation.Nonnull List<BulkObjectCreateResultObjectsInner> objects) {
+            @jakarta.annotation.Nonnull List<BulkObjectCreateResultObjectsInner> objects) {
         this.objects = objects;
     }
 
     public BulkObjectCreateResult failed(
-            @javax.annotation.Nonnull List<BulkObjectCreateResultFailedInner> failed) {
+            @jakarta.annotation.Nonnull List<BulkObjectCreateResultFailedInner> failed) {
         this.failed = failed;
         return this;
     }
@@ -283,13 +283,13 @@ public class BulkObjectCreateResult {
      * Objects that failed to create
      * @return failed
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<BulkObjectCreateResultFailedInner> getFailed() {
         return failed;
     }
 
     public void setFailed(
-            @javax.annotation.Nonnull List<BulkObjectCreateResultFailedInner> failed) {
+            @jakarta.annotation.Nonnull List<BulkObjectCreateResultFailedInner> failed) {
         this.failed = failed;
     }
 

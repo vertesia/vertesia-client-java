@@ -34,59 +34,59 @@ import java.util.Objects;
 /**
  * AudioMetadata
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AudioMetadata {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ContentNatureAudio type;
 
     public static final String SERIALIZED_NAME_SIZE = "size";
 
     @SerializedName(SERIALIZED_NAME_SIZE)
-    @javax.annotation.Nullable private BigDecimal size;
+    @jakarta.annotation.Nullable private BigDecimal size;
 
     public static final String SERIALIZED_NAME_LANGUAGES = "languages";
 
     @SerializedName(SERIALIZED_NAME_LANGUAGES)
-    @javax.annotation.Nullable private List<String> languages = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> languages = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LOCATION = "location";
 
     @SerializedName(SERIALIZED_NAME_LOCATION)
-    @javax.annotation.Nullable private Location location;
+    @jakarta.annotation.Nullable private Location location;
 
     public static final String SERIALIZED_NAME_GENERATION_RUNS = "generation_runs";
 
     @SerializedName(SERIALIZED_NAME_GENERATION_RUNS)
-    @javax.annotation.Nullable private List<GenerationRunMetadata> generationRuns = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<GenerationRunMetadata> generationRuns = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ETAG = "etag";
 
     @SerializedName(SERIALIZED_NAME_ETAG)
-    @javax.annotation.Nullable private String etag;
+    @jakarta.annotation.Nullable private String etag;
 
     public static final String SERIALIZED_NAME_RENDITIONS = "renditions";
 
     @SerializedName(SERIALIZED_NAME_RENDITIONS)
-    @javax.annotation.Nullable private List<Rendition> renditions = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<Rendition> renditions = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DURATION = "duration";
 
     @SerializedName(SERIALIZED_NAME_DURATION)
-    @javax.annotation.Nullable private BigDecimal duration;
+    @jakarta.annotation.Nullable private BigDecimal duration;
 
     public static final String SERIALIZED_NAME_TRANSCRIPT = "transcript";
 
     @SerializedName(SERIALIZED_NAME_TRANSCRIPT)
-    @javax.annotation.Nullable private Transcript transcript;
+    @jakarta.annotation.Nullable private Transcript transcript;
 
     public AudioMetadata() {}
 
-    public AudioMetadata type(@javax.annotation.Nonnull ContentNatureAudio type) {
+    public AudioMetadata type(@jakarta.annotation.Nonnull ContentNatureAudio type) {
         this.type = type;
         return this;
     }
@@ -95,16 +95,16 @@ public class AudioMetadata {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ContentNatureAudio getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull ContentNatureAudio type) {
+    public void setType(@jakarta.annotation.Nonnull ContentNatureAudio type) {
         this.type = type;
     }
 
-    public AudioMetadata size(@javax.annotation.Nullable BigDecimal size) {
+    public AudioMetadata size(@jakarta.annotation.Nullable BigDecimal size) {
         this.size = size;
         return this;
     }
@@ -113,15 +113,15 @@ public class AudioMetadata {
      * Get size
      * @return size
      */
-    @javax.annotation.Nullable public BigDecimal getSize() {
+    @jakarta.annotation.Nullable public BigDecimal getSize() {
         return size;
     }
 
-    public void setSize(@javax.annotation.Nullable BigDecimal size) {
+    public void setSize(@jakarta.annotation.Nullable BigDecimal size) {
         this.size = size;
     }
 
-    public AudioMetadata languages(@javax.annotation.Nullable List<String> languages) {
+    public AudioMetadata languages(@jakarta.annotation.Nullable List<String> languages) {
         this.languages = languages;
         return this;
     }
@@ -138,15 +138,15 @@ public class AudioMetadata {
      * Get languages
      * @return languages
      */
-    @javax.annotation.Nullable public List<String> getLanguages() {
+    @jakarta.annotation.Nullable public List<String> getLanguages() {
         return languages;
     }
 
-    public void setLanguages(@javax.annotation.Nullable List<String> languages) {
+    public void setLanguages(@jakarta.annotation.Nullable List<String> languages) {
         this.languages = languages;
     }
 
-    public AudioMetadata location(@javax.annotation.Nullable Location location) {
+    public AudioMetadata location(@jakarta.annotation.Nullable Location location) {
         this.location = location;
         return this;
     }
@@ -155,16 +155,16 @@ public class AudioMetadata {
      * Get location
      * @return location
      */
-    @javax.annotation.Nullable public Location getLocation() {
+    @jakarta.annotation.Nullable public Location getLocation() {
         return location;
     }
 
-    public void setLocation(@javax.annotation.Nullable Location location) {
+    public void setLocation(@jakarta.annotation.Nullable Location location) {
         this.location = location;
     }
 
     public AudioMetadata generationRuns(
-            @javax.annotation.Nullable List<GenerationRunMetadata> generationRuns) {
+            @jakarta.annotation.Nullable List<GenerationRunMetadata> generationRuns) {
         this.generationRuns = generationRuns;
         return this;
     }
@@ -181,16 +181,16 @@ public class AudioMetadata {
      * Get generationRuns
      * @return generationRuns
      */
-    @javax.annotation.Nullable public List<GenerationRunMetadata> getGenerationRuns() {
+    @jakarta.annotation.Nullable public List<GenerationRunMetadata> getGenerationRuns() {
         return generationRuns;
     }
 
     public void setGenerationRuns(
-            @javax.annotation.Nullable List<GenerationRunMetadata> generationRuns) {
+            @jakarta.annotation.Nullable List<GenerationRunMetadata> generationRuns) {
         this.generationRuns = generationRuns;
     }
 
-    public AudioMetadata etag(@javax.annotation.Nullable String etag) {
+    public AudioMetadata etag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
         return this;
     }
@@ -199,15 +199,15 @@ public class AudioMetadata {
      * Get etag
      * @return etag
      */
-    @javax.annotation.Nullable public String getEtag() {
+    @jakarta.annotation.Nullable public String getEtag() {
         return etag;
     }
 
-    public void setEtag(@javax.annotation.Nullable String etag) {
+    public void setEtag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
     }
 
-    public AudioMetadata renditions(@javax.annotation.Nullable List<Rendition> renditions) {
+    public AudioMetadata renditions(@jakarta.annotation.Nullable List<Rendition> renditions) {
         this.renditions = renditions;
         return this;
     }
@@ -224,15 +224,15 @@ public class AudioMetadata {
      * Get renditions
      * @return renditions
      */
-    @javax.annotation.Nullable public List<Rendition> getRenditions() {
+    @jakarta.annotation.Nullable public List<Rendition> getRenditions() {
         return renditions;
     }
 
-    public void setRenditions(@javax.annotation.Nullable List<Rendition> renditions) {
+    public void setRenditions(@jakarta.annotation.Nullable List<Rendition> renditions) {
         this.renditions = renditions;
     }
 
-    public AudioMetadata duration(@javax.annotation.Nullable BigDecimal duration) {
+    public AudioMetadata duration(@jakarta.annotation.Nullable BigDecimal duration) {
         this.duration = duration;
         return this;
     }
@@ -241,15 +241,15 @@ public class AudioMetadata {
      * Get duration
      * @return duration
      */
-    @javax.annotation.Nullable public BigDecimal getDuration() {
+    @jakarta.annotation.Nullable public BigDecimal getDuration() {
         return duration;
     }
 
-    public void setDuration(@javax.annotation.Nullable BigDecimal duration) {
+    public void setDuration(@jakarta.annotation.Nullable BigDecimal duration) {
         this.duration = duration;
     }
 
-    public AudioMetadata transcript(@javax.annotation.Nullable Transcript transcript) {
+    public AudioMetadata transcript(@jakarta.annotation.Nullable Transcript transcript) {
         this.transcript = transcript;
         return this;
     }
@@ -258,11 +258,11 @@ public class AudioMetadata {
      * Get transcript
      * @return transcript
      */
-    @javax.annotation.Nullable public Transcript getTranscript() {
+    @jakarta.annotation.Nullable public Transcript getTranscript() {
         return transcript;
     }
 
-    public void setTranscript(@javax.annotation.Nullable Transcript transcript) {
+    public void setTranscript(@jakarta.annotation.Nullable Transcript transcript) {
         this.transcript = transcript;
     }
 

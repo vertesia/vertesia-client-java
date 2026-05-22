@@ -31,31 +31,31 @@ import java.util.Objects;
 /**
  * ContentObjectApiResponseTokens
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ContentObjectApiResponseTokens {
     public static final String SERIALIZED_NAME_COUNT = "count";
 
     @SerializedName(SERIALIZED_NAME_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal count;
 
     public static final String SERIALIZED_NAME_ENCODING = "encoding";
 
     @SerializedName(SERIALIZED_NAME_ENCODING)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String encoding;
 
     public static final String SERIALIZED_NAME_ETAG = "etag";
 
     @SerializedName(SERIALIZED_NAME_ETAG)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String etag;
 
     public ContentObjectApiResponseTokens() {}
 
-    public ContentObjectApiResponseTokens count(@javax.annotation.Nonnull BigDecimal count) {
+    public ContentObjectApiResponseTokens count(@jakarta.annotation.Nonnull BigDecimal count) {
         this.count = count;
         return this;
     }
@@ -64,16 +64,16 @@ public class ContentObjectApiResponseTokens {
      * Get count
      * @return count
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCount() {
         return count;
     }
 
-    public void setCount(@javax.annotation.Nonnull BigDecimal count) {
+    public void setCount(@jakarta.annotation.Nonnull BigDecimal count) {
         this.count = count;
     }
 
-    public ContentObjectApiResponseTokens encoding(@javax.annotation.Nonnull String encoding) {
+    public ContentObjectApiResponseTokens encoding(@jakarta.annotation.Nonnull String encoding) {
         this.encoding = encoding;
         return this;
     }
@@ -82,16 +82,16 @@ public class ContentObjectApiResponseTokens {
      * Get encoding
      * @return encoding
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getEncoding() {
         return encoding;
     }
 
-    public void setEncoding(@javax.annotation.Nonnull String encoding) {
+    public void setEncoding(@jakarta.annotation.Nonnull String encoding) {
         this.encoding = encoding;
     }
 
-    public ContentObjectApiResponseTokens etag(@javax.annotation.Nonnull String etag) {
+    public ContentObjectApiResponseTokens etag(@jakarta.annotation.Nonnull String etag) {
         this.etag = etag;
         return this;
     }
@@ -100,12 +100,12 @@ public class ContentObjectApiResponseTokens {
      * Get etag
      * @return etag
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getEtag() {
         return etag;
     }
 
-    public void setEtag(@javax.annotation.Nonnull String etag) {
+    public void setEtag(@jakarta.annotation.Nonnull String etag) {
         this.etag = etag;
     }
 

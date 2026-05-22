@@ -34,47 +34,47 @@ import java.util.Objects;
 /**
  * Dashboard panel with Vega/Vega-Lite visualization.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DashboardPanel {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nullable private String id;
+    @jakarta.annotation.Nullable private String id;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String title;
 
     public static final String SERIALIZED_NAME_SPEC = "spec";
 
     @SerializedName(SERIALIZED_NAME_SPEC)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> spec = new HashMap<>();
 
     public static final String SERIALIZED_NAME_VEGA_LITE = "vegaLite";
 
     @SerializedName(SERIALIZED_NAME_VEGA_LITE)
-    @javax.annotation.Nullable private Boolean vegaLite;
+    @jakarta.annotation.Nullable private Boolean vegaLite;
 
     public static final String SERIALIZED_NAME_DATA_SOURCES = "dataSources";
 
     @SerializedName(SERIALIZED_NAME_DATA_SOURCES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> dataSources = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_POSITION = "position";
 
     @SerializedName(SERIALIZED_NAME_POSITION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DashboardPanelPosition position;
 
     public DashboardPanel() {}
 
-    public DashboardPanel id(@javax.annotation.Nullable String id) {
+    public DashboardPanel id(@jakarta.annotation.Nullable String id) {
         this.id = id;
         return this;
     }
@@ -83,15 +83,15 @@ public class DashboardPanel {
      * Panel ID (auto-generated if not provided)
      * @return id
      */
-    @javax.annotation.Nullable public String getId() {
+    @jakarta.annotation.Nullable public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nullable String id) {
+    public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
     }
 
-    public DashboardPanel title(@javax.annotation.Nonnull String title) {
+    public DashboardPanel title(@jakarta.annotation.Nonnull String title) {
         this.title = title;
         return this;
     }
@@ -100,16 +100,16 @@ public class DashboardPanel {
      * Panel title
      * @return title
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nonnull String title) {
+    public void setTitle(@jakarta.annotation.Nonnull String title) {
         this.title = title;
     }
 
-    public DashboardPanel spec(@javax.annotation.Nonnull Map<String, Object> spec) {
+    public DashboardPanel spec(@jakarta.annotation.Nonnull Map<String, Object> spec) {
         this.spec = spec;
         return this;
     }
@@ -126,16 +126,16 @@ public class DashboardPanel {
      * Vega or Vega-Lite specification
      * @return spec
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getSpec() {
         return spec;
     }
 
-    public void setSpec(@javax.annotation.Nonnull Map<String, Object> spec) {
+    public void setSpec(@jakarta.annotation.Nonnull Map<String, Object> spec) {
         this.spec = spec;
     }
 
-    public DashboardPanel vegaLite(@javax.annotation.Nullable Boolean vegaLite) {
+    public DashboardPanel vegaLite(@jakarta.annotation.Nullable Boolean vegaLite) {
         this.vegaLite = vegaLite;
         return this;
     }
@@ -144,15 +144,15 @@ public class DashboardPanel {
      * Whether spec is Vega-Lite (default: true)
      * @return vegaLite
      */
-    @javax.annotation.Nullable public Boolean getVegaLite() {
+    @jakarta.annotation.Nullable public Boolean getVegaLite() {
         return vegaLite;
     }
 
-    public void setVegaLite(@javax.annotation.Nullable Boolean vegaLite) {
+    public void setVegaLite(@jakarta.annotation.Nullable Boolean vegaLite) {
         this.vegaLite = vegaLite;
     }
 
-    public DashboardPanel dataSources(@javax.annotation.Nonnull List<String> dataSources) {
+    public DashboardPanel dataSources(@jakarta.annotation.Nonnull List<String> dataSources) {
         this.dataSources = dataSources;
         return this;
     }
@@ -169,16 +169,16 @@ public class DashboardPanel {
      * Query names that populate this panel&#39;s data sources
      * @return dataSources
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getDataSources() {
         return dataSources;
     }
 
-    public void setDataSources(@javax.annotation.Nonnull List<String> dataSources) {
+    public void setDataSources(@jakarta.annotation.Nonnull List<String> dataSources) {
         this.dataSources = dataSources;
     }
 
-    public DashboardPanel position(@javax.annotation.Nonnull DashboardPanelPosition position) {
+    public DashboardPanel position(@jakarta.annotation.Nonnull DashboardPanelPosition position) {
         this.position = position;
         return this;
     }
@@ -187,12 +187,12 @@ public class DashboardPanel {
      * Position in the dashboard grid
      * @return position
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DashboardPanelPosition getPosition() {
         return position;
     }
 
-    public void setPosition(@javax.annotation.Nonnull DashboardPanelPosition position) {
+    public void setPosition(@jakarta.annotation.Nonnull DashboardPanelPosition position) {
         this.position = position;
     }
 

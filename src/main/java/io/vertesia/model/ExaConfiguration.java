@@ -30,36 +30,36 @@ import java.util.Objects;
 /**
  * ExaConfiguration
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ExaConfiguration {
     public static final String SERIALIZED_NAME_INTEGRATION = "integration";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SupportedIntegrationsExa integration;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean enabled;
 
     public static final String SERIALIZED_NAME_HAS_API_KEY = "has_api_key";
 
     @SerializedName(SERIALIZED_NAME_HAS_API_KEY)
-    @javax.annotation.Nullable private Boolean hasApiKey;
+    @jakarta.annotation.Nullable private Boolean hasApiKey;
 
     public static final String SERIALIZED_NAME_API_KEY_HINT = "api_key_hint";
 
     @SerializedName(SERIALIZED_NAME_API_KEY_HINT)
-    @javax.annotation.Nullable private String apiKeyHint;
+    @jakarta.annotation.Nullable private String apiKeyHint;
 
     public ExaConfiguration() {}
 
     public ExaConfiguration integration(
-            @javax.annotation.Nonnull SupportedIntegrationsExa integration) {
+            @jakarta.annotation.Nonnull SupportedIntegrationsExa integration) {
         this.integration = integration;
         return this;
     }
@@ -68,16 +68,16 @@ public class ExaConfiguration {
      * Get integration
      * @return integration
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SupportedIntegrationsExa getIntegration() {
         return integration;
     }
 
-    public void setIntegration(@javax.annotation.Nonnull SupportedIntegrationsExa integration) {
+    public void setIntegration(@jakarta.annotation.Nonnull SupportedIntegrationsExa integration) {
         this.integration = integration;
     }
 
-    public ExaConfiguration enabled(@javax.annotation.Nonnull Boolean enabled) {
+    public ExaConfiguration enabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -86,16 +86,16 @@ public class ExaConfiguration {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public ExaConfiguration hasApiKey(@javax.annotation.Nullable Boolean hasApiKey) {
+    public ExaConfiguration hasApiKey(@jakarta.annotation.Nullable Boolean hasApiKey) {
         this.hasApiKey = hasApiKey;
         return this;
     }
@@ -104,15 +104,15 @@ public class ExaConfiguration {
      * Get hasApiKey
      * @return hasApiKey
      */
-    @javax.annotation.Nullable public Boolean getHasApiKey() {
+    @jakarta.annotation.Nullable public Boolean getHasApiKey() {
         return hasApiKey;
     }
 
-    public void setHasApiKey(@javax.annotation.Nullable Boolean hasApiKey) {
+    public void setHasApiKey(@jakarta.annotation.Nullable Boolean hasApiKey) {
         this.hasApiKey = hasApiKey;
     }
 
-    public ExaConfiguration apiKeyHint(@javax.annotation.Nullable String apiKeyHint) {
+    public ExaConfiguration apiKeyHint(@jakarta.annotation.Nullable String apiKeyHint) {
         this.apiKeyHint = apiKeyHint;
         return this;
     }
@@ -121,11 +121,11 @@ public class ExaConfiguration {
      * Get apiKeyHint
      * @return apiKeyHint
      */
-    @javax.annotation.Nullable public String getApiKeyHint() {
+    @jakarta.annotation.Nullable public String getApiKeyHint() {
         return apiKeyHint;
     }
 
-    public void setApiKeyHint(@javax.annotation.Nullable String apiKeyHint) {
+    public void setApiKeyHint(@jakarta.annotation.Nullable String apiKeyHint) {
         this.apiKeyHint = apiKeyHint;
     }
 

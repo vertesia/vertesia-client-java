@@ -33,24 +33,24 @@ import java.util.Objects;
 /**
  * Plan
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class Plan {
     public static final String SERIALIZED_NAME_PLAN = "plan";
 
     @SerializedName(SERIALIZED_NAME_PLAN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<PlanTask> plan = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_COMMENT = "comment";
 
     @SerializedName(SERIALIZED_NAME_COMMENT)
-    @javax.annotation.Nullable private String comment;
+    @jakarta.annotation.Nullable private String comment;
 
     public Plan() {}
 
-    public Plan plan(@javax.annotation.Nonnull List<PlanTask> plan) {
+    public Plan plan(@jakarta.annotation.Nonnull List<PlanTask> plan) {
         this.plan = plan;
         return this;
     }
@@ -67,16 +67,16 @@ public class Plan {
      * Get plan
      * @return plan
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<PlanTask> getPlan() {
         return plan;
     }
 
-    public void setPlan(@javax.annotation.Nonnull List<PlanTask> plan) {
+    public void setPlan(@jakarta.annotation.Nonnull List<PlanTask> plan) {
         this.plan = plan;
     }
 
-    public Plan comment(@javax.annotation.Nullable String comment) {
+    public Plan comment(@jakarta.annotation.Nullable String comment) {
         this.comment = comment;
         return this;
     }
@@ -85,11 +85,11 @@ public class Plan {
      * Get comment
      * @return comment
      */
-    @javax.annotation.Nullable public String getComment() {
+    @jakarta.annotation.Nullable public String getComment() {
         return comment;
     }
 
-    public void setComment(@javax.annotation.Nullable String comment) {
+    public void setComment(@jakarta.annotation.Nullable String comment) {
         this.comment = comment;
     }
 

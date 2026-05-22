@@ -33,74 +33,74 @@ import java.util.Objects;
 /**
  * PartialProjectConfiguration
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PartialProjectConfiguration {
     public static final String SERIALIZED_NAME_HUMAN_CONTEXT = "human_context";
 
     @SerializedName(SERIALIZED_NAME_HUMAN_CONTEXT)
-    @javax.annotation.Nullable private String humanContext;
+    @jakarta.annotation.Nullable private String humanContext;
 
     public static final String SERIALIZED_NAME_DEFAULTS = "defaults";
 
     @SerializedName(SERIALIZED_NAME_DEFAULTS)
-    @javax.annotation.Nullable private ProjectModelDefaults defaults;
+    @jakarta.annotation.Nullable private ProjectModelDefaults defaults;
 
     public static final String SERIALIZED_NAME_DEFAULT_VISIBILITY = "default_visibility";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT_VISIBILITY)
-    @javax.annotation.Nullable private ResourceVisibility defaultVisibility;
+    @jakarta.annotation.Nullable private ResourceVisibility defaultVisibility;
 
     public static final String SERIALIZED_NAME_SYNC_CONTENT_PROPERTIES = "sync_content_properties";
 
     @SerializedName(SERIALIZED_NAME_SYNC_CONTENT_PROPERTIES)
-    @javax.annotation.Nullable private Boolean syncContentProperties;
+    @jakarta.annotation.Nullable private Boolean syncContentProperties;
 
     public static final String SERIALIZED_NAME_EMBEDDINGS = "embeddings";
 
     @SerializedName(SERIALIZED_NAME_EMBEDDINGS)
-    @javax.annotation.Nullable private ProjectConfigurationEmbeddings embeddings;
+    @jakarta.annotation.Nullable private ProjectConfigurationEmbeddings embeddings;
 
     public static final String SERIALIZED_NAME_DATACENTER = "datacenter";
 
     @SerializedName(SERIALIZED_NAME_DATACENTER)
-    @javax.annotation.Nullable private String datacenter;
+    @jakarta.annotation.Nullable private String datacenter;
 
     public static final String SERIALIZED_NAME_STORAGE_BUCKET = "storage_bucket";
 
     @SerializedName(SERIALIZED_NAME_STORAGE_BUCKET)
-    @javax.annotation.Nullable private String storageBucket;
+    @jakarta.annotation.Nullable private String storageBucket;
 
     public static final String SERIALIZED_NAME_AGENT_STREAMING_ENABLED = "agent_streaming_enabled";
 
     @SerializedName(SERIALIZED_NAME_AGENT_STREAMING_ENABLED)
-    @javax.annotation.Nullable private Boolean agentStreamingEnabled;
+    @jakarta.annotation.Nullable private Boolean agentStreamingEnabled;
 
     public static final String SERIALIZED_NAME_INDEXING = "indexing";
 
     @SerializedName(SERIALIZED_NAME_INDEXING)
-    @javax.annotation.Nullable private ProjectConfigurationIndexing indexing;
+    @jakarta.annotation.Nullable private ProjectConfigurationIndexing indexing;
 
     public static final String SERIALIZED_NAME_MAIN_LANGUAGE = "main_language";
 
     @SerializedName(SERIALIZED_NAME_MAIN_LANGUAGE)
-    @javax.annotation.Nullable private String mainLanguage;
+    @jakarta.annotation.Nullable private String mainLanguage;
 
     public static final String SERIALIZED_NAME_BROWSER_USE = "browser_use";
 
     @SerializedName(SERIALIZED_NAME_BROWSER_USE)
-    @javax.annotation.Nullable private BrowserUseProjectConfiguration browserUse;
+    @jakarta.annotation.Nullable private BrowserUseProjectConfiguration browserUse;
 
     public static final String SERIALIZED_NAME_PDF_TEMPLATE_OBJECT_ID = "pdf_template_object_id";
 
     @SerializedName(SERIALIZED_NAME_PDF_TEMPLATE_OBJECT_ID)
-    @javax.annotation.Nullable private String pdfTemplateObjectId;
+    @jakarta.annotation.Nullable private String pdfTemplateObjectId;
 
     public PartialProjectConfiguration() {}
 
     public PartialProjectConfiguration humanContext(
-            @javax.annotation.Nullable String humanContext) {
+            @jakarta.annotation.Nullable String humanContext) {
         this.humanContext = humanContext;
         return this;
     }
@@ -109,16 +109,16 @@ public class PartialProjectConfiguration {
      * Get humanContext
      * @return humanContext
      */
-    @javax.annotation.Nullable public String getHumanContext() {
+    @jakarta.annotation.Nullable public String getHumanContext() {
         return humanContext;
     }
 
-    public void setHumanContext(@javax.annotation.Nullable String humanContext) {
+    public void setHumanContext(@jakarta.annotation.Nullable String humanContext) {
         this.humanContext = humanContext;
     }
 
     public PartialProjectConfiguration defaults(
-            @javax.annotation.Nullable ProjectModelDefaults defaults) {
+            @jakarta.annotation.Nullable ProjectModelDefaults defaults) {
         this.defaults = defaults;
         return this;
     }
@@ -127,16 +127,16 @@ public class PartialProjectConfiguration {
      * Get defaults
      * @return defaults
      */
-    @javax.annotation.Nullable public ProjectModelDefaults getDefaults() {
+    @jakarta.annotation.Nullable public ProjectModelDefaults getDefaults() {
         return defaults;
     }
 
-    public void setDefaults(@javax.annotation.Nullable ProjectModelDefaults defaults) {
+    public void setDefaults(@jakarta.annotation.Nullable ProjectModelDefaults defaults) {
         this.defaults = defaults;
     }
 
     public PartialProjectConfiguration defaultVisibility(
-            @javax.annotation.Nullable ResourceVisibility defaultVisibility) {
+            @jakarta.annotation.Nullable ResourceVisibility defaultVisibility) {
         this.defaultVisibility = defaultVisibility;
         return this;
     }
@@ -145,17 +145,17 @@ public class PartialProjectConfiguration {
      * Get defaultVisibility
      * @return defaultVisibility
      */
-    @javax.annotation.Nullable public ResourceVisibility getDefaultVisibility() {
+    @jakarta.annotation.Nullable public ResourceVisibility getDefaultVisibility() {
         return defaultVisibility;
     }
 
     public void setDefaultVisibility(
-            @javax.annotation.Nullable ResourceVisibility defaultVisibility) {
+            @jakarta.annotation.Nullable ResourceVisibility defaultVisibility) {
         this.defaultVisibility = defaultVisibility;
     }
 
     public PartialProjectConfiguration syncContentProperties(
-            @javax.annotation.Nullable Boolean syncContentProperties) {
+            @jakarta.annotation.Nullable Boolean syncContentProperties) {
         this.syncContentProperties = syncContentProperties;
         return this;
     }
@@ -164,16 +164,17 @@ public class PartialProjectConfiguration {
      * Get syncContentProperties
      * @return syncContentProperties
      */
-    @javax.annotation.Nullable public Boolean getSyncContentProperties() {
+    @jakarta.annotation.Nullable public Boolean getSyncContentProperties() {
         return syncContentProperties;
     }
 
-    public void setSyncContentProperties(@javax.annotation.Nullable Boolean syncContentProperties) {
+    public void setSyncContentProperties(
+            @jakarta.annotation.Nullable Boolean syncContentProperties) {
         this.syncContentProperties = syncContentProperties;
     }
 
     public PartialProjectConfiguration embeddings(
-            @javax.annotation.Nullable ProjectConfigurationEmbeddings embeddings) {
+            @jakarta.annotation.Nullable ProjectConfigurationEmbeddings embeddings) {
         this.embeddings = embeddings;
         return this;
     }
@@ -182,16 +183,16 @@ public class PartialProjectConfiguration {
      * Get embeddings
      * @return embeddings
      */
-    @javax.annotation.Nullable public ProjectConfigurationEmbeddings getEmbeddings() {
+    @jakarta.annotation.Nullable public ProjectConfigurationEmbeddings getEmbeddings() {
         return embeddings;
     }
 
     public void setEmbeddings(
-            @javax.annotation.Nullable ProjectConfigurationEmbeddings embeddings) {
+            @jakarta.annotation.Nullable ProjectConfigurationEmbeddings embeddings) {
         this.embeddings = embeddings;
     }
 
-    public PartialProjectConfiguration datacenter(@javax.annotation.Nullable String datacenter) {
+    public PartialProjectConfiguration datacenter(@jakarta.annotation.Nullable String datacenter) {
         this.datacenter = datacenter;
         return this;
     }
@@ -200,16 +201,16 @@ public class PartialProjectConfiguration {
      * Get datacenter
      * @return datacenter
      */
-    @javax.annotation.Nullable public String getDatacenter() {
+    @jakarta.annotation.Nullable public String getDatacenter() {
         return datacenter;
     }
 
-    public void setDatacenter(@javax.annotation.Nullable String datacenter) {
+    public void setDatacenter(@jakarta.annotation.Nullable String datacenter) {
         this.datacenter = datacenter;
     }
 
     public PartialProjectConfiguration storageBucket(
-            @javax.annotation.Nullable String storageBucket) {
+            @jakarta.annotation.Nullable String storageBucket) {
         this.storageBucket = storageBucket;
         return this;
     }
@@ -218,16 +219,16 @@ public class PartialProjectConfiguration {
      * Get storageBucket
      * @return storageBucket
      */
-    @javax.annotation.Nullable public String getStorageBucket() {
+    @jakarta.annotation.Nullable public String getStorageBucket() {
         return storageBucket;
     }
 
-    public void setStorageBucket(@javax.annotation.Nullable String storageBucket) {
+    public void setStorageBucket(@jakarta.annotation.Nullable String storageBucket) {
         this.storageBucket = storageBucket;
     }
 
     public PartialProjectConfiguration agentStreamingEnabled(
-            @javax.annotation.Nullable Boolean agentStreamingEnabled) {
+            @jakarta.annotation.Nullable Boolean agentStreamingEnabled) {
         this.agentStreamingEnabled = agentStreamingEnabled;
         return this;
     }
@@ -236,16 +237,17 @@ public class PartialProjectConfiguration {
      * Enable real-time streaming of agent LLM responses to clients. When enabled, LLM responses are streamed chunk-by-chunk via Redis pub/sub. Defaults to true if not specified.
      * @return agentStreamingEnabled
      */
-    @javax.annotation.Nullable public Boolean getAgentStreamingEnabled() {
+    @jakarta.annotation.Nullable public Boolean getAgentStreamingEnabled() {
         return agentStreamingEnabled;
     }
 
-    public void setAgentStreamingEnabled(@javax.annotation.Nullable Boolean agentStreamingEnabled) {
+    public void setAgentStreamingEnabled(
+            @jakarta.annotation.Nullable Boolean agentStreamingEnabled) {
         this.agentStreamingEnabled = agentStreamingEnabled;
     }
 
     public PartialProjectConfiguration indexing(
-            @javax.annotation.Nullable ProjectConfigurationIndexing indexing) {
+            @jakarta.annotation.Nullable ProjectConfigurationIndexing indexing) {
         this.indexing = indexing;
         return this;
     }
@@ -254,16 +256,16 @@ public class PartialProjectConfiguration {
      * Get indexing
      * @return indexing
      */
-    @javax.annotation.Nullable public ProjectConfigurationIndexing getIndexing() {
+    @jakarta.annotation.Nullable public ProjectConfigurationIndexing getIndexing() {
         return indexing;
     }
 
-    public void setIndexing(@javax.annotation.Nullable ProjectConfigurationIndexing indexing) {
+    public void setIndexing(@jakarta.annotation.Nullable ProjectConfigurationIndexing indexing) {
         this.indexing = indexing;
     }
 
     public PartialProjectConfiguration mainLanguage(
-            @javax.annotation.Nullable String mainLanguage) {
+            @jakarta.annotation.Nullable String mainLanguage) {
         this.mainLanguage = mainLanguage;
         return this;
     }
@@ -272,16 +274,16 @@ public class PartialProjectConfiguration {
      * Primary language for full-text search analysis. ISO 639-1 code (e.g., &#39;en&#39;, &#39;fr&#39;, &#39;ja&#39;, &#39;de&#39;). Determines which Elasticsearch analyzer is used for the text field. Defaults to &#39;en&#39; (English/standard analyzer).  Changing this value requires a full reindex to take effect.
      * @return mainLanguage
      */
-    @javax.annotation.Nullable public String getMainLanguage() {
+    @jakarta.annotation.Nullable public String getMainLanguage() {
         return mainLanguage;
     }
 
-    public void setMainLanguage(@javax.annotation.Nullable String mainLanguage) {
+    public void setMainLanguage(@jakarta.annotation.Nullable String mainLanguage) {
         this.mainLanguage = mainLanguage;
     }
 
     public PartialProjectConfiguration browserUse(
-            @javax.annotation.Nullable BrowserUseProjectConfiguration browserUse) {
+            @jakarta.annotation.Nullable BrowserUseProjectConfiguration browserUse) {
         this.browserUse = browserUse;
         return this;
     }
@@ -290,17 +292,17 @@ public class PartialProjectConfiguration {
      * Project defaults and caps for browser_use agent workstreams.
      * @return browserUse
      */
-    @javax.annotation.Nullable public BrowserUseProjectConfiguration getBrowserUse() {
+    @jakarta.annotation.Nullable public BrowserUseProjectConfiguration getBrowserUse() {
         return browserUse;
     }
 
     public void setBrowserUse(
-            @javax.annotation.Nullable BrowserUseProjectConfiguration browserUse) {
+            @jakarta.annotation.Nullable BrowserUseProjectConfiguration browserUse) {
         this.browserUse = browserUse;
     }
 
     public PartialProjectConfiguration pdfTemplateObjectId(
-            @javax.annotation.Nullable String pdfTemplateObjectId) {
+            @jakarta.annotation.Nullable String pdfTemplateObjectId) {
         this.pdfTemplateObjectId = pdfTemplateObjectId;
         return this;
     }
@@ -309,11 +311,11 @@ public class PartialProjectConfiguration {
      * Object ID of a content object containing a custom LaTeX template (.latex file) to use as the branded PDF template. When set, \&quot;Export as Branded PDF\&quot; uses this template instead of the built-in Vertesia default template.
      * @return pdfTemplateObjectId
      */
-    @javax.annotation.Nullable public String getPdfTemplateObjectId() {
+    @jakarta.annotation.Nullable public String getPdfTemplateObjectId() {
         return pdfTemplateObjectId;
     }
 
-    public void setPdfTemplateObjectId(@javax.annotation.Nullable String pdfTemplateObjectId) {
+    public void setPdfTemplateObjectId(@jakarta.annotation.Nullable String pdfTemplateObjectId) {
         this.pdfTemplateObjectId = pdfTemplateObjectId;
     }
 

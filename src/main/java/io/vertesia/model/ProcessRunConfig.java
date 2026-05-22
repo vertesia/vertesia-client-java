@@ -33,29 +33,29 @@ import java.util.Objects;
 /**
  * ProcessRunConfig
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProcessRunConfig {
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nullable private String model;
+    @jakarta.annotation.Nullable private String model;
 
     public static final String SERIALIZED_NAME_USER_MESSAGE = "user_message";
 
     @SerializedName(SERIALIZED_NAME_USER_MESSAGE)
-    @javax.annotation.Nullable private String userMessage;
+    @jakarta.annotation.Nullable private String userMessage;
 
     public static final String SERIALIZED_NAME_PROCESS_WORKSTREAM_MONITOR =
             "process_workstream_monitor";
 
     @SerializedName(SERIALIZED_NAME_PROCESS_WORKSTREAM_MONITOR)
-    @javax.annotation.Nullable private ProcessRunConfigProcessWorkstreamMonitor processWorkstreamMonitor;
+    @jakarta.annotation.Nullable private ProcessRunConfigProcessWorkstreamMonitor processWorkstreamMonitor;
 
     public ProcessRunConfig() {}
 
-    public ProcessRunConfig model(@javax.annotation.Nullable String model) {
+    public ProcessRunConfig model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
@@ -64,15 +64,15 @@ public class ProcessRunConfig {
      * Get model
      * @return model
      */
-    @javax.annotation.Nullable public String getModel() {
+    @jakarta.annotation.Nullable public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nullable String model) {
+    public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
     }
 
-    public ProcessRunConfig userMessage(@javax.annotation.Nullable String userMessage) {
+    public ProcessRunConfig userMessage(@jakarta.annotation.Nullable String userMessage) {
         this.userMessage = userMessage;
         return this;
     }
@@ -81,16 +81,16 @@ public class ProcessRunConfig {
      * Free-form message from the user when starting a run. Passed to the orchestrator LLM in supervised mode; stored on the run regardless so programmatic runs retain the intent that triggered them.
      * @return userMessage
      */
-    @javax.annotation.Nullable public String getUserMessage() {
+    @jakarta.annotation.Nullable public String getUserMessage() {
         return userMessage;
     }
 
-    public void setUserMessage(@javax.annotation.Nullable String userMessage) {
+    public void setUserMessage(@jakarta.annotation.Nullable String userMessage) {
         this.userMessage = userMessage;
     }
 
     public ProcessRunConfig processWorkstreamMonitor(
-            @javax.annotation.Nullable ProcessRunConfigProcessWorkstreamMonitor processWorkstreamMonitor) {
+            @jakarta.annotation.Nullable ProcessRunConfigProcessWorkstreamMonitor processWorkstreamMonitor) {
         this.processWorkstreamMonitor = processWorkstreamMonitor;
         return this;
     }
@@ -99,12 +99,12 @@ public class ProcessRunConfig {
      * Get processWorkstreamMonitor
      * @return processWorkstreamMonitor
      */
-    @javax.annotation.Nullable public ProcessRunConfigProcessWorkstreamMonitor getProcessWorkstreamMonitor() {
+    @jakarta.annotation.Nullable public ProcessRunConfigProcessWorkstreamMonitor getProcessWorkstreamMonitor() {
         return processWorkstreamMonitor;
     }
 
     public void setProcessWorkstreamMonitor(
-            @javax.annotation.Nullable ProcessRunConfigProcessWorkstreamMonitor processWorkstreamMonitor) {
+            @jakarta.annotation.Nullable ProcessRunConfigProcessWorkstreamMonitor processWorkstreamMonitor) {
         this.processWorkstreamMonitor = processWorkstreamMonitor;
     }
 

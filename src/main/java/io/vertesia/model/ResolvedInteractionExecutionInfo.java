@@ -33,54 +33,54 @@ import java.util.Objects;
 /**
  * Resolved execution info for an interaction. Contains the interaction ID, basic metadata, and the resolved runtime configuration (environment, model) that would be used at execution time.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ResolvedInteractionExecutionInfo {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal version;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private InteractionStatus status;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_AGENT_RUNNER_OPTIONS = "agent_runner_options";
 
     @SerializedName(SERIALIZED_NAME_AGENT_RUNNER_OPTIONS)
-    @javax.annotation.Nullable private AgentRunnerOptions agentRunnerOptions;
+    @jakarta.annotation.Nullable private AgentRunnerOptions agentRunnerOptions;
 
     public static final String SERIALIZED_NAME_RESOLVED = "resolved";
 
     @SerializedName(SERIALIZED_NAME_RESOLVED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ResolvedRuntimeConfig resolved;
 
     public ResolvedInteractionExecutionInfo() {}
 
-    public ResolvedInteractionExecutionInfo id(@javax.annotation.Nonnull String id) {
+    public ResolvedInteractionExecutionInfo id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -89,16 +89,16 @@ public class ResolvedInteractionExecutionInfo {
      * The resolved interaction ID
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public ResolvedInteractionExecutionInfo name(@javax.annotation.Nonnull String name) {
+    public ResolvedInteractionExecutionInfo name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -107,16 +107,17 @@ public class ResolvedInteractionExecutionInfo {
      * The interaction endpoint name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public ResolvedInteractionExecutionInfo version(@javax.annotation.Nonnull BigDecimal version) {
+    public ResolvedInteractionExecutionInfo version(
+            @jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
         return this;
     }
@@ -125,17 +126,17 @@ public class ResolvedInteractionExecutionInfo {
      * The interaction version number
      * @return version
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getVersion() {
         return version;
     }
 
-    public void setVersion(@javax.annotation.Nonnull BigDecimal version) {
+    public void setVersion(@jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
     }
 
     public ResolvedInteractionExecutionInfo status(
-            @javax.annotation.Nonnull InteractionStatus status) {
+            @jakarta.annotation.Nonnull InteractionStatus status) {
         this.status = status;
         return this;
     }
@@ -144,16 +145,16 @@ public class ResolvedInteractionExecutionInfo {
      * The interaction status (draft or published)
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public InteractionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull InteractionStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull InteractionStatus status) {
         this.status = status;
     }
 
-    public ResolvedInteractionExecutionInfo tags(@javax.annotation.Nonnull List<String> tags) {
+    public ResolvedInteractionExecutionInfo tags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -170,17 +171,17 @@ public class ResolvedInteractionExecutionInfo {
      * The interaction tags (can include version tags like \&quot;production\&quot;, \&quot;staging\&quot;)
      * @return tags
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nonnull List<String> tags) {
+    public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
     }
 
     public ResolvedInteractionExecutionInfo agentRunnerOptions(
-            @javax.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
+            @jakarta.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
         this.agentRunnerOptions = agentRunnerOptions;
         return this;
     }
@@ -189,17 +190,17 @@ public class ResolvedInteractionExecutionInfo {
      * Agent runner configuration (tool_names opt-ins, is_agent, is_tool, etc.). Included on resolve so non-UI callers (worker activities) can pick up the interaction&#39;s defaults without a second retrieve round-trip — and so in-code interactions (sys:, app:) which have no Mongo document work the same as stored ones.
      * @return agentRunnerOptions
      */
-    @javax.annotation.Nullable public AgentRunnerOptions getAgentRunnerOptions() {
+    @jakarta.annotation.Nullable public AgentRunnerOptions getAgentRunnerOptions() {
         return agentRunnerOptions;
     }
 
     public void setAgentRunnerOptions(
-            @javax.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
+            @jakarta.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
         this.agentRunnerOptions = agentRunnerOptions;
     }
 
     public ResolvedInteractionExecutionInfo resolved(
-            @javax.annotation.Nonnull ResolvedRuntimeConfig resolved) {
+            @jakarta.annotation.Nonnull ResolvedRuntimeConfig resolved) {
         this.resolved = resolved;
         return this;
     }
@@ -208,12 +209,12 @@ public class ResolvedInteractionExecutionInfo {
      * The resolved runtime configuration
      * @return resolved
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ResolvedRuntimeConfig getResolved() {
         return resolved;
     }
 
-    public void setResolved(@javax.annotation.Nonnull ResolvedRuntimeConfig resolved) {
+    public void setResolved(@jakarta.annotation.Nonnull ResolvedRuntimeConfig resolved) {
         this.resolved = resolved;
     }
 

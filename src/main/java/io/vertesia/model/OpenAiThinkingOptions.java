@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * OpenAiThinkingOptions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OpenAiThinkingOptions {
@@ -94,28 +94,28 @@ public class OpenAiThinkingOptions {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OptionIdEnum optionId;
 
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
-    @javax.annotation.Nullable private BigDecimal maxTokens;
+    @jakarta.annotation.Nullable private BigDecimal maxTokens;
 
     public static final String SERIALIZED_NAME_STOP_SEQUENCE = "stop_sequence";
 
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
-    @javax.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_EFFORT = "effort";
 
     @SerializedName(SERIALIZED_NAME_EFFORT)
-    @javax.annotation.Nullable private ReasoningEffort effort;
+    @jakarta.annotation.Nullable private ReasoningEffort effort;
 
     public static final String SERIALIZED_NAME_REASONING_EFFORT = "reasoning_effort";
 
     @SerializedName(SERIALIZED_NAME_REASONING_EFFORT)
-    @javax.annotation.Nullable private ReasoningEffort reasoningEffort;
+    @jakarta.annotation.Nullable private ReasoningEffort reasoningEffort;
 
     /**
      * Gets or Sets imageDetail
@@ -177,11 +177,11 @@ public class OpenAiThinkingOptions {
     public static final String SERIALIZED_NAME_IMAGE_DETAIL = "image_detail";
 
     @SerializedName(SERIALIZED_NAME_IMAGE_DETAIL)
-    @javax.annotation.Nullable private ImageDetailEnum imageDetail;
+    @jakarta.annotation.Nullable private ImageDetailEnum imageDetail;
 
     public OpenAiThinkingOptions() {}
 
-    public OpenAiThinkingOptions optionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public OpenAiThinkingOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -190,16 +190,16 @@ public class OpenAiThinkingOptions {
      * Get optionId
      * @return optionId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
-    public OpenAiThinkingOptions maxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public OpenAiThinkingOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
         return this;
     }
@@ -208,16 +208,16 @@ public class OpenAiThinkingOptions {
      * Get maxTokens
      * @return maxTokens
      */
-    @javax.annotation.Nullable public BigDecimal getMaxTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxTokens() {
         return maxTokens;
     }
 
-    public void setMaxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public void setMaxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
     }
 
     public OpenAiThinkingOptions stopSequence(
-            @javax.annotation.Nullable List<String> stopSequence) {
+            @jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
         return this;
     }
@@ -234,15 +234,15 @@ public class OpenAiThinkingOptions {
      * Get stopSequence
      * @return stopSequence
      */
-    @javax.annotation.Nullable public List<String> getStopSequence() {
+    @jakarta.annotation.Nullable public List<String> getStopSequence() {
         return stopSequence;
     }
 
-    public void setStopSequence(@javax.annotation.Nullable List<String> stopSequence) {
+    public void setStopSequence(@jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
     }
 
-    public OpenAiThinkingOptions effort(@javax.annotation.Nullable ReasoningEffort effort) {
+    public OpenAiThinkingOptions effort(@jakarta.annotation.Nullable ReasoningEffort effort) {
         this.effort = effort;
         return this;
     }
@@ -251,16 +251,16 @@ public class OpenAiThinkingOptions {
      * Get effort
      * @return effort
      */
-    @javax.annotation.Nullable public ReasoningEffort getEffort() {
+    @jakarta.annotation.Nullable public ReasoningEffort getEffort() {
         return effort;
     }
 
-    public void setEffort(@javax.annotation.Nullable ReasoningEffort effort) {
+    public void setEffort(@jakarta.annotation.Nullable ReasoningEffort effort) {
         this.effort = effort;
     }
 
     public OpenAiThinkingOptions reasoningEffort(
-            @javax.annotation.Nullable ReasoningEffort reasoningEffort) {
+            @jakarta.annotation.Nullable ReasoningEffort reasoningEffort) {
         this.reasoningEffort = reasoningEffort;
         return this;
     }
@@ -269,16 +269,16 @@ public class OpenAiThinkingOptions {
      * Get reasoningEffort
      * @return reasoningEffort
      */
-    @javax.annotation.Nullable public ReasoningEffort getReasoningEffort() {
+    @jakarta.annotation.Nullable public ReasoningEffort getReasoningEffort() {
         return reasoningEffort;
     }
 
-    public void setReasoningEffort(@javax.annotation.Nullable ReasoningEffort reasoningEffort) {
+    public void setReasoningEffort(@jakarta.annotation.Nullable ReasoningEffort reasoningEffort) {
         this.reasoningEffort = reasoningEffort;
     }
 
     public OpenAiThinkingOptions imageDetail(
-            @javax.annotation.Nullable ImageDetailEnum imageDetail) {
+            @jakarta.annotation.Nullable ImageDetailEnum imageDetail) {
         this.imageDetail = imageDetail;
         return this;
     }
@@ -287,11 +287,11 @@ public class OpenAiThinkingOptions {
      * Get imageDetail
      * @return imageDetail
      */
-    @javax.annotation.Nullable public ImageDetailEnum getImageDetail() {
+    @jakarta.annotation.Nullable public ImageDetailEnum getImageDetail() {
         return imageDetail;
     }
 
-    public void setImageDetail(@javax.annotation.Nullable ImageDetailEnum imageDetail) {
+    public void setImageDetail(@jakarta.annotation.Nullable ImageDetailEnum imageDetail) {
         this.imageDetail = imageDetail;
     }
 

@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * VertexAIGeminiOptions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class VertexAIGeminiOptions {
@@ -94,48 +94,48 @@ public class VertexAIGeminiOptions {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OptionIdEnum optionId;
 
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
-    @javax.annotation.Nullable private BigDecimal maxTokens;
+    @jakarta.annotation.Nullable private BigDecimal maxTokens;
 
     public static final String SERIALIZED_NAME_TEMPERATURE = "temperature";
 
     @SerializedName(SERIALIZED_NAME_TEMPERATURE)
-    @javax.annotation.Nullable private BigDecimal temperature;
+    @jakarta.annotation.Nullable private BigDecimal temperature;
 
     public static final String SERIALIZED_NAME_TOP_P = "top_p";
 
     @SerializedName(SERIALIZED_NAME_TOP_P)
-    @javax.annotation.Nullable private BigDecimal topP;
+    @jakarta.annotation.Nullable private BigDecimal topP;
 
     public static final String SERIALIZED_NAME_TOP_K = "top_k";
 
     @SerializedName(SERIALIZED_NAME_TOP_K)
-    @javax.annotation.Nullable private BigDecimal topK;
+    @jakarta.annotation.Nullable private BigDecimal topK;
 
     public static final String SERIALIZED_NAME_STOP_SEQUENCE = "stop_sequence";
 
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
-    @javax.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PRESENCE_PENALTY = "presence_penalty";
 
     @SerializedName(SERIALIZED_NAME_PRESENCE_PENALTY)
-    @javax.annotation.Nullable private BigDecimal presencePenalty;
+    @jakarta.annotation.Nullable private BigDecimal presencePenalty;
 
     public static final String SERIALIZED_NAME_FREQUENCY_PENALTY = "frequency_penalty";
 
     @SerializedName(SERIALIZED_NAME_FREQUENCY_PENALTY)
-    @javax.annotation.Nullable private BigDecimal frequencyPenalty;
+    @jakarta.annotation.Nullable private BigDecimal frequencyPenalty;
 
     public static final String SERIALIZED_NAME_SEED = "seed";
 
     @SerializedName(SERIALIZED_NAME_SEED)
-    @javax.annotation.Nullable private BigDecimal seed;
+    @jakarta.annotation.Nullable private BigDecimal seed;
 
     /**
      * Gets or Sets effort
@@ -197,27 +197,27 @@ public class VertexAIGeminiOptions {
     public static final String SERIALIZED_NAME_EFFORT = "effort";
 
     @SerializedName(SERIALIZED_NAME_EFFORT)
-    @javax.annotation.Nullable private EffortEnum effort;
+    @jakarta.annotation.Nullable private EffortEnum effort;
 
     public static final String SERIALIZED_NAME_INCLUDE_THOUGHTS = "include_thoughts";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
-    @javax.annotation.Nullable private Boolean includeThoughts;
+    @jakarta.annotation.Nullable private Boolean includeThoughts;
 
     public static final String SERIALIZED_NAME_THINKING_BUDGET_TOKENS = "thinking_budget_tokens";
 
     @SerializedName(SERIALIZED_NAME_THINKING_BUDGET_TOKENS)
-    @javax.annotation.Nullable private BigDecimal thinkingBudgetTokens;
+    @jakarta.annotation.Nullable private BigDecimal thinkingBudgetTokens;
 
     public static final String SERIALIZED_NAME_THINKING_LEVEL = "thinking_level";
 
     @SerializedName(SERIALIZED_NAME_THINKING_LEVEL)
-    @javax.annotation.Nullable private ThinkingLevel thinkingLevel;
+    @jakarta.annotation.Nullable private ThinkingLevel thinkingLevel;
 
     public static final String SERIALIZED_NAME_FLEX = "flex";
 
     @SerializedName(SERIALIZED_NAME_FLEX)
-    @javax.annotation.Nullable private Boolean flex;
+    @jakarta.annotation.Nullable private Boolean flex;
 
     /**
      * Gets or Sets imageAspectRatio
@@ -289,7 +289,7 @@ public class VertexAIGeminiOptions {
     public static final String SERIALIZED_NAME_IMAGE_ASPECT_RATIO = "image_aspect_ratio";
 
     @SerializedName(SERIALIZED_NAME_IMAGE_ASPECT_RATIO)
-    @javax.annotation.Nullable private ImageAspectRatioEnum imageAspectRatio;
+    @jakarta.annotation.Nullable private ImageAspectRatioEnum imageAspectRatio;
 
     /**
      * Gets or Sets imageSize
@@ -351,7 +351,7 @@ public class VertexAIGeminiOptions {
     public static final String SERIALIZED_NAME_IMAGE_SIZE = "image_size";
 
     @SerializedName(SERIALIZED_NAME_IMAGE_SIZE)
-    @javax.annotation.Nullable private ImageSizeEnum imageSize;
+    @jakarta.annotation.Nullable private ImageSizeEnum imageSize;
 
     /**
      * Gets or Sets personGeneration
@@ -413,7 +413,7 @@ public class VertexAIGeminiOptions {
     public static final String SERIALIZED_NAME_PERSON_GENERATION = "person_generation";
 
     @SerializedName(SERIALIZED_NAME_PERSON_GENERATION)
-    @javax.annotation.Nullable private PersonGenerationEnum personGeneration;
+    @jakarta.annotation.Nullable private PersonGenerationEnum personGeneration;
 
     /**
      * Gets or Sets prominentPeople
@@ -475,7 +475,7 @@ public class VertexAIGeminiOptions {
     public static final String SERIALIZED_NAME_PROMINENT_PEOPLE = "prominent_people";
 
     @SerializedName(SERIALIZED_NAME_PROMINENT_PEOPLE)
-    @javax.annotation.Nullable private ProminentPeopleEnum prominentPeople;
+    @jakarta.annotation.Nullable private ProminentPeopleEnum prominentPeople;
 
     /**
      * Gets or Sets outputMimeType
@@ -535,17 +535,17 @@ public class VertexAIGeminiOptions {
     public static final String SERIALIZED_NAME_OUTPUT_MIME_TYPE = "output_mime_type";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT_MIME_TYPE)
-    @javax.annotation.Nullable private OutputMimeTypeEnum outputMimeType;
+    @jakarta.annotation.Nullable private OutputMimeTypeEnum outputMimeType;
 
     public static final String SERIALIZED_NAME_OUTPUT_COMPRESSION_QUALITY =
             "output_compression_quality";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT_COMPRESSION_QUALITY)
-    @javax.annotation.Nullable private BigDecimal outputCompressionQuality;
+    @jakarta.annotation.Nullable private BigDecimal outputCompressionQuality;
 
     public VertexAIGeminiOptions() {}
 
-    public VertexAIGeminiOptions optionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public VertexAIGeminiOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -554,16 +554,16 @@ public class VertexAIGeminiOptions {
      * Get optionId
      * @return optionId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@javax.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
-    public VertexAIGeminiOptions maxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public VertexAIGeminiOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
         return this;
     }
@@ -572,15 +572,15 @@ public class VertexAIGeminiOptions {
      * Get maxTokens
      * @return maxTokens
      */
-    @javax.annotation.Nullable public BigDecimal getMaxTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getMaxTokens() {
         return maxTokens;
     }
 
-    public void setMaxTokens(@javax.annotation.Nullable BigDecimal maxTokens) {
+    public void setMaxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
     }
 
-    public VertexAIGeminiOptions temperature(@javax.annotation.Nullable BigDecimal temperature) {
+    public VertexAIGeminiOptions temperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
         return this;
     }
@@ -589,15 +589,15 @@ public class VertexAIGeminiOptions {
      * Get temperature
      * @return temperature
      */
-    @javax.annotation.Nullable public BigDecimal getTemperature() {
+    @jakarta.annotation.Nullable public BigDecimal getTemperature() {
         return temperature;
     }
 
-    public void setTemperature(@javax.annotation.Nullable BigDecimal temperature) {
+    public void setTemperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
     }
 
-    public VertexAIGeminiOptions topP(@javax.annotation.Nullable BigDecimal topP) {
+    public VertexAIGeminiOptions topP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
         return this;
     }
@@ -606,15 +606,15 @@ public class VertexAIGeminiOptions {
      * Get topP
      * @return topP
      */
-    @javax.annotation.Nullable public BigDecimal getTopP() {
+    @jakarta.annotation.Nullable public BigDecimal getTopP() {
         return topP;
     }
 
-    public void setTopP(@javax.annotation.Nullable BigDecimal topP) {
+    public void setTopP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
     }
 
-    public VertexAIGeminiOptions topK(@javax.annotation.Nullable BigDecimal topK) {
+    public VertexAIGeminiOptions topK(@jakarta.annotation.Nullable BigDecimal topK) {
         this.topK = topK;
         return this;
     }
@@ -623,16 +623,16 @@ public class VertexAIGeminiOptions {
      * Get topK
      * @return topK
      */
-    @javax.annotation.Nullable public BigDecimal getTopK() {
+    @jakarta.annotation.Nullable public BigDecimal getTopK() {
         return topK;
     }
 
-    public void setTopK(@javax.annotation.Nullable BigDecimal topK) {
+    public void setTopK(@jakarta.annotation.Nullable BigDecimal topK) {
         this.topK = topK;
     }
 
     public VertexAIGeminiOptions stopSequence(
-            @javax.annotation.Nullable List<String> stopSequence) {
+            @jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
         return this;
     }
@@ -649,16 +649,16 @@ public class VertexAIGeminiOptions {
      * Get stopSequence
      * @return stopSequence
      */
-    @javax.annotation.Nullable public List<String> getStopSequence() {
+    @jakarta.annotation.Nullable public List<String> getStopSequence() {
         return stopSequence;
     }
 
-    public void setStopSequence(@javax.annotation.Nullable List<String> stopSequence) {
+    public void setStopSequence(@jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
     }
 
     public VertexAIGeminiOptions presencePenalty(
-            @javax.annotation.Nullable BigDecimal presencePenalty) {
+            @jakarta.annotation.Nullable BigDecimal presencePenalty) {
         this.presencePenalty = presencePenalty;
         return this;
     }
@@ -667,16 +667,16 @@ public class VertexAIGeminiOptions {
      * Get presencePenalty
      * @return presencePenalty
      */
-    @javax.annotation.Nullable public BigDecimal getPresencePenalty() {
+    @jakarta.annotation.Nullable public BigDecimal getPresencePenalty() {
         return presencePenalty;
     }
 
-    public void setPresencePenalty(@javax.annotation.Nullable BigDecimal presencePenalty) {
+    public void setPresencePenalty(@jakarta.annotation.Nullable BigDecimal presencePenalty) {
         this.presencePenalty = presencePenalty;
     }
 
     public VertexAIGeminiOptions frequencyPenalty(
-            @javax.annotation.Nullable BigDecimal frequencyPenalty) {
+            @jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
         this.frequencyPenalty = frequencyPenalty;
         return this;
     }
@@ -685,15 +685,15 @@ public class VertexAIGeminiOptions {
      * Get frequencyPenalty
      * @return frequencyPenalty
      */
-    @javax.annotation.Nullable public BigDecimal getFrequencyPenalty() {
+    @jakarta.annotation.Nullable public BigDecimal getFrequencyPenalty() {
         return frequencyPenalty;
     }
 
-    public void setFrequencyPenalty(@javax.annotation.Nullable BigDecimal frequencyPenalty) {
+    public void setFrequencyPenalty(@jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
         this.frequencyPenalty = frequencyPenalty;
     }
 
-    public VertexAIGeminiOptions seed(@javax.annotation.Nullable BigDecimal seed) {
+    public VertexAIGeminiOptions seed(@jakarta.annotation.Nullable BigDecimal seed) {
         this.seed = seed;
         return this;
     }
@@ -702,15 +702,15 @@ public class VertexAIGeminiOptions {
      * Get seed
      * @return seed
      */
-    @javax.annotation.Nullable public BigDecimal getSeed() {
+    @jakarta.annotation.Nullable public BigDecimal getSeed() {
         return seed;
     }
 
-    public void setSeed(@javax.annotation.Nullable BigDecimal seed) {
+    public void setSeed(@jakarta.annotation.Nullable BigDecimal seed) {
         this.seed = seed;
     }
 
-    public VertexAIGeminiOptions effort(@javax.annotation.Nullable EffortEnum effort) {
+    public VertexAIGeminiOptions effort(@jakarta.annotation.Nullable EffortEnum effort) {
         this.effort = effort;
         return this;
     }
@@ -719,16 +719,16 @@ public class VertexAIGeminiOptions {
      * Get effort
      * @return effort
      */
-    @javax.annotation.Nullable public EffortEnum getEffort() {
+    @jakarta.annotation.Nullable public EffortEnum getEffort() {
         return effort;
     }
 
-    public void setEffort(@javax.annotation.Nullable EffortEnum effort) {
+    public void setEffort(@jakarta.annotation.Nullable EffortEnum effort) {
         this.effort = effort;
     }
 
     public VertexAIGeminiOptions includeThoughts(
-            @javax.annotation.Nullable Boolean includeThoughts) {
+            @jakarta.annotation.Nullable Boolean includeThoughts) {
         this.includeThoughts = includeThoughts;
         return this;
     }
@@ -737,16 +737,16 @@ public class VertexAIGeminiOptions {
      * Get includeThoughts
      * @return includeThoughts
      */
-    @javax.annotation.Nullable public Boolean getIncludeThoughts() {
+    @jakarta.annotation.Nullable public Boolean getIncludeThoughts() {
         return includeThoughts;
     }
 
-    public void setIncludeThoughts(@javax.annotation.Nullable Boolean includeThoughts) {
+    public void setIncludeThoughts(@jakarta.annotation.Nullable Boolean includeThoughts) {
         this.includeThoughts = includeThoughts;
     }
 
     public VertexAIGeminiOptions thinkingBudgetTokens(
-            @javax.annotation.Nullable BigDecimal thinkingBudgetTokens) {
+            @jakarta.annotation.Nullable BigDecimal thinkingBudgetTokens) {
         this.thinkingBudgetTokens = thinkingBudgetTokens;
         return this;
     }
@@ -755,17 +755,17 @@ public class VertexAIGeminiOptions {
      * Get thinkingBudgetTokens
      * @return thinkingBudgetTokens
      */
-    @javax.annotation.Nullable public BigDecimal getThinkingBudgetTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getThinkingBudgetTokens() {
         return thinkingBudgetTokens;
     }
 
     public void setThinkingBudgetTokens(
-            @javax.annotation.Nullable BigDecimal thinkingBudgetTokens) {
+            @jakarta.annotation.Nullable BigDecimal thinkingBudgetTokens) {
         this.thinkingBudgetTokens = thinkingBudgetTokens;
     }
 
     public VertexAIGeminiOptions thinkingLevel(
-            @javax.annotation.Nullable ThinkingLevel thinkingLevel) {
+            @jakarta.annotation.Nullable ThinkingLevel thinkingLevel) {
         this.thinkingLevel = thinkingLevel;
         return this;
     }
@@ -774,15 +774,15 @@ public class VertexAIGeminiOptions {
      * Get thinkingLevel
      * @return thinkingLevel
      */
-    @javax.annotation.Nullable public ThinkingLevel getThinkingLevel() {
+    @jakarta.annotation.Nullable public ThinkingLevel getThinkingLevel() {
         return thinkingLevel;
     }
 
-    public void setThinkingLevel(@javax.annotation.Nullable ThinkingLevel thinkingLevel) {
+    public void setThinkingLevel(@jakarta.annotation.Nullable ThinkingLevel thinkingLevel) {
         this.thinkingLevel = thinkingLevel;
     }
 
-    public VertexAIGeminiOptions flex(@javax.annotation.Nullable Boolean flex) {
+    public VertexAIGeminiOptions flex(@jakarta.annotation.Nullable Boolean flex) {
         this.flex = flex;
         return this;
     }
@@ -791,16 +791,16 @@ public class VertexAIGeminiOptions {
      * Get flex
      * @return flex
      */
-    @javax.annotation.Nullable public Boolean getFlex() {
+    @jakarta.annotation.Nullable public Boolean getFlex() {
         return flex;
     }
 
-    public void setFlex(@javax.annotation.Nullable Boolean flex) {
+    public void setFlex(@jakarta.annotation.Nullable Boolean flex) {
         this.flex = flex;
     }
 
     public VertexAIGeminiOptions imageAspectRatio(
-            @javax.annotation.Nullable ImageAspectRatioEnum imageAspectRatio) {
+            @jakarta.annotation.Nullable ImageAspectRatioEnum imageAspectRatio) {
         this.imageAspectRatio = imageAspectRatio;
         return this;
     }
@@ -809,16 +809,16 @@ public class VertexAIGeminiOptions {
      * Get imageAspectRatio
      * @return imageAspectRatio
      */
-    @javax.annotation.Nullable public ImageAspectRatioEnum getImageAspectRatio() {
+    @jakarta.annotation.Nullable public ImageAspectRatioEnum getImageAspectRatio() {
         return imageAspectRatio;
     }
 
     public void setImageAspectRatio(
-            @javax.annotation.Nullable ImageAspectRatioEnum imageAspectRatio) {
+            @jakarta.annotation.Nullable ImageAspectRatioEnum imageAspectRatio) {
         this.imageAspectRatio = imageAspectRatio;
     }
 
-    public VertexAIGeminiOptions imageSize(@javax.annotation.Nullable ImageSizeEnum imageSize) {
+    public VertexAIGeminiOptions imageSize(@jakarta.annotation.Nullable ImageSizeEnum imageSize) {
         this.imageSize = imageSize;
         return this;
     }
@@ -827,16 +827,16 @@ public class VertexAIGeminiOptions {
      * Get imageSize
      * @return imageSize
      */
-    @javax.annotation.Nullable public ImageSizeEnum getImageSize() {
+    @jakarta.annotation.Nullable public ImageSizeEnum getImageSize() {
         return imageSize;
     }
 
-    public void setImageSize(@javax.annotation.Nullable ImageSizeEnum imageSize) {
+    public void setImageSize(@jakarta.annotation.Nullable ImageSizeEnum imageSize) {
         this.imageSize = imageSize;
     }
 
     public VertexAIGeminiOptions personGeneration(
-            @javax.annotation.Nullable PersonGenerationEnum personGeneration) {
+            @jakarta.annotation.Nullable PersonGenerationEnum personGeneration) {
         this.personGeneration = personGeneration;
         return this;
     }
@@ -845,17 +845,17 @@ public class VertexAIGeminiOptions {
      * Get personGeneration
      * @return personGeneration
      */
-    @javax.annotation.Nullable public PersonGenerationEnum getPersonGeneration() {
+    @jakarta.annotation.Nullable public PersonGenerationEnum getPersonGeneration() {
         return personGeneration;
     }
 
     public void setPersonGeneration(
-            @javax.annotation.Nullable PersonGenerationEnum personGeneration) {
+            @jakarta.annotation.Nullable PersonGenerationEnum personGeneration) {
         this.personGeneration = personGeneration;
     }
 
     public VertexAIGeminiOptions prominentPeople(
-            @javax.annotation.Nullable ProminentPeopleEnum prominentPeople) {
+            @jakarta.annotation.Nullable ProminentPeopleEnum prominentPeople) {
         this.prominentPeople = prominentPeople;
         return this;
     }
@@ -864,16 +864,17 @@ public class VertexAIGeminiOptions {
      * Get prominentPeople
      * @return prominentPeople
      */
-    @javax.annotation.Nullable public ProminentPeopleEnum getProminentPeople() {
+    @jakarta.annotation.Nullable public ProminentPeopleEnum getProminentPeople() {
         return prominentPeople;
     }
 
-    public void setProminentPeople(@javax.annotation.Nullable ProminentPeopleEnum prominentPeople) {
+    public void setProminentPeople(
+            @jakarta.annotation.Nullable ProminentPeopleEnum prominentPeople) {
         this.prominentPeople = prominentPeople;
     }
 
     public VertexAIGeminiOptions outputMimeType(
-            @javax.annotation.Nullable OutputMimeTypeEnum outputMimeType) {
+            @jakarta.annotation.Nullable OutputMimeTypeEnum outputMimeType) {
         this.outputMimeType = outputMimeType;
         return this;
     }
@@ -882,16 +883,16 @@ public class VertexAIGeminiOptions {
      * Get outputMimeType
      * @return outputMimeType
      */
-    @javax.annotation.Nullable public OutputMimeTypeEnum getOutputMimeType() {
+    @jakarta.annotation.Nullable public OutputMimeTypeEnum getOutputMimeType() {
         return outputMimeType;
     }
 
-    public void setOutputMimeType(@javax.annotation.Nullable OutputMimeTypeEnum outputMimeType) {
+    public void setOutputMimeType(@jakarta.annotation.Nullable OutputMimeTypeEnum outputMimeType) {
         this.outputMimeType = outputMimeType;
     }
 
     public VertexAIGeminiOptions outputCompressionQuality(
-            @javax.annotation.Nullable BigDecimal outputCompressionQuality) {
+            @jakarta.annotation.Nullable BigDecimal outputCompressionQuality) {
         this.outputCompressionQuality = outputCompressionQuality;
         return this;
     }
@@ -900,12 +901,12 @@ public class VertexAIGeminiOptions {
      * Get outputCompressionQuality
      * @return outputCompressionQuality
      */
-    @javax.annotation.Nullable public BigDecimal getOutputCompressionQuality() {
+    @jakarta.annotation.Nullable public BigDecimal getOutputCompressionQuality() {
         return outputCompressionQuality;
     }
 
     public void setOutputCompressionQuality(
-            @javax.annotation.Nullable BigDecimal outputCompressionQuality) {
+            @jakarta.annotation.Nullable BigDecimal outputCompressionQuality) {
         this.outputCompressionQuality = outputCompressionQuality;
     }
 

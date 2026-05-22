@@ -30,38 +30,38 @@ import java.util.Objects;
 /**
  * WebsiteCredentialFillResponseFilled
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WebsiteCredentialFillResponseFilled {
     public static final String SERIALIZED_NAME_USERNAME = "username";
 
     @SerializedName(SERIALIZED_NAME_USERNAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean username;
 
     public static final String SERIALIZED_NAME_PASSWORD = "password";
 
     @SerializedName(SERIALIZED_NAME_PASSWORD)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean password;
 
     public static final String SERIALIZED_NAME_TOTP = "totp";
 
     @SerializedName(SERIALIZED_NAME_TOTP)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean totp;
 
     public static final String SERIALIZED_NAME_SUBMITTED = "submitted";
 
     @SerializedName(SERIALIZED_NAME_SUBMITTED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean submitted;
 
     public WebsiteCredentialFillResponseFilled() {}
 
     public WebsiteCredentialFillResponseFilled username(
-            @javax.annotation.Nonnull Boolean username) {
+            @jakarta.annotation.Nonnull Boolean username) {
         this.username = username;
         return this;
     }
@@ -70,17 +70,17 @@ public class WebsiteCredentialFillResponseFilled {
      * Get username
      * @return username
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getUsername() {
         return username;
     }
 
-    public void setUsername(@javax.annotation.Nonnull Boolean username) {
+    public void setUsername(@jakarta.annotation.Nonnull Boolean username) {
         this.username = username;
     }
 
     public WebsiteCredentialFillResponseFilled password(
-            @javax.annotation.Nonnull Boolean password) {
+            @jakarta.annotation.Nonnull Boolean password) {
         this.password = password;
         return this;
     }
@@ -89,16 +89,16 @@ public class WebsiteCredentialFillResponseFilled {
      * Get password
      * @return password
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getPassword() {
         return password;
     }
 
-    public void setPassword(@javax.annotation.Nonnull Boolean password) {
+    public void setPassword(@jakarta.annotation.Nonnull Boolean password) {
         this.password = password;
     }
 
-    public WebsiteCredentialFillResponseFilled totp(@javax.annotation.Nonnull Boolean totp) {
+    public WebsiteCredentialFillResponseFilled totp(@jakarta.annotation.Nonnull Boolean totp) {
         this.totp = totp;
         return this;
     }
@@ -107,17 +107,17 @@ public class WebsiteCredentialFillResponseFilled {
      * Get totp
      * @return totp
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getTotp() {
         return totp;
     }
 
-    public void setTotp(@javax.annotation.Nonnull Boolean totp) {
+    public void setTotp(@jakarta.annotation.Nonnull Boolean totp) {
         this.totp = totp;
     }
 
     public WebsiteCredentialFillResponseFilled submitted(
-            @javax.annotation.Nonnull Boolean submitted) {
+            @jakarta.annotation.Nonnull Boolean submitted) {
         this.submitted = submitted;
         return this;
     }
@@ -126,12 +126,12 @@ public class WebsiteCredentialFillResponseFilled {
      * Get submitted
      * @return submitted
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getSubmitted() {
         return submitted;
     }
 
-    public void setSubmitted(@javax.annotation.Nonnull Boolean submitted) {
+    public void setSubmitted(@jakarta.annotation.Nonnull Boolean submitted) {
         this.submitted = submitted;
     }
 

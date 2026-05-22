@@ -33,19 +33,19 @@ import java.util.Objects;
 /**
  * PromptFormatter
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromptFormatter {
     public static final String SERIALIZED_NAME_NAMED_ARGS = "namedArgs";
 
     @SerializedName(SERIALIZED_NAME_NAMED_ARGS)
-    @javax.annotation.Nullable private PromptFormatterNamedArgs namedArgs;
+    @jakarta.annotation.Nullable private PromptFormatterNamedArgs namedArgs;
 
     public PromptFormatter() {}
 
     public PromptFormatter namedArgs(
-            @javax.annotation.Nullable PromptFormatterNamedArgs namedArgs) {
+            @jakarta.annotation.Nullable PromptFormatterNamedArgs namedArgs) {
         this.namedArgs = namedArgs;
         return this;
     }
@@ -54,11 +54,11 @@ public class PromptFormatter {
      * Get namedArgs
      * @return namedArgs
      */
-    @javax.annotation.Nullable public PromptFormatterNamedArgs getNamedArgs() {
+    @jakarta.annotation.Nullable public PromptFormatterNamedArgs getNamedArgs() {
         return namedArgs;
     }
 
-    public void setNamedArgs(@javax.annotation.Nullable PromptFormatterNamedArgs namedArgs) {
+    public void setNamedArgs(@jakarta.annotation.Nullable PromptFormatterNamedArgs namedArgs) {
         this.namedArgs = namedArgs;
     }
 

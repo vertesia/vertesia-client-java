@@ -35,46 +35,46 @@ import java.util.Objects;
 /**
  * EmbeddingsStatusResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EmbeddingsStatusResponse {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String status;
 
     public static final String SERIALIZED_NAME_EMBEDDING_RUNS_IN_PROGRESS =
             "embeddingRunsInProgress";
 
     @SerializedName(SERIALIZED_NAME_EMBEDDING_RUNS_IN_PROGRESS)
-    @javax.annotation.Nullable private BigDecimal embeddingRunsInProgress;
+    @jakarta.annotation.Nullable private BigDecimal embeddingRunsInProgress;
 
     public static final String SERIALIZED_NAME_TOTAL_INDEXABLE_OBJECTS = "totalIndexableObjects";
 
     @SerializedName(SERIALIZED_NAME_TOTAL_INDEXABLE_OBJECTS)
-    @javax.annotation.Nullable private BigDecimal totalIndexableObjects;
+    @jakarta.annotation.Nullable private BigDecimal totalIndexableObjects;
 
     public static final String SERIALIZED_NAME_EMBEDDINGS_MODELS = "embeddingsModels";
 
     @SerializedName(SERIALIZED_NAME_EMBEDDINGS_MODELS)
-    @javax.annotation.Nullable private List<String> embeddingsModels = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> embeddingsModels = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_OBJECTS_WITH_EMBEDDINGS = "objectsWithEmbeddings";
 
     @SerializedName(SERIALIZED_NAME_OBJECTS_WITH_EMBEDDINGS)
-    @javax.annotation.Nullable private BigDecimal objectsWithEmbeddings;
+    @jakarta.annotation.Nullable private BigDecimal objectsWithEmbeddings;
 
     public static final String SERIALIZED_NAME_VECTOR_INDEX = "vectorIndex";
 
     @SerializedName(SERIALIZED_NAME_VECTOR_INDEX)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private EmbeddingsStatusResponseVectorIndex vectorIndex;
 
     public EmbeddingsStatusResponse() {}
 
-    public EmbeddingsStatusResponse status(@javax.annotation.Nonnull String status) {
+    public EmbeddingsStatusResponse status(@jakarta.annotation.Nonnull String status) {
         this.status = status;
         return this;
     }
@@ -83,17 +83,17 @@ public class EmbeddingsStatusResponse {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull String status) {
+    public void setStatus(@jakarta.annotation.Nonnull String status) {
         this.status = status;
     }
 
     public EmbeddingsStatusResponse embeddingRunsInProgress(
-            @javax.annotation.Nullable BigDecimal embeddingRunsInProgress) {
+            @jakarta.annotation.Nullable BigDecimal embeddingRunsInProgress) {
         this.embeddingRunsInProgress = embeddingRunsInProgress;
         return this;
     }
@@ -102,17 +102,17 @@ public class EmbeddingsStatusResponse {
      * Get embeddingRunsInProgress
      * @return embeddingRunsInProgress
      */
-    @javax.annotation.Nullable public BigDecimal getEmbeddingRunsInProgress() {
+    @jakarta.annotation.Nullable public BigDecimal getEmbeddingRunsInProgress() {
         return embeddingRunsInProgress;
     }
 
     public void setEmbeddingRunsInProgress(
-            @javax.annotation.Nullable BigDecimal embeddingRunsInProgress) {
+            @jakarta.annotation.Nullable BigDecimal embeddingRunsInProgress) {
         this.embeddingRunsInProgress = embeddingRunsInProgress;
     }
 
     public EmbeddingsStatusResponse totalIndexableObjects(
-            @javax.annotation.Nullable BigDecimal totalIndexableObjects) {
+            @jakarta.annotation.Nullable BigDecimal totalIndexableObjects) {
         this.totalIndexableObjects = totalIndexableObjects;
         return this;
     }
@@ -121,17 +121,17 @@ public class EmbeddingsStatusResponse {
      * Get totalIndexableObjects
      * @return totalIndexableObjects
      */
-    @javax.annotation.Nullable public BigDecimal getTotalIndexableObjects() {
+    @jakarta.annotation.Nullable public BigDecimal getTotalIndexableObjects() {
         return totalIndexableObjects;
     }
 
     public void setTotalIndexableObjects(
-            @javax.annotation.Nullable BigDecimal totalIndexableObjects) {
+            @jakarta.annotation.Nullable BigDecimal totalIndexableObjects) {
         this.totalIndexableObjects = totalIndexableObjects;
     }
 
     public EmbeddingsStatusResponse embeddingsModels(
-            @javax.annotation.Nullable List<String> embeddingsModels) {
+            @jakarta.annotation.Nullable List<String> embeddingsModels) {
         this.embeddingsModels = embeddingsModels;
         return this;
     }
@@ -148,16 +148,16 @@ public class EmbeddingsStatusResponse {
      * Get embeddingsModels
      * @return embeddingsModels
      */
-    @javax.annotation.Nullable public List<String> getEmbeddingsModels() {
+    @jakarta.annotation.Nullable public List<String> getEmbeddingsModels() {
         return embeddingsModels;
     }
 
-    public void setEmbeddingsModels(@javax.annotation.Nullable List<String> embeddingsModels) {
+    public void setEmbeddingsModels(@jakarta.annotation.Nullable List<String> embeddingsModels) {
         this.embeddingsModels = embeddingsModels;
     }
 
     public EmbeddingsStatusResponse objectsWithEmbeddings(
-            @javax.annotation.Nullable BigDecimal objectsWithEmbeddings) {
+            @jakarta.annotation.Nullable BigDecimal objectsWithEmbeddings) {
         this.objectsWithEmbeddings = objectsWithEmbeddings;
         return this;
     }
@@ -166,17 +166,17 @@ public class EmbeddingsStatusResponse {
      * Get objectsWithEmbeddings
      * @return objectsWithEmbeddings
      */
-    @javax.annotation.Nullable public BigDecimal getObjectsWithEmbeddings() {
+    @jakarta.annotation.Nullable public BigDecimal getObjectsWithEmbeddings() {
         return objectsWithEmbeddings;
     }
 
     public void setObjectsWithEmbeddings(
-            @javax.annotation.Nullable BigDecimal objectsWithEmbeddings) {
+            @jakarta.annotation.Nullable BigDecimal objectsWithEmbeddings) {
         this.objectsWithEmbeddings = objectsWithEmbeddings;
     }
 
     public EmbeddingsStatusResponse vectorIndex(
-            @javax.annotation.Nonnull EmbeddingsStatusResponseVectorIndex vectorIndex) {
+            @jakarta.annotation.Nonnull EmbeddingsStatusResponseVectorIndex vectorIndex) {
         this.vectorIndex = vectorIndex;
         return this;
     }
@@ -185,13 +185,13 @@ public class EmbeddingsStatusResponse {
      * Get vectorIndex
      * @return vectorIndex
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public EmbeddingsStatusResponseVectorIndex getVectorIndex() {
         return vectorIndex;
     }
 
     public void setVectorIndex(
-            @javax.annotation.Nonnull EmbeddingsStatusResponseVectorIndex vectorIndex) {
+            @jakarta.annotation.Nonnull EmbeddingsStatusResponseVectorIndex vectorIndex) {
         this.vectorIndex = vectorIndex;
     }
 

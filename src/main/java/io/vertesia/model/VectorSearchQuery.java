@@ -33,38 +33,38 @@ import java.util.Objects;
 /**
  * VectorSearchQuery
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class VectorSearchQuery {
     public static final String SERIALIZED_NAME_OBJECT_ID = "objectId";
 
     @SerializedName(SERIALIZED_NAME_OBJECT_ID)
-    @javax.annotation.Nullable private String objectId;
+    @jakarta.annotation.Nullable private String objectId;
 
     public static final String SERIALIZED_NAME_VALUES = "values";
 
     @SerializedName(SERIALIZED_NAME_VALUES)
-    @javax.annotation.Nullable private List<BigDecimal> values = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<BigDecimal> values = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TEXT = "text";
 
     @SerializedName(SERIALIZED_NAME_TEXT)
-    @javax.annotation.Nullable private String text;
+    @jakarta.annotation.Nullable private String text;
 
     public static final String SERIALIZED_NAME_IMAGE = "image";
 
     @SerializedName(SERIALIZED_NAME_IMAGE)
-    @javax.annotation.Nullable private String image;
+    @jakarta.annotation.Nullable private String image;
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nullable private PartialRecordSupportedEmbeddingTypesBoolean config;
+    @jakarta.annotation.Nullable private PartialRecordSupportedEmbeddingTypesBoolean config;
 
     public VectorSearchQuery() {}
 
-    public VectorSearchQuery objectId(@javax.annotation.Nullable String objectId) {
+    public VectorSearchQuery objectId(@jakarta.annotation.Nullable String objectId) {
         this.objectId = objectId;
         return this;
     }
@@ -73,15 +73,15 @@ public class VectorSearchQuery {
      * Get objectId
      * @return objectId
      */
-    @javax.annotation.Nullable public String getObjectId() {
+    @jakarta.annotation.Nullable public String getObjectId() {
         return objectId;
     }
 
-    public void setObjectId(@javax.annotation.Nullable String objectId) {
+    public void setObjectId(@jakarta.annotation.Nullable String objectId) {
         this.objectId = objectId;
     }
 
-    public VectorSearchQuery values(@javax.annotation.Nullable List<BigDecimal> values) {
+    public VectorSearchQuery values(@jakarta.annotation.Nullable List<BigDecimal> values) {
         this.values = values;
         return this;
     }
@@ -98,15 +98,15 @@ public class VectorSearchQuery {
      * Get values
      * @return values
      */
-    @javax.annotation.Nullable public List<BigDecimal> getValues() {
+    @jakarta.annotation.Nullable public List<BigDecimal> getValues() {
         return values;
     }
 
-    public void setValues(@javax.annotation.Nullable List<BigDecimal> values) {
+    public void setValues(@jakarta.annotation.Nullable List<BigDecimal> values) {
         this.values = values;
     }
 
-    public VectorSearchQuery text(@javax.annotation.Nullable String text) {
+    public VectorSearchQuery text(@jakarta.annotation.Nullable String text) {
         this.text = text;
         return this;
     }
@@ -115,15 +115,15 @@ public class VectorSearchQuery {
      * Get text
      * @return text
      */
-    @javax.annotation.Nullable public String getText() {
+    @jakarta.annotation.Nullable public String getText() {
         return text;
     }
 
-    public void setText(@javax.annotation.Nullable String text) {
+    public void setText(@jakarta.annotation.Nullable String text) {
         this.text = text;
     }
 
-    public VectorSearchQuery image(@javax.annotation.Nullable String image) {
+    public VectorSearchQuery image(@jakarta.annotation.Nullable String image) {
         this.image = image;
         return this;
     }
@@ -132,16 +132,16 @@ public class VectorSearchQuery {
      * Get image
      * @return image
      */
-    @javax.annotation.Nullable public String getImage() {
+    @jakarta.annotation.Nullable public String getImage() {
         return image;
     }
 
-    public void setImage(@javax.annotation.Nullable String image) {
+    public void setImage(@jakarta.annotation.Nullable String image) {
         this.image = image;
     }
 
     public VectorSearchQuery config(
-            @javax.annotation.Nullable PartialRecordSupportedEmbeddingTypesBoolean config) {
+            @jakarta.annotation.Nullable PartialRecordSupportedEmbeddingTypesBoolean config) {
         this.config = config;
         return this;
     }
@@ -150,12 +150,12 @@ public class VectorSearchQuery {
      * Get config
      * @return config
      */
-    @javax.annotation.Nullable public PartialRecordSupportedEmbeddingTypesBoolean getConfig() {
+    @jakarta.annotation.Nullable public PartialRecordSupportedEmbeddingTypesBoolean getConfig() {
         return config;
     }
 
     public void setConfig(
-            @javax.annotation.Nullable PartialRecordSupportedEmbeddingTypesBoolean config) {
+            @jakarta.annotation.Nullable PartialRecordSupportedEmbeddingTypesBoolean config) {
         this.config = config;
     }
 

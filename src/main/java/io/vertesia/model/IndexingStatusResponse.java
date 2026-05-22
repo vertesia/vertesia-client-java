@@ -34,56 +34,56 @@ import java.util.Objects;
 /**
  * Response from indexing status endpoint
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class IndexingStatusResponse {
     public static final String SERIALIZED_NAME_INFRASTRUCTURE_ENABLED = "infrastructure_enabled";
 
     @SerializedName(SERIALIZED_NAME_INFRASTRUCTURE_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean infrastructureEnabled;
 
     public static final String SERIALIZED_NAME_INDEXING_ENABLED = "indexing_enabled";
 
     @SerializedName(SERIALIZED_NAME_INDEXING_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean indexingEnabled;
 
     public static final String SERIALIZED_NAME_QUERY_ENABLED = "query_enabled";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_QUERY_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean queryEnabled;
 
     public static final String SERIALIZED_NAME_INDEX = "index";
 
     @SerializedName(SERIALIZED_NAME_INDEX)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private IndexingStatusResponseIndex index;
 
     public static final String SERIALIZED_NAME_MONGO_DOCUMENT_COUNT = "mongo_document_count";
 
     @SerializedName(SERIALIZED_NAME_MONGO_DOCUMENT_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal mongoDocumentCount;
 
     public static final String SERIALIZED_NAME_REINDEX_IN_PROGRESS = "reindex_in_progress";
 
     @SerializedName(SERIALIZED_NAME_REINDEX_IN_PROGRESS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean reindexInProgress;
 
     public static final String SERIALIZED_NAME_REINDEX_PROGRESS = "reindex_progress";
 
     @SerializedName(SERIALIZED_NAME_REINDEX_PROGRESS)
-    @javax.annotation.Nullable private IndexingStatusResponseReindexProgress reindexProgress;
+    @jakarta.annotation.Nullable private IndexingStatusResponseReindexProgress reindexProgress;
 
     public IndexingStatusResponse() {}
 
     public IndexingStatusResponse infrastructureEnabled(
-            @javax.annotation.Nonnull Boolean infrastructureEnabled) {
+            @jakarta.annotation.Nonnull Boolean infrastructureEnabled) {
         this.infrastructureEnabled = infrastructureEnabled;
         return this;
     }
@@ -92,17 +92,18 @@ public class IndexingStatusResponse {
      * Whether indexing infrastructure is available globally
      * @return infrastructureEnabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getInfrastructureEnabled() {
         return infrastructureEnabled;
     }
 
-    public void setInfrastructureEnabled(@javax.annotation.Nonnull Boolean infrastructureEnabled) {
+    public void setInfrastructureEnabled(
+            @jakarta.annotation.Nonnull Boolean infrastructureEnabled) {
         this.infrastructureEnabled = infrastructureEnabled;
     }
 
     public IndexingStatusResponse indexingEnabled(
-            @javax.annotation.Nonnull Boolean indexingEnabled) {
+            @jakarta.annotation.Nonnull Boolean indexingEnabled) {
         this.indexingEnabled = indexingEnabled;
         return this;
     }
@@ -111,17 +112,17 @@ public class IndexingStatusResponse {
      * Whether indexing is enabled for this project
      * @return indexingEnabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getIndexingEnabled() {
         return indexingEnabled;
     }
 
-    public void setIndexingEnabled(@javax.annotation.Nonnull Boolean indexingEnabled) {
+    public void setIndexingEnabled(@jakarta.annotation.Nonnull Boolean indexingEnabled) {
         this.indexingEnabled = indexingEnabled;
     }
 
     @Deprecated
-    public IndexingStatusResponse queryEnabled(@javax.annotation.Nonnull Boolean queryEnabled) {
+    public IndexingStatusResponse queryEnabled(@jakarta.annotation.Nonnull Boolean queryEnabled) {
         this.queryEnabled = queryEnabled;
         return this;
     }
@@ -132,18 +133,18 @@ public class IndexingStatusResponse {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getQueryEnabled() {
         return queryEnabled;
     }
 
     @Deprecated
-    public void setQueryEnabled(@javax.annotation.Nonnull Boolean queryEnabled) {
+    public void setQueryEnabled(@jakarta.annotation.Nonnull Boolean queryEnabled) {
         this.queryEnabled = queryEnabled;
     }
 
     public IndexingStatusResponse index(
-            @javax.annotation.Nonnull IndexingStatusResponseIndex index) {
+            @jakarta.annotation.Nonnull IndexingStatusResponseIndex index) {
         this.index = index;
         return this;
     }
@@ -152,17 +153,17 @@ public class IndexingStatusResponse {
      * Get index
      * @return index
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public IndexingStatusResponseIndex getIndex() {
         return index;
     }
 
-    public void setIndex(@javax.annotation.Nonnull IndexingStatusResponseIndex index) {
+    public void setIndex(@jakarta.annotation.Nonnull IndexingStatusResponseIndex index) {
         this.index = index;
     }
 
     public IndexingStatusResponse mongoDocumentCount(
-            @javax.annotation.Nonnull BigDecimal mongoDocumentCount) {
+            @jakarta.annotation.Nonnull BigDecimal mongoDocumentCount) {
         this.mongoDocumentCount = mongoDocumentCount;
         return this;
     }
@@ -171,17 +172,17 @@ public class IndexingStatusResponse {
      * MongoDB document count for comparison
      * @return mongoDocumentCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getMongoDocumentCount() {
         return mongoDocumentCount;
     }
 
-    public void setMongoDocumentCount(@javax.annotation.Nonnull BigDecimal mongoDocumentCount) {
+    public void setMongoDocumentCount(@jakarta.annotation.Nonnull BigDecimal mongoDocumentCount) {
         this.mongoDocumentCount = mongoDocumentCount;
     }
 
     public IndexingStatusResponse reindexInProgress(
-            @javax.annotation.Nonnull Boolean reindexInProgress) {
+            @jakarta.annotation.Nonnull Boolean reindexInProgress) {
         this.reindexInProgress = reindexInProgress;
         return this;
     }
@@ -190,17 +191,17 @@ public class IndexingStatusResponse {
      * Whether a reindex is currently in progress
      * @return reindexInProgress
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getReindexInProgress() {
         return reindexInProgress;
     }
 
-    public void setReindexInProgress(@javax.annotation.Nonnull Boolean reindexInProgress) {
+    public void setReindexInProgress(@jakarta.annotation.Nonnull Boolean reindexInProgress) {
         this.reindexInProgress = reindexInProgress;
     }
 
     public IndexingStatusResponse reindexProgress(
-            @javax.annotation.Nullable IndexingStatusResponseReindexProgress reindexProgress) {
+            @jakarta.annotation.Nullable IndexingStatusResponseReindexProgress reindexProgress) {
         this.reindexProgress = reindexProgress;
         return this;
     }
@@ -209,12 +210,12 @@ public class IndexingStatusResponse {
      * Get reindexProgress
      * @return reindexProgress
      */
-    @javax.annotation.Nullable public IndexingStatusResponseReindexProgress getReindexProgress() {
+    @jakarta.annotation.Nullable public IndexingStatusResponseReindexProgress getReindexProgress() {
         return reindexProgress;
     }
 
     public void setReindexProgress(
-            @javax.annotation.Nullable IndexingStatusResponseReindexProgress reindexProgress) {
+            @jakarta.annotation.Nullable IndexingStatusResponseReindexProgress reindexProgress) {
         this.reindexProgress = reindexProgress;
     }
 

@@ -33,68 +33,68 @@ import java.util.Objects;
 /**
  * The payload to query the interaction endpoints
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InteractionEndpointQuery {
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nullable private BigDecimal limit;
+    @jakarta.annotation.Nullable private BigDecimal limit;
 
     public static final String SERIALIZED_NAME_OFFSET = "offset";
 
     @SerializedName(SERIALIZED_NAME_OFFSET)
-    @javax.annotation.Nullable private BigDecimal offset;
+    @jakarta.annotation.Nullable private BigDecimal offset;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private InteractionStatus status;
+    @jakarta.annotation.Nullable private InteractionStatus status;
 
     public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
     @SerializedName(SERIALIZED_NAME_VISIBILITY)
-    @javax.annotation.Nullable private InteractionVisibility visibility;
+    @jakarta.annotation.Nullable private InteractionVisibility visibility;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nullable private BigDecimal version;
+    @jakarta.annotation.Nullable private BigDecimal version;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_INCLUDES = "includes";
 
     @SerializedName(SERIALIZED_NAME_INCLUDES)
-    @javax.annotation.Nullable private List<String> includes = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> includes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_EXCLUDES = "excludes";
 
     @SerializedName(SERIALIZED_NAME_EXCLUDES)
-    @javax.annotation.Nullable private List<String> excludes = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> excludes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_INCLUDE_PARAMS_SCHEMA = "include_params_schema";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_PARAMS_SCHEMA)
-    @javax.annotation.Nullable private Boolean includeParamsSchema;
+    @jakarta.annotation.Nullable private Boolean includeParamsSchema;
 
     public static final String SERIALIZED_NAME_INCLUDE_RESULT_SCHEMA = "include_result_schema";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_RESULT_SCHEMA)
-    @javax.annotation.Nullable private Boolean includeResultSchema;
+    @jakarta.annotation.Nullable private Boolean includeResultSchema;
 
     public static final String SERIALIZED_NAME_IS_SKILL = "is_skill";
 
     @SerializedName(SERIALIZED_NAME_IS_SKILL)
-    @javax.annotation.Nullable private Boolean isSkill;
+    @jakarta.annotation.Nullable private Boolean isSkill;
 
     public InteractionEndpointQuery() {}
 
-    public InteractionEndpointQuery limit(@javax.annotation.Nullable BigDecimal limit) {
+    public InteractionEndpointQuery limit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -103,15 +103,15 @@ public class InteractionEndpointQuery {
      * Get limit
      * @return limit
      */
-    @javax.annotation.Nullable public BigDecimal getLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nullable BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
     }
 
-    public InteractionEndpointQuery offset(@javax.annotation.Nullable BigDecimal offset) {
+    public InteractionEndpointQuery offset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
         return this;
     }
@@ -120,15 +120,15 @@ public class InteractionEndpointQuery {
      * Get offset
      * @return offset
      */
-    @javax.annotation.Nullable public BigDecimal getOffset() {
+    @jakarta.annotation.Nullable public BigDecimal getOffset() {
         return offset;
     }
 
-    public void setOffset(@javax.annotation.Nullable BigDecimal offset) {
+    public void setOffset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
     }
 
-    public InteractionEndpointQuery status(@javax.annotation.Nullable InteractionStatus status) {
+    public InteractionEndpointQuery status(@jakarta.annotation.Nullable InteractionStatus status) {
         this.status = status;
         return this;
     }
@@ -137,16 +137,16 @@ public class InteractionEndpointQuery {
      * Get status
      * @return status
      */
-    @javax.annotation.Nullable public InteractionStatus getStatus() {
+    @jakarta.annotation.Nullable public InteractionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable InteractionStatus status) {
+    public void setStatus(@jakarta.annotation.Nullable InteractionStatus status) {
         this.status = status;
     }
 
     public InteractionEndpointQuery visibility(
-            @javax.annotation.Nullable InteractionVisibility visibility) {
+            @jakarta.annotation.Nullable InteractionVisibility visibility) {
         this.visibility = visibility;
         return this;
     }
@@ -155,15 +155,15 @@ public class InteractionEndpointQuery {
      * Get visibility
      * @return visibility
      */
-    @javax.annotation.Nullable public InteractionVisibility getVisibility() {
+    @jakarta.annotation.Nullable public InteractionVisibility getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(@javax.annotation.Nullable InteractionVisibility visibility) {
+    public void setVisibility(@jakarta.annotation.Nullable InteractionVisibility visibility) {
         this.visibility = visibility;
     }
 
-    public InteractionEndpointQuery version(@javax.annotation.Nullable BigDecimal version) {
+    public InteractionEndpointQuery version(@jakarta.annotation.Nullable BigDecimal version) {
         this.version = version;
         return this;
     }
@@ -172,15 +172,15 @@ public class InteractionEndpointQuery {
      * Get version
      * @return version
      */
-    @javax.annotation.Nullable public BigDecimal getVersion() {
+    @jakarta.annotation.Nullable public BigDecimal getVersion() {
         return version;
     }
 
-    public void setVersion(@javax.annotation.Nullable BigDecimal version) {
+    public void setVersion(@jakarta.annotation.Nullable BigDecimal version) {
         this.version = version;
     }
 
-    public InteractionEndpointQuery tags(@javax.annotation.Nullable List<String> tags) {
+    public InteractionEndpointQuery tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -197,15 +197,15 @@ public class InteractionEndpointQuery {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public InteractionEndpointQuery includes(@javax.annotation.Nullable List<String> includes) {
+    public InteractionEndpointQuery includes(@jakarta.annotation.Nullable List<String> includes) {
         this.includes = includes;
         return this;
     }
@@ -222,15 +222,15 @@ public class InteractionEndpointQuery {
      * Filter by interaction endpoint name to include only the specified endpoints * If both includes and excludes are specified then only the includes filter will be used.
      * @return includes
      */
-    @javax.annotation.Nullable public List<String> getIncludes() {
+    @jakarta.annotation.Nullable public List<String> getIncludes() {
         return includes;
     }
 
-    public void setIncludes(@javax.annotation.Nullable List<String> includes) {
+    public void setIncludes(@jakarta.annotation.Nullable List<String> includes) {
         this.includes = includes;
     }
 
-    public InteractionEndpointQuery excludes(@javax.annotation.Nullable List<String> excludes) {
+    public InteractionEndpointQuery excludes(@jakarta.annotation.Nullable List<String> excludes) {
         this.excludes = excludes;
         return this;
     }
@@ -247,16 +247,16 @@ public class InteractionEndpointQuery {
      * Filter by interaction endpoint name to excludes the specified endpoints. If both includes and excludes are specified then only the includes filter will be used.
      * @return excludes
      */
-    @javax.annotation.Nullable public List<String> getExcludes() {
+    @jakarta.annotation.Nullable public List<String> getExcludes() {
         return excludes;
     }
 
-    public void setExcludes(@javax.annotation.Nullable List<String> excludes) {
+    public void setExcludes(@jakarta.annotation.Nullable List<String> excludes) {
         this.excludes = excludes;
     }
 
     public InteractionEndpointQuery includeParamsSchema(
-            @javax.annotation.Nullable Boolean includeParamsSchema) {
+            @jakarta.annotation.Nullable Boolean includeParamsSchema) {
         this.includeParamsSchema = includeParamsSchema;
         return this;
     }
@@ -265,16 +265,16 @@ public class InteractionEndpointQuery {
      * Whether or not to return the parameters schema. The parameters schema is an array of JSON schemas. Each schema is a JSON schema that describes the parameters of an interaction prompt.
      * @return includeParamsSchema
      */
-    @javax.annotation.Nullable public Boolean getIncludeParamsSchema() {
+    @jakarta.annotation.Nullable public Boolean getIncludeParamsSchema() {
         return includeParamsSchema;
     }
 
-    public void setIncludeParamsSchema(@javax.annotation.Nullable Boolean includeParamsSchema) {
+    public void setIncludeParamsSchema(@jakarta.annotation.Nullable Boolean includeParamsSchema) {
         this.includeParamsSchema = includeParamsSchema;
     }
 
     public InteractionEndpointQuery includeResultSchema(
-            @javax.annotation.Nullable Boolean includeResultSchema) {
+            @jakarta.annotation.Nullable Boolean includeResultSchema) {
         this.includeResultSchema = includeResultSchema;
         return this;
     }
@@ -283,15 +283,15 @@ public class InteractionEndpointQuery {
      * Whether or not to return the result schema
      * @return includeResultSchema
      */
-    @javax.annotation.Nullable public Boolean getIncludeResultSchema() {
+    @jakarta.annotation.Nullable public Boolean getIncludeResultSchema() {
         return includeResultSchema;
     }
 
-    public void setIncludeResultSchema(@javax.annotation.Nullable Boolean includeResultSchema) {
+    public void setIncludeResultSchema(@jakarta.annotation.Nullable Boolean includeResultSchema) {
         this.includeResultSchema = includeResultSchema;
     }
 
-    public InteractionEndpointQuery isSkill(@javax.annotation.Nullable Boolean isSkill) {
+    public InteractionEndpointQuery isSkill(@jakarta.annotation.Nullable Boolean isSkill) {
         this.isSkill = isSkill;
         return this;
     }
@@ -300,11 +300,11 @@ public class InteractionEndpointQuery {
      * When true, filter results to only interactions with is_skill&#x3D;true.
      * @return isSkill
      */
-    @javax.annotation.Nullable public Boolean getIsSkill() {
+    @jakarta.annotation.Nullable public Boolean getIsSkill() {
         return isSkill;
     }
 
-    public void setIsSkill(@javax.annotation.Nullable Boolean isSkill) {
+    public void setIsSkill(@jakarta.annotation.Nullable Boolean isSkill) {
         this.isSkill = isSkill;
     }
 

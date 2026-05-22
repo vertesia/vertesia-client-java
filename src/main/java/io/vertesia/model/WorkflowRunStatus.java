@@ -30,29 +30,29 @@ import java.util.Objects;
 /**
  * Basic response for anything run with an async workflow
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WorkflowRunStatus {
     public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflow_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
-    @javax.annotation.Nullable private String workflowId;
+    @jakarta.annotation.Nullable private String workflowId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_RUN_ID = "workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_RUN_ID)
-    @javax.annotation.Nullable private String workflowRunId;
+    @jakarta.annotation.Nullable private String workflowRunId;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private WorkflowExecutionStatus status;
 
     public WorkflowRunStatus() {}
 
-    public WorkflowRunStatus workflowId(@javax.annotation.Nullable String workflowId) {
+    public WorkflowRunStatus workflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
         return this;
     }
@@ -61,15 +61,15 @@ public class WorkflowRunStatus {
      * Get workflowId
      * @return workflowId
      */
-    @javax.annotation.Nullable public String getWorkflowId() {
+    @jakarta.annotation.Nullable public String getWorkflowId() {
         return workflowId;
     }
 
-    public void setWorkflowId(@javax.annotation.Nullable String workflowId) {
+    public void setWorkflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
     }
 
-    public WorkflowRunStatus workflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public WorkflowRunStatus workflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
         return this;
     }
@@ -78,15 +78,15 @@ public class WorkflowRunStatus {
      * Get workflowRunId
      * @return workflowRunId
      */
-    @javax.annotation.Nullable public String getWorkflowRunId() {
+    @jakarta.annotation.Nullable public String getWorkflowRunId() {
         return workflowRunId;
     }
 
-    public void setWorkflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public void setWorkflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
     }
 
-    public WorkflowRunStatus status(@javax.annotation.Nonnull WorkflowExecutionStatus status) {
+    public WorkflowRunStatus status(@jakarta.annotation.Nonnull WorkflowExecutionStatus status) {
         this.status = status;
         return this;
     }
@@ -95,12 +95,12 @@ public class WorkflowRunStatus {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public WorkflowExecutionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull WorkflowExecutionStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull WorkflowExecutionStatus status) {
         this.status = status;
     }
 

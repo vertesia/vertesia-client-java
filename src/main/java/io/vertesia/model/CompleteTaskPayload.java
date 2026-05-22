@@ -33,19 +33,19 @@ import java.util.Objects;
 /**
  * CompleteTaskPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompleteTaskPayload {
     public static final String SERIALIZED_NAME_RESULT = "result";
 
     @SerializedName(SERIALIZED_NAME_RESULT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> result = new HashMap<>();
 
     public CompleteTaskPayload() {}
 
-    public CompleteTaskPayload result(@javax.annotation.Nonnull Map<String, Object> result) {
+    public CompleteTaskPayload result(@jakarta.annotation.Nonnull Map<String, Object> result) {
         this.result = result;
         return this;
     }
@@ -62,12 +62,12 @@ public class CompleteTaskPayload {
      * Get result
      * @return result
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getResult() {
         return result;
     }
 
-    public void setResult(@javax.annotation.Nonnull Map<String, Object> result) {
+    public void setResult(@jakarta.annotation.Nonnull Map<String, Object> result) {
         this.result = result;
     }
 

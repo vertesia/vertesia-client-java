@@ -35,43 +35,43 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * UpdateTaskPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UpdateTaskPayload {
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nullable private String title;
+    @jakarta.annotation.Nullable private String title;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private DurableTaskStatus status;
+    @jakarta.annotation.Nullable private DurableTaskStatus status;
 
     public static final String SERIALIZED_NAME_ASSIGNEE = "assignee";
 
     @SerializedName(SERIALIZED_NAME_ASSIGNEE)
-    @javax.annotation.Nullable private String assignee;
+    @jakarta.annotation.Nullable private String assignee;
 
     public static final String SERIALIZED_NAME_FIELDS = "fields";
 
     @SerializedName(SERIALIZED_NAME_FIELDS)
-    @javax.annotation.Nullable private List<TaskField> fields = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<TaskField> fields = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DUE_AT = "due_at";
 
     @SerializedName(SERIALIZED_NAME_DUE_AT)
-    @javax.annotation.Nullable private OffsetDateTime dueAt;
+    @jakarta.annotation.Nullable private OffsetDateTime dueAt;
 
     public UpdateTaskPayload() {}
 
-    public UpdateTaskPayload title(@javax.annotation.Nullable String title) {
+    public UpdateTaskPayload title(@jakarta.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -80,15 +80,15 @@ public class UpdateTaskPayload {
      * Get title
      * @return title
      */
-    @javax.annotation.Nullable public String getTitle() {
+    @jakarta.annotation.Nullable public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nullable String title) {
+    public void setTitle(@jakarta.annotation.Nullable String title) {
         this.title = title;
     }
 
-    public UpdateTaskPayload description(@javax.annotation.Nullable String description) {
+    public UpdateTaskPayload description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -97,15 +97,15 @@ public class UpdateTaskPayload {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public UpdateTaskPayload status(@javax.annotation.Nullable DurableTaskStatus status) {
+    public UpdateTaskPayload status(@jakarta.annotation.Nullable DurableTaskStatus status) {
         this.status = status;
         return this;
     }
@@ -114,15 +114,15 @@ public class UpdateTaskPayload {
      * Get status
      * @return status
      */
-    @javax.annotation.Nullable public DurableTaskStatus getStatus() {
+    @jakarta.annotation.Nullable public DurableTaskStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable DurableTaskStatus status) {
+    public void setStatus(@jakarta.annotation.Nullable DurableTaskStatus status) {
         this.status = status;
     }
 
-    public UpdateTaskPayload assignee(@javax.annotation.Nullable String assignee) {
+    public UpdateTaskPayload assignee(@jakarta.annotation.Nullable String assignee) {
         this.assignee = assignee;
         return this;
     }
@@ -131,15 +131,15 @@ public class UpdateTaskPayload {
      * Get assignee
      * @return assignee
      */
-    @javax.annotation.Nullable public String getAssignee() {
+    @jakarta.annotation.Nullable public String getAssignee() {
         return assignee;
     }
 
-    public void setAssignee(@javax.annotation.Nullable String assignee) {
+    public void setAssignee(@jakarta.annotation.Nullable String assignee) {
         this.assignee = assignee;
     }
 
-    public UpdateTaskPayload fields(@javax.annotation.Nullable List<TaskField> fields) {
+    public UpdateTaskPayload fields(@jakarta.annotation.Nullable List<TaskField> fields) {
         this.fields = fields;
         return this;
     }
@@ -156,15 +156,15 @@ public class UpdateTaskPayload {
      * Get fields
      * @return fields
      */
-    @javax.annotation.Nullable public List<TaskField> getFields() {
+    @jakarta.annotation.Nullable public List<TaskField> getFields() {
         return fields;
     }
 
-    public void setFields(@javax.annotation.Nullable List<TaskField> fields) {
+    public void setFields(@jakarta.annotation.Nullable List<TaskField> fields) {
         this.fields = fields;
     }
 
-    public UpdateTaskPayload dueAt(@javax.annotation.Nullable OffsetDateTime dueAt) {
+    public UpdateTaskPayload dueAt(@jakarta.annotation.Nullable OffsetDateTime dueAt) {
         this.dueAt = dueAt;
         return this;
     }
@@ -173,11 +173,11 @@ public class UpdateTaskPayload {
      * Get dueAt
      * @return dueAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getDueAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getDueAt() {
         return dueAt;
     }
 
-    public void setDueAt(@javax.annotation.Nullable OffsetDateTime dueAt) {
+    public void setDueAt(@jakarta.annotation.Nullable OffsetDateTime dueAt) {
         this.dueAt = dueAt;
     }
 

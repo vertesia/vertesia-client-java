@@ -35,37 +35,37 @@ import java.util.Objects;
 /**
  * Configuration for ask_user webhook notifications. Sends webhooks when agents call ask_user and when users respond.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AskUserWebhookConfiguration {
     public static final String SERIALIZED_NAME_INTEGRATION = "integration";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SupportedIntegrationsAskUserWebhook integration;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean enabled;
 
     public static final String SERIALIZED_NAME_WEBHOOK_URL = "webhook_url";
 
     @SerializedName(SERIALIZED_NAME_WEBHOOK_URL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String webhookUrl;
 
     public static final String SERIALIZED_NAME_HAS_WEBHOOK_SECRET = "has_webhook_secret";
 
     @SerializedName(SERIALIZED_NAME_HAS_WEBHOOK_SECRET)
-    @javax.annotation.Nullable private Boolean hasWebhookSecret;
+    @jakarta.annotation.Nullable private Boolean hasWebhookSecret;
 
     public static final String SERIALIZED_NAME_WEBHOOK_SECRET_HINT = "webhook_secret_hint";
 
     @SerializedName(SERIALIZED_NAME_WEBHOOK_SECRET_HINT)
-    @javax.annotation.Nullable private String webhookSecretHint;
+    @jakarta.annotation.Nullable private String webhookSecretHint;
 
     /**
      * Gets or Sets events
@@ -125,17 +125,17 @@ public class AskUserWebhookConfiguration {
     public static final String SERIALIZED_NAME_EVENTS = "events";
 
     @SerializedName(SERIALIZED_NAME_EVENTS)
-    @javax.annotation.Nullable private List<EventsEnum> events = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<EventsEnum> events = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CUSTOM_HEADERS = "custom_headers";
 
     @SerializedName(SERIALIZED_NAME_CUSTOM_HEADERS)
-    @javax.annotation.Nullable private Map<String, String> customHeaders;
+    @jakarta.annotation.Nullable private Map<String, String> customHeaders;
 
     public AskUserWebhookConfiguration() {}
 
     public AskUserWebhookConfiguration integration(
-            @javax.annotation.Nonnull SupportedIntegrationsAskUserWebhook integration) {
+            @jakarta.annotation.Nonnull SupportedIntegrationsAskUserWebhook integration) {
         this.integration = integration;
         return this;
     }
@@ -144,17 +144,17 @@ public class AskUserWebhookConfiguration {
      * Get integration
      * @return integration
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SupportedIntegrationsAskUserWebhook getIntegration() {
         return integration;
     }
 
     public void setIntegration(
-            @javax.annotation.Nonnull SupportedIntegrationsAskUserWebhook integration) {
+            @jakarta.annotation.Nonnull SupportedIntegrationsAskUserWebhook integration) {
         this.integration = integration;
     }
 
-    public AskUserWebhookConfiguration enabled(@javax.annotation.Nonnull Boolean enabled) {
+    public AskUserWebhookConfiguration enabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -163,16 +163,16 @@ public class AskUserWebhookConfiguration {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public AskUserWebhookConfiguration webhookUrl(@javax.annotation.Nonnull String webhookUrl) {
+    public AskUserWebhookConfiguration webhookUrl(@jakarta.annotation.Nonnull String webhookUrl) {
         this.webhookUrl = webhookUrl;
         return this;
     }
@@ -181,17 +181,17 @@ public class AskUserWebhookConfiguration {
      * Webhook URL to receive ask_user events
      * @return webhookUrl
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getWebhookUrl() {
         return webhookUrl;
     }
 
-    public void setWebhookUrl(@javax.annotation.Nonnull String webhookUrl) {
+    public void setWebhookUrl(@jakarta.annotation.Nonnull String webhookUrl) {
         this.webhookUrl = webhookUrl;
     }
 
     public AskUserWebhookConfiguration hasWebhookSecret(
-            @javax.annotation.Nullable Boolean hasWebhookSecret) {
+            @jakarta.annotation.Nullable Boolean hasWebhookSecret) {
         this.hasWebhookSecret = hasWebhookSecret;
         return this;
     }
@@ -200,16 +200,16 @@ public class AskUserWebhookConfiguration {
      * Get hasWebhookSecret
      * @return hasWebhookSecret
      */
-    @javax.annotation.Nullable public Boolean getHasWebhookSecret() {
+    @jakarta.annotation.Nullable public Boolean getHasWebhookSecret() {
         return hasWebhookSecret;
     }
 
-    public void setHasWebhookSecret(@javax.annotation.Nullable Boolean hasWebhookSecret) {
+    public void setHasWebhookSecret(@jakarta.annotation.Nullable Boolean hasWebhookSecret) {
         this.hasWebhookSecret = hasWebhookSecret;
     }
 
     public AskUserWebhookConfiguration webhookSecretHint(
-            @javax.annotation.Nullable String webhookSecretHint) {
+            @jakarta.annotation.Nullable String webhookSecretHint) {
         this.webhookSecretHint = webhookSecretHint;
         return this;
     }
@@ -218,15 +218,16 @@ public class AskUserWebhookConfiguration {
      * Get webhookSecretHint
      * @return webhookSecretHint
      */
-    @javax.annotation.Nullable public String getWebhookSecretHint() {
+    @jakarta.annotation.Nullable public String getWebhookSecretHint() {
         return webhookSecretHint;
     }
 
-    public void setWebhookSecretHint(@javax.annotation.Nullable String webhookSecretHint) {
+    public void setWebhookSecretHint(@jakarta.annotation.Nullable String webhookSecretHint) {
         this.webhookSecretHint = webhookSecretHint;
     }
 
-    public AskUserWebhookConfiguration events(@javax.annotation.Nullable List<EventsEnum> events) {
+    public AskUserWebhookConfiguration events(
+            @jakarta.annotation.Nullable List<EventsEnum> events) {
         this.events = events;
         return this;
     }
@@ -243,16 +244,16 @@ public class AskUserWebhookConfiguration {
      * Which events to send: [&#39;requested&#39;, &#39;resolved&#39;] or subset (default: both)
      * @return events
      */
-    @javax.annotation.Nullable public List<EventsEnum> getEvents() {
+    @jakarta.annotation.Nullable public List<EventsEnum> getEvents() {
         return events;
     }
 
-    public void setEvents(@javax.annotation.Nullable List<EventsEnum> events) {
+    public void setEvents(@jakarta.annotation.Nullable List<EventsEnum> events) {
         this.events = events;
     }
 
     public AskUserWebhookConfiguration customHeaders(
-            @javax.annotation.Nullable Map<String, String> customHeaders) {
+            @jakarta.annotation.Nullable Map<String, String> customHeaders) {
         this.customHeaders = customHeaders;
         return this;
     }
@@ -269,11 +270,11 @@ public class AskUserWebhookConfiguration {
      * Custom headers to include in webhook requests
      * @return customHeaders
      */
-    @javax.annotation.Nullable public Map<String, String> getCustomHeaders() {
+    @jakarta.annotation.Nullable public Map<String, String> getCustomHeaders() {
         return customHeaders;
     }
 
-    public void setCustomHeaders(@javax.annotation.Nullable Map<String, String> customHeaders) {
+    public void setCustomHeaders(@jakarta.annotation.Nullable Map<String, String> customHeaders) {
         this.customHeaders = customHeaders;
     }
 

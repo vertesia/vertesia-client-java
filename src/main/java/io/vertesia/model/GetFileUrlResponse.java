@@ -30,36 +30,36 @@ import java.util.Objects;
 /**
  * GetFileUrlResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GetFileUrlResponse {
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String url;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
 
     @SerializedName(SERIALIZED_NAME_MIME_TYPE)
-    @javax.annotation.Nullable private String mimeType;
+    @jakarta.annotation.Nullable private String mimeType;
 
     public static final String SERIALIZED_NAME_PATH = "path";
 
     @SerializedName(SERIALIZED_NAME_PATH)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String path;
 
     public GetFileUrlResponse() {}
 
-    public GetFileUrlResponse url(@javax.annotation.Nonnull String url) {
+    public GetFileUrlResponse url(@jakarta.annotation.Nonnull String url) {
         this.url = url;
         return this;
     }
@@ -68,16 +68,16 @@ public class GetFileUrlResponse {
      * Get url
      * @return url
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nonnull String url) {
+    public void setUrl(@jakarta.annotation.Nonnull String url) {
         this.url = url;
     }
 
-    public GetFileUrlResponse id(@javax.annotation.Nonnull String id) {
+    public GetFileUrlResponse id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -86,16 +86,16 @@ public class GetFileUrlResponse {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public GetFileUrlResponse mimeType(@javax.annotation.Nullable String mimeType) {
+    public GetFileUrlResponse mimeType(@jakarta.annotation.Nullable String mimeType) {
         this.mimeType = mimeType;
         return this;
     }
@@ -104,15 +104,15 @@ public class GetFileUrlResponse {
      * Get mimeType
      * @return mimeType
      */
-    @javax.annotation.Nullable public String getMimeType() {
+    @jakarta.annotation.Nullable public String getMimeType() {
         return mimeType;
     }
 
-    public void setMimeType(@javax.annotation.Nullable String mimeType) {
+    public void setMimeType(@jakarta.annotation.Nullable String mimeType) {
         this.mimeType = mimeType;
     }
 
-    public GetFileUrlResponse path(@javax.annotation.Nonnull String path) {
+    public GetFileUrlResponse path(@jakarta.annotation.Nonnull String path) {
         this.path = path;
         return this;
     }
@@ -121,12 +121,12 @@ public class GetFileUrlResponse {
      * Get path
      * @return path
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getPath() {
         return path;
     }
 
-    public void setPath(@javax.annotation.Nonnull String path) {
+    public void setPath(@jakarta.annotation.Nonnull String path) {
         this.path = path;
     }
 

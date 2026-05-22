@@ -35,133 +35,133 @@ import java.util.Objects;
 /**
  * The content object item is a simplified version of the ContentObject that is returned by the store API when listing objects.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ContentObjectItem {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private String parent;
+    @jakarta.annotation.Nullable private String parent;
 
     public static final String SERIALIZED_NAME_LOCATION = "location";
 
     @SerializedName(SERIALIZED_NAME_LOCATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String location;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ContentObjectStatus status;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private ContentObjectTypeRef type;
+    @jakarta.annotation.Nullable private ContentObjectTypeRef type;
 
     public static final String SERIALIZED_NAME_CONTENT = "content";
 
     @SerializedName(SERIALIZED_NAME_CONTENT)
-    @javax.annotation.Nullable private ContentSource content;
+    @jakarta.annotation.Nullable private ContentSource content;
 
     public static final String SERIALIZED_NAME_EXTERNAL_ID = "external_id";
 
     @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
-    @javax.annotation.Nullable private String externalId;
+    @jakarta.annotation.Nullable private String externalId;
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> properties = new HashMap<>();
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @javax.annotation.Nullable private CreateContentObjectPayloadMetadata metadata;
+    @jakarta.annotation.Nullable private CreateContentObjectPayloadMetadata metadata;
 
     public static final String SERIALIZED_NAME_TOKENS = "tokens";
 
     @SerializedName(SERIALIZED_NAME_TOKENS)
-    @javax.annotation.Nullable private CreateContentObjectPayloadTokens tokens;
+    @jakarta.annotation.Nullable private CreateContentObjectPayloadTokens tokens;
 
     public static final String SERIALIZED_NAME_REVISION = "revision";
 
     @SerializedName(SERIALIZED_NAME_REVISION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private RevisionInfo revision;
 
     public static final String SERIALIZED_NAME_IS_DELETED = "is_deleted";
 
     @SerializedName(SERIALIZED_NAME_IS_DELETED)
-    @javax.annotation.Nullable private Boolean isDeleted;
+    @jakarta.annotation.Nullable private Boolean isDeleted;
 
     public static final String SERIALIZED_NAME_IS_LOCKED = "is_locked";
 
     @SerializedName(SERIALIZED_NAME_IS_LOCKED)
-    @javax.annotation.Nullable private Boolean isLocked;
+    @jakarta.annotation.Nullable private Boolean isLocked;
 
     public static final String SERIALIZED_NAME_SCORE = "score";
 
     @SerializedName(SERIALIZED_NAME_SCORE)
-    @javax.annotation.Nullable private BigDecimal score;
+    @jakarta.annotation.Nullable private BigDecimal score;
 
     public static final String SERIALIZED_NAME_USER_PERMISSIONS = "user_permissions";
 
     @SerializedName(SERIALIZED_NAME_USER_PERMISSIONS)
-    @javax.annotation.Nullable private ContentObjectUserPermissions userPermissions;
+    @jakarta.annotation.Nullable private ContentObjectUserPermissions userPermissions;
 
     public ContentObjectItem() {}
 
-    public ContentObjectItem id(@javax.annotation.Nonnull String id) {
+    public ContentObjectItem id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -170,16 +170,16 @@ public class ContentObjectItem {
      * Unique identifier for the object
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public ContentObjectItem name(@javax.annotation.Nonnull String name) {
+    public ContentObjectItem name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -188,16 +188,16 @@ public class ContentObjectItem {
      * Human-readable name or title
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public ContentObjectItem description(@javax.annotation.Nullable String description) {
+    public ContentObjectItem description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -206,15 +206,15 @@ public class ContentObjectItem {
      * Optional detailed description of the object
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public ContentObjectItem tags(@javax.annotation.Nullable List<String> tags) {
+    public ContentObjectItem tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -231,15 +231,15 @@ public class ContentObjectItem {
      * Optional array of categorization tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public ContentObjectItem updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public ContentObjectItem updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -248,16 +248,16 @@ public class ContentObjectItem {
      * Identifier of the user who last modified the object
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public ContentObjectItem createdBy(@javax.annotation.Nonnull String createdBy) {
+    public ContentObjectItem createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -266,16 +266,16 @@ public class ContentObjectItem {
      * Identifier of the user who created the object
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public ContentObjectItem createdAt(@javax.annotation.Nonnull String createdAt) {
+    public ContentObjectItem createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -284,16 +284,16 @@ public class ContentObjectItem {
      * ISO timestamp of when the object was created
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public ContentObjectItem updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public ContentObjectItem updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -302,16 +302,16 @@ public class ContentObjectItem {
      * ISO timestamp of when the object was last updated
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public ContentObjectItem parent(@javax.annotation.Nullable String parent) {
+    public ContentObjectItem parent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
         return this;
     }
@@ -320,15 +320,15 @@ public class ContentObjectItem {
      * Get parent
      * @return parent
      */
-    @javax.annotation.Nullable public String getParent() {
+    @jakarta.annotation.Nullable public String getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable String parent) {
+    public void setParent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
     }
 
-    public ContentObjectItem location(@javax.annotation.Nonnull String location) {
+    public ContentObjectItem location(@jakarta.annotation.Nonnull String location) {
         this.location = location;
         return this;
     }
@@ -337,16 +337,16 @@ public class ContentObjectItem {
      * An optional path based location for the object
      * @return location
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getLocation() {
         return location;
     }
 
-    public void setLocation(@javax.annotation.Nonnull String location) {
+    public void setLocation(@jakarta.annotation.Nonnull String location) {
         this.location = location;
     }
 
-    public ContentObjectItem status(@javax.annotation.Nonnull ContentObjectStatus status) {
+    public ContentObjectItem status(@jakarta.annotation.Nonnull ContentObjectStatus status) {
         this.status = status;
         return this;
     }
@@ -355,16 +355,16 @@ public class ContentObjectItem {
      * Object status. - created: the object was created and is being processed - processing: the object is being processed - completed: the object was processed and is ready to use - failed: the object processing failed - archived: the object was archived and is no longer available
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ContentObjectStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull ContentObjectStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull ContentObjectStatus status) {
         this.status = status;
     }
 
-    public ContentObjectItem type(@javax.annotation.Nullable ContentObjectTypeRef type) {
+    public ContentObjectItem type(@jakarta.annotation.Nullable ContentObjectTypeRef type) {
         this.type = type;
         return this;
     }
@@ -373,15 +373,15 @@ public class ContentObjectItem {
      * Object type id.
      * @return type
      */
-    @javax.annotation.Nullable public ContentObjectTypeRef getType() {
+    @jakarta.annotation.Nullable public ContentObjectTypeRef getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable ContentObjectTypeRef type) {
+    public void setType(@jakarta.annotation.Nullable ContentObjectTypeRef type) {
         this.type = type;
     }
 
-    public ContentObjectItem content(@javax.annotation.Nullable ContentSource content) {
+    public ContentObjectItem content(@jakarta.annotation.Nullable ContentSource content) {
         this.content = content;
         return this;
     }
@@ -390,15 +390,15 @@ public class ContentObjectItem {
      * Content source information, typically a link to an object store
      * @return content
      */
-    @javax.annotation.Nullable public ContentSource getContent() {
+    @jakarta.annotation.Nullable public ContentSource getContent() {
         return content;
     }
 
-    public void setContent(@javax.annotation.Nullable ContentSource content) {
+    public void setContent(@jakarta.annotation.Nullable ContentSource content) {
         this.content = content;
     }
 
-    public ContentObjectItem externalId(@javax.annotation.Nullable String externalId) {
+    public ContentObjectItem externalId(@jakarta.annotation.Nullable String externalId) {
         this.externalId = externalId;
         return this;
     }
@@ -407,15 +407,16 @@ public class ContentObjectItem {
      * External identifier for integration with other systems
      * @return externalId
      */
-    @javax.annotation.Nullable public String getExternalId() {
+    @jakarta.annotation.Nullable public String getExternalId() {
         return externalId;
     }
 
-    public void setExternalId(@javax.annotation.Nullable String externalId) {
+    public void setExternalId(@jakarta.annotation.Nullable String externalId) {
         this.externalId = externalId;
     }
 
-    public ContentObjectItem properties(@javax.annotation.Nonnull Map<String, Object> properties) {
+    public ContentObjectItem properties(
+            @jakarta.annotation.Nonnull Map<String, Object> properties) {
         this.properties = properties;
         return this;
     }
@@ -432,17 +433,17 @@ public class ContentObjectItem {
      * The object properties. This is a JSON object that describes the object, matching the object type schema
      * @return properties
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nonnull Map<String, Object> properties) {
+    public void setProperties(@jakarta.annotation.Nonnull Map<String, Object> properties) {
         this.properties = properties;
     }
 
     public ContentObjectItem metadata(
-            @javax.annotation.Nullable CreateContentObjectPayloadMetadata metadata) {
+            @jakarta.annotation.Nullable CreateContentObjectPayloadMetadata metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -451,17 +452,17 @@ public class ContentObjectItem {
      * Get metadata
      * @return metadata
      */
-    @javax.annotation.Nullable public CreateContentObjectPayloadMetadata getMetadata() {
+    @jakarta.annotation.Nullable public CreateContentObjectPayloadMetadata getMetadata() {
         return metadata;
     }
 
     public void setMetadata(
-            @javax.annotation.Nullable CreateContentObjectPayloadMetadata metadata) {
+            @jakarta.annotation.Nullable CreateContentObjectPayloadMetadata metadata) {
         this.metadata = metadata;
     }
 
     public ContentObjectItem tokens(
-            @javax.annotation.Nullable CreateContentObjectPayloadTokens tokens) {
+            @jakarta.annotation.Nullable CreateContentObjectPayloadTokens tokens) {
         this.tokens = tokens;
         return this;
     }
@@ -470,15 +471,15 @@ public class ContentObjectItem {
      * Get tokens
      * @return tokens
      */
-    @javax.annotation.Nullable public CreateContentObjectPayloadTokens getTokens() {
+    @jakarta.annotation.Nullable public CreateContentObjectPayloadTokens getTokens() {
         return tokens;
     }
 
-    public void setTokens(@javax.annotation.Nullable CreateContentObjectPayloadTokens tokens) {
+    public void setTokens(@jakarta.annotation.Nullable CreateContentObjectPayloadTokens tokens) {
         this.tokens = tokens;
     }
 
-    public ContentObjectItem revision(@javax.annotation.Nonnull RevisionInfo revision) {
+    public ContentObjectItem revision(@jakarta.annotation.Nonnull RevisionInfo revision) {
         this.revision = revision;
         return this;
     }
@@ -487,16 +488,16 @@ public class ContentObjectItem {
      * Revision information. This is used to track the history of the object.
      * @return revision
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public RevisionInfo getRevision() {
         return revision;
     }
 
-    public void setRevision(@javax.annotation.Nonnull RevisionInfo revision) {
+    public void setRevision(@jakarta.annotation.Nonnull RevisionInfo revision) {
         this.revision = revision;
     }
 
-    public ContentObjectItem isDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+    public ContentObjectItem isDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
         this.isDeleted = isDeleted;
         return this;
     }
@@ -505,15 +506,15 @@ public class ContentObjectItem {
      * Soft delete flag. When true, the object should be considered deleted but is still retained in the database for historical purposes.
      * @return isDeleted
      */
-    @javax.annotation.Nullable public Boolean getIsDeleted() {
+    @jakarta.annotation.Nullable public Boolean getIsDeleted() {
         return isDeleted;
     }
 
-    public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+    public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
         this.isDeleted = isDeleted;
     }
 
-    public ContentObjectItem isLocked(@javax.annotation.Nullable Boolean isLocked) {
+    public ContentObjectItem isLocked(@jakarta.annotation.Nullable Boolean isLocked) {
         this.isLocked = isLocked;
         return this;
     }
@@ -522,15 +523,15 @@ public class ContentObjectItem {
      * Soft lock flag. When true, the object should be considered read-only and modification attempts should be rejected.
      * @return isLocked
      */
-    @javax.annotation.Nullable public Boolean getIsLocked() {
+    @jakarta.annotation.Nullable public Boolean getIsLocked() {
         return isLocked;
     }
 
-    public void setIsLocked(@javax.annotation.Nullable Boolean isLocked) {
+    public void setIsLocked(@jakarta.annotation.Nullable Boolean isLocked) {
         this.isLocked = isLocked;
     }
 
-    public ContentObjectItem score(@javax.annotation.Nullable BigDecimal score) {
+    public ContentObjectItem score(@jakarta.annotation.Nullable BigDecimal score) {
         this.score = score;
         return this;
     }
@@ -539,16 +540,16 @@ public class ContentObjectItem {
      * The document score, used for ranking and sorting.
      * @return score
      */
-    @javax.annotation.Nullable public BigDecimal getScore() {
+    @jakarta.annotation.Nullable public BigDecimal getScore() {
         return score;
     }
 
-    public void setScore(@javax.annotation.Nullable BigDecimal score) {
+    public void setScore(@jakarta.annotation.Nullable BigDecimal score) {
         this.score = score;
     }
 
     public ContentObjectItem userPermissions(
-            @javax.annotation.Nullable ContentObjectUserPermissions userPermissions) {
+            @jakarta.annotation.Nullable ContentObjectUserPermissions userPermissions) {
         this.userPermissions = userPermissions;
         return this;
     }
@@ -557,12 +558,12 @@ public class ContentObjectItem {
      * Computed per-request: the current user&#39;s effective permissions on this object.
      * @return userPermissions
      */
-    @javax.annotation.Nullable public ContentObjectUserPermissions getUserPermissions() {
+    @jakarta.annotation.Nullable public ContentObjectUserPermissions getUserPermissions() {
         return userPermissions;
     }
 
     public void setUserPermissions(
-            @javax.annotation.Nullable ContentObjectUserPermissions userPermissions) {
+            @jakarta.annotation.Nullable ContentObjectUserPermissions userPermissions) {
         this.userPermissions = userPermissions;
     }
 

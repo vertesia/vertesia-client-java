@@ -33,83 +33,83 @@ import java.util.Objects;
 /**
  * InteractionSearchQuery
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InteractionSearchQuery {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private List<String> status = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> status = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nullable private BigDecimal limit;
+    @jakarta.annotation.Nullable private BigDecimal limit;
 
     public static final String SERIALIZED_NAME_OFFSET = "offset";
 
     @SerializedName(SERIALIZED_NAME_OFFSET)
-    @javax.annotation.Nullable private BigDecimal offset;
+    @jakarta.annotation.Nullable private BigDecimal offset;
 
     public static final String SERIALIZED_NAME_PROMPT = "prompt";
 
     @SerializedName(SERIALIZED_NAME_PROMPT)
-    @javax.annotation.Nullable private String prompt;
+    @jakarta.annotation.Nullable private String prompt;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nullable private String version;
+    @jakarta.annotation.Nullable private String version;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nullable private String model;
+    @jakarta.annotation.Nullable private String model;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @javax.annotation.Nullable private String environment;
+    @jakarta.annotation.Nullable private String environment;
 
     public static final String SERIALIZED_NAME_IS_AGENT = "is_agent";
 
     @SerializedName(SERIALIZED_NAME_IS_AGENT)
-    @javax.annotation.Nullable private Boolean isAgent;
+    @jakarta.annotation.Nullable private Boolean isAgent;
 
     public static final String SERIALIZED_NAME_IS_TOOL = "is_tool";
 
     @SerializedName(SERIALIZED_NAME_IS_TOOL)
-    @javax.annotation.Nullable private Boolean isTool;
+    @jakarta.annotation.Nullable private Boolean isTool;
 
     public static final String SERIALIZED_NAME_IS_SKILL = "is_skill";
 
     @SerializedName(SERIALIZED_NAME_IS_SKILL)
-    @javax.annotation.Nullable private Boolean isSkill;
+    @jakarta.annotation.Nullable private Boolean isSkill;
 
     public static final String SERIALIZED_NAME_IS_BASIC = "is_basic";
 
     @SerializedName(SERIALIZED_NAME_IS_BASIC)
-    @javax.annotation.Nullable private Boolean isBasic;
+    @jakarta.annotation.Nullable private Boolean isBasic;
 
     public static final String SERIALIZED_NAME_IS_SUB_AGENT = "is_sub_agent";
 
     @SerializedName(SERIALIZED_NAME_IS_SUB_AGENT)
-    @javax.annotation.Nullable private Boolean isSubAgent;
+    @jakarta.annotation.Nullable private Boolean isSubAgent;
 
     public InteractionSearchQuery() {}
 
-    public InteractionSearchQuery name(@javax.annotation.Nullable String name) {
+    public InteractionSearchQuery name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -118,15 +118,15 @@ public class InteractionSearchQuery {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public InteractionSearchQuery status(@javax.annotation.Nullable List<String> status) {
+    public InteractionSearchQuery status(@jakarta.annotation.Nullable List<String> status) {
         this.status = status;
         return this;
     }
@@ -143,15 +143,15 @@ public class InteractionSearchQuery {
      * Get status
      * @return status
      */
-    @javax.annotation.Nullable public List<String> getStatus() {
+    @jakarta.annotation.Nullable public List<String> getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable List<String> status) {
+    public void setStatus(@jakarta.annotation.Nullable List<String> status) {
         this.status = status;
     }
 
-    public InteractionSearchQuery limit(@javax.annotation.Nullable BigDecimal limit) {
+    public InteractionSearchQuery limit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -160,15 +160,15 @@ public class InteractionSearchQuery {
      * Get limit
      * @return limit
      */
-    @javax.annotation.Nullable public BigDecimal getLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nullable BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
     }
 
-    public InteractionSearchQuery offset(@javax.annotation.Nullable BigDecimal offset) {
+    public InteractionSearchQuery offset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
         return this;
     }
@@ -177,15 +177,15 @@ public class InteractionSearchQuery {
      * Get offset
      * @return offset
      */
-    @javax.annotation.Nullable public BigDecimal getOffset() {
+    @jakarta.annotation.Nullable public BigDecimal getOffset() {
         return offset;
     }
 
-    public void setOffset(@javax.annotation.Nullable BigDecimal offset) {
+    public void setOffset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
     }
 
-    public InteractionSearchQuery prompt(@javax.annotation.Nullable String prompt) {
+    public InteractionSearchQuery prompt(@jakarta.annotation.Nullable String prompt) {
         this.prompt = prompt;
         return this;
     }
@@ -194,15 +194,15 @@ public class InteractionSearchQuery {
      * Get prompt
      * @return prompt
      */
-    @javax.annotation.Nullable public String getPrompt() {
+    @jakarta.annotation.Nullable public String getPrompt() {
         return prompt;
     }
 
-    public void setPrompt(@javax.annotation.Nullable String prompt) {
+    public void setPrompt(@jakarta.annotation.Nullable String prompt) {
         this.prompt = prompt;
     }
 
-    public InteractionSearchQuery tags(@javax.annotation.Nullable List<String> tags) {
+    public InteractionSearchQuery tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -219,15 +219,15 @@ public class InteractionSearchQuery {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public InteractionSearchQuery version(@javax.annotation.Nullable String version) {
+    public InteractionSearchQuery version(@jakarta.annotation.Nullable String version) {
         this.version = version;
         return this;
     }
@@ -236,15 +236,15 @@ public class InteractionSearchQuery {
      * Get version
      * @return version
      */
-    @javax.annotation.Nullable public String getVersion() {
+    @jakarta.annotation.Nullable public String getVersion() {
         return version;
     }
 
-    public void setVersion(@javax.annotation.Nullable String version) {
+    public void setVersion(@jakarta.annotation.Nullable String version) {
         this.version = version;
     }
 
-    public InteractionSearchQuery model(@javax.annotation.Nullable String model) {
+    public InteractionSearchQuery model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
@@ -253,15 +253,15 @@ public class InteractionSearchQuery {
      * Get model
      * @return model
      */
-    @javax.annotation.Nullable public String getModel() {
+    @jakarta.annotation.Nullable public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nullable String model) {
+    public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
     }
 
-    public InteractionSearchQuery environment(@javax.annotation.Nullable String environment) {
+    public InteractionSearchQuery environment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
         return this;
     }
@@ -270,15 +270,15 @@ public class InteractionSearchQuery {
      * Get environment
      * @return environment
      */
-    @javax.annotation.Nullable public String getEnvironment() {
+    @jakarta.annotation.Nullable public String getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@javax.annotation.Nullable String environment) {
+    public void setEnvironment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
     }
 
-    public InteractionSearchQuery isAgent(@javax.annotation.Nullable Boolean isAgent) {
+    public InteractionSearchQuery isAgent(@jakarta.annotation.Nullable Boolean isAgent) {
         this.isAgent = isAgent;
         return this;
     }
@@ -287,15 +287,15 @@ public class InteractionSearchQuery {
      * Get isAgent
      * @return isAgent
      */
-    @javax.annotation.Nullable public Boolean getIsAgent() {
+    @jakarta.annotation.Nullable public Boolean getIsAgent() {
         return isAgent;
     }
 
-    public void setIsAgent(@javax.annotation.Nullable Boolean isAgent) {
+    public void setIsAgent(@jakarta.annotation.Nullable Boolean isAgent) {
         this.isAgent = isAgent;
     }
 
-    public InteractionSearchQuery isTool(@javax.annotation.Nullable Boolean isTool) {
+    public InteractionSearchQuery isTool(@jakarta.annotation.Nullable Boolean isTool) {
         this.isTool = isTool;
         return this;
     }
@@ -304,15 +304,15 @@ public class InteractionSearchQuery {
      * Get isTool
      * @return isTool
      */
-    @javax.annotation.Nullable public Boolean getIsTool() {
+    @jakarta.annotation.Nullable public Boolean getIsTool() {
         return isTool;
     }
 
-    public void setIsTool(@javax.annotation.Nullable Boolean isTool) {
+    public void setIsTool(@jakarta.annotation.Nullable Boolean isTool) {
         this.isTool = isTool;
     }
 
-    public InteractionSearchQuery isSkill(@javax.annotation.Nullable Boolean isSkill) {
+    public InteractionSearchQuery isSkill(@jakarta.annotation.Nullable Boolean isSkill) {
         this.isSkill = isSkill;
         return this;
     }
@@ -321,15 +321,15 @@ public class InteractionSearchQuery {
      * Get isSkill
      * @return isSkill
      */
-    @javax.annotation.Nullable public Boolean getIsSkill() {
+    @jakarta.annotation.Nullable public Boolean getIsSkill() {
         return isSkill;
     }
 
-    public void setIsSkill(@javax.annotation.Nullable Boolean isSkill) {
+    public void setIsSkill(@jakarta.annotation.Nullable Boolean isSkill) {
         this.isSkill = isSkill;
     }
 
-    public InteractionSearchQuery isBasic(@javax.annotation.Nullable Boolean isBasic) {
+    public InteractionSearchQuery isBasic(@jakarta.annotation.Nullable Boolean isBasic) {
         this.isBasic = isBasic;
         return this;
     }
@@ -338,15 +338,15 @@ public class InteractionSearchQuery {
      * Get isBasic
      * @return isBasic
      */
-    @javax.annotation.Nullable public Boolean getIsBasic() {
+    @jakarta.annotation.Nullable public Boolean getIsBasic() {
         return isBasic;
     }
 
-    public void setIsBasic(@javax.annotation.Nullable Boolean isBasic) {
+    public void setIsBasic(@jakarta.annotation.Nullable Boolean isBasic) {
         this.isBasic = isBasic;
     }
 
-    public InteractionSearchQuery isSubAgent(@javax.annotation.Nullable Boolean isSubAgent) {
+    public InteractionSearchQuery isSubAgent(@jakarta.annotation.Nullable Boolean isSubAgent) {
         this.isSubAgent = isSubAgent;
         return this;
     }
@@ -355,11 +355,11 @@ public class InteractionSearchQuery {
      * Get isSubAgent
      * @return isSubAgent
      */
-    @javax.annotation.Nullable public Boolean getIsSubAgent() {
+    @jakarta.annotation.Nullable public Boolean getIsSubAgent() {
         return isSubAgent;
     }
 
-    public void setIsSubAgent(@javax.annotation.Nullable Boolean isSubAgent) {
+    public void setIsSubAgent(@jakarta.annotation.Nullable Boolean isSubAgent) {
         this.isSubAgent = isSubAgent;
     }
 

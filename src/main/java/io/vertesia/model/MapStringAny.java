@@ -31,19 +31,19 @@ import java.util.Objects;
 /**
  * MapStringAny
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class MapStringAny {
     public static final String SERIALIZED_NAME_SIZE = "size";
 
     @SerializedName(SERIALIZED_NAME_SIZE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal size;
 
     public MapStringAny() {}
 
-    public MapStringAny size(@javax.annotation.Nonnull BigDecimal size) {
+    public MapStringAny size(@jakarta.annotation.Nonnull BigDecimal size) {
         this.size = size;
         return this;
     }
@@ -52,12 +52,12 @@ public class MapStringAny {
      * Get size
      * @return size
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getSize() {
         return size;
     }
 
-    public void setSize(@javax.annotation.Nonnull BigDecimal size) {
+    public void setSize(@jakarta.annotation.Nonnull BigDecimal size) {
         this.size = size;
     }
 

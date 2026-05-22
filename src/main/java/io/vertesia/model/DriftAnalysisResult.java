@@ -33,55 +33,55 @@ import java.util.Objects;
 /**
  * DriftAnalysisResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DriftAnalysisResult {
     public static final String SERIALIZED_NAME_TOTAL = "total";
 
     @SerializedName(SERIALIZED_NAME_TOTAL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal total;
 
     public static final String SERIALIZED_NAME_PROCESSED = "processed";
 
     @SerializedName(SERIALIZED_NAME_PROCESSED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal processed;
 
     public static final String SERIALIZED_NAME_MISSING = "missing";
 
     @SerializedName(SERIALIZED_NAME_MISSING)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal missing;
 
     public static final String SERIALIZED_NAME_STALE = "stale";
 
     @SerializedName(SERIALIZED_NAME_STALE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal stale;
 
     public static final String SERIALIZED_NAME_SAMPLE_MISSING_IDS = "sample_missing_ids";
 
     @SerializedName(SERIALIZED_NAME_SAMPLE_MISSING_IDS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> sampleMissingIds = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SAMPLE_STALE_IDS = "sample_stale_ids";
 
     @SerializedName(SERIALIZED_NAME_SAMPLE_STALE_IDS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> sampleStaleIds = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_COMPLETED_AT = "completed_at";
 
     @SerializedName(SERIALIZED_NAME_COMPLETED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String completedAt;
 
     public DriftAnalysisResult() {}
 
-    public DriftAnalysisResult total(@javax.annotation.Nonnull BigDecimal total) {
+    public DriftAnalysisResult total(@jakarta.annotation.Nonnull BigDecimal total) {
         this.total = total;
         return this;
     }
@@ -90,16 +90,16 @@ public class DriftAnalysisResult {
      * Get total
      * @return total
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(@javax.annotation.Nonnull BigDecimal total) {
+    public void setTotal(@jakarta.annotation.Nonnull BigDecimal total) {
         this.total = total;
     }
 
-    public DriftAnalysisResult processed(@javax.annotation.Nonnull BigDecimal processed) {
+    public DriftAnalysisResult processed(@jakarta.annotation.Nonnull BigDecimal processed) {
         this.processed = processed;
         return this;
     }
@@ -108,16 +108,16 @@ public class DriftAnalysisResult {
      * Get processed
      * @return processed
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getProcessed() {
         return processed;
     }
 
-    public void setProcessed(@javax.annotation.Nonnull BigDecimal processed) {
+    public void setProcessed(@jakarta.annotation.Nonnull BigDecimal processed) {
         this.processed = processed;
     }
 
-    public DriftAnalysisResult missing(@javax.annotation.Nonnull BigDecimal missing) {
+    public DriftAnalysisResult missing(@jakarta.annotation.Nonnull BigDecimal missing) {
         this.missing = missing;
         return this;
     }
@@ -126,16 +126,16 @@ public class DriftAnalysisResult {
      * Get missing
      * @return missing
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getMissing() {
         return missing;
     }
 
-    public void setMissing(@javax.annotation.Nonnull BigDecimal missing) {
+    public void setMissing(@jakarta.annotation.Nonnull BigDecimal missing) {
         this.missing = missing;
     }
 
-    public DriftAnalysisResult stale(@javax.annotation.Nonnull BigDecimal stale) {
+    public DriftAnalysisResult stale(@jakarta.annotation.Nonnull BigDecimal stale) {
         this.stale = stale;
         return this;
     }
@@ -144,17 +144,17 @@ public class DriftAnalysisResult {
      * Get stale
      * @return stale
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getStale() {
         return stale;
     }
 
-    public void setStale(@javax.annotation.Nonnull BigDecimal stale) {
+    public void setStale(@jakarta.annotation.Nonnull BigDecimal stale) {
         this.stale = stale;
     }
 
     public DriftAnalysisResult sampleMissingIds(
-            @javax.annotation.Nonnull List<String> sampleMissingIds) {
+            @jakarta.annotation.Nonnull List<String> sampleMissingIds) {
         this.sampleMissingIds = sampleMissingIds;
         return this;
     }
@@ -171,17 +171,17 @@ public class DriftAnalysisResult {
      * Get sampleMissingIds
      * @return sampleMissingIds
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getSampleMissingIds() {
         return sampleMissingIds;
     }
 
-    public void setSampleMissingIds(@javax.annotation.Nonnull List<String> sampleMissingIds) {
+    public void setSampleMissingIds(@jakarta.annotation.Nonnull List<String> sampleMissingIds) {
         this.sampleMissingIds = sampleMissingIds;
     }
 
     public DriftAnalysisResult sampleStaleIds(
-            @javax.annotation.Nonnull List<String> sampleStaleIds) {
+            @jakarta.annotation.Nonnull List<String> sampleStaleIds) {
         this.sampleStaleIds = sampleStaleIds;
         return this;
     }
@@ -198,16 +198,16 @@ public class DriftAnalysisResult {
      * Get sampleStaleIds
      * @return sampleStaleIds
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getSampleStaleIds() {
         return sampleStaleIds;
     }
 
-    public void setSampleStaleIds(@javax.annotation.Nonnull List<String> sampleStaleIds) {
+    public void setSampleStaleIds(@jakarta.annotation.Nonnull List<String> sampleStaleIds) {
         this.sampleStaleIds = sampleStaleIds;
     }
 
-    public DriftAnalysisResult completedAt(@javax.annotation.Nonnull String completedAt) {
+    public DriftAnalysisResult completedAt(@jakarta.annotation.Nonnull String completedAt) {
         this.completedAt = completedAt;
         return this;
     }
@@ -216,12 +216,12 @@ public class DriftAnalysisResult {
      * Get completedAt
      * @return completedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCompletedAt() {
         return completedAt;
     }
 
-    public void setCompletedAt(@javax.annotation.Nonnull String completedAt) {
+    public void setCompletedAt(@jakarta.annotation.Nonnull String completedAt) {
         this.completedAt = completedAt;
     }
 

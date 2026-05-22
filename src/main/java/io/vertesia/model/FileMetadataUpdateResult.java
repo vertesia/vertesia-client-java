@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * FileMetadataUpdateResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class FileMetadataUpdateResult {
     public static final String SERIALIZED_NAME_SUCCESS = "success";
 
     @SerializedName(SERIALIZED_NAME_SUCCESS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean success;
 
     public static final String SERIALIZED_NAME_FILE = "file";
 
     @SerializedName(SERIALIZED_NAME_FILE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String _file;
 
     public FileMetadataUpdateResult() {}
 
-    public FileMetadataUpdateResult success(@javax.annotation.Nonnull Boolean success) {
+    public FileMetadataUpdateResult success(@jakarta.annotation.Nonnull Boolean success) {
         this.success = success;
         return this;
     }
@@ -57,16 +57,16 @@ public class FileMetadataUpdateResult {
      * Get success
      * @return success
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getSuccess() {
         return success;
     }
 
-    public void setSuccess(@javax.annotation.Nonnull Boolean success) {
+    public void setSuccess(@jakarta.annotation.Nonnull Boolean success) {
         this.success = success;
     }
 
-    public FileMetadataUpdateResult _file(@javax.annotation.Nonnull String _file) {
+    public FileMetadataUpdateResult _file(@jakarta.annotation.Nonnull String _file) {
         this._file = _file;
         return this;
     }
@@ -75,12 +75,12 @@ public class FileMetadataUpdateResult {
      * Get _file
      * @return _file
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getFile() {
         return _file;
     }
 
-    public void setFile(@javax.annotation.Nonnull String _file) {
+    public void setFile(@jakarta.annotation.Nonnull String _file) {
         this._file = _file;
     }
 

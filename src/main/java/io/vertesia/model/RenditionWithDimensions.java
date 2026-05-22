@@ -30,31 +30,31 @@ import java.util.Objects;
 /**
  * RenditionWithDimensions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RenditionWithDimensions {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_CONTENT = "content";
 
     @SerializedName(SERIALIZED_NAME_CONTENT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ContentSource content;
 
     public static final String SERIALIZED_NAME_DIMENSIONS = "dimensions";
 
     @SerializedName(SERIALIZED_NAME_DIMENSIONS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Dimensions dimensions;
 
     public RenditionWithDimensions() {}
 
-    public RenditionWithDimensions name(@javax.annotation.Nonnull String name) {
+    public RenditionWithDimensions name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -63,16 +63,16 @@ public class RenditionWithDimensions {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public RenditionWithDimensions content(@javax.annotation.Nonnull ContentSource content) {
+    public RenditionWithDimensions content(@jakarta.annotation.Nonnull ContentSource content) {
         this.content = content;
         return this;
     }
@@ -81,16 +81,16 @@ public class RenditionWithDimensions {
      * Get content
      * @return content
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ContentSource getContent() {
         return content;
     }
 
-    public void setContent(@javax.annotation.Nonnull ContentSource content) {
+    public void setContent(@jakarta.annotation.Nonnull ContentSource content) {
         this.content = content;
     }
 
-    public RenditionWithDimensions dimensions(@javax.annotation.Nonnull Dimensions dimensions) {
+    public RenditionWithDimensions dimensions(@jakarta.annotation.Nonnull Dimensions dimensions) {
         this.dimensions = dimensions;
         return this;
     }
@@ -99,12 +99,12 @@ public class RenditionWithDimensions {
      * Get dimensions
      * @return dimensions
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Dimensions getDimensions() {
         return dimensions;
     }
 
-    public void setDimensions(@javax.annotation.Nonnull Dimensions dimensions) {
+    public void setDimensions(@jakarta.annotation.Nonnull Dimensions dimensions) {
         this.dimensions = dimensions;
     }
 

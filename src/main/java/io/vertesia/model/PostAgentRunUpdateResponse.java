@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * Response from posting an agent update.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PostAgentRunUpdateResponse {
     public static final String SERIALIZED_NAME_SUCCESS = "success";
 
     @SerializedName(SERIALIZED_NAME_SUCCESS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean success;
 
     public PostAgentRunUpdateResponse() {}
 
-    public PostAgentRunUpdateResponse success(@javax.annotation.Nonnull Boolean success) {
+    public PostAgentRunUpdateResponse success(@jakarta.annotation.Nonnull Boolean success) {
         this.success = success;
         return this;
     }
@@ -51,12 +51,12 @@ public class PostAgentRunUpdateResponse {
      * Get success
      * @return success
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getSuccess() {
         return success;
     }
 
-    public void setSuccess(@javax.annotation.Nonnull Boolean success) {
+    public void setSuccess(@jakarta.annotation.Nonnull Boolean success) {
         this.success = success;
     }
 

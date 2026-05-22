@@ -30,28 +30,29 @@ import java.util.Objects;
 /**
  * Logo overrides for the CompositeApp shell header. When provided, these URLs replace the default Vertesia logo.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppLogoOverrides {
     public static final String SERIALIZED_NAME_LIGHT_MODE_URL = "lightModeUrl";
 
     @SerializedName(SERIALIZED_NAME_LIGHT_MODE_URL)
-    @javax.annotation.Nullable private String lightModeUrl;
+    @jakarta.annotation.Nullable private String lightModeUrl;
 
     public static final String SERIALIZED_NAME_DARK_MODE_URL = "darkModeUrl";
 
     @SerializedName(SERIALIZED_NAME_DARK_MODE_URL)
-    @javax.annotation.Nullable private String darkModeUrl;
+    @jakarta.annotation.Nullable private String darkModeUrl;
 
     public static final String SERIALIZED_NAME_HIDE_FOOTER_LOGO = "hideFooterLogo";
 
     @SerializedName(SERIALIZED_NAME_HIDE_FOOTER_LOGO)
-    @javax.annotation.Nullable private Boolean hideFooterLogo;
+    @jakarta.annotation.Nullable private Boolean hideFooterLogo;
 
     public CompositeAppLogoOverrides() {}
 
-    public CompositeAppLogoOverrides lightModeUrl(@javax.annotation.Nullable String lightModeUrl) {
+    public CompositeAppLogoOverrides lightModeUrl(
+            @jakarta.annotation.Nullable String lightModeUrl) {
         this.lightModeUrl = lightModeUrl;
         return this;
     }
@@ -60,15 +61,15 @@ public class CompositeAppLogoOverrides {
      * URL for light mode logo (overrides default Vertesia logo)
      * @return lightModeUrl
      */
-    @javax.annotation.Nullable public String getLightModeUrl() {
+    @jakarta.annotation.Nullable public String getLightModeUrl() {
         return lightModeUrl;
     }
 
-    public void setLightModeUrl(@javax.annotation.Nullable String lightModeUrl) {
+    public void setLightModeUrl(@jakarta.annotation.Nullable String lightModeUrl) {
         this.lightModeUrl = lightModeUrl;
     }
 
-    public CompositeAppLogoOverrides darkModeUrl(@javax.annotation.Nullable String darkModeUrl) {
+    public CompositeAppLogoOverrides darkModeUrl(@jakarta.annotation.Nullable String darkModeUrl) {
         this.darkModeUrl = darkModeUrl;
         return this;
     }
@@ -77,16 +78,16 @@ public class CompositeAppLogoOverrides {
      * URL for dark mode logo (overrides default Vertesia logo)
      * @return darkModeUrl
      */
-    @javax.annotation.Nullable public String getDarkModeUrl() {
+    @jakarta.annotation.Nullable public String getDarkModeUrl() {
         return darkModeUrl;
     }
 
-    public void setDarkModeUrl(@javax.annotation.Nullable String darkModeUrl) {
+    public void setDarkModeUrl(@jakarta.annotation.Nullable String darkModeUrl) {
         this.darkModeUrl = darkModeUrl;
     }
 
     public CompositeAppLogoOverrides hideFooterLogo(
-            @javax.annotation.Nullable Boolean hideFooterLogo) {
+            @jakarta.annotation.Nullable Boolean hideFooterLogo) {
         this.hideFooterLogo = hideFooterLogo;
         return this;
     }
@@ -95,11 +96,11 @@ public class CompositeAppLogoOverrides {
      * Whether to hide the Vertesia footer logo in the sidebar when header logo is overridden (defaults to false)
      * @return hideFooterLogo
      */
-    @javax.annotation.Nullable public Boolean getHideFooterLogo() {
+    @jakarta.annotation.Nullable public Boolean getHideFooterLogo() {
         return hideFooterLogo;
     }
 
-    public void setHideFooterLogo(@javax.annotation.Nullable Boolean hideFooterLogo) {
+    public void setHideFooterLogo(@jakarta.annotation.Nullable Boolean hideFooterLogo) {
         this.hideFooterLogo = hideFooterLogo;
     }
 

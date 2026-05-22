@@ -30,30 +30,30 @@ import java.util.Objects;
 /**
  * Optional monitor workflow used when a process is launched as a conversation workstream. The process workflow sends checkpoint status signals to this monitor so long-running human-task processes do not need tight polling.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProcessRunConfigProcessWorkstreamMonitor {
     public static final String SERIALIZED_NAME_MONITOR_WORKFLOW_ID = "monitor_workflow_id";
 
     @SerializedName(SERIALIZED_NAME_MONITOR_WORKFLOW_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String monitorWorkflowId;
 
     public static final String SERIALIZED_NAME_LAUNCH_ID = "launch_id";
 
     @SerializedName(SERIALIZED_NAME_LAUNCH_ID)
-    @javax.annotation.Nullable private String launchId;
+    @jakarta.annotation.Nullable private String launchId;
 
     public static final String SERIALIZED_NAME_WORKSTREAM_ID = "workstream_id";
 
     @SerializedName(SERIALIZED_NAME_WORKSTREAM_ID)
-    @javax.annotation.Nullable private String workstreamId;
+    @jakarta.annotation.Nullable private String workstreamId;
 
     public ProcessRunConfigProcessWorkstreamMonitor() {}
 
     public ProcessRunConfigProcessWorkstreamMonitor monitorWorkflowId(
-            @javax.annotation.Nonnull String monitorWorkflowId) {
+            @jakarta.annotation.Nonnull String monitorWorkflowId) {
         this.monitorWorkflowId = monitorWorkflowId;
         return this;
     }
@@ -62,17 +62,17 @@ public class ProcessRunConfigProcessWorkstreamMonitor {
      * Get monitorWorkflowId
      * @return monitorWorkflowId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMonitorWorkflowId() {
         return monitorWorkflowId;
     }
 
-    public void setMonitorWorkflowId(@javax.annotation.Nonnull String monitorWorkflowId) {
+    public void setMonitorWorkflowId(@jakarta.annotation.Nonnull String monitorWorkflowId) {
         this.monitorWorkflowId = monitorWorkflowId;
     }
 
     public ProcessRunConfigProcessWorkstreamMonitor launchId(
-            @javax.annotation.Nullable String launchId) {
+            @jakarta.annotation.Nullable String launchId) {
         this.launchId = launchId;
         return this;
     }
@@ -81,16 +81,16 @@ public class ProcessRunConfigProcessWorkstreamMonitor {
      * Get launchId
      * @return launchId
      */
-    @javax.annotation.Nullable public String getLaunchId() {
+    @jakarta.annotation.Nullable public String getLaunchId() {
         return launchId;
     }
 
-    public void setLaunchId(@javax.annotation.Nullable String launchId) {
+    public void setLaunchId(@jakarta.annotation.Nullable String launchId) {
         this.launchId = launchId;
     }
 
     public ProcessRunConfigProcessWorkstreamMonitor workstreamId(
-            @javax.annotation.Nullable String workstreamId) {
+            @jakarta.annotation.Nullable String workstreamId) {
         this.workstreamId = workstreamId;
         return this;
     }
@@ -99,11 +99,11 @@ public class ProcessRunConfigProcessWorkstreamMonitor {
      * Get workstreamId
      * @return workstreamId
      */
-    @javax.annotation.Nullable public String getWorkstreamId() {
+    @jakarta.annotation.Nullable public String getWorkstreamId() {
         return workstreamId;
     }
 
-    public void setWorkstreamId(@javax.annotation.Nullable String workstreamId) {
+    public void setWorkstreamId(@jakarta.annotation.Nullable String workstreamId) {
         this.workstreamId = workstreamId;
     }
 

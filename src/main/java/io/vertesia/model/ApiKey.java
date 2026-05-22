@@ -31,94 +31,94 @@ import java.util.Objects;
 /**
  * ApiKey
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ApiKey {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ApiKeyTypes type;
 
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ProjectRoles role;
 
     public static final String SERIALIZED_NAME_MASKED_VALUE = "maskedValue";
 
     @SerializedName(SERIALIZED_NAME_MASKED_VALUE)
-    @javax.annotation.Nullable private String maskedValue;
+    @jakarta.annotation.Nullable private String maskedValue;
 
     public static final String SERIALIZED_NAME_CAN_RETRIEVE_VALUE = "can_retrieve_value";
 
     @SerializedName(SERIALIZED_NAME_CAN_RETRIEVE_VALUE)
-    @javax.annotation.Nullable private Boolean canRetrieveValue;
+    @jakarta.annotation.Nullable private Boolean canRetrieveValue;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String account;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ProjectRef project;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean enabled;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime updatedAt;
 
     public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
 
     @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
-    @javax.annotation.Nullable private OffsetDateTime expiresAt;
+    @jakarta.annotation.Nullable private OffsetDateTime expiresAt;
 
     public ApiKey() {}
 
-    public ApiKey id(@javax.annotation.Nonnull String id) {
+    public ApiKey id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -127,16 +127,16 @@ public class ApiKey {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public ApiKey name(@javax.annotation.Nonnull String name) {
+    public ApiKey name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -145,16 +145,16 @@ public class ApiKey {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public ApiKey type(@javax.annotation.Nonnull ApiKeyTypes type) {
+    public ApiKey type(@jakarta.annotation.Nonnull ApiKeyTypes type) {
         this.type = type;
         return this;
     }
@@ -163,16 +163,16 @@ public class ApiKey {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ApiKeyTypes getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull ApiKeyTypes type) {
+    public void setType(@jakarta.annotation.Nonnull ApiKeyTypes type) {
         this.type = type;
     }
 
-    public ApiKey role(@javax.annotation.Nonnull ProjectRoles role) {
+    public ApiKey role(@jakarta.annotation.Nonnull ProjectRoles role) {
         this.role = role;
         return this;
     }
@@ -181,16 +181,16 @@ public class ApiKey {
      * Get role
      * @return role
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ProjectRoles getRole() {
         return role;
     }
 
-    public void setRole(@javax.annotation.Nonnull ProjectRoles role) {
+    public void setRole(@jakarta.annotation.Nonnull ProjectRoles role) {
         this.role = role;
     }
 
-    public ApiKey maskedValue(@javax.annotation.Nullable String maskedValue) {
+    public ApiKey maskedValue(@jakarta.annotation.Nullable String maskedValue) {
         this.maskedValue = maskedValue;
         return this;
     }
@@ -199,15 +199,15 @@ public class ApiKey {
      * Get maskedValue
      * @return maskedValue
      */
-    @javax.annotation.Nullable public String getMaskedValue() {
+    @jakarta.annotation.Nullable public String getMaskedValue() {
         return maskedValue;
     }
 
-    public void setMaskedValue(@javax.annotation.Nullable String maskedValue) {
+    public void setMaskedValue(@jakarta.annotation.Nullable String maskedValue) {
         this.maskedValue = maskedValue;
     }
 
-    public ApiKey canRetrieveValue(@javax.annotation.Nullable Boolean canRetrieveValue) {
+    public ApiKey canRetrieveValue(@jakarta.annotation.Nullable Boolean canRetrieveValue) {
         this.canRetrieveValue = canRetrieveValue;
         return this;
     }
@@ -216,15 +216,15 @@ public class ApiKey {
      * Get canRetrieveValue
      * @return canRetrieveValue
      */
-    @javax.annotation.Nullable public Boolean getCanRetrieveValue() {
+    @jakarta.annotation.Nullable public Boolean getCanRetrieveValue() {
         return canRetrieveValue;
     }
 
-    public void setCanRetrieveValue(@javax.annotation.Nullable Boolean canRetrieveValue) {
+    public void setCanRetrieveValue(@jakarta.annotation.Nullable Boolean canRetrieveValue) {
         this.canRetrieveValue = canRetrieveValue;
     }
 
-    public ApiKey account(@javax.annotation.Nonnull String account) {
+    public ApiKey account(@jakarta.annotation.Nonnull String account) {
         this.account = account;
         return this;
     }
@@ -233,16 +233,16 @@ public class ApiKey {
      * Get account
      * @return account
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nonnull String account) {
+    public void setAccount(@jakarta.annotation.Nonnull String account) {
         this.account = account;
     }
 
-    public ApiKey project(@javax.annotation.Nonnull ProjectRef project) {
+    public ApiKey project(@jakarta.annotation.Nonnull ProjectRef project) {
         this.project = project;
         return this;
     }
@@ -251,16 +251,16 @@ public class ApiKey {
      * Get project
      * @return project
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ProjectRef getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nonnull ProjectRef project) {
+    public void setProject(@jakarta.annotation.Nonnull ProjectRef project) {
         this.project = project;
     }
 
-    public ApiKey enabled(@javax.annotation.Nonnull Boolean enabled) {
+    public ApiKey enabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -269,16 +269,16 @@ public class ApiKey {
      * Get enabled
      * @return enabled
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nonnull Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public ApiKey createdBy(@javax.annotation.Nonnull String createdBy) {
+    public ApiKey createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -287,16 +287,16 @@ public class ApiKey {
      * Get createdBy
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public ApiKey updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public ApiKey updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -305,16 +305,16 @@ public class ApiKey {
      * Get updatedBy
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public ApiKey createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public ApiKey createdAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -323,16 +323,16 @@ public class ApiKey {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public ApiKey updatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public ApiKey updatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -341,16 +341,16 @@ public class ApiKey {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public ApiKey expiresAt(@javax.annotation.Nullable OffsetDateTime expiresAt) {
+    public ApiKey expiresAt(@jakarta.annotation.Nullable OffsetDateTime expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -359,11 +359,11 @@ public class ApiKey {
      * Get expiresAt
      * @return expiresAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getExpiresAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getExpiresAt() {
         return expiresAt;
     }
 
-    public void setExpiresAt(@javax.annotation.Nullable OffsetDateTime expiresAt) {
+    public void setExpiresAt(@jakarta.annotation.Nullable OffsetDateTime expiresAt) {
         this.expiresAt = expiresAt;
     }
 

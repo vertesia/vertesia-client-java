@@ -35,7 +35,7 @@ import java.util.Objects;
 /**
  * SupervisedRunResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class SupervisedRunResponse {
@@ -95,13 +95,13 @@ public class SupervisedRunResponse {
     public static final String SERIALIZED_NAME_RUN_TYPE = "run_type";
 
     @SerializedName(SERIALIZED_NAME_RUN_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private RunTypeEnum runType;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     /**
@@ -160,147 +160,147 @@ public class SupervisedRunResponse {
     public static final String SERIALIZED_NAME_RUN_KIND = "run_kind";
 
     @SerializedName(SERIALIZED_NAME_RUN_KIND)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private RunKindEnum runKind;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String account;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String project;
 
     public static final String SERIALIZED_NAME_WORKFLOW_ID = "workflow_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_ID)
-    @javax.annotation.Nullable private String workflowId;
+    @jakarta.annotation.Nullable private String workflowId;
 
     public static final String SERIALIZED_NAME_FIRST_WORKFLOW_RUN_ID = "first_workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_FIRST_WORKFLOW_RUN_ID)
-    @javax.annotation.Nullable private String firstWorkflowRunId;
+    @jakarta.annotation.Nullable private String firstWorkflowRunId;
 
     public static final String SERIALIZED_NAME_ARTIFACTS_PATH = "artifacts_path";
 
     @SerializedName(SERIALIZED_NAME_ARTIFACTS_PATH)
-    @javax.annotation.Nullable private String artifactsPath;
+    @jakarta.annotation.Nullable private String artifactsPath;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private AgentRunStatus status;
 
     public static final String SERIALIZED_NAME_ACTIVITY_STATE = "activity_state";
 
     @SerializedName(SERIALIZED_NAME_ACTIVITY_STATE)
-    @javax.annotation.Nullable private ConversationActivityState activityState;
+    @jakarta.annotation.Nullable private ConversationActivityState activityState;
 
     public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
     @SerializedName(SERIALIZED_NAME_VISIBILITY)
-    @javax.annotation.Nullable private ConversationVisibility visibility;
+    @jakarta.annotation.Nullable private ConversationVisibility visibility;
 
     public static final String SERIALIZED_NAME_STARTED_BY = "started_by";
 
     @SerializedName(SERIALIZED_NAME_STARTED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String startedBy;
 
     public static final String SERIALIZED_NAME_STARTED_AT = "started_at";
 
     @SerializedName(SERIALIZED_NAME_STARTED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime startedAt;
 
     public static final String SERIALIZED_NAME_COMPLETED_AT = "completed_at";
 
     @SerializedName(SERIALIZED_NAME_COMPLETED_AT)
-    @javax.annotation.Nullable private OffsetDateTime completedAt;
+    @jakarta.annotation.Nullable private OffsetDateTime completedAt;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nullable private String title;
+    @jakarta.annotation.Nullable private String title;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CATEGORIES = "categories";
 
     @SerializedName(SERIALIZED_NAME_CATEGORIES)
-    @javax.annotation.Nullable private List<String> categories = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> categories = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nullable private RunSource source;
+    @jakarta.annotation.Nullable private RunSource source;
 
     public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
 
     @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
-    @javax.annotation.Nullable private AgentRunType sourceType;
+    @jakarta.annotation.Nullable private AgentRunType sourceType;
 
     public static final String SERIALIZED_NAME_SCHEDULE_ID = "schedule_id";
 
     @SerializedName(SERIALIZED_NAME_SCHEDULE_ID)
-    @javax.annotation.Nullable private String scheduleId;
+    @jakarta.annotation.Nullable private String scheduleId;
 
     public static final String SERIALIZED_NAME_ARCHIVE_STATE = "archive_state";
 
     @SerializedName(SERIALIZED_NAME_ARCHIVE_STATE)
-    @javax.annotation.Nullable private AgentRunArchiveState archiveState;
+    @jakarta.annotation.Nullable private AgentRunArchiveState archiveState;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private OffsetDateTime updatedAt;
 
     public static final String SERIALIZED_NAME_PROCESS_ID = "process_id";
 
     @SerializedName(SERIALIZED_NAME_PROCESS_ID)
-    @javax.annotation.Nullable private String processId;
+    @jakarta.annotation.Nullable private String processId;
 
     public static final String SERIALIZED_NAME_PROCESS_DEFINITION_SNAPSHOT =
             "process_definition_snapshot";
 
     @SerializedName(SERIALIZED_NAME_PROCESS_DEFINITION_SNAPSHOT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ProcessDefinitionBody processDefinitionSnapshot;
 
     public static final String SERIALIZED_NAME_PROCESS_VERSION = "process_version";
 
     @SerializedName(SERIALIZED_NAME_PROCESS_VERSION)
-    @javax.annotation.Nullable private BigDecimal processVersion;
+    @jakarta.annotation.Nullable private BigDecimal processVersion;
 
     public static final String SERIALIZED_NAME_PROCESS_STATE = "process_state";
 
     @SerializedName(SERIALIZED_NAME_PROCESS_STATE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ProcessState processState;
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nullable private ProcessRunConfig config;
+    @jakarta.annotation.Nullable private ProcessRunConfig config;
 
     public SupervisedRunResponse() {}
 
-    public SupervisedRunResponse runType(@javax.annotation.Nonnull RunTypeEnum runType) {
+    public SupervisedRunResponse runType(@jakarta.annotation.Nonnull RunTypeEnum runType) {
         this.runType = runType;
         return this;
     }
@@ -309,16 +309,16 @@ public class SupervisedRunResponse {
      * Get runType
      * @return runType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public RunTypeEnum getRunType() {
         return runType;
     }
 
-    public void setRunType(@javax.annotation.Nonnull RunTypeEnum runType) {
+    public void setRunType(@jakarta.annotation.Nonnull RunTypeEnum runType) {
         this.runType = runType;
     }
 
-    public SupervisedRunResponse id(@javax.annotation.Nonnull String id) {
+    public SupervisedRunResponse id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -327,16 +327,16 @@ public class SupervisedRunResponse {
      * The stable identifier used by all client code
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public SupervisedRunResponse runKind(@javax.annotation.Nonnull RunKindEnum runKind) {
+    public SupervisedRunResponse runKind(@jakarta.annotation.Nonnull RunKindEnum runKind) {
         this.runKind = runKind;
         return this;
     }
@@ -345,16 +345,16 @@ public class SupervisedRunResponse {
      * Internal discriminator key
      * @return runKind
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public RunKindEnum getRunKind() {
         return runKind;
     }
 
-    public void setRunKind(@javax.annotation.Nonnull RunKindEnum runKind) {
+    public void setRunKind(@jakarta.annotation.Nonnull RunKindEnum runKind) {
         this.runKind = runKind;
     }
 
-    public SupervisedRunResponse account(@javax.annotation.Nonnull String account) {
+    public SupervisedRunResponse account(@jakarta.annotation.Nonnull String account) {
         this.account = account;
         return this;
     }
@@ -363,16 +363,16 @@ public class SupervisedRunResponse {
      * Account ID
      * @return account
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nonnull String account) {
+    public void setAccount(@jakarta.annotation.Nonnull String account) {
         this.account = account;
     }
 
-    public SupervisedRunResponse project(@javax.annotation.Nonnull String project) {
+    public SupervisedRunResponse project(@jakarta.annotation.Nonnull String project) {
         this.project = project;
         return this;
     }
@@ -381,16 +381,16 @@ public class SupervisedRunResponse {
      * Project ID
      * @return project
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nonnull String project) {
+    public void setProject(@jakarta.annotation.Nonnull String project) {
         this.project = project;
     }
 
-    public SupervisedRunResponse workflowId(@javax.annotation.Nullable String workflowId) {
+    public SupervisedRunResponse workflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
         return this;
     }
@@ -399,16 +399,16 @@ public class SupervisedRunResponse {
      * Temporal workflow ID (stable across continueAsNew)
      * @return workflowId
      */
-    @javax.annotation.Nullable public String getWorkflowId() {
+    @jakarta.annotation.Nullable public String getWorkflowId() {
         return workflowId;
     }
 
-    public void setWorkflowId(@javax.annotation.Nullable String workflowId) {
+    public void setWorkflowId(@jakarta.annotation.Nullable String workflowId) {
         this.workflowId = workflowId;
     }
 
     public SupervisedRunResponse firstWorkflowRunId(
-            @javax.annotation.Nullable String firstWorkflowRunId) {
+            @jakarta.annotation.Nullable String firstWorkflowRunId) {
         this.firstWorkflowRunId = firstWorkflowRunId;
         return this;
     }
@@ -417,15 +417,15 @@ public class SupervisedRunResponse {
      * First Temporal workflow run ID (used for Redis channel and artifact resolution)
      * @return firstWorkflowRunId
      */
-    @javax.annotation.Nullable public String getFirstWorkflowRunId() {
+    @jakarta.annotation.Nullable public String getFirstWorkflowRunId() {
         return firstWorkflowRunId;
     }
 
-    public void setFirstWorkflowRunId(@javax.annotation.Nullable String firstWorkflowRunId) {
+    public void setFirstWorkflowRunId(@jakarta.annotation.Nullable String firstWorkflowRunId) {
         this.firstWorkflowRunId = firstWorkflowRunId;
     }
 
-    public SupervisedRunResponse artifactsPath(@javax.annotation.Nullable String artifactsPath) {
+    public SupervisedRunResponse artifactsPath(@jakarta.annotation.Nullable String artifactsPath) {
         this.artifactsPath = artifactsPath;
         return this;
     }
@@ -434,15 +434,15 @@ public class SupervisedRunResponse {
      * Artifact storage path for this run
      * @return artifactsPath
      */
-    @javax.annotation.Nullable public String getArtifactsPath() {
+    @jakarta.annotation.Nullable public String getArtifactsPath() {
         return artifactsPath;
     }
 
-    public void setArtifactsPath(@javax.annotation.Nullable String artifactsPath) {
+    public void setArtifactsPath(@jakarta.annotation.Nullable String artifactsPath) {
         this.artifactsPath = artifactsPath;
     }
 
-    public SupervisedRunResponse status(@javax.annotation.Nonnull AgentRunStatus status) {
+    public SupervisedRunResponse status(@jakarta.annotation.Nonnull AgentRunStatus status) {
         this.status = status;
         return this;
     }
@@ -451,17 +451,17 @@ public class SupervisedRunResponse {
      * Current status of the run
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public AgentRunStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull AgentRunStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull AgentRunStatus status) {
         this.status = status;
     }
 
     public SupervisedRunResponse activityState(
-            @javax.annotation.Nullable ConversationActivityState activityState) {
+            @jakarta.annotation.Nullable ConversationActivityState activityState) {
         this.activityState = activityState;
         return this;
     }
@@ -470,17 +470,17 @@ public class SupervisedRunResponse {
      * Whether the run is currently working or idle
      * @return activityState
      */
-    @javax.annotation.Nullable public ConversationActivityState getActivityState() {
+    @jakarta.annotation.Nullable public ConversationActivityState getActivityState() {
         return activityState;
     }
 
     public void setActivityState(
-            @javax.annotation.Nullable ConversationActivityState activityState) {
+            @jakarta.annotation.Nullable ConversationActivityState activityState) {
         this.activityState = activityState;
     }
 
     public SupervisedRunResponse visibility(
-            @javax.annotation.Nullable ConversationVisibility visibility) {
+            @jakarta.annotation.Nullable ConversationVisibility visibility) {
         this.visibility = visibility;
         return this;
     }
@@ -489,15 +489,15 @@ public class SupervisedRunResponse {
      * Conversation/process visibility
      * @return visibility
      */
-    @javax.annotation.Nullable public ConversationVisibility getVisibility() {
+    @jakarta.annotation.Nullable public ConversationVisibility getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(@javax.annotation.Nullable ConversationVisibility visibility) {
+    public void setVisibility(@jakarta.annotation.Nullable ConversationVisibility visibility) {
         this.visibility = visibility;
     }
 
-    public SupervisedRunResponse startedBy(@javax.annotation.Nonnull String startedBy) {
+    public SupervisedRunResponse startedBy(@jakarta.annotation.Nonnull String startedBy) {
         this.startedBy = startedBy;
         return this;
     }
@@ -506,16 +506,16 @@ public class SupervisedRunResponse {
      * User or service that initiated the run
      * @return startedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStartedBy() {
         return startedBy;
     }
 
-    public void setStartedBy(@javax.annotation.Nonnull String startedBy) {
+    public void setStartedBy(@jakarta.annotation.Nonnull String startedBy) {
         this.startedBy = startedBy;
     }
 
-    public SupervisedRunResponse startedAt(@javax.annotation.Nonnull OffsetDateTime startedAt) {
+    public SupervisedRunResponse startedAt(@jakarta.annotation.Nonnull OffsetDateTime startedAt) {
         this.startedAt = startedAt;
         return this;
     }
@@ -524,17 +524,17 @@ public class SupervisedRunResponse {
      * When the run started
      * @return startedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getStartedAt() {
         return startedAt;
     }
 
-    public void setStartedAt(@javax.annotation.Nonnull OffsetDateTime startedAt) {
+    public void setStartedAt(@jakarta.annotation.Nonnull OffsetDateTime startedAt) {
         this.startedAt = startedAt;
     }
 
     public SupervisedRunResponse completedAt(
-            @javax.annotation.Nullable OffsetDateTime completedAt) {
+            @jakarta.annotation.Nullable OffsetDateTime completedAt) {
         this.completedAt = completedAt;
         return this;
     }
@@ -543,15 +543,15 @@ public class SupervisedRunResponse {
      * When the run completed (or failed/cancelled)
      * @return completedAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getCompletedAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getCompletedAt() {
         return completedAt;
     }
 
-    public void setCompletedAt(@javax.annotation.Nullable OffsetDateTime completedAt) {
+    public void setCompletedAt(@jakarta.annotation.Nullable OffsetDateTime completedAt) {
         this.completedAt = completedAt;
     }
 
-    public SupervisedRunResponse title(@javax.annotation.Nullable String title) {
+    public SupervisedRunResponse title(@jakarta.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -560,15 +560,15 @@ public class SupervisedRunResponse {
      * Short human-readable title
      * @return title
      */
-    @javax.annotation.Nullable public String getTitle() {
+    @jakarta.annotation.Nullable public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nullable String title) {
+    public void setTitle(@jakarta.annotation.Nullable String title) {
         this.title = title;
     }
 
-    public SupervisedRunResponse tags(@javax.annotation.Nullable List<String> tags) {
+    public SupervisedRunResponse tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -585,15 +585,15 @@ public class SupervisedRunResponse {
      * User-defined or system tags for categorization
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public SupervisedRunResponse categories(@javax.annotation.Nullable List<String> categories) {
+    public SupervisedRunResponse categories(@jakarta.annotation.Nullable List<String> categories) {
         this.categories = categories;
         return this;
     }
@@ -610,15 +610,15 @@ public class SupervisedRunResponse {
      * Categories for organizing runs
      * @return categories
      */
-    @javax.annotation.Nullable public List<String> getCategories() {
+    @jakarta.annotation.Nullable public List<String> getCategories() {
         return categories;
     }
 
-    public void setCategories(@javax.annotation.Nullable List<String> categories) {
+    public void setCategories(@jakarta.annotation.Nullable List<String> categories) {
         this.categories = categories;
     }
 
-    public SupervisedRunResponse source(@javax.annotation.Nullable RunSource source) {
+    public SupervisedRunResponse source(@jakarta.annotation.Nullable RunSource source) {
         this.source = source;
         return this;
     }
@@ -627,15 +627,15 @@ public class SupervisedRunResponse {
      * How the run was started
      * @return source
      */
-    @javax.annotation.Nullable public RunSource getSource() {
+    @jakarta.annotation.Nullable public RunSource getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nullable RunSource source) {
+    public void setSource(@jakarta.annotation.Nullable RunSource source) {
         this.source = source;
     }
 
-    public SupervisedRunResponse sourceType(@javax.annotation.Nullable AgentRunType sourceType) {
+    public SupervisedRunResponse sourceType(@jakarta.annotation.Nullable AgentRunType sourceType) {
         this.sourceType = sourceType;
         return this;
     }
@@ -644,15 +644,15 @@ public class SupervisedRunResponse {
      * Replacement for legacy AgentRun.type
      * @return sourceType
      */
-    @javax.annotation.Nullable public AgentRunType getSourceType() {
+    @jakarta.annotation.Nullable public AgentRunType getSourceType() {
         return sourceType;
     }
 
-    public void setSourceType(@javax.annotation.Nullable AgentRunType sourceType) {
+    public void setSourceType(@jakarta.annotation.Nullable AgentRunType sourceType) {
         this.sourceType = sourceType;
     }
 
-    public SupervisedRunResponse scheduleId(@javax.annotation.Nullable String scheduleId) {
+    public SupervisedRunResponse scheduleId(@jakarta.annotation.Nullable String scheduleId) {
         this.scheduleId = scheduleId;
         return this;
     }
@@ -661,16 +661,16 @@ public class SupervisedRunResponse {
      * Schedule ID — set when this run was triggered by a Temporal schedule
      * @return scheduleId
      */
-    @javax.annotation.Nullable public String getScheduleId() {
+    @jakarta.annotation.Nullable public String getScheduleId() {
         return scheduleId;
     }
 
-    public void setScheduleId(@javax.annotation.Nullable String scheduleId) {
+    public void setScheduleId(@jakarta.annotation.Nullable String scheduleId) {
         this.scheduleId = scheduleId;
     }
 
     public SupervisedRunResponse archiveState(
-            @javax.annotation.Nullable AgentRunArchiveState archiveState) {
+            @jakarta.annotation.Nullable AgentRunArchiveState archiveState) {
         this.archiveState = archiveState;
         return this;
     }
@@ -679,15 +679,15 @@ public class SupervisedRunResponse {
      * Archive lifecycle state
      * @return archiveState
      */
-    @javax.annotation.Nullable public AgentRunArchiveState getArchiveState() {
+    @jakarta.annotation.Nullable public AgentRunArchiveState getArchiveState() {
         return archiveState;
     }
 
-    public void setArchiveState(@javax.annotation.Nullable AgentRunArchiveState archiveState) {
+    public void setArchiveState(@jakarta.annotation.Nullable AgentRunArchiveState archiveState) {
         this.archiveState = archiveState;
     }
 
-    public SupervisedRunResponse createdAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public SupervisedRunResponse createdAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -696,16 +696,16 @@ public class SupervisedRunResponse {
      * Timestamp when the document was created
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull OffsetDateTime createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public SupervisedRunResponse updatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public SupervisedRunResponse updatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -714,16 +714,16 @@ public class SupervisedRunResponse {
      * Timestamp when the document was last updated
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull OffsetDateTime updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public SupervisedRunResponse processId(@javax.annotation.Nullable String processId) {
+    public SupervisedRunResponse processId(@jakarta.annotation.Nullable String processId) {
         this.processId = processId;
         return this;
     }
@@ -732,16 +732,16 @@ public class SupervisedRunResponse {
      * Get processId
      * @return processId
      */
-    @javax.annotation.Nullable public String getProcessId() {
+    @jakarta.annotation.Nullable public String getProcessId() {
         return processId;
     }
 
-    public void setProcessId(@javax.annotation.Nullable String processId) {
+    public void setProcessId(@jakarta.annotation.Nullable String processId) {
         this.processId = processId;
     }
 
     public SupervisedRunResponse processDefinitionSnapshot(
-            @javax.annotation.Nonnull ProcessDefinitionBody processDefinitionSnapshot) {
+            @jakarta.annotation.Nonnull ProcessDefinitionBody processDefinitionSnapshot) {
         this.processDefinitionSnapshot = processDefinitionSnapshot;
         return this;
     }
@@ -750,18 +750,18 @@ public class SupervisedRunResponse {
      * Get processDefinitionSnapshot
      * @return processDefinitionSnapshot
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ProcessDefinitionBody getProcessDefinitionSnapshot() {
         return processDefinitionSnapshot;
     }
 
     public void setProcessDefinitionSnapshot(
-            @javax.annotation.Nonnull ProcessDefinitionBody processDefinitionSnapshot) {
+            @jakarta.annotation.Nonnull ProcessDefinitionBody processDefinitionSnapshot) {
         this.processDefinitionSnapshot = processDefinitionSnapshot;
     }
 
     public SupervisedRunResponse processVersion(
-            @javax.annotation.Nullable BigDecimal processVersion) {
+            @jakarta.annotation.Nullable BigDecimal processVersion) {
         this.processVersion = processVersion;
         return this;
     }
@@ -770,15 +770,16 @@ public class SupervisedRunResponse {
      * Get processVersion
      * @return processVersion
      */
-    @javax.annotation.Nullable public BigDecimal getProcessVersion() {
+    @jakarta.annotation.Nullable public BigDecimal getProcessVersion() {
         return processVersion;
     }
 
-    public void setProcessVersion(@javax.annotation.Nullable BigDecimal processVersion) {
+    public void setProcessVersion(@jakarta.annotation.Nullable BigDecimal processVersion) {
         this.processVersion = processVersion;
     }
 
-    public SupervisedRunResponse processState(@javax.annotation.Nonnull ProcessState processState) {
+    public SupervisedRunResponse processState(
+            @jakarta.annotation.Nonnull ProcessState processState) {
         this.processState = processState;
         return this;
     }
@@ -787,16 +788,16 @@ public class SupervisedRunResponse {
      * Get processState
      * @return processState
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ProcessState getProcessState() {
         return processState;
     }
 
-    public void setProcessState(@javax.annotation.Nonnull ProcessState processState) {
+    public void setProcessState(@jakarta.annotation.Nonnull ProcessState processState) {
         this.processState = processState;
     }
 
-    public SupervisedRunResponse config(@javax.annotation.Nullable ProcessRunConfig config) {
+    public SupervisedRunResponse config(@jakarta.annotation.Nullable ProcessRunConfig config) {
         this.config = config;
         return this;
     }
@@ -805,11 +806,11 @@ public class SupervisedRunResponse {
      * Get config
      * @return config
      */
-    @javax.annotation.Nullable public ProcessRunConfig getConfig() {
+    @jakarta.annotation.Nullable public ProcessRunConfig getConfig() {
         return config;
     }
 
-    public void setConfig(@javax.annotation.Nullable ProcessRunConfig config) {
+    public void setConfig(@jakarta.annotation.Nullable ProcessRunConfig config) {
         this.config = config;
     }
 

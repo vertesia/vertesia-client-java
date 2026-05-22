@@ -82,7 +82,7 @@ public class WorkflowRulesApi {
      * </table>
      */
     public okhttp3.Call createWorkflowRuleCall(
-            @javax.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
+            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -139,7 +139,7 @@ public class WorkflowRulesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createWorkflowRuleValidateBeforeCall(
-            @javax.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
+            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'createWorkflowRulePayload' is set
@@ -167,7 +167,7 @@ public class WorkflowRulesApi {
      * </table>
      */
     public WorkflowRule createWorkflowRule(
-            @javax.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload)
+            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload)
             throws ApiException {
         ApiResponse<WorkflowRule> localVarResp =
                 createWorkflowRuleWithHttpInfo(createWorkflowRulePayload);
@@ -190,7 +190,7 @@ public class WorkflowRulesApi {
      * </table>
      */
     public ApiResponse<WorkflowRule> createWorkflowRuleWithHttpInfo(
-            @javax.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload)
+            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createWorkflowRuleValidateBeforeCall(createWorkflowRulePayload, null);
@@ -215,7 +215,7 @@ public class WorkflowRulesApi {
      * </table>
      */
     public okhttp3.Call createWorkflowRuleAsync(
-            @javax.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
+            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
             final ApiCallback<WorkflowRule> _callback)
             throws ApiException {
 
@@ -242,7 +242,7 @@ public class WorkflowRulesApi {
      * </table>
      */
     public okhttp3.Call deleteWorkflowRuleCall(
-            @javax.annotation.Nonnull String ruleId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ruleId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -302,7 +302,7 @@ public class WorkflowRulesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteWorkflowRuleValidateBeforeCall(
-            @javax.annotation.Nonnull String ruleId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ruleId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ruleId' is set
         if (ruleId == null) {
@@ -328,7 +328,7 @@ public class WorkflowRulesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteCountResult deleteWorkflowRule(@javax.annotation.Nonnull String ruleId)
+    public DeleteCountResult deleteWorkflowRule(@jakarta.annotation.Nonnull String ruleId)
             throws ApiException {
         ApiResponse<DeleteCountResult> localVarResp = deleteWorkflowRuleWithHttpInfo(ruleId);
         return localVarResp.getData();
@@ -350,7 +350,7 @@ public class WorkflowRulesApi {
      * </table>
      */
     public ApiResponse<DeleteCountResult> deleteWorkflowRuleWithHttpInfo(
-            @javax.annotation.Nonnull String ruleId) throws ApiException {
+            @jakarta.annotation.Nonnull String ruleId) throws ApiException {
         okhttp3.Call localVarCall = deleteWorkflowRuleValidateBeforeCall(ruleId, null);
         Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -373,7 +373,8 @@ public class WorkflowRulesApi {
      * </table>
      */
     public okhttp3.Call deleteWorkflowRuleAsync(
-            @javax.annotation.Nonnull String ruleId, final ApiCallback<DeleteCountResult> _callback)
+            @jakarta.annotation.Nonnull String ruleId,
+            final ApiCallback<DeleteCountResult> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = deleteWorkflowRuleValidateBeforeCall(ruleId, _callback);
@@ -398,7 +399,7 @@ public class WorkflowRulesApi {
      * </table>
      */
     public okhttp3.Call getWorkflowRuleCall(
-            @javax.annotation.Nonnull String ruleId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ruleId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -458,7 +459,7 @@ public class WorkflowRulesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWorkflowRuleValidateBeforeCall(
-            @javax.annotation.Nonnull String ruleId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ruleId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ruleId' is set
         if (ruleId == null) {
@@ -484,7 +485,7 @@ public class WorkflowRulesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public WorkflowRule getWorkflowRule(@javax.annotation.Nonnull String ruleId)
+    public WorkflowRule getWorkflowRule(@jakarta.annotation.Nonnull String ruleId)
             throws ApiException {
         ApiResponse<WorkflowRule> localVarResp = getWorkflowRuleWithHttpInfo(ruleId);
         return localVarResp.getData();
@@ -506,7 +507,7 @@ public class WorkflowRulesApi {
      * </table>
      */
     public ApiResponse<WorkflowRule> getWorkflowRuleWithHttpInfo(
-            @javax.annotation.Nonnull String ruleId) throws ApiException {
+            @jakarta.annotation.Nonnull String ruleId) throws ApiException {
         okhttp3.Call localVarCall = getWorkflowRuleValidateBeforeCall(ruleId, null);
         Type localVarReturnType = new TypeToken<WorkflowRule>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -529,7 +530,7 @@ public class WorkflowRulesApi {
      * </table>
      */
     public okhttp3.Call getWorkflowRuleAsync(
-            @javax.annotation.Nonnull String ruleId, final ApiCallback<WorkflowRule> _callback)
+            @jakarta.annotation.Nonnull String ruleId, final ApiCallback<WorkflowRule> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getWorkflowRuleValidateBeforeCall(ruleId, _callback);
@@ -691,8 +692,8 @@ public class WorkflowRulesApi {
      * </table>
      */
     public okhttp3.Call updateWorkflowRuleCall(
-            @javax.annotation.Nonnull String ruleId,
-            @javax.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
+            @jakarta.annotation.Nonnull String ruleId,
+            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -753,8 +754,8 @@ public class WorkflowRulesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateWorkflowRuleValidateBeforeCall(
-            @javax.annotation.Nonnull String ruleId,
-            @javax.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
+            @jakarta.annotation.Nonnull String ruleId,
+            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ruleId' is set
@@ -789,8 +790,8 @@ public class WorkflowRulesApi {
      * </table>
      */
     public WorkflowRule updateWorkflowRule(
-            @javax.annotation.Nonnull String ruleId,
-            @javax.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload)
+            @jakarta.annotation.Nonnull String ruleId,
+            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload)
             throws ApiException {
         ApiResponse<WorkflowRule> localVarResp =
                 updateWorkflowRuleWithHttpInfo(ruleId, createWorkflowRulePayload);
@@ -814,8 +815,8 @@ public class WorkflowRulesApi {
      * </table>
      */
     public ApiResponse<WorkflowRule> updateWorkflowRuleWithHttpInfo(
-            @javax.annotation.Nonnull String ruleId,
-            @javax.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload)
+            @jakarta.annotation.Nonnull String ruleId,
+            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateWorkflowRuleValidateBeforeCall(ruleId, createWorkflowRulePayload, null);
@@ -841,8 +842,8 @@ public class WorkflowRulesApi {
      * </table>
      */
     public okhttp3.Call updateWorkflowRuleAsync(
-            @javax.annotation.Nonnull String ruleId,
-            @javax.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
+            @jakarta.annotation.Nonnull String ruleId,
+            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
             final ApiCallback<WorkflowRule> _callback)
             throws ApiException {
 

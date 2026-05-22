@@ -30,29 +30,29 @@ import java.util.Objects;
 /**
  * ProjectConfigurationEmbeddings
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProjectConfigurationEmbeddings {
     public static final String SERIALIZED_NAME_TEXT = "text";
 
     @SerializedName(SERIALIZED_NAME_TEXT)
-    @javax.annotation.Nullable private ProjectConfigurationEmbedding text;
+    @jakarta.annotation.Nullable private ProjectConfigurationEmbedding text;
 
     public static final String SERIALIZED_NAME_IMAGE = "image";
 
     @SerializedName(SERIALIZED_NAME_IMAGE)
-    @javax.annotation.Nullable private ProjectConfigurationEmbedding image;
+    @jakarta.annotation.Nullable private ProjectConfigurationEmbedding image;
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private ProjectConfigurationEmbedding properties;
+    @jakarta.annotation.Nullable private ProjectConfigurationEmbedding properties;
 
     public ProjectConfigurationEmbeddings() {}
 
     public ProjectConfigurationEmbeddings text(
-            @javax.annotation.Nullable ProjectConfigurationEmbedding text) {
+            @jakarta.annotation.Nullable ProjectConfigurationEmbedding text) {
         this.text = text;
         return this;
     }
@@ -61,16 +61,16 @@ public class ProjectConfigurationEmbeddings {
      * Get text
      * @return text
      */
-    @javax.annotation.Nullable public ProjectConfigurationEmbedding getText() {
+    @jakarta.annotation.Nullable public ProjectConfigurationEmbedding getText() {
         return text;
     }
 
-    public void setText(@javax.annotation.Nullable ProjectConfigurationEmbedding text) {
+    public void setText(@jakarta.annotation.Nullable ProjectConfigurationEmbedding text) {
         this.text = text;
     }
 
     public ProjectConfigurationEmbeddings image(
-            @javax.annotation.Nullable ProjectConfigurationEmbedding image) {
+            @jakarta.annotation.Nullable ProjectConfigurationEmbedding image) {
         this.image = image;
         return this;
     }
@@ -79,16 +79,16 @@ public class ProjectConfigurationEmbeddings {
      * Get image
      * @return image
      */
-    @javax.annotation.Nullable public ProjectConfigurationEmbedding getImage() {
+    @jakarta.annotation.Nullable public ProjectConfigurationEmbedding getImage() {
         return image;
     }
 
-    public void setImage(@javax.annotation.Nullable ProjectConfigurationEmbedding image) {
+    public void setImage(@jakarta.annotation.Nullable ProjectConfigurationEmbedding image) {
         this.image = image;
     }
 
     public ProjectConfigurationEmbeddings properties(
-            @javax.annotation.Nullable ProjectConfigurationEmbedding properties) {
+            @jakarta.annotation.Nullable ProjectConfigurationEmbedding properties) {
         this.properties = properties;
         return this;
     }
@@ -97,11 +97,12 @@ public class ProjectConfigurationEmbeddings {
      * Get properties
      * @return properties
      */
-    @javax.annotation.Nullable public ProjectConfigurationEmbedding getProperties() {
+    @jakarta.annotation.Nullable public ProjectConfigurationEmbedding getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable ProjectConfigurationEmbedding properties) {
+    public void setProperties(
+            @jakarta.annotation.Nullable ProjectConfigurationEmbedding properties) {
         this.properties = properties;
     }
 

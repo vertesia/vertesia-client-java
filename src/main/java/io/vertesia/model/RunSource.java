@@ -31,20 +31,20 @@ import java.util.Objects;
 /**
  * RunSource
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RunSource {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private RunSourceTypes type;
 
     public static final String SERIALIZED_NAME_LABEL = "label";
 
     @SerializedName(SERIALIZED_NAME_LABEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String label;
 
     /**
@@ -115,24 +115,24 @@ public class RunSource {
     public static final String SERIALIZED_NAME_PRINCIPAL_TYPE = "principal_type";
 
     @SerializedName(SERIALIZED_NAME_PRINCIPAL_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private PrincipalTypeEnum principalType;
 
     public static final String SERIALIZED_NAME_PRINCIPAL_ID = "principal_id";
 
     @SerializedName(SERIALIZED_NAME_PRINCIPAL_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String principalId;
 
     public static final String SERIALIZED_NAME_CLIENT_IP = "client_ip";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_IP)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String clientIp;
 
     public RunSource() {}
 
-    public RunSource type(@javax.annotation.Nonnull RunSourceTypes type) {
+    public RunSource type(@jakarta.annotation.Nonnull RunSourceTypes type) {
         this.type = type;
         return this;
     }
@@ -141,16 +141,16 @@ public class RunSource {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public RunSourceTypes getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull RunSourceTypes type) {
+    public void setType(@jakarta.annotation.Nonnull RunSourceTypes type) {
         this.type = type;
     }
 
-    public RunSource label(@javax.annotation.Nonnull String label) {
+    public RunSource label(@jakarta.annotation.Nonnull String label) {
         this.label = label;
         return this;
     }
@@ -159,16 +159,16 @@ public class RunSource {
      * Get label
      * @return label
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getLabel() {
         return label;
     }
 
-    public void setLabel(@javax.annotation.Nonnull String label) {
+    public void setLabel(@jakarta.annotation.Nonnull String label) {
         this.label = label;
     }
 
-    public RunSource principalType(@javax.annotation.Nonnull PrincipalTypeEnum principalType) {
+    public RunSource principalType(@jakarta.annotation.Nonnull PrincipalTypeEnum principalType) {
         this.principalType = principalType;
         return this;
     }
@@ -177,16 +177,16 @@ public class RunSource {
      * Get principalType
      * @return principalType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public PrincipalTypeEnum getPrincipalType() {
         return principalType;
     }
 
-    public void setPrincipalType(@javax.annotation.Nonnull PrincipalTypeEnum principalType) {
+    public void setPrincipalType(@jakarta.annotation.Nonnull PrincipalTypeEnum principalType) {
         this.principalType = principalType;
     }
 
-    public RunSource principalId(@javax.annotation.Nonnull String principalId) {
+    public RunSource principalId(@jakarta.annotation.Nonnull String principalId) {
         this.principalId = principalId;
         return this;
     }
@@ -195,16 +195,16 @@ public class RunSource {
      * Get principalId
      * @return principalId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getPrincipalId() {
         return principalId;
     }
 
-    public void setPrincipalId(@javax.annotation.Nonnull String principalId) {
+    public void setPrincipalId(@jakarta.annotation.Nonnull String principalId) {
         this.principalId = principalId;
     }
 
-    public RunSource clientIp(@javax.annotation.Nonnull String clientIp) {
+    public RunSource clientIp(@jakarta.annotation.Nonnull String clientIp) {
         this.clientIp = clientIp;
         return this;
     }
@@ -213,12 +213,12 @@ public class RunSource {
      * Get clientIp
      * @return clientIp
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getClientIp() {
         return clientIp;
     }
 
-    public void setClientIp(@javax.annotation.Nonnull String clientIp) {
+    public void setClientIp(@jakarta.annotation.Nonnull String clientIp) {
         this.clientIp = clientIp;
     }
 

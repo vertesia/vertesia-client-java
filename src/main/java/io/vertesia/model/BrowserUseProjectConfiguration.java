@@ -32,54 +32,54 @@ import java.util.Objects;
 /**
  * BrowserUseProjectConfiguration
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BrowserUseProjectConfiguration {
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
     @SerializedName(SERIALIZED_NAME_ENABLED)
-    @javax.annotation.Nullable private Boolean enabled;
+    @jakarta.annotation.Nullable private Boolean enabled;
 
     public static final String SERIALIZED_NAME_DEFAULT_POLICY = "default_policy";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT_POLICY)
-    @javax.annotation.Nullable private BrowserUseRiskPolicy defaultPolicy;
+    @jakarta.annotation.Nullable private BrowserUseRiskPolicy defaultPolicy;
 
     public static final String SERIALIZED_NAME_MAX_POLICY = "max_policy";
 
     @SerializedName(SERIALIZED_NAME_MAX_POLICY)
-    @javax.annotation.Nullable private BrowserUseRiskPolicy maxPolicy;
+    @jakarta.annotation.Nullable private BrowserUseRiskPolicy maxPolicy;
 
     public static final String SERIALIZED_NAME_ALLOWED_HOSTS = "allowed_hosts";
 
     @SerializedName(SERIALIZED_NAME_ALLOWED_HOSTS)
-    @javax.annotation.Nullable private List<String> allowedHosts = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> allowedHosts = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ALLOW_FILE_UPLOADS = "allow_file_uploads";
 
     @SerializedName(SERIALIZED_NAME_ALLOW_FILE_UPLOADS)
-    @javax.annotation.Nullable private Boolean allowFileUploads;
+    @jakarta.annotation.Nullable private Boolean allowFileUploads;
 
     public static final String SERIALIZED_NAME_ALLOW_PLAYWRIGHT_SCRIPTS =
             "allow_playwright_scripts";
 
     @SerializedName(SERIALIZED_NAME_ALLOW_PLAYWRIGHT_SCRIPTS)
-    @javax.annotation.Nullable private Boolean allowPlaywrightScripts;
+    @jakarta.annotation.Nullable private Boolean allowPlaywrightScripts;
 
     public static final String SERIALIZED_NAME_CAPTURE_SCREENSHOTS = "capture_screenshots";
 
     @SerializedName(SERIALIZED_NAME_CAPTURE_SCREENSHOTS)
-    @javax.annotation.Nullable private BrowserUseScreenshotCapture captureScreenshots;
+    @jakarta.annotation.Nullable private BrowserUseScreenshotCapture captureScreenshots;
 
     public static final String SERIALIZED_NAME_PREFER_RAW_SCREENSHOTS = "prefer_raw_screenshots";
 
     @SerializedName(SERIALIZED_NAME_PREFER_RAW_SCREENSHOTS)
-    @javax.annotation.Nullable private Boolean preferRawScreenshots;
+    @jakarta.annotation.Nullable private Boolean preferRawScreenshots;
 
     public BrowserUseProjectConfiguration() {}
 
-    public BrowserUseProjectConfiguration enabled(@javax.annotation.Nullable Boolean enabled) {
+    public BrowserUseProjectConfiguration enabled(@jakarta.annotation.Nullable Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -88,16 +88,16 @@ public class BrowserUseProjectConfiguration {
      * Enable the browser_use workflow-level tool for this project. Defaults to true when omitted.
      * @return enabled
      */
-    @javax.annotation.Nullable public Boolean getEnabled() {
+    @jakarta.annotation.Nullable public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(@javax.annotation.Nullable Boolean enabled) {
+    public void setEnabled(@jakarta.annotation.Nullable Boolean enabled) {
         this.enabled = enabled;
     }
 
     public BrowserUseProjectConfiguration defaultPolicy(
-            @javax.annotation.Nullable BrowserUseRiskPolicy defaultPolicy) {
+            @jakarta.annotation.Nullable BrowserUseRiskPolicy defaultPolicy) {
         this.defaultPolicy = defaultPolicy;
         return this;
     }
@@ -106,16 +106,16 @@ public class BrowserUseProjectConfiguration {
      * Risk policy used when the tool call does not specify one. Defaults to low_write.
      * @return defaultPolicy
      */
-    @javax.annotation.Nullable public BrowserUseRiskPolicy getDefaultPolicy() {
+    @jakarta.annotation.Nullable public BrowserUseRiskPolicy getDefaultPolicy() {
         return defaultPolicy;
     }
 
-    public void setDefaultPolicy(@javax.annotation.Nullable BrowserUseRiskPolicy defaultPolicy) {
+    public void setDefaultPolicy(@jakarta.annotation.Nullable BrowserUseRiskPolicy defaultPolicy) {
         this.defaultPolicy = defaultPolicy;
     }
 
     public BrowserUseProjectConfiguration maxPolicy(
-            @javax.annotation.Nullable BrowserUseRiskPolicy maxPolicy) {
+            @jakarta.annotation.Nullable BrowserUseRiskPolicy maxPolicy) {
         this.maxPolicy = maxPolicy;
         return this;
     }
@@ -124,16 +124,16 @@ public class BrowserUseProjectConfiguration {
      * Maximum policy a tool call may request. Requested policies above this are clamped down to the project maximum. Defaults to unrestricted.
      * @return maxPolicy
      */
-    @javax.annotation.Nullable public BrowserUseRiskPolicy getMaxPolicy() {
+    @jakarta.annotation.Nullable public BrowserUseRiskPolicy getMaxPolicy() {
         return maxPolicy;
     }
 
-    public void setMaxPolicy(@javax.annotation.Nullable BrowserUseRiskPolicy maxPolicy) {
+    public void setMaxPolicy(@jakarta.annotation.Nullable BrowserUseRiskPolicy maxPolicy) {
         this.maxPolicy = maxPolicy;
     }
 
     public BrowserUseProjectConfiguration allowedHosts(
-            @javax.annotation.Nullable List<String> allowedHosts) {
+            @jakarta.annotation.Nullable List<String> allowedHosts) {
         this.allowedHosts = allowedHosts;
         return this;
     }
@@ -150,16 +150,16 @@ public class BrowserUseProjectConfiguration {
      * Optional project-wide host allowlist. When present, browser_use calls can only request hosts contained by this list.
      * @return allowedHosts
      */
-    @javax.annotation.Nullable public List<String> getAllowedHosts() {
+    @jakarta.annotation.Nullable public List<String> getAllowedHosts() {
         return allowedHosts;
     }
 
-    public void setAllowedHosts(@javax.annotation.Nullable List<String> allowedHosts) {
+    public void setAllowedHosts(@jakarta.annotation.Nullable List<String> allowedHosts) {
         this.allowedHosts = allowedHosts;
     }
 
     public BrowserUseProjectConfiguration allowFileUploads(
-            @javax.annotation.Nullable Boolean allowFileUploads) {
+            @jakarta.annotation.Nullable Boolean allowFileUploads) {
         this.allowFileUploads = allowFileUploads;
         return this;
     }
@@ -168,16 +168,16 @@ public class BrowserUseProjectConfiguration {
      * Allow saved Playwright scripts to hydrate artifacts/documents as files inside the browser sandbox for upload flows. Defaults to true.
      * @return allowFileUploads
      */
-    @javax.annotation.Nullable public Boolean getAllowFileUploads() {
+    @jakarta.annotation.Nullable public Boolean getAllowFileUploads() {
         return allowFileUploads;
     }
 
-    public void setAllowFileUploads(@javax.annotation.Nullable Boolean allowFileUploads) {
+    public void setAllowFileUploads(@jakarta.annotation.Nullable Boolean allowFileUploads) {
         this.allowFileUploads = allowFileUploads;
     }
 
     public BrowserUseProjectConfiguration allowPlaywrightScripts(
-            @javax.annotation.Nullable Boolean allowPlaywrightScripts) {
+            @jakarta.annotation.Nullable Boolean allowPlaywrightScripts) {
         this.allowPlaywrightScripts = allowPlaywrightScripts;
         return this;
     }
@@ -186,17 +186,17 @@ public class BrowserUseProjectConfiguration {
      * Allow the browser_playwright_script tool in browser workstreams. Defaults to true.
      * @return allowPlaywrightScripts
      */
-    @javax.annotation.Nullable public Boolean getAllowPlaywrightScripts() {
+    @jakarta.annotation.Nullable public Boolean getAllowPlaywrightScripts() {
         return allowPlaywrightScripts;
     }
 
     public void setAllowPlaywrightScripts(
-            @javax.annotation.Nullable Boolean allowPlaywrightScripts) {
+            @jakarta.annotation.Nullable Boolean allowPlaywrightScripts) {
         this.allowPlaywrightScripts = allowPlaywrightScripts;
     }
 
     public BrowserUseProjectConfiguration captureScreenshots(
-            @javax.annotation.Nullable BrowserUseScreenshotCapture captureScreenshots) {
+            @jakarta.annotation.Nullable BrowserUseScreenshotCapture captureScreenshots) {
         this.captureScreenshots = captureScreenshots;
         return this;
     }
@@ -205,17 +205,17 @@ public class BrowserUseProjectConfiguration {
      * Persist browser screenshots for UI progress. Defaults to on_action.
      * @return captureScreenshots
      */
-    @javax.annotation.Nullable public BrowserUseScreenshotCapture getCaptureScreenshots() {
+    @jakarta.annotation.Nullable public BrowserUseScreenshotCapture getCaptureScreenshots() {
         return captureScreenshots;
     }
 
     public void setCaptureScreenshots(
-            @javax.annotation.Nullable BrowserUseScreenshotCapture captureScreenshots) {
+            @jakarta.annotation.Nullable BrowserUseScreenshotCapture captureScreenshots) {
         this.captureScreenshots = captureScreenshots;
     }
 
     public BrowserUseProjectConfiguration preferRawScreenshots(
-            @javax.annotation.Nullable Boolean preferRawScreenshots) {
+            @jakarta.annotation.Nullable Boolean preferRawScreenshots) {
         this.preferRawScreenshots = preferRawScreenshots;
         return this;
     }
@@ -224,11 +224,11 @@ public class BrowserUseProjectConfiguration {
      * Prefer unannotated screenshots in the browser-use UI widget when both raw and annotated captures are available. Defaults to true.
      * @return preferRawScreenshots
      */
-    @javax.annotation.Nullable public Boolean getPreferRawScreenshots() {
+    @jakarta.annotation.Nullable public Boolean getPreferRawScreenshots() {
         return preferRawScreenshots;
     }
 
-    public void setPreferRawScreenshots(@javax.annotation.Nullable Boolean preferRawScreenshots) {
+    public void setPreferRawScreenshots(@jakarta.annotation.Nullable Boolean preferRawScreenshots) {
         this.preferRawScreenshots = preferRawScreenshots;
     }
 

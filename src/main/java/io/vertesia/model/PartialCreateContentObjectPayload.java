@@ -36,168 +36,168 @@ import java.util.Objects;
 /**
  * When creating from an uploaded file the content should be an URL to the uploaded file
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PartialCreateContentObjectPayload {
     public static final String SERIALIZED_NAME_TEXT = "text";
 
     @SerializedName(SERIALIZED_NAME_TEXT)
-    @javax.annotation.Nullable private String text;
+    @jakarta.annotation.Nullable private String text;
 
     public static final String SERIALIZED_NAME_TEXT_ETAG = "text_etag";
 
     @SerializedName(SERIALIZED_NAME_TEXT_ETAG)
-    @javax.annotation.Nullable private String textEtag;
+    @jakarta.annotation.Nullable private String textEtag;
 
     public static final String SERIALIZED_NAME_EMBEDDINGS = "embeddings";
 
     @SerializedName(SERIALIZED_NAME_EMBEDDINGS)
-    @javax.annotation.Nullable private PartialRecordSupportedEmbeddingTypesEmbedding embeddings;
+    @jakarta.annotation.Nullable private PartialRecordSupportedEmbeddingTypesEmbedding embeddings;
 
     public static final String SERIALIZED_NAME_PARTS = "parts";
 
     @SerializedName(SERIALIZED_NAME_PARTS)
-    @javax.annotation.Nullable private List<String> parts = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> parts = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PARTS_ETAG = "parts_etag";
 
     @SerializedName(SERIALIZED_NAME_PARTS_ETAG)
-    @javax.annotation.Nullable private String partsEtag;
+    @jakarta.annotation.Nullable private String partsEtag;
 
     public static final String SERIALIZED_NAME_TRANSCRIPT = "transcript";
 
     @SerializedName(SERIALIZED_NAME_TRANSCRIPT)
-    @javax.annotation.Nullable private Transcript transcript;
+    @jakarta.annotation.Nullable private Transcript transcript;
 
     public static final String SERIALIZED_NAME_SECURITY = "security";
 
     @SerializedName(SERIALIZED_NAME_SECURITY)
-    @javax.annotation.Nullable private Map<String, List<String>> security = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, List<String>> security = new HashMap<>();
 
     public static final String SERIALIZED_NAME_SENSITIVITY = "sensitivity";
 
     @SerializedName(SERIALIZED_NAME_SENSITIVITY)
-    @javax.annotation.Nullable private BigDecimal sensitivity;
+    @jakarta.annotation.Nullable private BigDecimal sensitivity;
 
     public static final String SERIALIZED_NAME_COMPARTMENTS = "compartments";
 
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
-    @javax.annotation.Nullable private List<String> compartments = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_INHERITED_PROPERTIES = "inherited_properties";
 
     @SerializedName(SERIALIZED_NAME_INHERITED_PROPERTIES)
-    @javax.annotation.Nullable private List<InheritedPropertyMetadata> inheritedProperties = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<InheritedPropertyMetadata> inheritedProperties = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private String parent;
+    @jakarta.annotation.Nullable private String parent;
 
     public static final String SERIALIZED_NAME_LOCATION = "location";
 
     @SerializedName(SERIALIZED_NAME_LOCATION)
-    @javax.annotation.Nullable private String location;
+    @jakarta.annotation.Nullable private String location;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private ContentObjectStatus status;
+    @jakarta.annotation.Nullable private ContentObjectStatus status;
 
     public static final String SERIALIZED_NAME_CONTENT = "content";
 
     @SerializedName(SERIALIZED_NAME_CONTENT)
-    @javax.annotation.Nullable private ContentSource content;
+    @jakarta.annotation.Nullable private ContentSource content;
 
     public static final String SERIALIZED_NAME_EXTERNAL_ID = "external_id";
 
     @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
-    @javax.annotation.Nullable private String externalId;
+    @jakarta.annotation.Nullable private String externalId;
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @javax.annotation.Nullable private CreateContentObjectPayloadMetadata metadata;
+    @jakarta.annotation.Nullable private CreateContentObjectPayloadMetadata metadata;
 
     public static final String SERIALIZED_NAME_TOKENS = "tokens";
 
     @SerializedName(SERIALIZED_NAME_TOKENS)
-    @javax.annotation.Nullable private CreateContentObjectPayloadTokens tokens;
+    @jakarta.annotation.Nullable private CreateContentObjectPayloadTokens tokens;
 
     public static final String SERIALIZED_NAME_REVISION = "revision";
 
     @SerializedName(SERIALIZED_NAME_REVISION)
-    @javax.annotation.Nullable private RevisionInfo revision;
+    @jakarta.annotation.Nullable private RevisionInfo revision;
 
     public static final String SERIALIZED_NAME_IS_DELETED = "is_deleted";
 
     @SerializedName(SERIALIZED_NAME_IS_DELETED)
-    @javax.annotation.Nullable private Boolean isDeleted;
+    @jakarta.annotation.Nullable private Boolean isDeleted;
 
     public static final String SERIALIZED_NAME_IS_LOCKED = "is_locked";
 
     @SerializedName(SERIALIZED_NAME_IS_LOCKED)
-    @javax.annotation.Nullable private Boolean isLocked;
+    @jakarta.annotation.Nullable private Boolean isLocked;
 
     public static final String SERIALIZED_NAME_SCORE = "score";
 
     @SerializedName(SERIALIZED_NAME_SCORE)
-    @javax.annotation.Nullable private BigDecimal score;
+    @jakarta.annotation.Nullable private BigDecimal score;
 
     public static final String SERIALIZED_NAME_USER_PERMISSIONS = "user_permissions";
 
     @SerializedName(SERIALIZED_NAME_USER_PERMISSIONS)
-    @javax.annotation.Nullable private ContentObjectUserPermissions userPermissions;
+    @jakarta.annotation.Nullable private ContentObjectUserPermissions userPermissions;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nullable private String updatedBy;
+    @jakarta.annotation.Nullable private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nullable private String createdBy;
+    @jakarta.annotation.Nullable private String createdBy;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nullable private String id;
+    @jakarta.annotation.Nullable private String id;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private String type;
+    @jakarta.annotation.Nullable private String type;
 
     public static final String SERIALIZED_NAME_GENERATION_RUN_INFO = "generation_run_info";
 
     @SerializedName(SERIALIZED_NAME_GENERATION_RUN_INFO)
-    @javax.annotation.Nullable private GenerationRunMetadata generationRunInfo;
+    @jakarta.annotation.Nullable private GenerationRunMetadata generationRunInfo;
 
     public PartialCreateContentObjectPayload() {}
 
-    public PartialCreateContentObjectPayload text(@javax.annotation.Nullable String text) {
+    public PartialCreateContentObjectPayload text(@jakarta.annotation.Nullable String text) {
         this.text = text;
         return this;
     }
@@ -206,15 +206,16 @@ public class PartialCreateContentObjectPayload {
      * Get text
      * @return text
      */
-    @javax.annotation.Nullable public String getText() {
+    @jakarta.annotation.Nullable public String getText() {
         return text;
     }
 
-    public void setText(@javax.annotation.Nullable String text) {
+    public void setText(@jakarta.annotation.Nullable String text) {
         this.text = text;
     }
 
-    public PartialCreateContentObjectPayload textEtag(@javax.annotation.Nullable String textEtag) {
+    public PartialCreateContentObjectPayload textEtag(
+            @jakarta.annotation.Nullable String textEtag) {
         this.textEtag = textEtag;
         return this;
     }
@@ -223,16 +224,16 @@ public class PartialCreateContentObjectPayload {
      * Get textEtag
      * @return textEtag
      */
-    @javax.annotation.Nullable public String getTextEtag() {
+    @jakarta.annotation.Nullable public String getTextEtag() {
         return textEtag;
     }
 
-    public void setTextEtag(@javax.annotation.Nullable String textEtag) {
+    public void setTextEtag(@jakarta.annotation.Nullable String textEtag) {
         this.textEtag = textEtag;
     }
 
     public PartialCreateContentObjectPayload embeddings(
-            @javax.annotation.Nullable PartialRecordSupportedEmbeddingTypesEmbedding embeddings) {
+            @jakarta.annotation.Nullable PartialRecordSupportedEmbeddingTypesEmbedding embeddings) {
         this.embeddings = embeddings;
         return this;
     }
@@ -241,16 +242,17 @@ public class PartialCreateContentObjectPayload {
      * Get embeddings
      * @return embeddings
      */
-    @javax.annotation.Nullable public PartialRecordSupportedEmbeddingTypesEmbedding getEmbeddings() {
+    @jakarta.annotation.Nullable public PartialRecordSupportedEmbeddingTypesEmbedding getEmbeddings() {
         return embeddings;
     }
 
     public void setEmbeddings(
-            @javax.annotation.Nullable PartialRecordSupportedEmbeddingTypesEmbedding embeddings) {
+            @jakarta.annotation.Nullable PartialRecordSupportedEmbeddingTypesEmbedding embeddings) {
         this.embeddings = embeddings;
     }
 
-    public PartialCreateContentObjectPayload parts(@javax.annotation.Nullable List<String> parts) {
+    public PartialCreateContentObjectPayload parts(
+            @jakarta.annotation.Nullable List<String> parts) {
         this.parts = parts;
         return this;
     }
@@ -267,16 +269,16 @@ public class PartialCreateContentObjectPayload {
      * Get parts
      * @return parts
      */
-    @javax.annotation.Nullable public List<String> getParts() {
+    @jakarta.annotation.Nullable public List<String> getParts() {
         return parts;
     }
 
-    public void setParts(@javax.annotation.Nullable List<String> parts) {
+    public void setParts(@jakarta.annotation.Nullable List<String> parts) {
         this.parts = parts;
     }
 
     public PartialCreateContentObjectPayload partsEtag(
-            @javax.annotation.Nullable String partsEtag) {
+            @jakarta.annotation.Nullable String partsEtag) {
         this.partsEtag = partsEtag;
         return this;
     }
@@ -285,16 +287,16 @@ public class PartialCreateContentObjectPayload {
      * Get partsEtag
      * @return partsEtag
      */
-    @javax.annotation.Nullable public String getPartsEtag() {
+    @jakarta.annotation.Nullable public String getPartsEtag() {
         return partsEtag;
     }
 
-    public void setPartsEtag(@javax.annotation.Nullable String partsEtag) {
+    public void setPartsEtag(@jakarta.annotation.Nullable String partsEtag) {
         this.partsEtag = partsEtag;
     }
 
     public PartialCreateContentObjectPayload transcript(
-            @javax.annotation.Nullable Transcript transcript) {
+            @jakarta.annotation.Nullable Transcript transcript) {
         this.transcript = transcript;
         return this;
     }
@@ -303,16 +305,16 @@ public class PartialCreateContentObjectPayload {
      * Get transcript
      * @return transcript
      */
-    @javax.annotation.Nullable public Transcript getTranscript() {
+    @jakarta.annotation.Nullable public Transcript getTranscript() {
         return transcript;
     }
 
-    public void setTranscript(@javax.annotation.Nullable Transcript transcript) {
+    public void setTranscript(@jakarta.annotation.Nullable Transcript transcript) {
         this.transcript = transcript;
     }
 
     public PartialCreateContentObjectPayload security(
-            @javax.annotation.Nullable Map<String, List<String>> security) {
+            @jakarta.annotation.Nullable Map<String, List<String>> security) {
         this.security = security;
         return this;
     }
@@ -330,16 +332,16 @@ public class PartialCreateContentObjectPayload {
      * Get security
      * @return security
      */
-    @javax.annotation.Nullable public Map<String, List<String>> getSecurity() {
+    @jakarta.annotation.Nullable public Map<String, List<String>> getSecurity() {
         return security;
     }
 
-    public void setSecurity(@javax.annotation.Nullable Map<String, List<String>> security) {
+    public void setSecurity(@jakarta.annotation.Nullable Map<String, List<String>> security) {
         this.security = security;
     }
 
     public PartialCreateContentObjectPayload sensitivity(
-            @javax.annotation.Nullable BigDecimal sensitivity) {
+            @jakarta.annotation.Nullable BigDecimal sensitivity) {
         this.sensitivity = sensitivity;
         return this;
     }
@@ -348,16 +350,16 @@ public class PartialCreateContentObjectPayload {
      * BLP sensitivity level — set directly or inherited from collections (max across collections).
      * @return sensitivity
      */
-    @javax.annotation.Nullable public BigDecimal getSensitivity() {
+    @jakarta.annotation.Nullable public BigDecimal getSensitivity() {
         return sensitivity;
     }
 
-    public void setSensitivity(@javax.annotation.Nullable BigDecimal sensitivity) {
+    public void setSensitivity(@jakarta.annotation.Nullable BigDecimal sensitivity) {
         this.sensitivity = sensitivity;
     }
 
     public PartialCreateContentObjectPayload compartments(
-            @javax.annotation.Nullable List<String> compartments) {
+            @jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
         return this;
     }
@@ -374,16 +376,16 @@ public class PartialCreateContentObjectPayload {
      * Compartments — set directly or inherited from collections (union across collections).
      * @return compartments
      */
-    @javax.annotation.Nullable public List<String> getCompartments() {
+    @jakarta.annotation.Nullable public List<String> getCompartments() {
         return compartments;
     }
 
-    public void setCompartments(@javax.annotation.Nullable List<String> compartments) {
+    public void setCompartments(@jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
     }
 
     public PartialCreateContentObjectPayload inheritedProperties(
-            @javax.annotation.Nullable List<InheritedPropertyMetadata> inheritedProperties) {
+            @jakarta.annotation.Nullable List<InheritedPropertyMetadata> inheritedProperties) {
         this.inheritedProperties = inheritedProperties;
         return this;
     }
@@ -401,16 +403,16 @@ public class PartialCreateContentObjectPayload {
      * Inherited properties metadata - tracks which properties were inherited from parent collections. Used to display readonly inherited properties in the UI and enable incremental sync optimization.
      * @return inheritedProperties
      */
-    @javax.annotation.Nullable public List<InheritedPropertyMetadata> getInheritedProperties() {
+    @jakarta.annotation.Nullable public List<InheritedPropertyMetadata> getInheritedProperties() {
         return inheritedProperties;
     }
 
     public void setInheritedProperties(
-            @javax.annotation.Nullable List<InheritedPropertyMetadata> inheritedProperties) {
+            @jakarta.annotation.Nullable List<InheritedPropertyMetadata> inheritedProperties) {
         this.inheritedProperties = inheritedProperties;
     }
 
-    public PartialCreateContentObjectPayload parent(@javax.annotation.Nullable String parent) {
+    public PartialCreateContentObjectPayload parent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
         return this;
     }
@@ -419,15 +421,16 @@ public class PartialCreateContentObjectPayload {
      * Get parent
      * @return parent
      */
-    @javax.annotation.Nullable public String getParent() {
+    @jakarta.annotation.Nullable public String getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable String parent) {
+    public void setParent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
     }
 
-    public PartialCreateContentObjectPayload location(@javax.annotation.Nullable String location) {
+    public PartialCreateContentObjectPayload location(
+            @jakarta.annotation.Nullable String location) {
         this.location = location;
         return this;
     }
@@ -436,16 +439,16 @@ public class PartialCreateContentObjectPayload {
      * An optional path based location for the object
      * @return location
      */
-    @javax.annotation.Nullable public String getLocation() {
+    @jakarta.annotation.Nullable public String getLocation() {
         return location;
     }
 
-    public void setLocation(@javax.annotation.Nullable String location) {
+    public void setLocation(@jakarta.annotation.Nullable String location) {
         this.location = location;
     }
 
     public PartialCreateContentObjectPayload status(
-            @javax.annotation.Nullable ContentObjectStatus status) {
+            @jakarta.annotation.Nullable ContentObjectStatus status) {
         this.status = status;
         return this;
     }
@@ -454,16 +457,16 @@ public class PartialCreateContentObjectPayload {
      * Object status. - created: the object was created and is being processed - processing: the object is being processed - completed: the object was processed and is ready to use - failed: the object processing failed - archived: the object was archived and is no longer available
      * @return status
      */
-    @javax.annotation.Nullable public ContentObjectStatus getStatus() {
+    @jakarta.annotation.Nullable public ContentObjectStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable ContentObjectStatus status) {
+    public void setStatus(@jakarta.annotation.Nullable ContentObjectStatus status) {
         this.status = status;
     }
 
     public PartialCreateContentObjectPayload content(
-            @javax.annotation.Nullable ContentSource content) {
+            @jakarta.annotation.Nullable ContentSource content) {
         this.content = content;
         return this;
     }
@@ -472,16 +475,16 @@ public class PartialCreateContentObjectPayload {
      * Content source information, typically a link to an object store
      * @return content
      */
-    @javax.annotation.Nullable public ContentSource getContent() {
+    @jakarta.annotation.Nullable public ContentSource getContent() {
         return content;
     }
 
-    public void setContent(@javax.annotation.Nullable ContentSource content) {
+    public void setContent(@jakarta.annotation.Nullable ContentSource content) {
         this.content = content;
     }
 
     public PartialCreateContentObjectPayload externalId(
-            @javax.annotation.Nullable String externalId) {
+            @jakarta.annotation.Nullable String externalId) {
         this.externalId = externalId;
         return this;
     }
@@ -490,16 +493,16 @@ public class PartialCreateContentObjectPayload {
      * External identifier for integration with other systems
      * @return externalId
      */
-    @javax.annotation.Nullable public String getExternalId() {
+    @jakarta.annotation.Nullable public String getExternalId() {
         return externalId;
     }
 
-    public void setExternalId(@javax.annotation.Nullable String externalId) {
+    public void setExternalId(@jakarta.annotation.Nullable String externalId) {
         this.externalId = externalId;
     }
 
     public PartialCreateContentObjectPayload properties(
-            @javax.annotation.Nullable Map<String, Object> properties) {
+            @jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
         return this;
     }
@@ -516,16 +519,16 @@ public class PartialCreateContentObjectPayload {
      * The object properties. This is a JSON object that describes the object, matching the object type schema
      * @return properties
      */
-    @javax.annotation.Nullable public Map<String, Object> getProperties() {
+    @jakarta.annotation.Nullable public Map<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public void setProperties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
     }
 
     public PartialCreateContentObjectPayload metadata(
-            @javax.annotation.Nullable CreateContentObjectPayloadMetadata metadata) {
+            @jakarta.annotation.Nullable CreateContentObjectPayloadMetadata metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -534,17 +537,17 @@ public class PartialCreateContentObjectPayload {
      * Get metadata
      * @return metadata
      */
-    @javax.annotation.Nullable public CreateContentObjectPayloadMetadata getMetadata() {
+    @jakarta.annotation.Nullable public CreateContentObjectPayloadMetadata getMetadata() {
         return metadata;
     }
 
     public void setMetadata(
-            @javax.annotation.Nullable CreateContentObjectPayloadMetadata metadata) {
+            @jakarta.annotation.Nullable CreateContentObjectPayloadMetadata metadata) {
         this.metadata = metadata;
     }
 
     public PartialCreateContentObjectPayload tokens(
-            @javax.annotation.Nullable CreateContentObjectPayloadTokens tokens) {
+            @jakarta.annotation.Nullable CreateContentObjectPayloadTokens tokens) {
         this.tokens = tokens;
         return this;
     }
@@ -553,16 +556,16 @@ public class PartialCreateContentObjectPayload {
      * Get tokens
      * @return tokens
      */
-    @javax.annotation.Nullable public CreateContentObjectPayloadTokens getTokens() {
+    @jakarta.annotation.Nullable public CreateContentObjectPayloadTokens getTokens() {
         return tokens;
     }
 
-    public void setTokens(@javax.annotation.Nullable CreateContentObjectPayloadTokens tokens) {
+    public void setTokens(@jakarta.annotation.Nullable CreateContentObjectPayloadTokens tokens) {
         this.tokens = tokens;
     }
 
     public PartialCreateContentObjectPayload revision(
-            @javax.annotation.Nullable RevisionInfo revision) {
+            @jakarta.annotation.Nullable RevisionInfo revision) {
         this.revision = revision;
         return this;
     }
@@ -571,16 +574,16 @@ public class PartialCreateContentObjectPayload {
      * Revision information. This is used to track the history of the object.
      * @return revision
      */
-    @javax.annotation.Nullable public RevisionInfo getRevision() {
+    @jakarta.annotation.Nullable public RevisionInfo getRevision() {
         return revision;
     }
 
-    public void setRevision(@javax.annotation.Nullable RevisionInfo revision) {
+    public void setRevision(@jakarta.annotation.Nullable RevisionInfo revision) {
         this.revision = revision;
     }
 
     public PartialCreateContentObjectPayload isDeleted(
-            @javax.annotation.Nullable Boolean isDeleted) {
+            @jakarta.annotation.Nullable Boolean isDeleted) {
         this.isDeleted = isDeleted;
         return this;
     }
@@ -589,15 +592,16 @@ public class PartialCreateContentObjectPayload {
      * Soft delete flag. When true, the object should be considered deleted but is still retained in the database for historical purposes.
      * @return isDeleted
      */
-    @javax.annotation.Nullable public Boolean getIsDeleted() {
+    @jakarta.annotation.Nullable public Boolean getIsDeleted() {
         return isDeleted;
     }
 
-    public void setIsDeleted(@javax.annotation.Nullable Boolean isDeleted) {
+    public void setIsDeleted(@jakarta.annotation.Nullable Boolean isDeleted) {
         this.isDeleted = isDeleted;
     }
 
-    public PartialCreateContentObjectPayload isLocked(@javax.annotation.Nullable Boolean isLocked) {
+    public PartialCreateContentObjectPayload isLocked(
+            @jakarta.annotation.Nullable Boolean isLocked) {
         this.isLocked = isLocked;
         return this;
     }
@@ -606,15 +610,15 @@ public class PartialCreateContentObjectPayload {
      * Soft lock flag. When true, the object should be considered read-only and modification attempts should be rejected.
      * @return isLocked
      */
-    @javax.annotation.Nullable public Boolean getIsLocked() {
+    @jakarta.annotation.Nullable public Boolean getIsLocked() {
         return isLocked;
     }
 
-    public void setIsLocked(@javax.annotation.Nullable Boolean isLocked) {
+    public void setIsLocked(@jakarta.annotation.Nullable Boolean isLocked) {
         this.isLocked = isLocked;
     }
 
-    public PartialCreateContentObjectPayload score(@javax.annotation.Nullable BigDecimal score) {
+    public PartialCreateContentObjectPayload score(@jakarta.annotation.Nullable BigDecimal score) {
         this.score = score;
         return this;
     }
@@ -623,16 +627,16 @@ public class PartialCreateContentObjectPayload {
      * The document score, used for ranking and sorting.
      * @return score
      */
-    @javax.annotation.Nullable public BigDecimal getScore() {
+    @jakarta.annotation.Nullable public BigDecimal getScore() {
         return score;
     }
 
-    public void setScore(@javax.annotation.Nullable BigDecimal score) {
+    public void setScore(@jakarta.annotation.Nullable BigDecimal score) {
         this.score = score;
     }
 
     public PartialCreateContentObjectPayload userPermissions(
-            @javax.annotation.Nullable ContentObjectUserPermissions userPermissions) {
+            @jakarta.annotation.Nullable ContentObjectUserPermissions userPermissions) {
         this.userPermissions = userPermissions;
         return this;
     }
@@ -641,16 +645,16 @@ public class PartialCreateContentObjectPayload {
      * Computed per-request: the current user&#39;s effective permissions on this object.
      * @return userPermissions
      */
-    @javax.annotation.Nullable public ContentObjectUserPermissions getUserPermissions() {
+    @jakarta.annotation.Nullable public ContentObjectUserPermissions getUserPermissions() {
         return userPermissions;
     }
 
     public void setUserPermissions(
-            @javax.annotation.Nullable ContentObjectUserPermissions userPermissions) {
+            @jakarta.annotation.Nullable ContentObjectUserPermissions userPermissions) {
         this.userPermissions = userPermissions;
     }
 
-    public PartialCreateContentObjectPayload name(@javax.annotation.Nullable String name) {
+    public PartialCreateContentObjectPayload name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -659,16 +663,16 @@ public class PartialCreateContentObjectPayload {
      * Human-readable name or title
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
     public PartialCreateContentObjectPayload description(
-            @javax.annotation.Nullable String description) {
+            @jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -677,15 +681,15 @@ public class PartialCreateContentObjectPayload {
      * Optional detailed description of the object
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public PartialCreateContentObjectPayload tags(@javax.annotation.Nullable List<String> tags) {
+    public PartialCreateContentObjectPayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -702,16 +706,16 @@ public class PartialCreateContentObjectPayload {
      * Optional array of categorization tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
     public PartialCreateContentObjectPayload updatedBy(
-            @javax.annotation.Nullable String updatedBy) {
+            @jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -720,16 +724,16 @@ public class PartialCreateContentObjectPayload {
      * Identifier of the user who last modified the object
      * @return updatedBy
      */
-    @javax.annotation.Nullable public String getUpdatedBy() {
+    @jakarta.annotation.Nullable public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nullable String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
     public PartialCreateContentObjectPayload createdBy(
-            @javax.annotation.Nullable String createdBy) {
+            @jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -738,15 +742,15 @@ public class PartialCreateContentObjectPayload {
      * Identifier of the user who created the object
      * @return createdBy
      */
-    @javax.annotation.Nullable public String getCreatedBy() {
+    @jakarta.annotation.Nullable public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public PartialCreateContentObjectPayload id(@javax.annotation.Nullable String id) {
+    public PartialCreateContentObjectPayload id(@jakarta.annotation.Nullable String id) {
         this.id = id;
         return this;
     }
@@ -755,15 +759,15 @@ public class PartialCreateContentObjectPayload {
      * Get id
      * @return id
      */
-    @javax.annotation.Nullable public String getId() {
+    @jakarta.annotation.Nullable public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nullable String id) {
+    public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
     }
 
-    public PartialCreateContentObjectPayload type(@javax.annotation.Nullable String type) {
+    public PartialCreateContentObjectPayload type(@jakarta.annotation.Nullable String type) {
         this.type = type;
         return this;
     }
@@ -772,16 +776,16 @@ public class PartialCreateContentObjectPayload {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public String getType() {
+    @jakarta.annotation.Nullable public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable String type) {
+    public void setType(@jakarta.annotation.Nullable String type) {
         this.type = type;
     }
 
     public PartialCreateContentObjectPayload generationRunInfo(
-            @javax.annotation.Nullable GenerationRunMetadata generationRunInfo) {
+            @jakarta.annotation.Nullable GenerationRunMetadata generationRunInfo) {
         this.generationRunInfo = generationRunInfo;
         return this;
     }
@@ -790,12 +794,12 @@ public class PartialCreateContentObjectPayload {
      * Get generationRunInfo
      * @return generationRunInfo
      */
-    @javax.annotation.Nullable public GenerationRunMetadata getGenerationRunInfo() {
+    @jakarta.annotation.Nullable public GenerationRunMetadata getGenerationRunInfo() {
         return generationRunInfo;
     }
 
     public void setGenerationRunInfo(
-            @javax.annotation.Nullable GenerationRunMetadata generationRunInfo) {
+            @jakarta.annotation.Nullable GenerationRunMetadata generationRunInfo) {
         this.generationRunInfo = generationRunInfo;
     }
 

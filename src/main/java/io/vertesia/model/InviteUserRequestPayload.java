@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * InviteUserRequestPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InviteUserRequestPayload {
     public static final String SERIALIZED_NAME_EMAIL = "email";
 
     @SerializedName(SERIALIZED_NAME_EMAIL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String email;
 
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ProjectRoles role;
 
     public InviteUserRequestPayload() {}
 
-    public InviteUserRequestPayload email(@javax.annotation.Nonnull String email) {
+    public InviteUserRequestPayload email(@jakarta.annotation.Nonnull String email) {
         this.email = email;
         return this;
     }
@@ -57,16 +57,16 @@ public class InviteUserRequestPayload {
      * Get email
      * @return email
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(@javax.annotation.Nonnull String email) {
+    public void setEmail(@jakarta.annotation.Nonnull String email) {
         this.email = email;
     }
 
-    public InviteUserRequestPayload role(@javax.annotation.Nonnull ProjectRoles role) {
+    public InviteUserRequestPayload role(@jakarta.annotation.Nonnull ProjectRoles role) {
         this.role = role;
         return this;
     }
@@ -75,12 +75,12 @@ public class InviteUserRequestPayload {
      * Get role
      * @return role
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ProjectRoles getRole() {
         return role;
     }
 
-    public void setRole(@javax.annotation.Nonnull ProjectRoles role) {
+    public void setRole(@jakarta.annotation.Nonnull ProjectRoles role) {
         this.role = role;
     }
 

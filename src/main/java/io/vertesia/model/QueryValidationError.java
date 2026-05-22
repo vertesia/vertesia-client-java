@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * QueryValidationError
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class QueryValidationError {
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String query;
 
     public static final String SERIALIZED_NAME_ERROR = "error";
 
     @SerializedName(SERIALIZED_NAME_ERROR)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String error;
 
     public QueryValidationError() {}
 
-    public QueryValidationError query(@javax.annotation.Nonnull String query) {
+    public QueryValidationError query(@jakarta.annotation.Nonnull String query) {
         this.query = query;
         return this;
     }
@@ -57,16 +57,16 @@ public class QueryValidationError {
      * Get query
      * @return query
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getQuery() {
         return query;
     }
 
-    public void setQuery(@javax.annotation.Nonnull String query) {
+    public void setQuery(@jakarta.annotation.Nonnull String query) {
         this.query = query;
     }
 
-    public QueryValidationError error(@javax.annotation.Nonnull String error) {
+    public QueryValidationError error(@jakarta.annotation.Nonnull String error) {
         this.error = error;
         return this;
     }
@@ -75,12 +75,12 @@ public class QueryValidationError {
      * Get error
      * @return error
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getError() {
         return error;
     }
 
-    public void setError(@javax.annotation.Nonnull String error) {
+    public void setError(@jakarta.annotation.Nonnull String error) {
         this.error = error;
     }
 

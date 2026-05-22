@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * VirtualEnvEntry
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class VirtualEnvEntry {
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String model;
 
     public VirtualEnvEntry() {}
 
-    public VirtualEnvEntry model(@javax.annotation.Nonnull String model) {
+    public VirtualEnvEntry model(@jakarta.annotation.Nonnull String model) {
         this.model = model;
         return this;
     }
@@ -51,12 +51,12 @@ public class VirtualEnvEntry {
      * Get model
      * @return model
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nonnull String model) {
+    public void setModel(@jakarta.annotation.Nonnull String model) {
         this.model = model;
     }
 

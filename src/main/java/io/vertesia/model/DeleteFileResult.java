@@ -31,35 +31,35 @@ import java.util.Objects;
 /**
  * DeleteFileResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DeleteFileResult {
     public static final String SERIALIZED_NAME_SUCCESS = "success";
 
     @SerializedName(SERIALIZED_NAME_SUCCESS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean success;
 
     public static final String SERIALIZED_NAME_COUNT = "count";
 
     @SerializedName(SERIALIZED_NAME_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal count;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nullable private String message;
+    @jakarta.annotation.Nullable private String message;
 
     public static final String SERIALIZED_NAME_FILE = "file";
 
     @SerializedName(SERIALIZED_NAME_FILE)
-    @javax.annotation.Nullable private String _file;
+    @jakarta.annotation.Nullable private String _file;
 
     public DeleteFileResult() {}
 
-    public DeleteFileResult success(@javax.annotation.Nonnull Boolean success) {
+    public DeleteFileResult success(@jakarta.annotation.Nonnull Boolean success) {
         this.success = success;
         return this;
     }
@@ -68,16 +68,16 @@ public class DeleteFileResult {
      * Get success
      * @return success
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getSuccess() {
         return success;
     }
 
-    public void setSuccess(@javax.annotation.Nonnull Boolean success) {
+    public void setSuccess(@jakarta.annotation.Nonnull Boolean success) {
         this.success = success;
     }
 
-    public DeleteFileResult count(@javax.annotation.Nonnull BigDecimal count) {
+    public DeleteFileResult count(@jakarta.annotation.Nonnull BigDecimal count) {
         this.count = count;
         return this;
     }
@@ -86,16 +86,16 @@ public class DeleteFileResult {
      * Get count
      * @return count
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCount() {
         return count;
     }
 
-    public void setCount(@javax.annotation.Nonnull BigDecimal count) {
+    public void setCount(@jakarta.annotation.Nonnull BigDecimal count) {
         this.count = count;
     }
 
-    public DeleteFileResult message(@javax.annotation.Nullable String message) {
+    public DeleteFileResult message(@jakarta.annotation.Nullable String message) {
         this.message = message;
         return this;
     }
@@ -104,15 +104,15 @@ public class DeleteFileResult {
      * Get message
      * @return message
      */
-    @javax.annotation.Nullable public String getMessage() {
+    @jakarta.annotation.Nullable public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nullable String message) {
+    public void setMessage(@jakarta.annotation.Nullable String message) {
         this.message = message;
     }
 
-    public DeleteFileResult _file(@javax.annotation.Nullable String _file) {
+    public DeleteFileResult _file(@jakarta.annotation.Nullable String _file) {
         this._file = _file;
         return this;
     }
@@ -121,11 +121,11 @@ public class DeleteFileResult {
      * Get _file
      * @return _file
      */
-    @javax.annotation.Nullable public String getFile() {
+    @jakarta.annotation.Nullable public String getFile() {
         return _file;
     }
 
-    public void setFile(@javax.annotation.Nullable String _file) {
+    public void setFile(@jakarta.annotation.Nullable String _file) {
         this._file = _file;
     }
 

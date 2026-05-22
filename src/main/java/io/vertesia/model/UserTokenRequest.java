@@ -32,7 +32,7 @@ import java.util.Objects;
 /**
  * UserTokenRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UserTokenRequest {
@@ -92,47 +92,47 @@ public class UserTokenRequest {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_AUDIENCE = "audience";
 
     @SerializedName(SERIALIZED_NAME_AUDIENCE)
-    @javax.annotation.Nullable private String audience;
+    @jakarta.annotation.Nullable private String audience;
 
     public static final String SERIALIZED_NAME_ALGORITHM = "algorithm";
 
     @SerializedName(SERIALIZED_NAME_ALGORITHM)
-    @javax.annotation.Nullable private SigningAlgorithm algorithm;
+    @jakarta.annotation.Nullable private SigningAlgorithm algorithm;
 
     public static final String SERIALIZED_NAME_USER_ID = "user_id";
 
     @SerializedName(SERIALIZED_NAME_USER_ID)
-    @javax.annotation.Nullable private String userId;
+    @jakarta.annotation.Nullable private String userId;
 
     public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
-    @javax.annotation.Nullable private String accountId;
+    @jakarta.annotation.Nullable private String accountId;
 
     public static final String SERIALIZED_NAME_PROJECT_ID = "project_id";
 
     @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-    @javax.annotation.Nullable private String projectId;
+    @jakarta.annotation.Nullable private String projectId;
 
     public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
 
     @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
-    @javax.annotation.Nullable private BigDecimal expiresAt;
+    @jakarta.annotation.Nullable private BigDecimal expiresAt;
 
     public static final String SERIALIZED_NAME_ON_BEHALF_OF = "on_behalf_of";
 
     @SerializedName(SERIALIZED_NAME_ON_BEHALF_OF)
-    @javax.annotation.Nullable private String onBehalfOf;
+    @jakarta.annotation.Nullable private String onBehalfOf;
 
     public UserTokenRequest() {}
 
-    public UserTokenRequest type(@javax.annotation.Nonnull TypeEnum type) {
+    public UserTokenRequest type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -141,16 +141,16 @@ public class UserTokenRequest {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public UserTokenRequest audience(@javax.annotation.Nullable String audience) {
+    public UserTokenRequest audience(@jakarta.annotation.Nullable String audience) {
         this.audience = audience;
         return this;
     }
@@ -159,15 +159,15 @@ public class UserTokenRequest {
      * Get audience
      * @return audience
      */
-    @javax.annotation.Nullable public String getAudience() {
+    @jakarta.annotation.Nullable public String getAudience() {
         return audience;
     }
 
-    public void setAudience(@javax.annotation.Nullable String audience) {
+    public void setAudience(@jakarta.annotation.Nullable String audience) {
         this.audience = audience;
     }
 
-    public UserTokenRequest algorithm(@javax.annotation.Nullable SigningAlgorithm algorithm) {
+    public UserTokenRequest algorithm(@jakarta.annotation.Nullable SigningAlgorithm algorithm) {
         this.algorithm = algorithm;
         return this;
     }
@@ -176,15 +176,15 @@ public class UserTokenRequest {
      * Signing algorithm - defaults to ES256. Use RS256 for Azure AD compatibility.
      * @return algorithm
      */
-    @javax.annotation.Nullable public SigningAlgorithm getAlgorithm() {
+    @jakarta.annotation.Nullable public SigningAlgorithm getAlgorithm() {
         return algorithm;
     }
 
-    public void setAlgorithm(@javax.annotation.Nullable SigningAlgorithm algorithm) {
+    public void setAlgorithm(@jakarta.annotation.Nullable SigningAlgorithm algorithm) {
         this.algorithm = algorithm;
     }
 
-    public UserTokenRequest userId(@javax.annotation.Nullable String userId) {
+    public UserTokenRequest userId(@jakarta.annotation.Nullable String userId) {
         this.userId = userId;
         return this;
     }
@@ -193,15 +193,15 @@ public class UserTokenRequest {
      * Get userId
      * @return userId
      */
-    @javax.annotation.Nullable public String getUserId() {
+    @jakarta.annotation.Nullable public String getUserId() {
         return userId;
     }
 
-    public void setUserId(@javax.annotation.Nullable String userId) {
+    public void setUserId(@jakarta.annotation.Nullable String userId) {
         this.userId = userId;
     }
 
-    public UserTokenRequest accountId(@javax.annotation.Nullable String accountId) {
+    public UserTokenRequest accountId(@jakarta.annotation.Nullable String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -210,15 +210,15 @@ public class UserTokenRequest {
      * Get accountId
      * @return accountId
      */
-    @javax.annotation.Nullable public String getAccountId() {
+    @jakarta.annotation.Nullable public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(@javax.annotation.Nullable String accountId) {
+    public void setAccountId(@jakarta.annotation.Nullable String accountId) {
         this.accountId = accountId;
     }
 
-    public UserTokenRequest projectId(@javax.annotation.Nullable String projectId) {
+    public UserTokenRequest projectId(@jakarta.annotation.Nullable String projectId) {
         this.projectId = projectId;
         return this;
     }
@@ -227,15 +227,15 @@ public class UserTokenRequest {
      * Get projectId
      * @return projectId
      */
-    @javax.annotation.Nullable public String getProjectId() {
+    @jakarta.annotation.Nullable public String getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(@javax.annotation.Nullable String projectId) {
+    public void setProjectId(@jakarta.annotation.Nullable String projectId) {
         this.projectId = projectId;
     }
 
-    public UserTokenRequest expiresAt(@javax.annotation.Nullable BigDecimal expiresAt) {
+    public UserTokenRequest expiresAt(@jakarta.annotation.Nullable BigDecimal expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -244,15 +244,15 @@ public class UserTokenRequest {
      * Get expiresAt
      * @return expiresAt
      */
-    @javax.annotation.Nullable public BigDecimal getExpiresAt() {
+    @jakarta.annotation.Nullable public BigDecimal getExpiresAt() {
         return expiresAt;
     }
 
-    public void setExpiresAt(@javax.annotation.Nullable BigDecimal expiresAt) {
+    public void setExpiresAt(@jakarta.annotation.Nullable BigDecimal expiresAt) {
         this.expiresAt = expiresAt;
     }
 
-    public UserTokenRequest onBehalfOf(@javax.annotation.Nullable String onBehalfOf) {
+    public UserTokenRequest onBehalfOf(@jakarta.annotation.Nullable String onBehalfOf) {
         this.onBehalfOf = onBehalfOf;
         return this;
     }
@@ -261,11 +261,11 @@ public class UserTokenRequest {
      * Get onBehalfOf
      * @return onBehalfOf
      */
-    @javax.annotation.Nullable public String getOnBehalfOf() {
+    @jakarta.annotation.Nullable public String getOnBehalfOf() {
         return onBehalfOf;
     }
 
-    public void setOnBehalfOf(@javax.annotation.Nullable String onBehalfOf) {
+    public void setOnBehalfOf(@jakarta.annotation.Nullable String onBehalfOf) {
         this.onBehalfOf = onBehalfOf;
     }
 

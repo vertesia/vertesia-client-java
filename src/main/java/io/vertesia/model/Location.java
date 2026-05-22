@@ -31,25 +31,25 @@ import java.util.Objects;
 /**
  * Location
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class Location {
     public static final String SERIALIZED_NAME_LATITUDE = "latitude";
 
     @SerializedName(SERIALIZED_NAME_LATITUDE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal latitude;
 
     public static final String SERIALIZED_NAME_LONGITUDE = "longitude";
 
     @SerializedName(SERIALIZED_NAME_LONGITUDE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal longitude;
 
     public Location() {}
 
-    public Location latitude(@javax.annotation.Nonnull BigDecimal latitude) {
+    public Location latitude(@jakarta.annotation.Nonnull BigDecimal latitude) {
         this.latitude = latitude;
         return this;
     }
@@ -58,16 +58,16 @@ public class Location {
      * Get latitude
      * @return latitude
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(@javax.annotation.Nonnull BigDecimal latitude) {
+    public void setLatitude(@jakarta.annotation.Nonnull BigDecimal latitude) {
         this.latitude = latitude;
     }
 
-    public Location longitude(@javax.annotation.Nonnull BigDecimal longitude) {
+    public Location longitude(@jakarta.annotation.Nonnull BigDecimal longitude) {
         this.longitude = longitude;
         return this;
     }
@@ -76,12 +76,12 @@ public class Location {
      * Get longitude
      * @return longitude
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(@javax.annotation.Nonnull BigDecimal longitude) {
+    public void setLongitude(@jakarta.annotation.Nonnull BigDecimal longitude) {
         this.longitude = longitude;
     }
 

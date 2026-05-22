@@ -36,102 +36,102 @@ import java.util.Objects;
 /**
  * InteractionCreatePayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InteractionCreatePayload {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private InteractionStatus status;
 
     public static final String SERIALIZED_NAME_TEST_DATA = "test_data";
 
     @SerializedName(SERIALIZED_NAME_TEST_DATA)
-    @javax.annotation.Nullable private Map<String, Object> testData = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> testData = new HashMap<>();
 
     public static final String SERIALIZED_NAME_INTERACTION_SCHEMA = "interaction_schema";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION_SCHEMA)
-    @javax.annotation.Nullable private InteractionResultSchema interactionSchema;
+    @jakarta.annotation.Nullable private InteractionResultSchema interactionSchema;
 
     public static final String SERIALIZED_NAME_CACHE_POLICY = "cache_policy";
 
     @SerializedName(SERIALIZED_NAME_CACHE_POLICY)
-    @javax.annotation.Nullable private CachePolicy cachePolicy;
+    @jakarta.annotation.Nullable private CachePolicy cachePolicy;
 
     public static final String SERIALIZED_NAME_PROMPTS = "prompts";
 
     @SerializedName(SERIALIZED_NAME_PROMPTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<PromptSegmentDef> prompts = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LAST_PUBLISHED_AT = "last_published_at";
 
     @SerializedName(SERIALIZED_NAME_LAST_PUBLISHED_AT)
-    @javax.annotation.Nullable private OffsetDateTime lastPublishedAt;
+    @jakarta.annotation.Nullable private OffsetDateTime lastPublishedAt;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_AGENT_RUNNER_OPTIONS = "agent_runner_options";
 
     @SerializedName(SERIALIZED_NAME_AGENT_RUNNER_OPTIONS)
-    @javax.annotation.Nullable private AgentRunnerOptions agentRunnerOptions;
+    @jakarta.annotation.Nullable private AgentRunnerOptions agentRunnerOptions;
 
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
-    @javax.annotation.Nullable private InteractionResultSchema resultSchema;
+    @jakarta.annotation.Nullable private InteractionResultSchema resultSchema;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @javax.annotation.Nullable private InteractionEnvironment environment;
+    @jakarta.annotation.Nullable private InteractionEnvironment environment;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nullable private String model;
+    @jakarta.annotation.Nullable private String model;
 
     public static final String SERIALIZED_NAME_MODEL_OPTIONS = "model_options";
 
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
-    @javax.annotation.Nullable private ModelOptions modelOptions;
+    @jakarta.annotation.Nullable private ModelOptions modelOptions;
 
     public static final String SERIALIZED_NAME_RESTRICTION = "restriction";
 
     @SerializedName(SERIALIZED_NAME_RESTRICTION)
-    @javax.annotation.Nullable private RunDataStorageLevel restriction;
+    @jakarta.annotation.Nullable private RunDataStorageLevel restriction;
 
     public static final String SERIALIZED_NAME_OUTPUT_MODALITY = "output_modality";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_OUTPUT_MODALITY)
-    @javax.annotation.Nullable private Modalities outputModality;
+    @jakarta.annotation.Nullable private Modalities outputModality;
 
     public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
     @SerializedName(SERIALIZED_NAME_VISIBILITY)
-    @javax.annotation.Nullable private InteractionVisibility visibility;
+    @jakarta.annotation.Nullable private InteractionVisibility visibility;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public InteractionCreatePayload() {}
 
-    public InteractionCreatePayload status(@javax.annotation.Nonnull InteractionStatus status) {
+    public InteractionCreatePayload status(@jakarta.annotation.Nonnull InteractionStatus status) {
         this.status = status;
         return this;
     }
@@ -140,17 +140,17 @@ public class InteractionCreatePayload {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public InteractionStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull InteractionStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull InteractionStatus status) {
         this.status = status;
     }
 
     public InteractionCreatePayload testData(
-            @javax.annotation.Nullable Map<String, Object> testData) {
+            @jakarta.annotation.Nullable Map<String, Object> testData) {
         this.testData = testData;
         return this;
     }
@@ -167,16 +167,16 @@ public class InteractionCreatePayload {
      * Get testData
      * @return testData
      */
-    @javax.annotation.Nullable public Map<String, Object> getTestData() {
+    @jakarta.annotation.Nullable public Map<String, Object> getTestData() {
         return testData;
     }
 
-    public void setTestData(@javax.annotation.Nullable Map<String, Object> testData) {
+    public void setTestData(@jakarta.annotation.Nullable Map<String, Object> testData) {
         this.testData = testData;
     }
 
     public InteractionCreatePayload interactionSchema(
-            @javax.annotation.Nullable InteractionResultSchema interactionSchema) {
+            @jakarta.annotation.Nullable InteractionResultSchema interactionSchema) {
         this.interactionSchema = interactionSchema;
         return this;
     }
@@ -185,17 +185,17 @@ public class InteractionCreatePayload {
      * Get interactionSchema
      * @return interactionSchema
      */
-    @javax.annotation.Nullable public InteractionResultSchema getInteractionSchema() {
+    @jakarta.annotation.Nullable public InteractionResultSchema getInteractionSchema() {
         return interactionSchema;
     }
 
     public void setInteractionSchema(
-            @javax.annotation.Nullable InteractionResultSchema interactionSchema) {
+            @jakarta.annotation.Nullable InteractionResultSchema interactionSchema) {
         this.interactionSchema = interactionSchema;
     }
 
     public InteractionCreatePayload cachePolicy(
-            @javax.annotation.Nullable CachePolicy cachePolicy) {
+            @jakarta.annotation.Nullable CachePolicy cachePolicy) {
         this.cachePolicy = cachePolicy;
         return this;
     }
@@ -204,16 +204,16 @@ public class InteractionCreatePayload {
      * Get cachePolicy
      * @return cachePolicy
      */
-    @javax.annotation.Nullable public CachePolicy getCachePolicy() {
+    @jakarta.annotation.Nullable public CachePolicy getCachePolicy() {
         return cachePolicy;
     }
 
-    public void setCachePolicy(@javax.annotation.Nullable CachePolicy cachePolicy) {
+    public void setCachePolicy(@jakarta.annotation.Nullable CachePolicy cachePolicy) {
         this.cachePolicy = cachePolicy;
     }
 
     public InteractionCreatePayload prompts(
-            @javax.annotation.Nonnull List<PromptSegmentDef> prompts) {
+            @jakarta.annotation.Nonnull List<PromptSegmentDef> prompts) {
         this.prompts = prompts;
         return this;
     }
@@ -230,17 +230,17 @@ public class InteractionCreatePayload {
      * Get prompts
      * @return prompts
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<PromptSegmentDef> getPrompts() {
         return prompts;
     }
 
-    public void setPrompts(@javax.annotation.Nonnull List<PromptSegmentDef> prompts) {
+    public void setPrompts(@jakarta.annotation.Nonnull List<PromptSegmentDef> prompts) {
         this.prompts = prompts;
     }
 
     public InteractionCreatePayload lastPublishedAt(
-            @javax.annotation.Nullable OffsetDateTime lastPublishedAt) {
+            @jakarta.annotation.Nullable OffsetDateTime lastPublishedAt) {
         this.lastPublishedAt = lastPublishedAt;
         return this;
     }
@@ -249,15 +249,15 @@ public class InteractionCreatePayload {
      * Get lastPublishedAt
      * @return lastPublishedAt
      */
-    @javax.annotation.Nullable public OffsetDateTime getLastPublishedAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getLastPublishedAt() {
         return lastPublishedAt;
     }
 
-    public void setLastPublishedAt(@javax.annotation.Nullable OffsetDateTime lastPublishedAt) {
+    public void setLastPublishedAt(@jakarta.annotation.Nullable OffsetDateTime lastPublishedAt) {
         this.lastPublishedAt = lastPublishedAt;
     }
 
-    public InteractionCreatePayload name(@javax.annotation.Nonnull String name) {
+    public InteractionCreatePayload name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -266,16 +266,16 @@ public class InteractionCreatePayload {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public InteractionCreatePayload description(@javax.annotation.Nullable String description) {
+    public InteractionCreatePayload description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -284,16 +284,16 @@ public class InteractionCreatePayload {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
     public InteractionCreatePayload agentRunnerOptions(
-            @javax.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
+            @jakarta.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
         this.agentRunnerOptions = agentRunnerOptions;
         return this;
     }
@@ -302,17 +302,17 @@ public class InteractionCreatePayload {
      * Get agentRunnerOptions
      * @return agentRunnerOptions
      */
-    @javax.annotation.Nullable public AgentRunnerOptions getAgentRunnerOptions() {
+    @jakarta.annotation.Nullable public AgentRunnerOptions getAgentRunnerOptions() {
         return agentRunnerOptions;
     }
 
     public void setAgentRunnerOptions(
-            @javax.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
+            @jakarta.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
         this.agentRunnerOptions = agentRunnerOptions;
     }
 
     public InteractionCreatePayload resultSchema(
-            @javax.annotation.Nullable InteractionResultSchema resultSchema) {
+            @jakarta.annotation.Nullable InteractionResultSchema resultSchema) {
         this.resultSchema = resultSchema;
         return this;
     }
@@ -321,16 +321,16 @@ public class InteractionCreatePayload {
      * Get resultSchema
      * @return resultSchema
      */
-    @javax.annotation.Nullable public InteractionResultSchema getResultSchema() {
+    @jakarta.annotation.Nullable public InteractionResultSchema getResultSchema() {
         return resultSchema;
     }
 
-    public void setResultSchema(@javax.annotation.Nullable InteractionResultSchema resultSchema) {
+    public void setResultSchema(@jakarta.annotation.Nullable InteractionResultSchema resultSchema) {
         this.resultSchema = resultSchema;
     }
 
     public InteractionCreatePayload environment(
-            @javax.annotation.Nullable InteractionEnvironment environment) {
+            @jakarta.annotation.Nullable InteractionEnvironment environment) {
         this.environment = environment;
         return this;
     }
@@ -339,15 +339,15 @@ public class InteractionCreatePayload {
      * Get environment
      * @return environment
      */
-    @javax.annotation.Nullable public InteractionEnvironment getEnvironment() {
+    @jakarta.annotation.Nullable public InteractionEnvironment getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@javax.annotation.Nullable InteractionEnvironment environment) {
+    public void setEnvironment(@jakarta.annotation.Nullable InteractionEnvironment environment) {
         this.environment = environment;
     }
 
-    public InteractionCreatePayload model(@javax.annotation.Nullable String model) {
+    public InteractionCreatePayload model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
@@ -356,16 +356,16 @@ public class InteractionCreatePayload {
      * Get model
      * @return model
      */
-    @javax.annotation.Nullable public String getModel() {
+    @jakarta.annotation.Nullable public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nullable String model) {
+    public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
     }
 
     public InteractionCreatePayload modelOptions(
-            @javax.annotation.Nullable ModelOptions modelOptions) {
+            @jakarta.annotation.Nullable ModelOptions modelOptions) {
         this.modelOptions = modelOptions;
         return this;
     }
@@ -374,16 +374,16 @@ public class InteractionCreatePayload {
      * Get modelOptions
      * @return modelOptions
      */
-    @javax.annotation.Nullable public ModelOptions getModelOptions() {
+    @jakarta.annotation.Nullable public ModelOptions getModelOptions() {
         return modelOptions;
     }
 
-    public void setModelOptions(@javax.annotation.Nullable ModelOptions modelOptions) {
+    public void setModelOptions(@jakarta.annotation.Nullable ModelOptions modelOptions) {
         this.modelOptions = modelOptions;
     }
 
     public InteractionCreatePayload restriction(
-            @javax.annotation.Nullable RunDataStorageLevel restriction) {
+            @jakarta.annotation.Nullable RunDataStorageLevel restriction) {
         this.restriction = restriction;
         return this;
     }
@@ -392,17 +392,17 @@ public class InteractionCreatePayload {
      * Get restriction
      * @return restriction
      */
-    @javax.annotation.Nullable public RunDataStorageLevel getRestriction() {
+    @jakarta.annotation.Nullable public RunDataStorageLevel getRestriction() {
         return restriction;
     }
 
-    public void setRestriction(@javax.annotation.Nullable RunDataStorageLevel restriction) {
+    public void setRestriction(@jakarta.annotation.Nullable RunDataStorageLevel restriction) {
         this.restriction = restriction;
     }
 
     @Deprecated
     public InteractionCreatePayload outputModality(
-            @javax.annotation.Nullable Modalities outputModality) {
+            @jakarta.annotation.Nullable Modalities outputModality) {
         this.outputModality = outputModality;
         return this;
     }
@@ -413,17 +413,17 @@ public class InteractionCreatePayload {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nullable public Modalities getOutputModality() {
+    @jakarta.annotation.Nullable public Modalities getOutputModality() {
         return outputModality;
     }
 
     @Deprecated
-    public void setOutputModality(@javax.annotation.Nullable Modalities outputModality) {
+    public void setOutputModality(@jakarta.annotation.Nullable Modalities outputModality) {
         this.outputModality = outputModality;
     }
 
     public InteractionCreatePayload visibility(
-            @javax.annotation.Nullable InteractionVisibility visibility) {
+            @jakarta.annotation.Nullable InteractionVisibility visibility) {
         this.visibility = visibility;
         return this;
     }
@@ -432,15 +432,15 @@ public class InteractionCreatePayload {
      * Get visibility
      * @return visibility
      */
-    @javax.annotation.Nullable public InteractionVisibility getVisibility() {
+    @jakarta.annotation.Nullable public InteractionVisibility getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(@javax.annotation.Nullable InteractionVisibility visibility) {
+    public void setVisibility(@jakarta.annotation.Nullable InteractionVisibility visibility) {
         this.visibility = visibility;
     }
 
-    public InteractionCreatePayload tags(@javax.annotation.Nullable List<String> tags) {
+    public InteractionCreatePayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -457,11 +457,11 @@ public class InteractionCreatePayload {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 

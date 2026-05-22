@@ -33,26 +33,26 @@ import java.util.Objects;
 /**
  * AdaptTablesRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AdaptTablesRequest {
     public static final String SERIALIZED_NAME_TARGET_SCHEMA = "target_schema";
 
     @SerializedName(SERIALIZED_NAME_TARGET_SCHEMA)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String targetSchema;
 
     public static final String SERIALIZED_NAME_ITEM_NAME = "item_name";
 
     @SerializedName(SERIALIZED_NAME_ITEM_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String itemName;
 
     public static final String SERIALIZED_NAME_INSTRUCTIONS = "instructions";
 
     @SerializedName(SERIALIZED_NAME_INSTRUCTIONS)
-    @javax.annotation.Nullable private String instructions;
+    @jakarta.annotation.Nullable private String instructions;
 
     /**
      * Format to return the data in (csv, json)
@@ -112,7 +112,7 @@ public class AdaptTablesRequest {
     public static final String SERIALIZED_NAME_FORMAT = "format";
 
     @SerializedName(SERIALIZED_NAME_FORMAT)
-    @javax.annotation.Nullable private FormatEnum format;
+    @jakarta.annotation.Nullable private FormatEnum format;
 
     /**
      * Process the table as a whole or by page
@@ -172,31 +172,31 @@ public class AdaptTablesRequest {
     public static final String SERIALIZED_NAME_PROCESS_AS = "process_as";
 
     @SerializedName(SERIALIZED_NAME_PROCESS_AS)
-    @javax.annotation.Nullable private ProcessAsEnum processAs;
+    @jakarta.annotation.Nullable private ProcessAsEnum processAs;
 
     public static final String SERIALIZED_NAME_PROCESS_AS_CSV = "process_as_csv";
 
     @SerializedName(SERIALIZED_NAME_PROCESS_AS_CSV)
-    @javax.annotation.Nullable private Boolean processAsCsv;
+    @jakarta.annotation.Nullable private Boolean processAsCsv;
 
     public static final String SERIALIZED_NAME_SYNCHRONOUS = "synchronous";
 
     @SerializedName(SERIALIZED_NAME_SYNCHRONOUS)
-    @javax.annotation.Nullable private Boolean synchronous;
+    @jakarta.annotation.Nullable private Boolean synchronous;
 
     public static final String SERIALIZED_NAME_NOTIFY_ENDPOINTS = "notify_endpoints";
 
     @SerializedName(SERIALIZED_NAME_NOTIFY_ENDPOINTS)
-    @javax.annotation.Nullable private List<String> notifyEndpoints = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> notifyEndpoints = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @javax.annotation.Nullable private String environment;
+    @jakarta.annotation.Nullable private String environment;
 
     public AdaptTablesRequest() {}
 
-    public AdaptTablesRequest targetSchema(@javax.annotation.Nonnull String targetSchema) {
+    public AdaptTablesRequest targetSchema(@jakarta.annotation.Nonnull String targetSchema) {
         this.targetSchema = targetSchema;
         return this;
     }
@@ -205,16 +205,16 @@ public class AdaptTablesRequest {
      * JSON Schema to to convert the table into
      * @return targetSchema
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTargetSchema() {
         return targetSchema;
     }
 
-    public void setTargetSchema(@javax.annotation.Nonnull String targetSchema) {
+    public void setTargetSchema(@jakarta.annotation.Nonnull String targetSchema) {
         this.targetSchema = targetSchema;
     }
 
-    public AdaptTablesRequest itemName(@javax.annotation.Nonnull String itemName) {
+    public AdaptTablesRequest itemName(@jakarta.annotation.Nonnull String itemName) {
         this.itemName = itemName;
         return this;
     }
@@ -223,16 +223,16 @@ public class AdaptTablesRequest {
      * Natural language description of the type item the table are composed of
      * @return itemName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getItemName() {
         return itemName;
     }
 
-    public void setItemName(@javax.annotation.Nonnull String itemName) {
+    public void setItemName(@jakarta.annotation.Nonnull String itemName) {
         this.itemName = itemName;
     }
 
-    public AdaptTablesRequest instructions(@javax.annotation.Nullable String instructions) {
+    public AdaptTablesRequest instructions(@jakarta.annotation.Nullable String instructions) {
         this.instructions = instructions;
         return this;
     }
@@ -241,15 +241,15 @@ public class AdaptTablesRequest {
      * Natural language description of the type of table or item to convert
      * @return instructions
      */
-    @javax.annotation.Nullable public String getInstructions() {
+    @jakarta.annotation.Nullable public String getInstructions() {
         return instructions;
     }
 
-    public void setInstructions(@javax.annotation.Nullable String instructions) {
+    public void setInstructions(@jakarta.annotation.Nullable String instructions) {
         this.instructions = instructions;
     }
 
-    public AdaptTablesRequest format(@javax.annotation.Nullable FormatEnum format) {
+    public AdaptTablesRequest format(@jakarta.annotation.Nullable FormatEnum format) {
         this.format = format;
         return this;
     }
@@ -258,15 +258,15 @@ public class AdaptTablesRequest {
      * Format to return the data in (csv, json)
      * @return format
      */
-    @javax.annotation.Nullable public FormatEnum getFormat() {
+    @jakarta.annotation.Nullable public FormatEnum getFormat() {
         return format;
     }
 
-    public void setFormat(@javax.annotation.Nullable FormatEnum format) {
+    public void setFormat(@jakarta.annotation.Nullable FormatEnum format) {
         this.format = format;
     }
 
-    public AdaptTablesRequest processAs(@javax.annotation.Nullable ProcessAsEnum processAs) {
+    public AdaptTablesRequest processAs(@jakarta.annotation.Nullable ProcessAsEnum processAs) {
         this.processAs = processAs;
         return this;
     }
@@ -275,15 +275,15 @@ public class AdaptTablesRequest {
      * Process the table as a whole or by page
      * @return processAs
      */
-    @javax.annotation.Nullable public ProcessAsEnum getProcessAs() {
+    @jakarta.annotation.Nullable public ProcessAsEnum getProcessAs() {
         return processAs;
     }
 
-    public void setProcessAs(@javax.annotation.Nullable ProcessAsEnum processAs) {
+    public void setProcessAs(@jakarta.annotation.Nullable ProcessAsEnum processAs) {
         this.processAs = processAs;
     }
 
-    public AdaptTablesRequest processAsCsv(@javax.annotation.Nullable Boolean processAsCsv) {
+    public AdaptTablesRequest processAsCsv(@jakarta.annotation.Nullable Boolean processAsCsv) {
         this.processAsCsv = processAsCsv;
         return this;
     }
@@ -292,15 +292,15 @@ public class AdaptTablesRequest {
      * Process the table as a CSV file
      * @return processAsCsv
      */
-    @javax.annotation.Nullable public Boolean getProcessAsCsv() {
+    @jakarta.annotation.Nullable public Boolean getProcessAsCsv() {
         return processAsCsv;
     }
 
-    public void setProcessAsCsv(@javax.annotation.Nullable Boolean processAsCsv) {
+    public void setProcessAsCsv(@jakarta.annotation.Nullable Boolean processAsCsv) {
         this.processAsCsv = processAsCsv;
     }
 
-    public AdaptTablesRequest synchronous(@javax.annotation.Nullable Boolean synchronous) {
+    public AdaptTablesRequest synchronous(@jakarta.annotation.Nullable Boolean synchronous) {
         this.synchronous = synchronous;
         return this;
     }
@@ -309,16 +309,16 @@ public class AdaptTablesRequest {
      * Get synchronous
      * @return synchronous
      */
-    @javax.annotation.Nullable public Boolean getSynchronous() {
+    @jakarta.annotation.Nullable public Boolean getSynchronous() {
         return synchronous;
     }
 
-    public void setSynchronous(@javax.annotation.Nullable Boolean synchronous) {
+    public void setSynchronous(@jakarta.annotation.Nullable Boolean synchronous) {
         this.synchronous = synchronous;
     }
 
     public AdaptTablesRequest notifyEndpoints(
-            @javax.annotation.Nullable List<String> notifyEndpoints) {
+            @jakarta.annotation.Nullable List<String> notifyEndpoints) {
         this.notifyEndpoints = notifyEndpoints;
         return this;
     }
@@ -335,15 +335,15 @@ public class AdaptTablesRequest {
      * Get notifyEndpoints
      * @return notifyEndpoints
      */
-    @javax.annotation.Nullable public List<String> getNotifyEndpoints() {
+    @jakarta.annotation.Nullable public List<String> getNotifyEndpoints() {
         return notifyEndpoints;
     }
 
-    public void setNotifyEndpoints(@javax.annotation.Nullable List<String> notifyEndpoints) {
+    public void setNotifyEndpoints(@jakarta.annotation.Nullable List<String> notifyEndpoints) {
         this.notifyEndpoints = notifyEndpoints;
     }
 
-    public AdaptTablesRequest environment(@javax.annotation.Nullable String environment) {
+    public AdaptTablesRequest environment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
         return this;
     }
@@ -352,11 +352,11 @@ public class AdaptTablesRequest {
      * What environment to use to run the request If none specified the project embedded environment will be used
      * @return environment
      */
-    @javax.annotation.Nullable public String getEnvironment() {
+    @jakarta.annotation.Nullable public String getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@javax.annotation.Nullable String environment) {
+    public void setEnvironment(@jakarta.annotation.Nullable String environment) {
         this.environment = environment;
     }
 

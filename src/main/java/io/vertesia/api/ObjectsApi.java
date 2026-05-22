@@ -113,8 +113,8 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call adaptObjectTablesCall(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull AdaptTablesRequest adaptTablesRequest,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull AdaptTablesRequest adaptTablesRequest,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -175,8 +175,8 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call adaptObjectTablesValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull AdaptTablesRequest adaptTablesRequest,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull AdaptTablesRequest adaptTablesRequest,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
@@ -211,8 +211,8 @@ public class ObjectsApi {
      * </table>
      */
     public WorkflowRunStatus adaptObjectTables(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull AdaptTablesRequest adaptTablesRequest)
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull AdaptTablesRequest adaptTablesRequest)
             throws ApiException {
         ApiResponse<WorkflowRunStatus> localVarResp =
                 adaptObjectTablesWithHttpInfo(objectId, adaptTablesRequest);
@@ -236,8 +236,8 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<WorkflowRunStatus> adaptObjectTablesWithHttpInfo(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull AdaptTablesRequest adaptTablesRequest)
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull AdaptTablesRequest adaptTablesRequest)
             throws ApiException {
         okhttp3.Call localVarCall =
                 adaptObjectTablesValidateBeforeCall(objectId, adaptTablesRequest, null);
@@ -263,8 +263,8 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call adaptObjectTablesAsync(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull AdaptTablesRequest adaptTablesRequest,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull AdaptTablesRequest adaptTablesRequest,
             final ApiCallback<WorkflowRunStatus> _callback)
             throws ApiException {
 
@@ -292,8 +292,8 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call analyzeObjectDocumentCall(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -354,8 +354,8 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call analyzeObjectDocumentValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
@@ -390,8 +390,8 @@ public class ObjectsApi {
      * </table>
      */
     public DocAnalyzeRunStatusResponse analyzeObjectDocument(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions)
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions)
             throws ApiException {
         ApiResponse<DocAnalyzeRunStatusResponse> localVarResp =
                 analyzeObjectDocumentWithHttpInfo(objectId, pdfToRichtextOptions);
@@ -415,8 +415,8 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<DocAnalyzeRunStatusResponse> analyzeObjectDocumentWithHttpInfo(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions)
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions)
             throws ApiException {
         okhttp3.Call localVarCall =
                 analyzeObjectDocumentValidateBeforeCall(objectId, pdfToRichtextOptions, null);
@@ -442,8 +442,8 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call analyzeObjectDocumentAsync(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions,
             final ApiCallback<DocAnalyzeRunStatusResponse> _callback)
             throws ApiException {
 
@@ -470,7 +470,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call computeObjectsFacetsCall(
-            @javax.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
+            @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -527,7 +527,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call computeObjectsFacetsValidateBeforeCall(
-            @javax.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
+            @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'computeObjectFacetPayload' is set
@@ -555,7 +555,7 @@ public class ObjectsApi {
      * </table>
      */
     public ComputedFacetResponse computeObjectsFacets(
-            @javax.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload)
+            @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload)
             throws ApiException {
         ApiResponse<ComputedFacetResponse> localVarResp =
                 computeObjectsFacetsWithHttpInfo(computeObjectFacetPayload);
@@ -578,7 +578,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<ComputedFacetResponse> computeObjectsFacetsWithHttpInfo(
-            @javax.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload)
+            @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 computeObjectsFacetsValidateBeforeCall(computeObjectFacetPayload, null);
@@ -603,7 +603,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call computeObjectsFacetsAsync(
-            @javax.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
+            @jakarta.annotation.Nonnull ComputeObjectFacetPayload computeObjectFacetPayload,
             final ApiCallback<ComputedFacetResponse> _callback)
             throws ApiException {
 
@@ -630,7 +630,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call countObjectsCall(
-            @javax.annotation.Nonnull FindPayload findPayload, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull FindPayload findPayload, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -686,7 +686,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call countObjectsValidateBeforeCall(
-            @javax.annotation.Nonnull FindPayload findPayload, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull FindPayload findPayload, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'findPayload' is set
         if (findPayload == null) {
@@ -712,7 +712,7 @@ public class ObjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public CountResult countObjects(@javax.annotation.Nonnull FindPayload findPayload)
+    public CountResult countObjects(@jakarta.annotation.Nonnull FindPayload findPayload)
             throws ApiException {
         ApiResponse<CountResult> localVarResp = countObjectsWithHttpInfo(findPayload);
         return localVarResp.getData();
@@ -734,7 +734,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<CountResult> countObjectsWithHttpInfo(
-            @javax.annotation.Nonnull FindPayload findPayload) throws ApiException {
+            @jakarta.annotation.Nonnull FindPayload findPayload) throws ApiException {
         okhttp3.Call localVarCall = countObjectsValidateBeforeCall(findPayload, null);
         Type localVarReturnType = new TypeToken<CountResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -757,7 +757,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call countObjectsAsync(
-            @javax.annotation.Nonnull FindPayload findPayload,
+            @jakarta.annotation.Nonnull FindPayload findPayload,
             final ApiCallback<CountResult> _callback)
             throws ApiException {
 
@@ -787,11 +787,11 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call createObjectCall(
-            @javax.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
-            @javax.annotation.Nullable String collectionId,
-            @javax.annotation.Nullable String processingPriority,
-            @javax.annotation.Nullable String xCollectionId,
-            @javax.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
+            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
+            @jakarta.annotation.Nullable String collectionId,
+            @jakarta.annotation.Nullable String processingPriority,
+            @jakarta.annotation.Nullable String xCollectionId,
+            @jakarta.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -869,11 +869,11 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createObjectValidateBeforeCall(
-            @javax.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
-            @javax.annotation.Nullable String collectionId,
-            @javax.annotation.Nullable String processingPriority,
-            @javax.annotation.Nullable String xCollectionId,
-            @javax.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
+            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
+            @jakarta.annotation.Nullable String collectionId,
+            @jakarta.annotation.Nullable String processingPriority,
+            @jakarta.annotation.Nullable String xCollectionId,
+            @jakarta.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'createContentObjectPayload' is set
@@ -911,11 +911,11 @@ public class ObjectsApi {
      * </table>
      */
     public ContentObjectApiResponse createObject(
-            @javax.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
-            @javax.annotation.Nullable String collectionId,
-            @javax.annotation.Nullable String processingPriority,
-            @javax.annotation.Nullable String xCollectionId,
-            @javax.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority)
+            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
+            @jakarta.annotation.Nullable String collectionId,
+            @jakarta.annotation.Nullable String processingPriority,
+            @jakarta.annotation.Nullable String xCollectionId,
+            @jakarta.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority)
             throws ApiException {
         ApiResponse<ContentObjectApiResponse> localVarResp =
                 createObjectWithHttpInfo(
@@ -947,11 +947,11 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<ContentObjectApiResponse> createObjectWithHttpInfo(
-            @javax.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
-            @javax.annotation.Nullable String collectionId,
-            @javax.annotation.Nullable String processingPriority,
-            @javax.annotation.Nullable String xCollectionId,
-            @javax.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority)
+            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
+            @jakarta.annotation.Nullable String collectionId,
+            @jakarta.annotation.Nullable String processingPriority,
+            @jakarta.annotation.Nullable String xCollectionId,
+            @jakarta.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createObjectValidateBeforeCall(
@@ -986,11 +986,11 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call createObjectAsync(
-            @javax.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
-            @javax.annotation.Nullable String collectionId,
-            @javax.annotation.Nullable String processingPriority,
-            @javax.annotation.Nullable String xCollectionId,
-            @javax.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
+            @jakarta.annotation.Nonnull CreateContentObjectPayload createContentObjectPayload,
+            @jakarta.annotation.Nullable String collectionId,
+            @jakarta.annotation.Nullable String processingPriority,
+            @jakarta.annotation.Nullable String xCollectionId,
+            @jakarta.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
             final ApiCallback<ContentObjectApiResponse> _callback)
             throws ApiException {
 
@@ -1023,7 +1023,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call createObjectDownloadUrlCall(
-            @javax.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
+            @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1080,7 +1080,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createObjectDownloadUrlValidateBeforeCall(
-            @javax.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
+            @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'getFileUrlPayload' is set
@@ -1108,7 +1108,7 @@ public class ObjectsApi {
      * </table>
      */
     public GetFileUrlResponse createObjectDownloadUrl(
-            @javax.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) throws ApiException {
+            @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) throws ApiException {
         ApiResponse<GetFileUrlResponse> localVarResp =
                 createObjectDownloadUrlWithHttpInfo(getFileUrlPayload);
         return localVarResp.getData();
@@ -1130,7 +1130,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<GetFileUrlResponse> createObjectDownloadUrlWithHttpInfo(
-            @javax.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) throws ApiException {
+            @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload) throws ApiException {
         okhttp3.Call localVarCall =
                 createObjectDownloadUrlValidateBeforeCall(getFileUrlPayload, null);
         Type localVarReturnType = new TypeToken<GetFileUrlResponse>() {}.getType();
@@ -1154,7 +1154,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call createObjectDownloadUrlAsync(
-            @javax.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
+            @jakarta.annotation.Nonnull GetFileUrlPayload getFileUrlPayload,
             final ApiCallback<GetFileUrlResponse> _callback)
             throws ApiException {
 
@@ -1181,7 +1181,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call createObjectUploadUrlCall(
-            @javax.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
+            @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1238,7 +1238,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createObjectUploadUrlValidateBeforeCall(
-            @javax.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
+            @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'getUploadUrlPayload' is set
@@ -1266,7 +1266,8 @@ public class ObjectsApi {
      * </table>
      */
     public GetFileUrlResponse createObjectUploadUrl(
-            @javax.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload) throws ApiException {
+            @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload)
+            throws ApiException {
         ApiResponse<GetFileUrlResponse> localVarResp =
                 createObjectUploadUrlWithHttpInfo(getUploadUrlPayload);
         return localVarResp.getData();
@@ -1288,7 +1289,8 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<GetFileUrlResponse> createObjectUploadUrlWithHttpInfo(
-            @javax.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload) throws ApiException {
+            @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload)
+            throws ApiException {
         okhttp3.Call localVarCall =
                 createObjectUploadUrlValidateBeforeCall(getUploadUrlPayload, null);
         Type localVarReturnType = new TypeToken<GetFileUrlResponse>() {}.getType();
@@ -1312,7 +1314,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call createObjectUploadUrlAsync(
-            @javax.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
+            @jakarta.annotation.Nonnull GetUploadUrlPayload getUploadUrlPayload,
             final ApiCallback<GetFileUrlResponse> _callback)
             throws ApiException {
 
@@ -1339,7 +1341,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call deleteObjectCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1399,7 +1401,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteObjectValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
@@ -1425,7 +1427,7 @@ public class ObjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteContentObjectResult deleteObject(@javax.annotation.Nonnull String objectId)
+    public DeleteContentObjectResult deleteObject(@jakarta.annotation.Nonnull String objectId)
             throws ApiException {
         ApiResponse<DeleteContentObjectResult> localVarResp = deleteObjectWithHttpInfo(objectId);
         return localVarResp.getData();
@@ -1447,7 +1449,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<DeleteContentObjectResult> deleteObjectWithHttpInfo(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = deleteObjectValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<DeleteContentObjectResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1470,7 +1472,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call deleteObjectAsync(
-            @javax.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<DeleteContentObjectResult> _callback)
             throws ApiException {
 
@@ -1496,7 +1498,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call exportObjectPropertiesCall(
-            @javax.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload,
+            @jakarta.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1553,7 +1555,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call exportObjectPropertiesValidateBeforeCall(
-            @javax.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload,
+            @jakarta.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'exportPropertiesPayload' is set
@@ -1581,7 +1583,7 @@ public class ObjectsApi {
      * </table>
      */
     public ExportPropertiesResponse exportObjectProperties(
-            @javax.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload)
+            @jakarta.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload)
             throws ApiException {
         ApiResponse<ExportPropertiesResponse> localVarResp =
                 exportObjectPropertiesWithHttpInfo(exportPropertiesPayload);
@@ -1604,7 +1606,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<ExportPropertiesResponse> exportObjectPropertiesWithHttpInfo(
-            @javax.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload)
+            @jakarta.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 exportObjectPropertiesValidateBeforeCall(exportPropertiesPayload, null);
@@ -1629,7 +1631,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call exportObjectPropertiesAsync(
-            @javax.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload,
+            @jakarta.annotation.Nonnull ExportPropertiesPayload exportPropertiesPayload,
             final ApiCallback<ExportPropertiesResponse> _callback)
             throws ApiException {
 
@@ -1656,7 +1658,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getAdaptedObjectTablesCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1716,7 +1718,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAdaptedObjectTablesValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
@@ -1743,7 +1745,7 @@ public class ObjectsApi {
      * </table>
      */
     public Map<String, AdaptedTable> getAdaptedObjectTables(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         ApiResponse<Map<String, AdaptedTable>> localVarResp =
                 getAdaptedObjectTablesWithHttpInfo(objectId);
         return localVarResp.getData();
@@ -1765,7 +1767,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<Map<String, AdaptedTable>> getAdaptedObjectTablesWithHttpInfo(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = getAdaptedObjectTablesValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<Map<String, AdaptedTable>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1788,7 +1790,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getAdaptedObjectTablesAsync(
-            @javax.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<Map<String, AdaptedTable>> _callback)
             throws ApiException {
 
@@ -1815,8 +1817,8 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getAdaptedObjectTablesByRunCall(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String runId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1880,8 +1882,8 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAdaptedObjectTablesByRunValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String runId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
@@ -1916,7 +1918,7 @@ public class ObjectsApi {
      * </table>
      */
     public Map<String, AdaptedTable> getAdaptedObjectTablesByRun(
-            @javax.annotation.Nonnull String objectId, @javax.annotation.Nonnull String runId)
+            @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nonnull String runId)
             throws ApiException {
         ApiResponse<Map<String, AdaptedTable>> localVarResp =
                 getAdaptedObjectTablesByRunWithHttpInfo(objectId, runId);
@@ -1940,7 +1942,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<Map<String, AdaptedTable>> getAdaptedObjectTablesByRunWithHttpInfo(
-            @javax.annotation.Nonnull String objectId, @javax.annotation.Nonnull String runId)
+            @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nonnull String runId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getAdaptedObjectTablesByRunValidateBeforeCall(objectId, runId, null);
@@ -1966,8 +1968,8 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getAdaptedObjectTablesByRunAsync(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String runId,
             final ApiCallback<Map<String, AdaptedTable>> _callback)
             throws ApiException {
 
@@ -1994,7 +1996,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2054,7 +2056,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getObjectValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
@@ -2080,7 +2082,7 @@ public class ObjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ContentObjectApiResponse getObject(@javax.annotation.Nonnull String objectId)
+    public ContentObjectApiResponse getObject(@jakarta.annotation.Nonnull String objectId)
             throws ApiException {
         ApiResponse<ContentObjectApiResponse> localVarResp = getObjectWithHttpInfo(objectId);
         return localVarResp.getData();
@@ -2102,7 +2104,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<ContentObjectApiResponse> getObjectWithHttpInfo(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = getObjectValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<ContentObjectApiResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2125,7 +2127,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectAsync(
-            @javax.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<ContentObjectApiResponse> _callback)
             throws ApiException {
 
@@ -2151,7 +2153,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectContentSourceCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2211,7 +2213,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getObjectContentSourceValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
@@ -2237,7 +2239,7 @@ public class ObjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ContentSource getObjectContentSource(@javax.annotation.Nonnull String objectId)
+    public ContentSource getObjectContentSource(@jakarta.annotation.Nonnull String objectId)
             throws ApiException {
         ApiResponse<ContentSource> localVarResp = getObjectContentSourceWithHttpInfo(objectId);
         return localVarResp.getData();
@@ -2259,7 +2261,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<ContentSource> getObjectContentSourceWithHttpInfo(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = getObjectContentSourceValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<ContentSource>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2282,7 +2284,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectContentSourceAsync(
-            @javax.annotation.Nonnull String objectId, final ApiCallback<ContentSource> _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback<ContentSource> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getObjectContentSourceValidateBeforeCall(objectId, _callback);
@@ -2307,7 +2309,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectDocumentAnalysisCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2367,7 +2369,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getObjectDocumentAnalysisValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
@@ -2394,7 +2396,7 @@ public class ObjectsApi {
      * </table>
      */
     public DocAnalyzerResultResponse getObjectDocumentAnalysis(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         ApiResponse<DocAnalyzerResultResponse> localVarResp =
                 getObjectDocumentAnalysisWithHttpInfo(objectId);
         return localVarResp.getData();
@@ -2416,7 +2418,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<DocAnalyzerResultResponse> getObjectDocumentAnalysisWithHttpInfo(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = getObjectDocumentAnalysisValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<DocAnalyzerResultResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2439,7 +2441,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectDocumentAnalysisAsync(
-            @javax.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<DocAnalyzerResultResponse> _callback)
             throws ApiException {
 
@@ -2466,7 +2468,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectDocumentAnalysisStatusCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2526,7 +2528,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getObjectDocumentAnalysisStatusValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
@@ -2553,7 +2555,7 @@ public class ObjectsApi {
      * </table>
      */
     public DocAnalyzeRunStatusResponse getObjectDocumentAnalysisStatus(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         ApiResponse<DocAnalyzeRunStatusResponse> localVarResp =
                 getObjectDocumentAnalysisStatusWithHttpInfo(objectId);
         return localVarResp.getData();
@@ -2575,7 +2577,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<DocAnalyzeRunStatusResponse> getObjectDocumentAnalysisStatusWithHttpInfo(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall =
                 getObjectDocumentAnalysisStatusValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<DocAnalyzeRunStatusResponse>() {}.getType();
@@ -2599,7 +2601,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectDocumentAnalysisStatusAsync(
-            @javax.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<DocAnalyzeRunStatusResponse> _callback)
             throws ApiException {
 
@@ -2626,7 +2628,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectDocumentAnnotatedPdfCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2686,7 +2688,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getObjectDocumentAnnotatedPdfValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
@@ -2713,7 +2715,7 @@ public class ObjectsApi {
      * </table>
      */
     public AnnotatedPdfResponse getObjectDocumentAnnotatedPdf(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         ApiResponse<AnnotatedPdfResponse> localVarResp =
                 getObjectDocumentAnnotatedPdfWithHttpInfo(objectId);
         return localVarResp.getData();
@@ -2735,7 +2737,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<AnnotatedPdfResponse> getObjectDocumentAnnotatedPdfWithHttpInfo(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = getObjectDocumentAnnotatedPdfValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<AnnotatedPdfResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2758,7 +2760,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectDocumentAnnotatedPdfAsync(
-            @javax.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<AnnotatedPdfResponse> _callback)
             throws ApiException {
 
@@ -2785,7 +2787,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectDocumentXmlCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -2845,7 +2847,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getObjectDocumentXmlValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
@@ -2871,7 +2873,7 @@ public class ObjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public String getObjectDocumentXml(@javax.annotation.Nonnull String objectId)
+    public String getObjectDocumentXml(@jakarta.annotation.Nonnull String objectId)
             throws ApiException {
         ApiResponse<String> localVarResp = getObjectDocumentXmlWithHttpInfo(objectId);
         return localVarResp.getData();
@@ -2893,7 +2895,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<String> getObjectDocumentXmlWithHttpInfo(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = getObjectDocumentXmlValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<String>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -2916,7 +2918,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectDocumentXmlAsync(
-            @javax.annotation.Nonnull String objectId, final ApiCallback<String> _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback<String> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getObjectDocumentXmlValidateBeforeCall(objectId, _callback);
@@ -2946,12 +2948,12 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectRenditionCall(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull String format,
-            @javax.annotation.Nullable Boolean blockOnGeneration,
-            @javax.annotation.Nullable Boolean generateIfMissing,
-            @javax.annotation.Nullable BigDecimal maxHw,
-            @javax.annotation.Nullable Boolean signUrl,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String format,
+            @jakarta.annotation.Nullable Boolean blockOnGeneration,
+            @jakarta.annotation.Nullable Boolean generateIfMissing,
+            @jakarta.annotation.Nullable BigDecimal maxHw,
+            @jakarta.annotation.Nullable Boolean signUrl,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3033,12 +3035,12 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getObjectRenditionValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull String format,
-            @javax.annotation.Nullable Boolean blockOnGeneration,
-            @javax.annotation.Nullable Boolean generateIfMissing,
-            @javax.annotation.Nullable BigDecimal maxHw,
-            @javax.annotation.Nullable Boolean signUrl,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String format,
+            @jakarta.annotation.Nullable Boolean blockOnGeneration,
+            @jakarta.annotation.Nullable Boolean generateIfMissing,
+            @jakarta.annotation.Nullable BigDecimal maxHw,
+            @jakarta.annotation.Nullable Boolean signUrl,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
@@ -3078,12 +3080,12 @@ public class ObjectsApi {
      * </table>
      */
     public GetRenditionResponse getObjectRendition(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull String format,
-            @javax.annotation.Nullable Boolean blockOnGeneration,
-            @javax.annotation.Nullable Boolean generateIfMissing,
-            @javax.annotation.Nullable BigDecimal maxHw,
-            @javax.annotation.Nullable Boolean signUrl)
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String format,
+            @jakarta.annotation.Nullable Boolean blockOnGeneration,
+            @jakarta.annotation.Nullable Boolean generateIfMissing,
+            @jakarta.annotation.Nullable BigDecimal maxHw,
+            @jakarta.annotation.Nullable Boolean signUrl)
             throws ApiException {
         ApiResponse<GetRenditionResponse> localVarResp =
                 getObjectRenditionWithHttpInfo(
@@ -3112,12 +3114,12 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<GetRenditionResponse> getObjectRenditionWithHttpInfo(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull String format,
-            @javax.annotation.Nullable Boolean blockOnGeneration,
-            @javax.annotation.Nullable Boolean generateIfMissing,
-            @javax.annotation.Nullable BigDecimal maxHw,
-            @javax.annotation.Nullable Boolean signUrl)
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String format,
+            @jakarta.annotation.Nullable Boolean blockOnGeneration,
+            @jakarta.annotation.Nullable Boolean generateIfMissing,
+            @jakarta.annotation.Nullable BigDecimal maxHw,
+            @jakarta.annotation.Nullable Boolean signUrl)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getObjectRenditionValidateBeforeCall(
@@ -3154,12 +3156,12 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectRenditionAsync(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull String format,
-            @javax.annotation.Nullable Boolean blockOnGeneration,
-            @javax.annotation.Nullable Boolean generateIfMissing,
-            @javax.annotation.Nullable BigDecimal maxHw,
-            @javax.annotation.Nullable Boolean signUrl,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String format,
+            @jakarta.annotation.Nullable Boolean blockOnGeneration,
+            @jakarta.annotation.Nullable Boolean generateIfMissing,
+            @jakarta.annotation.Nullable BigDecimal maxHw,
+            @jakarta.annotation.Nullable Boolean signUrl,
             final ApiCallback<GetRenditionResponse> _callback)
             throws ApiException {
 
@@ -3193,7 +3195,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectTextCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3253,7 +3255,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getObjectTextValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
@@ -3279,7 +3281,7 @@ public class ObjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ContentObjectTextResponse getObjectText(@javax.annotation.Nonnull String objectId)
+    public ContentObjectTextResponse getObjectText(@jakarta.annotation.Nonnull String objectId)
             throws ApiException {
         ApiResponse<ContentObjectTextResponse> localVarResp = getObjectTextWithHttpInfo(objectId);
         return localVarResp.getData();
@@ -3301,7 +3303,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<ContentObjectTextResponse> getObjectTextWithHttpInfo(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = getObjectTextValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<ContentObjectTextResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3324,7 +3326,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call getObjectTextAsync(
-            @javax.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<ContentObjectTextResponse> _callback)
             throws ApiException {
 
@@ -3350,7 +3352,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call listObjectCollectionsCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3410,7 +3412,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listObjectCollectionsValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
@@ -3436,7 +3438,7 @@ public class ObjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<Collection> listObjectCollections(@javax.annotation.Nonnull String objectId)
+    public List<Collection> listObjectCollections(@jakarta.annotation.Nonnull String objectId)
             throws ApiException {
         ApiResponse<List<Collection>> localVarResp = listObjectCollectionsWithHttpInfo(objectId);
         return localVarResp.getData();
@@ -3458,7 +3460,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<List<Collection>> listObjectCollectionsWithHttpInfo(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = listObjectCollectionsValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<List<Collection>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3481,7 +3483,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call listObjectCollectionsAsync(
-            @javax.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<List<Collection>> _callback)
             throws ApiException {
 
@@ -3507,7 +3509,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call listObjectDocumentImagesCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3567,7 +3569,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listObjectDocumentImagesValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
@@ -3593,7 +3595,7 @@ public class ObjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<DocImage> listObjectDocumentImages(@javax.annotation.Nonnull String objectId)
+    public List<DocImage> listObjectDocumentImages(@jakarta.annotation.Nonnull String objectId)
             throws ApiException {
         ApiResponse<List<DocImage>> localVarResp = listObjectDocumentImagesWithHttpInfo(objectId);
         return localVarResp.getData();
@@ -3615,7 +3617,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<List<DocImage>> listObjectDocumentImagesWithHttpInfo(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = listObjectDocumentImagesValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<List<DocImage>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3638,7 +3640,8 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call listObjectDocumentImagesAsync(
-            @javax.annotation.Nonnull String objectId, final ApiCallback<List<DocImage>> _callback)
+            @jakarta.annotation.Nonnull String objectId,
+            final ApiCallback<List<DocImage>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listObjectDocumentImagesValidateBeforeCall(objectId, _callback);
@@ -3663,7 +3666,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call listObjectDocumentTablesCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3723,7 +3726,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listObjectDocumentTablesValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
@@ -3750,7 +3753,7 @@ public class ObjectsApi {
      * </table>
      */
     public List<DocTableResponse> listObjectDocumentTables(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         ApiResponse<List<DocTableResponse>> localVarResp =
                 listObjectDocumentTablesWithHttpInfo(objectId);
         return localVarResp.getData();
@@ -3772,7 +3775,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<List<DocTableResponse>> listObjectDocumentTablesWithHttpInfo(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = listObjectDocumentTablesValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<List<DocTableResponse>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3795,7 +3798,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call listObjectDocumentTablesAsync(
-            @javax.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<List<DocTableResponse>> _callback)
             throws ApiException {
 
@@ -3821,7 +3824,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call listObjectRevisionsCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3881,7 +3884,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listObjectRevisionsValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
@@ -3908,7 +3911,7 @@ public class ObjectsApi {
      * </table>
      */
     public List<ContentObjectItemApiResponse> listObjectRevisions(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         ApiResponse<List<ContentObjectItemApiResponse>> localVarResp =
                 listObjectRevisionsWithHttpInfo(objectId);
         return localVarResp.getData();
@@ -3930,7 +3933,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<List<ContentObjectItemApiResponse>> listObjectRevisionsWithHttpInfo(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = listObjectRevisionsValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<List<ContentObjectItemApiResponse>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3953,7 +3956,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call listObjectRevisionsAsync(
-            @javax.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<List<ContentObjectItemApiResponse>> _callback)
             throws ApiException {
 
@@ -3979,7 +3982,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call listObjectWorkflowRunsCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -4039,7 +4042,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listObjectWorkflowRunsValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
@@ -4066,7 +4069,7 @@ public class ObjectsApi {
      * </table>
      */
     public ListWorkflowRunsResponse listObjectWorkflowRuns(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         ApiResponse<ListWorkflowRunsResponse> localVarResp =
                 listObjectWorkflowRunsWithHttpInfo(objectId);
         return localVarResp.getData();
@@ -4088,7 +4091,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<ListWorkflowRunsResponse> listObjectWorkflowRunsWithHttpInfo(
-            @javax.annotation.Nonnull String objectId) throws ApiException {
+            @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = listObjectWorkflowRunsValidateBeforeCall(objectId, null);
         Type localVarReturnType = new TypeToken<ListWorkflowRunsResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -4111,7 +4114,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call listObjectWorkflowRunsAsync(
-            @javax.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String objectId,
             final ApiCallback<ListWorkflowRunsResponse> _callback)
             throws ApiException {
 
@@ -4137,7 +4140,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call searchObjectsCall(
-            @javax.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
+            @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4194,7 +4197,7 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call searchObjectsValidateBeforeCall(
-            @javax.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
+            @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'complexSearchPayload' is set
@@ -4222,7 +4225,7 @@ public class ObjectsApi {
      * </table>
      */
     public ObjectSearchResponse searchObjects(
-            @javax.annotation.Nonnull ComplexSearchPayload complexSearchPayload)
+            @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload)
             throws ApiException {
         ApiResponse<ObjectSearchResponse> localVarResp =
                 searchObjectsWithHttpInfo(complexSearchPayload);
@@ -4245,7 +4248,7 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<ObjectSearchResponse> searchObjectsWithHttpInfo(
-            @javax.annotation.Nonnull ComplexSearchPayload complexSearchPayload)
+            @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload)
             throws ApiException {
         okhttp3.Call localVarCall = searchObjectsValidateBeforeCall(complexSearchPayload, null);
         Type localVarReturnType = new TypeToken<ObjectSearchResponse>() {}.getType();
@@ -4269,7 +4272,7 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call searchObjectsAsync(
-            @javax.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
+            @jakarta.annotation.Nonnull ComplexSearchPayload complexSearchPayload,
             final ApiCallback<ObjectSearchResponse> _callback)
             throws ApiException {
 
@@ -4298,9 +4301,9 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call setObjectEmbeddingsCall(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull String type,
-            @javax.annotation.Nonnull Embedding embedding,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull Embedding embedding,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4364,9 +4367,9 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call setObjectEmbeddingsValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull String type,
-            @javax.annotation.Nonnull Embedding embedding,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull Embedding embedding,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
@@ -4408,9 +4411,9 @@ public class ObjectsApi {
      * </table>
      */
     public SetObjectEmbeddingsResponse setObjectEmbeddings(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull String type,
-            @javax.annotation.Nonnull Embedding embedding)
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull Embedding embedding)
             throws ApiException {
         ApiResponse<SetObjectEmbeddingsResponse> localVarResp =
                 setObjectEmbeddingsWithHttpInfo(objectId, type, embedding);
@@ -4435,9 +4438,9 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<SetObjectEmbeddingsResponse> setObjectEmbeddingsWithHttpInfo(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull String type,
-            @javax.annotation.Nonnull Embedding embedding)
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull Embedding embedding)
             throws ApiException {
         okhttp3.Call localVarCall =
                 setObjectEmbeddingsValidateBeforeCall(objectId, type, embedding, null);
@@ -4464,9 +4467,9 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call setObjectEmbeddingsAsync(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull String type,
-            @javax.annotation.Nonnull Embedding embedding,
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nonnull Embedding embedding,
             final ApiCallback<SetObjectEmbeddingsResponse> _callback)
             throws ApiException {
 
@@ -4502,17 +4505,17 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call updateObjectCall(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull
                     PartialCreateContentObjectPayload partialCreateContentObjectPayload,
-            @javax.annotation.Nullable Boolean createRevision,
-            @javax.annotation.Nullable String revisionLabel,
-            @javax.annotation.Nullable String processingPriority,
-            @javax.annotation.Nullable String ifMatch,
-            @javax.annotation.Nullable Boolean xCreateRevision,
-            @javax.annotation.Nullable String xRevisionLabel,
-            @javax.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
-            @javax.annotation.Nullable Boolean xSuppressWorkflows,
+            @jakarta.annotation.Nullable Boolean createRevision,
+            @jakarta.annotation.Nullable String revisionLabel,
+            @jakarta.annotation.Nullable String processingPriority,
+            @jakarta.annotation.Nullable String ifMatch,
+            @jakarta.annotation.Nullable Boolean xCreateRevision,
+            @jakarta.annotation.Nullable String xRevisionLabel,
+            @jakarta.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
+            @jakarta.annotation.Nullable Boolean xSuppressWorkflows,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4614,17 +4617,17 @@ public class ObjectsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateObjectValidateBeforeCall(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull
                     PartialCreateContentObjectPayload partialCreateContentObjectPayload,
-            @javax.annotation.Nullable Boolean createRevision,
-            @javax.annotation.Nullable String revisionLabel,
-            @javax.annotation.Nullable String processingPriority,
-            @javax.annotation.Nullable String ifMatch,
-            @javax.annotation.Nullable Boolean xCreateRevision,
-            @javax.annotation.Nullable String xRevisionLabel,
-            @javax.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
-            @javax.annotation.Nullable Boolean xSuppressWorkflows,
+            @jakarta.annotation.Nullable Boolean createRevision,
+            @jakarta.annotation.Nullable String revisionLabel,
+            @jakarta.annotation.Nullable String processingPriority,
+            @jakarta.annotation.Nullable String ifMatch,
+            @jakarta.annotation.Nullable Boolean xCreateRevision,
+            @jakarta.annotation.Nullable String xRevisionLabel,
+            @jakarta.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
+            @jakarta.annotation.Nullable Boolean xSuppressWorkflows,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
@@ -4678,17 +4681,17 @@ public class ObjectsApi {
      * </table>
      */
     public ContentObjectApiResponse updateObject(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull
                     PartialCreateContentObjectPayload partialCreateContentObjectPayload,
-            @javax.annotation.Nullable Boolean createRevision,
-            @javax.annotation.Nullable String revisionLabel,
-            @javax.annotation.Nullable String processingPriority,
-            @javax.annotation.Nullable String ifMatch,
-            @javax.annotation.Nullable Boolean xCreateRevision,
-            @javax.annotation.Nullable String xRevisionLabel,
-            @javax.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
-            @javax.annotation.Nullable Boolean xSuppressWorkflows)
+            @jakarta.annotation.Nullable Boolean createRevision,
+            @jakarta.annotation.Nullable String revisionLabel,
+            @jakarta.annotation.Nullable String processingPriority,
+            @jakarta.annotation.Nullable String ifMatch,
+            @jakarta.annotation.Nullable Boolean xCreateRevision,
+            @jakarta.annotation.Nullable String xRevisionLabel,
+            @jakarta.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
+            @jakarta.annotation.Nullable Boolean xSuppressWorkflows)
             throws ApiException {
         ApiResponse<ContentObjectApiResponse> localVarResp =
                 updateObjectWithHttpInfo(
@@ -4730,17 +4733,17 @@ public class ObjectsApi {
      * </table>
      */
     public ApiResponse<ContentObjectApiResponse> updateObjectWithHttpInfo(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull
                     PartialCreateContentObjectPayload partialCreateContentObjectPayload,
-            @javax.annotation.Nullable Boolean createRevision,
-            @javax.annotation.Nullable String revisionLabel,
-            @javax.annotation.Nullable String processingPriority,
-            @javax.annotation.Nullable String ifMatch,
-            @javax.annotation.Nullable Boolean xCreateRevision,
-            @javax.annotation.Nullable String xRevisionLabel,
-            @javax.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
-            @javax.annotation.Nullable Boolean xSuppressWorkflows)
+            @jakarta.annotation.Nullable Boolean createRevision,
+            @jakarta.annotation.Nullable String revisionLabel,
+            @jakarta.annotation.Nullable String processingPriority,
+            @jakarta.annotation.Nullable String ifMatch,
+            @jakarta.annotation.Nullable Boolean xCreateRevision,
+            @jakarta.annotation.Nullable String xRevisionLabel,
+            @jakarta.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
+            @jakarta.annotation.Nullable Boolean xSuppressWorkflows)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateObjectValidateBeforeCall(
@@ -4785,17 +4788,17 @@ public class ObjectsApi {
      * </table>
      */
     public okhttp3.Call updateObjectAsync(
-            @javax.annotation.Nonnull String objectId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull
                     PartialCreateContentObjectPayload partialCreateContentObjectPayload,
-            @javax.annotation.Nullable Boolean createRevision,
-            @javax.annotation.Nullable String revisionLabel,
-            @javax.annotation.Nullable String processingPriority,
-            @javax.annotation.Nullable String ifMatch,
-            @javax.annotation.Nullable Boolean xCreateRevision,
-            @javax.annotation.Nullable String xRevisionLabel,
-            @javax.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
-            @javax.annotation.Nullable Boolean xSuppressWorkflows,
+            @jakarta.annotation.Nullable Boolean createRevision,
+            @jakarta.annotation.Nullable String revisionLabel,
+            @jakarta.annotation.Nullable String processingPriority,
+            @jakarta.annotation.Nullable String ifMatch,
+            @jakarta.annotation.Nullable Boolean xCreateRevision,
+            @jakarta.annotation.Nullable String xRevisionLabel,
+            @jakarta.annotation.Nullable ContentObjectProcessingPriority xProcessingPriority,
+            @jakarta.annotation.Nullable Boolean xSuppressWorkflows,
             final ApiCallback<ContentObjectApiResponse> _callback)
             throws ApiException {
 

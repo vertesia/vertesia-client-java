@@ -32,28 +32,28 @@ import java.util.Objects;
 /**
  * OAuthClientCredentials
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OAuthClientCredentials {
     public static final String SERIALIZED_NAME_CLIENT_ID = "client_id";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_ID)
-    @javax.annotation.Nullable private String clientId;
+    @jakarta.annotation.Nullable private String clientId;
 
     public static final String SERIALIZED_NAME_CLIENT_SECRET = "client_secret";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
-    @javax.annotation.Nullable private String clientSecret;
+    @jakarta.annotation.Nullable private String clientSecret;
 
     public static final String SERIALIZED_NAME_SCOPES = "scopes";
 
     @SerializedName(SERIALIZED_NAME_SCOPES)
-    @javax.annotation.Nullable private List<String> scopes = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> scopes = new ArrayList<>();
 
     public OAuthClientCredentials() {}
 
-    public OAuthClientCredentials clientId(@javax.annotation.Nullable String clientId) {
+    public OAuthClientCredentials clientId(@jakarta.annotation.Nullable String clientId) {
         this.clientId = clientId;
         return this;
     }
@@ -62,15 +62,15 @@ public class OAuthClientCredentials {
      * Get clientId
      * @return clientId
      */
-    @javax.annotation.Nullable public String getClientId() {
+    @jakarta.annotation.Nullable public String getClientId() {
         return clientId;
     }
 
-    public void setClientId(@javax.annotation.Nullable String clientId) {
+    public void setClientId(@jakarta.annotation.Nullable String clientId) {
         this.clientId = clientId;
     }
 
-    public OAuthClientCredentials clientSecret(@javax.annotation.Nullable String clientSecret) {
+    public OAuthClientCredentials clientSecret(@jakarta.annotation.Nullable String clientSecret) {
         this.clientSecret = clientSecret;
         return this;
     }
@@ -79,15 +79,15 @@ public class OAuthClientCredentials {
      * Get clientSecret
      * @return clientSecret
      */
-    @javax.annotation.Nullable public String getClientSecret() {
+    @jakarta.annotation.Nullable public String getClientSecret() {
         return clientSecret;
     }
 
-    public void setClientSecret(@javax.annotation.Nullable String clientSecret) {
+    public void setClientSecret(@jakarta.annotation.Nullable String clientSecret) {
         this.clientSecret = clientSecret;
     }
 
-    public OAuthClientCredentials scopes(@javax.annotation.Nullable List<String> scopes) {
+    public OAuthClientCredentials scopes(@jakarta.annotation.Nullable List<String> scopes) {
         this.scopes = scopes;
         return this;
     }
@@ -104,11 +104,11 @@ public class OAuthClientCredentials {
      * Get scopes
      * @return scopes
      */
-    @javax.annotation.Nullable public List<String> getScopes() {
+    @jakarta.annotation.Nullable public List<String> getScopes() {
         return scopes;
     }
 
-    public void setScopes(@javax.annotation.Nullable List<String> scopes) {
+    public void setScopes(@jakarta.annotation.Nullable List<String> scopes) {
         this.scopes = scopes;
     }
 

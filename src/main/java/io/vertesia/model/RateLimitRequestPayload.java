@@ -30,39 +30,39 @@ import java.util.Objects;
 /**
  * RateLimitRequestPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RateLimitRequestPayload {
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String interaction;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT_ID = "environment_id";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT_ID)
-    @javax.annotation.Nullable private String environmentId;
+    @jakarta.annotation.Nullable private String environmentId;
 
     public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
 
     @SerializedName(SERIALIZED_NAME_MODEL_ID)
-    @javax.annotation.Nullable private String modelId;
+    @jakarta.annotation.Nullable private String modelId;
 
     public static final String SERIALIZED_NAME_WORKFLOW_RUN_ID = "workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_RUN_ID)
-    @javax.annotation.Nullable private String workflowRunId;
+    @jakarta.annotation.Nullable private String workflowRunId;
 
     public static final String SERIALIZED_NAME_MODALITIES = "modalities";
 
     @SerializedName(SERIALIZED_NAME_MODALITIES)
-    @javax.annotation.Nullable private PromptModalities modalities;
+    @jakarta.annotation.Nullable private PromptModalities modalities;
 
     public RateLimitRequestPayload() {}
 
-    public RateLimitRequestPayload interaction(@javax.annotation.Nonnull String interaction) {
+    public RateLimitRequestPayload interaction(@jakarta.annotation.Nonnull String interaction) {
         this.interaction = interaction;
         return this;
     }
@@ -71,16 +71,17 @@ public class RateLimitRequestPayload {
      * Get interaction
      * @return interaction
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getInteraction() {
         return interaction;
     }
 
-    public void setInteraction(@javax.annotation.Nonnull String interaction) {
+    public void setInteraction(@jakarta.annotation.Nonnull String interaction) {
         this.interaction = interaction;
     }
 
-    public RateLimitRequestPayload environmentId(@javax.annotation.Nullable String environmentId) {
+    public RateLimitRequestPayload environmentId(
+            @jakarta.annotation.Nullable String environmentId) {
         this.environmentId = environmentId;
         return this;
     }
@@ -89,15 +90,15 @@ public class RateLimitRequestPayload {
      * Get environmentId
      * @return environmentId
      */
-    @javax.annotation.Nullable public String getEnvironmentId() {
+    @jakarta.annotation.Nullable public String getEnvironmentId() {
         return environmentId;
     }
 
-    public void setEnvironmentId(@javax.annotation.Nullable String environmentId) {
+    public void setEnvironmentId(@jakarta.annotation.Nullable String environmentId) {
         this.environmentId = environmentId;
     }
 
-    public RateLimitRequestPayload modelId(@javax.annotation.Nullable String modelId) {
+    public RateLimitRequestPayload modelId(@jakarta.annotation.Nullable String modelId) {
         this.modelId = modelId;
         return this;
     }
@@ -106,15 +107,16 @@ public class RateLimitRequestPayload {
      * Get modelId
      * @return modelId
      */
-    @javax.annotation.Nullable public String getModelId() {
+    @jakarta.annotation.Nullable public String getModelId() {
         return modelId;
     }
 
-    public void setModelId(@javax.annotation.Nullable String modelId) {
+    public void setModelId(@jakarta.annotation.Nullable String modelId) {
         this.modelId = modelId;
     }
 
-    public RateLimitRequestPayload workflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public RateLimitRequestPayload workflowRunId(
+            @jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
         return this;
     }
@@ -123,16 +125,16 @@ public class RateLimitRequestPayload {
      * Get workflowRunId
      * @return workflowRunId
      */
-    @javax.annotation.Nullable public String getWorkflowRunId() {
+    @jakarta.annotation.Nullable public String getWorkflowRunId() {
         return workflowRunId;
     }
 
-    public void setWorkflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public void setWorkflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
     }
 
     public RateLimitRequestPayload modalities(
-            @javax.annotation.Nullable PromptModalities modalities) {
+            @jakarta.annotation.Nullable PromptModalities modalities) {
         this.modalities = modalities;
         return this;
     }
@@ -141,11 +143,11 @@ public class RateLimitRequestPayload {
      * Get modalities
      * @return modalities
      */
-    @javax.annotation.Nullable public PromptModalities getModalities() {
+    @jakarta.annotation.Nullable public PromptModalities getModalities() {
         return modalities;
     }
 
-    public void setModalities(@javax.annotation.Nullable PromptModalities modalities) {
+    public void setModalities(@jakarta.annotation.Nullable PromptModalities modalities) {
         this.modalities = modalities;
     }
 

@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * ProjectTokenRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProjectTokenRequest {
@@ -91,34 +91,34 @@ public class ProjectTokenRequest {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_AUDIENCE = "audience";
 
     @SerializedName(SERIALIZED_NAME_AUDIENCE)
-    @javax.annotation.Nullable private String audience;
+    @jakarta.annotation.Nullable private String audience;
 
     public static final String SERIALIZED_NAME_ALGORITHM = "algorithm";
 
     @SerializedName(SERIALIZED_NAME_ALGORITHM)
-    @javax.annotation.Nullable private SigningAlgorithm algorithm;
+    @jakarta.annotation.Nullable private SigningAlgorithm algorithm;
 
     public static final String SERIALIZED_NAME_PROJECT_ID = "project_id";
 
     @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String projectId;
 
     public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String accountId;
 
     public ProjectTokenRequest() {}
 
-    public ProjectTokenRequest type(@javax.annotation.Nonnull TypeEnum type) {
+    public ProjectTokenRequest type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -127,16 +127,16 @@ public class ProjectTokenRequest {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public ProjectTokenRequest audience(@javax.annotation.Nullable String audience) {
+    public ProjectTokenRequest audience(@jakarta.annotation.Nullable String audience) {
         this.audience = audience;
         return this;
     }
@@ -145,15 +145,15 @@ public class ProjectTokenRequest {
      * Get audience
      * @return audience
      */
-    @javax.annotation.Nullable public String getAudience() {
+    @jakarta.annotation.Nullable public String getAudience() {
         return audience;
     }
 
-    public void setAudience(@javax.annotation.Nullable String audience) {
+    public void setAudience(@jakarta.annotation.Nullable String audience) {
         this.audience = audience;
     }
 
-    public ProjectTokenRequest algorithm(@javax.annotation.Nullable SigningAlgorithm algorithm) {
+    public ProjectTokenRequest algorithm(@jakarta.annotation.Nullable SigningAlgorithm algorithm) {
         this.algorithm = algorithm;
         return this;
     }
@@ -162,15 +162,15 @@ public class ProjectTokenRequest {
      * Signing algorithm - defaults to ES256. Use RS256 for Azure AD compatibility.
      * @return algorithm
      */
-    @javax.annotation.Nullable public SigningAlgorithm getAlgorithm() {
+    @jakarta.annotation.Nullable public SigningAlgorithm getAlgorithm() {
         return algorithm;
     }
 
-    public void setAlgorithm(@javax.annotation.Nullable SigningAlgorithm algorithm) {
+    public void setAlgorithm(@jakarta.annotation.Nullable SigningAlgorithm algorithm) {
         this.algorithm = algorithm;
     }
 
-    public ProjectTokenRequest projectId(@javax.annotation.Nonnull String projectId) {
+    public ProjectTokenRequest projectId(@jakarta.annotation.Nonnull String projectId) {
         this.projectId = projectId;
         return this;
     }
@@ -179,16 +179,16 @@ public class ProjectTokenRequest {
      * Get projectId
      * @return projectId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(@javax.annotation.Nonnull String projectId) {
+    public void setProjectId(@jakarta.annotation.Nonnull String projectId) {
         this.projectId = projectId;
     }
 
-    public ProjectTokenRequest accountId(@javax.annotation.Nonnull String accountId) {
+    public ProjectTokenRequest accountId(@jakarta.annotation.Nonnull String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -197,12 +197,12 @@ public class ProjectTokenRequest {
      * Get accountId
      * @return accountId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(@javax.annotation.Nonnull String accountId) {
+    public void setAccountId(@jakarta.annotation.Nonnull String accountId) {
         this.accountId = accountId;
     }
 

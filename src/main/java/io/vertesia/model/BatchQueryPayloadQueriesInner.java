@@ -31,30 +31,30 @@ import java.util.Objects;
 /**
  * BatchQueryPayloadQueriesInner
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BatchQueryPayloadQueriesInner {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_SQL = "sql";
 
     @SerializedName(SERIALIZED_NAME_SQL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String sql;
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nullable private BigDecimal limit;
+    @jakarta.annotation.Nullable private BigDecimal limit;
 
     public BatchQueryPayloadQueriesInner() {}
 
-    public BatchQueryPayloadQueriesInner name(@javax.annotation.Nonnull String name) {
+    public BatchQueryPayloadQueriesInner name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -63,16 +63,16 @@ public class BatchQueryPayloadQueriesInner {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public BatchQueryPayloadQueriesInner sql(@javax.annotation.Nonnull String sql) {
+    public BatchQueryPayloadQueriesInner sql(@jakarta.annotation.Nonnull String sql) {
         this.sql = sql;
         return this;
     }
@@ -81,16 +81,16 @@ public class BatchQueryPayloadQueriesInner {
      * Get sql
      * @return sql
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSql() {
         return sql;
     }
 
-    public void setSql(@javax.annotation.Nonnull String sql) {
+    public void setSql(@jakarta.annotation.Nonnull String sql) {
         this.sql = sql;
     }
 
-    public BatchQueryPayloadQueriesInner limit(@javax.annotation.Nullable BigDecimal limit) {
+    public BatchQueryPayloadQueriesInner limit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -99,11 +99,11 @@ public class BatchQueryPayloadQueriesInner {
      * Get limit
      * @return limit
      */
-    @javax.annotation.Nullable public BigDecimal getLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nullable BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
     }
 

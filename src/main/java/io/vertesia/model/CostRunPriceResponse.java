@@ -37,31 +37,31 @@ import java.util.Objects;
 /**
  * CostRunPriceResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CostRunPriceResponse {
     public static final String SERIALIZED_NAME_SUMMARY = "summary";
 
     @SerializedName(SERIALIZED_NAME_SUMMARY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private CostSummary summary;
 
     public static final String SERIALIZED_NAME_BY_MODEL = "by_model";
 
     @SerializedName(SERIALIZED_NAME_BY_MODEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<CostByDimension> byModel = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PRICING = "pricing";
 
     @SerializedName(SERIALIZED_NAME_PRICING)
-    @javax.annotation.Nullable private List<ModelPricing> pricing = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<ModelPricing> pricing = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_QUERY_RANGE = "query_range";
 
     @SerializedName(SERIALIZED_NAME_QUERY_RANGE)
-    @javax.annotation.Nullable private CostAnalyticsResponseQueryRange queryRange;
+    @jakarta.annotation.Nullable private CostAnalyticsResponseQueryRange queryRange;
 
     /**
      * Gets or Sets pricingSource
@@ -121,18 +121,18 @@ public class CostRunPriceResponse {
     public static final String SERIALIZED_NAME_PRICING_SOURCE = "pricing_source";
 
     @SerializedName(SERIALIZED_NAME_PRICING_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private PricingSourceEnum pricingSource;
 
     public static final String SERIALIZED_NAME_MATCHED_EVENTS = "matched_events";
 
     @SerializedName(SERIALIZED_NAME_MATCHED_EVENTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal matchedEvents;
 
     public CostRunPriceResponse() {}
 
-    public CostRunPriceResponse summary(@javax.annotation.Nonnull CostSummary summary) {
+    public CostRunPriceResponse summary(@jakarta.annotation.Nonnull CostSummary summary) {
         this.summary = summary;
         return this;
     }
@@ -141,16 +141,16 @@ public class CostRunPriceResponse {
      * Get summary
      * @return summary
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public CostSummary getSummary() {
         return summary;
     }
 
-    public void setSummary(@javax.annotation.Nonnull CostSummary summary) {
+    public void setSummary(@jakarta.annotation.Nonnull CostSummary summary) {
         this.summary = summary;
     }
 
-    public CostRunPriceResponse byModel(@javax.annotation.Nonnull List<CostByDimension> byModel) {
+    public CostRunPriceResponse byModel(@jakarta.annotation.Nonnull List<CostByDimension> byModel) {
         this.byModel = byModel;
         return this;
     }
@@ -167,16 +167,16 @@ public class CostRunPriceResponse {
      * Get byModel
      * @return byModel
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<CostByDimension> getByModel() {
         return byModel;
     }
 
-    public void setByModel(@javax.annotation.Nonnull List<CostByDimension> byModel) {
+    public void setByModel(@jakarta.annotation.Nonnull List<CostByDimension> byModel) {
         this.byModel = byModel;
     }
 
-    public CostRunPriceResponse pricing(@javax.annotation.Nullable List<ModelPricing> pricing) {
+    public CostRunPriceResponse pricing(@jakarta.annotation.Nullable List<ModelPricing> pricing) {
         this.pricing = pricing;
         return this;
     }
@@ -193,16 +193,16 @@ public class CostRunPriceResponse {
      * Get pricing
      * @return pricing
      */
-    @javax.annotation.Nullable public List<ModelPricing> getPricing() {
+    @jakarta.annotation.Nullable public List<ModelPricing> getPricing() {
         return pricing;
     }
 
-    public void setPricing(@javax.annotation.Nullable List<ModelPricing> pricing) {
+    public void setPricing(@jakarta.annotation.Nullable List<ModelPricing> pricing) {
         this.pricing = pricing;
     }
 
     public CostRunPriceResponse queryRange(
-            @javax.annotation.Nullable CostAnalyticsResponseQueryRange queryRange) {
+            @jakarta.annotation.Nullable CostAnalyticsResponseQueryRange queryRange) {
         this.queryRange = queryRange;
         return this;
     }
@@ -211,17 +211,17 @@ public class CostRunPriceResponse {
      * Get queryRange
      * @return queryRange
      */
-    @javax.annotation.Nullable public CostAnalyticsResponseQueryRange getQueryRange() {
+    @jakarta.annotation.Nullable public CostAnalyticsResponseQueryRange getQueryRange() {
         return queryRange;
     }
 
     public void setQueryRange(
-            @javax.annotation.Nullable CostAnalyticsResponseQueryRange queryRange) {
+            @jakarta.annotation.Nullable CostAnalyticsResponseQueryRange queryRange) {
         this.queryRange = queryRange;
     }
 
     public CostRunPriceResponse pricingSource(
-            @javax.annotation.Nonnull PricingSourceEnum pricingSource) {
+            @jakarta.annotation.Nonnull PricingSourceEnum pricingSource) {
         this.pricingSource = pricingSource;
         return this;
     }
@@ -230,16 +230,17 @@ public class CostRunPriceResponse {
      * Get pricingSource
      * @return pricingSource
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public PricingSourceEnum getPricingSource() {
         return pricingSource;
     }
 
-    public void setPricingSource(@javax.annotation.Nonnull PricingSourceEnum pricingSource) {
+    public void setPricingSource(@jakarta.annotation.Nonnull PricingSourceEnum pricingSource) {
         this.pricingSource = pricingSource;
     }
 
-    public CostRunPriceResponse matchedEvents(@javax.annotation.Nonnull BigDecimal matchedEvents) {
+    public CostRunPriceResponse matchedEvents(
+            @jakarta.annotation.Nonnull BigDecimal matchedEvents) {
         this.matchedEvents = matchedEvents;
         return this;
     }
@@ -248,12 +249,12 @@ public class CostRunPriceResponse {
      * Get matchedEvents
      * @return matchedEvents
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getMatchedEvents() {
         return matchedEvents;
     }
 
-    public void setMatchedEvents(@javax.annotation.Nonnull BigDecimal matchedEvents) {
+    public void setMatchedEvents(@jakarta.annotation.Nonnull BigDecimal matchedEvents) {
         this.matchedEvents = matchedEvents;
     }
 

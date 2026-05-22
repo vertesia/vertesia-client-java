@@ -33,7 +33,7 @@ import java.util.Objects;
 /**
  * Email channel configuration with threading support. Used for email-based agent communication.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EmailChannel {
@@ -93,38 +93,38 @@ public class EmailChannel {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_TO_EMAIL = "to_email";
 
     @SerializedName(SERIALIZED_NAME_TO_EMAIL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String toEmail;
 
     public static final String SERIALIZED_NAME_THREAD_SUBJECT = "thread_subject";
 
     @SerializedName(SERIALIZED_NAME_THREAD_SUBJECT)
-    @javax.annotation.Nullable private String threadSubject;
+    @jakarta.annotation.Nullable private String threadSubject;
 
     public static final String SERIALIZED_NAME_IN_REPLY_TO = "in_reply_to";
 
     @SerializedName(SERIALIZED_NAME_IN_REPLY_TO)
-    @javax.annotation.Nullable private String inReplyTo;
+    @jakarta.annotation.Nullable private String inReplyTo;
 
     public static final String SERIALIZED_NAME_REFERENCES = "references";
 
     @SerializedName(SERIALIZED_NAME_REFERENCES)
-    @javax.annotation.Nullable private List<String> references = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> references = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ROUTE_KEY = "route_key";
 
     @SerializedName(SERIALIZED_NAME_ROUTE_KEY)
-    @javax.annotation.Nullable private String routeKey;
+    @jakarta.annotation.Nullable private String routeKey;
 
     public EmailChannel() {}
 
-    public EmailChannel type(@javax.annotation.Nonnull TypeEnum type) {
+    public EmailChannel type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -133,16 +133,16 @@ public class EmailChannel {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public EmailChannel toEmail(@javax.annotation.Nonnull String toEmail) {
+    public EmailChannel toEmail(@jakarta.annotation.Nonnull String toEmail) {
         this.toEmail = toEmail;
         return this;
     }
@@ -151,16 +151,16 @@ public class EmailChannel {
      * Email address to send agent messages to
      * @return toEmail
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getToEmail() {
         return toEmail;
     }
 
-    public void setToEmail(@javax.annotation.Nonnull String toEmail) {
+    public void setToEmail(@jakarta.annotation.Nonnull String toEmail) {
         this.toEmail = toEmail;
     }
 
-    public EmailChannel threadSubject(@javax.annotation.Nullable String threadSubject) {
+    public EmailChannel threadSubject(@jakarta.annotation.Nullable String threadSubject) {
         this.threadSubject = threadSubject;
         return this;
     }
@@ -169,15 +169,15 @@ public class EmailChannel {
      * Subject for the email thread (without \&quot;Re:\&quot; prefix)
      * @return threadSubject
      */
-    @javax.annotation.Nullable public String getThreadSubject() {
+    @jakarta.annotation.Nullable public String getThreadSubject() {
         return threadSubject;
     }
 
-    public void setThreadSubject(@javax.annotation.Nullable String threadSubject) {
+    public void setThreadSubject(@jakarta.annotation.Nullable String threadSubject) {
         this.threadSubject = threadSubject;
     }
 
-    public EmailChannel inReplyTo(@javax.annotation.Nullable String inReplyTo) {
+    public EmailChannel inReplyTo(@jakarta.annotation.Nullable String inReplyTo) {
         this.inReplyTo = inReplyTo;
         return this;
     }
@@ -186,15 +186,15 @@ public class EmailChannel {
      * Message ID for In-Reply-To header (most recent message)
      * @return inReplyTo
      */
-    @javax.annotation.Nullable public String getInReplyTo() {
+    @jakarta.annotation.Nullable public String getInReplyTo() {
         return inReplyTo;
     }
 
-    public void setInReplyTo(@javax.annotation.Nullable String inReplyTo) {
+    public void setInReplyTo(@jakarta.annotation.Nullable String inReplyTo) {
         this.inReplyTo = inReplyTo;
     }
 
-    public EmailChannel references(@javax.annotation.Nullable List<String> references) {
+    public EmailChannel references(@jakarta.annotation.Nullable List<String> references) {
         this.references = references;
         return this;
     }
@@ -211,15 +211,15 @@ public class EmailChannel {
      * Chain of message IDs for References header
      * @return references
      */
-    @javax.annotation.Nullable public List<String> getReferences() {
+    @jakarta.annotation.Nullable public List<String> getReferences() {
         return references;
     }
 
-    public void setReferences(@javax.annotation.Nullable List<String> references) {
+    public void setReferences(@jakarta.annotation.Nullable List<String> references) {
         this.references = references;
     }
 
-    public EmailChannel routeKey(@javax.annotation.Nullable String routeKey) {
+    public EmailChannel routeKey(@jakarta.annotation.Nullable String routeKey) {
         this.routeKey = routeKey;
         return this;
     }
@@ -228,11 +228,11 @@ public class EmailChannel {
      * Short routing key for reply emails (8-char alphanumeric, stored in Redis)
      * @return routeKey
      */
-    @javax.annotation.Nullable public String getRouteKey() {
+    @jakarta.annotation.Nullable public String getRouteKey() {
         return routeKey;
     }
 
-    public void setRouteKey(@javax.annotation.Nullable String routeKey) {
+    public void setRouteKey(@jakarta.annotation.Nullable String routeKey) {
         this.routeKey = routeKey;
     }
 

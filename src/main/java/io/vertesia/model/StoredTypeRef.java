@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * StoredTypeRef
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class StoredTypeRef {
@@ -91,24 +91,24 @@ public class StoredTypeRef {
     public static final String SERIALIZED_NAME_REF_TYPE = "ref_type";
 
     @SerializedName(SERIALIZED_NAME_REF_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private RefTypeEnum refType;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public StoredTypeRef() {}
 
-    public StoredTypeRef refType(@javax.annotation.Nonnull RefTypeEnum refType) {
+    public StoredTypeRef refType(@jakarta.annotation.Nonnull RefTypeEnum refType) {
         this.refType = refType;
         return this;
     }
@@ -117,16 +117,16 @@ public class StoredTypeRef {
      * Get refType
      * @return refType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public RefTypeEnum getRefType() {
         return refType;
     }
 
-    public void setRefType(@javax.annotation.Nonnull RefTypeEnum refType) {
+    public void setRefType(@jakarta.annotation.Nonnull RefTypeEnum refType) {
         this.refType = refType;
     }
 
-    public StoredTypeRef id(@javax.annotation.Nonnull String id) {
+    public StoredTypeRef id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -135,16 +135,16 @@ public class StoredTypeRef {
      * MongoDB ObjectId string for stored types
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public StoredTypeRef name(@javax.annotation.Nonnull String name) {
+    public StoredTypeRef name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -153,12 +153,12 @@ public class StoredTypeRef {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 

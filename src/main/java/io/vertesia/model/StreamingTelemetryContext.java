@@ -31,30 +31,30 @@ import java.util.Objects;
 /**
  * Telemetry context for streaming mode. Contains info not available in current_state needed to send LlmCallEvent.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class StreamingTelemetryContext {
     public static final String SERIALIZED_NAME_CALL_TYPE = "callType";
 
     @SerializedName(SERIALIZED_NAME_CALL_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private LlmCallType callType;
 
     public static final String SERIALIZED_NAME_ATTEMPT_NUMBER = "attemptNumber";
 
     @SerializedName(SERIALIZED_NAME_ATTEMPT_NUMBER)
-    @javax.annotation.Nullable private BigDecimal attemptNumber;
+    @jakarta.annotation.Nullable private BigDecimal attemptNumber;
 
     public static final String SERIALIZED_NAME_INFERENCE_START_TIME = "inferenceStartTime";
 
     @SerializedName(SERIALIZED_NAME_INFERENCE_START_TIME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal inferenceStartTime;
 
     public StreamingTelemetryContext() {}
 
-    public StreamingTelemetryContext callType(@javax.annotation.Nonnull LlmCallType callType) {
+    public StreamingTelemetryContext callType(@jakarta.annotation.Nonnull LlmCallType callType) {
         this.callType = callType;
         return this;
     }
@@ -63,17 +63,17 @@ public class StreamingTelemetryContext {
      * Type of LLM call: start, resume after user message, or resume after tool results
      * @return callType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public LlmCallType getCallType() {
         return callType;
     }
 
-    public void setCallType(@javax.annotation.Nonnull LlmCallType callType) {
+    public void setCallType(@jakarta.annotation.Nonnull LlmCallType callType) {
         this.callType = callType;
     }
 
     public StreamingTelemetryContext attemptNumber(
-            @javax.annotation.Nullable BigDecimal attemptNumber) {
+            @jakarta.annotation.Nullable BigDecimal attemptNumber) {
         this.attemptNumber = attemptNumber;
         return this;
     }
@@ -82,16 +82,16 @@ public class StreamingTelemetryContext {
      * Activity retry attempt number
      * @return attemptNumber
      */
-    @javax.annotation.Nullable public BigDecimal getAttemptNumber() {
+    @jakarta.annotation.Nullable public BigDecimal getAttemptNumber() {
         return attemptNumber;
     }
 
-    public void setAttemptNumber(@javax.annotation.Nullable BigDecimal attemptNumber) {
+    public void setAttemptNumber(@jakarta.annotation.Nullable BigDecimal attemptNumber) {
         this.attemptNumber = attemptNumber;
     }
 
     public StreamingTelemetryContext inferenceStartTime(
-            @javax.annotation.Nonnull BigDecimal inferenceStartTime) {
+            @jakarta.annotation.Nonnull BigDecimal inferenceStartTime) {
         this.inferenceStartTime = inferenceStartTime;
         return this;
     }
@@ -100,12 +100,12 @@ public class StreamingTelemetryContext {
      * Timestamp when inference started (for duration calculation)
      * @return inferenceStartTime
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getInferenceStartTime() {
         return inferenceStartTime;
     }
 
-    public void setInferenceStartTime(@javax.annotation.Nonnull BigDecimal inferenceStartTime) {
+    public void setInferenceStartTime(@jakarta.annotation.Nonnull BigDecimal inferenceStartTime) {
         this.inferenceStartTime = inferenceStartTime;
     }
 

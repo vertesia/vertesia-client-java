@@ -33,26 +33,26 @@ import java.util.Objects;
 /**
  * OAuth Provider as returned by the API (with id).
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OAuthProvider {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
 
     @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String displayName;
 
     public static final String SERIALIZED_NAME_PROJECT = "project";
 
     @SerializedName(SERIALIZED_NAME_PROJECT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String project;
 
     /**
@@ -113,66 +113,66 @@ public class OAuthProvider {
     public static final String SERIALIZED_NAME_GRANT_TYPE = "grant_type";
 
     @SerializedName(SERIALIZED_NAME_GRANT_TYPE)
-    @javax.annotation.Nullable private GrantTypeEnum grantType;
+    @jakarta.annotation.Nullable private GrantTypeEnum grantType;
 
     public static final String SERIALIZED_NAME_AUTHORIZATION_ENDPOINT = "authorization_endpoint";
 
     @SerializedName(SERIALIZED_NAME_AUTHORIZATION_ENDPOINT)
-    @javax.annotation.Nullable private String authorizationEndpoint;
+    @jakarta.annotation.Nullable private String authorizationEndpoint;
 
     public static final String SERIALIZED_NAME_TOKEN_ENDPOINT = "token_endpoint";
 
     @SerializedName(SERIALIZED_NAME_TOKEN_ENDPOINT)
-    @javax.annotation.Nullable private String tokenEndpoint;
+    @jakarta.annotation.Nullable private String tokenEndpoint;
 
     public static final String SERIALIZED_NAME_CLIENT_ID = "client_id";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String clientId;
 
     public static final String SERIALIZED_NAME_HAS_CLIENT_SECRET = "has_client_secret";
 
     @SerializedName(SERIALIZED_NAME_HAS_CLIENT_SECRET)
-    @javax.annotation.Nullable private Boolean hasClientSecret;
+    @jakarta.annotation.Nullable private Boolean hasClientSecret;
 
     public static final String SERIALIZED_NAME_DEFAULT_SCOPES = "default_scopes";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT_SCOPES)
-    @javax.annotation.Nullable private List<String> defaultScopes = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> defaultScopes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_USE_PKCE = "use_pkce";
 
     @SerializedName(SERIALIZED_NAME_USE_PKCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean usePkce;
 
     public static final String SERIALIZED_NAME_REVOCATION_ENDPOINT = "revocation_endpoint";
 
     @SerializedName(SERIALIZED_NAME_REVOCATION_ENDPOINT)
-    @javax.annotation.Nullable private String revocationEndpoint;
+    @jakarta.annotation.Nullable private String revocationEndpoint;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public OAuthProvider() {}
 
-    public OAuthProvider name(@javax.annotation.Nonnull String name) {
+    public OAuthProvider name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -181,16 +181,16 @@ public class OAuthProvider {
      * Unique name within the project (kebab-case identifier).
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public OAuthProvider displayName(@javax.annotation.Nonnull String displayName) {
+    public OAuthProvider displayName(@jakarta.annotation.Nonnull String displayName) {
         this.displayName = displayName;
         return this;
     }
@@ -199,16 +199,16 @@ public class OAuthProvider {
      * Human-readable display name.
      * @return displayName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getDisplayName() {
         return displayName;
     }
 
-    public void setDisplayName(@javax.annotation.Nonnull String displayName) {
+    public void setDisplayName(@jakarta.annotation.Nonnull String displayName) {
         this.displayName = displayName;
     }
 
-    public OAuthProvider project(@javax.annotation.Nonnull String project) {
+    public OAuthProvider project(@jakarta.annotation.Nonnull String project) {
         this.project = project;
         return this;
     }
@@ -217,16 +217,16 @@ public class OAuthProvider {
      * The project this OAuth provider belongs to.
      * @return project
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProject() {
         return project;
     }
 
-    public void setProject(@javax.annotation.Nonnull String project) {
+    public void setProject(@jakarta.annotation.Nonnull String project) {
         this.project = project;
     }
 
-    public OAuthProvider grantType(@javax.annotation.Nullable GrantTypeEnum grantType) {
+    public OAuthProvider grantType(@jakarta.annotation.Nullable GrantTypeEnum grantType) {
         this.grantType = grantType;
         return this;
     }
@@ -235,16 +235,16 @@ public class OAuthProvider {
      * The OAuth 2.0 grant type to use. - &#39;authorization_code&#39;: 3-legged flow requiring user authorization (default). - &#39;client_credentials&#39;: 2-legged server-to-server flow using client_id + client_secret.
      * @return grantType
      */
-    @javax.annotation.Nullable public GrantTypeEnum getGrantType() {
+    @jakarta.annotation.Nullable public GrantTypeEnum getGrantType() {
         return grantType;
     }
 
-    public void setGrantType(@javax.annotation.Nullable GrantTypeEnum grantType) {
+    public void setGrantType(@jakarta.annotation.Nullable GrantTypeEnum grantType) {
         this.grantType = grantType;
     }
 
     public OAuthProvider authorizationEndpoint(
-            @javax.annotation.Nullable String authorizationEndpoint) {
+            @jakarta.annotation.Nullable String authorizationEndpoint) {
         this.authorizationEndpoint = authorizationEndpoint;
         return this;
     }
@@ -253,15 +253,16 @@ public class OAuthProvider {
      * The OAuth 2.0 authorization endpoint URL. Only used for authorization_code flow. Optional when endpoints are discovered via .well-known (e.g. MCP servers).
      * @return authorizationEndpoint
      */
-    @javax.annotation.Nullable public String getAuthorizationEndpoint() {
+    @jakarta.annotation.Nullable public String getAuthorizationEndpoint() {
         return authorizationEndpoint;
     }
 
-    public void setAuthorizationEndpoint(@javax.annotation.Nullable String authorizationEndpoint) {
+    public void setAuthorizationEndpoint(
+            @jakarta.annotation.Nullable String authorizationEndpoint) {
         this.authorizationEndpoint = authorizationEndpoint;
     }
 
-    public OAuthProvider tokenEndpoint(@javax.annotation.Nullable String tokenEndpoint) {
+    public OAuthProvider tokenEndpoint(@jakarta.annotation.Nullable String tokenEndpoint) {
         this.tokenEndpoint = tokenEndpoint;
         return this;
     }
@@ -270,15 +271,15 @@ public class OAuthProvider {
      * The OAuth 2.0 token endpoint URL. Optional when endpoints are discovered via .well-known (e.g. MCP servers).
      * @return tokenEndpoint
      */
-    @javax.annotation.Nullable public String getTokenEndpoint() {
+    @jakarta.annotation.Nullable public String getTokenEndpoint() {
         return tokenEndpoint;
     }
 
-    public void setTokenEndpoint(@javax.annotation.Nullable String tokenEndpoint) {
+    public void setTokenEndpoint(@jakarta.annotation.Nullable String tokenEndpoint) {
         this.tokenEndpoint = tokenEndpoint;
     }
 
-    public OAuthProvider clientId(@javax.annotation.Nonnull String clientId) {
+    public OAuthProvider clientId(@jakarta.annotation.Nonnull String clientId) {
         this.clientId = clientId;
         return this;
     }
@@ -287,16 +288,16 @@ public class OAuthProvider {
      * The OAuth client ID (always required).
      * @return clientId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getClientId() {
         return clientId;
     }
 
-    public void setClientId(@javax.annotation.Nonnull String clientId) {
+    public void setClientId(@jakarta.annotation.Nonnull String clientId) {
         this.clientId = clientId;
     }
 
-    public OAuthProvider hasClientSecret(@javax.annotation.Nullable Boolean hasClientSecret) {
+    public OAuthProvider hasClientSecret(@jakarta.annotation.Nullable Boolean hasClientSecret) {
         this.hasClientSecret = hasClientSecret;
         return this;
     }
@@ -305,15 +306,15 @@ public class OAuthProvider {
      * Whether a client_secret is configured (never exposes the actual secret).
      * @return hasClientSecret
      */
-    @javax.annotation.Nullable public Boolean getHasClientSecret() {
+    @jakarta.annotation.Nullable public Boolean getHasClientSecret() {
         return hasClientSecret;
     }
 
-    public void setHasClientSecret(@javax.annotation.Nullable Boolean hasClientSecret) {
+    public void setHasClientSecret(@jakarta.annotation.Nullable Boolean hasClientSecret) {
         this.hasClientSecret = hasClientSecret;
     }
 
-    public OAuthProvider defaultScopes(@javax.annotation.Nullable List<String> defaultScopes) {
+    public OAuthProvider defaultScopes(@jakarta.annotation.Nullable List<String> defaultScopes) {
         this.defaultScopes = defaultScopes;
         return this;
     }
@@ -330,15 +331,15 @@ public class OAuthProvider {
      * Default scopes to request during authorization.
      * @return defaultScopes
      */
-    @javax.annotation.Nullable public List<String> getDefaultScopes() {
+    @jakarta.annotation.Nullable public List<String> getDefaultScopes() {
         return defaultScopes;
     }
 
-    public void setDefaultScopes(@javax.annotation.Nullable List<String> defaultScopes) {
+    public void setDefaultScopes(@jakarta.annotation.Nullable List<String> defaultScopes) {
         this.defaultScopes = defaultScopes;
     }
 
-    public OAuthProvider usePkce(@javax.annotation.Nonnull Boolean usePkce) {
+    public OAuthProvider usePkce(@jakarta.annotation.Nonnull Boolean usePkce) {
         this.usePkce = usePkce;
         return this;
     }
@@ -347,16 +348,17 @@ public class OAuthProvider {
      * Whether to use PKCE (Proof Key for Code Exchange) in the authorization flow. Only applies to authorization_code flow. Defaults to true.
      * @return usePkce
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getUsePkce() {
         return usePkce;
     }
 
-    public void setUsePkce(@javax.annotation.Nonnull Boolean usePkce) {
+    public void setUsePkce(@jakarta.annotation.Nonnull Boolean usePkce) {
         this.usePkce = usePkce;
     }
 
-    public OAuthProvider revocationEndpoint(@javax.annotation.Nullable String revocationEndpoint) {
+    public OAuthProvider revocationEndpoint(
+            @jakarta.annotation.Nullable String revocationEndpoint) {
         this.revocationEndpoint = revocationEndpoint;
         return this;
     }
@@ -365,15 +367,15 @@ public class OAuthProvider {
      * Optional OAuth 2.0 revocation endpoint URL.
      * @return revocationEndpoint
      */
-    @javax.annotation.Nullable public String getRevocationEndpoint() {
+    @jakarta.annotation.Nullable public String getRevocationEndpoint() {
         return revocationEndpoint;
     }
 
-    public void setRevocationEndpoint(@javax.annotation.Nullable String revocationEndpoint) {
+    public void setRevocationEndpoint(@jakarta.annotation.Nullable String revocationEndpoint) {
         this.revocationEndpoint = revocationEndpoint;
     }
 
-    public OAuthProvider createdAt(@javax.annotation.Nonnull String createdAt) {
+    public OAuthProvider createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -382,16 +384,16 @@ public class OAuthProvider {
      * Get createdAt
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public OAuthProvider updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public OAuthProvider updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -400,16 +402,16 @@ public class OAuthProvider {
      * Get updatedAt
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public OAuthProvider id(@javax.annotation.Nonnull String id) {
+    public OAuthProvider id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -418,12 +420,12 @@ public class OAuthProvider {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 

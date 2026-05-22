@@ -36,58 +36,58 @@ import java.util.Objects;
 /**
  * DSLWorkflowSpecWithActivities
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DSLWorkflowSpecWithActivities {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_STEPS = "steps";
 
     @SerializedName(SERIALIZED_NAME_STEPS)
-    @javax.annotation.Nullable private List<DSLWorkflowStep> steps = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<DSLWorkflowStep> steps = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ACTIVITIES = "activities";
 
     @Deprecated
     @SerializedName(SERIALIZED_NAME_ACTIVITIES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<DSLActivitySpec> activities = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_VARS = "vars";
 
     @SerializedName(SERIALIZED_NAME_VARS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, Object> vars = new HashMap<>();
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
-    @javax.annotation.Nullable private DSLActivityOptions options;
+    @jakarta.annotation.Nullable private DSLActivityOptions options;
 
     public static final String SERIALIZED_NAME_RESULT = "result";
 
     @SerializedName(SERIALIZED_NAME_RESULT)
-    @javax.annotation.Nullable private String result;
+    @jakarta.annotation.Nullable private String result;
 
     public static final String SERIALIZED_NAME_DEBUG_MODE = "debug_mode";
 
     @SerializedName(SERIALIZED_NAME_DEBUG_MODE)
-    @javax.annotation.Nullable private Boolean debugMode;
+    @jakarta.annotation.Nullable private Boolean debugMode;
 
     /**
      * Gets or Sets specFormat
@@ -145,12 +145,12 @@ public class DSLWorkflowSpecWithActivities {
     public static final String SERIALIZED_NAME_SPEC_FORMAT = "spec_format";
 
     @SerializedName(SERIALIZED_NAME_SPEC_FORMAT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private SpecFormatEnum specFormat;
 
     public DSLWorkflowSpecWithActivities() {}
 
-    public DSLWorkflowSpecWithActivities name(@javax.annotation.Nonnull String name) {
+    public DSLWorkflowSpecWithActivities name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -159,17 +159,17 @@ public class DSLWorkflowSpecWithActivities {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
     public DSLWorkflowSpecWithActivities description(
-            @javax.annotation.Nullable String description) {
+            @jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -178,15 +178,15 @@ public class DSLWorkflowSpecWithActivities {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public DSLWorkflowSpecWithActivities tags(@javax.annotation.Nullable List<String> tags) {
+    public DSLWorkflowSpecWithActivities tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -203,16 +203,16 @@ public class DSLWorkflowSpecWithActivities {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
     public DSLWorkflowSpecWithActivities steps(
-            @javax.annotation.Nullable List<DSLWorkflowStep> steps) {
+            @jakarta.annotation.Nullable List<DSLWorkflowStep> steps) {
         this.steps = steps;
         return this;
     }
@@ -229,17 +229,17 @@ public class DSLWorkflowSpecWithActivities {
      * Get steps
      * @return steps
      */
-    @javax.annotation.Nullable public List<DSLWorkflowStep> getSteps() {
+    @jakarta.annotation.Nullable public List<DSLWorkflowStep> getSteps() {
         return steps;
     }
 
-    public void setSteps(@javax.annotation.Nullable List<DSLWorkflowStep> steps) {
+    public void setSteps(@jakarta.annotation.Nullable List<DSLWorkflowStep> steps) {
         this.steps = steps;
     }
 
     @Deprecated
     public DSLWorkflowSpecWithActivities activities(
-            @javax.annotation.Nonnull List<DSLActivitySpec> activities) {
+            @jakarta.annotation.Nonnull List<DSLActivitySpec> activities) {
         this.activities = activities;
         return this;
     }
@@ -258,17 +258,18 @@ public class DSLWorkflowSpecWithActivities {
      * @deprecated
      */
     @Deprecated
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<DSLActivitySpec> getActivities() {
         return activities;
     }
 
     @Deprecated
-    public void setActivities(@javax.annotation.Nonnull List<DSLActivitySpec> activities) {
+    public void setActivities(@jakarta.annotation.Nonnull List<DSLActivitySpec> activities) {
         this.activities = activities;
     }
 
-    public DSLWorkflowSpecWithActivities vars(@javax.annotation.Nonnull Map<String, Object> vars) {
+    public DSLWorkflowSpecWithActivities vars(
+            @jakarta.annotation.Nonnull Map<String, Object> vars) {
         this.vars = vars;
         return this;
     }
@@ -285,17 +286,17 @@ public class DSLWorkflowSpecWithActivities {
      * Get vars
      * @return vars
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, Object> getVars() {
         return vars;
     }
 
-    public void setVars(@javax.annotation.Nonnull Map<String, Object> vars) {
+    public void setVars(@jakarta.annotation.Nonnull Map<String, Object> vars) {
         this.vars = vars;
     }
 
     public DSLWorkflowSpecWithActivities options(
-            @javax.annotation.Nullable DSLActivityOptions options) {
+            @jakarta.annotation.Nullable DSLActivityOptions options) {
         this.options = options;
         return this;
     }
@@ -304,15 +305,15 @@ public class DSLWorkflowSpecWithActivities {
      * Get options
      * @return options
      */
-    @javax.annotation.Nullable public DSLActivityOptions getOptions() {
+    @jakarta.annotation.Nullable public DSLActivityOptions getOptions() {
         return options;
     }
 
-    public void setOptions(@javax.annotation.Nullable DSLActivityOptions options) {
+    public void setOptions(@jakarta.annotation.Nullable DSLActivityOptions options) {
         this.options = options;
     }
 
-    public DSLWorkflowSpecWithActivities result(@javax.annotation.Nullable String result) {
+    public DSLWorkflowSpecWithActivities result(@jakarta.annotation.Nullable String result) {
         this.result = result;
         return this;
     }
@@ -321,15 +322,15 @@ public class DSLWorkflowSpecWithActivities {
      * Get result
      * @return result
      */
-    @javax.annotation.Nullable public String getResult() {
+    @jakarta.annotation.Nullable public String getResult() {
         return result;
     }
 
-    public void setResult(@javax.annotation.Nullable String result) {
+    public void setResult(@jakarta.annotation.Nullable String result) {
         this.result = result;
     }
 
-    public DSLWorkflowSpecWithActivities debugMode(@javax.annotation.Nullable Boolean debugMode) {
+    public DSLWorkflowSpecWithActivities debugMode(@jakarta.annotation.Nullable Boolean debugMode) {
         this.debugMode = debugMode;
         return this;
     }
@@ -338,16 +339,16 @@ public class DSLWorkflowSpecWithActivities {
      * Get debugMode
      * @return debugMode
      */
-    @javax.annotation.Nullable public Boolean getDebugMode() {
+    @jakarta.annotation.Nullable public Boolean getDebugMode() {
         return debugMode;
     }
 
-    public void setDebugMode(@javax.annotation.Nullable Boolean debugMode) {
+    public void setDebugMode(@jakarta.annotation.Nullable Boolean debugMode) {
         this.debugMode = debugMode;
     }
 
     public DSLWorkflowSpecWithActivities specFormat(
-            @javax.annotation.Nonnull SpecFormatEnum specFormat) {
+            @jakarta.annotation.Nonnull SpecFormatEnum specFormat) {
         this.specFormat = specFormat;
         return this;
     }
@@ -356,12 +357,12 @@ public class DSLWorkflowSpecWithActivities {
      * Get specFormat
      * @return specFormat
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public SpecFormatEnum getSpecFormat() {
         return specFormat;
     }
 
-    public void setSpecFormat(@javax.annotation.Nonnull SpecFormatEnum specFormat) {
+    public void setSpecFormat(@jakarta.annotation.Nonnull SpecFormatEnum specFormat) {
         this.specFormat = specFormat;
     }
 

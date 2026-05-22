@@ -34,25 +34,25 @@ import java.util.Objects;
 /**
  * Response from the agent runs search endpoint.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class SearchAgentRunsResponse {
     public static final String SERIALIZED_NAME_HITS = "hits";
 
     @SerializedName(SERIALIZED_NAME_HITS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<AgentRunSearchHit> hits = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TOTAL = "total";
 
     @SerializedName(SERIALIZED_NAME_TOTAL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal total;
 
     public SearchAgentRunsResponse() {}
 
-    public SearchAgentRunsResponse hits(@javax.annotation.Nonnull List<AgentRunSearchHit> hits) {
+    public SearchAgentRunsResponse hits(@jakarta.annotation.Nonnull List<AgentRunSearchHit> hits) {
         this.hits = hits;
         return this;
     }
@@ -69,16 +69,16 @@ public class SearchAgentRunsResponse {
      * Search results
      * @return hits
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<AgentRunSearchHit> getHits() {
         return hits;
     }
 
-    public void setHits(@javax.annotation.Nonnull List<AgentRunSearchHit> hits) {
+    public void setHits(@jakarta.annotation.Nonnull List<AgentRunSearchHit> hits) {
         this.hits = hits;
     }
 
-    public SearchAgentRunsResponse total(@javax.annotation.Nonnull BigDecimal total) {
+    public SearchAgentRunsResponse total(@jakarta.annotation.Nonnull BigDecimal total) {
         this.total = total;
         return this;
     }
@@ -87,12 +87,12 @@ public class SearchAgentRunsResponse {
      * Total matching results
      * @return total
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTotal() {
         return total;
     }
 
-    public void setTotal(@javax.annotation.Nonnull BigDecimal total) {
+    public void setTotal(@jakarta.annotation.Nonnull BigDecimal total) {
         this.total = total;
     }
 

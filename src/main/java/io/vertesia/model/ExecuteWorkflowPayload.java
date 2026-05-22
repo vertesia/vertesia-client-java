@@ -35,53 +35,53 @@ import java.util.Objects;
 /**
  * ExecuteWorkflowPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ExecuteWorkflowPayload {
     public static final String SERIALIZED_NAME_TASK_QUEUE = "task_queue";
 
     @SerializedName(SERIALIZED_NAME_TASK_QUEUE)
-    @javax.annotation.Nullable private String taskQueue;
+    @jakarta.annotation.Nullable private String taskQueue;
 
     public static final String SERIALIZED_NAME_OBJECT_IDS = "objectIds";
 
     @SerializedName(SERIALIZED_NAME_OBJECT_IDS)
-    @javax.annotation.Nullable private List<String> objectIds = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> objectIds = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_INPUT = "input";
 
     @SerializedName(SERIALIZED_NAME_INPUT)
-    @javax.annotation.Nullable private WorkflowInput input;
+    @jakarta.annotation.Nullable private WorkflowInput input;
 
     public static final String SERIALIZED_NAME_VARS = "vars";
 
     @SerializedName(SERIALIZED_NAME_VARS)
-    @javax.annotation.Nullable private Map<String, Object> vars = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> vars = new HashMap<>();
 
     public static final String SERIALIZED_NAME_UNIQUE = "unique";
 
     @SerializedName(SERIALIZED_NAME_UNIQUE)
-    @javax.annotation.Nullable private Boolean unique;
+    @jakarta.annotation.Nullable private Boolean unique;
 
     public static final String SERIALIZED_NAME_CUSTOM_ID = "custom_id";
 
     @SerializedName(SERIALIZED_NAME_CUSTOM_ID)
-    @javax.annotation.Nullable private String customId;
+    @jakarta.annotation.Nullable private String customId;
 
     public static final String SERIALIZED_NAME_TIMEOUT = "timeout";
 
     @SerializedName(SERIALIZED_NAME_TIMEOUT)
-    @javax.annotation.Nullable private BigDecimal timeout;
+    @jakarta.annotation.Nullable private BigDecimal timeout;
 
     public static final String SERIALIZED_NAME_RUN_AT = "run_at";
 
     @SerializedName(SERIALIZED_NAME_RUN_AT)
-    @javax.annotation.Nullable private String runAt;
+    @jakarta.annotation.Nullable private String runAt;
 
     public ExecuteWorkflowPayload() {}
 
-    public ExecuteWorkflowPayload taskQueue(@javax.annotation.Nullable String taskQueue) {
+    public ExecuteWorkflowPayload taskQueue(@jakarta.annotation.Nullable String taskQueue) {
         this.taskQueue = taskQueue;
         return this;
     }
@@ -90,15 +90,15 @@ public class ExecuteWorkflowPayload {
      * The task queue to assign the workflow to. Deprecated, queues are choosend server side
      * @return taskQueue
      */
-    @javax.annotation.Nullable public String getTaskQueue() {
+    @jakarta.annotation.Nullable public String getTaskQueue() {
         return taskQueue;
     }
 
-    public void setTaskQueue(@javax.annotation.Nullable String taskQueue) {
+    public void setTaskQueue(@jakarta.annotation.Nullable String taskQueue) {
         this.taskQueue = taskQueue;
     }
 
-    public ExecuteWorkflowPayload objectIds(@javax.annotation.Nullable List<String> objectIds) {
+    public ExecuteWorkflowPayload objectIds(@jakarta.annotation.Nullable List<String> objectIds) {
         this.objectIds = objectIds;
         return this;
     }
@@ -115,15 +115,15 @@ public class ExecuteWorkflowPayload {
      * Docuument IDs pon which the workflow will be executed, deprecated, replaced params in vars
      * @return objectIds
      */
-    @javax.annotation.Nullable public List<String> getObjectIds() {
+    @jakarta.annotation.Nullable public List<String> getObjectIds() {
         return objectIds;
     }
 
-    public void setObjectIds(@javax.annotation.Nullable List<String> objectIds) {
+    public void setObjectIds(@jakarta.annotation.Nullable List<String> objectIds) {
         this.objectIds = objectIds;
     }
 
-    public ExecuteWorkflowPayload input(@javax.annotation.Nullable WorkflowInput input) {
+    public ExecuteWorkflowPayload input(@jakarta.annotation.Nullable WorkflowInput input) {
         this.input = input;
         return this;
     }
@@ -132,15 +132,15 @@ public class ExecuteWorkflowPayload {
      * New format: Workflow input (either objectIds or files). Takes precedence over the deprecated &#x60;objectIds&#x60; field.
      * @return input
      */
-    @javax.annotation.Nullable public WorkflowInput getInput() {
+    @jakarta.annotation.Nullable public WorkflowInput getInput() {
         return input;
     }
 
-    public void setInput(@javax.annotation.Nullable WorkflowInput input) {
+    public void setInput(@jakarta.annotation.Nullable WorkflowInput input) {
         this.input = input;
     }
 
-    public ExecuteWorkflowPayload vars(@javax.annotation.Nullable Map<String, Object> vars) {
+    public ExecuteWorkflowPayload vars(@jakarta.annotation.Nullable Map<String, Object> vars) {
         this.vars = vars;
         return this;
     }
@@ -157,15 +157,15 @@ public class ExecuteWorkflowPayload {
      * Parameters to pass to the workflow
      * @return vars
      */
-    @javax.annotation.Nullable public Map<String, Object> getVars() {
+    @jakarta.annotation.Nullable public Map<String, Object> getVars() {
         return vars;
     }
 
-    public void setVars(@javax.annotation.Nullable Map<String, Object> vars) {
+    public void setVars(@jakarta.annotation.Nullable Map<String, Object> vars) {
         this.vars = vars;
     }
 
-    public ExecuteWorkflowPayload unique(@javax.annotation.Nullable Boolean unique) {
+    public ExecuteWorkflowPayload unique(@jakarta.annotation.Nullable Boolean unique) {
         this.unique = unique;
         return this;
     }
@@ -174,15 +174,15 @@ public class ExecuteWorkflowPayload {
      * Make the workflow ID unique by always adding a random token to the ID.
      * @return unique
      */
-    @javax.annotation.Nullable public Boolean getUnique() {
+    @jakarta.annotation.Nullable public Boolean getUnique() {
         return unique;
     }
 
-    public void setUnique(@javax.annotation.Nullable Boolean unique) {
+    public void setUnique(@jakarta.annotation.Nullable Boolean unique) {
         this.unique = unique;
     }
 
-    public ExecuteWorkflowPayload customId(@javax.annotation.Nullable String customId) {
+    public ExecuteWorkflowPayload customId(@jakarta.annotation.Nullable String customId) {
         this.customId = customId;
         return this;
     }
@@ -191,15 +191,15 @@ public class ExecuteWorkflowPayload {
      * A custom ID to use for the workflow execution id instead of the generated one.
      * @return customId
      */
-    @javax.annotation.Nullable public String getCustomId() {
+    @jakarta.annotation.Nullable public String getCustomId() {
         return customId;
     }
 
-    public void setCustomId(@javax.annotation.Nullable String customId) {
+    public void setCustomId(@jakarta.annotation.Nullable String customId) {
         this.customId = customId;
     }
 
-    public ExecuteWorkflowPayload timeout(@javax.annotation.Nullable BigDecimal timeout) {
+    public ExecuteWorkflowPayload timeout(@jakarta.annotation.Nullable BigDecimal timeout) {
         this.timeout = timeout;
         return this;
     }
@@ -208,15 +208,15 @@ public class ExecuteWorkflowPayload {
      * Timeout for the workflow execution to complete, in seconds.
      * @return timeout
      */
-    @javax.annotation.Nullable public BigDecimal getTimeout() {
+    @jakarta.annotation.Nullable public BigDecimal getTimeout() {
         return timeout;
     }
 
-    public void setTimeout(@javax.annotation.Nullable BigDecimal timeout) {
+    public void setTimeout(@jakarta.annotation.Nullable BigDecimal timeout) {
         this.timeout = timeout;
     }
 
-    public ExecuteWorkflowPayload runAt(@javax.annotation.Nullable String runAt) {
+    public ExecuteWorkflowPayload runAt(@jakarta.annotation.Nullable String runAt) {
         this.runAt = runAt;
         return this;
     }
@@ -225,11 +225,11 @@ public class ExecuteWorkflowPayload {
      * Schedule the workflow to run at a specific time (ISO 8601 datetime). Example: \&quot;2024-02-15T16:00:00Z\&quot; If in the past or not provided, workflow runs immediately.
      * @return runAt
      */
-    @javax.annotation.Nullable public String getRunAt() {
+    @jakarta.annotation.Nullable public String getRunAt() {
         return runAt;
     }
 
-    public void setRunAt(@javax.annotation.Nullable String runAt) {
+    public void setRunAt(@jakarta.annotation.Nullable String runAt) {
         this.runAt = runAt;
     }
 

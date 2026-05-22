@@ -34,32 +34,32 @@ import java.util.Objects;
 /**
  * PlanTask
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PlanTask {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal id;
 
     public static final String SERIALIZED_NAME_GOAL = "goal";
 
     @SerializedName(SERIALIZED_NAME_GOAL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String goal;
 
     public static final String SERIALIZED_NAME_INSTRUCTIONS = "instructions";
 
     @SerializedName(SERIALIZED_NAME_INSTRUCTIONS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> instructions = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_COMMENT = "comment";
 
     @SerializedName(SERIALIZED_NAME_COMMENT)
-    @javax.annotation.Nullable private String comment;
+    @jakarta.annotation.Nullable private String comment;
 
     /**
      * Gets or Sets status
@@ -123,11 +123,11 @@ public class PlanTask {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private StatusEnum status;
+    @jakarta.annotation.Nullable private StatusEnum status;
 
     public PlanTask() {}
 
-    public PlanTask id(@javax.annotation.Nonnull BigDecimal id) {
+    public PlanTask id(@jakarta.annotation.Nonnull BigDecimal id) {
         this.id = id;
         return this;
     }
@@ -136,16 +136,16 @@ public class PlanTask {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull BigDecimal id) {
+    public void setId(@jakarta.annotation.Nonnull BigDecimal id) {
         this.id = id;
     }
 
-    public PlanTask goal(@javax.annotation.Nonnull String goal) {
+    public PlanTask goal(@jakarta.annotation.Nonnull String goal) {
         this.goal = goal;
         return this;
     }
@@ -154,16 +154,16 @@ public class PlanTask {
      * Get goal
      * @return goal
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getGoal() {
         return goal;
     }
 
-    public void setGoal(@javax.annotation.Nonnull String goal) {
+    public void setGoal(@jakarta.annotation.Nonnull String goal) {
         this.goal = goal;
     }
 
-    public PlanTask instructions(@javax.annotation.Nonnull List<String> instructions) {
+    public PlanTask instructions(@jakarta.annotation.Nonnull List<String> instructions) {
         this.instructions = instructions;
         return this;
     }
@@ -180,16 +180,16 @@ public class PlanTask {
      * Get instructions
      * @return instructions
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getInstructions() {
         return instructions;
     }
 
-    public void setInstructions(@javax.annotation.Nonnull List<String> instructions) {
+    public void setInstructions(@jakarta.annotation.Nonnull List<String> instructions) {
         this.instructions = instructions;
     }
 
-    public PlanTask comment(@javax.annotation.Nullable String comment) {
+    public PlanTask comment(@jakarta.annotation.Nullable String comment) {
         this.comment = comment;
         return this;
     }
@@ -198,15 +198,15 @@ public class PlanTask {
      * Get comment
      * @return comment
      */
-    @javax.annotation.Nullable public String getComment() {
+    @jakarta.annotation.Nullable public String getComment() {
         return comment;
     }
 
-    public void setComment(@javax.annotation.Nullable String comment) {
+    public void setComment(@jakarta.annotation.Nullable String comment) {
         this.comment = comment;
     }
 
-    public PlanTask status(@javax.annotation.Nullable StatusEnum status) {
+    public PlanTask status(@jakarta.annotation.Nullable StatusEnum status) {
         this.status = status;
         return this;
     }
@@ -215,11 +215,11 @@ public class PlanTask {
      * Get status
      * @return status
      */
-    @javax.annotation.Nullable public StatusEnum getStatus() {
+    @jakarta.annotation.Nullable public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable StatusEnum status) {
+    public void setStatus(@jakarta.annotation.Nullable StatusEnum status) {
         this.status = status;
     }
 

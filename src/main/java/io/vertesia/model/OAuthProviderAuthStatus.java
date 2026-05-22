@@ -30,42 +30,42 @@ import java.util.Objects;
 /**
  * OAuth authentication status for a user against an OAuth Provider.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OAuthProviderAuthStatus {
     public static final String SERIALIZED_NAME_OAUTH_PROVIDER_ID = "oauth_provider_id";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_PROVIDER_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String oauthProviderId;
 
     public static final String SERIALIZED_NAME_OAUTH_PROVIDER_NAME = "oauth_provider_name";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_PROVIDER_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String oauthProviderName;
 
     public static final String SERIALIZED_NAME_AUTHENTICATED = "authenticated";
 
     @SerializedName(SERIALIZED_NAME_AUTHENTICATED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean authenticated;
 
     public static final String SERIALIZED_NAME_EXPIRES_AT = "expires_at";
 
     @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
-    @javax.annotation.Nullable private String expiresAt;
+    @jakarta.annotation.Nullable private String expiresAt;
 
     public static final String SERIALIZED_NAME_SCOPE = "scope";
 
     @SerializedName(SERIALIZED_NAME_SCOPE)
-    @javax.annotation.Nullable private String scope;
+    @jakarta.annotation.Nullable private String scope;
 
     public OAuthProviderAuthStatus() {}
 
     public OAuthProviderAuthStatus oauthProviderId(
-            @javax.annotation.Nonnull String oauthProviderId) {
+            @jakarta.annotation.Nonnull String oauthProviderId) {
         this.oauthProviderId = oauthProviderId;
         return this;
     }
@@ -74,17 +74,17 @@ public class OAuthProviderAuthStatus {
      * Get oauthProviderId
      * @return oauthProviderId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getOauthProviderId() {
         return oauthProviderId;
     }
 
-    public void setOauthProviderId(@javax.annotation.Nonnull String oauthProviderId) {
+    public void setOauthProviderId(@jakarta.annotation.Nonnull String oauthProviderId) {
         this.oauthProviderId = oauthProviderId;
     }
 
     public OAuthProviderAuthStatus oauthProviderName(
-            @javax.annotation.Nonnull String oauthProviderName) {
+            @jakarta.annotation.Nonnull String oauthProviderName) {
         this.oauthProviderName = oauthProviderName;
         return this;
     }
@@ -93,16 +93,17 @@ public class OAuthProviderAuthStatus {
      * Get oauthProviderName
      * @return oauthProviderName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getOauthProviderName() {
         return oauthProviderName;
     }
 
-    public void setOauthProviderName(@javax.annotation.Nonnull String oauthProviderName) {
+    public void setOauthProviderName(@jakarta.annotation.Nonnull String oauthProviderName) {
         this.oauthProviderName = oauthProviderName;
     }
 
-    public OAuthProviderAuthStatus authenticated(@javax.annotation.Nonnull Boolean authenticated) {
+    public OAuthProviderAuthStatus authenticated(
+            @jakarta.annotation.Nonnull Boolean authenticated) {
         this.authenticated = authenticated;
         return this;
     }
@@ -111,16 +112,16 @@ public class OAuthProviderAuthStatus {
      * Get authenticated
      * @return authenticated
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getAuthenticated() {
         return authenticated;
     }
 
-    public void setAuthenticated(@javax.annotation.Nonnull Boolean authenticated) {
+    public void setAuthenticated(@jakarta.annotation.Nonnull Boolean authenticated) {
         this.authenticated = authenticated;
     }
 
-    public OAuthProviderAuthStatus expiresAt(@javax.annotation.Nullable String expiresAt) {
+    public OAuthProviderAuthStatus expiresAt(@jakarta.annotation.Nullable String expiresAt) {
         this.expiresAt = expiresAt;
         return this;
     }
@@ -129,15 +130,15 @@ public class OAuthProviderAuthStatus {
      * Get expiresAt
      * @return expiresAt
      */
-    @javax.annotation.Nullable public String getExpiresAt() {
+    @jakarta.annotation.Nullable public String getExpiresAt() {
         return expiresAt;
     }
 
-    public void setExpiresAt(@javax.annotation.Nullable String expiresAt) {
+    public void setExpiresAt(@jakarta.annotation.Nullable String expiresAt) {
         this.expiresAt = expiresAt;
     }
 
-    public OAuthProviderAuthStatus scope(@javax.annotation.Nullable String scope) {
+    public OAuthProviderAuthStatus scope(@jakarta.annotation.Nullable String scope) {
         this.scope = scope;
         return this;
     }
@@ -146,11 +147,11 @@ public class OAuthProviderAuthStatus {
      * Get scope
      * @return scope
      */
-    @javax.annotation.Nullable public String getScope() {
+    @jakarta.annotation.Nullable public String getScope() {
         return scope;
     }
 
-    public void setScope(@javax.annotation.Nullable String scope) {
+    public void setScope(@jakarta.annotation.Nullable String scope) {
         this.scope = scope;
     }
 

@@ -83,7 +83,7 @@ public class OAuthGrantsApi {
      * </table>
      */
     public okhttp3.Call bulkRevokeOAuthGrantsCall(
-            @javax.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload,
+            @jakarta.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -140,7 +140,7 @@ public class OAuthGrantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call bulkRevokeOAuthGrantsValidateBeforeCall(
-            @javax.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload,
+            @jakarta.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'bulkRevokeOAuthGrantsPayload' is set
@@ -168,7 +168,7 @@ public class OAuthGrantsApi {
      * </table>
      */
     public OAuthGrantRevokeResponse bulkRevokeOAuthGrants(
-            @javax.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload)
+            @jakarta.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload)
             throws ApiException {
         ApiResponse<OAuthGrantRevokeResponse> localVarResp =
                 bulkRevokeOAuthGrantsWithHttpInfo(bulkRevokeOAuthGrantsPayload);
@@ -191,7 +191,7 @@ public class OAuthGrantsApi {
      * </table>
      */
     public ApiResponse<OAuthGrantRevokeResponse> bulkRevokeOAuthGrantsWithHttpInfo(
-            @javax.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload)
+            @jakarta.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 bulkRevokeOAuthGrantsValidateBeforeCall(bulkRevokeOAuthGrantsPayload, null);
@@ -216,7 +216,7 @@ public class OAuthGrantsApi {
      * </table>
      */
     public okhttp3.Call bulkRevokeOAuthGrantsAsync(
-            @javax.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload,
+            @jakarta.annotation.Nonnull BulkRevokeOAuthGrantsPayload bulkRevokeOAuthGrantsPayload,
             final ApiCallback<OAuthGrantRevokeResponse> _callback)
             throws ApiException {
 
@@ -243,7 +243,7 @@ public class OAuthGrantsApi {
      * </table>
      */
     public okhttp3.Call getOAuthGrantCall(
-            @javax.annotation.Nonnull String grantId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String grantId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -303,7 +303,7 @@ public class OAuthGrantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getOAuthGrantValidateBeforeCall(
-            @javax.annotation.Nonnull String grantId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String grantId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'grantId' is set
         if (grantId == null) {
@@ -329,7 +329,8 @@ public class OAuthGrantsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public OAuthGrant getOAuthGrant(@javax.annotation.Nonnull String grantId) throws ApiException {
+    public OAuthGrant getOAuthGrant(@jakarta.annotation.Nonnull String grantId)
+            throws ApiException {
         ApiResponse<OAuthGrant> localVarResp = getOAuthGrantWithHttpInfo(grantId);
         return localVarResp.getData();
     }
@@ -350,7 +351,7 @@ public class OAuthGrantsApi {
      * </table>
      */
     public ApiResponse<OAuthGrant> getOAuthGrantWithHttpInfo(
-            @javax.annotation.Nonnull String grantId) throws ApiException {
+            @jakarta.annotation.Nonnull String grantId) throws ApiException {
         okhttp3.Call localVarCall = getOAuthGrantValidateBeforeCall(grantId, null);
         Type localVarReturnType = new TypeToken<OAuthGrant>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -373,7 +374,7 @@ public class OAuthGrantsApi {
      * </table>
      */
     public okhttp3.Call getOAuthGrantAsync(
-            @javax.annotation.Nonnull String grantId, final ApiCallback<OAuthGrant> _callback)
+            @jakarta.annotation.Nonnull String grantId, final ApiCallback<OAuthGrant> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getOAuthGrantValidateBeforeCall(grantId, _callback);
@@ -407,16 +408,16 @@ public class OAuthGrantsApi {
      * </table>
      */
     public okhttp3.Call listOAuthGrantsCall(
-            @javax.annotation.Nullable String accountId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String userId,
-            @javax.annotation.Nullable String clientId,
-            @javax.annotation.Nullable String resource,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String sortBy,
-            @javax.annotation.Nullable String sortOrder,
+            @jakarta.annotation.Nullable String accountId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String userId,
+            @jakarta.annotation.Nullable String clientId,
+            @jakarta.annotation.Nullable String resource,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String sortBy,
+            @jakarta.annotation.Nullable String sortOrder,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -513,16 +514,16 @@ public class OAuthGrantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listOAuthGrantsValidateBeforeCall(
-            @javax.annotation.Nullable String accountId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String userId,
-            @javax.annotation.Nullable String clientId,
-            @javax.annotation.Nullable String resource,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String sortBy,
-            @javax.annotation.Nullable String sortOrder,
+            @jakarta.annotation.Nullable String accountId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String userId,
+            @jakarta.annotation.Nullable String clientId,
+            @jakarta.annotation.Nullable String resource,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String sortBy,
+            @jakarta.annotation.Nullable String sortOrder,
             final ApiCallback _callback)
             throws ApiException {
         return listOAuthGrantsCall(
@@ -555,16 +556,16 @@ public class OAuthGrantsApi {
      * </table>
      */
     public OAuthGrantListResponse listOAuthGrants(
-            @javax.annotation.Nullable String accountId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String userId,
-            @javax.annotation.Nullable String clientId,
-            @javax.annotation.Nullable String resource,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String sortBy,
-            @javax.annotation.Nullable String sortOrder)
+            @jakarta.annotation.Nullable String accountId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String userId,
+            @jakarta.annotation.Nullable String clientId,
+            @jakarta.annotation.Nullable String resource,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String sortBy,
+            @jakarta.annotation.Nullable String sortOrder)
             throws ApiException {
         ApiResponse<OAuthGrantListResponse> localVarResp =
                 listOAuthGrantsWithHttpInfo(
@@ -598,16 +599,16 @@ public class OAuthGrantsApi {
      * </table>
      */
     public ApiResponse<OAuthGrantListResponse> listOAuthGrantsWithHttpInfo(
-            @javax.annotation.Nullable String accountId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String userId,
-            @javax.annotation.Nullable String clientId,
-            @javax.annotation.Nullable String resource,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String sortBy,
-            @javax.annotation.Nullable String sortOrder)
+            @jakarta.annotation.Nullable String accountId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String userId,
+            @jakarta.annotation.Nullable String clientId,
+            @jakarta.annotation.Nullable String resource,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String sortBy,
+            @jakarta.annotation.Nullable String sortOrder)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listOAuthGrantsValidateBeforeCall(
@@ -643,16 +644,16 @@ public class OAuthGrantsApi {
      * </table>
      */
     public okhttp3.Call listOAuthGrantsAsync(
-            @javax.annotation.Nullable String accountId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String userId,
-            @javax.annotation.Nullable String clientId,
-            @javax.annotation.Nullable String resource,
-            @javax.annotation.Nullable String status,
-            @javax.annotation.Nullable BigDecimal limit,
-            @javax.annotation.Nullable BigDecimal offset,
-            @javax.annotation.Nullable String sortBy,
-            @javax.annotation.Nullable String sortOrder,
+            @jakarta.annotation.Nullable String accountId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String userId,
+            @jakarta.annotation.Nullable String clientId,
+            @jakarta.annotation.Nullable String resource,
+            @jakarta.annotation.Nullable String status,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String sortBy,
+            @jakarta.annotation.Nullable String sortOrder,
             final ApiCallback<OAuthGrantListResponse> _callback)
             throws ApiException {
 
@@ -682,8 +683,8 @@ public class OAuthGrantsApi {
      * </table>
      */
     public okhttp3.Call revokeOAuthGrantCall(
-            @javax.annotation.Nonnull String grantId,
-            @javax.annotation.Nullable Boolean includeConsent,
+            @jakarta.annotation.Nonnull String grantId,
+            @jakarta.annotation.Nullable Boolean includeConsent,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -749,8 +750,8 @@ public class OAuthGrantsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call revokeOAuthGrantValidateBeforeCall(
-            @javax.annotation.Nonnull String grantId,
-            @javax.annotation.Nullable Boolean includeConsent,
+            @jakarta.annotation.Nonnull String grantId,
+            @jakarta.annotation.Nullable Boolean includeConsent,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'grantId' is set
@@ -779,8 +780,8 @@ public class OAuthGrantsApi {
      * </table>
      */
     public OAuthGrantRevokeResponse revokeOAuthGrant(
-            @javax.annotation.Nonnull String grantId,
-            @javax.annotation.Nullable Boolean includeConsent)
+            @jakarta.annotation.Nonnull String grantId,
+            @jakarta.annotation.Nullable Boolean includeConsent)
             throws ApiException {
         ApiResponse<OAuthGrantRevokeResponse> localVarResp =
                 revokeOAuthGrantWithHttpInfo(grantId, includeConsent);
@@ -804,8 +805,8 @@ public class OAuthGrantsApi {
      * </table>
      */
     public ApiResponse<OAuthGrantRevokeResponse> revokeOAuthGrantWithHttpInfo(
-            @javax.annotation.Nonnull String grantId,
-            @javax.annotation.Nullable Boolean includeConsent)
+            @jakarta.annotation.Nonnull String grantId,
+            @jakarta.annotation.Nullable Boolean includeConsent)
             throws ApiException {
         okhttp3.Call localVarCall =
                 revokeOAuthGrantValidateBeforeCall(grantId, includeConsent, null);
@@ -831,8 +832,8 @@ public class OAuthGrantsApi {
      * </table>
      */
     public okhttp3.Call revokeOAuthGrantAsync(
-            @javax.annotation.Nonnull String grantId,
-            @javax.annotation.Nullable Boolean includeConsent,
+            @jakarta.annotation.Nonnull String grantId,
+            @jakarta.annotation.Nullable Boolean includeConsent,
             final ApiCallback<OAuthGrantRevokeResponse> _callback)
             throws ApiException {
 

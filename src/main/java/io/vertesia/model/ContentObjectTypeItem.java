@@ -35,79 +35,79 @@ import java.util.Objects;
 /**
  * ContentObjectTypeItem
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ContentObjectTypeItem {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdBy;
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String updatedAt;
 
     public static final String SERIALIZED_NAME_IS_CHUNKABLE = "is_chunkable";
 
     @SerializedName(SERIALIZED_NAME_IS_CHUNKABLE)
-    @javax.annotation.Nullable private Boolean isChunkable;
+    @jakarta.annotation.Nullable private Boolean isChunkable;
 
     public static final String SERIALIZED_NAME_TABLE_LAYOUT = "table_layout";
 
     @SerializedName(SERIALIZED_NAME_TABLE_LAYOUT)
-    @javax.annotation.Nullable private List<ColumnLayout> tableLayout = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<ColumnLayout> tableLayout = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_OBJECT_SCHEMA = "object_schema";
 
     @SerializedName(SERIALIZED_NAME_OBJECT_SCHEMA)
-    @javax.annotation.Nullable private Map<String, Object> objectSchema = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> objectSchema = new HashMap<>();
 
     public static final String SERIALIZED_NAME_STRICT_MODE = "strict_mode";
 
     @SerializedName(SERIALIZED_NAME_STRICT_MODE)
-    @javax.annotation.Nullable private Boolean strictMode;
+    @jakarta.annotation.Nullable private Boolean strictMode;
 
     public ContentObjectTypeItem() {}
 
-    public ContentObjectTypeItem id(@javax.annotation.Nonnull String id) {
+    public ContentObjectTypeItem id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -116,16 +116,16 @@ public class ContentObjectTypeItem {
      * Unique identifier for the object
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public ContentObjectTypeItem name(@javax.annotation.Nonnull String name) {
+    public ContentObjectTypeItem name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -134,16 +134,16 @@ public class ContentObjectTypeItem {
      * Human-readable name or title
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public ContentObjectTypeItem description(@javax.annotation.Nullable String description) {
+    public ContentObjectTypeItem description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -152,15 +152,15 @@ public class ContentObjectTypeItem {
      * Optional detailed description of the object
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public ContentObjectTypeItem tags(@javax.annotation.Nullable List<String> tags) {
+    public ContentObjectTypeItem tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -177,15 +177,15 @@ public class ContentObjectTypeItem {
      * Optional array of categorization tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public ContentObjectTypeItem updatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public ContentObjectTypeItem updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -194,16 +194,16 @@ public class ContentObjectTypeItem {
      * Identifier of the user who last modified the object
      * @return updatedBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nonnull String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public ContentObjectTypeItem createdBy(@javax.annotation.Nonnull String createdBy) {
+    public ContentObjectTypeItem createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -212,16 +212,16 @@ public class ContentObjectTypeItem {
      * Identifier of the user who created the object
      * @return createdBy
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nonnull String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
     }
 
-    public ContentObjectTypeItem createdAt(@javax.annotation.Nonnull String createdAt) {
+    public ContentObjectTypeItem createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -230,16 +230,16 @@ public class ContentObjectTypeItem {
      * ISO timestamp of when the object was created
      * @return createdAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@javax.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
     }
 
-    public ContentObjectTypeItem updatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public ContentObjectTypeItem updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -248,16 +248,16 @@ public class ContentObjectTypeItem {
      * ISO timestamp of when the object was last updated
      * @return updatedAt
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@javax.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public ContentObjectTypeItem isChunkable(@javax.annotation.Nullable Boolean isChunkable) {
+    public ContentObjectTypeItem isChunkable(@jakarta.annotation.Nullable Boolean isChunkable) {
         this.isChunkable = isChunkable;
         return this;
     }
@@ -266,16 +266,16 @@ public class ContentObjectTypeItem {
      * Get isChunkable
      * @return isChunkable
      */
-    @javax.annotation.Nullable public Boolean getIsChunkable() {
+    @jakarta.annotation.Nullable public Boolean getIsChunkable() {
         return isChunkable;
     }
 
-    public void setIsChunkable(@javax.annotation.Nullable Boolean isChunkable) {
+    public void setIsChunkable(@jakarta.annotation.Nullable Boolean isChunkable) {
         this.isChunkable = isChunkable;
     }
 
     public ContentObjectTypeItem tableLayout(
-            @javax.annotation.Nullable List<ColumnLayout> tableLayout) {
+            @jakarta.annotation.Nullable List<ColumnLayout> tableLayout) {
         this.tableLayout = tableLayout;
         return this;
     }
@@ -292,16 +292,16 @@ public class ContentObjectTypeItem {
      * This is only included in ContentObjectTypeItem if explicitly requested It is always included in ContentObjectType
      * @return tableLayout
      */
-    @javax.annotation.Nullable public List<ColumnLayout> getTableLayout() {
+    @jakarta.annotation.Nullable public List<ColumnLayout> getTableLayout() {
         return tableLayout;
     }
 
-    public void setTableLayout(@javax.annotation.Nullable List<ColumnLayout> tableLayout) {
+    public void setTableLayout(@jakarta.annotation.Nullable List<ColumnLayout> tableLayout) {
         this.tableLayout = tableLayout;
     }
 
     public ContentObjectTypeItem objectSchema(
-            @javax.annotation.Nullable Map<String, Object> objectSchema) {
+            @jakarta.annotation.Nullable Map<String, Object> objectSchema) {
         this.objectSchema = objectSchema;
         return this;
     }
@@ -318,15 +318,15 @@ public class ContentObjectTypeItem {
      * this is only included in ContentObjectTypeItem if explicitly requested It is always included in ContentObjectType
      * @return objectSchema
      */
-    @javax.annotation.Nullable public Map<String, Object> getObjectSchema() {
+    @jakarta.annotation.Nullable public Map<String, Object> getObjectSchema() {
         return objectSchema;
     }
 
-    public void setObjectSchema(@javax.annotation.Nullable Map<String, Object> objectSchema) {
+    public void setObjectSchema(@jakarta.annotation.Nullable Map<String, Object> objectSchema) {
         this.objectSchema = objectSchema;
     }
 
-    public ContentObjectTypeItem strictMode(@javax.annotation.Nullable Boolean strictMode) {
+    public ContentObjectTypeItem strictMode(@jakarta.annotation.Nullable Boolean strictMode) {
         this.strictMode = strictMode;
         return this;
     }
@@ -335,11 +335,11 @@ public class ContentObjectTypeItem {
      * Determines if the content will be validated against the object schema a generation time and save/update time.
      * @return strictMode
      */
-    @javax.annotation.Nullable public Boolean getStrictMode() {
+    @jakarta.annotation.Nullable public Boolean getStrictMode() {
         return strictMode;
     }
 
-    public void setStrictMode(@javax.annotation.Nullable Boolean strictMode) {
+    public void setStrictMode(@jakarta.annotation.Nullable Boolean strictMode) {
         this.strictMode = strictMode;
     }
 

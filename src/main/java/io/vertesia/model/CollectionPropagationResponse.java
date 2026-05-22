@@ -34,35 +34,35 @@ import java.util.Objects;
 /**
  * CollectionPropagationResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CollectionPropagationResponse {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String message;
 
     public static final String SERIALIZED_NAME_SECURITY = "security";
 
     @SerializedName(SERIALIZED_NAME_SECURITY)
-    @javax.annotation.Nullable private Map<String, List<String>> security = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, List<String>> security = new HashMap<>();
 
     public static final String SERIALIZED_NAME_SHARED_PROPERTIES = "shared_properties";
 
     @SerializedName(SERIALIZED_NAME_SHARED_PROPERTIES)
-    @javax.annotation.Nullable private List<String> sharedProperties = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> sharedProperties = new ArrayList<>();
 
     public CollectionPropagationResponse() {}
 
-    public CollectionPropagationResponse id(@javax.annotation.Nonnull String id) {
+    public CollectionPropagationResponse id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -71,16 +71,16 @@ public class CollectionPropagationResponse {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public CollectionPropagationResponse message(@javax.annotation.Nonnull String message) {
+    public CollectionPropagationResponse message(@jakarta.annotation.Nonnull String message) {
         this.message = message;
         return this;
     }
@@ -89,17 +89,17 @@ public class CollectionPropagationResponse {
      * Get message
      * @return message
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nonnull String message) {
+    public void setMessage(@jakarta.annotation.Nonnull String message) {
         this.message = message;
     }
 
     public CollectionPropagationResponse security(
-            @javax.annotation.Nullable Map<String, List<String>> security) {
+            @jakarta.annotation.Nullable Map<String, List<String>> security) {
         this.security = security;
         return this;
     }
@@ -116,16 +116,16 @@ public class CollectionPropagationResponse {
      * Get security
      * @return security
      */
-    @javax.annotation.Nullable public Map<String, List<String>> getSecurity() {
+    @jakarta.annotation.Nullable public Map<String, List<String>> getSecurity() {
         return security;
     }
 
-    public void setSecurity(@javax.annotation.Nullable Map<String, List<String>> security) {
+    public void setSecurity(@jakarta.annotation.Nullable Map<String, List<String>> security) {
         this.security = security;
     }
 
     public CollectionPropagationResponse sharedProperties(
-            @javax.annotation.Nullable List<String> sharedProperties) {
+            @jakarta.annotation.Nullable List<String> sharedProperties) {
         this.sharedProperties = sharedProperties;
         return this;
     }
@@ -142,11 +142,11 @@ public class CollectionPropagationResponse {
      * Get sharedProperties
      * @return sharedProperties
      */
-    @javax.annotation.Nullable public List<String> getSharedProperties() {
+    @jakarta.annotation.Nullable public List<String> getSharedProperties() {
         return sharedProperties;
     }
 
-    public void setSharedProperties(@javax.annotation.Nullable List<String> sharedProperties) {
+    public void setSharedProperties(@jakarta.annotation.Nullable List<String> sharedProperties) {
         this.sharedProperties = sharedProperties;
     }
 

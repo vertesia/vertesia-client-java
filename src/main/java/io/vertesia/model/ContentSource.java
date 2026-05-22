@@ -30,33 +30,33 @@ import java.util.Objects;
 /**
  * ContentSource
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ContentSource {
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nullable private String source;
+    @jakarta.annotation.Nullable private String source;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private String type;
+    @jakarta.annotation.Nullable private String type;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_ETAG = "etag";
 
     @SerializedName(SERIALIZED_NAME_ETAG)
-    @javax.annotation.Nullable private String etag;
+    @jakarta.annotation.Nullable private String etag;
 
     public ContentSource() {}
 
-    public ContentSource source(@javax.annotation.Nullable String source) {
+    public ContentSource source(@jakarta.annotation.Nullable String source) {
         this.source = source;
         return this;
     }
@@ -65,15 +65,15 @@ public class ContentSource {
      * Get source
      * @return source
      */
-    @javax.annotation.Nullable public String getSource() {
+    @jakarta.annotation.Nullable public String getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nullable String source) {
+    public void setSource(@jakarta.annotation.Nullable String source) {
         this.source = source;
     }
 
-    public ContentSource type(@javax.annotation.Nullable String type) {
+    public ContentSource type(@jakarta.annotation.Nullable String type) {
         this.type = type;
         return this;
     }
@@ -82,15 +82,15 @@ public class ContentSource {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public String getType() {
+    @jakarta.annotation.Nullable public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable String type) {
+    public void setType(@jakarta.annotation.Nullable String type) {
         this.type = type;
     }
 
-    public ContentSource name(@javax.annotation.Nullable String name) {
+    public ContentSource name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -99,15 +99,15 @@ public class ContentSource {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public ContentSource etag(@javax.annotation.Nullable String etag) {
+    public ContentSource etag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
         return this;
     }
@@ -116,11 +116,11 @@ public class ContentSource {
      * Get etag
      * @return etag
      */
-    @javax.annotation.Nullable public String getEtag() {
+    @jakarta.annotation.Nullable public String getEtag() {
         return etag;
     }
 
-    public void setEtag(@javax.annotation.Nullable String etag) {
+    public void setEtag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
     }
 

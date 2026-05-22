@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * EmbeddingsApiImageInput
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EmbeddingsApiImageInput {
@@ -91,18 +91,18 @@ public class EmbeddingsApiImageInput {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private EmbeddingsApiSource source;
 
     public EmbeddingsApiImageInput() {}
 
-    public EmbeddingsApiImageInput type(@javax.annotation.Nonnull TypeEnum type) {
+    public EmbeddingsApiImageInput type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -111,16 +111,16 @@ public class EmbeddingsApiImageInput {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public EmbeddingsApiImageInput source(@javax.annotation.Nonnull EmbeddingsApiSource source) {
+    public EmbeddingsApiImageInput source(@jakarta.annotation.Nonnull EmbeddingsApiSource source) {
         this.source = source;
         return this;
     }
@@ -129,12 +129,12 @@ public class EmbeddingsApiImageInput {
      * Get source
      * @return source
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public EmbeddingsApiSource getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nonnull EmbeddingsApiSource source) {
+    public void setSource(@jakarta.annotation.Nonnull EmbeddingsApiSource source) {
         this.source = source;
     }
 

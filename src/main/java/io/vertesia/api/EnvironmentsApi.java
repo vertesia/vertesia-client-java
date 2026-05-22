@@ -88,7 +88,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call createEnvironmentCall(
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentCreatePayload executionEnvironmentCreatePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -146,7 +146,7 @@ public class EnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createEnvironmentValidateBeforeCall(
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentCreatePayload executionEnvironmentCreatePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -175,7 +175,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public ExecutionEnvironment createEnvironment(
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentCreatePayload executionEnvironmentCreatePayload)
             throws ApiException {
         ApiResponse<ExecutionEnvironment> localVarResp =
@@ -199,7 +199,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public ApiResponse<ExecutionEnvironment> createEnvironmentWithHttpInfo(
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentCreatePayload executionEnvironmentCreatePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -225,7 +225,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call createEnvironmentAsync(
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentCreatePayload executionEnvironmentCreatePayload,
             final ApiCallback<ExecutionEnvironment> _callback)
             throws ApiException {
@@ -253,7 +253,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call deleteEnvironmentCall(
-            @javax.annotation.Nonnull String envId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String envId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -313,7 +313,7 @@ public class EnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteEnvironmentValidateBeforeCall(
-            @javax.annotation.Nonnull String envId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String envId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'envId' is set
         if (envId == null) {
@@ -339,7 +339,7 @@ public class EnvironmentsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteByIdResult deleteEnvironment(@javax.annotation.Nonnull String envId)
+    public DeleteByIdResult deleteEnvironment(@jakarta.annotation.Nonnull String envId)
             throws ApiException {
         ApiResponse<DeleteByIdResult> localVarResp = deleteEnvironmentWithHttpInfo(envId);
         return localVarResp.getData();
@@ -361,7 +361,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public ApiResponse<DeleteByIdResult> deleteEnvironmentWithHttpInfo(
-            @javax.annotation.Nonnull String envId) throws ApiException {
+            @jakarta.annotation.Nonnull String envId) throws ApiException {
         okhttp3.Call localVarCall = deleteEnvironmentValidateBeforeCall(envId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -384,7 +384,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call deleteEnvironmentAsync(
-            @javax.annotation.Nonnull String envId, final ApiCallback<DeleteByIdResult> _callback)
+            @jakarta.annotation.Nonnull String envId, final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = deleteEnvironmentValidateBeforeCall(envId, _callback);
@@ -410,8 +410,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call generateEmbeddingsCall(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest,
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -472,8 +472,8 @@ public class EnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call generateEmbeddingsValidateBeforeCall(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest,
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'envId' is set
@@ -508,8 +508,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public EmbeddingsResult generateEmbeddings(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest)
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest)
             throws ApiException {
         ApiResponse<EmbeddingsResult> localVarResp =
                 generateEmbeddingsWithHttpInfo(envId, embeddingsApiRequest);
@@ -533,8 +533,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public ApiResponse<EmbeddingsResult> generateEmbeddingsWithHttpInfo(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest)
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest)
             throws ApiException {
         okhttp3.Call localVarCall =
                 generateEmbeddingsValidateBeforeCall(envId, embeddingsApiRequest, null);
@@ -560,8 +560,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call generateEmbeddingsAsync(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest,
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull EmbeddingsApiRequest embeddingsApiRequest,
             final ApiCallback<EmbeddingsResult> _callback)
             throws ApiException {
 
@@ -588,7 +588,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call getEnvironmentCall(
-            @javax.annotation.Nonnull String envId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String envId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -648,7 +648,7 @@ public class EnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getEnvironmentValidateBeforeCall(
-            @javax.annotation.Nonnull String envId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String envId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'envId' is set
         if (envId == null) {
@@ -674,7 +674,7 @@ public class EnvironmentsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ExecutionEnvironment getEnvironment(@javax.annotation.Nonnull String envId)
+    public ExecutionEnvironment getEnvironment(@jakarta.annotation.Nonnull String envId)
             throws ApiException {
         ApiResponse<ExecutionEnvironment> localVarResp = getEnvironmentWithHttpInfo(envId);
         return localVarResp.getData();
@@ -696,7 +696,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public ApiResponse<ExecutionEnvironment> getEnvironmentWithHttpInfo(
-            @javax.annotation.Nonnull String envId) throws ApiException {
+            @jakarta.annotation.Nonnull String envId) throws ApiException {
         okhttp3.Call localVarCall = getEnvironmentValidateBeforeCall(envId, null);
         Type localVarReturnType = new TypeToken<ExecutionEnvironment>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -719,7 +719,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call getEnvironmentAsync(
-            @javax.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String envId,
             final ApiCallback<ExecutionEnvironment> _callback)
             throws ApiException {
 
@@ -746,8 +746,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call getEnvironmentAnalyticsCall(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery,
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -808,8 +808,8 @@ public class EnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getEnvironmentAnalyticsValidateBeforeCall(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery,
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'envId' is set
@@ -844,8 +844,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public List<RunAnalyticsResult> getEnvironmentAnalytics(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery)
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery)
             throws ApiException {
         ApiResponse<List<RunAnalyticsResult>> localVarResp =
                 getEnvironmentAnalyticsWithHttpInfo(envId, runAnalyticsQuery);
@@ -869,8 +869,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public ApiResponse<List<RunAnalyticsResult>> getEnvironmentAnalyticsWithHttpInfo(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery)
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getEnvironmentAnalyticsValidateBeforeCall(envId, runAnalyticsQuery, null);
@@ -896,8 +896,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call getEnvironmentAnalyticsAsync(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery,
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull RunAnalyticsQuery runAnalyticsQuery,
             final ApiCallback<List<RunAnalyticsResult>> _callback)
             throws ApiException {
 
@@ -928,11 +928,11 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call listEnvironmentModelsCall(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull String text,
-            @javax.annotation.Nullable String type,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String owner,
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String text,
+            @jakarta.annotation.Nullable String type,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String owner,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1010,11 +1010,11 @@ public class EnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listEnvironmentModelsValidateBeforeCall(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull String text,
-            @javax.annotation.Nullable String type,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String owner,
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String text,
+            @jakarta.annotation.Nullable String type,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String owner,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'envId' is set
@@ -1052,11 +1052,11 @@ public class EnvironmentsApi {
      * </table>
      */
     public List<AIModel> listEnvironmentModels(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull String text,
-            @javax.annotation.Nullable String type,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String owner)
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String text,
+            @jakarta.annotation.Nullable String type,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String owner)
             throws ApiException {
         ApiResponse<List<AIModel>> localVarResp =
                 listEnvironmentModelsWithHttpInfo(envId, text, type, tags, owner);
@@ -1083,11 +1083,11 @@ public class EnvironmentsApi {
      * </table>
      */
     public ApiResponse<List<AIModel>> listEnvironmentModelsWithHttpInfo(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull String text,
-            @javax.annotation.Nullable String type,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String owner)
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String text,
+            @jakarta.annotation.Nullable String type,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String owner)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listEnvironmentModelsValidateBeforeCall(envId, text, type, tags, owner, null);
@@ -1116,11 +1116,11 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call listEnvironmentModelsAsync(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull String text,
-            @javax.annotation.Nullable String type,
-            @javax.annotation.Nullable List<String> tags,
-            @javax.annotation.Nullable String owner,
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String text,
+            @jakarta.annotation.Nullable String type,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable String owner,
             final ApiCallback<List<AIModel>> _callback)
             throws ApiException {
 
@@ -1147,7 +1147,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call listEnvironmentTrainableModelsCall(
-            @javax.annotation.Nonnull String envId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String envId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1207,7 +1207,7 @@ public class EnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listEnvironmentTrainableModelsValidateBeforeCall(
-            @javax.annotation.Nonnull String envId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String envId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'envId' is set
         if (envId == null) {
@@ -1233,7 +1233,7 @@ public class EnvironmentsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<AIModel> listEnvironmentTrainableModels(@javax.annotation.Nonnull String envId)
+    public List<AIModel> listEnvironmentTrainableModels(@jakarta.annotation.Nonnull String envId)
             throws ApiException {
         ApiResponse<List<AIModel>> localVarResp = listEnvironmentTrainableModelsWithHttpInfo(envId);
         return localVarResp.getData();
@@ -1255,7 +1255,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public ApiResponse<List<AIModel>> listEnvironmentTrainableModelsWithHttpInfo(
-            @javax.annotation.Nonnull String envId) throws ApiException {
+            @jakarta.annotation.Nonnull String envId) throws ApiException {
         okhttp3.Call localVarCall = listEnvironmentTrainableModelsValidateBeforeCall(envId, null);
         Type localVarReturnType = new TypeToken<List<AIModel>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1278,7 +1278,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call listEnvironmentTrainableModelsAsync(
-            @javax.annotation.Nonnull String envId, final ApiCallback<List<AIModel>> _callback)
+            @jakarta.annotation.Nonnull String envId, final ApiCallback<List<AIModel>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
@@ -1304,7 +1304,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call listEnvironmentsCall(
-            @javax.annotation.Nullable Boolean all, final ApiCallback _callback)
+            @jakarta.annotation.Nullable Boolean all, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1364,7 +1364,7 @@ public class EnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listEnvironmentsValidateBeforeCall(
-            @javax.annotation.Nullable Boolean all, final ApiCallback _callback)
+            @jakarta.annotation.Nullable Boolean all, final ApiCallback _callback)
             throws ApiException {
         return listEnvironmentsCall(all, _callback);
     }
@@ -1384,7 +1384,7 @@ public class EnvironmentsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<ExecutionEnvironment> listEnvironments(@javax.annotation.Nullable Boolean all)
+    public List<ExecutionEnvironment> listEnvironments(@jakarta.annotation.Nullable Boolean all)
             throws ApiException {
         ApiResponse<List<ExecutionEnvironment>> localVarResp = listEnvironmentsWithHttpInfo(all);
         return localVarResp.getData();
@@ -1406,7 +1406,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public ApiResponse<List<ExecutionEnvironment>> listEnvironmentsWithHttpInfo(
-            @javax.annotation.Nullable Boolean all) throws ApiException {
+            @jakarta.annotation.Nullable Boolean all) throws ApiException {
         okhttp3.Call localVarCall = listEnvironmentsValidateBeforeCall(all, null);
         Type localVarReturnType = new TypeToken<List<ExecutionEnvironment>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1429,7 +1429,7 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call listEnvironmentsAsync(
-            @javax.annotation.Nullable Boolean all,
+            @jakarta.annotation.Nullable Boolean all,
             final ApiCallback<List<ExecutionEnvironment>> _callback)
             throws ApiException {
 
@@ -1456,8 +1456,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call updateEnvironmentCall(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentUpdatePayload executionEnvironmentUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1519,8 +1519,8 @@ public class EnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateEnvironmentValidateBeforeCall(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentUpdatePayload executionEnvironmentUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1556,8 +1556,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public ExecutionEnvironment updateEnvironment(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentUpdatePayload executionEnvironmentUpdatePayload)
             throws ApiException {
         ApiResponse<ExecutionEnvironment> localVarResp =
@@ -1582,8 +1582,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public ApiResponse<ExecutionEnvironment> updateEnvironmentWithHttpInfo(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentUpdatePayload executionEnvironmentUpdatePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1610,8 +1610,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call updateEnvironmentAsync(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentUpdatePayload executionEnvironmentUpdatePayload,
             final ApiCallback<ExecutionEnvironment> _callback)
             throws ApiException {
@@ -1641,8 +1641,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call updateEnvironmentConfigCall(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentConfigUpdatePayload executionEnvironmentConfigUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1704,8 +1704,8 @@ public class EnvironmentsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateEnvironmentConfigValidateBeforeCall(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentConfigUpdatePayload executionEnvironmentConfigUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
@@ -1742,8 +1742,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public ExecutionEnvironment updateEnvironmentConfig(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentConfigUpdatePayload executionEnvironmentConfigUpdatePayload)
             throws ApiException {
         ApiResponse<ExecutionEnvironment> localVarResp =
@@ -1768,8 +1768,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public ApiResponse<ExecutionEnvironment> updateEnvironmentConfigWithHttpInfo(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentConfigUpdatePayload executionEnvironmentConfigUpdatePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
@@ -1797,8 +1797,8 @@ public class EnvironmentsApi {
      * </table>
      */
     public okhttp3.Call updateEnvironmentConfigAsync(
-            @javax.annotation.Nonnull String envId,
-            @javax.annotation.Nonnull
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull
                     ExecutionEnvironmentConfigUpdatePayload executionEnvironmentConfigUpdatePayload,
             final ApiCallback<ExecutionEnvironment> _callback)
             throws ApiException {

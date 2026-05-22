@@ -34,48 +34,48 @@ import java.util.Objects;
 /**
  * ContentMetadata
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ContentMetadata {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private ContentNature type;
+    @jakarta.annotation.Nullable private ContentNature type;
 
     public static final String SERIALIZED_NAME_SIZE = "size";
 
     @SerializedName(SERIALIZED_NAME_SIZE)
-    @javax.annotation.Nullable private BigDecimal size;
+    @jakarta.annotation.Nullable private BigDecimal size;
 
     public static final String SERIALIZED_NAME_LANGUAGES = "languages";
 
     @SerializedName(SERIALIZED_NAME_LANGUAGES)
-    @javax.annotation.Nullable private List<String> languages = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> languages = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LOCATION = "location";
 
     @SerializedName(SERIALIZED_NAME_LOCATION)
-    @javax.annotation.Nullable private Location location;
+    @jakarta.annotation.Nullable private Location location;
 
     public static final String SERIALIZED_NAME_GENERATION_RUNS = "generation_runs";
 
     @SerializedName(SERIALIZED_NAME_GENERATION_RUNS)
-    @javax.annotation.Nullable private List<GenerationRunMetadata> generationRuns = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<GenerationRunMetadata> generationRuns = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ETAG = "etag";
 
     @SerializedName(SERIALIZED_NAME_ETAG)
-    @javax.annotation.Nullable private String etag;
+    @jakarta.annotation.Nullable private String etag;
 
     public static final String SERIALIZED_NAME_RENDITIONS = "renditions";
 
     @SerializedName(SERIALIZED_NAME_RENDITIONS)
-    @javax.annotation.Nullable private List<Rendition> renditions = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<Rendition> renditions = new ArrayList<>();
 
     public ContentMetadata() {}
 
-    public ContentMetadata type(@javax.annotation.Nullable ContentNature type) {
+    public ContentMetadata type(@jakarta.annotation.Nullable ContentNature type) {
         this.type = type;
         return this;
     }
@@ -84,15 +84,15 @@ public class ContentMetadata {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public ContentNature getType() {
+    @jakarta.annotation.Nullable public ContentNature getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable ContentNature type) {
+    public void setType(@jakarta.annotation.Nullable ContentNature type) {
         this.type = type;
     }
 
-    public ContentMetadata size(@javax.annotation.Nullable BigDecimal size) {
+    public ContentMetadata size(@jakarta.annotation.Nullable BigDecimal size) {
         this.size = size;
         return this;
     }
@@ -101,15 +101,15 @@ public class ContentMetadata {
      * Get size
      * @return size
      */
-    @javax.annotation.Nullable public BigDecimal getSize() {
+    @jakarta.annotation.Nullable public BigDecimal getSize() {
         return size;
     }
 
-    public void setSize(@javax.annotation.Nullable BigDecimal size) {
+    public void setSize(@jakarta.annotation.Nullable BigDecimal size) {
         this.size = size;
     }
 
-    public ContentMetadata languages(@javax.annotation.Nullable List<String> languages) {
+    public ContentMetadata languages(@jakarta.annotation.Nullable List<String> languages) {
         this.languages = languages;
         return this;
     }
@@ -126,15 +126,15 @@ public class ContentMetadata {
      * Get languages
      * @return languages
      */
-    @javax.annotation.Nullable public List<String> getLanguages() {
+    @jakarta.annotation.Nullable public List<String> getLanguages() {
         return languages;
     }
 
-    public void setLanguages(@javax.annotation.Nullable List<String> languages) {
+    public void setLanguages(@jakarta.annotation.Nullable List<String> languages) {
         this.languages = languages;
     }
 
-    public ContentMetadata location(@javax.annotation.Nullable Location location) {
+    public ContentMetadata location(@jakarta.annotation.Nullable Location location) {
         this.location = location;
         return this;
     }
@@ -143,16 +143,16 @@ public class ContentMetadata {
      * Get location
      * @return location
      */
-    @javax.annotation.Nullable public Location getLocation() {
+    @jakarta.annotation.Nullable public Location getLocation() {
         return location;
     }
 
-    public void setLocation(@javax.annotation.Nullable Location location) {
+    public void setLocation(@jakarta.annotation.Nullable Location location) {
         this.location = location;
     }
 
     public ContentMetadata generationRuns(
-            @javax.annotation.Nullable List<GenerationRunMetadata> generationRuns) {
+            @jakarta.annotation.Nullable List<GenerationRunMetadata> generationRuns) {
         this.generationRuns = generationRuns;
         return this;
     }
@@ -169,16 +169,16 @@ public class ContentMetadata {
      * Get generationRuns
      * @return generationRuns
      */
-    @javax.annotation.Nullable public List<GenerationRunMetadata> getGenerationRuns() {
+    @jakarta.annotation.Nullable public List<GenerationRunMetadata> getGenerationRuns() {
         return generationRuns;
     }
 
     public void setGenerationRuns(
-            @javax.annotation.Nullable List<GenerationRunMetadata> generationRuns) {
+            @jakarta.annotation.Nullable List<GenerationRunMetadata> generationRuns) {
         this.generationRuns = generationRuns;
     }
 
-    public ContentMetadata etag(@javax.annotation.Nullable String etag) {
+    public ContentMetadata etag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
         return this;
     }
@@ -187,15 +187,15 @@ public class ContentMetadata {
      * Get etag
      * @return etag
      */
-    @javax.annotation.Nullable public String getEtag() {
+    @jakarta.annotation.Nullable public String getEtag() {
         return etag;
     }
 
-    public void setEtag(@javax.annotation.Nullable String etag) {
+    public void setEtag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
     }
 
-    public ContentMetadata renditions(@javax.annotation.Nullable List<Rendition> renditions) {
+    public ContentMetadata renditions(@jakarta.annotation.Nullable List<Rendition> renditions) {
         this.renditions = renditions;
         return this;
     }
@@ -212,11 +212,11 @@ public class ContentMetadata {
      * Get renditions
      * @return renditions
      */
-    @javax.annotation.Nullable public List<Rendition> getRenditions() {
+    @jakarta.annotation.Nullable public List<Rendition> getRenditions() {
         return renditions;
     }
 
-    public void setRenditions(@javax.annotation.Nullable List<Rendition> renditions) {
+    public void setRenditions(@jakarta.annotation.Nullable List<Rendition> renditions) {
         this.renditions = renditions;
     }
 

@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * DataSource
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataSource {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_MIME_TYPE = "mime_type";
 
     @SerializedName(SERIALIZED_NAME_MIME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String mimeType;
 
     public DataSource() {}
 
-    public DataSource name(@javax.annotation.Nonnull String name) {
+    public DataSource name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -57,16 +57,16 @@ public class DataSource {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public DataSource mimeType(@javax.annotation.Nonnull String mimeType) {
+    public DataSource mimeType(@jakarta.annotation.Nonnull String mimeType) {
         this.mimeType = mimeType;
         return this;
     }
@@ -75,12 +75,12 @@ public class DataSource {
      * Get mimeType
      * @return mimeType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMimeType() {
         return mimeType;
     }
 
-    public void setMimeType(@javax.annotation.Nonnull String mimeType) {
+    public void setMimeType(@jakarta.annotation.Nonnull String mimeType) {
         this.mimeType = mimeType;
     }
 

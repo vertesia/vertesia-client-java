@@ -31,92 +31,92 @@ import java.util.Objects;
 /**
  * Reindex progress (if reindex is in progress)
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class IndexingStatusResponseReindexProgress {
     public static final String SERIALIZED_NAME_TOTAL_SHARDS = "total_shards";
 
     @SerializedName(SERIALIZED_NAME_TOTAL_SHARDS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal totalShards;
 
     public static final String SERIALIZED_NAME_COMPLETED_SHARDS = "completed_shards";
 
     @SerializedName(SERIALIZED_NAME_COMPLETED_SHARDS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal completedShards;
 
     public static final String SERIALIZED_NAME_FAILED_SHARDS = "failed_shards";
 
     @SerializedName(SERIALIZED_NAME_FAILED_SHARDS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal failedShards;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String status;
 
     public static final String SERIALIZED_NAME_SCANNED = "scanned";
 
     @SerializedName(SERIALIZED_NAME_SCANNED)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal scanned;
 
     public static final String SERIALIZED_NAME_WRITTEN = "written";
 
     @SerializedName(SERIALIZED_NAME_WRITTEN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal written;
 
     public static final String SERIALIZED_NAME_ERRORS = "errors";
 
     @SerializedName(SERIALIZED_NAME_ERRORS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal errors;
 
     public static final String SERIALIZED_NAME_DOCS_PER_SECOND = "docs_per_second";
 
     @SerializedName(SERIALIZED_NAME_DOCS_PER_SECOND)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal docsPerSecond;
 
     public static final String SERIALIZED_NAME_ELAPSED_SECONDS = "elapsed_seconds";
 
     @SerializedName(SERIALIZED_NAME_ELAPSED_SECONDS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal elapsedSeconds;
 
     public static final String SERIALIZED_NAME_ESTIMATED_SECONDS_REMAINING =
             "estimated_seconds_remaining";
 
     @SerializedName(SERIALIZED_NAME_ESTIMATED_SECONDS_REMAINING)
-    @javax.annotation.Nullable private BigDecimal estimatedSecondsRemaining;
+    @jakarta.annotation.Nullable private BigDecimal estimatedSecondsRemaining;
 
     public static final String SERIALIZED_NAME_PERCENT_COMPLETE = "percent_complete";
 
     @SerializedName(SERIALIZED_NAME_PERCENT_COMPLETE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal percentComplete;
 
     public static final String SERIALIZED_NAME_ALIAS = "alias";
 
     @SerializedName(SERIALIZED_NAME_ALIAS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String alias;
 
     public static final String SERIALIZED_NAME_TARGET_INDEX = "target_index";
 
     @SerializedName(SERIALIZED_NAME_TARGET_INDEX)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String targetIndex;
 
     public IndexingStatusResponseReindexProgress() {}
 
     public IndexingStatusResponseReindexProgress totalShards(
-            @javax.annotation.Nonnull BigDecimal totalShards) {
+            @jakarta.annotation.Nonnull BigDecimal totalShards) {
         this.totalShards = totalShards;
         return this;
     }
@@ -125,17 +125,17 @@ public class IndexingStatusResponseReindexProgress {
      * Total shards to process
      * @return totalShards
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getTotalShards() {
         return totalShards;
     }
 
-    public void setTotalShards(@javax.annotation.Nonnull BigDecimal totalShards) {
+    public void setTotalShards(@jakarta.annotation.Nonnull BigDecimal totalShards) {
         this.totalShards = totalShards;
     }
 
     public IndexingStatusResponseReindexProgress completedShards(
-            @javax.annotation.Nonnull BigDecimal completedShards) {
+            @jakarta.annotation.Nonnull BigDecimal completedShards) {
         this.completedShards = completedShards;
         return this;
     }
@@ -144,17 +144,17 @@ public class IndexingStatusResponseReindexProgress {
      * Shards completed so far
      * @return completedShards
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCompletedShards() {
         return completedShards;
     }
 
-    public void setCompletedShards(@javax.annotation.Nonnull BigDecimal completedShards) {
+    public void setCompletedShards(@jakarta.annotation.Nonnull BigDecimal completedShards) {
         this.completedShards = completedShards;
     }
 
     public IndexingStatusResponseReindexProgress failedShards(
-            @javax.annotation.Nonnull BigDecimal failedShards) {
+            @jakarta.annotation.Nonnull BigDecimal failedShards) {
         this.failedShards = failedShards;
         return this;
     }
@@ -163,16 +163,16 @@ public class IndexingStatusResponseReindexProgress {
      * Shards that failed
      * @return failedShards
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getFailedShards() {
         return failedShards;
     }
 
-    public void setFailedShards(@javax.annotation.Nonnull BigDecimal failedShards) {
+    public void setFailedShards(@jakarta.annotation.Nonnull BigDecimal failedShards) {
         this.failedShards = failedShards;
     }
 
-    public IndexingStatusResponseReindexProgress status(@javax.annotation.Nonnull String status) {
+    public IndexingStatusResponseReindexProgress status(@jakarta.annotation.Nonnull String status) {
         this.status = status;
         return this;
     }
@@ -181,17 +181,17 @@ public class IndexingStatusResponseReindexProgress {
      * Current status (e.g., \&quot;computing_shards\&quot;, \&quot;indexing\&quot;, \&quot;completed\&quot;)
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull String status) {
+    public void setStatus(@jakarta.annotation.Nonnull String status) {
         this.status = status;
     }
 
     public IndexingStatusResponseReindexProgress scanned(
-            @javax.annotation.Nonnull BigDecimal scanned) {
+            @jakarta.annotation.Nonnull BigDecimal scanned) {
         this.scanned = scanned;
         return this;
     }
@@ -200,17 +200,17 @@ public class IndexingStatusResponseReindexProgress {
      * Documents scanned from source
      * @return scanned
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getScanned() {
         return scanned;
     }
 
-    public void setScanned(@javax.annotation.Nonnull BigDecimal scanned) {
+    public void setScanned(@jakarta.annotation.Nonnull BigDecimal scanned) {
         this.scanned = scanned;
     }
 
     public IndexingStatusResponseReindexProgress written(
-            @javax.annotation.Nonnull BigDecimal written) {
+            @jakarta.annotation.Nonnull BigDecimal written) {
         this.written = written;
         return this;
     }
@@ -219,17 +219,17 @@ public class IndexingStatusResponseReindexProgress {
      * Documents written to target index
      * @return written
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getWritten() {
         return written;
     }
 
-    public void setWritten(@javax.annotation.Nonnull BigDecimal written) {
+    public void setWritten(@jakarta.annotation.Nonnull BigDecimal written) {
         this.written = written;
     }
 
     public IndexingStatusResponseReindexProgress errors(
-            @javax.annotation.Nonnull BigDecimal errors) {
+            @jakarta.annotation.Nonnull BigDecimal errors) {
         this.errors = errors;
         return this;
     }
@@ -238,17 +238,17 @@ public class IndexingStatusResponseReindexProgress {
      * Documents that failed to index
      * @return errors
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getErrors() {
         return errors;
     }
 
-    public void setErrors(@javax.annotation.Nonnull BigDecimal errors) {
+    public void setErrors(@jakarta.annotation.Nonnull BigDecimal errors) {
         this.errors = errors;
     }
 
     public IndexingStatusResponseReindexProgress docsPerSecond(
-            @javax.annotation.Nonnull BigDecimal docsPerSecond) {
+            @jakarta.annotation.Nonnull BigDecimal docsPerSecond) {
         this.docsPerSecond = docsPerSecond;
         return this;
     }
@@ -257,17 +257,17 @@ public class IndexingStatusResponseReindexProgress {
      * Documents processed per second
      * @return docsPerSecond
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getDocsPerSecond() {
         return docsPerSecond;
     }
 
-    public void setDocsPerSecond(@javax.annotation.Nonnull BigDecimal docsPerSecond) {
+    public void setDocsPerSecond(@jakarta.annotation.Nonnull BigDecimal docsPerSecond) {
         this.docsPerSecond = docsPerSecond;
     }
 
     public IndexingStatusResponseReindexProgress elapsedSeconds(
-            @javax.annotation.Nonnull BigDecimal elapsedSeconds) {
+            @jakarta.annotation.Nonnull BigDecimal elapsedSeconds) {
         this.elapsedSeconds = elapsedSeconds;
         return this;
     }
@@ -276,17 +276,17 @@ public class IndexingStatusResponseReindexProgress {
      * Elapsed time in seconds
      * @return elapsedSeconds
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getElapsedSeconds() {
         return elapsedSeconds;
     }
 
-    public void setElapsedSeconds(@javax.annotation.Nonnull BigDecimal elapsedSeconds) {
+    public void setElapsedSeconds(@jakarta.annotation.Nonnull BigDecimal elapsedSeconds) {
         this.elapsedSeconds = elapsedSeconds;
     }
 
     public IndexingStatusResponseReindexProgress estimatedSecondsRemaining(
-            @javax.annotation.Nullable BigDecimal estimatedSecondsRemaining) {
+            @jakarta.annotation.Nullable BigDecimal estimatedSecondsRemaining) {
         this.estimatedSecondsRemaining = estimatedSecondsRemaining;
         return this;
     }
@@ -295,17 +295,17 @@ public class IndexingStatusResponseReindexProgress {
      * Estimated seconds remaining (null if unknown)
      * @return estimatedSecondsRemaining
      */
-    @javax.annotation.Nullable public BigDecimal getEstimatedSecondsRemaining() {
+    @jakarta.annotation.Nullable public BigDecimal getEstimatedSecondsRemaining() {
         return estimatedSecondsRemaining;
     }
 
     public void setEstimatedSecondsRemaining(
-            @javax.annotation.Nullable BigDecimal estimatedSecondsRemaining) {
+            @jakarta.annotation.Nullable BigDecimal estimatedSecondsRemaining) {
         this.estimatedSecondsRemaining = estimatedSecondsRemaining;
     }
 
     public IndexingStatusResponseReindexProgress percentComplete(
-            @javax.annotation.Nonnull BigDecimal percentComplete) {
+            @jakarta.annotation.Nonnull BigDecimal percentComplete) {
         this.percentComplete = percentComplete;
         return this;
     }
@@ -314,16 +314,16 @@ public class IndexingStatusResponseReindexProgress {
      * Percentage complete (0-100)
      * @return percentComplete
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getPercentComplete() {
         return percentComplete;
     }
 
-    public void setPercentComplete(@javax.annotation.Nonnull BigDecimal percentComplete) {
+    public void setPercentComplete(@jakarta.annotation.Nonnull BigDecimal percentComplete) {
         this.percentComplete = percentComplete;
     }
 
-    public IndexingStatusResponseReindexProgress alias(@javax.annotation.Nonnull String alias) {
+    public IndexingStatusResponseReindexProgress alias(@jakarta.annotation.Nonnull String alias) {
         this.alias = alias;
         return this;
     }
@@ -332,17 +332,17 @@ public class IndexingStatusResponseReindexProgress {
      * Source alias
      * @return alias
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAlias() {
         return alias;
     }
 
-    public void setAlias(@javax.annotation.Nonnull String alias) {
+    public void setAlias(@jakarta.annotation.Nonnull String alias) {
         this.alias = alias;
     }
 
     public IndexingStatusResponseReindexProgress targetIndex(
-            @javax.annotation.Nonnull String targetIndex) {
+            @jakarta.annotation.Nonnull String targetIndex) {
         this.targetIndex = targetIndex;
         return this;
     }
@@ -351,12 +351,12 @@ public class IndexingStatusResponseReindexProgress {
      * Target index name
      * @return targetIndex
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTargetIndex() {
         return targetIndex;
     }
 
-    public void setTargetIndex(@javax.annotation.Nonnull String targetIndex) {
+    public void setTargetIndex(@jakarta.annotation.Nonnull String targetIndex) {
         this.targetIndex = targetIndex;
     }
 

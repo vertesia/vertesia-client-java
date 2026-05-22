@@ -30,28 +30,28 @@ import java.util.Objects;
 /**
  * CompositeAppMessageOverrides
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppMessageOverrides {
     public static final String SERIALIZED_NAME_TEXT = "text";
 
     @SerializedName(SERIALIZED_NAME_TEXT)
-    @javax.annotation.Nullable private String text;
+    @jakarta.annotation.Nullable private String text;
 
     public static final String SERIALIZED_NAME_VISIBLE = "visible";
 
     @SerializedName(SERIALIZED_NAME_VISIBLE)
-    @javax.annotation.Nullable private Boolean visible;
+    @jakarta.annotation.Nullable private Boolean visible;
 
     public static final String SERIALIZED_NAME_STYLE = "style";
 
     @SerializedName(SERIALIZED_NAME_STYLE)
-    @javax.annotation.Nullable private CompositeAppMessageStyle style;
+    @jakarta.annotation.Nullable private CompositeAppMessageStyle style;
 
     public CompositeAppMessageOverrides() {}
 
-    public CompositeAppMessageOverrides text(@javax.annotation.Nullable String text) {
+    public CompositeAppMessageOverrides text(@jakarta.annotation.Nullable String text) {
         this.text = text;
         return this;
     }
@@ -60,15 +60,15 @@ public class CompositeAppMessageOverrides {
      * Message text to display
      * @return text
      */
-    @javax.annotation.Nullable public String getText() {
+    @jakarta.annotation.Nullable public String getText() {
         return text;
     }
 
-    public void setText(@javax.annotation.Nullable String text) {
+    public void setText(@jakarta.annotation.Nullable String text) {
         this.text = text;
     }
 
-    public CompositeAppMessageOverrides visible(@javax.annotation.Nullable Boolean visible) {
+    public CompositeAppMessageOverrides visible(@jakarta.annotation.Nullable Boolean visible) {
         this.visible = visible;
         return this;
     }
@@ -77,16 +77,16 @@ public class CompositeAppMessageOverrides {
      * Whether the message is visible (defaults to true)
      * @return visible
      */
-    @javax.annotation.Nullable public Boolean getVisible() {
+    @jakarta.annotation.Nullable public Boolean getVisible() {
         return visible;
     }
 
-    public void setVisible(@javax.annotation.Nullable Boolean visible) {
+    public void setVisible(@jakarta.annotation.Nullable Boolean visible) {
         this.visible = visible;
     }
 
     public CompositeAppMessageOverrides style(
-            @javax.annotation.Nullable CompositeAppMessageStyle style) {
+            @jakarta.annotation.Nullable CompositeAppMessageStyle style) {
         this.style = style;
         return this;
     }
@@ -95,11 +95,11 @@ public class CompositeAppMessageOverrides {
      * Text color style. Uses semantic colors
      * @return style
      */
-    @javax.annotation.Nullable public CompositeAppMessageStyle getStyle() {
+    @jakarta.annotation.Nullable public CompositeAppMessageStyle getStyle() {
         return style;
     }
 
-    public void setStyle(@javax.annotation.Nullable CompositeAppMessageStyle style) {
+    public void setStyle(@jakarta.annotation.Nullable CompositeAppMessageStyle style) {
         this.style = style;
     }
 

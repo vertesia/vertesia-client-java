@@ -37,90 +37,90 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * CreateCollectionPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateCollectionPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DYNAMIC = "dynamic";
 
     @SerializedName(SERIALIZED_NAME_DYNAMIC)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean dynamic;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_SKIP_HEAD_SYNC = "skip_head_sync";
 
     @SerializedName(SERIALIZED_NAME_SKIP_HEAD_SYNC)
-    @javax.annotation.Nullable private Boolean skipHeadSync;
+    @jakarta.annotation.Nullable private Boolean skipHeadSync;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private String type;
+    @jakarta.annotation.Nullable private String type;
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @javax.annotation.Nullable private Map<String, Object> query = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> query = new HashMap<>();
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
 
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private String parent;
+    @jakarta.annotation.Nullable private String parent;
 
     public static final String SERIALIZED_NAME_TABLE_LAYOUT = "table_layout";
 
     @SerializedName(SERIALIZED_NAME_TABLE_LAYOUT)
-    @javax.annotation.Nullable private List<ColumnLayout> tableLayout;
+    @jakarta.annotation.Nullable private List<ColumnLayout> tableLayout;
 
     public static final String SERIALIZED_NAME_ALLOWED_TYPES = "allowed_types";
 
     @SerializedName(SERIALIZED_NAME_ALLOWED_TYPES)
-    @javax.annotation.Nullable private List<String> allowedTypes = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> allowedTypes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nullable private String updatedBy;
+    @jakarta.annotation.Nullable private String updatedBy;
 
     public static final String SERIALIZED_NAME_SHARED_PROPERTIES = "shared_properties";
 
     @SerializedName(SERIALIZED_NAME_SHARED_PROPERTIES)
-    @javax.annotation.Nullable private List<String> sharedProperties = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> sharedProperties = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SENSITIVITY = "sensitivity";
 
     @SerializedName(SERIALIZED_NAME_SENSITIVITY)
-    @javax.annotation.Nullable private BigDecimal sensitivity;
+    @jakarta.annotation.Nullable private BigDecimal sensitivity;
 
     public static final String SERIALIZED_NAME_COMPARTMENTS = "compartments";
 
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
-    @javax.annotation.Nullable private List<String> compartments = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
     public CreateCollectionPayload() {}
 
-    public CreateCollectionPayload name(@javax.annotation.Nonnull String name) {
+    public CreateCollectionPayload name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -129,16 +129,16 @@ public class CreateCollectionPayload {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public CreateCollectionPayload dynamic(@javax.annotation.Nonnull Boolean dynamic) {
+    public CreateCollectionPayload dynamic(@jakarta.annotation.Nonnull Boolean dynamic) {
         this.dynamic = dynamic;
         return this;
     }
@@ -147,16 +147,16 @@ public class CreateCollectionPayload {
      * Get dynamic
      * @return dynamic
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getDynamic() {
         return dynamic;
     }
 
-    public void setDynamic(@javax.annotation.Nonnull Boolean dynamic) {
+    public void setDynamic(@jakarta.annotation.Nonnull Boolean dynamic) {
         this.dynamic = dynamic;
     }
 
-    public CreateCollectionPayload description(@javax.annotation.Nullable String description) {
+    public CreateCollectionPayload description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -165,15 +165,15 @@ public class CreateCollectionPayload {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public CreateCollectionPayload skipHeadSync(@javax.annotation.Nullable Boolean skipHeadSync) {
+    public CreateCollectionPayload skipHeadSync(@jakarta.annotation.Nullable Boolean skipHeadSync) {
         this.skipHeadSync = skipHeadSync;
         return this;
     }
@@ -182,15 +182,15 @@ public class CreateCollectionPayload {
      * Get skipHeadSync
      * @return skipHeadSync
      */
-    @javax.annotation.Nullable public Boolean getSkipHeadSync() {
+    @jakarta.annotation.Nullable public Boolean getSkipHeadSync() {
         return skipHeadSync;
     }
 
-    public void setSkipHeadSync(@javax.annotation.Nullable Boolean skipHeadSync) {
+    public void setSkipHeadSync(@jakarta.annotation.Nullable Boolean skipHeadSync) {
         this.skipHeadSync = skipHeadSync;
     }
 
-    public CreateCollectionPayload tags(@javax.annotation.Nullable List<String> tags) {
+    public CreateCollectionPayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -207,15 +207,15 @@ public class CreateCollectionPayload {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public CreateCollectionPayload type(@javax.annotation.Nullable String type) {
+    public CreateCollectionPayload type(@jakarta.annotation.Nullable String type) {
         this.type = type;
         return this;
     }
@@ -224,15 +224,15 @@ public class CreateCollectionPayload {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public String getType() {
+    @jakarta.annotation.Nullable public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable String type) {
+    public void setType(@jakarta.annotation.Nullable String type) {
         this.type = type;
     }
 
-    public CreateCollectionPayload query(@javax.annotation.Nullable Map<String, Object> query) {
+    public CreateCollectionPayload query(@jakarta.annotation.Nullable Map<String, Object> query) {
         this.query = query;
         return this;
     }
@@ -249,16 +249,16 @@ public class CreateCollectionPayload {
      * Get query
      * @return query
      */
-    @javax.annotation.Nullable public Map<String, Object> getQuery() {
+    @jakarta.annotation.Nullable public Map<String, Object> getQuery() {
         return query;
     }
 
-    public void setQuery(@javax.annotation.Nullable Map<String, Object> query) {
+    public void setQuery(@jakarta.annotation.Nullable Map<String, Object> query) {
         this.query = query;
     }
 
     public CreateCollectionPayload properties(
-            @javax.annotation.Nullable Map<String, Object> properties) {
+            @jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
         return this;
     }
@@ -275,15 +275,15 @@ public class CreateCollectionPayload {
      * Get properties
      * @return properties
      */
-    @javax.annotation.Nullable public Map<String, Object> getProperties() {
+    @jakarta.annotation.Nullable public Map<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public void setProperties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
     }
 
-    public CreateCollectionPayload parent(@javax.annotation.Nullable String parent) {
+    public CreateCollectionPayload parent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
         return this;
     }
@@ -292,16 +292,16 @@ public class CreateCollectionPayload {
      * Get parent
      * @return parent
      */
-    @javax.annotation.Nullable public String getParent() {
+    @jakarta.annotation.Nullable public String getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable String parent) {
+    public void setParent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
     }
 
     public CreateCollectionPayload tableLayout(
-            @javax.annotation.Nullable List<ColumnLayout> tableLayout) {
+            @jakarta.annotation.Nullable List<ColumnLayout> tableLayout) {
         this.tableLayout = tableLayout;
         return this;
     }
@@ -318,16 +318,16 @@ public class CreateCollectionPayload {
      * Get tableLayout
      * @return tableLayout
      */
-    @javax.annotation.Nullable public List<ColumnLayout> getTableLayout() {
+    @jakarta.annotation.Nullable public List<ColumnLayout> getTableLayout() {
         return tableLayout;
     }
 
-    public void setTableLayout(@javax.annotation.Nullable List<ColumnLayout> tableLayout) {
+    public void setTableLayout(@jakarta.annotation.Nullable List<ColumnLayout> tableLayout) {
         this.tableLayout = tableLayout;
     }
 
     public CreateCollectionPayload allowedTypes(
-            @javax.annotation.Nullable List<String> allowedTypes) {
+            @jakarta.annotation.Nullable List<String> allowedTypes) {
         this.allowedTypes = allowedTypes;
         return this;
     }
@@ -344,15 +344,15 @@ public class CreateCollectionPayload {
      * Get allowedTypes
      * @return allowedTypes
      */
-    @javax.annotation.Nullable public List<String> getAllowedTypes() {
+    @jakarta.annotation.Nullable public List<String> getAllowedTypes() {
         return allowedTypes;
     }
 
-    public void setAllowedTypes(@javax.annotation.Nullable List<String> allowedTypes) {
+    public void setAllowedTypes(@jakarta.annotation.Nullable List<String> allowedTypes) {
         this.allowedTypes = allowedTypes;
     }
 
-    public CreateCollectionPayload updatedBy(@javax.annotation.Nullable String updatedBy) {
+    public CreateCollectionPayload updatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -361,16 +361,16 @@ public class CreateCollectionPayload {
      * Get updatedBy
      * @return updatedBy
      */
-    @javax.annotation.Nullable public String getUpdatedBy() {
+    @jakarta.annotation.Nullable public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nullable String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
     public CreateCollectionPayload sharedProperties(
-            @javax.annotation.Nullable List<String> sharedProperties) {
+            @jakarta.annotation.Nullable List<String> sharedProperties) {
         this.sharedProperties = sharedProperties;
         return this;
     }
@@ -387,15 +387,16 @@ public class CreateCollectionPayload {
      * Get sharedProperties
      * @return sharedProperties
      */
-    @javax.annotation.Nullable public List<String> getSharedProperties() {
+    @jakarta.annotation.Nullable public List<String> getSharedProperties() {
         return sharedProperties;
     }
 
-    public void setSharedProperties(@javax.annotation.Nullable List<String> sharedProperties) {
+    public void setSharedProperties(@jakarta.annotation.Nullable List<String> sharedProperties) {
         this.sharedProperties = sharedProperties;
     }
 
-    public CreateCollectionPayload sensitivity(@javax.annotation.Nullable BigDecimal sensitivity) {
+    public CreateCollectionPayload sensitivity(
+            @jakarta.annotation.Nullable BigDecimal sensitivity) {
         this.sensitivity = sensitivity;
         return this;
     }
@@ -404,16 +405,16 @@ public class CreateCollectionPayload {
      * BLP sensitivity level for member documents
      * @return sensitivity
      */
-    @javax.annotation.Nullable public BigDecimal getSensitivity() {
+    @jakarta.annotation.Nullable public BigDecimal getSensitivity() {
         return sensitivity;
     }
 
-    public void setSensitivity(@javax.annotation.Nullable BigDecimal sensitivity) {
+    public void setSensitivity(@jakarta.annotation.Nullable BigDecimal sensitivity) {
         this.sensitivity = sensitivity;
     }
 
     public CreateCollectionPayload compartments(
-            @javax.annotation.Nullable List<String> compartments) {
+            @jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
         return this;
     }
@@ -430,11 +431,11 @@ public class CreateCollectionPayload {
      * Compartments for member documents
      * @return compartments
      */
-    @javax.annotation.Nullable public List<String> getCompartments() {
+    @jakarta.annotation.Nullable public List<String> getCompartments() {
         return compartments;
     }
 
-    public void setCompartments(@javax.annotation.Nullable List<String> compartments) {
+    public void setCompartments(@jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
     }
 

@@ -30,35 +30,35 @@ import java.util.Objects;
 /**
  * ContentObjectApiRevision
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ContentObjectApiRevision {
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @javax.annotation.Nullable private String parent;
+    @jakarta.annotation.Nullable private String parent;
 
     public static final String SERIALIZED_NAME_ROOT = "root";
 
     @SerializedName(SERIALIZED_NAME_ROOT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String root;
 
     public static final String SERIALIZED_NAME_HEAD = "head";
 
     @SerializedName(SERIALIZED_NAME_HEAD)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean head;
 
     public static final String SERIALIZED_NAME_LABEL = "label";
 
     @SerializedName(SERIALIZED_NAME_LABEL)
-    @javax.annotation.Nullable private String label;
+    @jakarta.annotation.Nullable private String label;
 
     public ContentObjectApiRevision() {}
 
-    public ContentObjectApiRevision parent(@javax.annotation.Nullable String parent) {
+    public ContentObjectApiRevision parent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
         return this;
     }
@@ -67,15 +67,15 @@ public class ContentObjectApiRevision {
      * Get parent
      * @return parent
      */
-    @javax.annotation.Nullable public String getParent() {
+    @jakarta.annotation.Nullable public String getParent() {
         return parent;
     }
 
-    public void setParent(@javax.annotation.Nullable String parent) {
+    public void setParent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
     }
 
-    public ContentObjectApiRevision root(@javax.annotation.Nonnull String root) {
+    public ContentObjectApiRevision root(@jakarta.annotation.Nonnull String root) {
         this.root = root;
         return this;
     }
@@ -84,16 +84,16 @@ public class ContentObjectApiRevision {
      * Get root
      * @return root
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRoot() {
         return root;
     }
 
-    public void setRoot(@javax.annotation.Nonnull String root) {
+    public void setRoot(@jakarta.annotation.Nonnull String root) {
         this.root = root;
     }
 
-    public ContentObjectApiRevision head(@javax.annotation.Nonnull Boolean head) {
+    public ContentObjectApiRevision head(@jakarta.annotation.Nonnull Boolean head) {
         this.head = head;
         return this;
     }
@@ -102,16 +102,16 @@ public class ContentObjectApiRevision {
      * Get head
      * @return head
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getHead() {
         return head;
     }
 
-    public void setHead(@javax.annotation.Nonnull Boolean head) {
+    public void setHead(@jakarta.annotation.Nonnull Boolean head) {
         this.head = head;
     }
 
-    public ContentObjectApiRevision label(@javax.annotation.Nullable String label) {
+    public ContentObjectApiRevision label(@jakarta.annotation.Nullable String label) {
         this.label = label;
         return this;
     }
@@ -120,11 +120,11 @@ public class ContentObjectApiRevision {
      * Get label
      * @return label
      */
-    @javax.annotation.Nullable public String getLabel() {
+    @jakarta.annotation.Nullable public String getLabel() {
         return label;
     }
 
-    public void setLabel(@javax.annotation.Nullable String label) {
+    public void setLabel(@jakarta.annotation.Nullable String label) {
         this.label = label;
     }
 

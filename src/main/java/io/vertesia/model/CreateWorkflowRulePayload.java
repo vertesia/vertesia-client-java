@@ -34,75 +34,75 @@ import java.util.Objects;
 /**
  * CreateWorkflowRulePayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateWorkflowRulePayload {
     public static final String SERIALIZED_NAME_MATCH = "match";
 
     @SerializedName(SERIALIZED_NAME_MATCH)
-    @javax.annotation.Nullable private Map<String, Object> match = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> match = new HashMap<>();
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @javax.annotation.Nullable private Map<String, Object> config = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> config = new HashMap<>();
 
     public static final String SERIALIZED_NAME_DEBUG = "debug";
 
     @SerializedName(SERIALIZED_NAME_DEBUG)
-    @javax.annotation.Nullable private Boolean debug = false;
+    @jakarta.annotation.Nullable private Boolean debug = false;
 
     public static final String SERIALIZED_NAME_CUSTOMER_OVERRIDE = "customer_override";
 
     @SerializedName(SERIALIZED_NAME_CUSTOMER_OVERRIDE)
-    @javax.annotation.Nullable private Boolean customerOverride;
+    @jakarta.annotation.Nullable private Boolean customerOverride;
 
     public static final String SERIALIZED_NAME_TASK_QUEUE = "task_queue";
 
     @SerializedName(SERIALIZED_NAME_TASK_QUEUE)
-    @javax.annotation.Nullable private String taskQueue;
+    @jakarta.annotation.Nullable private String taskQueue;
 
     public static final String SERIALIZED_NAME_ENDPOINT = "endpoint";
 
     @SerializedName(SERIALIZED_NAME_ENDPOINT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String endpoint;
 
     public static final String SERIALIZED_NAME_INPUT_TYPE = "input_type";
 
     @SerializedName(SERIALIZED_NAME_INPUT_TYPE)
-    @javax.annotation.Nullable private WorkflowRuleInputType inputType;
+    @jakarta.annotation.Nullable private WorkflowRuleInputType inputType;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @javax.annotation.Nullable private String updatedBy;
+    @jakarta.annotation.Nullable private String updatedBy;
 
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @javax.annotation.Nullable private String createdBy;
+    @jakarta.annotation.Nullable private String createdBy;
 
     public CreateWorkflowRulePayload() {}
 
-    public CreateWorkflowRulePayload match(@javax.annotation.Nullable Map<String, Object> match) {
+    public CreateWorkflowRulePayload match(@jakarta.annotation.Nullable Map<String, Object> match) {
         this.match = match;
         return this;
     }
@@ -119,15 +119,16 @@ public class CreateWorkflowRulePayload {
      * Get match
      * @return match
      */
-    @javax.annotation.Nullable public Map<String, Object> getMatch() {
+    @jakarta.annotation.Nullable public Map<String, Object> getMatch() {
         return match;
     }
 
-    public void setMatch(@javax.annotation.Nullable Map<String, Object> match) {
+    public void setMatch(@jakarta.annotation.Nullable Map<String, Object> match) {
         this.match = match;
     }
 
-    public CreateWorkflowRulePayload config(@javax.annotation.Nullable Map<String, Object> config) {
+    public CreateWorkflowRulePayload config(
+            @jakarta.annotation.Nullable Map<String, Object> config) {
         this.config = config;
         return this;
     }
@@ -144,15 +145,15 @@ public class CreateWorkflowRulePayload {
      * Activities configuration if any.
      * @return config
      */
-    @javax.annotation.Nullable public Map<String, Object> getConfig() {
+    @jakarta.annotation.Nullable public Map<String, Object> getConfig() {
         return config;
     }
 
-    public void setConfig(@javax.annotation.Nullable Map<String, Object> config) {
+    public void setConfig(@jakarta.annotation.Nullable Map<String, Object> config) {
         this.config = config;
     }
 
-    public CreateWorkflowRulePayload debug(@javax.annotation.Nullable Boolean debug) {
+    public CreateWorkflowRulePayload debug(@jakarta.annotation.Nullable Boolean debug) {
         this.debug = debug;
         return this;
     }
@@ -161,16 +162,16 @@ public class CreateWorkflowRulePayload {
      * Debug mode for the rule
      * @return debug
      */
-    @javax.annotation.Nullable public Boolean getDebug() {
+    @jakarta.annotation.Nullable public Boolean getDebug() {
         return debug;
     }
 
-    public void setDebug(@javax.annotation.Nullable Boolean debug) {
+    public void setDebug(@jakarta.annotation.Nullable Boolean debug) {
         this.debug = debug;
     }
 
     public CreateWorkflowRulePayload customerOverride(
-            @javax.annotation.Nullable Boolean customerOverride) {
+            @jakarta.annotation.Nullable Boolean customerOverride) {
         this.customerOverride = customerOverride;
         return this;
     }
@@ -179,15 +180,15 @@ public class CreateWorkflowRulePayload {
      * Customer override for the rule When set to true the rule will not be updated by the system
      * @return customerOverride
      */
-    @javax.annotation.Nullable public Boolean getCustomerOverride() {
+    @jakarta.annotation.Nullable public Boolean getCustomerOverride() {
         return customerOverride;
     }
 
-    public void setCustomerOverride(@javax.annotation.Nullable Boolean customerOverride) {
+    public void setCustomerOverride(@jakarta.annotation.Nullable Boolean customerOverride) {
         this.customerOverride = customerOverride;
     }
 
-    public CreateWorkflowRulePayload taskQueue(@javax.annotation.Nullable String taskQueue) {
+    public CreateWorkflowRulePayload taskQueue(@jakarta.annotation.Nullable String taskQueue) {
         this.taskQueue = taskQueue;
         return this;
     }
@@ -196,15 +197,15 @@ public class CreateWorkflowRulePayload {
      * Optional task queue name to use when starting workflows for this rule
      * @return taskQueue
      */
-    @javax.annotation.Nullable public String getTaskQueue() {
+    @jakarta.annotation.Nullable public String getTaskQueue() {
         return taskQueue;
     }
 
-    public void setTaskQueue(@javax.annotation.Nullable String taskQueue) {
+    public void setTaskQueue(@jakarta.annotation.Nullable String taskQueue) {
         this.taskQueue = taskQueue;
     }
 
-    public CreateWorkflowRulePayload endpoint(@javax.annotation.Nonnull String endpoint) {
+    public CreateWorkflowRulePayload endpoint(@jakarta.annotation.Nonnull String endpoint) {
         this.endpoint = endpoint;
         return this;
     }
@@ -213,17 +214,17 @@ public class CreateWorkflowRulePayload {
      * Get endpoint
      * @return endpoint
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getEndpoint() {
         return endpoint;
     }
 
-    public void setEndpoint(@javax.annotation.Nonnull String endpoint) {
+    public void setEndpoint(@jakarta.annotation.Nonnull String endpoint) {
         this.endpoint = endpoint;
     }
 
     public CreateWorkflowRulePayload inputType(
-            @javax.annotation.Nullable WorkflowRuleInputType inputType) {
+            @jakarta.annotation.Nullable WorkflowRuleInputType inputType) {
         this.inputType = inputType;
         return this;
     }
@@ -232,15 +233,15 @@ public class CreateWorkflowRulePayload {
      * Get inputType
      * @return inputType
      */
-    @javax.annotation.Nullable public WorkflowRuleInputType getInputType() {
+    @jakarta.annotation.Nullable public WorkflowRuleInputType getInputType() {
         return inputType;
     }
 
-    public void setInputType(@javax.annotation.Nullable WorkflowRuleInputType inputType) {
+    public void setInputType(@jakarta.annotation.Nullable WorkflowRuleInputType inputType) {
         this.inputType = inputType;
     }
 
-    public CreateWorkflowRulePayload name(@javax.annotation.Nonnull String name) {
+    public CreateWorkflowRulePayload name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -249,16 +250,16 @@ public class CreateWorkflowRulePayload {
      * Human-readable name or title
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public CreateWorkflowRulePayload description(@javax.annotation.Nullable String description) {
+    public CreateWorkflowRulePayload description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -267,15 +268,15 @@ public class CreateWorkflowRulePayload {
      * Optional detailed description of the object
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public CreateWorkflowRulePayload tags(@javax.annotation.Nullable List<String> tags) {
+    public CreateWorkflowRulePayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -292,15 +293,15 @@ public class CreateWorkflowRulePayload {
      * Optional array of categorization tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
-    public CreateWorkflowRulePayload updatedBy(@javax.annotation.Nullable String updatedBy) {
+    public CreateWorkflowRulePayload updatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
     }
@@ -309,15 +310,15 @@ public class CreateWorkflowRulePayload {
      * Identifier of the user who last modified the object
      * @return updatedBy
      */
-    @javax.annotation.Nullable public String getUpdatedBy() {
+    @jakarta.annotation.Nullable public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(@javax.annotation.Nullable String updatedBy) {
+    public void setUpdatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
     }
 
-    public CreateWorkflowRulePayload createdBy(@javax.annotation.Nullable String createdBy) {
+    public CreateWorkflowRulePayload createdBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
@@ -326,11 +327,11 @@ public class CreateWorkflowRulePayload {
      * Identifier of the user who created the object
      * @return createdBy
      */
-    @javax.annotation.Nullable public String getCreatedBy() {
+    @jakarta.annotation.Nullable public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(@javax.annotation.Nullable String createdBy) {
+    public void setCreatedBy(@jakarta.annotation.Nullable String createdBy) {
         this.createdBy = createdBy;
     }
 

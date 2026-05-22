@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * Configuration entry for an individual app in the CompositeApp shell. References an app installation by name.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppEntry {
     public static final String SERIALIZED_NAME_APP_NAME = "appName";
 
     @SerializedName(SERIALIZED_NAME_APP_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String appName;
 
     public CompositeAppEntry() {}
 
-    public CompositeAppEntry appName(@javax.annotation.Nonnull String appName) {
+    public CompositeAppEntry appName(@jakarta.annotation.Nonnull String appName) {
         this.appName = appName;
         return this;
     }
@@ -51,12 +51,12 @@ public class CompositeAppEntry {
      * App installation name (must match an installed app)
      * @return appName
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAppName() {
         return appName;
     }
 
-    public void setAppName(@javax.annotation.Nonnull String appName) {
+    public void setAppName(@jakarta.annotation.Nonnull String appName) {
         this.appName = appName;
     }
 

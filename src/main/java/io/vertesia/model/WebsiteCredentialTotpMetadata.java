@@ -32,14 +32,14 @@ import java.util.Objects;
 /**
  * WebsiteCredentialTotpMetadata
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class WebsiteCredentialTotpMetadata {
     public static final String SERIALIZED_NAME_ALGORITHM = "algorithm";
 
     @SerializedName(SERIALIZED_NAME_ALGORITHM)
-    @javax.annotation.Nullable private WebsiteCredentialTotpAlgorithm algorithm;
+    @jakarta.annotation.Nullable private WebsiteCredentialTotpAlgorithm algorithm;
 
     /**
      * Gets or Sets digits
@@ -99,27 +99,27 @@ public class WebsiteCredentialTotpMetadata {
     public static final String SERIALIZED_NAME_DIGITS = "digits";
 
     @SerializedName(SERIALIZED_NAME_DIGITS)
-    @javax.annotation.Nullable private DigitsEnum digits;
+    @jakarta.annotation.Nullable private DigitsEnum digits;
 
     public static final String SERIALIZED_NAME_PERIOD = "period";
 
     @SerializedName(SERIALIZED_NAME_PERIOD)
-    @javax.annotation.Nullable private BigDecimal period;
+    @jakarta.annotation.Nullable private BigDecimal period;
 
     public static final String SERIALIZED_NAME_ISSUER = "issuer";
 
     @SerializedName(SERIALIZED_NAME_ISSUER)
-    @javax.annotation.Nullable private String issuer;
+    @jakarta.annotation.Nullable private String issuer;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @javax.annotation.Nullable private String account;
+    @jakarta.annotation.Nullable private String account;
 
     public WebsiteCredentialTotpMetadata() {}
 
     public WebsiteCredentialTotpMetadata algorithm(
-            @javax.annotation.Nullable WebsiteCredentialTotpAlgorithm algorithm) {
+            @jakarta.annotation.Nullable WebsiteCredentialTotpAlgorithm algorithm) {
         this.algorithm = algorithm;
         return this;
     }
@@ -128,15 +128,16 @@ public class WebsiteCredentialTotpMetadata {
      * Get algorithm
      * @return algorithm
      */
-    @javax.annotation.Nullable public WebsiteCredentialTotpAlgorithm getAlgorithm() {
+    @jakarta.annotation.Nullable public WebsiteCredentialTotpAlgorithm getAlgorithm() {
         return algorithm;
     }
 
-    public void setAlgorithm(@javax.annotation.Nullable WebsiteCredentialTotpAlgorithm algorithm) {
+    public void setAlgorithm(
+            @jakarta.annotation.Nullable WebsiteCredentialTotpAlgorithm algorithm) {
         this.algorithm = algorithm;
     }
 
-    public WebsiteCredentialTotpMetadata digits(@javax.annotation.Nullable DigitsEnum digits) {
+    public WebsiteCredentialTotpMetadata digits(@jakarta.annotation.Nullable DigitsEnum digits) {
         this.digits = digits;
         return this;
     }
@@ -145,15 +146,15 @@ public class WebsiteCredentialTotpMetadata {
      * Get digits
      * @return digits
      */
-    @javax.annotation.Nullable public DigitsEnum getDigits() {
+    @jakarta.annotation.Nullable public DigitsEnum getDigits() {
         return digits;
     }
 
-    public void setDigits(@javax.annotation.Nullable DigitsEnum digits) {
+    public void setDigits(@jakarta.annotation.Nullable DigitsEnum digits) {
         this.digits = digits;
     }
 
-    public WebsiteCredentialTotpMetadata period(@javax.annotation.Nullable BigDecimal period) {
+    public WebsiteCredentialTotpMetadata period(@jakarta.annotation.Nullable BigDecimal period) {
         this.period = period;
         return this;
     }
@@ -162,15 +163,15 @@ public class WebsiteCredentialTotpMetadata {
      * Get period
      * @return period
      */
-    @javax.annotation.Nullable public BigDecimal getPeriod() {
+    @jakarta.annotation.Nullable public BigDecimal getPeriod() {
         return period;
     }
 
-    public void setPeriod(@javax.annotation.Nullable BigDecimal period) {
+    public void setPeriod(@jakarta.annotation.Nullable BigDecimal period) {
         this.period = period;
     }
 
-    public WebsiteCredentialTotpMetadata issuer(@javax.annotation.Nullable String issuer) {
+    public WebsiteCredentialTotpMetadata issuer(@jakarta.annotation.Nullable String issuer) {
         this.issuer = issuer;
         return this;
     }
@@ -179,15 +180,15 @@ public class WebsiteCredentialTotpMetadata {
      * Get issuer
      * @return issuer
      */
-    @javax.annotation.Nullable public String getIssuer() {
+    @jakarta.annotation.Nullable public String getIssuer() {
         return issuer;
     }
 
-    public void setIssuer(@javax.annotation.Nullable String issuer) {
+    public void setIssuer(@jakarta.annotation.Nullable String issuer) {
         this.issuer = issuer;
     }
 
-    public WebsiteCredentialTotpMetadata account(@javax.annotation.Nullable String account) {
+    public WebsiteCredentialTotpMetadata account(@jakarta.annotation.Nullable String account) {
         this.account = account;
         return this;
     }
@@ -196,11 +197,11 @@ public class WebsiteCredentialTotpMetadata {
      * Get account
      * @return account
      */
-    @javax.annotation.Nullable public String getAccount() {
+    @jakarta.annotation.Nullable public String getAccount() {
         return account;
     }
 
-    public void setAccount(@javax.annotation.Nullable String account) {
+    public void setAccount(@jakarta.annotation.Nullable String account) {
         this.account = account;
     }
 

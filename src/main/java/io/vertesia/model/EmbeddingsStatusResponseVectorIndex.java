@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * EmbeddingsStatusResponseVectorIndex
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EmbeddingsStatusResponseVectorIndex {
@@ -97,22 +97,23 @@ public class EmbeddingsStatusResponseVectorIndex {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private StatusEnum status;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private String type;
+    @jakarta.annotation.Nullable private String type;
 
     public EmbeddingsStatusResponseVectorIndex() {}
 
-    public EmbeddingsStatusResponseVectorIndex status(@javax.annotation.Nonnull StatusEnum status) {
+    public EmbeddingsStatusResponseVectorIndex status(
+            @jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
         return this;
     }
@@ -121,16 +122,16 @@ public class EmbeddingsStatusResponseVectorIndex {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
+    public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
     }
 
-    public EmbeddingsStatusResponseVectorIndex name(@javax.annotation.Nullable String name) {
+    public EmbeddingsStatusResponseVectorIndex name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -139,15 +140,15 @@ public class EmbeddingsStatusResponseVectorIndex {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public EmbeddingsStatusResponseVectorIndex type(@javax.annotation.Nullable String type) {
+    public EmbeddingsStatusResponseVectorIndex type(@jakarta.annotation.Nullable String type) {
         this.type = type;
         return this;
     }
@@ -156,11 +157,11 @@ public class EmbeddingsStatusResponseVectorIndex {
      * Get type
      * @return type
      */
-    @javax.annotation.Nullable public String getType() {
+    @jakarta.annotation.Nullable public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable String type) {
+    public void setType(@jakarta.annotation.Nullable String type) {
         this.type = type;
     }
 

@@ -31,25 +31,25 @@ import java.util.Objects;
 /**
  * Dimensions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class Dimensions {
     public static final String SERIALIZED_NAME_WIDTH = "width";
 
     @SerializedName(SERIALIZED_NAME_WIDTH)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal width;
 
     public static final String SERIALIZED_NAME_HEIGHT = "height";
 
     @SerializedName(SERIALIZED_NAME_HEIGHT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal height;
 
     public Dimensions() {}
 
-    public Dimensions width(@javax.annotation.Nonnull BigDecimal width) {
+    public Dimensions width(@jakarta.annotation.Nonnull BigDecimal width) {
         this.width = width;
         return this;
     }
@@ -58,16 +58,16 @@ public class Dimensions {
      * Get width
      * @return width
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getWidth() {
         return width;
     }
 
-    public void setWidth(@javax.annotation.Nonnull BigDecimal width) {
+    public void setWidth(@jakarta.annotation.Nonnull BigDecimal width) {
         this.width = width;
     }
 
-    public Dimensions height(@javax.annotation.Nonnull BigDecimal height) {
+    public Dimensions height(@jakarta.annotation.Nonnull BigDecimal height) {
         this.height = height;
         return this;
     }
@@ -76,12 +76,12 @@ public class Dimensions {
      * Get height
      * @return height
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getHeight() {
         return height;
     }
 
-    public void setHeight(@javax.annotation.Nonnull BigDecimal height) {
+    public void setHeight(@jakarta.annotation.Nonnull BigDecimal height) {
         this.height = height;
     }
 

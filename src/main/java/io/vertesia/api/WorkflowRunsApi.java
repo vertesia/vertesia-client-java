@@ -91,9 +91,9 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call applyWorkflowRunActionCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String action,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String action,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -160,9 +160,9 @@ public class WorkflowRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call applyWorkflowRunActionValidateBeforeCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String action,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String action,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'workflowId' is set
@@ -204,9 +204,9 @@ public class WorkflowRunsApi {
      * </table>
      */
     public WorkflowActionResponse applyWorkflowRunAction(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String action)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String action)
             throws ApiException {
         ApiResponse<WorkflowActionResponse> localVarResp =
                 applyWorkflowRunActionWithHttpInfo(workflowId, runId, action);
@@ -231,9 +231,9 @@ public class WorkflowRunsApi {
      * </table>
      */
     public ApiResponse<WorkflowActionResponse> applyWorkflowRunActionWithHttpInfo(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String action)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String action)
             throws ApiException {
         okhttp3.Call localVarCall =
                 applyWorkflowRunActionValidateBeforeCall(workflowId, runId, action, null);
@@ -260,9 +260,9 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call applyWorkflowRunActionAsync(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String action,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String action,
             final ApiCallback<WorkflowActionResponse> _callback)
             throws ApiException {
 
@@ -290,8 +290,8 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call executeWorkflowCall(
-            @javax.annotation.Nonnull String workflowName,
-            @javax.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
+            @jakarta.annotation.Nonnull String workflowName,
+            @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -352,8 +352,8 @@ public class WorkflowRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call executeWorkflowValidateBeforeCall(
-            @javax.annotation.Nonnull String workflowName,
-            @javax.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
+            @jakarta.annotation.Nonnull String workflowName,
+            @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'workflowName' is set
@@ -388,8 +388,8 @@ public class WorkflowRunsApi {
      * </table>
      */
     public List<WorkflowExecutionStartResult> executeWorkflow(
-            @javax.annotation.Nonnull String workflowName,
-            @javax.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload)
+            @jakarta.annotation.Nonnull String workflowName,
+            @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload)
             throws ApiException {
         ApiResponse<List<WorkflowExecutionStartResult>> localVarResp =
                 executeWorkflowWithHttpInfo(workflowName, executeWorkflowPayload);
@@ -413,8 +413,8 @@ public class WorkflowRunsApi {
      * </table>
      */
     public ApiResponse<List<WorkflowExecutionStartResult>> executeWorkflowWithHttpInfo(
-            @javax.annotation.Nonnull String workflowName,
-            @javax.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload)
+            @jakarta.annotation.Nonnull String workflowName,
+            @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 executeWorkflowValidateBeforeCall(workflowName, executeWorkflowPayload, null);
@@ -440,8 +440,8 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call executeWorkflowAsync(
-            @javax.annotation.Nonnull String workflowName,
-            @javax.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
+            @jakarta.annotation.Nonnull String workflowName,
+            @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
             final ApiCallback<List<WorkflowExecutionStartResult>> _callback)
             throws ApiException {
 
@@ -469,8 +469,8 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call executeWorkflowRuleCall(
-            @javax.annotation.Nonnull String ruleId,
-            @javax.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
+            @jakarta.annotation.Nonnull String ruleId,
+            @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -531,8 +531,8 @@ public class WorkflowRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call executeWorkflowRuleValidateBeforeCall(
-            @javax.annotation.Nonnull String ruleId,
-            @javax.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
+            @jakarta.annotation.Nonnull String ruleId,
+            @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ruleId' is set
@@ -567,8 +567,8 @@ public class WorkflowRunsApi {
      * </table>
      */
     public List<WorkflowExecutionStartResult> executeWorkflowRule(
-            @javax.annotation.Nonnull String ruleId,
-            @javax.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload)
+            @jakarta.annotation.Nonnull String ruleId,
+            @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload)
             throws ApiException {
         ApiResponse<List<WorkflowExecutionStartResult>> localVarResp =
                 executeWorkflowRuleWithHttpInfo(ruleId, executeWorkflowPayload);
@@ -592,8 +592,8 @@ public class WorkflowRunsApi {
      * </table>
      */
     public ApiResponse<List<WorkflowExecutionStartResult>> executeWorkflowRuleWithHttpInfo(
-            @javax.annotation.Nonnull String ruleId,
-            @javax.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload)
+            @jakarta.annotation.Nonnull String ruleId,
+            @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 executeWorkflowRuleValidateBeforeCall(ruleId, executeWorkflowPayload, null);
@@ -619,8 +619,8 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call executeWorkflowRuleAsync(
-            @javax.annotation.Nonnull String ruleId,
-            @javax.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
+            @jakarta.annotation.Nonnull String ruleId,
+            @jakarta.annotation.Nonnull ExecuteWorkflowPayload executeWorkflowPayload,
             final ApiCallback<List<WorkflowExecutionStartResult>> _callback)
             throws ApiException {
 
@@ -650,10 +650,10 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call getWorkflowRunCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable Boolean includeHistory,
-            @javax.annotation.Nullable String historyFormat,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable Boolean includeHistory,
+            @jakarta.annotation.Nullable String historyFormat,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -727,10 +727,10 @@ public class WorkflowRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWorkflowRunValidateBeforeCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable Boolean includeHistory,
-            @javax.annotation.Nullable String historyFormat,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable Boolean includeHistory,
+            @jakarta.annotation.Nullable String historyFormat,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'workflowId' is set
@@ -767,10 +767,10 @@ public class WorkflowRunsApi {
      * </table>
      */
     public WorkflowRunWithDetails getWorkflowRun(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable Boolean includeHistory,
-            @javax.annotation.Nullable String historyFormat)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable Boolean includeHistory,
+            @jakarta.annotation.Nullable String historyFormat)
             throws ApiException {
         ApiResponse<WorkflowRunWithDetails> localVarResp =
                 getWorkflowRunWithHttpInfo(workflowId, runId, includeHistory, historyFormat);
@@ -796,10 +796,10 @@ public class WorkflowRunsApi {
      * </table>
      */
     public ApiResponse<WorkflowRunWithDetails> getWorkflowRunWithHttpInfo(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable Boolean includeHistory,
-            @javax.annotation.Nullable String historyFormat)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable Boolean includeHistory,
+            @jakarta.annotation.Nullable String historyFormat)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getWorkflowRunValidateBeforeCall(
@@ -828,10 +828,10 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call getWorkflowRunAsync(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable Boolean includeHistory,
-            @javax.annotation.Nullable String historyFormat,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable Boolean includeHistory,
+            @jakarta.annotation.Nullable String historyFormat,
             final ApiCallback<WorkflowRunWithDetails> _callback)
             throws ApiException {
 
@@ -861,9 +861,9 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call getWorkflowRunUpdatesCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable BigDecimal since,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable BigDecimal since,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -931,9 +931,9 @@ public class WorkflowRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWorkflowRunUpdatesValidateBeforeCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable BigDecimal since,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable BigDecimal since,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'workflowId' is set
@@ -969,9 +969,9 @@ public class WorkflowRunsApi {
      * </table>
      */
     public WorkflowRunUpdatesResponse getWorkflowRunUpdates(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable BigDecimal since)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable BigDecimal since)
             throws ApiException {
         ApiResponse<WorkflowRunUpdatesResponse> localVarResp =
                 getWorkflowRunUpdatesWithHttpInfo(workflowId, runId, since);
@@ -996,9 +996,9 @@ public class WorkflowRunsApi {
      * </table>
      */
     public ApiResponse<WorkflowRunUpdatesResponse> getWorkflowRunUpdatesWithHttpInfo(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable BigDecimal since)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable BigDecimal since)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getWorkflowRunUpdatesValidateBeforeCall(workflowId, runId, since, null);
@@ -1025,9 +1025,9 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call getWorkflowRunUpdatesAsync(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable BigDecimal since,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable BigDecimal since,
             final ApiCallback<WorkflowRunUpdatesResponse> _callback)
             throws ApiException {
 
@@ -1054,7 +1054,7 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call listWorkflowRuleRunsCall(
-            @javax.annotation.Nonnull String ruleId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ruleId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1114,7 +1114,7 @@ public class WorkflowRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listWorkflowRuleRunsValidateBeforeCall(
-            @javax.annotation.Nonnull String ruleId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String ruleId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ruleId' is set
         if (ruleId == null) {
@@ -1140,7 +1140,7 @@ public class WorkflowRunsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ListWorkflowRunsResponse listWorkflowRuleRuns(@javax.annotation.Nonnull String ruleId)
+    public ListWorkflowRunsResponse listWorkflowRuleRuns(@jakarta.annotation.Nonnull String ruleId)
             throws ApiException {
         ApiResponse<ListWorkflowRunsResponse> localVarResp =
                 listWorkflowRuleRunsWithHttpInfo(ruleId);
@@ -1163,7 +1163,7 @@ public class WorkflowRunsApi {
      * </table>
      */
     public ApiResponse<ListWorkflowRunsResponse> listWorkflowRuleRunsWithHttpInfo(
-            @javax.annotation.Nonnull String ruleId) throws ApiException {
+            @jakarta.annotation.Nonnull String ruleId) throws ApiException {
         okhttp3.Call localVarCall = listWorkflowRuleRunsValidateBeforeCall(ruleId, null);
         Type localVarReturnType = new TypeToken<ListWorkflowRunsResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -1186,7 +1186,7 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call listWorkflowRuleRunsAsync(
-            @javax.annotation.Nonnull String ruleId,
+            @jakarta.annotation.Nonnull String ruleId,
             final ApiCallback<ListWorkflowRunsResponse> _callback)
             throws ApiException {
 
@@ -1212,7 +1212,7 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call listWorkflowRunsCall(
-            @javax.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload,
+            @jakarta.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1269,7 +1269,7 @@ public class WorkflowRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listWorkflowRunsValidateBeforeCall(
-            @javax.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload,
+            @jakarta.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'listWorkflowRunsPayload' is set
@@ -1297,7 +1297,7 @@ public class WorkflowRunsApi {
      * </table>
      */
     public ListWorkflowRunsResponse listWorkflowRuns(
-            @javax.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload)
+            @jakarta.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload)
             throws ApiException {
         ApiResponse<ListWorkflowRunsResponse> localVarResp =
                 listWorkflowRunsWithHttpInfo(listWorkflowRunsPayload);
@@ -1320,7 +1320,7 @@ public class WorkflowRunsApi {
      * </table>
      */
     public ApiResponse<ListWorkflowRunsResponse> listWorkflowRunsWithHttpInfo(
-            @javax.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload)
+            @jakarta.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listWorkflowRunsValidateBeforeCall(listWorkflowRunsPayload, null);
@@ -1345,7 +1345,7 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call listWorkflowRunsAsync(
-            @javax.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload,
+            @jakarta.annotation.Nonnull ListWorkflowRunsPayload listWorkflowRunsPayload,
             final ApiCallback<ListWorkflowRunsResponse> _callback)
             throws ApiException {
 
@@ -1373,8 +1373,8 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call postWorkflowRunUpdateCall(
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1435,8 +1435,8 @@ public class WorkflowRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call postWorkflowRunUpdateValidateBeforeCall(
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'runId' is set
@@ -1471,8 +1471,8 @@ public class WorkflowRunsApi {
      * </table>
      */
     public WorkflowUpdatePublishResponse postWorkflowRunUpdate(
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload)
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload)
             throws ApiException {
         ApiResponse<WorkflowUpdatePublishResponse> localVarResp =
                 postWorkflowRunUpdateWithHttpInfo(runId, postAgentRunUpdatePayload);
@@ -1496,8 +1496,8 @@ public class WorkflowRunsApi {
      * </table>
      */
     public ApiResponse<WorkflowUpdatePublishResponse> postWorkflowRunUpdateWithHttpInfo(
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload)
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 postWorkflowRunUpdateValidateBeforeCall(runId, postAgentRunUpdatePayload, null);
@@ -1523,8 +1523,8 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call postWorkflowRunUpdateAsync(
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull PostAgentRunUpdatePayload postAgentRunUpdatePayload,
             final ApiCallback<WorkflowUpdatePublishResponse> _callback)
             throws ApiException {
 
@@ -1554,9 +1554,9 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call queryWorkflowRunCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String queryName,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String queryName,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1623,9 +1623,9 @@ public class WorkflowRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call queryWorkflowRunValidateBeforeCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String queryName,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String queryName,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'workflowId' is set
@@ -1667,9 +1667,9 @@ public class WorkflowRunsApi {
      * </table>
      */
     public Object queryWorkflowRun(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String queryName)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String queryName)
             throws ApiException {
         ApiResponse<Object> localVarResp =
                 queryWorkflowRunWithHttpInfo(workflowId, runId, queryName);
@@ -1694,9 +1694,9 @@ public class WorkflowRunsApi {
      * </table>
      */
     public ApiResponse<Object> queryWorkflowRunWithHttpInfo(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String queryName)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String queryName)
             throws ApiException {
         okhttp3.Call localVarCall =
                 queryWorkflowRunValidateBeforeCall(workflowId, runId, queryName, null);
@@ -1723,9 +1723,9 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call queryWorkflowRunAsync(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String queryName,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String queryName,
             final ApiCallback<Object> _callback)
             throws ApiException {
 
@@ -1755,10 +1755,10 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call signalWorkflowRunCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String signalName,
-            @javax.annotation.Nonnull Map<String, Object> requestBody,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String signalName,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1825,10 +1825,10 @@ public class WorkflowRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call signalWorkflowRunValidateBeforeCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String signalName,
-            @javax.annotation.Nonnull Map<String, Object> requestBody,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String signalName,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'workflowId' is set
@@ -1877,10 +1877,10 @@ public class WorkflowRunsApi {
      * </table>
      */
     public SignalAgentResponse signalWorkflowRun(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String signalName,
-            @javax.annotation.Nonnull Map<String, Object> requestBody)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String signalName,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody)
             throws ApiException {
         ApiResponse<SignalAgentResponse> localVarResp =
                 signalWorkflowRunWithHttpInfo(workflowId, runId, signalName, requestBody);
@@ -1906,10 +1906,10 @@ public class WorkflowRunsApi {
      * </table>
      */
     public ApiResponse<SignalAgentResponse> signalWorkflowRunWithHttpInfo(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String signalName,
-            @javax.annotation.Nonnull Map<String, Object> requestBody)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String signalName,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody)
             throws ApiException {
         okhttp3.Call localVarCall =
                 signalWorkflowRunValidateBeforeCall(
@@ -1938,10 +1938,10 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call signalWorkflowRunAsync(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nonnull String signalName,
-            @javax.annotation.Nonnull Map<String, Object> requestBody,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nonnull String signalName,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody,
             final ApiCallback<SignalAgentResponse> _callback)
             throws ApiException {
 
@@ -1972,10 +1972,10 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call streamWorkflowRunUpdatesCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable BigDecimal since,
-            @javax.annotation.Nullable Boolean skipHistory,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable BigDecimal since,
+            @jakarta.annotation.Nullable Boolean skipHistory,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2048,10 +2048,10 @@ public class WorkflowRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call streamWorkflowRunUpdatesValidateBeforeCall(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable BigDecimal since,
-            @javax.annotation.Nullable Boolean skipHistory,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable BigDecimal since,
+            @jakarta.annotation.Nullable Boolean skipHistory,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'workflowId' is set
@@ -2088,10 +2088,10 @@ public class WorkflowRunsApi {
      * </table>
      */
     public String streamWorkflowRunUpdates(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable BigDecimal since,
-            @javax.annotation.Nullable Boolean skipHistory)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable BigDecimal since,
+            @jakarta.annotation.Nullable Boolean skipHistory)
             throws ApiException {
         ApiResponse<String> localVarResp =
                 streamWorkflowRunUpdatesWithHttpInfo(workflowId, runId, since, skipHistory);
@@ -2117,10 +2117,10 @@ public class WorkflowRunsApi {
      * </table>
      */
     public ApiResponse<String> streamWorkflowRunUpdatesWithHttpInfo(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable BigDecimal since,
-            @javax.annotation.Nullable Boolean skipHistory)
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable BigDecimal since,
+            @jakarta.annotation.Nullable Boolean skipHistory)
             throws ApiException {
         okhttp3.Call localVarCall =
                 streamWorkflowRunUpdatesValidateBeforeCall(
@@ -2149,10 +2149,10 @@ public class WorkflowRunsApi {
      * </table>
      */
     public okhttp3.Call streamWorkflowRunUpdatesAsync(
-            @javax.annotation.Nonnull String workflowId,
-            @javax.annotation.Nonnull String runId,
-            @javax.annotation.Nullable BigDecimal since,
-            @javax.annotation.Nullable Boolean skipHistory,
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable BigDecimal since,
+            @jakarta.annotation.Nullable Boolean skipHistory,
             final ApiCallback<String> _callback)
             throws ApiException {
 

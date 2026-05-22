@@ -32,40 +32,40 @@ import java.util.Objects;
 /**
  * BranchNodeBranchDefinition
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BranchNodeBranchDefinition {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nullable private String title;
+    @jakarta.annotation.Nullable private String title;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_NODE = "node";
 
     @SerializedName(SERIALIZED_NAME_NODE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private NodeDefinition node;
 
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @javax.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
 
     public BranchNodeBranchDefinition() {}
 
-    public BranchNodeBranchDefinition id(@javax.annotation.Nonnull String id) {
+    public BranchNodeBranchDefinition id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -74,16 +74,16 @@ public class BranchNodeBranchDefinition {
      * Get id
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public BranchNodeBranchDefinition title(@javax.annotation.Nullable String title) {
+    public BranchNodeBranchDefinition title(@jakarta.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -92,15 +92,15 @@ public class BranchNodeBranchDefinition {
      * Get title
      * @return title
      */
-    @javax.annotation.Nullable public String getTitle() {
+    @jakarta.annotation.Nullable public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nullable String title) {
+    public void setTitle(@jakarta.annotation.Nullable String title) {
         this.title = title;
     }
 
-    public BranchNodeBranchDefinition description(@javax.annotation.Nullable String description) {
+    public BranchNodeBranchDefinition description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -109,15 +109,15 @@ public class BranchNodeBranchDefinition {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public BranchNodeBranchDefinition node(@javax.annotation.Nonnull NodeDefinition node) {
+    public BranchNodeBranchDefinition node(@jakarta.annotation.Nonnull NodeDefinition node) {
         this.node = node;
         return this;
     }
@@ -126,17 +126,17 @@ public class BranchNodeBranchDefinition {
      * Get node
      * @return node
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public NodeDefinition getNode() {
         return node;
     }
 
-    public void setNode(@javax.annotation.Nonnull NodeDefinition node) {
+    public void setNode(@jakarta.annotation.Nonnull NodeDefinition node) {
         this.node = node;
     }
 
     public BranchNodeBranchDefinition metadata(
-            @javax.annotation.Nullable Map<String, Object> metadata) {
+            @jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -153,11 +153,11 @@ public class BranchNodeBranchDefinition {
      * Get metadata
      * @return metadata
      */
-    @javax.annotation.Nullable public Map<String, Object> getMetadata() {
+    @jakarta.annotation.Nullable public Map<String, Object> getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@javax.annotation.Nullable Map<String, Object> metadata) {
+    public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 

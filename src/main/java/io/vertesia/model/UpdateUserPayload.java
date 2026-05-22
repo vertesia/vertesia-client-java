@@ -35,58 +35,58 @@ import java.util.Objects;
 /**
  * UpdateUserPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UpdateUserPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_USERNAME = "username";
 
     @SerializedName(SERIALIZED_NAME_USERNAME)
-    @javax.annotation.Nullable private String username;
+    @jakarta.annotation.Nullable private String username;
 
     public static final String SERIALIZED_NAME_PICTURE = "picture";
 
     @SerializedName(SERIALIZED_NAME_PICTURE)
-    @javax.annotation.Nullable private String picture;
+    @jakarta.annotation.Nullable private String picture;
 
     public static final String SERIALIZED_NAME_LANGUAGE = "language";
 
     @SerializedName(SERIALIZED_NAME_LANGUAGE)
-    @javax.annotation.Nullable private String language;
+    @jakarta.annotation.Nullable private String language;
 
     public static final String SERIALIZED_NAME_PHONE = "phone";
 
     @SerializedName(SERIALIZED_NAME_PHONE)
-    @javax.annotation.Nullable private String phone;
+    @jakarta.annotation.Nullable private String phone;
 
     public static final String SERIALIZED_NAME_LAST_SELECTED_ACCOUNT = "last_selected_account";
 
     @SerializedName(SERIALIZED_NAME_LAST_SELECTED_ACCOUNT)
-    @javax.annotation.Nullable private String lastSelectedAccount;
+    @jakarta.annotation.Nullable private String lastSelectedAccount;
 
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
-    @javax.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
 
     public static final String SERIALIZED_NAME_CLEARANCE = "clearance";
 
     @SerializedName(SERIALIZED_NAME_CLEARANCE)
-    @javax.annotation.Nullable private BigDecimal clearance;
+    @jakarta.annotation.Nullable private BigDecimal clearance;
 
     public static final String SERIALIZED_NAME_COMPARTMENTS = "compartments";
 
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
-    @javax.annotation.Nullable private List<String> compartments = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
     public UpdateUserPayload() {}
 
-    public UpdateUserPayload name(@javax.annotation.Nullable String name) {
+    public UpdateUserPayload name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -95,15 +95,15 @@ public class UpdateUserPayload {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public UpdateUserPayload username(@javax.annotation.Nullable String username) {
+    public UpdateUserPayload username(@jakarta.annotation.Nullable String username) {
         this.username = username;
         return this;
     }
@@ -112,15 +112,15 @@ public class UpdateUserPayload {
      * Get username
      * @return username
      */
-    @javax.annotation.Nullable public String getUsername() {
+    @jakarta.annotation.Nullable public String getUsername() {
         return username;
     }
 
-    public void setUsername(@javax.annotation.Nullable String username) {
+    public void setUsername(@jakarta.annotation.Nullable String username) {
         this.username = username;
     }
 
-    public UpdateUserPayload picture(@javax.annotation.Nullable String picture) {
+    public UpdateUserPayload picture(@jakarta.annotation.Nullable String picture) {
         this.picture = picture;
         return this;
     }
@@ -129,15 +129,15 @@ public class UpdateUserPayload {
      * Get picture
      * @return picture
      */
-    @javax.annotation.Nullable public String getPicture() {
+    @jakarta.annotation.Nullable public String getPicture() {
         return picture;
     }
 
-    public void setPicture(@javax.annotation.Nullable String picture) {
+    public void setPicture(@jakarta.annotation.Nullable String picture) {
         this.picture = picture;
     }
 
-    public UpdateUserPayload language(@javax.annotation.Nullable String language) {
+    public UpdateUserPayload language(@jakarta.annotation.Nullable String language) {
         this.language = language;
         return this;
     }
@@ -146,15 +146,15 @@ public class UpdateUserPayload {
      * Get language
      * @return language
      */
-    @javax.annotation.Nullable public String getLanguage() {
+    @jakarta.annotation.Nullable public String getLanguage() {
         return language;
     }
 
-    public void setLanguage(@javax.annotation.Nullable String language) {
+    public void setLanguage(@jakarta.annotation.Nullable String language) {
         this.language = language;
     }
 
-    public UpdateUserPayload phone(@javax.annotation.Nullable String phone) {
+    public UpdateUserPayload phone(@jakarta.annotation.Nullable String phone) {
         this.phone = phone;
         return this;
     }
@@ -163,16 +163,16 @@ public class UpdateUserPayload {
      * Get phone
      * @return phone
      */
-    @javax.annotation.Nullable public String getPhone() {
+    @jakarta.annotation.Nullable public String getPhone() {
         return phone;
     }
 
-    public void setPhone(@javax.annotation.Nullable String phone) {
+    public void setPhone(@jakarta.annotation.Nullable String phone) {
         this.phone = phone;
     }
 
     public UpdateUserPayload lastSelectedAccount(
-            @javax.annotation.Nullable String lastSelectedAccount) {
+            @jakarta.annotation.Nullable String lastSelectedAccount) {
         this.lastSelectedAccount = lastSelectedAccount;
         return this;
     }
@@ -181,15 +181,16 @@ public class UpdateUserPayload {
      * Get lastSelectedAccount
      * @return lastSelectedAccount
      */
-    @javax.annotation.Nullable public String getLastSelectedAccount() {
+    @jakarta.annotation.Nullable public String getLastSelectedAccount() {
         return lastSelectedAccount;
     }
 
-    public void setLastSelectedAccount(@javax.annotation.Nullable String lastSelectedAccount) {
+    public void setLastSelectedAccount(@jakarta.annotation.Nullable String lastSelectedAccount) {
         this.lastSelectedAccount = lastSelectedAccount;
     }
 
-    public UpdateUserPayload properties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public UpdateUserPayload properties(
+            @jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
         return this;
     }
@@ -206,15 +207,15 @@ public class UpdateUserPayload {
      * Get properties
      * @return properties
      */
-    @javax.annotation.Nullable public Map<String, Object> getProperties() {
+    @jakarta.annotation.Nullable public Map<String, Object> getProperties() {
         return properties;
     }
 
-    public void setProperties(@javax.annotation.Nullable Map<String, Object> properties) {
+    public void setProperties(@jakarta.annotation.Nullable Map<String, Object> properties) {
         this.properties = properties;
     }
 
-    public UpdateUserPayload clearance(@javax.annotation.Nullable BigDecimal clearance) {
+    public UpdateUserPayload clearance(@jakarta.annotation.Nullable BigDecimal clearance) {
         this.clearance = clearance;
         return this;
     }
@@ -223,15 +224,15 @@ public class UpdateUserPayload {
      * Get clearance
      * @return clearance
      */
-    @javax.annotation.Nullable public BigDecimal getClearance() {
+    @jakarta.annotation.Nullable public BigDecimal getClearance() {
         return clearance;
     }
 
-    public void setClearance(@javax.annotation.Nullable BigDecimal clearance) {
+    public void setClearance(@jakarta.annotation.Nullable BigDecimal clearance) {
         this.clearance = clearance;
     }
 
-    public UpdateUserPayload compartments(@javax.annotation.Nullable List<String> compartments) {
+    public UpdateUserPayload compartments(@jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
         return this;
     }
@@ -248,11 +249,11 @@ public class UpdateUserPayload {
      * Get compartments
      * @return compartments
      */
-    @javax.annotation.Nullable public List<String> getCompartments() {
+    @jakarta.annotation.Nullable public List<String> getCompartments() {
         return compartments;
     }
 
-    public void setCompartments(@javax.annotation.Nullable List<String> compartments) {
+    public void setCompartments(@jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
     }
 

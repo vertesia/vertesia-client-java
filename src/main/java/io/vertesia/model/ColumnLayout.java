@@ -31,40 +31,40 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * ColumnLayout
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ColumnLayout {
     public static final String SERIALIZED_NAME_FIELD = "field";
 
     @SerializedName(SERIALIZED_NAME_FIELD)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String field;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nullable private String type;
+    @jakarta.annotation.Nullable private String type;
 
     public static final String SERIALIZED_NAME_FALLBACK = "fallback";
 
     @SerializedName(SERIALIZED_NAME_FALLBACK)
-    @javax.annotation.Nullable private String fallback;
+    @jakarta.annotation.Nullable private String fallback;
 
     public static final String SERIALIZED_NAME_DEFAULT = "default";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT)
-    @javax.annotation.Nullable private Object _default = null;
+    @jakarta.annotation.Nullable private Object _default = null;
 
     public ColumnLayout() {}
 
-    public ColumnLayout field(@javax.annotation.Nonnull String field) {
+    public ColumnLayout field(@jakarta.annotation.Nonnull String field) {
         this.field = field;
         return this;
     }
@@ -73,16 +73,16 @@ public class ColumnLayout {
      * The path of the field to use (e.g. \&quot;properties.title\&quot;)
      * @return field
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getField() {
         return field;
     }
 
-    public void setField(@javax.annotation.Nonnull String field) {
+    public void setField(@jakarta.annotation.Nonnull String field) {
         this.field = field;
     }
 
-    public ColumnLayout name(@javax.annotation.Nonnull String name) {
+    public ColumnLayout name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -91,16 +91,16 @@ public class ColumnLayout {
      * The name to display in the table column
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public ColumnLayout type(@javax.annotation.Nullable String type) {
+    public ColumnLayout type(@jakarta.annotation.Nullable String type) {
         this.type = type;
         return this;
     }
@@ -109,15 +109,15 @@ public class ColumnLayout {
      * The type of the field specifies how the rendering will be done. If not specified the string type will be used. The type may contain additional parameters prepended using a web-like query string syntax: date?LLL
      * @return type
      */
-    @javax.annotation.Nullable public String getType() {
+    @jakarta.annotation.Nullable public String getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nullable String type) {
+    public void setType(@jakarta.annotation.Nullable String type) {
         this.type = type;
     }
 
-    public ColumnLayout fallback(@javax.annotation.Nullable String fallback) {
+    public ColumnLayout fallback(@jakarta.annotation.Nullable String fallback) {
         this.fallback = fallback;
         return this;
     }
@@ -126,15 +126,15 @@ public class ColumnLayout {
      * Get fallback
      * @return fallback
      */
-    @javax.annotation.Nullable public String getFallback() {
+    @jakarta.annotation.Nullable public String getFallback() {
         return fallback;
     }
 
-    public void setFallback(@javax.annotation.Nullable String fallback) {
+    public void setFallback(@jakarta.annotation.Nullable String fallback) {
         this.fallback = fallback;
     }
 
-    public ColumnLayout _default(@javax.annotation.Nullable Object _default) {
+    public ColumnLayout _default(@jakarta.annotation.Nullable Object _default) {
         this._default = _default;
         return this;
     }
@@ -143,11 +143,11 @@ public class ColumnLayout {
      * Get _default
      * @return _default
      */
-    @javax.annotation.Nullable public Object getDefault() {
+    @jakarta.annotation.Nullable public Object getDefault() {
         return _default;
     }
 
-    public void setDefault(@javax.annotation.Nullable Object _default) {
+    public void setDefault(@jakarta.annotation.Nullable Object _default) {
         this._default = _default;
     }
 

@@ -33,50 +33,50 @@ import java.util.Objects;
 /**
  * Payload for creating a new table.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateTablePayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_COLUMNS = "columns";
 
     @SerializedName(SERIALIZED_NAME_COLUMNS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<DataColumn> columns = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_FOREIGN_KEYS = "foreign_keys";
 
     @SerializedName(SERIALIZED_NAME_FOREIGN_KEYS)
-    @javax.annotation.Nullable private List<DataForeignKey> foreignKeys = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<DataForeignKey> foreignKeys = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_INDEXES = "indexes";
 
     @SerializedName(SERIALIZED_NAME_INDEXES)
-    @javax.annotation.Nullable private List<DataIndex> indexes = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<DataIndex> indexes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_SEMANTIC_TYPE = "semantic_type";
 
     @SerializedName(SERIALIZED_NAME_SEMANTIC_TYPE)
-    @javax.annotation.Nullable private DataTableSemanticType semanticType;
+    @jakarta.annotation.Nullable private DataTableSemanticType semanticType;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public CreateTablePayload() {}
 
-    public CreateTablePayload name(@javax.annotation.Nonnull String name) {
+    public CreateTablePayload name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -85,16 +85,16 @@ public class CreateTablePayload {
      * Table name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public CreateTablePayload description(@javax.annotation.Nullable String description) {
+    public CreateTablePayload description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -103,15 +103,15 @@ public class CreateTablePayload {
      * Table description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public CreateTablePayload columns(@javax.annotation.Nonnull List<DataColumn> columns) {
+    public CreateTablePayload columns(@jakarta.annotation.Nonnull List<DataColumn> columns) {
         this.columns = columns;
         return this;
     }
@@ -128,17 +128,17 @@ public class CreateTablePayload {
      * Column definitions (at least one required)
      * @return columns
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<DataColumn> getColumns() {
         return columns;
     }
 
-    public void setColumns(@javax.annotation.Nonnull List<DataColumn> columns) {
+    public void setColumns(@jakarta.annotation.Nonnull List<DataColumn> columns) {
         this.columns = columns;
     }
 
     public CreateTablePayload foreignKeys(
-            @javax.annotation.Nullable List<DataForeignKey> foreignKeys) {
+            @jakarta.annotation.Nullable List<DataForeignKey> foreignKeys) {
         this.foreignKeys = foreignKeys;
         return this;
     }
@@ -155,15 +155,15 @@ public class CreateTablePayload {
      * Foreign key constraints
      * @return foreignKeys
      */
-    @javax.annotation.Nullable public List<DataForeignKey> getForeignKeys() {
+    @jakarta.annotation.Nullable public List<DataForeignKey> getForeignKeys() {
         return foreignKeys;
     }
 
-    public void setForeignKeys(@javax.annotation.Nullable List<DataForeignKey> foreignKeys) {
+    public void setForeignKeys(@jakarta.annotation.Nullable List<DataForeignKey> foreignKeys) {
         this.foreignKeys = foreignKeys;
     }
 
-    public CreateTablePayload indexes(@javax.annotation.Nullable List<DataIndex> indexes) {
+    public CreateTablePayload indexes(@jakarta.annotation.Nullable List<DataIndex> indexes) {
         this.indexes = indexes;
         return this;
     }
@@ -180,16 +180,16 @@ public class CreateTablePayload {
      * Index definitions
      * @return indexes
      */
-    @javax.annotation.Nullable public List<DataIndex> getIndexes() {
+    @jakarta.annotation.Nullable public List<DataIndex> getIndexes() {
         return indexes;
     }
 
-    public void setIndexes(@javax.annotation.Nullable List<DataIndex> indexes) {
+    public void setIndexes(@jakarta.annotation.Nullable List<DataIndex> indexes) {
         this.indexes = indexes;
     }
 
     public CreateTablePayload semanticType(
-            @javax.annotation.Nullable DataTableSemanticType semanticType) {
+            @jakarta.annotation.Nullable DataTableSemanticType semanticType) {
         this.semanticType = semanticType;
         return this;
     }
@@ -198,15 +198,15 @@ public class CreateTablePayload {
      * Semantic type
      * @return semanticType
      */
-    @javax.annotation.Nullable public DataTableSemanticType getSemanticType() {
+    @jakarta.annotation.Nullable public DataTableSemanticType getSemanticType() {
         return semanticType;
     }
 
-    public void setSemanticType(@javax.annotation.Nullable DataTableSemanticType semanticType) {
+    public void setSemanticType(@jakarta.annotation.Nullable DataTableSemanticType semanticType) {
         this.semanticType = semanticType;
     }
 
-    public CreateTablePayload tags(@javax.annotation.Nullable List<String> tags) {
+    public CreateTablePayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -223,11 +223,11 @@ public class CreateTablePayload {
      * Tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 

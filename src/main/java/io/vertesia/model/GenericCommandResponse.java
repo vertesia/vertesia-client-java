@@ -31,35 +31,35 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * GenericCommandResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GenericCommandResponse {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String status;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String message;
 
     public static final String SERIALIZED_NAME_ERR = "err";
 
     @SerializedName(SERIALIZED_NAME_ERR)
-    @javax.annotation.Nullable private Object err = null;
+    @jakarta.annotation.Nullable private Object err = null;
 
     public static final String SERIALIZED_NAME_DETAILS = "details";
 
     @SerializedName(SERIALIZED_NAME_DETAILS)
-    @javax.annotation.Nullable private Object details = null;
+    @jakarta.annotation.Nullable private Object details = null;
 
     public GenericCommandResponse() {}
 
-    public GenericCommandResponse status(@javax.annotation.Nonnull String status) {
+    public GenericCommandResponse status(@jakarta.annotation.Nonnull String status) {
         this.status = status;
         return this;
     }
@@ -68,16 +68,16 @@ public class GenericCommandResponse {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull String status) {
+    public void setStatus(@jakarta.annotation.Nonnull String status) {
         this.status = status;
     }
 
-    public GenericCommandResponse message(@javax.annotation.Nonnull String message) {
+    public GenericCommandResponse message(@jakarta.annotation.Nonnull String message) {
         this.message = message;
         return this;
     }
@@ -86,16 +86,16 @@ public class GenericCommandResponse {
      * Get message
      * @return message
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nonnull String message) {
+    public void setMessage(@jakarta.annotation.Nonnull String message) {
         this.message = message;
     }
 
-    public GenericCommandResponse err(@javax.annotation.Nullable Object err) {
+    public GenericCommandResponse err(@jakarta.annotation.Nullable Object err) {
         this.err = err;
         return this;
     }
@@ -104,15 +104,15 @@ public class GenericCommandResponse {
      * Get err
      * @return err
      */
-    @javax.annotation.Nullable public Object getErr() {
+    @jakarta.annotation.Nullable public Object getErr() {
         return err;
     }
 
-    public void setErr(@javax.annotation.Nullable Object err) {
+    public void setErr(@jakarta.annotation.Nullable Object err) {
         this.err = err;
     }
 
-    public GenericCommandResponse details(@javax.annotation.Nullable Object details) {
+    public GenericCommandResponse details(@jakarta.annotation.Nullable Object details) {
         this.details = details;
         return this;
     }
@@ -121,11 +121,11 @@ public class GenericCommandResponse {
      * Get details
      * @return details
      */
-    @javax.annotation.Nullable public Object getDetails() {
+    @jakarta.annotation.Nullable public Object getDetails() {
         return details;
     }
 
-    public void setDetails(@javax.annotation.Nullable Object details) {
+    public void setDetails(@jakarta.annotation.Nullable Object details) {
         this.details = details;
     }
 

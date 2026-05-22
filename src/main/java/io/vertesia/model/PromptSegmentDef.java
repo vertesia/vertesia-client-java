@@ -31,34 +31,34 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * PromptSegmentDef
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromptSegmentDef {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nullable private String id;
+    @jakarta.annotation.Nullable private String id;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private PromptSegmentDefType type;
 
     public static final String SERIALIZED_NAME_TEMPLATE = "template";
 
     @SerializedName(SERIALIZED_NAME_TEMPLATE)
-    @javax.annotation.Nullable private PromptSegmentDefTemplate template;
+    @jakarta.annotation.Nullable private PromptSegmentDefTemplate template;
 
     public static final String SERIALIZED_NAME_CONFIGURATION = "configuration";
 
     @SerializedName(SERIALIZED_NAME_CONFIGURATION)
-    @javax.annotation.Nullable private Object _configuration = null;
+    @jakarta.annotation.Nullable private Object _configuration = null;
 
     public PromptSegmentDef() {}
 
-    public PromptSegmentDef id(@javax.annotation.Nullable String id) {
+    public PromptSegmentDef id(@jakarta.annotation.Nullable String id) {
         this.id = id;
         return this;
     }
@@ -67,15 +67,15 @@ public class PromptSegmentDef {
      * Get id
      * @return id
      */
-    @javax.annotation.Nullable public String getId() {
+    @jakarta.annotation.Nullable public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nullable String id) {
+    public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
     }
 
-    public PromptSegmentDef type(@javax.annotation.Nonnull PromptSegmentDefType type) {
+    public PromptSegmentDef type(@jakarta.annotation.Nonnull PromptSegmentDefType type) {
         this.type = type;
         return this;
     }
@@ -84,16 +84,17 @@ public class PromptSegmentDef {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public PromptSegmentDefType getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull PromptSegmentDefType type) {
+    public void setType(@jakarta.annotation.Nonnull PromptSegmentDefType type) {
         this.type = type;
     }
 
-    public PromptSegmentDef template(@javax.annotation.Nullable PromptSegmentDefTemplate template) {
+    public PromptSegmentDef template(
+            @jakarta.annotation.Nullable PromptSegmentDefTemplate template) {
         this.template = template;
         return this;
     }
@@ -102,15 +103,15 @@ public class PromptSegmentDef {
      * Get template
      * @return template
      */
-    @javax.annotation.Nullable public PromptSegmentDefTemplate getTemplate() {
+    @jakarta.annotation.Nullable public PromptSegmentDefTemplate getTemplate() {
         return template;
     }
 
-    public void setTemplate(@javax.annotation.Nullable PromptSegmentDefTemplate template) {
+    public void setTemplate(@jakarta.annotation.Nullable PromptSegmentDefTemplate template) {
         this.template = template;
     }
 
-    public PromptSegmentDef _configuration(@javax.annotation.Nullable Object _configuration) {
+    public PromptSegmentDef _configuration(@jakarta.annotation.Nullable Object _configuration) {
         this._configuration = _configuration;
         return this;
     }
@@ -119,11 +120,11 @@ public class PromptSegmentDef {
      * Get _configuration
      * @return _configuration
      */
-    @javax.annotation.Nullable public Object getConfiguration() {
+    @jakarta.annotation.Nullable public Object getConfiguration() {
         return _configuration;
     }
 
-    public void setConfiguration(@javax.annotation.Nullable Object _configuration) {
+    public void setConfiguration(@jakarta.annotation.Nullable Object _configuration) {
         this._configuration = _configuration;
     }
 

@@ -35,50 +35,50 @@ import java.util.Objects;
 /**
  * CreateContentObjectTypePayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateContentObjectTypePayload {
     public static final String SERIALIZED_NAME_IS_CHUNKABLE = "is_chunkable";
 
     @SerializedName(SERIALIZED_NAME_IS_CHUNKABLE)
-    @javax.annotation.Nullable private Boolean isChunkable;
+    @jakarta.annotation.Nullable private Boolean isChunkable;
 
     public static final String SERIALIZED_NAME_TABLE_LAYOUT = "table_layout";
 
     @SerializedName(SERIALIZED_NAME_TABLE_LAYOUT)
-    @javax.annotation.Nullable private List<ColumnLayout> tableLayout = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<ColumnLayout> tableLayout = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_OBJECT_SCHEMA = "object_schema";
 
     @SerializedName(SERIALIZED_NAME_OBJECT_SCHEMA)
-    @javax.annotation.Nullable private Map<String, Object> objectSchema = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> objectSchema = new HashMap<>();
 
     public static final String SERIALIZED_NAME_STRICT_MODE = "strict_mode";
 
     @SerializedName(SERIALIZED_NAME_STRICT_MODE)
-    @javax.annotation.Nullable private Boolean strictMode;
+    @jakarta.annotation.Nullable private Boolean strictMode;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public CreateContentObjectTypePayload() {}
 
     public CreateContentObjectTypePayload isChunkable(
-            @javax.annotation.Nullable Boolean isChunkable) {
+            @jakarta.annotation.Nullable Boolean isChunkable) {
         this.isChunkable = isChunkable;
         return this;
     }
@@ -87,16 +87,16 @@ public class CreateContentObjectTypePayload {
      * Get isChunkable
      * @return isChunkable
      */
-    @javax.annotation.Nullable public Boolean getIsChunkable() {
+    @jakarta.annotation.Nullable public Boolean getIsChunkable() {
         return isChunkable;
     }
 
-    public void setIsChunkable(@javax.annotation.Nullable Boolean isChunkable) {
+    public void setIsChunkable(@jakarta.annotation.Nullable Boolean isChunkable) {
         this.isChunkable = isChunkable;
     }
 
     public CreateContentObjectTypePayload tableLayout(
-            @javax.annotation.Nullable List<ColumnLayout> tableLayout) {
+            @jakarta.annotation.Nullable List<ColumnLayout> tableLayout) {
         this.tableLayout = tableLayout;
         return this;
     }
@@ -113,16 +113,16 @@ public class CreateContentObjectTypePayload {
      * This is only included in ContentObjectTypeItem if explicitly requested It is always included in ContentObjectType
      * @return tableLayout
      */
-    @javax.annotation.Nullable public List<ColumnLayout> getTableLayout() {
+    @jakarta.annotation.Nullable public List<ColumnLayout> getTableLayout() {
         return tableLayout;
     }
 
-    public void setTableLayout(@javax.annotation.Nullable List<ColumnLayout> tableLayout) {
+    public void setTableLayout(@jakarta.annotation.Nullable List<ColumnLayout> tableLayout) {
         this.tableLayout = tableLayout;
     }
 
     public CreateContentObjectTypePayload objectSchema(
-            @javax.annotation.Nullable Map<String, Object> objectSchema) {
+            @jakarta.annotation.Nullable Map<String, Object> objectSchema) {
         this.objectSchema = objectSchema;
         return this;
     }
@@ -139,16 +139,16 @@ public class CreateContentObjectTypePayload {
      * this is only included in ContentObjectTypeItem if explicitly requested It is always included in ContentObjectType
      * @return objectSchema
      */
-    @javax.annotation.Nullable public Map<String, Object> getObjectSchema() {
+    @jakarta.annotation.Nullable public Map<String, Object> getObjectSchema() {
         return objectSchema;
     }
 
-    public void setObjectSchema(@javax.annotation.Nullable Map<String, Object> objectSchema) {
+    public void setObjectSchema(@jakarta.annotation.Nullable Map<String, Object> objectSchema) {
         this.objectSchema = objectSchema;
     }
 
     public CreateContentObjectTypePayload strictMode(
-            @javax.annotation.Nullable Boolean strictMode) {
+            @jakarta.annotation.Nullable Boolean strictMode) {
         this.strictMode = strictMode;
         return this;
     }
@@ -157,15 +157,15 @@ public class CreateContentObjectTypePayload {
      * Determines if the content will be validated against the object schema a generation time and save/update time.
      * @return strictMode
      */
-    @javax.annotation.Nullable public Boolean getStrictMode() {
+    @jakarta.annotation.Nullable public Boolean getStrictMode() {
         return strictMode;
     }
 
-    public void setStrictMode(@javax.annotation.Nullable Boolean strictMode) {
+    public void setStrictMode(@jakarta.annotation.Nullable Boolean strictMode) {
         this.strictMode = strictMode;
     }
 
-    public CreateContentObjectTypePayload name(@javax.annotation.Nonnull String name) {
+    public CreateContentObjectTypePayload name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -174,17 +174,17 @@ public class CreateContentObjectTypePayload {
      * Human-readable name or title
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
     public CreateContentObjectTypePayload description(
-            @javax.annotation.Nullable String description) {
+            @jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -193,15 +193,15 @@ public class CreateContentObjectTypePayload {
      * Optional detailed description of the object
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public CreateContentObjectTypePayload tags(@javax.annotation.Nullable List<String> tags) {
+    public CreateContentObjectTypePayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -218,11 +218,11 @@ public class CreateContentObjectTypePayload {
      * Optional array of categorization tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 

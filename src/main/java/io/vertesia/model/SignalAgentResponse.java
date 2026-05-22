@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * Response from signaling an agent workflow.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class SignalAgentResponse {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String status;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String message;
 
     public SignalAgentResponse() {}
 
-    public SignalAgentResponse status(@javax.annotation.Nonnull String status) {
+    public SignalAgentResponse status(@jakarta.annotation.Nonnull String status) {
         this.status = status;
         return this;
     }
@@ -57,16 +57,16 @@ public class SignalAgentResponse {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull String status) {
+    public void setStatus(@jakarta.annotation.Nonnull String status) {
         this.status = status;
     }
 
-    public SignalAgentResponse message(@javax.annotation.Nonnull String message) {
+    public SignalAgentResponse message(@jakarta.annotation.Nonnull String message) {
         this.message = message;
         return this;
     }
@@ -75,12 +75,12 @@ public class SignalAgentResponse {
      * Get message
      * @return message
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nonnull String message) {
+    public void setMessage(@jakarta.annotation.Nonnull String message) {
         this.message = message;
     }
 

@@ -32,46 +32,46 @@ import java.util.Objects;
 /**
  * Simplified column representation for AI agents.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataColumnForAI {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private DataColumnType type;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_SEMANTIC_TYPE = "semantic_type";
 
     @SerializedName(SERIALIZED_NAME_SEMANTIC_TYPE)
-    @javax.annotation.Nullable private SemanticColumnType semanticType;
+    @jakarta.annotation.Nullable private SemanticColumnType semanticType;
 
     public static final String SERIALIZED_NAME_NULLABLE = "nullable";
 
     @SerializedName(SERIALIZED_NAME_NULLABLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean nullable;
 
     public static final String SERIALIZED_NAME_PRIMARY_KEY = "primary_key";
 
     @SerializedName(SERIALIZED_NAME_PRIMARY_KEY)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean primaryKey;
 
     public static final String SERIALIZED_NAME_EXAMPLES = "examples";
 
     @SerializedName(SERIALIZED_NAME_EXAMPLES)
-    @javax.annotation.Nullable private List<String> examples = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> examples = new ArrayList<>();
 
     public DataColumnForAI() {}
 
-    public DataColumnForAI type(@javax.annotation.Nonnull DataColumnType type) {
+    public DataColumnForAI type(@jakarta.annotation.Nonnull DataColumnType type) {
         this.type = type;
         return this;
     }
@@ -80,16 +80,16 @@ public class DataColumnForAI {
      * Data type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public DataColumnType getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull DataColumnType type) {
+    public void setType(@jakarta.annotation.Nonnull DataColumnType type) {
         this.type = type;
     }
 
-    public DataColumnForAI description(@javax.annotation.Nullable String description) {
+    public DataColumnForAI description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -98,16 +98,16 @@ public class DataColumnForAI {
      * Description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
     public DataColumnForAI semanticType(
-            @javax.annotation.Nullable SemanticColumnType semanticType) {
+            @jakarta.annotation.Nullable SemanticColumnType semanticType) {
         this.semanticType = semanticType;
         return this;
     }
@@ -116,15 +116,15 @@ public class DataColumnForAI {
      * Semantic type
      * @return semanticType
      */
-    @javax.annotation.Nullable public SemanticColumnType getSemanticType() {
+    @jakarta.annotation.Nullable public SemanticColumnType getSemanticType() {
         return semanticType;
     }
 
-    public void setSemanticType(@javax.annotation.Nullable SemanticColumnType semanticType) {
+    public void setSemanticType(@jakarta.annotation.Nullable SemanticColumnType semanticType) {
         this.semanticType = semanticType;
     }
 
-    public DataColumnForAI nullable(@javax.annotation.Nonnull Boolean nullable) {
+    public DataColumnForAI nullable(@jakarta.annotation.Nonnull Boolean nullable) {
         this.nullable = nullable;
         return this;
     }
@@ -133,16 +133,16 @@ public class DataColumnForAI {
      * Whether nullable
      * @return nullable
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getNullable() {
         return nullable;
     }
 
-    public void setNullable(@javax.annotation.Nonnull Boolean nullable) {
+    public void setNullable(@jakarta.annotation.Nonnull Boolean nullable) {
         this.nullable = nullable;
     }
 
-    public DataColumnForAI primaryKey(@javax.annotation.Nonnull Boolean primaryKey) {
+    public DataColumnForAI primaryKey(@jakarta.annotation.Nonnull Boolean primaryKey) {
         this.primaryKey = primaryKey;
         return this;
     }
@@ -151,16 +151,16 @@ public class DataColumnForAI {
      * Whether primary key
      * @return primaryKey
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getPrimaryKey() {
         return primaryKey;
     }
 
-    public void setPrimaryKey(@javax.annotation.Nonnull Boolean primaryKey) {
+    public void setPrimaryKey(@jakarta.annotation.Nonnull Boolean primaryKey) {
         this.primaryKey = primaryKey;
     }
 
-    public DataColumnForAI examples(@javax.annotation.Nullable List<String> examples) {
+    public DataColumnForAI examples(@jakarta.annotation.Nullable List<String> examples) {
         this.examples = examples;
         return this;
     }
@@ -177,11 +177,11 @@ public class DataColumnForAI {
      * Example values
      * @return examples
      */
-    @javax.annotation.Nullable public List<String> getExamples() {
+    @jakarta.annotation.Nullable public List<String> getExamples() {
         return examples;
     }
 
-    public void setExamples(@javax.annotation.Nullable List<String> examples) {
+    public void setExamples(@jakarta.annotation.Nullable List<String> examples) {
         this.examples = examples;
     }
 

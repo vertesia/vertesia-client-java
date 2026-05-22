@@ -33,20 +33,20 @@ import java.util.Objects;
 /**
  * Response payload for retrieving compact agent updates.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AgentRunUpdatesResponse {
     public static final String SERIALIZED_NAME_MESSAGES = "messages";
 
     @SerializedName(SERIALIZED_NAME_MESSAGES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<CompactMessage> messages = new ArrayList<>();
 
     public AgentRunUpdatesResponse() {}
 
     public AgentRunUpdatesResponse messages(
-            @javax.annotation.Nonnull List<CompactMessage> messages) {
+            @jakarta.annotation.Nonnull List<CompactMessage> messages) {
         this.messages = messages;
         return this;
     }
@@ -63,12 +63,12 @@ public class AgentRunUpdatesResponse {
      * Get messages
      * @return messages
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<CompactMessage> getMessages() {
         return messages;
     }
 
-    public void setMessages(@javax.annotation.Nonnull List<CompactMessage> messages) {
+    public void setMessages(@jakarta.annotation.Nonnull List<CompactMessage> messages) {
         this.messages = messages;
     }
 

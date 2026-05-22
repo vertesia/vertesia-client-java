@@ -35,20 +35,20 @@ import java.util.Objects;
 /**
  * BulkUploadUrlsPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class BulkUploadUrlsPayload {
     public static final String SERIALIZED_NAME_FILES = "files";
 
     @SerializedName(SERIALIZED_NAME_FILES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<BulkUploadUrlsPayloadFilesInner> files = new ArrayList<>();
 
     public BulkUploadUrlsPayload() {}
 
     public BulkUploadUrlsPayload files(
-            @javax.annotation.Nonnull List<BulkUploadUrlsPayloadFilesInner> files) {
+            @jakarta.annotation.Nonnull List<BulkUploadUrlsPayloadFilesInner> files) {
         this.files = files;
         return this;
     }
@@ -65,12 +65,12 @@ public class BulkUploadUrlsPayload {
      * Get files
      * @return files
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<BulkUploadUrlsPayloadFilesInner> getFiles() {
         return files;
     }
 
-    public void setFiles(@javax.annotation.Nonnull List<BulkUploadUrlsPayloadFilesInner> files) {
+    public void setFiles(@jakarta.annotation.Nonnull List<BulkUploadUrlsPayloadFilesInner> files) {
         this.files = files;
     }
 

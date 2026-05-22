@@ -32,30 +32,30 @@ import java.util.Objects;
 /**
  * Index definition for a table.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DataIndex {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_COLUMNS = "columns";
 
     @SerializedName(SERIALIZED_NAME_COLUMNS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> columns = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_UNIQUE = "unique";
 
     @SerializedName(SERIALIZED_NAME_UNIQUE)
-    @javax.annotation.Nullable private Boolean unique;
+    @jakarta.annotation.Nullable private Boolean unique;
 
     public DataIndex() {}
 
-    public DataIndex name(@javax.annotation.Nonnull String name) {
+    public DataIndex name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -64,16 +64,16 @@ public class DataIndex {
      * Index name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public DataIndex columns(@javax.annotation.Nonnull List<String> columns) {
+    public DataIndex columns(@jakarta.annotation.Nonnull List<String> columns) {
         this.columns = columns;
         return this;
     }
@@ -90,16 +90,16 @@ public class DataIndex {
      * Columns included in the index
      * @return columns
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getColumns() {
         return columns;
     }
 
-    public void setColumns(@javax.annotation.Nonnull List<String> columns) {
+    public void setColumns(@jakarta.annotation.Nonnull List<String> columns) {
         this.columns = columns;
     }
 
-    public DataIndex unique(@javax.annotation.Nullable Boolean unique) {
+    public DataIndex unique(@jakarta.annotation.Nullable Boolean unique) {
         this.unique = unique;
         return this;
     }
@@ -108,11 +108,11 @@ public class DataIndex {
      * Whether the index enforces uniqueness
      * @return unique
      */
-    @javax.annotation.Nullable public Boolean getUnique() {
+    @jakarta.annotation.Nullable public Boolean getUnique() {
         return unique;
     }
 
-    public void setUnique(@javax.annotation.Nullable Boolean unique) {
+    public void setUnique(@jakarta.annotation.Nullable Boolean unique) {
         this.unique = unique;
     }
 

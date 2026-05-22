@@ -86,8 +86,8 @@ public class SecretsApi {
      * </table>
      */
     public okhttp3.Call createSecretCall(
-            @javax.annotation.Nonnull CreateSecretRequest createSecretRequest,
-            @javax.annotation.Nullable String projectId,
+            @jakarta.annotation.Nonnull CreateSecretRequest createSecretRequest,
+            @jakarta.annotation.Nullable String projectId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -148,8 +148,8 @@ public class SecretsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createSecretValidateBeforeCall(
-            @javax.annotation.Nonnull CreateSecretRequest createSecretRequest,
-            @javax.annotation.Nullable String projectId,
+            @jakarta.annotation.Nonnull CreateSecretRequest createSecretRequest,
+            @jakarta.annotation.Nullable String projectId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'createSecretRequest' is set
@@ -178,8 +178,8 @@ public class SecretsApi {
      * </table>
      */
     public SecretRecord createSecret(
-            @javax.annotation.Nonnull CreateSecretRequest createSecretRequest,
-            @javax.annotation.Nullable String projectId)
+            @jakarta.annotation.Nonnull CreateSecretRequest createSecretRequest,
+            @jakarta.annotation.Nullable String projectId)
             throws ApiException {
         ApiResponse<SecretRecord> localVarResp =
                 createSecretWithHttpInfo(createSecretRequest, projectId);
@@ -203,8 +203,8 @@ public class SecretsApi {
      * </table>
      */
     public ApiResponse<SecretRecord> createSecretWithHttpInfo(
-            @javax.annotation.Nonnull CreateSecretRequest createSecretRequest,
-            @javax.annotation.Nullable String projectId)
+            @jakarta.annotation.Nonnull CreateSecretRequest createSecretRequest,
+            @jakarta.annotation.Nullable String projectId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 createSecretValidateBeforeCall(createSecretRequest, projectId, null);
@@ -230,8 +230,8 @@ public class SecretsApi {
      * </table>
      */
     public okhttp3.Call createSecretAsync(
-            @javax.annotation.Nonnull CreateSecretRequest createSecretRequest,
-            @javax.annotation.Nullable String projectId,
+            @jakarta.annotation.Nonnull CreateSecretRequest createSecretRequest,
+            @jakarta.annotation.Nullable String projectId,
             final ApiCallback<SecretRecord> _callback)
             throws ApiException {
 
@@ -260,9 +260,9 @@ public class SecretsApi {
      * </table>
      */
     public okhttp3.Call deleteSecretCall(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind,
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -331,9 +331,9 @@ public class SecretsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteSecretValidateBeforeCall(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind,
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'secretId' is set
@@ -363,9 +363,9 @@ public class SecretsApi {
      * </table>
      */
     public OkBoolean deleteSecret(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind)
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind)
             throws ApiException {
         ApiResponse<OkBoolean> localVarResp = deleteSecretWithHttpInfo(secretId, projectId, kind);
         return localVarResp.getData();
@@ -389,9 +389,9 @@ public class SecretsApi {
      * </table>
      */
     public ApiResponse<OkBoolean> deleteSecretWithHttpInfo(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind)
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind)
             throws ApiException {
         okhttp3.Call localVarCall = deleteSecretValidateBeforeCall(secretId, projectId, kind, null);
         Type localVarReturnType = new TypeToken<OkBoolean>() {}.getType();
@@ -417,9 +417,9 @@ public class SecretsApi {
      * </table>
      */
     public okhttp3.Call deleteSecretAsync(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind,
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind,
             final ApiCallback<OkBoolean> _callback)
             throws ApiException {
 
@@ -448,9 +448,9 @@ public class SecretsApi {
      * </table>
      */
     public okhttp3.Call fillWebsiteCredentialCall(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nonnull WebsiteCredentialFillRequest websiteCredentialFillRequest,
-            @javax.annotation.Nullable String projectId,
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull WebsiteCredentialFillRequest websiteCredentialFillRequest,
+            @jakarta.annotation.Nullable String projectId,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -515,9 +515,9 @@ public class SecretsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call fillWebsiteCredentialValidateBeforeCall(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nonnull WebsiteCredentialFillRequest websiteCredentialFillRequest,
-            @javax.annotation.Nullable String projectId,
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull WebsiteCredentialFillRequest websiteCredentialFillRequest,
+            @jakarta.annotation.Nullable String projectId,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'secretId' is set
@@ -554,9 +554,9 @@ public class SecretsApi {
      * </table>
      */
     public WebsiteCredentialFillResponse fillWebsiteCredential(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nonnull WebsiteCredentialFillRequest websiteCredentialFillRequest,
-            @javax.annotation.Nullable String projectId)
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull WebsiteCredentialFillRequest websiteCredentialFillRequest,
+            @jakarta.annotation.Nullable String projectId)
             throws ApiException {
         ApiResponse<WebsiteCredentialFillResponse> localVarResp =
                 fillWebsiteCredentialWithHttpInfo(
@@ -582,9 +582,9 @@ public class SecretsApi {
      * </table>
      */
     public ApiResponse<WebsiteCredentialFillResponse> fillWebsiteCredentialWithHttpInfo(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nonnull WebsiteCredentialFillRequest websiteCredentialFillRequest,
-            @javax.annotation.Nullable String projectId)
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull WebsiteCredentialFillRequest websiteCredentialFillRequest,
+            @jakarta.annotation.Nullable String projectId)
             throws ApiException {
         okhttp3.Call localVarCall =
                 fillWebsiteCredentialValidateBeforeCall(
@@ -612,9 +612,9 @@ public class SecretsApi {
      * </table>
      */
     public okhttp3.Call fillWebsiteCredentialAsync(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nonnull WebsiteCredentialFillRequest websiteCredentialFillRequest,
-            @javax.annotation.Nullable String projectId,
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull WebsiteCredentialFillRequest websiteCredentialFillRequest,
+            @jakarta.annotation.Nullable String projectId,
             final ApiCallback<WebsiteCredentialFillResponse> _callback)
             throws ApiException {
 
@@ -644,9 +644,9 @@ public class SecretsApi {
      * </table>
      */
     public okhttp3.Call getSecretCall(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind,
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -715,9 +715,9 @@ public class SecretsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getSecretValidateBeforeCall(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind,
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'secretId' is set
@@ -747,9 +747,9 @@ public class SecretsApi {
      * </table>
      */
     public SecretRecord getSecret(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind)
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind)
             throws ApiException {
         ApiResponse<SecretRecord> localVarResp = getSecretWithHttpInfo(secretId, projectId, kind);
         return localVarResp.getData();
@@ -773,9 +773,9 @@ public class SecretsApi {
      * </table>
      */
     public ApiResponse<SecretRecord> getSecretWithHttpInfo(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind)
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind)
             throws ApiException {
         okhttp3.Call localVarCall = getSecretValidateBeforeCall(secretId, projectId, kind, null);
         Type localVarReturnType = new TypeToken<SecretRecord>() {}.getType();
@@ -801,9 +801,9 @@ public class SecretsApi {
      * </table>
      */
     public okhttp3.Call getSecretAsync(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind,
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind,
             final ApiCallback<SecretRecord> _callback)
             throws ApiException {
 
@@ -833,10 +833,10 @@ public class SecretsApi {
      * </table>
      */
     public okhttp3.Call listSecretsCall(
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind,
-            @javax.annotation.Nullable String host,
-            @javax.annotation.Nullable Boolean enabled,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind,
+            @jakarta.annotation.Nullable String host,
+            @jakarta.annotation.Nullable Boolean enabled,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -909,10 +909,10 @@ public class SecretsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listSecretsValidateBeforeCall(
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind,
-            @javax.annotation.Nullable String host,
-            @javax.annotation.Nullable Boolean enabled,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind,
+            @jakarta.annotation.Nullable String host,
+            @jakarta.annotation.Nullable Boolean enabled,
             final ApiCallback _callback)
             throws ApiException {
         return listSecretsCall(projectId, kind, host, enabled, _callback);
@@ -937,10 +937,10 @@ public class SecretsApi {
      * </table>
      */
     public ListSecretsResponse listSecrets(
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind,
-            @javax.annotation.Nullable String host,
-            @javax.annotation.Nullable Boolean enabled)
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind,
+            @jakarta.annotation.Nullable String host,
+            @jakarta.annotation.Nullable Boolean enabled)
             throws ApiException {
         ApiResponse<ListSecretsResponse> localVarResp =
                 listSecretsWithHttpInfo(projectId, kind, host, enabled);
@@ -966,10 +966,10 @@ public class SecretsApi {
      * </table>
      */
     public ApiResponse<ListSecretsResponse> listSecretsWithHttpInfo(
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind,
-            @javax.annotation.Nullable String host,
-            @javax.annotation.Nullable Boolean enabled)
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind,
+            @jakarta.annotation.Nullable String host,
+            @jakarta.annotation.Nullable Boolean enabled)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listSecretsValidateBeforeCall(projectId, kind, host, enabled, null);
@@ -997,10 +997,10 @@ public class SecretsApi {
      * </table>
      */
     public okhttp3.Call listSecretsAsync(
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind,
-            @javax.annotation.Nullable String host,
-            @javax.annotation.Nullable Boolean enabled,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind,
+            @jakarta.annotation.Nullable String host,
+            @jakarta.annotation.Nullable Boolean enabled,
             final ApiCallback<ListSecretsResponse> _callback)
             throws ApiException {
 
@@ -1030,10 +1030,10 @@ public class SecretsApi {
      * </table>
      */
     public okhttp3.Call updateSecretCall(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nonnull UpdateSecretRequest updateSecretRequest,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind,
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull UpdateSecretRequest updateSecretRequest,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1102,10 +1102,10 @@ public class SecretsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateSecretValidateBeforeCall(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nonnull UpdateSecretRequest updateSecretRequest,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind,
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull UpdateSecretRequest updateSecretRequest,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'secretId' is set
@@ -1142,10 +1142,10 @@ public class SecretsApi {
      * </table>
      */
     public SecretRecord updateSecret(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nonnull UpdateSecretRequest updateSecretRequest,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind)
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull UpdateSecretRequest updateSecretRequest,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind)
             throws ApiException {
         ApiResponse<SecretRecord> localVarResp =
                 updateSecretWithHttpInfo(secretId, updateSecretRequest, projectId, kind);
@@ -1171,10 +1171,10 @@ public class SecretsApi {
      * </table>
      */
     public ApiResponse<SecretRecord> updateSecretWithHttpInfo(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nonnull UpdateSecretRequest updateSecretRequest,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind)
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull UpdateSecretRequest updateSecretRequest,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateSecretValidateBeforeCall(
@@ -1203,10 +1203,10 @@ public class SecretsApi {
      * </table>
      */
     public okhttp3.Call updateSecretAsync(
-            @javax.annotation.Nonnull String secretId,
-            @javax.annotation.Nonnull UpdateSecretRequest updateSecretRequest,
-            @javax.annotation.Nullable String projectId,
-            @javax.annotation.Nullable String kind,
+            @jakarta.annotation.Nonnull String secretId,
+            @jakarta.annotation.Nonnull UpdateSecretRequest updateSecretRequest,
+            @jakarta.annotation.Nullable String projectId,
+            @jakarta.annotation.Nullable String kind,
             final ApiCallback<SecretRecord> _callback)
             throws ApiException {
 

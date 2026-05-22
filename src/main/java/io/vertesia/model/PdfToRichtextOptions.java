@@ -34,23 +34,23 @@ import java.util.Objects;
 /**
  * PdfToRichtextOptions
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PdfToRichtextOptions {
     public static final String SERIALIZED_NAME_FEATURES = "features";
 
     @SerializedName(SERIALIZED_NAME_FEATURES)
-    @javax.annotation.Nullable private List<String> features = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> features = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DEBUG = "debug";
 
     @SerializedName(SERIALIZED_NAME_DEBUG)
-    @javax.annotation.Nullable private Boolean debug;
+    @jakarta.annotation.Nullable private Boolean debug;
 
     public PdfToRichtextOptions() {}
 
-    public PdfToRichtextOptions features(@javax.annotation.Nullable List<String> features) {
+    public PdfToRichtextOptions features(@jakarta.annotation.Nullable List<String> features) {
         this.features = features;
         return this;
     }
@@ -67,15 +67,15 @@ public class PdfToRichtextOptions {
      * Get features
      * @return features
      */
-    @javax.annotation.Nullable public List<String> getFeatures() {
+    @jakarta.annotation.Nullable public List<String> getFeatures() {
         return features;
     }
 
-    public void setFeatures(@javax.annotation.Nullable List<String> features) {
+    public void setFeatures(@jakarta.annotation.Nullable List<String> features) {
         this.features = features;
     }
 
-    public PdfToRichtextOptions debug(@javax.annotation.Nullable Boolean debug) {
+    public PdfToRichtextOptions debug(@jakarta.annotation.Nullable Boolean debug) {
         this.debug = debug;
         return this;
     }
@@ -84,11 +84,11 @@ public class PdfToRichtextOptions {
      * Get debug
      * @return debug
      */
-    @javax.annotation.Nullable public Boolean getDebug() {
+    @jakarta.annotation.Nullable public Boolean getDebug() {
         return debug;
     }
 
-    public void setDebug(@javax.annotation.Nullable Boolean debug) {
+    public void setDebug(@jakarta.annotation.Nullable Boolean debug) {
         this.debug = debug;
     }
 

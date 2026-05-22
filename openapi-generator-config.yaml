@@ -16,6 +16,7 @@ additionalProperties:
   enumUnknownDefaultCase: true
   disallowAdditionalPropertiesIfNotPresent: false
   hideGenerationTimestamp: true
+  useJakartaEe: true
   invokerPackage: io.vertesia
   apiPackage: io.vertesia.api
   modelPackage: io.vertesia.model

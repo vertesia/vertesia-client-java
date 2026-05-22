@@ -34,7 +34,7 @@ import java.util.Objects;
 /**
  * Reference to an interaction in the catalog. Used in catalog listing. The id is composed of the namespace and the interaction name. Stored interactions can use &#x60;oid:&#x60; prefix. If no prefix is used it fallback on &#x60;oid:&#x60;.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CatalogInteractionRef {
@@ -100,56 +100,56 @@ public class CatalogInteractionRef {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @javax.annotation.Nullable private BigDecimal version;
+    @jakarta.annotation.Nullable private BigDecimal version;
 
     public static final String SERIALIZED_NAME_PUBLISHED = "published";
 
     @SerializedName(SERIALIZED_NAME_PUBLISHED)
-    @javax.annotation.Nullable private Boolean published;
+    @jakarta.annotation.Nullable private Boolean published;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_AGENT_RUNNER_OPTIONS = "agent_runner_options";
 
     @SerializedName(SERIALIZED_NAME_AGENT_RUNNER_OPTIONS)
-    @javax.annotation.Nullable private AgentRunnerOptions agentRunnerOptions;
+    @jakarta.annotation.Nullable private AgentRunnerOptions agentRunnerOptions;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String title;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public CatalogInteractionRef() {}
 
-    public CatalogInteractionRef type(@javax.annotation.Nonnull TypeEnum type) {
+    public CatalogInteractionRef type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -158,16 +158,16 @@ public class CatalogInteractionRef {
      * The type of interaction
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public CatalogInteractionRef id(@javax.annotation.Nonnull String id) {
+    public CatalogInteractionRef id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -176,16 +176,16 @@ public class CatalogInteractionRef {
      * the interaction id that can be used to execute the interaction.
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public CatalogInteractionRef name(@javax.annotation.Nonnull String name) {
+    public CatalogInteractionRef name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -194,16 +194,16 @@ public class CatalogInteractionRef {
      * The interaction name which identify the interaction in the provider interaction list. For the stored interactions this is the same as the endpoint property. For other types of interactions this is the local name of the interaction.
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public CatalogInteractionRef version(@javax.annotation.Nullable BigDecimal version) {
+    public CatalogInteractionRef version(@jakarta.annotation.Nullable BigDecimal version) {
         this.version = version;
         return this;
     }
@@ -212,15 +212,15 @@ public class CatalogInteractionRef {
      * Only applies for stored interactions. The version of the interaction. Undefined for non stored interactions
      * @return version
      */
-    @javax.annotation.Nullable public BigDecimal getVersion() {
+    @jakarta.annotation.Nullable public BigDecimal getVersion() {
         return version;
     }
 
-    public void setVersion(@javax.annotation.Nullable BigDecimal version) {
+    public void setVersion(@jakarta.annotation.Nullable BigDecimal version) {
         this.version = version;
     }
 
-    public CatalogInteractionRef published(@javax.annotation.Nullable Boolean published) {
+    public CatalogInteractionRef published(@jakarta.annotation.Nullable Boolean published) {
         this.published = published;
         return this;
     }
@@ -229,15 +229,15 @@ public class CatalogInteractionRef {
      * Only applies for stored interactions. Whether the interaction is published or not.
      * @return published
      */
-    @javax.annotation.Nullable public Boolean getPublished() {
+    @jakarta.annotation.Nullable public Boolean getPublished() {
         return published;
     }
 
-    public void setPublished(@javax.annotation.Nullable Boolean published) {
+    public void setPublished(@jakarta.annotation.Nullable Boolean published) {
         this.published = published;
     }
 
-    public CatalogInteractionRef tags(@javax.annotation.Nonnull List<String> tags) {
+    public CatalogInteractionRef tags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -254,17 +254,17 @@ public class CatalogInteractionRef {
      * The tags associated with the interaction.
      * @return tags
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nonnull List<String> tags) {
+    public void setTags(@jakarta.annotation.Nonnull List<String> tags) {
         this.tags = tags;
     }
 
     public CatalogInteractionRef agentRunnerOptions(
-            @javax.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
+            @jakarta.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
         this.agentRunnerOptions = agentRunnerOptions;
         return this;
     }
@@ -273,16 +273,16 @@ public class CatalogInteractionRef {
      * Agent Runner configuration options.
      * @return agentRunnerOptions
      */
-    @javax.annotation.Nullable public AgentRunnerOptions getAgentRunnerOptions() {
+    @jakarta.annotation.Nullable public AgentRunnerOptions getAgentRunnerOptions() {
         return agentRunnerOptions;
     }
 
     public void setAgentRunnerOptions(
-            @javax.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
+            @jakarta.annotation.Nullable AgentRunnerOptions agentRunnerOptions) {
         this.agentRunnerOptions = agentRunnerOptions;
     }
 
-    public CatalogInteractionRef title(@javax.annotation.Nonnull String title) {
+    public CatalogInteractionRef title(@jakarta.annotation.Nonnull String title) {
         this.title = title;
         return this;
     }
@@ -291,16 +291,16 @@ public class CatalogInteractionRef {
      * The name of the interaction. For display purposes only.
      * @return title
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nonnull String title) {
+    public void setTitle(@jakarta.annotation.Nonnull String title) {
         this.title = title;
     }
 
-    public CatalogInteractionRef description(@javax.annotation.Nullable String description) {
+    public CatalogInteractionRef description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -309,11 +309,11 @@ public class CatalogInteractionRef {
      * Optional description of the interaction.
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 

@@ -33,25 +33,25 @@ import java.util.Objects;
 /**
  * Payload for creating multiple tables atomically.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateTablesPayload {
     public static final String SERIALIZED_NAME_TABLES = "tables";
 
     @SerializedName(SERIALIZED_NAME_TABLES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<CreateTablePayload> tables = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String message;
 
     public CreateTablesPayload() {}
 
-    public CreateTablesPayload tables(@javax.annotation.Nonnull List<CreateTablePayload> tables) {
+    public CreateTablesPayload tables(@jakarta.annotation.Nonnull List<CreateTablePayload> tables) {
         this.tables = tables;
         return this;
     }
@@ -68,16 +68,16 @@ public class CreateTablesPayload {
      * Table definitions to create
      * @return tables
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<CreateTablePayload> getTables() {
         return tables;
     }
 
-    public void setTables(@javax.annotation.Nonnull List<CreateTablePayload> tables) {
+    public void setTables(@jakarta.annotation.Nonnull List<CreateTablePayload> tables) {
         this.tables = tables;
     }
 
-    public CreateTablesPayload message(@javax.annotation.Nonnull String message) {
+    public CreateTablesPayload message(@jakarta.annotation.Nonnull String message) {
         this.message = message;
         return this;
     }
@@ -86,12 +86,12 @@ public class CreateTablesPayload {
      * Commit message
      * @return message
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nonnull String message) {
+    public void setMessage(@jakarta.annotation.Nonnull String message) {
         this.message = message;
     }
 

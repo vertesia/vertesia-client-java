@@ -30,25 +30,25 @@ import java.util.Objects;
 /**
  * McpOAuthDisconnectResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class McpOAuthDisconnectResponse {
     public static final String SERIALIZED_NAME_SUCCESS = "success";
 
     @SerializedName(SERIALIZED_NAME_SUCCESS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean success;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String message;
 
     public McpOAuthDisconnectResponse() {}
 
-    public McpOAuthDisconnectResponse success(@javax.annotation.Nonnull Boolean success) {
+    public McpOAuthDisconnectResponse success(@jakarta.annotation.Nonnull Boolean success) {
         this.success = success;
         return this;
     }
@@ -57,16 +57,16 @@ public class McpOAuthDisconnectResponse {
      * Get success
      * @return success
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getSuccess() {
         return success;
     }
 
-    public void setSuccess(@javax.annotation.Nonnull Boolean success) {
+    public void setSuccess(@jakarta.annotation.Nonnull Boolean success) {
         this.success = success;
     }
 
-    public McpOAuthDisconnectResponse message(@javax.annotation.Nonnull String message) {
+    public McpOAuthDisconnectResponse message(@jakarta.annotation.Nonnull String message) {
         this.message = message;
         return this;
     }
@@ -75,12 +75,12 @@ public class McpOAuthDisconnectResponse {
      * Get message
      * @return message
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nonnull String message) {
+    public void setMessage(@jakarta.annotation.Nonnull String message) {
         this.message = message;
     }
 

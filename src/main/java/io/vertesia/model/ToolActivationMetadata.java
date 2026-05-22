@@ -31,42 +31,42 @@ import java.util.Objects;
 /**
  * ToolActivationMetadata
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ToolActivationMetadata {
     public static final String SERIALIZED_NAME_ACTIVATED_AT_ITERATION = "activated_at_iteration";
 
     @SerializedName(SERIALIZED_NAME_ACTIVATED_AT_ITERATION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal activatedAtIteration;
 
     public static final String SERIALIZED_NAME_LAST_USED_ITERATION = "last_used_iteration";
 
     @SerializedName(SERIALIZED_NAME_LAST_USED_ITERATION)
-    @javax.annotation.Nullable private BigDecimal lastUsedIteration;
+    @jakarta.annotation.Nullable private BigDecimal lastUsedIteration;
 
     public static final String SERIALIZED_NAME_USE_COUNT = "use_count";
 
     @SerializedName(SERIALIZED_NAME_USE_COUNT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal useCount;
 
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String source;
 
     public static final String SERIALIZED_NAME_PINNED = "pinned";
 
     @SerializedName(SERIALIZED_NAME_PINNED)
-    @javax.annotation.Nullable private Boolean pinned;
+    @jakarta.annotation.Nullable private Boolean pinned;
 
     public ToolActivationMetadata() {}
 
     public ToolActivationMetadata activatedAtIteration(
-            @javax.annotation.Nonnull BigDecimal activatedAtIteration) {
+            @jakarta.annotation.Nonnull BigDecimal activatedAtIteration) {
         this.activatedAtIteration = activatedAtIteration;
         return this;
     }
@@ -75,17 +75,18 @@ public class ToolActivationMetadata {
      * Turn when the tool became active in this conversation.
      * @return activatedAtIteration
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getActivatedAtIteration() {
         return activatedAtIteration;
     }
 
-    public void setActivatedAtIteration(@javax.annotation.Nonnull BigDecimal activatedAtIteration) {
+    public void setActivatedAtIteration(
+            @jakarta.annotation.Nonnull BigDecimal activatedAtIteration) {
         this.activatedAtIteration = activatedAtIteration;
     }
 
     public ToolActivationMetadata lastUsedIteration(
-            @javax.annotation.Nullable BigDecimal lastUsedIteration) {
+            @jakarta.annotation.Nullable BigDecimal lastUsedIteration) {
         this.lastUsedIteration = lastUsedIteration;
         return this;
     }
@@ -94,15 +95,15 @@ public class ToolActivationMetadata {
      * Most recent turn where the tool was actually executed.
      * @return lastUsedIteration
      */
-    @javax.annotation.Nullable public BigDecimal getLastUsedIteration() {
+    @jakarta.annotation.Nullable public BigDecimal getLastUsedIteration() {
         return lastUsedIteration;
     }
 
-    public void setLastUsedIteration(@javax.annotation.Nullable BigDecimal lastUsedIteration) {
+    public void setLastUsedIteration(@jakarta.annotation.Nullable BigDecimal lastUsedIteration) {
         this.lastUsedIteration = lastUsedIteration;
     }
 
-    public ToolActivationMetadata useCount(@javax.annotation.Nonnull BigDecimal useCount) {
+    public ToolActivationMetadata useCount(@jakarta.annotation.Nonnull BigDecimal useCount) {
         this.useCount = useCount;
         return this;
     }
@@ -111,16 +112,16 @@ public class ToolActivationMetadata {
      * Number of successful executions in this conversation.
      * @return useCount
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getUseCount() {
         return useCount;
     }
 
-    public void setUseCount(@javax.annotation.Nonnull BigDecimal useCount) {
+    public void setUseCount(@jakarta.annotation.Nonnull BigDecimal useCount) {
         this.useCount = useCount;
     }
 
-    public ToolActivationMetadata source(@javax.annotation.Nonnull String source) {
+    public ToolActivationMetadata source(@jakarta.annotation.Nonnull String source) {
         this.source = source;
         return this;
     }
@@ -129,16 +130,16 @@ public class ToolActivationMetadata {
      * Activation source, e.g. \&quot;base\&quot;, \&quot;discover_tools\&quot;, \&quot;skill:presentation_authoring\&quot;.
      * @return source
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nonnull String source) {
+    public void setSource(@jakarta.annotation.Nonnull String source) {
         this.source = source;
     }
 
-    public ToolActivationMetadata pinned(@javax.annotation.Nullable Boolean pinned) {
+    public ToolActivationMetadata pinned(@jakarta.annotation.Nullable Boolean pinned) {
         this.pinned = pinned;
         return this;
     }
@@ -147,11 +148,11 @@ public class ToolActivationMetadata {
      * Whether this tool is pinned and should be preserved during eviction.
      * @return pinned
      */
-    @javax.annotation.Nullable public Boolean getPinned() {
+    @jakarta.annotation.Nullable public Boolean getPinned() {
         return pinned;
     }
 
-    public void setPinned(@javax.annotation.Nullable Boolean pinned) {
+    public void setPinned(@jakarta.annotation.Nullable Boolean pinned) {
         this.pinned = pinned;
     }
 

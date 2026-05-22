@@ -33,54 +33,54 @@ import java.util.Objects;
 /**
  * Definition of a remote activity exposed by a tool server for use in DSL workflows. Remote activities are identified in workflow steps using colon-separated names: &#x60;app:&lt;app_name&gt;:&lt;collection&gt;:&lt;activity_name&gt;&#x60; (e.g. &#x60;app:my-nlp-app:examples:word_count&#x60;).
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RemoteActivityDefinition {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_COLLECTION = "collection";
 
     @SerializedName(SERIALIZED_NAME_COLLECTION)
-    @javax.annotation.Nullable private String collection;
+    @jakarta.annotation.Nullable private String collection;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nullable private String title;
+    @jakarta.annotation.Nullable private String title;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_INPUT_SCHEMA = "input_schema";
 
     @SerializedName(SERIALIZED_NAME_INPUT_SCHEMA)
-    @javax.annotation.Nullable private Map<String, Object> inputSchema = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> inputSchema = new HashMap<>();
 
     public static final String SERIALIZED_NAME_OUTPUT_SCHEMA = "output_schema";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT_SCHEMA)
-    @javax.annotation.Nullable private Map<String, Object> outputSchema = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> outputSchema = new HashMap<>();
 
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nullable private String url;
+    @jakarta.annotation.Nullable private String url;
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
     @SerializedName(SERIALIZED_NAME_OPTIONS)
-    @javax.annotation.Nullable private DSLActivityOptions options;
+    @jakarta.annotation.Nullable private DSLActivityOptions options;
 
     public RemoteActivityDefinition() {}
 
-    public RemoteActivityDefinition name(@javax.annotation.Nonnull String name) {
+    public RemoteActivityDefinition name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -89,16 +89,16 @@ public class RemoteActivityDefinition {
      * Activity name (snake_case, unique within the collection)
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public RemoteActivityDefinition collection(@javax.annotation.Nullable String collection) {
+    public RemoteActivityDefinition collection(@jakarta.annotation.Nullable String collection) {
         this.collection = collection;
         return this;
     }
@@ -107,15 +107,15 @@ public class RemoteActivityDefinition {
      * Collection name this activity belongs to
      * @return collection
      */
-    @javax.annotation.Nullable public String getCollection() {
+    @jakarta.annotation.Nullable public String getCollection() {
         return collection;
     }
 
-    public void setCollection(@javax.annotation.Nullable String collection) {
+    public void setCollection(@jakarta.annotation.Nullable String collection) {
         this.collection = collection;
     }
 
-    public RemoteActivityDefinition title(@javax.annotation.Nullable String title) {
+    public RemoteActivityDefinition title(@jakarta.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -124,15 +124,15 @@ public class RemoteActivityDefinition {
      * Display title
      * @return title
      */
-    @javax.annotation.Nullable public String getTitle() {
+    @jakarta.annotation.Nullable public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nullable String title) {
+    public void setTitle(@jakarta.annotation.Nullable String title) {
         this.title = title;
     }
 
-    public RemoteActivityDefinition description(@javax.annotation.Nullable String description) {
+    public RemoteActivityDefinition description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -141,16 +141,16 @@ public class RemoteActivityDefinition {
      * Description of what the activity does
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
     public RemoteActivityDefinition inputSchema(
-            @javax.annotation.Nullable Map<String, Object> inputSchema) {
+            @jakarta.annotation.Nullable Map<String, Object> inputSchema) {
         this.inputSchema = inputSchema;
         return this;
     }
@@ -167,16 +167,16 @@ public class RemoteActivityDefinition {
      * JSON Schema for the activity input parameters
      * @return inputSchema
      */
-    @javax.annotation.Nullable public Map<String, Object> getInputSchema() {
+    @jakarta.annotation.Nullable public Map<String, Object> getInputSchema() {
         return inputSchema;
     }
 
-    public void setInputSchema(@javax.annotation.Nullable Map<String, Object> inputSchema) {
+    public void setInputSchema(@jakarta.annotation.Nullable Map<String, Object> inputSchema) {
         this.inputSchema = inputSchema;
     }
 
     public RemoteActivityDefinition outputSchema(
-            @javax.annotation.Nullable Map<String, Object> outputSchema) {
+            @jakarta.annotation.Nullable Map<String, Object> outputSchema) {
         this.outputSchema = outputSchema;
         return this;
     }
@@ -193,15 +193,15 @@ public class RemoteActivityDefinition {
      * JSON Schema for the activity output
      * @return outputSchema
      */
-    @javax.annotation.Nullable public Map<String, Object> getOutputSchema() {
+    @jakarta.annotation.Nullable public Map<String, Object> getOutputSchema() {
         return outputSchema;
     }
 
-    public void setOutputSchema(@javax.annotation.Nullable Map<String, Object> outputSchema) {
+    public void setOutputSchema(@jakarta.annotation.Nullable Map<String, Object> outputSchema) {
         this.outputSchema = outputSchema;
     }
 
-    public RemoteActivityDefinition url(@javax.annotation.Nullable String url) {
+    public RemoteActivityDefinition url(@jakarta.annotation.Nullable String url) {
         this.url = url;
         return this;
     }
@@ -210,15 +210,16 @@ public class RemoteActivityDefinition {
      * The activity execution URL. Can be absolute or relative to the tool server base URL. If not provided, the collection-specific activities endpoint is used.
      * @return url
      */
-    @javax.annotation.Nullable public String getUrl() {
+    @jakarta.annotation.Nullable public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nullable String url) {
+    public void setUrl(@jakarta.annotation.Nullable String url) {
         this.url = url;
     }
 
-    public RemoteActivityDefinition options(@javax.annotation.Nullable DSLActivityOptions options) {
+    public RemoteActivityDefinition options(
+            @jakarta.annotation.Nullable DSLActivityOptions options) {
         this.options = options;
         return this;
     }
@@ -227,11 +228,11 @@ public class RemoteActivityDefinition {
      * Suggested timeout and retry configuration
      * @return options
      */
-    @javax.annotation.Nullable public DSLActivityOptions getOptions() {
+    @jakarta.annotation.Nullable public DSLActivityOptions getOptions() {
         return options;
     }
 
-    public void setOptions(@javax.annotation.Nullable DSLActivityOptions options) {
+    public void setOptions(@jakarta.annotation.Nullable DSLActivityOptions options) {
         this.options = options;
     }
 

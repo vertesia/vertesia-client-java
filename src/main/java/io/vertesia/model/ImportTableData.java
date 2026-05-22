@@ -34,34 +34,34 @@ import java.util.Objects;
 /**
  * Table data specification for import.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ImportTableData {
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ImportDataSource source;
 
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
-    @javax.annotation.Nullable private List<Map<String, Object>> data = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<Map<String, Object>> data = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_URI = "uri";
 
     @SerializedName(SERIALIZED_NAME_URI)
-    @javax.annotation.Nullable private String uri;
+    @jakarta.annotation.Nullable private String uri;
 
     public static final String SERIALIZED_NAME_FORMAT = "format";
 
     @SerializedName(SERIALIZED_NAME_FORMAT)
-    @javax.annotation.Nullable private ImportDataFormat format;
+    @jakarta.annotation.Nullable private ImportDataFormat format;
 
     public ImportTableData() {}
 
-    public ImportTableData source(@javax.annotation.Nonnull ImportDataSource source) {
+    public ImportTableData source(@jakarta.annotation.Nonnull ImportDataSource source) {
         this.source = source;
         return this;
     }
@@ -70,16 +70,16 @@ public class ImportTableData {
      * Where the data comes from
      * @return source
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ImportDataSource getSource() {
         return source;
     }
 
-    public void setSource(@javax.annotation.Nonnull ImportDataSource source) {
+    public void setSource(@jakarta.annotation.Nonnull ImportDataSource source) {
         this.source = source;
     }
 
-    public ImportTableData data(@javax.annotation.Nullable List<Map<String, Object>> data) {
+    public ImportTableData data(@jakarta.annotation.Nullable List<Map<String, Object>> data) {
         this.data = data;
         return this;
     }
@@ -96,15 +96,15 @@ public class ImportTableData {
      * Inline data (when source is &#39;inline&#39;)
      * @return data
      */
-    @javax.annotation.Nullable public List<Map<String, Object>> getData() {
+    @jakarta.annotation.Nullable public List<Map<String, Object>> getData() {
         return data;
     }
 
-    public void setData(@javax.annotation.Nullable List<Map<String, Object>> data) {
+    public void setData(@jakarta.annotation.Nullable List<Map<String, Object>> data) {
         this.data = data;
     }
 
-    public ImportTableData uri(@javax.annotation.Nullable String uri) {
+    public ImportTableData uri(@jakarta.annotation.Nullable String uri) {
         this.uri = uri;
         return this;
     }
@@ -113,15 +113,15 @@ public class ImportTableData {
      * URI for external data (gcs: gs://..., url: https://..., artifact: out/file.csv)
      * @return uri
      */
-    @javax.annotation.Nullable public String getUri() {
+    @jakarta.annotation.Nullable public String getUri() {
         return uri;
     }
 
-    public void setUri(@javax.annotation.Nullable String uri) {
+    public void setUri(@jakarta.annotation.Nullable String uri) {
         this.uri = uri;
     }
 
-    public ImportTableData format(@javax.annotation.Nullable ImportDataFormat format) {
+    public ImportTableData format(@jakarta.annotation.Nullable ImportDataFormat format) {
         this.format = format;
         return this;
     }
@@ -130,11 +130,11 @@ public class ImportTableData {
      * Data format for external sources
      * @return format
      */
-    @javax.annotation.Nullable public ImportDataFormat getFormat() {
+    @jakarta.annotation.Nullable public ImportDataFormat getFormat() {
         return format;
     }
 
-    public void setFormat(@javax.annotation.Nullable ImportDataFormat format) {
+    public void setFormat(@jakarta.annotation.Nullable ImportDataFormat format) {
         this.format = format;
     }
 

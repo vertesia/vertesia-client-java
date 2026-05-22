@@ -38,7 +38,7 @@ import org.openapitools.jackson.nullable.JsonNullable;
 /**
  * AuditTrailEvent
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AuditTrailEvent {
@@ -98,115 +98,115 @@ public class AuditTrailEvent {
     public static final String SERIALIZED_NAME_EVENT_TYPE = "event_type";
 
     @SerializedName(SERIALIZED_NAME_EVENT_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private EventTypeEnum eventType;
 
     public static final String SERIALIZED_NAME_ACTION = "action";
 
     @SerializedName(SERIALIZED_NAME_ACTION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private AuditAction action;
 
     public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource_type";
 
     @SerializedName(SERIALIZED_NAME_RESOURCE_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String resourceType;
 
     public static final String SERIALIZED_NAME_RESOURCE_ID = "resource_id";
 
     @SerializedName(SERIALIZED_NAME_RESOURCE_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String resourceId;
 
     public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
 
     @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String timestamp;
 
     public static final String SERIALIZED_NAME_REQUEST_ID = "request_id";
 
     @SerializedName(SERIALIZED_NAME_REQUEST_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String requestId;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal status;
 
     public static final String SERIALIZED_NAME_SUCCESS = "success";
 
     @SerializedName(SERIALIZED_NAME_SUCCESS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean success;
 
     public static final String SERIALIZED_NAME_PRINCIPAL_ID = "principal_id";
 
     @SerializedName(SERIALIZED_NAME_PRINCIPAL_ID)
-    @javax.annotation.Nullable private String principalId;
+    @jakarta.annotation.Nullable private String principalId;
 
     public static final String SERIALIZED_NAME_PRINCIPAL_TYPE = "principal_type";
 
     @SerializedName(SERIALIZED_NAME_PRINCIPAL_TYPE)
-    @javax.annotation.Nullable private String principalType;
+    @jakarta.annotation.Nullable private String principalType;
 
     public static final String SERIALIZED_NAME_EFFECTIVE_PRINCIPAL_ID = "effective_principal_id";
 
     @SerializedName(SERIALIZED_NAME_EFFECTIVE_PRINCIPAL_ID)
-    @javax.annotation.Nullable private String effectivePrincipalId;
+    @jakarta.annotation.Nullable private String effectivePrincipalId;
 
     public static final String SERIALIZED_NAME_ROLES = "roles";
 
     @SerializedName(SERIALIZED_NAME_ROLES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<String> roles = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
-    @javax.annotation.Nullable private String accountId;
+    @jakarta.annotation.Nullable private String accountId;
 
     public static final String SERIALIZED_NAME_PROJECT_ID = "project_id";
 
     @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-    @javax.annotation.Nullable private String projectId;
+    @jakarta.annotation.Nullable private String projectId;
 
     public static final String SERIALIZED_NAME_TENANT_ID = "tenant_id";
 
     @SerializedName(SERIALIZED_NAME_TENANT_ID)
-    @javax.annotation.Nullable private String tenantId;
+    @jakarta.annotation.Nullable private String tenantId;
 
     public static final String SERIALIZED_NAME_ACCOUNT_NAME = "account_name";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT_NAME)
-    @javax.annotation.Nullable private String accountName;
+    @jakarta.annotation.Nullable private String accountName;
 
     public static final String SERIALIZED_NAME_PROJECT_NAME = "project_name";
 
     @SerializedName(SERIALIZED_NAME_PROJECT_NAME)
-    @javax.annotation.Nullable private String projectName;
+    @jakarta.annotation.Nullable private String projectName;
 
     public static final String SERIALIZED_NAME_PROVIDER = "provider";
 
     @SerializedName(SERIALIZED_NAME_PROVIDER)
-    @javax.annotation.Nullable private String provider;
+    @jakarta.annotation.Nullable private String provider;
 
     public static final String SERIALIZED_NAME_METERS = "meters";
 
     @SerializedName(SERIALIZED_NAME_METERS)
-    @javax.annotation.Nullable private List<AuditMeter> meters = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<AuditMeter> meters = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DETAILS = "details";
 
     @SerializedName(SERIALIZED_NAME_DETAILS)
-    @javax.annotation.Nullable private Map<String, Object> details = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> details = new HashMap<>();
 
     public AuditTrailEvent() {}
 
-    public AuditTrailEvent eventType(@javax.annotation.Nonnull EventTypeEnum eventType) {
+    public AuditTrailEvent eventType(@jakarta.annotation.Nonnull EventTypeEnum eventType) {
         this.eventType = eventType;
         return this;
     }
@@ -215,16 +215,16 @@ public class AuditTrailEvent {
      * Get eventType
      * @return eventType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public EventTypeEnum getEventType() {
         return eventType;
     }
 
-    public void setEventType(@javax.annotation.Nonnull EventTypeEnum eventType) {
+    public void setEventType(@jakarta.annotation.Nonnull EventTypeEnum eventType) {
         this.eventType = eventType;
     }
 
-    public AuditTrailEvent action(@javax.annotation.Nonnull AuditAction action) {
+    public AuditTrailEvent action(@jakarta.annotation.Nonnull AuditAction action) {
         this.action = action;
         return this;
     }
@@ -233,16 +233,16 @@ public class AuditTrailEvent {
      * Get action
      * @return action
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public AuditAction getAction() {
         return action;
     }
 
-    public void setAction(@javax.annotation.Nonnull AuditAction action) {
+    public void setAction(@jakarta.annotation.Nonnull AuditAction action) {
         this.action = action;
     }
 
-    public AuditTrailEvent resourceType(@javax.annotation.Nonnull String resourceType) {
+    public AuditTrailEvent resourceType(@jakarta.annotation.Nonnull String resourceType) {
         this.resourceType = resourceType;
         return this;
     }
@@ -251,16 +251,16 @@ public class AuditTrailEvent {
      * Get resourceType
      * @return resourceType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getResourceType() {
         return resourceType;
     }
 
-    public void setResourceType(@javax.annotation.Nonnull String resourceType) {
+    public void setResourceType(@jakarta.annotation.Nonnull String resourceType) {
         this.resourceType = resourceType;
     }
 
-    public AuditTrailEvent resourceId(@javax.annotation.Nonnull String resourceId) {
+    public AuditTrailEvent resourceId(@jakarta.annotation.Nonnull String resourceId) {
         this.resourceId = resourceId;
         return this;
     }
@@ -269,16 +269,16 @@ public class AuditTrailEvent {
      * Get resourceId
      * @return resourceId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getResourceId() {
         return resourceId;
     }
 
-    public void setResourceId(@javax.annotation.Nonnull String resourceId) {
+    public void setResourceId(@jakarta.annotation.Nonnull String resourceId) {
         this.resourceId = resourceId;
     }
 
-    public AuditTrailEvent timestamp(@javax.annotation.Nonnull String timestamp) {
+    public AuditTrailEvent timestamp(@jakarta.annotation.Nonnull String timestamp) {
         this.timestamp = timestamp;
         return this;
     }
@@ -287,16 +287,16 @@ public class AuditTrailEvent {
      * Get timestamp
      * @return timestamp
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(@javax.annotation.Nonnull String timestamp) {
+    public void setTimestamp(@jakarta.annotation.Nonnull String timestamp) {
         this.timestamp = timestamp;
     }
 
-    public AuditTrailEvent requestId(@javax.annotation.Nonnull String requestId) {
+    public AuditTrailEvent requestId(@jakarta.annotation.Nonnull String requestId) {
         this.requestId = requestId;
         return this;
     }
@@ -305,16 +305,16 @@ public class AuditTrailEvent {
      * Get requestId
      * @return requestId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getRequestId() {
         return requestId;
     }
 
-    public void setRequestId(@javax.annotation.Nonnull String requestId) {
+    public void setRequestId(@jakarta.annotation.Nonnull String requestId) {
         this.requestId = requestId;
     }
 
-    public AuditTrailEvent status(@javax.annotation.Nonnull BigDecimal status) {
+    public AuditTrailEvent status(@jakarta.annotation.Nonnull BigDecimal status) {
         this.status = status;
         return this;
     }
@@ -323,16 +323,16 @@ public class AuditTrailEvent {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull BigDecimal status) {
+    public void setStatus(@jakarta.annotation.Nonnull BigDecimal status) {
         this.status = status;
     }
 
-    public AuditTrailEvent success(@javax.annotation.Nonnull Boolean success) {
+    public AuditTrailEvent success(@jakarta.annotation.Nonnull Boolean success) {
         this.success = success;
         return this;
     }
@@ -341,16 +341,16 @@ public class AuditTrailEvent {
      * Get success
      * @return success
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getSuccess() {
         return success;
     }
 
-    public void setSuccess(@javax.annotation.Nonnull Boolean success) {
+    public void setSuccess(@jakarta.annotation.Nonnull Boolean success) {
         this.success = success;
     }
 
-    public AuditTrailEvent principalId(@javax.annotation.Nullable String principalId) {
+    public AuditTrailEvent principalId(@jakarta.annotation.Nullable String principalId) {
         this.principalId = principalId;
         return this;
     }
@@ -359,15 +359,15 @@ public class AuditTrailEvent {
      * Get principalId
      * @return principalId
      */
-    @javax.annotation.Nullable public String getPrincipalId() {
+    @jakarta.annotation.Nullable public String getPrincipalId() {
         return principalId;
     }
 
-    public void setPrincipalId(@javax.annotation.Nullable String principalId) {
+    public void setPrincipalId(@jakarta.annotation.Nullable String principalId) {
         this.principalId = principalId;
     }
 
-    public AuditTrailEvent principalType(@javax.annotation.Nullable String principalType) {
+    public AuditTrailEvent principalType(@jakarta.annotation.Nullable String principalType) {
         this.principalType = principalType;
         return this;
     }
@@ -376,16 +376,16 @@ public class AuditTrailEvent {
      * Get principalType
      * @return principalType
      */
-    @javax.annotation.Nullable public String getPrincipalType() {
+    @jakarta.annotation.Nullable public String getPrincipalType() {
         return principalType;
     }
 
-    public void setPrincipalType(@javax.annotation.Nullable String principalType) {
+    public void setPrincipalType(@jakarta.annotation.Nullable String principalType) {
         this.principalType = principalType;
     }
 
     public AuditTrailEvent effectivePrincipalId(
-            @javax.annotation.Nullable String effectivePrincipalId) {
+            @jakarta.annotation.Nullable String effectivePrincipalId) {
         this.effectivePrincipalId = effectivePrincipalId;
         return this;
     }
@@ -394,15 +394,15 @@ public class AuditTrailEvent {
      * Get effectivePrincipalId
      * @return effectivePrincipalId
      */
-    @javax.annotation.Nullable public String getEffectivePrincipalId() {
+    @jakarta.annotation.Nullable public String getEffectivePrincipalId() {
         return effectivePrincipalId;
     }
 
-    public void setEffectivePrincipalId(@javax.annotation.Nullable String effectivePrincipalId) {
+    public void setEffectivePrincipalId(@jakarta.annotation.Nullable String effectivePrincipalId) {
         this.effectivePrincipalId = effectivePrincipalId;
     }
 
-    public AuditTrailEvent roles(@javax.annotation.Nonnull List<String> roles) {
+    public AuditTrailEvent roles(@jakarta.annotation.Nonnull List<String> roles) {
         this.roles = roles;
         return this;
     }
@@ -419,16 +419,16 @@ public class AuditTrailEvent {
      * Get roles
      * @return roles
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<String> getRoles() {
         return roles;
     }
 
-    public void setRoles(@javax.annotation.Nonnull List<String> roles) {
+    public void setRoles(@jakarta.annotation.Nonnull List<String> roles) {
         this.roles = roles;
     }
 
-    public AuditTrailEvent accountId(@javax.annotation.Nullable String accountId) {
+    public AuditTrailEvent accountId(@jakarta.annotation.Nullable String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -437,15 +437,15 @@ public class AuditTrailEvent {
      * Get accountId
      * @return accountId
      */
-    @javax.annotation.Nullable public String getAccountId() {
+    @jakarta.annotation.Nullable public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(@javax.annotation.Nullable String accountId) {
+    public void setAccountId(@jakarta.annotation.Nullable String accountId) {
         this.accountId = accountId;
     }
 
-    public AuditTrailEvent projectId(@javax.annotation.Nullable String projectId) {
+    public AuditTrailEvent projectId(@jakarta.annotation.Nullable String projectId) {
         this.projectId = projectId;
         return this;
     }
@@ -454,15 +454,15 @@ public class AuditTrailEvent {
      * Get projectId
      * @return projectId
      */
-    @javax.annotation.Nullable public String getProjectId() {
+    @jakarta.annotation.Nullable public String getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(@javax.annotation.Nullable String projectId) {
+    public void setProjectId(@jakarta.annotation.Nullable String projectId) {
         this.projectId = projectId;
     }
 
-    public AuditTrailEvent tenantId(@javax.annotation.Nullable String tenantId) {
+    public AuditTrailEvent tenantId(@jakarta.annotation.Nullable String tenantId) {
         this.tenantId = tenantId;
         return this;
     }
@@ -471,15 +471,15 @@ public class AuditTrailEvent {
      * Get tenantId
      * @return tenantId
      */
-    @javax.annotation.Nullable public String getTenantId() {
+    @jakarta.annotation.Nullable public String getTenantId() {
         return tenantId;
     }
 
-    public void setTenantId(@javax.annotation.Nullable String tenantId) {
+    public void setTenantId(@jakarta.annotation.Nullable String tenantId) {
         this.tenantId = tenantId;
     }
 
-    public AuditTrailEvent accountName(@javax.annotation.Nullable String accountName) {
+    public AuditTrailEvent accountName(@jakarta.annotation.Nullable String accountName) {
         this.accountName = accountName;
         return this;
     }
@@ -488,15 +488,15 @@ public class AuditTrailEvent {
      * Get accountName
      * @return accountName
      */
-    @javax.annotation.Nullable public String getAccountName() {
+    @jakarta.annotation.Nullable public String getAccountName() {
         return accountName;
     }
 
-    public void setAccountName(@javax.annotation.Nullable String accountName) {
+    public void setAccountName(@jakarta.annotation.Nullable String accountName) {
         this.accountName = accountName;
     }
 
-    public AuditTrailEvent projectName(@javax.annotation.Nullable String projectName) {
+    public AuditTrailEvent projectName(@jakarta.annotation.Nullable String projectName) {
         this.projectName = projectName;
         return this;
     }
@@ -505,15 +505,15 @@ public class AuditTrailEvent {
      * Get projectName
      * @return projectName
      */
-    @javax.annotation.Nullable public String getProjectName() {
+    @jakarta.annotation.Nullable public String getProjectName() {
         return projectName;
     }
 
-    public void setProjectName(@javax.annotation.Nullable String projectName) {
+    public void setProjectName(@jakarta.annotation.Nullable String projectName) {
         this.projectName = projectName;
     }
 
-    public AuditTrailEvent provider(@javax.annotation.Nullable String provider) {
+    public AuditTrailEvent provider(@jakarta.annotation.Nullable String provider) {
         this.provider = provider;
         return this;
     }
@@ -522,15 +522,15 @@ public class AuditTrailEvent {
      * Provider type for billable/provider-backed events, e.g. vertexai, bedrock.
      * @return provider
      */
-    @javax.annotation.Nullable public String getProvider() {
+    @jakarta.annotation.Nullable public String getProvider() {
         return provider;
     }
 
-    public void setProvider(@javax.annotation.Nullable String provider) {
+    public void setProvider(@jakarta.annotation.Nullable String provider) {
         this.provider = provider;
     }
 
-    public AuditTrailEvent meters(@javax.annotation.Nullable List<AuditMeter> meters) {
+    public AuditTrailEvent meters(@jakarta.annotation.Nullable List<AuditMeter> meters) {
         this.meters = meters;
         return this;
     }
@@ -547,15 +547,15 @@ public class AuditTrailEvent {
      * Generic metering data for cost attribution and usage tracking
      * @return meters
      */
-    @javax.annotation.Nullable public List<AuditMeter> getMeters() {
+    @jakarta.annotation.Nullable public List<AuditMeter> getMeters() {
         return meters;
     }
 
-    public void setMeters(@javax.annotation.Nullable List<AuditMeter> meters) {
+    public void setMeters(@jakarta.annotation.Nullable List<AuditMeter> meters) {
         this.meters = meters;
     }
 
-    public AuditTrailEvent details(@javax.annotation.Nullable Map<String, Object> details) {
+    public AuditTrailEvent details(@jakarta.annotation.Nullable Map<String, Object> details) {
         this.details = details;
         return this;
     }
@@ -572,11 +572,11 @@ public class AuditTrailEvent {
      * Event-specific metadata — shape varies by action/resource_type
      * @return details
      */
-    @javax.annotation.Nullable public Map<String, Object> getDetails() {
+    @jakarta.annotation.Nullable public Map<String, Object> getDetails() {
         return details;
     }
 
-    public void setDetails(@javax.annotation.Nullable Map<String, Object> details) {
+    public void setDetails(@jakarta.annotation.Nullable Map<String, Object> details) {
         this.details = details;
     }
 

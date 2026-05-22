@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * McpOAuthTokenResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class McpOAuthTokenResponse {
     public static final String SERIALIZED_NAME_ACCESS_TOKEN = "access_token";
 
     @SerializedName(SERIALIZED_NAME_ACCESS_TOKEN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String accessToken;
 
     public McpOAuthTokenResponse() {}
 
-    public McpOAuthTokenResponse accessToken(@javax.annotation.Nonnull String accessToken) {
+    public McpOAuthTokenResponse accessToken(@jakarta.annotation.Nonnull String accessToken) {
         this.accessToken = accessToken;
         return this;
     }
@@ -51,12 +51,12 @@ public class McpOAuthTokenResponse {
      * Get accessToken
      * @return accessToken
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAccessToken() {
         return accessToken;
     }
 
-    public void setAccessToken(@javax.annotation.Nonnull String accessToken) {
+    public void setAccessToken(@jakarta.annotation.Nonnull String accessToken) {
         this.accessToken = accessToken;
     }
 

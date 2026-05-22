@@ -31,54 +31,54 @@ import java.util.Objects;
 /**
  * CostTimeSeriesPoint
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CostTimeSeriesPoint {
     public static final String SERIALIZED_NAME_TIMESTAMP = "timestamp";
 
     @SerializedName(SERIALIZED_NAME_TIMESTAMP)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String timestamp;
 
     public static final String SERIALIZED_NAME_COST = "cost";
 
     @SerializedName(SERIALIZED_NAME_COST)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal cost;
 
     public static final String SERIALIZED_NAME_INPUT_TOKENS = "input_tokens";
 
     @SerializedName(SERIALIZED_NAME_INPUT_TOKENS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal inputTokens;
 
     public static final String SERIALIZED_NAME_CACHED_INPUT_TOKENS = "cached_input_tokens";
 
     @SerializedName(SERIALIZED_NAME_CACHED_INPUT_TOKENS)
-    @javax.annotation.Nullable private BigDecimal cachedInputTokens;
+    @jakarta.annotation.Nullable private BigDecimal cachedInputTokens;
 
     public static final String SERIALIZED_NAME_CACHE_WRITE_INPUT_TOKENS =
             "cache_write_input_tokens";
 
     @SerializedName(SERIALIZED_NAME_CACHE_WRITE_INPUT_TOKENS)
-    @javax.annotation.Nullable private BigDecimal cacheWriteInputTokens;
+    @jakarta.annotation.Nullable private BigDecimal cacheWriteInputTokens;
 
     public static final String SERIALIZED_NAME_OUTPUT_TOKENS = "output_tokens";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT_TOKENS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal outputTokens;
 
     public static final String SERIALIZED_NAME_CALLS = "calls";
 
     @SerializedName(SERIALIZED_NAME_CALLS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal calls;
 
     public CostTimeSeriesPoint() {}
 
-    public CostTimeSeriesPoint timestamp(@javax.annotation.Nonnull String timestamp) {
+    public CostTimeSeriesPoint timestamp(@jakarta.annotation.Nonnull String timestamp) {
         this.timestamp = timestamp;
         return this;
     }
@@ -87,16 +87,16 @@ public class CostTimeSeriesPoint {
      * Get timestamp
      * @return timestamp
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(@javax.annotation.Nonnull String timestamp) {
+    public void setTimestamp(@jakarta.annotation.Nonnull String timestamp) {
         this.timestamp = timestamp;
     }
 
-    public CostTimeSeriesPoint cost(@javax.annotation.Nonnull BigDecimal cost) {
+    public CostTimeSeriesPoint cost(@jakarta.annotation.Nonnull BigDecimal cost) {
         this.cost = cost;
         return this;
     }
@@ -105,16 +105,16 @@ public class CostTimeSeriesPoint {
      * Get cost
      * @return cost
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCost() {
         return cost;
     }
 
-    public void setCost(@javax.annotation.Nonnull BigDecimal cost) {
+    public void setCost(@jakarta.annotation.Nonnull BigDecimal cost) {
         this.cost = cost;
     }
 
-    public CostTimeSeriesPoint inputTokens(@javax.annotation.Nonnull BigDecimal inputTokens) {
+    public CostTimeSeriesPoint inputTokens(@jakarta.annotation.Nonnull BigDecimal inputTokens) {
         this.inputTokens = inputTokens;
         return this;
     }
@@ -123,17 +123,17 @@ public class CostTimeSeriesPoint {
      * Get inputTokens
      * @return inputTokens
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getInputTokens() {
         return inputTokens;
     }
 
-    public void setInputTokens(@javax.annotation.Nonnull BigDecimal inputTokens) {
+    public void setInputTokens(@jakarta.annotation.Nonnull BigDecimal inputTokens) {
         this.inputTokens = inputTokens;
     }
 
     public CostTimeSeriesPoint cachedInputTokens(
-            @javax.annotation.Nullable BigDecimal cachedInputTokens) {
+            @jakarta.annotation.Nullable BigDecimal cachedInputTokens) {
         this.cachedInputTokens = cachedInputTokens;
         return this;
     }
@@ -142,16 +142,16 @@ public class CostTimeSeriesPoint {
      * Get cachedInputTokens
      * @return cachedInputTokens
      */
-    @javax.annotation.Nullable public BigDecimal getCachedInputTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getCachedInputTokens() {
         return cachedInputTokens;
     }
 
-    public void setCachedInputTokens(@javax.annotation.Nullable BigDecimal cachedInputTokens) {
+    public void setCachedInputTokens(@jakarta.annotation.Nullable BigDecimal cachedInputTokens) {
         this.cachedInputTokens = cachedInputTokens;
     }
 
     public CostTimeSeriesPoint cacheWriteInputTokens(
-            @javax.annotation.Nullable BigDecimal cacheWriteInputTokens) {
+            @jakarta.annotation.Nullable BigDecimal cacheWriteInputTokens) {
         this.cacheWriteInputTokens = cacheWriteInputTokens;
         return this;
     }
@@ -160,16 +160,16 @@ public class CostTimeSeriesPoint {
      * Get cacheWriteInputTokens
      * @return cacheWriteInputTokens
      */
-    @javax.annotation.Nullable public BigDecimal getCacheWriteInputTokens() {
+    @jakarta.annotation.Nullable public BigDecimal getCacheWriteInputTokens() {
         return cacheWriteInputTokens;
     }
 
     public void setCacheWriteInputTokens(
-            @javax.annotation.Nullable BigDecimal cacheWriteInputTokens) {
+            @jakarta.annotation.Nullable BigDecimal cacheWriteInputTokens) {
         this.cacheWriteInputTokens = cacheWriteInputTokens;
     }
 
-    public CostTimeSeriesPoint outputTokens(@javax.annotation.Nonnull BigDecimal outputTokens) {
+    public CostTimeSeriesPoint outputTokens(@jakarta.annotation.Nonnull BigDecimal outputTokens) {
         this.outputTokens = outputTokens;
         return this;
     }
@@ -178,16 +178,16 @@ public class CostTimeSeriesPoint {
      * Get outputTokens
      * @return outputTokens
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getOutputTokens() {
         return outputTokens;
     }
 
-    public void setOutputTokens(@javax.annotation.Nonnull BigDecimal outputTokens) {
+    public void setOutputTokens(@jakarta.annotation.Nonnull BigDecimal outputTokens) {
         this.outputTokens = outputTokens;
     }
 
-    public CostTimeSeriesPoint calls(@javax.annotation.Nonnull BigDecimal calls) {
+    public CostTimeSeriesPoint calls(@jakarta.annotation.Nonnull BigDecimal calls) {
         this.calls = calls;
         return this;
     }
@@ -196,12 +196,12 @@ public class CostTimeSeriesPoint {
      * Get calls
      * @return calls
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCalls() {
         return calls;
     }
 
-    public void setCalls(@javax.annotation.Nonnull BigDecimal calls) {
+    public void setCalls(@jakarta.annotation.Nonnull BigDecimal calls) {
         this.calls = calls;
     }
 

@@ -33,7 +33,7 @@ import java.util.Objects;
 /**
  * GetRenditionResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class GetRenditionResponse {
@@ -97,22 +97,22 @@ public class GetRenditionResponse {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private StatusEnum status;
 
     public static final String SERIALIZED_NAME_RENDITIONS = "renditions";
 
     @SerializedName(SERIALIZED_NAME_RENDITIONS)
-    @javax.annotation.Nullable private List<String> renditions = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> renditions = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_WORKFLOW_RUN_ID = "workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_RUN_ID)
-    @javax.annotation.Nullable private String workflowRunId;
+    @jakarta.annotation.Nullable private String workflowRunId;
 
     public GetRenditionResponse() {}
 
-    public GetRenditionResponse status(@javax.annotation.Nonnull StatusEnum status) {
+    public GetRenditionResponse status(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
         return this;
     }
@@ -121,16 +121,16 @@ public class GetRenditionResponse {
      * Get status
      * @return status
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public StatusEnum getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nonnull StatusEnum status) {
+    public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
     }
 
-    public GetRenditionResponse renditions(@javax.annotation.Nullable List<String> renditions) {
+    public GetRenditionResponse renditions(@jakarta.annotation.Nullable List<String> renditions) {
         this.renditions = renditions;
         return this;
     }
@@ -147,15 +147,15 @@ public class GetRenditionResponse {
      * Get renditions
      * @return renditions
      */
-    @javax.annotation.Nullable public List<String> getRenditions() {
+    @jakarta.annotation.Nullable public List<String> getRenditions() {
         return renditions;
     }
 
-    public void setRenditions(@javax.annotation.Nullable List<String> renditions) {
+    public void setRenditions(@jakarta.annotation.Nullable List<String> renditions) {
         this.renditions = renditions;
     }
 
-    public GetRenditionResponse workflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public GetRenditionResponse workflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
         return this;
     }
@@ -164,11 +164,11 @@ public class GetRenditionResponse {
      * Get workflowRunId
      * @return workflowRunId
      */
-    @javax.annotation.Nullable public String getWorkflowRunId() {
+    @jakarta.annotation.Nullable public String getWorkflowRunId() {
         return workflowRunId;
     }
 
-    public void setWorkflowRunId(@javax.annotation.Nullable String workflowRunId) {
+    public void setWorkflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
     }
 

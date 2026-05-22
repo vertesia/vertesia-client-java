@@ -31,37 +31,37 @@ import java.util.Objects;
 /**
  * Dashboard layout configuration.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DashboardLayout {
     public static final String SERIALIZED_NAME_COLUMNS = "columns";
 
     @SerializedName(SERIALIZED_NAME_COLUMNS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal columns;
 
     public static final String SERIALIZED_NAME_CELL_WIDTH = "cellWidth";
 
     @SerializedName(SERIALIZED_NAME_CELL_WIDTH)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal cellWidth;
 
     public static final String SERIALIZED_NAME_CELL_HEIGHT = "cellHeight";
 
     @SerializedName(SERIALIZED_NAME_CELL_HEIGHT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal cellHeight;
 
     public static final String SERIALIZED_NAME_PADDING = "padding";
 
     @SerializedName(SERIALIZED_NAME_PADDING)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private BigDecimal padding;
 
     public DashboardLayout() {}
 
-    public DashboardLayout columns(@javax.annotation.Nonnull BigDecimal columns) {
+    public DashboardLayout columns(@jakarta.annotation.Nonnull BigDecimal columns) {
         this.columns = columns;
         return this;
     }
@@ -70,16 +70,16 @@ public class DashboardLayout {
      * Number of columns in the grid (default: 2)
      * @return columns
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getColumns() {
         return columns;
     }
 
-    public void setColumns(@javax.annotation.Nonnull BigDecimal columns) {
+    public void setColumns(@jakarta.annotation.Nonnull BigDecimal columns) {
         this.columns = columns;
     }
 
-    public DashboardLayout cellWidth(@javax.annotation.Nonnull BigDecimal cellWidth) {
+    public DashboardLayout cellWidth(@jakarta.annotation.Nonnull BigDecimal cellWidth) {
         this.cellWidth = cellWidth;
         return this;
     }
@@ -88,16 +88,16 @@ public class DashboardLayout {
      * Width of each cell in pixels (default: 600)
      * @return cellWidth
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCellWidth() {
         return cellWidth;
     }
 
-    public void setCellWidth(@javax.annotation.Nonnull BigDecimal cellWidth) {
+    public void setCellWidth(@jakarta.annotation.Nonnull BigDecimal cellWidth) {
         this.cellWidth = cellWidth;
     }
 
-    public DashboardLayout cellHeight(@javax.annotation.Nonnull BigDecimal cellHeight) {
+    public DashboardLayout cellHeight(@jakarta.annotation.Nonnull BigDecimal cellHeight) {
         this.cellHeight = cellHeight;
         return this;
     }
@@ -106,16 +106,16 @@ public class DashboardLayout {
      * Height of each cell in pixels (default: 400)
      * @return cellHeight
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getCellHeight() {
         return cellHeight;
     }
 
-    public void setCellHeight(@javax.annotation.Nonnull BigDecimal cellHeight) {
+    public void setCellHeight(@jakarta.annotation.Nonnull BigDecimal cellHeight) {
         this.cellHeight = cellHeight;
     }
 
-    public DashboardLayout padding(@javax.annotation.Nonnull BigDecimal padding) {
+    public DashboardLayout padding(@jakarta.annotation.Nonnull BigDecimal padding) {
         this.padding = padding;
         return this;
     }
@@ -124,12 +124,12 @@ public class DashboardLayout {
      * Padding between cells in pixels (default: 20)
      * @return padding
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public BigDecimal getPadding() {
         return padding;
     }
 
-    public void setPadding(@javax.annotation.Nonnull BigDecimal padding) {
+    public void setPadding(@jakarta.annotation.Nonnull BigDecimal padding) {
         this.padding = padding;
     }
 

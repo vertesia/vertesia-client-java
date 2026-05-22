@@ -33,43 +33,43 @@ import java.util.Objects;
 /**
  * PromptSearchQuery
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromptSearchQuery {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @javax.annotation.Nullable private List<String> status = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> status = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LIMIT = "limit";
 
     @SerializedName(SERIALIZED_NAME_LIMIT)
-    @javax.annotation.Nullable private BigDecimal limit;
+    @jakarta.annotation.Nullable private BigDecimal limit;
 
     public static final String SERIALIZED_NAME_OFFSET = "offset";
 
     @SerializedName(SERIALIZED_NAME_OFFSET)
-    @javax.annotation.Nullable private BigDecimal offset;
+    @jakarta.annotation.Nullable private BigDecimal offset;
 
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @javax.annotation.Nullable private String role;
+    @jakarta.annotation.Nullable private String role;
 
     public static final String SERIALIZED_NAME_MATCH_INTERACTIONS = "matchInteractions";
 
     @SerializedName(SERIALIZED_NAME_MATCH_INTERACTIONS)
-    @javax.annotation.Nullable private Boolean matchInteractions;
+    @jakarta.annotation.Nullable private Boolean matchInteractions;
 
     public PromptSearchQuery() {}
 
-    public PromptSearchQuery name(@javax.annotation.Nullable String name) {
+    public PromptSearchQuery name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -78,15 +78,15 @@ public class PromptSearchQuery {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public PromptSearchQuery status(@javax.annotation.Nullable List<String> status) {
+    public PromptSearchQuery status(@jakarta.annotation.Nullable List<String> status) {
         this.status = status;
         return this;
     }
@@ -103,15 +103,15 @@ public class PromptSearchQuery {
      * Get status
      * @return status
      */
-    @javax.annotation.Nullable public List<String> getStatus() {
+    @jakarta.annotation.Nullable public List<String> getStatus() {
         return status;
     }
 
-    public void setStatus(@javax.annotation.Nullable List<String> status) {
+    public void setStatus(@jakarta.annotation.Nullable List<String> status) {
         this.status = status;
     }
 
-    public PromptSearchQuery limit(@javax.annotation.Nullable BigDecimal limit) {
+    public PromptSearchQuery limit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
         return this;
     }
@@ -120,15 +120,15 @@ public class PromptSearchQuery {
      * Get limit
      * @return limit
      */
-    @javax.annotation.Nullable public BigDecimal getLimit() {
+    @jakarta.annotation.Nullable public BigDecimal getLimit() {
         return limit;
     }
 
-    public void setLimit(@javax.annotation.Nullable BigDecimal limit) {
+    public void setLimit(@jakarta.annotation.Nullable BigDecimal limit) {
         this.limit = limit;
     }
 
-    public PromptSearchQuery offset(@javax.annotation.Nullable BigDecimal offset) {
+    public PromptSearchQuery offset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
         return this;
     }
@@ -137,15 +137,15 @@ public class PromptSearchQuery {
      * Get offset
      * @return offset
      */
-    @javax.annotation.Nullable public BigDecimal getOffset() {
+    @jakarta.annotation.Nullable public BigDecimal getOffset() {
         return offset;
     }
 
-    public void setOffset(@javax.annotation.Nullable BigDecimal offset) {
+    public void setOffset(@jakarta.annotation.Nullable BigDecimal offset) {
         this.offset = offset;
     }
 
-    public PromptSearchQuery role(@javax.annotation.Nullable String role) {
+    public PromptSearchQuery role(@jakarta.annotation.Nullable String role) {
         this.role = role;
         return this;
     }
@@ -154,16 +154,16 @@ public class PromptSearchQuery {
      * Get role
      * @return role
      */
-    @javax.annotation.Nullable public String getRole() {
+    @jakarta.annotation.Nullable public String getRole() {
         return role;
     }
 
-    public void setRole(@javax.annotation.Nullable String role) {
+    public void setRole(@jakarta.annotation.Nullable String role) {
         this.role = role;
     }
 
     public PromptSearchQuery matchInteractions(
-            @javax.annotation.Nullable Boolean matchInteractions) {
+            @jakarta.annotation.Nullable Boolean matchInteractions) {
         this.matchInteractions = matchInteractions;
         return this;
     }
@@ -172,11 +172,11 @@ public class PromptSearchQuery {
      * Get matchInteractions
      * @return matchInteractions
      */
-    @javax.annotation.Nullable public Boolean getMatchInteractions() {
+    @jakarta.annotation.Nullable public Boolean getMatchInteractions() {
         return matchInteractions;
     }
 
-    public void setMatchInteractions(@javax.annotation.Nullable Boolean matchInteractions) {
+    public void setMatchInteractions(@jakarta.annotation.Nullable Boolean matchInteractions) {
         this.matchInteractions = matchInteractions;
     }
 

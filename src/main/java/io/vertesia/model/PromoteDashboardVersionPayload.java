@@ -30,18 +30,18 @@ import java.util.Objects;
 /**
  * Payload for promoting a version to current.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromoteDashboardVersionPayload {
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nullable private String message;
+    @jakarta.annotation.Nullable private String message;
 
     public PromoteDashboardVersionPayload() {}
 
-    public PromoteDashboardVersionPayload message(@javax.annotation.Nullable String message) {
+    public PromoteDashboardVersionPayload message(@jakarta.annotation.Nullable String message) {
         this.message = message;
         return this;
     }
@@ -50,11 +50,11 @@ public class PromoteDashboardVersionPayload {
      * Commit message for the promotion
      * @return message
      */
-    @javax.annotation.Nullable public String getMessage() {
+    @jakarta.annotation.Nullable public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nullable String message) {
+    public void setMessage(@jakarta.annotation.Nullable String message) {
         this.message = message;
     }
 

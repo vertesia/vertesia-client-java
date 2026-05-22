@@ -32,46 +32,46 @@ import java.util.Objects;
 /**
  * InCodeProcessDefinition
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InCodeProcessDefinition {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public static final String SERIALIZED_NAME_TITLE = "title";
 
     @SerializedName(SERIALIZED_NAME_TITLE)
-    @javax.annotation.Nullable private String title;
+    @jakarta.annotation.Nullable private String title;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-    @javax.annotation.Nullable private String description;
+    @jakarta.annotation.Nullable private String description;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DEFINITION = "definition";
 
     @SerializedName(SERIALIZED_NAME_DEFINITION)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ProcessDefinitionBody definition;
 
     public InCodeProcessDefinition() {}
 
-    public InCodeProcessDefinition id(@javax.annotation.Nonnull String id) {
+    public InCodeProcessDefinition id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -80,16 +80,16 @@ public class InCodeProcessDefinition {
      * Process identifier exposed by an app package. App-local ids are normalized by Studio to &#x60;app:&lt;app-name&gt;:&lt;id&gt;&#x60; when returned to callers.
      * @return id
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getId() {
         return id;
     }
 
-    public void setId(@javax.annotation.Nonnull String id) {
+    public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
     }
 
-    public InCodeProcessDefinition name(@javax.annotation.Nonnull String name) {
+    public InCodeProcessDefinition name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -98,16 +98,16 @@ public class InCodeProcessDefinition {
      * Human-readable or app-local process name.
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public InCodeProcessDefinition title(@javax.annotation.Nullable String title) {
+    public InCodeProcessDefinition title(@jakarta.annotation.Nullable String title) {
         this.title = title;
         return this;
     }
@@ -116,15 +116,15 @@ public class InCodeProcessDefinition {
      * Get title
      * @return title
      */
-    @javax.annotation.Nullable public String getTitle() {
+    @jakarta.annotation.Nullable public String getTitle() {
         return title;
     }
 
-    public void setTitle(@javax.annotation.Nullable String title) {
+    public void setTitle(@jakarta.annotation.Nullable String title) {
         this.title = title;
     }
 
-    public InCodeProcessDefinition description(@javax.annotation.Nullable String description) {
+    public InCodeProcessDefinition description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -133,15 +133,15 @@ public class InCodeProcessDefinition {
      * Get description
      * @return description
      */
-    @javax.annotation.Nullable public String getDescription() {
+    @jakarta.annotation.Nullable public String getDescription() {
         return description;
     }
 
-    public void setDescription(@javax.annotation.Nullable String description) {
+    public void setDescription(@jakarta.annotation.Nullable String description) {
         this.description = description;
     }
 
-    public InCodeProcessDefinition tags(@javax.annotation.Nullable List<String> tags) {
+    public InCodeProcessDefinition tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -158,16 +158,16 @@ public class InCodeProcessDefinition {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
     public InCodeProcessDefinition definition(
-            @javax.annotation.Nonnull ProcessDefinitionBody definition) {
+            @jakarta.annotation.Nonnull ProcessDefinitionBody definition) {
         this.definition = definition;
         return this;
     }
@@ -176,12 +176,12 @@ public class InCodeProcessDefinition {
      * Get definition
      * @return definition
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ProcessDefinitionBody getDefinition() {
         return definition;
     }
 
-    public void setDefinition(@javax.annotation.Nonnull ProcessDefinitionBody definition) {
+    public void setDefinition(@jakarta.annotation.Nonnull ProcessDefinitionBody definition) {
         this.definition = definition;
     }
 

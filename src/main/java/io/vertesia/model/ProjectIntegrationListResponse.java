@@ -33,20 +33,20 @@ import java.util.Objects;
 /**
  * ProjectIntegrationListResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProjectIntegrationListResponse {
     public static final String SERIALIZED_NAME_INTEGRATIONS = "integrations";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATIONS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<ProjectIntegrationListEntry> integrations = new ArrayList<>();
 
     public ProjectIntegrationListResponse() {}
 
     public ProjectIntegrationListResponse integrations(
-            @javax.annotation.Nonnull List<ProjectIntegrationListEntry> integrations) {
+            @jakarta.annotation.Nonnull List<ProjectIntegrationListEntry> integrations) {
         this.integrations = integrations;
         return this;
     }
@@ -64,13 +64,13 @@ public class ProjectIntegrationListResponse {
      * Get integrations
      * @return integrations
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<ProjectIntegrationListEntry> getIntegrations() {
         return integrations;
     }
 
     public void setIntegrations(
-            @javax.annotation.Nonnull List<ProjectIntegrationListEntry> integrations) {
+            @jakarta.annotation.Nonnull List<ProjectIntegrationListEntry> integrations) {
         this.integrations = integrations;
     }
 

@@ -35,30 +35,31 @@ import java.util.Objects;
 /**
  * ObjectSearchResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ObjectSearchResponse {
     public static final String SERIALIZED_NAME_RESULTS = "results";
 
     @SerializedName(SERIALIZED_NAME_RESULTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<ContentObjectItem> results = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_FACETS = "facets";
 
     @SerializedName(SERIALIZED_NAME_FACETS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ComputedFacetResponse facets;
 
     public static final String SERIALIZED_NAME_AGGREGATIONS = "aggregations";
 
     @SerializedName(SERIALIZED_NAME_AGGREGATIONS)
-    @javax.annotation.Nullable private Map<String, Object> aggregations = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> aggregations = new HashMap<>();
 
     public ObjectSearchResponse() {}
 
-    public ObjectSearchResponse results(@javax.annotation.Nonnull List<ContentObjectItem> results) {
+    public ObjectSearchResponse results(
+            @jakarta.annotation.Nonnull List<ContentObjectItem> results) {
         this.results = results;
         return this;
     }
@@ -75,16 +76,16 @@ public class ObjectSearchResponse {
      * Get results
      * @return results
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<ContentObjectItem> getResults() {
         return results;
     }
 
-    public void setResults(@javax.annotation.Nonnull List<ContentObjectItem> results) {
+    public void setResults(@jakarta.annotation.Nonnull List<ContentObjectItem> results) {
         this.results = results;
     }
 
-    public ObjectSearchResponse facets(@javax.annotation.Nonnull ComputedFacetResponse facets) {
+    public ObjectSearchResponse facets(@jakarta.annotation.Nonnull ComputedFacetResponse facets) {
         this.facets = facets;
         return this;
     }
@@ -93,17 +94,17 @@ public class ObjectSearchResponse {
      * Get facets
      * @return facets
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ComputedFacetResponse getFacets() {
         return facets;
     }
 
-    public void setFacets(@javax.annotation.Nonnull ComputedFacetResponse facets) {
+    public void setFacets(@jakarta.annotation.Nonnull ComputedFacetResponse facets) {
         this.facets = facets;
     }
 
     public ObjectSearchResponse aggregations(
-            @javax.annotation.Nullable Map<String, Object> aggregations) {
+            @jakarta.annotation.Nullable Map<String, Object> aggregations) {
         this.aggregations = aggregations;
         return this;
     }
@@ -120,11 +121,11 @@ public class ObjectSearchResponse {
      * Get aggregations
      * @return aggregations
      */
-    @javax.annotation.Nullable public Map<String, Object> getAggregations() {
+    @jakarta.annotation.Nullable public Map<String, Object> getAggregations() {
         return aggregations;
     }
 
-    public void setAggregations(@javax.annotation.Nullable Map<String, Object> aggregations) {
+    public void setAggregations(@jakarta.annotation.Nullable Map<String, Object> aggregations) {
         this.aggregations = aggregations;
     }
 

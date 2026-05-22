@@ -30,24 +30,24 @@ import java.util.Objects;
 /**
  * Response from terminating an agent run.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class TerminateAgentRunResponse {
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String message;
 
     public static final String SERIALIZED_NAME_REASON = "reason";
 
     @SerializedName(SERIALIZED_NAME_REASON)
-    @javax.annotation.Nullable private String reason;
+    @jakarta.annotation.Nullable private String reason;
 
     public TerminateAgentRunResponse() {}
 
-    public TerminateAgentRunResponse message(@javax.annotation.Nonnull String message) {
+    public TerminateAgentRunResponse message(@jakarta.annotation.Nonnull String message) {
         this.message = message;
         return this;
     }
@@ -56,16 +56,16 @@ public class TerminateAgentRunResponse {
      * Get message
      * @return message
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nonnull String message) {
+    public void setMessage(@jakarta.annotation.Nonnull String message) {
         this.message = message;
     }
 
-    public TerminateAgentRunResponse reason(@javax.annotation.Nullable String reason) {
+    public TerminateAgentRunResponse reason(@jakarta.annotation.Nullable String reason) {
         this.reason = reason;
         return this;
     }
@@ -74,11 +74,11 @@ public class TerminateAgentRunResponse {
      * Get reason
      * @return reason
      */
-    @javax.annotation.Nullable public String getReason() {
+    @jakarta.annotation.Nullable public String getReason() {
         return reason;
     }
 
-    public void setReason(@javax.annotation.Nullable String reason) {
+    public void setReason(@jakarta.annotation.Nullable String reason) {
         this.reason = reason;
     }
 

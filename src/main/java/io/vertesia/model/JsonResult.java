@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * JsonResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class JsonResult {
@@ -91,17 +91,17 @@ public class JsonResult {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_VALUE = "value";
 
     @SerializedName(SERIALIZED_NAME_VALUE)
-    @javax.annotation.Nullable private Object value = null;
+    @jakarta.annotation.Nullable private Object value = null;
 
     public JsonResult() {}
 
-    public JsonResult type(@javax.annotation.Nonnull TypeEnum type) {
+    public JsonResult type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -110,16 +110,16 @@ public class JsonResult {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public JsonResult value(@javax.annotation.Nullable Object value) {
+    public JsonResult value(@jakarta.annotation.Nullable Object value) {
         this.value = value;
         return this;
     }
@@ -128,11 +128,11 @@ public class JsonResult {
      * Get value
      * @return value
      */
-    @javax.annotation.Nullable public Object getValue() {
+    @jakarta.annotation.Nullable public Object getValue() {
         return value;
     }
 
-    public void setValue(@javax.annotation.Nullable Object value) {
+    public void setValue(@jakarta.annotation.Nullable Object value) {
         this.value = value;
     }
 

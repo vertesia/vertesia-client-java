@@ -33,14 +33,14 @@ import java.util.Objects;
 /**
  * Payload for importing data into tables.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ImportDataPayload {
     public static final String SERIALIZED_NAME_TABLES = "tables";
 
     @SerializedName(SERIALIZED_NAME_TABLES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Map<String, ImportTableData> tables;
 
     /**
@@ -101,18 +101,19 @@ public class ImportDataPayload {
     public static final String SERIALIZED_NAME_MODE = "mode";
 
     @SerializedName(SERIALIZED_NAME_MODE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ModeEnum mode;
 
     public static final String SERIALIZED_NAME_MESSAGE = "message";
 
     @SerializedName(SERIALIZED_NAME_MESSAGE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String message;
 
     public ImportDataPayload() {}
 
-    public ImportDataPayload tables(@javax.annotation.Nonnull Map<String, ImportTableData> tables) {
+    public ImportDataPayload tables(
+            @jakarta.annotation.Nonnull Map<String, ImportTableData> tables) {
         this.tables = tables;
         return this;
     }
@@ -129,16 +130,16 @@ public class ImportDataPayload {
      * Map of table name to data specification
      * @return tables
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Map<String, ImportTableData> getTables() {
         return tables;
     }
 
-    public void setTables(@javax.annotation.Nonnull Map<String, ImportTableData> tables) {
+    public void setTables(@jakarta.annotation.Nonnull Map<String, ImportTableData> tables) {
         this.tables = tables;
     }
 
-    public ImportDataPayload mode(@javax.annotation.Nonnull ModeEnum mode) {
+    public ImportDataPayload mode(@jakarta.annotation.Nonnull ModeEnum mode) {
         this.mode = mode;
         return this;
     }
@@ -147,16 +148,16 @@ public class ImportDataPayload {
      * Import mode
      * @return mode
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ModeEnum getMode() {
         return mode;
     }
 
-    public void setMode(@javax.annotation.Nonnull ModeEnum mode) {
+    public void setMode(@jakarta.annotation.Nonnull ModeEnum mode) {
         this.mode = mode;
     }
 
-    public ImportDataPayload message(@javax.annotation.Nonnull String message) {
+    public ImportDataPayload message(@jakarta.annotation.Nonnull String message) {
         this.message = message;
         return this;
     }
@@ -165,12 +166,12 @@ public class ImportDataPayload {
      * Commit message
      * @return message
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getMessage() {
         return message;
     }
 
-    public void setMessage(@javax.annotation.Nonnull String message) {
+    public void setMessage(@jakarta.annotation.Nonnull String message) {
         this.message = message;
     }
 

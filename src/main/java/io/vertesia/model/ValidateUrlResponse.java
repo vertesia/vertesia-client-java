@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * ValidateUrlResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ValidateUrlResponse {
     public static final String SERIALIZED_NAME_VALID = "valid";
 
     @SerializedName(SERIALIZED_NAME_VALID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private Boolean valid;
 
     public ValidateUrlResponse() {}
 
-    public ValidateUrlResponse valid(@javax.annotation.Nonnull Boolean valid) {
+    public ValidateUrlResponse valid(@jakarta.annotation.Nonnull Boolean valid) {
         this.valid = valid;
         return this;
     }
@@ -51,12 +51,12 @@ public class ValidateUrlResponse {
      * Get valid
      * @return valid
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public Boolean getValid() {
         return valid;
     }
 
-    public void setValid(@javax.annotation.Nonnull Boolean valid) {
+    public void setValid(@jakarta.annotation.Nonnull Boolean valid) {
         this.valid = valid;
     }
 

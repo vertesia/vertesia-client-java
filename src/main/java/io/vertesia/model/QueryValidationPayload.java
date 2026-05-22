@@ -35,20 +35,20 @@ import java.util.Objects;
 /**
  * QueryValidationPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class QueryValidationPayload {
     public static final String SERIALIZED_NAME_QUERIES = "queries";
 
     @SerializedName(SERIALIZED_NAME_QUERIES)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<QueryValidationPayloadQueriesInner> queries = new ArrayList<>();
 
     public QueryValidationPayload() {}
 
     public QueryValidationPayload queries(
-            @javax.annotation.Nonnull List<QueryValidationPayloadQueriesInner> queries) {
+            @jakarta.annotation.Nonnull List<QueryValidationPayloadQueriesInner> queries) {
         this.queries = queries;
         return this;
     }
@@ -65,13 +65,13 @@ public class QueryValidationPayload {
      * Get queries
      * @return queries
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<QueryValidationPayloadQueriesInner> getQueries() {
         return queries;
     }
 
     public void setQueries(
-            @javax.annotation.Nonnull List<QueryValidationPayloadQueriesInner> queries) {
+            @jakarta.annotation.Nonnull List<QueryValidationPayloadQueriesInner> queries) {
         this.queries = queries;
     }
 

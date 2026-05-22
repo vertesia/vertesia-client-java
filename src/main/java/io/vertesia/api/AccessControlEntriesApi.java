@@ -82,7 +82,7 @@ public class AccessControlEntriesApi {
      * </table>
      */
     public okhttp3.Call createAccessControlEntryCall(
-            @javax.annotation.Nonnull ACECreatePayload acECreatePayload,
+            @jakarta.annotation.Nonnull ACECreatePayload acECreatePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -139,7 +139,7 @@ public class AccessControlEntriesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createAccessControlEntryValidateBeforeCall(
-            @javax.annotation.Nonnull ACECreatePayload acECreatePayload,
+            @jakarta.annotation.Nonnull ACECreatePayload acECreatePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'acECreatePayload' is set
@@ -167,7 +167,7 @@ public class AccessControlEntriesApi {
      * </table>
      */
     public AccessControlEntry createAccessControlEntry(
-            @javax.annotation.Nonnull ACECreatePayload acECreatePayload) throws ApiException {
+            @jakarta.annotation.Nonnull ACECreatePayload acECreatePayload) throws ApiException {
         ApiResponse<AccessControlEntry> localVarResp =
                 createAccessControlEntryWithHttpInfo(acECreatePayload);
         return localVarResp.getData();
@@ -189,7 +189,7 @@ public class AccessControlEntriesApi {
      * </table>
      */
     public ApiResponse<AccessControlEntry> createAccessControlEntryWithHttpInfo(
-            @javax.annotation.Nonnull ACECreatePayload acECreatePayload) throws ApiException {
+            @jakarta.annotation.Nonnull ACECreatePayload acECreatePayload) throws ApiException {
         okhttp3.Call localVarCall =
                 createAccessControlEntryValidateBeforeCall(acECreatePayload, null);
         Type localVarReturnType = new TypeToken<AccessControlEntry>() {}.getType();
@@ -213,7 +213,7 @@ public class AccessControlEntriesApi {
      * </table>
      */
     public okhttp3.Call createAccessControlEntryAsync(
-            @javax.annotation.Nonnull ACECreatePayload acECreatePayload,
+            @jakarta.annotation.Nonnull ACECreatePayload acECreatePayload,
             final ApiCallback<AccessControlEntry> _callback)
             throws ApiException {
 
@@ -240,7 +240,7 @@ public class AccessControlEntriesApi {
      * </table>
      */
     public okhttp3.Call deleteAccessControlEntryCall(
-            @javax.annotation.Nonnull String aceId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String aceId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -300,7 +300,7 @@ public class AccessControlEntriesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteAccessControlEntryValidateBeforeCall(
-            @javax.annotation.Nonnull String aceId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String aceId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'aceId' is set
         if (aceId == null) {
@@ -326,7 +326,7 @@ public class AccessControlEntriesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteByIdResult deleteAccessControlEntry(@javax.annotation.Nonnull String aceId)
+    public DeleteByIdResult deleteAccessControlEntry(@jakarta.annotation.Nonnull String aceId)
             throws ApiException {
         ApiResponse<DeleteByIdResult> localVarResp = deleteAccessControlEntryWithHttpInfo(aceId);
         return localVarResp.getData();
@@ -348,7 +348,7 @@ public class AccessControlEntriesApi {
      * </table>
      */
     public ApiResponse<DeleteByIdResult> deleteAccessControlEntryWithHttpInfo(
-            @javax.annotation.Nonnull String aceId) throws ApiException {
+            @jakarta.annotation.Nonnull String aceId) throws ApiException {
         okhttp3.Call localVarCall = deleteAccessControlEntryValidateBeforeCall(aceId, null);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -371,7 +371,7 @@ public class AccessControlEntriesApi {
      * </table>
      */
     public okhttp3.Call deleteAccessControlEntryAsync(
-            @javax.annotation.Nonnull String aceId, final ApiCallback<DeleteByIdResult> _callback)
+            @jakarta.annotation.Nonnull String aceId, final ApiCallback<DeleteByIdResult> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = deleteAccessControlEntryValidateBeforeCall(aceId, _callback);
@@ -396,7 +396,7 @@ public class AccessControlEntriesApi {
      * </table>
      */
     public okhttp3.Call getAccessControlEntryCall(
-            @javax.annotation.Nonnull String aceId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String aceId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -456,7 +456,7 @@ public class AccessControlEntriesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAccessControlEntryValidateBeforeCall(
-            @javax.annotation.Nonnull String aceId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String aceId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'aceId' is set
         if (aceId == null) {
@@ -482,7 +482,7 @@ public class AccessControlEntriesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AccessControlEntry getAccessControlEntry(@javax.annotation.Nonnull String aceId)
+    public AccessControlEntry getAccessControlEntry(@jakarta.annotation.Nonnull String aceId)
             throws ApiException {
         ApiResponse<AccessControlEntry> localVarResp = getAccessControlEntryWithHttpInfo(aceId);
         return localVarResp.getData();
@@ -504,7 +504,7 @@ public class AccessControlEntriesApi {
      * </table>
      */
     public ApiResponse<AccessControlEntry> getAccessControlEntryWithHttpInfo(
-            @javax.annotation.Nonnull String aceId) throws ApiException {
+            @jakarta.annotation.Nonnull String aceId) throws ApiException {
         okhttp3.Call localVarCall = getAccessControlEntryValidateBeforeCall(aceId, null);
         Type localVarReturnType = new TypeToken<AccessControlEntry>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -527,7 +527,8 @@ public class AccessControlEntriesApi {
      * </table>
      */
     public okhttp3.Call getAccessControlEntryAsync(
-            @javax.annotation.Nonnull String aceId, final ApiCallback<AccessControlEntry> _callback)
+            @jakarta.annotation.Nonnull String aceId,
+            final ApiCallback<AccessControlEntry> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getAccessControlEntryValidateBeforeCall(aceId, _callback);
@@ -830,8 +831,8 @@ public class AccessControlEntriesApi {
      * </table>
      */
     public okhttp3.Call updateAccessControlEntryCall(
-            @javax.annotation.Nonnull String aceId,
-            @javax.annotation.Nonnull ACEUpdatePayload acEUpdatePayload,
+            @jakarta.annotation.Nonnull String aceId,
+            @jakarta.annotation.Nonnull ACEUpdatePayload acEUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -892,8 +893,8 @@ public class AccessControlEntriesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateAccessControlEntryValidateBeforeCall(
-            @javax.annotation.Nonnull String aceId,
-            @javax.annotation.Nonnull ACEUpdatePayload acEUpdatePayload,
+            @jakarta.annotation.Nonnull String aceId,
+            @jakarta.annotation.Nonnull ACEUpdatePayload acEUpdatePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'aceId' is set
@@ -928,8 +929,8 @@ public class AccessControlEntriesApi {
      * </table>
      */
     public AccessControlEntry updateAccessControlEntry(
-            @javax.annotation.Nonnull String aceId,
-            @javax.annotation.Nonnull ACEUpdatePayload acEUpdatePayload)
+            @jakarta.annotation.Nonnull String aceId,
+            @jakarta.annotation.Nonnull ACEUpdatePayload acEUpdatePayload)
             throws ApiException {
         ApiResponse<AccessControlEntry> localVarResp =
                 updateAccessControlEntryWithHttpInfo(aceId, acEUpdatePayload);
@@ -953,8 +954,8 @@ public class AccessControlEntriesApi {
      * </table>
      */
     public ApiResponse<AccessControlEntry> updateAccessControlEntryWithHttpInfo(
-            @javax.annotation.Nonnull String aceId,
-            @javax.annotation.Nonnull ACEUpdatePayload acEUpdatePayload)
+            @jakarta.annotation.Nonnull String aceId,
+            @jakarta.annotation.Nonnull ACEUpdatePayload acEUpdatePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateAccessControlEntryValidateBeforeCall(aceId, acEUpdatePayload, null);
@@ -980,8 +981,8 @@ public class AccessControlEntriesApi {
      * </table>
      */
     public okhttp3.Call updateAccessControlEntryAsync(
-            @javax.annotation.Nonnull String aceId,
-            @javax.annotation.Nonnull ACEUpdatePayload acEUpdatePayload,
+            @jakarta.annotation.Nonnull String aceId,
+            @jakarta.annotation.Nonnull ACEUpdatePayload acEUpdatePayload,
             final ApiCallback<AccessControlEntry> _callback)
             throws ApiException {
 

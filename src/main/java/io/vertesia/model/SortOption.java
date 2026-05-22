@@ -30,24 +30,24 @@ import java.util.Objects;
 /**
  * SortOption
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class SortOption {
     public static final String SERIALIZED_NAME_FIELD = "field";
 
     @SerializedName(SERIALIZED_NAME_FIELD)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String field;
 
     public static final String SERIALIZED_NAME_ORDER = "order";
 
     @SerializedName(SERIALIZED_NAME_ORDER)
-    @javax.annotation.Nullable private SortOrder order;
+    @jakarta.annotation.Nullable private SortOrder order;
 
     public SortOption() {}
 
-    public SortOption field(@javax.annotation.Nonnull String field) {
+    public SortOption field(@jakarta.annotation.Nonnull String field) {
         this.field = field;
         return this;
     }
@@ -56,16 +56,16 @@ public class SortOption {
      * Field path to sort by (e.g. &#39;updated_at&#39;, &#39;name&#39;, &#39;properties.title&#39;)
      * @return field
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getField() {
         return field;
     }
 
-    public void setField(@javax.annotation.Nonnull String field) {
+    public void setField(@jakarta.annotation.Nonnull String field) {
         this.field = field;
     }
 
-    public SortOption order(@javax.annotation.Nullable SortOrder order) {
+    public SortOption order(@jakarta.annotation.Nullable SortOrder order) {
         this.order = order;
         return this;
     }
@@ -74,11 +74,11 @@ public class SortOption {
      * Sort direction. Defaults to &#39;desc&#39;.
      * @return order
      */
-    @javax.annotation.Nullable public SortOrder getOrder() {
+    @jakarta.annotation.Nullable public SortOrder getOrder() {
         return order;
     }
 
-    public void setOrder(@javax.annotation.Nullable SortOrder order) {
+    public void setOrder(@jakarta.annotation.Nullable SortOrder order) {
         this.order = order;
     }
 

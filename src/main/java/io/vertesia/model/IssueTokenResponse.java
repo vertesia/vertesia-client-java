@@ -32,14 +32,14 @@ import java.util.Objects;
 /**
  * IssueTokenResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class IssueTokenResponse {
     public static final String SERIALIZED_NAME_TOKEN = "token";
 
     @SerializedName(SERIALIZED_NAME_TOKEN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String token;
 
     /**
@@ -98,17 +98,17 @@ public class IssueTokenResponse {
     public static final String SERIALIZED_NAME_TOKEN_TYPE = "token_type";
 
     @SerializedName(SERIALIZED_NAME_TOKEN_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TokenTypeEnum tokenType;
 
     public static final String SERIALIZED_NAME_EXPIRES_IN = "expires_in";
 
     @SerializedName(SERIALIZED_NAME_EXPIRES_IN)
-    @javax.annotation.Nullable private BigDecimal expiresIn;
+    @jakarta.annotation.Nullable private BigDecimal expiresIn;
 
     public IssueTokenResponse() {}
 
-    public IssueTokenResponse token(@javax.annotation.Nonnull String token) {
+    public IssueTokenResponse token(@jakarta.annotation.Nonnull String token) {
         this.token = token;
         return this;
     }
@@ -117,16 +117,16 @@ public class IssueTokenResponse {
      * Get token
      * @return token
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getToken() {
         return token;
     }
 
-    public void setToken(@javax.annotation.Nonnull String token) {
+    public void setToken(@jakarta.annotation.Nonnull String token) {
         this.token = token;
     }
 
-    public IssueTokenResponse tokenType(@javax.annotation.Nonnull TokenTypeEnum tokenType) {
+    public IssueTokenResponse tokenType(@jakarta.annotation.Nonnull TokenTypeEnum tokenType) {
         this.tokenType = tokenType;
         return this;
     }
@@ -135,16 +135,16 @@ public class IssueTokenResponse {
      * Get tokenType
      * @return tokenType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TokenTypeEnum getTokenType() {
         return tokenType;
     }
 
-    public void setTokenType(@javax.annotation.Nonnull TokenTypeEnum tokenType) {
+    public void setTokenType(@jakarta.annotation.Nonnull TokenTypeEnum tokenType) {
         this.tokenType = tokenType;
     }
 
-    public IssueTokenResponse expiresIn(@javax.annotation.Nullable BigDecimal expiresIn) {
+    public IssueTokenResponse expiresIn(@jakarta.annotation.Nullable BigDecimal expiresIn) {
         this.expiresIn = expiresIn;
         return this;
     }
@@ -153,11 +153,11 @@ public class IssueTokenResponse {
      * Get expiresIn
      * @return expiresIn
      */
-    @javax.annotation.Nullable public BigDecimal getExpiresIn() {
+    @jakarta.annotation.Nullable public BigDecimal getExpiresIn() {
         return expiresIn;
     }
 
-    public void setExpiresIn(@javax.annotation.Nullable BigDecimal expiresIn) {
+    public void setExpiresIn(@jakarta.annotation.Nullable BigDecimal expiresIn) {
         this.expiresIn = expiresIn;
     }
 

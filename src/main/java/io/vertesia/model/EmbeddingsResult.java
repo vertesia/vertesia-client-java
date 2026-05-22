@@ -33,30 +33,30 @@ import java.util.Objects;
 /**
  * EmbeddingsResult
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class EmbeddingsResult {
     public static final String SERIALIZED_NAME_RESULTS = "results";
 
     @SerializedName(SERIALIZED_NAME_RESULTS)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private List<EmbeddingResultItem> results = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String model;
 
     public static final String SERIALIZED_NAME_USAGE = "usage";
 
     @SerializedName(SERIALIZED_NAME_USAGE)
-    @javax.annotation.Nullable private EmbeddingsTokenUsage usage;
+    @jakarta.annotation.Nullable private EmbeddingsTokenUsage usage;
 
     public EmbeddingsResult() {}
 
-    public EmbeddingsResult results(@javax.annotation.Nonnull List<EmbeddingResultItem> results) {
+    public EmbeddingsResult results(@jakarta.annotation.Nonnull List<EmbeddingResultItem> results) {
         this.results = results;
         return this;
     }
@@ -73,16 +73,16 @@ public class EmbeddingsResult {
      * One result item per input, in the same order as EmbeddingsOptions.inputs.
      * @return results
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public List<EmbeddingResultItem> getResults() {
         return results;
     }
 
-    public void setResults(@javax.annotation.Nonnull List<EmbeddingResultItem> results) {
+    public void setResults(@jakarta.annotation.Nonnull List<EmbeddingResultItem> results) {
         this.results = results;
     }
 
-    public EmbeddingsResult model(@javax.annotation.Nonnull String model) {
+    public EmbeddingsResult model(@jakarta.annotation.Nonnull String model) {
         this.model = model;
         return this;
     }
@@ -91,16 +91,16 @@ public class EmbeddingsResult {
      * The provider model id that produced the result.
      * @return model
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nonnull String model) {
+    public void setModel(@jakarta.annotation.Nonnull String model) {
         this.model = model;
     }
 
-    public EmbeddingsResult usage(@javax.annotation.Nullable EmbeddingsTokenUsage usage) {
+    public EmbeddingsResult usage(@jakarta.annotation.Nullable EmbeddingsTokenUsage usage) {
         this.usage = usage;
         return this;
     }
@@ -109,11 +109,11 @@ public class EmbeddingsResult {
      * Aggregate token usage when reported by the provider.
      * @return usage
      */
-    @javax.annotation.Nullable public EmbeddingsTokenUsage getUsage() {
+    @jakarta.annotation.Nullable public EmbeddingsTokenUsage getUsage() {
         return usage;
     }
 
-    public void setUsage(@javax.annotation.Nullable EmbeddingsTokenUsage usage) {
+    public void setUsage(@jakarta.annotation.Nullable EmbeddingsTokenUsage usage) {
         this.usage = usage;
     }
 

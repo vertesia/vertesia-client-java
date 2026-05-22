@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * Agent token for a service account to act as agent on behalf of a user.  Two trust paths are supported:  - &#x60;user_access_token&#x60;: a live signed Vertesia token. STS verifies the user context from that token. - &#x60;workload_id_token&#x60;: a workload acts on behalf of a user. It implies that a full verification   will be performed based on the workload identity.
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AgentTokenRequest {
@@ -91,45 +91,45 @@ public class AgentTokenRequest {
     public static final String SERIALIZED_NAME_TYPE = "type";
 
     @SerializedName(SERIALIZED_NAME_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private TypeEnum type;
 
     public static final String SERIALIZED_NAME_AUDIENCE = "audience";
 
     @SerializedName(SERIALIZED_NAME_AUDIENCE)
-    @javax.annotation.Nullable private String audience;
+    @jakarta.annotation.Nullable private String audience;
 
     public static final String SERIALIZED_NAME_ALGORITHM = "algorithm";
 
     @SerializedName(SERIALIZED_NAME_ALGORITHM)
-    @javax.annotation.Nullable private SigningAlgorithm algorithm;
+    @jakarta.annotation.Nullable private SigningAlgorithm algorithm;
 
     public static final String SERIALIZED_NAME_ACCOUNT_ID = "account_id";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String accountId;
 
     public static final String SERIALIZED_NAME_PROJECT_ID = "project_id";
 
     @SerializedName(SERIALIZED_NAME_PROJECT_ID)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String projectId;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_ON_BEHALF_OF = "on_behalf_of";
 
     @SerializedName(SERIALIZED_NAME_ON_BEHALF_OF)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String onBehalfOf;
 
     public AgentTokenRequest() {}
 
-    public AgentTokenRequest type(@javax.annotation.Nonnull TypeEnum type) {
+    public AgentTokenRequest type(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
         return this;
     }
@@ -138,16 +138,16 @@ public class AgentTokenRequest {
      * Get type
      * @return type
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public TypeEnum getType() {
         return type;
     }
 
-    public void setType(@javax.annotation.Nonnull TypeEnum type) {
+    public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
     }
 
-    public AgentTokenRequest audience(@javax.annotation.Nullable String audience) {
+    public AgentTokenRequest audience(@jakarta.annotation.Nullable String audience) {
         this.audience = audience;
         return this;
     }
@@ -156,15 +156,15 @@ public class AgentTokenRequest {
      * Get audience
      * @return audience
      */
-    @javax.annotation.Nullable public String getAudience() {
+    @jakarta.annotation.Nullable public String getAudience() {
         return audience;
     }
 
-    public void setAudience(@javax.annotation.Nullable String audience) {
+    public void setAudience(@jakarta.annotation.Nullable String audience) {
         this.audience = audience;
     }
 
-    public AgentTokenRequest algorithm(@javax.annotation.Nullable SigningAlgorithm algorithm) {
+    public AgentTokenRequest algorithm(@jakarta.annotation.Nullable SigningAlgorithm algorithm) {
         this.algorithm = algorithm;
         return this;
     }
@@ -173,15 +173,15 @@ public class AgentTokenRequest {
      * Signing algorithm - defaults to ES256. Use RS256 for Azure AD compatibility.
      * @return algorithm
      */
-    @javax.annotation.Nullable public SigningAlgorithm getAlgorithm() {
+    @jakarta.annotation.Nullable public SigningAlgorithm getAlgorithm() {
         return algorithm;
     }
 
-    public void setAlgorithm(@javax.annotation.Nullable SigningAlgorithm algorithm) {
+    public void setAlgorithm(@jakarta.annotation.Nullable SigningAlgorithm algorithm) {
         this.algorithm = algorithm;
     }
 
-    public AgentTokenRequest accountId(@javax.annotation.Nonnull String accountId) {
+    public AgentTokenRequest accountId(@jakarta.annotation.Nonnull String accountId) {
         this.accountId = accountId;
         return this;
     }
@@ -190,16 +190,16 @@ public class AgentTokenRequest {
      * Get accountId
      * @return accountId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(@javax.annotation.Nonnull String accountId) {
+    public void setAccountId(@jakarta.annotation.Nonnull String accountId) {
         this.accountId = accountId;
     }
 
-    public AgentTokenRequest projectId(@javax.annotation.Nonnull String projectId) {
+    public AgentTokenRequest projectId(@jakarta.annotation.Nonnull String projectId) {
         this.projectId = projectId;
         return this;
     }
@@ -208,16 +208,16 @@ public class AgentTokenRequest {
      * Get projectId
      * @return projectId
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getProjectId() {
         return projectId;
     }
 
-    public void setProjectId(@javax.annotation.Nonnull String projectId) {
+    public void setProjectId(@jakarta.annotation.Nonnull String projectId) {
         this.projectId = projectId;
     }
 
-    public AgentTokenRequest name(@javax.annotation.Nullable String name) {
+    public AgentTokenRequest name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -226,15 +226,15 @@ public class AgentTokenRequest {
      * Get name
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public AgentTokenRequest onBehalfOf(@javax.annotation.Nonnull String onBehalfOf) {
+    public AgentTokenRequest onBehalfOf(@jakarta.annotation.Nonnull String onBehalfOf) {
         this.onBehalfOf = onBehalfOf;
         return this;
     }
@@ -243,12 +243,12 @@ public class AgentTokenRequest {
      * User information.  The value of this field can be either:   - a signed Vertesia token used to verify the user context   - a user ID prefixed with &#x60;user:&#x60; to indicate the user on behalf of whom the agent is     acting.
      * @return onBehalfOf
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getOnBehalfOf() {
         return onBehalfOf;
     }
 
-    public void setOnBehalfOf(@javax.annotation.Nonnull String onBehalfOf) {
+    public void setOnBehalfOf(@jakarta.annotation.Nonnull String onBehalfOf) {
         this.onBehalfOf = onBehalfOf;
     }
 

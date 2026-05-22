@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * ValidateUrlRequest
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ValidateUrlRequest {
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String url;
 
     public ValidateUrlRequest() {}
 
-    public ValidateUrlRequest url(@javax.annotation.Nonnull String url) {
+    public ValidateUrlRequest url(@jakarta.annotation.Nonnull String url) {
         this.url = url;
         return this;
     }
@@ -51,12 +51,12 @@ public class ValidateUrlRequest {
      * Get url
      * @return url
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getUrl() {
         return url;
     }
 
-    public void setUrl(@javax.annotation.Nonnull String url) {
+    public void setUrl(@jakarta.annotation.Nonnull String url) {
         this.url = url;
     }
 

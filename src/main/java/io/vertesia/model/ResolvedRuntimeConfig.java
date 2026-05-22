@@ -30,31 +30,31 @@ import java.util.Objects;
 /**
  * Resolved runtime configuration for an interaction
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ResolvedRuntimeConfig {
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ResolvedEnvironmentInfo environment;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
-    @javax.annotation.Nullable private String model;
+    @jakarta.annotation.Nullable private String model;
 
     public static final String SERIALIZED_NAME_MODEL_SOURCE = "model_source";
 
     @SerializedName(SERIALIZED_NAME_MODEL_SOURCE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private ModelSource modelSource;
 
     public ResolvedRuntimeConfig() {}
 
     public ResolvedRuntimeConfig environment(
-            @javax.annotation.Nonnull ResolvedEnvironmentInfo environment) {
+            @jakarta.annotation.Nonnull ResolvedEnvironmentInfo environment) {
         this.environment = environment;
         return this;
     }
@@ -63,16 +63,16 @@ public class ResolvedRuntimeConfig {
      * Get environment
      * @return environment
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ResolvedEnvironmentInfo getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@javax.annotation.Nonnull ResolvedEnvironmentInfo environment) {
+    public void setEnvironment(@jakarta.annotation.Nonnull ResolvedEnvironmentInfo environment) {
         this.environment = environment;
     }
 
-    public ResolvedRuntimeConfig model(@javax.annotation.Nullable String model) {
+    public ResolvedRuntimeConfig model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
@@ -81,15 +81,15 @@ public class ResolvedRuntimeConfig {
      * Get model
      * @return model
      */
-    @javax.annotation.Nullable public String getModel() {
+    @jakarta.annotation.Nullable public String getModel() {
         return model;
     }
 
-    public void setModel(@javax.annotation.Nullable String model) {
+    public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
     }
 
-    public ResolvedRuntimeConfig modelSource(@javax.annotation.Nonnull ModelSource modelSource) {
+    public ResolvedRuntimeConfig modelSource(@jakarta.annotation.Nonnull ModelSource modelSource) {
         this.modelSource = modelSource;
         return this;
     }
@@ -98,12 +98,12 @@ public class ResolvedRuntimeConfig {
      * Get modelSource
      * @return modelSource
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public ModelSource getModelSource() {
         return modelSource;
     }
 
-    public void setModelSource(@javax.annotation.Nonnull ModelSource modelSource) {
+    public void setModelSource(@jakarta.annotation.Nonnull ModelSource modelSource) {
         this.modelSource = modelSource;
     }
 

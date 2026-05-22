@@ -31,7 +31,7 @@ import java.util.Objects;
 /**
  * InCodeTypeRef
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InCodeTypeRef {
@@ -91,24 +91,24 @@ public class InCodeTypeRef {
     public static final String SERIALIZED_NAME_REF_TYPE = "ref_type";
 
     @SerializedName(SERIALIZED_NAME_REF_TYPE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private RefTypeEnum refType;
 
     public static final String SERIALIZED_NAME_CODE = "code";
 
     @SerializedName(SERIALIZED_NAME_CODE)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String code;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String name;
 
     public InCodeTypeRef() {}
 
-    public InCodeTypeRef refType(@javax.annotation.Nonnull RefTypeEnum refType) {
+    public InCodeTypeRef refType(@jakarta.annotation.Nonnull RefTypeEnum refType) {
         this.refType = refType;
         return this;
     }
@@ -117,16 +117,16 @@ public class InCodeTypeRef {
      * Get refType
      * @return refType
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public RefTypeEnum getRefType() {
         return refType;
     }
 
-    public void setRefType(@javax.annotation.Nonnull RefTypeEnum refType) {
+    public void setRefType(@jakarta.annotation.Nonnull RefTypeEnum refType) {
         this.refType = refType;
     }
 
-    public InCodeTypeRef code(@javax.annotation.Nonnull String code) {
+    public InCodeTypeRef code(@jakarta.annotation.Nonnull String code) {
         this.code = code;
         return this;
     }
@@ -135,16 +135,16 @@ public class InCodeTypeRef {
      * Namespaced identifier for in-code types (e.g. \&quot;sys:Invoice\&quot;, \&quot;app:myapp:Contract\&quot;)
      * @return code
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getCode() {
         return code;
     }
 
-    public void setCode(@javax.annotation.Nonnull String code) {
+    public void setCode(@jakarta.annotation.Nonnull String code) {
         this.code = code;
     }
 
-    public InCodeTypeRef name(@javax.annotation.Nonnull String name) {
+    public InCodeTypeRef name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -153,12 +153,12 @@ public class InCodeTypeRef {
      * Get name
      * @return name
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nonnull String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 

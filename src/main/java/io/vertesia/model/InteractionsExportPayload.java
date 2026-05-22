@@ -33,28 +33,28 @@ import java.util.Objects;
 /**
  * InteractionsExportPayload
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InteractionsExportPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @javax.annotation.Nullable private String name;
+    @jakarta.annotation.Nullable private String name;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
-    @javax.annotation.Nullable private List<String> tags = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_VERSIONS = "versions";
 
     @SerializedName(SERIALIZED_NAME_VERSIONS)
-    @javax.annotation.Nullable private List<InteractionsExportPayloadVersionsInner> versions = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<InteractionsExportPayloadVersionsInner> versions = new ArrayList<>();
 
     public InteractionsExportPayload() {}
 
-    public InteractionsExportPayload name(@javax.annotation.Nullable String name) {
+    public InteractionsExportPayload name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
     }
@@ -63,15 +63,15 @@ public class InteractionsExportPayload {
      * The name of the interaction. If not specified all the interactions in the current project will be exported
      * @return name
      */
-    @javax.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nullable public String getName() {
         return name;
     }
 
-    public void setName(@javax.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nullable String name) {
         this.name = name;
     }
 
-    public InteractionsExportPayload tags(@javax.annotation.Nullable List<String> tags) {
+    public InteractionsExportPayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
@@ -88,16 +88,16 @@ public class InteractionsExportPayload {
      * Get tags
      * @return tags
      */
-    @javax.annotation.Nullable public List<String> getTags() {
+    @jakarta.annotation.Nullable public List<String> getTags() {
         return tags;
     }
 
-    public void setTags(@javax.annotation.Nullable List<String> tags) {
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
     }
 
     public InteractionsExportPayload versions(
-            @javax.annotation.Nullable List<InteractionsExportPayloadVersionsInner> versions) {
+            @jakarta.annotation.Nullable List<InteractionsExportPayloadVersionsInner> versions) {
         this.versions = versions;
         return this;
     }
@@ -115,12 +115,12 @@ public class InteractionsExportPayload {
      * Get versions
      * @return versions
      */
-    @javax.annotation.Nullable public List<InteractionsExportPayloadVersionsInner> getVersions() {
+    @jakarta.annotation.Nullable public List<InteractionsExportPayloadVersionsInner> getVersions() {
         return versions;
     }
 
     public void setVersions(
-            @javax.annotation.Nullable List<InteractionsExportPayloadVersionsInner> versions) {
+            @jakarta.annotation.Nullable List<InteractionsExportPayloadVersionsInner> versions) {
         this.versions = versions;
     }
 

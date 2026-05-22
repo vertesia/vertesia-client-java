@@ -30,19 +30,19 @@ import java.util.Objects;
 /**
  * AuthTokenResponse
  */
-@javax.annotation.Generated(
+@jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AuthTokenResponse {
     public static final String SERIALIZED_NAME_TOKEN = "token";
 
     @SerializedName(SERIALIZED_NAME_TOKEN)
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     private String token;
 
     public AuthTokenResponse() {}
 
-    public AuthTokenResponse token(@javax.annotation.Nonnull String token) {
+    public AuthTokenResponse token(@jakarta.annotation.Nonnull String token) {
         this.token = token;
         return this;
     }
@@ -51,12 +51,12 @@ public class AuthTokenResponse {
      * Get token
      * @return token
      */
-    @javax.annotation.Nonnull
+    @jakarta.annotation.Nonnull
     public String getToken() {
         return token;
     }
 
-    public void setToken(@javax.annotation.Nonnull String token) {
+    public void setToken(@jakarta.annotation.Nonnull String token) {
         this.token = token;
     }
 
