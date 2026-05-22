@@ -14,7 +14,7 @@ permissions: {}
 
 jobs:
   auto-merge:
-    name: Auto merge Maven minor and patch dependency updates
+    name: Auto merge eligible Dependabot updates
     runs-on: ubuntu-latest
     if: >-
       github.event.workflow_run.event == 'pull_request' &&
@@ -55,12 +55,21 @@ jobs:
             exit 0
           fi
 
-          if [[ "$head_ref" != dependabot/maven/maven-minor-patch* ]]; then
-            echo "Skipping Dependabot pull request outside the Maven minor/patch group: $head_ref"
-            exit 0
-          fi
+          case "$head_ref" in
+            dependabot/maven/maven-minor-patch*)
+              unexpected_files="$(jq -r '.files[].path | select(. != "pom.xml")' <<<"$pr_json")"
+              ;;
+            dependabot/github_actions/github-actions*)
+              unexpected_files="$(
+                jq -r '.files[].path | select((test("^\\.github/workflows/.*\\.ya?ml$") | not))' <<<"$pr_json"
+              )"
+              ;;
+            *)
+              echo "Skipping Dependabot pull request outside the auto-merge groups: $head_ref"
+              exit 0
+              ;;
+          esac
 
-          unexpected_files="$(jq -r '.files[].path | select(. != "pom.xml")' <<<"$pr_json")"
           if [[ -n "$unexpected_files" ]]; then
             echo "Refusing to auto-merge because the PR changes unexpected files:" >&2
             echo "$unexpected_files" >&2
