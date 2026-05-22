@@ -86,11 +86,14 @@ This requires `openapi-generator` on `PATH`. The script runs:
 
 ```sh
 openapi-generator generate -c openapi-generator-config.yaml
-python3 scripts/patch_forward_compat_validation.py
-python3 scripts/patch_generated_security.py
-python3 scripts/patch_generated_jakarta_annotations.py
-mvn -q spotless:apply test
+scripts/post_generate.sh
+mvn -B test
 ```
+
+`scripts/post_generate.sh` is the shared post-generation entry point for local
+regeneration and external automation. Add generated-code compatibility,
+security, annotation, or formatting steps there instead of duplicating patch
+commands in workflows.
 
 Generated changes should be staged only by the dedicated generation automation,
 using the expected generated paths and package metadata:

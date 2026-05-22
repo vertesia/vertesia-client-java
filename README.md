@@ -102,12 +102,12 @@ Generated source is committed so the repository is directly usable by Java consu
 To regenerate locally:
 
 ```sh
-openapi-generator generate -c openapi-generator-config.yaml
-python3 scripts/patch_forward_compat_validation.py
-python3 scripts/patch_generated_security.py
-python3 scripts/patch_generated_jakarta_annotations.py
-mvn -B spotless:apply test
+scripts/regenerate.sh
 ```
+
+After any OpenAPI generation path, run `scripts/post_generate.sh` before
+testing or committing generated output. It is the shared post-generation hook
+used by local regeneration and the internal Studio sync workflow.
 
 The internal Studio workflow syncs generated Java source and `spec/` into this repository after the OpenAPI spec is validated on `main`. Hand-written client files, tests, workflows, README, LICENSE, NOTICE, `.env.example`, and generator config are protected by `.openapi-generator-ignore`.
 
