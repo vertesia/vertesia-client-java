@@ -70,6 +70,8 @@ src/main/java/io/vertesia/model/AdaptTablesRequest.java
 src/main/java/io/vertesia/model/AdaptedTable.java
 src/main/java/io/vertesia/model/AdvanceProcessPayload.java
 src/main/java/io/vertesia/model/AgentArtifactUrlResponse.java
+src/main/java/io/vertesia/model/AgentMessageDetails.java
+src/main/java/io/vertesia/model/AgentMessageDetailsFilesInner.java
 src/main/java/io/vertesia/model/AgentMessageType.java
 src/main/java/io/vertesia/model/AgentRun.java
 src/main/java/io/vertesia/model/AgentRunArchiveState.java
@@ -109,11 +111,9 @@ src/main/java/io/vertesia/model/AppInstallationProviderBinding.java
 src/main/java/io/vertesia/model/AppInstallationWithManifest.java
 src/main/java/io/vertesia/model/AppManifest.java
 src/main/java/io/vertesia/model/AppManifestData.java
-src/main/java/io/vertesia/model/AppPackage.java
 src/main/java/io/vertesia/model/AppToolCollection.java
 src/main/java/io/vertesia/model/AppUIConfig.java
 src/main/java/io/vertesia/model/AppUINavItem.java
-src/main/java/io/vertesia/model/AppWidgetInfo.java
 src/main/java/io/vertesia/model/AskUserWebhookConfiguration.java
 src/main/java/io/vertesia/model/AskUserWebhookConfigurationInput.java
 src/main/java/io/vertesia/model/AsyncCompletionOptions.java
@@ -222,6 +222,7 @@ src/main/java/io/vertesia/model/ContentObjectTypeRef.java
 src/main/java/io/vertesia/model/ContentObjectUserPermissions.java
 src/main/java/io/vertesia/model/ContentSource.java
 src/main/java/io/vertesia/model/ConversationActivityState.java
+src/main/java/io/vertesia/model/ConversationFile.java
 src/main/java/io/vertesia/model/ConversationState.java
 src/main/java/io/vertesia/model/ConversationStateEndConversation.java
 src/main/java/io/vertesia/model/ConversationStripOptions.java
@@ -266,6 +267,7 @@ src/main/java/io/vertesia/model/DSLChildWorkflowStep.java
 src/main/java/io/vertesia/model/DSLChildWorkflowStepOptions.java
 src/main/java/io/vertesia/model/DSLRetryPolicy.java
 src/main/java/io/vertesia/model/DSLWorkflowDefinition.java
+src/main/java/io/vertesia/model/DSLWorkflowDefinitionResponse.java
 src/main/java/io/vertesia/model/DSLWorkflowSpec.java
 src/main/java/io/vertesia/model/DSLWorkflowSpecWithActivities.java
 src/main/java/io/vertesia/model/DSLWorkflowSpecWithSteps.java
@@ -375,6 +377,7 @@ src/main/java/io/vertesia/model/FileBucketResponse.java
 src/main/java/io/vertesia/model/FileListResponse.java
 src/main/java/io/vertesia/model/FileMetadataResponse.java
 src/main/java/io/vertesia/model/FileMetadataUpdateResult.java
+src/main/java/io/vertesia/model/FileProcessingStatus.java
 src/main/java/io/vertesia/model/FindPayload.java
 src/main/java/io/vertesia/model/GenerateInteractionPayload.java
 src/main/java/io/vertesia/model/GenerateTestDataPayload.java
@@ -437,6 +440,7 @@ src/main/java/io/vertesia/model/InteractionSearchQuery.java
 src/main/java/io/vertesia/model/InteractionStatus.java
 src/main/java/io/vertesia/model/InteractionTags.java
 src/main/java/io/vertesia/model/InteractionUpdatePayload.java
+src/main/java/io/vertesia/model/InteractionUpdatePayloadResultSchema.java
 src/main/java/io/vertesia/model/InteractionVisibility.java
 src/main/java/io/vertesia/model/InteractionsExportPayload.java
 src/main/java/io/vertesia/model/InteractionsExportPayloadVersionsInner.java
@@ -464,7 +468,6 @@ src/main/java/io/vertesia/model/MCPOAuthConfig.java
 src/main/java/io/vertesia/model/MCPToolAnnotations.java
 src/main/java/io/vertesia/model/MCPToolCollectionObject.java
 src/main/java/io/vertesia/model/MagicPdfConfiguration.java
-src/main/java/io/vertesia/model/MapStringAny.java
 src/main/java/io/vertesia/model/MarkdownRenditionFormat.java
 src/main/java/io/vertesia/model/McpOAuthConnectResponse.java
 src/main/java/io/vertesia/model/McpOAuthDisconnectResponse.java
@@ -543,6 +546,7 @@ src/main/java/io/vertesia/model/Plan.java
 src/main/java/io/vertesia/model/PlanTask.java
 src/main/java/io/vertesia/model/PostAgentRunUpdatePayload.java
 src/main/java/io/vertesia/model/PostAgentRunUpdateResponse.java
+src/main/java/io/vertesia/model/PrincipalIdentity.java
 src/main/java/io/vertesia/model/ProcessContextDefinition.java
 src/main/java/io/vertesia/model/ProcessContextResponse.java
 src/main/java/io/vertesia/model/ProcessDefinition.java
@@ -608,7 +612,6 @@ src/main/java/io/vertesia/model/QueryValidationResult.java
 src/main/java/io/vertesia/model/RateLimitRequestPayload.java
 src/main/java/io/vertesia/model/RateLimitRequestResponse.java
 src/main/java/io/vertesia/model/ReasoningEffort.java
-src/main/java/io/vertesia/model/RemoteActivityDefinition.java
 src/main/java/io/vertesia/model/RenderMarkdownPayload.java
 src/main/java/io/vertesia/model/RenderMarkdownStartResponse.java
 src/main/java/io/vertesia/model/RenderMarkdownStatusResponse.java
