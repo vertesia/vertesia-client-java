@@ -39,6 +39,16 @@ public class ProjectConfigurationIndexing {
     @SerializedName(SERIALIZED_NAME_ENABLED)
     @jakarta.annotation.Nullable private Boolean enabled;
 
+    public static final String SERIALIZED_NAME_SEARCH_TIER = "search_tier";
+
+    @SerializedName(SERIALIZED_NAME_SEARCH_TIER)
+    @jakarta.annotation.Nullable private ProjectSearchTier searchTier;
+
+    public static final String SERIALIZED_NAME_BACKEND = "backend";
+
+    @SerializedName(SERIALIZED_NAME_BACKEND)
+    @jakarta.annotation.Nullable private ElasticsearchBackend backend;
+
     public ProjectConfigurationIndexing() {}
 
     public ProjectConfigurationIndexing enabled(@jakarta.annotation.Nullable Boolean enabled) {
@@ -58,6 +68,42 @@ public class ProjectConfigurationIndexing {
         this.enabled = enabled;
     }
 
+    public ProjectConfigurationIndexing searchTier(
+            @jakarta.annotation.Nullable ProjectSearchTier searchTier) {
+        this.searchTier = searchTier;
+        return this;
+    }
+
+    /**
+     * Search tier for this project. standard uses the regional hosted Elasticsearch deployment. performance uses the regional serverless Elasticsearch project. Defaults to standard when omitted.
+     * @return searchTier
+     */
+    @jakarta.annotation.Nullable public ProjectSearchTier getSearchTier() {
+        return searchTier;
+    }
+
+    public void setSearchTier(@jakarta.annotation.Nullable ProjectSearchTier searchTier) {
+        this.searchTier = searchTier;
+    }
+
+    public ProjectConfigurationIndexing backend(
+            @jakarta.annotation.Nullable ElasticsearchBackend backend) {
+        this.backend = backend;
+        return this;
+    }
+
+    /**
+     * Elasticsearch backend override for this project. Prefer search_tier for project configuration unless an explicit backend override is needed.
+     * @return backend
+     */
+    @jakarta.annotation.Nullable public ElasticsearchBackend getBackend() {
+        return backend;
+    }
+
+    public void setBackend(@jakarta.annotation.Nullable ElasticsearchBackend backend) {
+        this.backend = backend;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -68,12 +114,14 @@ public class ProjectConfigurationIndexing {
         }
         ProjectConfigurationIndexing projectConfigurationIndexing =
                 (ProjectConfigurationIndexing) o;
-        return Objects.equals(this.enabled, projectConfigurationIndexing.enabled);
+        return Objects.equals(this.enabled, projectConfigurationIndexing.enabled)
+                && Objects.equals(this.searchTier, projectConfigurationIndexing.searchTier)
+                && Objects.equals(this.backend, projectConfigurationIndexing.backend);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(enabled);
+        return Objects.hash(enabled, searchTier, backend);
     }
 
     @Override
@@ -81,6 +129,8 @@ public class ProjectConfigurationIndexing {
         StringBuilder sb = new StringBuilder();
         sb.append("class ProjectConfigurationIndexing {\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+        sb.append("    searchTier: ").append(toIndentedString(searchTier)).append("\n");
+        sb.append("    backend: ").append(toIndentedString(backend)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -98,7 +148,7 @@ public class ProjectConfigurationIndexing {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("enabled"));
+        openapiFields = new HashSet<String>(Arrays.asList("enabled", "search_tier", "backend"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -122,6 +172,14 @@ public class ProjectConfigurationIndexing {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the optional field `search_tier`
+        if (jsonObj.get("search_tier") != null && !jsonObj.get("search_tier").isJsonNull()) {
+            ProjectSearchTier.validateJsonElement(jsonObj.get("search_tier"));
+        }
+        // validate the optional field `backend`
+        if (jsonObj.get("backend") != null && !jsonObj.get("backend").isJsonNull()) {
+            ElasticsearchBackend.validateJsonElement(jsonObj.get("backend"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

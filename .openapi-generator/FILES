@@ -336,6 +336,7 @@ src/main/java/io/vertesia/model/DriftAnalysisStatusResponse.java
 src/main/java/io/vertesia/model/DurableTaskStatus.java
 src/main/java/io/vertesia/model/DurationValue.java
 src/main/java/io/vertesia/model/DynamicScalingTypes.java
+src/main/java/io/vertesia/model/ElasticsearchBackend.java
 src/main/java/io/vertesia/model/EmailChannel.java
 src/main/java/io/vertesia/model/Embedding.java
 src/main/java/io/vertesia/model/EmbeddingOutput.java
@@ -578,6 +579,7 @@ src/main/java/io/vertesia/model/ProjectModelDefaults.java
 src/main/java/io/vertesia/model/ProjectPluginsUpdatePayload.java
 src/main/java/io/vertesia/model/ProjectRef.java
 src/main/java/io/vertesia/model/ProjectRoles.java
+src/main/java/io/vertesia/model/ProjectSearchTier.java
 src/main/java/io/vertesia/model/ProjectTokenRequest.java
 src/main/java/io/vertesia/model/ProjectToolInfo.java
 src/main/java/io/vertesia/model/PromoteDashboardVersionPayload.java
