@@ -1738,6 +1738,13 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.RateLimitRequestResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ReindexAgentRunsPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ReindexAgentRunsResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ReindexAgentRunsResponseErrorsInner
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.RenderMarkdownPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.RenderMarkdownStartResponse.CustomTypeAdapterFactory());

@@ -613,6 +613,9 @@ src/main/java/io/vertesia/model/QueryValidationResult.java
 src/main/java/io/vertesia/model/RateLimitRequestPayload.java
 src/main/java/io/vertesia/model/RateLimitRequestResponse.java
 src/main/java/io/vertesia/model/ReasoningEffort.java
+src/main/java/io/vertesia/model/ReindexAgentRunsPayload.java
+src/main/java/io/vertesia/model/ReindexAgentRunsResponse.java
+src/main/java/io/vertesia/model/ReindexAgentRunsResponseErrorsInner.java
 src/main/java/io/vertesia/model/RenderMarkdownPayload.java
 src/main/java/io/vertesia/model/RenderMarkdownStartResponse.java
 src/main/java/io/vertesia/model/RenderMarkdownStatusResponse.java

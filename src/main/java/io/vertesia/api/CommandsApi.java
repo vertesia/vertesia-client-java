@@ -24,6 +24,8 @@ import io.vertesia.model.EmbeddingsStatusResponse;
 import io.vertesia.model.GenericCommandResponse;
 import io.vertesia.model.IndexingStatusResponse;
 import io.vertesia.model.ProjectConfigurationEmbeddingEnablePayload;
+import io.vertesia.model.ReindexAgentRunsPayload;
+import io.vertesia.model.ReindexAgentRunsResponse;
 import io.vertesia.model.RunMigrationPayload;
 import io.vertesia.model.RunMigrationResponse;
 import io.vertesia.model.StartProjectReindexPayload;
@@ -1709,6 +1711,166 @@ public class CommandsApi {
 
         okhttp3.Call localVarCall = recalculateProjectEmbeddingsValidateBeforeCall(type, _callback);
         Type localVarReturnType = new TypeToken<GenericCommandResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for reindexAgentRuns
+     * @param reindexAgentRunsPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Agent-run reindex result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call reindexAgentRunsCall(
+            @jakarta.annotation.Nonnull ReindexAgentRunsPayload reindexAgentRunsPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = reindexAgentRunsPayload;
+
+        // create path and map variables
+        String localVarPath = "/indexing/agent-runs/reindex";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call reindexAgentRunsValidateBeforeCall(
+            @jakarta.annotation.Nonnull ReindexAgentRunsPayload reindexAgentRunsPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'reindexAgentRunsPayload' is set
+        if (reindexAgentRunsPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'reindexAgentRunsPayload' when calling reindexAgentRuns(Async)");
+        }
+
+        return reindexAgentRunsCall(reindexAgentRunsPayload, _callback);
+    }
+
+    /**
+     * Reindex agent runs
+     * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default this recreates the stable agent-runs index before indexing.  **Required permissions:** &#x60;content:admin&#x60;
+     * @param reindexAgentRunsPayload  (required)
+     * @return ReindexAgentRunsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Agent-run reindex result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ReindexAgentRunsResponse reindexAgentRuns(
+            @jakarta.annotation.Nonnull ReindexAgentRunsPayload reindexAgentRunsPayload)
+            throws ApiException {
+        ApiResponse<ReindexAgentRunsResponse> localVarResp =
+                reindexAgentRunsWithHttpInfo(reindexAgentRunsPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Reindex agent runs
+     * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default this recreates the stable agent-runs index before indexing.  **Required permissions:** &#x60;content:admin&#x60;
+     * @param reindexAgentRunsPayload  (required)
+     * @return ApiResponse&lt;ReindexAgentRunsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Agent-run reindex result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ReindexAgentRunsResponse> reindexAgentRunsWithHttpInfo(
+            @jakarta.annotation.Nonnull ReindexAgentRunsPayload reindexAgentRunsPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                reindexAgentRunsValidateBeforeCall(reindexAgentRunsPayload, null);
+        Type localVarReturnType = new TypeToken<ReindexAgentRunsResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Reindex agent runs (asynchronously)
+     * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default this recreates the stable agent-runs index before indexing.  **Required permissions:** &#x60;content:admin&#x60;
+     * @param reindexAgentRunsPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Agent-run reindex result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call reindexAgentRunsAsync(
+            @jakarta.annotation.Nonnull ReindexAgentRunsPayload reindexAgentRunsPayload,
+            final ApiCallback<ReindexAgentRunsResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                reindexAgentRunsValidateBeforeCall(reindexAgentRunsPayload, _callback);
+        Type localVarReturnType = new TypeToken<ReindexAgentRunsResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
