@@ -1362,8 +1362,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.GladiaConfigurationInput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.GoogleProjectTokenResponse.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.GroqOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.HumanTaskDefinition.CustomTypeAdapterFactory());

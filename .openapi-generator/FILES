@@ -396,7 +396,6 @@ src/main/java/io/vertesia/model/GetUploadUrlPayload.java
 src/main/java/io/vertesia/model/GithubConfiguration.java
 src/main/java/io/vertesia/model/GladiaConfiguration.java
 src/main/java/io/vertesia/model/GladiaConfigurationInput.java
-src/main/java/io/vertesia/model/GoogleProjectTokenResponse.java
 src/main/java/io/vertesia/model/GroqOptions.java
 src/main/java/io/vertesia/model/HumanTaskDefinition.java
 src/main/java/io/vertesia/model/ICreateProjectPayload.java
