@@ -77,6 +77,50 @@ public class IndexingStatusResponseReindexProgress {
     @jakarta.annotation.Nonnull
     private BigDecimal errors;
 
+    public static final String SERIALIZED_NAME_EMBEDDINGS_WRITTEN = "embeddings_written";
+
+    @SerializedName(SERIALIZED_NAME_EMBEDDINGS_WRITTEN)
+    @jakarta.annotation.Nullable private BigDecimal embeddingsWritten;
+
+    public static final String SERIALIZED_NAME_SKIPPED_EMBEDDINGS = "skipped_embeddings";
+
+    @SerializedName(SERIALIZED_NAME_SKIPPED_EMBEDDINGS)
+    @jakarta.annotation.Nullable private BigDecimal skippedEmbeddings;
+
+    public static final String SERIALIZED_NAME_EMBEDDINGS_TEXT_WRITTEN = "embeddings_text_written";
+
+    @SerializedName(SERIALIZED_NAME_EMBEDDINGS_TEXT_WRITTEN)
+    @jakarta.annotation.Nullable private BigDecimal embeddingsTextWritten;
+
+    public static final String SERIALIZED_NAME_EMBEDDINGS_IMAGE_WRITTEN =
+            "embeddings_image_written";
+
+    @SerializedName(SERIALIZED_NAME_EMBEDDINGS_IMAGE_WRITTEN)
+    @jakarta.annotation.Nullable private BigDecimal embeddingsImageWritten;
+
+    public static final String SERIALIZED_NAME_EMBEDDINGS_PROPERTIES_WRITTEN =
+            "embeddings_properties_written";
+
+    @SerializedName(SERIALIZED_NAME_EMBEDDINGS_PROPERTIES_WRITTEN)
+    @jakarta.annotation.Nullable private BigDecimal embeddingsPropertiesWritten;
+
+    public static final String SERIALIZED_NAME_EMBEDDINGS_TEXT_SKIPPED = "embeddings_text_skipped";
+
+    @SerializedName(SERIALIZED_NAME_EMBEDDINGS_TEXT_SKIPPED)
+    @jakarta.annotation.Nullable private BigDecimal embeddingsTextSkipped;
+
+    public static final String SERIALIZED_NAME_EMBEDDINGS_IMAGE_SKIPPED =
+            "embeddings_image_skipped";
+
+    @SerializedName(SERIALIZED_NAME_EMBEDDINGS_IMAGE_SKIPPED)
+    @jakarta.annotation.Nullable private BigDecimal embeddingsImageSkipped;
+
+    public static final String SERIALIZED_NAME_EMBEDDINGS_PROPERTIES_SKIPPED =
+            "embeddings_properties_skipped";
+
+    @SerializedName(SERIALIZED_NAME_EMBEDDINGS_PROPERTIES_SKIPPED)
+    @jakarta.annotation.Nullable private BigDecimal embeddingsPropertiesSkipped;
+
     public static final String SERIALIZED_NAME_DOCS_PER_SECOND = "docs_per_second";
 
     @SerializedName(SERIALIZED_NAME_DOCS_PER_SECOND)
@@ -247,6 +291,156 @@ public class IndexingStatusResponseReindexProgress {
         this.errors = errors;
     }
 
+    public IndexingStatusResponseReindexProgress embeddingsWritten(
+            @jakarta.annotation.Nullable BigDecimal embeddingsWritten) {
+        this.embeddingsWritten = embeddingsWritten;
+        return this;
+    }
+
+    /**
+     * Embedding vectors written to target index
+     * @return embeddingsWritten
+     */
+    @jakarta.annotation.Nullable public BigDecimal getEmbeddingsWritten() {
+        return embeddingsWritten;
+    }
+
+    public void setEmbeddingsWritten(@jakarta.annotation.Nullable BigDecimal embeddingsWritten) {
+        this.embeddingsWritten = embeddingsWritten;
+    }
+
+    public IndexingStatusResponseReindexProgress skippedEmbeddings(
+            @jakarta.annotation.Nullable BigDecimal skippedEmbeddings) {
+        this.skippedEmbeddings = skippedEmbeddings;
+        return this;
+    }
+
+    /**
+     * Embedding vectors skipped because they were invalid or dimension-mismatched
+     * @return skippedEmbeddings
+     */
+    @jakarta.annotation.Nullable public BigDecimal getSkippedEmbeddings() {
+        return skippedEmbeddings;
+    }
+
+    public void setSkippedEmbeddings(@jakarta.annotation.Nullable BigDecimal skippedEmbeddings) {
+        this.skippedEmbeddings = skippedEmbeddings;
+    }
+
+    public IndexingStatusResponseReindexProgress embeddingsTextWritten(
+            @jakarta.annotation.Nullable BigDecimal embeddingsTextWritten) {
+        this.embeddingsTextWritten = embeddingsTextWritten;
+        return this;
+    }
+
+    /**
+     * Text embedding vectors written to target index
+     * @return embeddingsTextWritten
+     */
+    @jakarta.annotation.Nullable public BigDecimal getEmbeddingsTextWritten() {
+        return embeddingsTextWritten;
+    }
+
+    public void setEmbeddingsTextWritten(
+            @jakarta.annotation.Nullable BigDecimal embeddingsTextWritten) {
+        this.embeddingsTextWritten = embeddingsTextWritten;
+    }
+
+    public IndexingStatusResponseReindexProgress embeddingsImageWritten(
+            @jakarta.annotation.Nullable BigDecimal embeddingsImageWritten) {
+        this.embeddingsImageWritten = embeddingsImageWritten;
+        return this;
+    }
+
+    /**
+     * Image embedding vectors written to target index
+     * @return embeddingsImageWritten
+     */
+    @jakarta.annotation.Nullable public BigDecimal getEmbeddingsImageWritten() {
+        return embeddingsImageWritten;
+    }
+
+    public void setEmbeddingsImageWritten(
+            @jakarta.annotation.Nullable BigDecimal embeddingsImageWritten) {
+        this.embeddingsImageWritten = embeddingsImageWritten;
+    }
+
+    public IndexingStatusResponseReindexProgress embeddingsPropertiesWritten(
+            @jakarta.annotation.Nullable BigDecimal embeddingsPropertiesWritten) {
+        this.embeddingsPropertiesWritten = embeddingsPropertiesWritten;
+        return this;
+    }
+
+    /**
+     * Properties embedding vectors written to target index
+     * @return embeddingsPropertiesWritten
+     */
+    @jakarta.annotation.Nullable public BigDecimal getEmbeddingsPropertiesWritten() {
+        return embeddingsPropertiesWritten;
+    }
+
+    public void setEmbeddingsPropertiesWritten(
+            @jakarta.annotation.Nullable BigDecimal embeddingsPropertiesWritten) {
+        this.embeddingsPropertiesWritten = embeddingsPropertiesWritten;
+    }
+
+    public IndexingStatusResponseReindexProgress embeddingsTextSkipped(
+            @jakarta.annotation.Nullable BigDecimal embeddingsTextSkipped) {
+        this.embeddingsTextSkipped = embeddingsTextSkipped;
+        return this;
+    }
+
+    /**
+     * Text embedding vectors skipped because they were invalid or dimension-mismatched
+     * @return embeddingsTextSkipped
+     */
+    @jakarta.annotation.Nullable public BigDecimal getEmbeddingsTextSkipped() {
+        return embeddingsTextSkipped;
+    }
+
+    public void setEmbeddingsTextSkipped(
+            @jakarta.annotation.Nullable BigDecimal embeddingsTextSkipped) {
+        this.embeddingsTextSkipped = embeddingsTextSkipped;
+    }
+
+    public IndexingStatusResponseReindexProgress embeddingsImageSkipped(
+            @jakarta.annotation.Nullable BigDecimal embeddingsImageSkipped) {
+        this.embeddingsImageSkipped = embeddingsImageSkipped;
+        return this;
+    }
+
+    /**
+     * Image embedding vectors skipped because they were invalid or dimension-mismatched
+     * @return embeddingsImageSkipped
+     */
+    @jakarta.annotation.Nullable public BigDecimal getEmbeddingsImageSkipped() {
+        return embeddingsImageSkipped;
+    }
+
+    public void setEmbeddingsImageSkipped(
+            @jakarta.annotation.Nullable BigDecimal embeddingsImageSkipped) {
+        this.embeddingsImageSkipped = embeddingsImageSkipped;
+    }
+
+    public IndexingStatusResponseReindexProgress embeddingsPropertiesSkipped(
+            @jakarta.annotation.Nullable BigDecimal embeddingsPropertiesSkipped) {
+        this.embeddingsPropertiesSkipped = embeddingsPropertiesSkipped;
+        return this;
+    }
+
+    /**
+     * Properties embedding vectors skipped because they were invalid or dimension-mismatched
+     * @return embeddingsPropertiesSkipped
+     */
+    @jakarta.annotation.Nullable public BigDecimal getEmbeddingsPropertiesSkipped() {
+        return embeddingsPropertiesSkipped;
+    }
+
+    public void setEmbeddingsPropertiesSkipped(
+            @jakarta.annotation.Nullable BigDecimal embeddingsPropertiesSkipped) {
+        this.embeddingsPropertiesSkipped = embeddingsPropertiesSkipped;
+    }
+
     public IndexingStatusResponseReindexProgress docsPerSecond(
             @jakarta.annotation.Nonnull BigDecimal docsPerSecond) {
         this.docsPerSecond = docsPerSecond;
@@ -380,6 +574,30 @@ public class IndexingStatusResponseReindexProgress {
                 && Objects.equals(this.written, indexingStatusResponseReindexProgress.written)
                 && Objects.equals(this.errors, indexingStatusResponseReindexProgress.errors)
                 && Objects.equals(
+                        this.embeddingsWritten,
+                        indexingStatusResponseReindexProgress.embeddingsWritten)
+                && Objects.equals(
+                        this.skippedEmbeddings,
+                        indexingStatusResponseReindexProgress.skippedEmbeddings)
+                && Objects.equals(
+                        this.embeddingsTextWritten,
+                        indexingStatusResponseReindexProgress.embeddingsTextWritten)
+                && Objects.equals(
+                        this.embeddingsImageWritten,
+                        indexingStatusResponseReindexProgress.embeddingsImageWritten)
+                && Objects.equals(
+                        this.embeddingsPropertiesWritten,
+                        indexingStatusResponseReindexProgress.embeddingsPropertiesWritten)
+                && Objects.equals(
+                        this.embeddingsTextSkipped,
+                        indexingStatusResponseReindexProgress.embeddingsTextSkipped)
+                && Objects.equals(
+                        this.embeddingsImageSkipped,
+                        indexingStatusResponseReindexProgress.embeddingsImageSkipped)
+                && Objects.equals(
+                        this.embeddingsPropertiesSkipped,
+                        indexingStatusResponseReindexProgress.embeddingsPropertiesSkipped)
+                && Objects.equals(
                         this.docsPerSecond, indexingStatusResponseReindexProgress.docsPerSecond)
                 && Objects.equals(
                         this.elapsedSeconds, indexingStatusResponseReindexProgress.elapsedSeconds)
@@ -403,6 +621,14 @@ public class IndexingStatusResponseReindexProgress {
                 scanned,
                 written,
                 errors,
+                embeddingsWritten,
+                skippedEmbeddings,
+                embeddingsTextWritten,
+                embeddingsImageWritten,
+                embeddingsPropertiesWritten,
+                embeddingsTextSkipped,
+                embeddingsImageSkipped,
+                embeddingsPropertiesSkipped,
                 docsPerSecond,
                 elapsedSeconds,
                 estimatedSecondsRemaining,
@@ -422,6 +648,30 @@ public class IndexingStatusResponseReindexProgress {
         sb.append("    scanned: ").append(toIndentedString(scanned)).append("\n");
         sb.append("    written: ").append(toIndentedString(written)).append("\n");
         sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
+        sb.append("    embeddingsWritten: ")
+                .append(toIndentedString(embeddingsWritten))
+                .append("\n");
+        sb.append("    skippedEmbeddings: ")
+                .append(toIndentedString(skippedEmbeddings))
+                .append("\n");
+        sb.append("    embeddingsTextWritten: ")
+                .append(toIndentedString(embeddingsTextWritten))
+                .append("\n");
+        sb.append("    embeddingsImageWritten: ")
+                .append(toIndentedString(embeddingsImageWritten))
+                .append("\n");
+        sb.append("    embeddingsPropertiesWritten: ")
+                .append(toIndentedString(embeddingsPropertiesWritten))
+                .append("\n");
+        sb.append("    embeddingsTextSkipped: ")
+                .append(toIndentedString(embeddingsTextSkipped))
+                .append("\n");
+        sb.append("    embeddingsImageSkipped: ")
+                .append(toIndentedString(embeddingsImageSkipped))
+                .append("\n");
+        sb.append("    embeddingsPropertiesSkipped: ")
+                .append(toIndentedString(embeddingsPropertiesSkipped))
+                .append("\n");
         sb.append("    docsPerSecond: ").append(toIndentedString(docsPerSecond)).append("\n");
         sb.append("    elapsedSeconds: ").append(toIndentedString(elapsedSeconds)).append("\n");
         sb.append("    estimatedSecondsRemaining: ")
@@ -457,6 +707,14 @@ public class IndexingStatusResponseReindexProgress {
                                 "scanned",
                                 "written",
                                 "errors",
+                                "embeddings_written",
+                                "skipped_embeddings",
+                                "embeddings_text_written",
+                                "embeddings_image_written",
+                                "embeddings_properties_written",
+                                "embeddings_text_skipped",
+                                "embeddings_image_skipped",
+                                "embeddings_properties_skipped",
                                 "docs_per_second",
                                 "elapsed_seconds",
                                 "estimated_seconds_remaining",
