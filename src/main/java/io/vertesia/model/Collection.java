@@ -366,7 +366,7 @@ public class Collection {
     }
 
     /**
-     * A flag to indicate whether to track and sync member HEAD revisions.  The default is to sync HEAD revisions for collection members (skip_head_sync: false)
+     * A flag to indicate whether to track and sync member HEAD revisions. The default is to sync HEAD revisions for collection members (skip_head_sync: false)
      * @return skipHeadSync
      */
     @jakarta.annotation.Nonnull

@@ -156,7 +156,7 @@ public class AgentToolDefinition {
     }
 
     /**
-     * The tool execution URL. It can be an absolute URL or a path in which case the URL is obtained  using the base URL of the tool server API. Ex: http://tool-server.com/api/ Example of relative URLs: \&quot;tools/my-tool-collection\&quot; or \&quot;/api/tools/my-tool-collection\&quot;
+     * The tool execution URL. It can be an absolute URL or a path in which case the URL is obtained using the base URL of the tool server API. Ex: http://tool-server.com/api/ Example of relative URLs: \&quot;tools/my-tool-collection\&quot; or \&quot;/api/tools/my-tool-collection\&quot;
      * @return url
      */
     @jakarta.annotation.Nullable public String getUrl() {

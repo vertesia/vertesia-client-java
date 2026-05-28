@@ -113,7 +113,7 @@ public class CompositeAppConfig {
     }
 
     /**
-     * The unique identifier for this CompositeApp configuration  Undefined if the configuration doesn&#39;t exists yet.
+     * The unique identifier for this CompositeApp configuration Undefined if the configuration doesn&#39;t exists yet.
      * @return id
      */
     @jakarta.annotation.Nullable public String getId() {

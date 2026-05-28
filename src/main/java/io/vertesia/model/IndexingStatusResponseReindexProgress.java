@@ -121,6 +121,18 @@ public class IndexingStatusResponseReindexProgress {
     @SerializedName(SERIALIZED_NAME_EMBEDDINGS_PROPERTIES_SKIPPED)
     @jakarta.annotation.Nullable private BigDecimal embeddingsPropertiesSkipped;
 
+    public static final String SERIALIZED_NAME_PROPERTIES_VALUES_TRIMMED =
+            "properties_values_trimmed";
+
+    @SerializedName(SERIALIZED_NAME_PROPERTIES_VALUES_TRIMMED)
+    @jakarta.annotation.Nullable private BigDecimal propertiesValuesTrimmed;
+
+    public static final String SERIALIZED_NAME_PROPERTIES_BYTES_DROPPED =
+            "properties_bytes_dropped";
+
+    @SerializedName(SERIALIZED_NAME_PROPERTIES_BYTES_DROPPED)
+    @jakarta.annotation.Nullable private BigDecimal propertiesBytesDropped;
+
     public static final String SERIALIZED_NAME_DOCS_PER_SECOND = "docs_per_second";
 
     @SerializedName(SERIALIZED_NAME_DOCS_PER_SECOND)
@@ -441,6 +453,44 @@ public class IndexingStatusResponseReindexProgress {
         this.embeddingsPropertiesSkipped = embeddingsPropertiesSkipped;
     }
 
+    public IndexingStatusResponseReindexProgress propertiesValuesTrimmed(
+            @jakarta.annotation.Nullable BigDecimal propertiesValuesTrimmed) {
+        this.propertiesValuesTrimmed = propertiesValuesTrimmed;
+        return this;
+    }
+
+    /**
+     * Oversized property string values dropped during transform (size-based pruning)
+     * @return propertiesValuesTrimmed
+     */
+    @jakarta.annotation.Nullable public BigDecimal getPropertiesValuesTrimmed() {
+        return propertiesValuesTrimmed;
+    }
+
+    public void setPropertiesValuesTrimmed(
+            @jakarta.annotation.Nullable BigDecimal propertiesValuesTrimmed) {
+        this.propertiesValuesTrimmed = propertiesValuesTrimmed;
+    }
+
+    public IndexingStatusResponseReindexProgress propertiesBytesDropped(
+            @jakarta.annotation.Nullable BigDecimal propertiesBytesDropped) {
+        this.propertiesBytesDropped = propertiesBytesDropped;
+        return this;
+    }
+
+    /**
+     * Total bytes dropped from oversized property values
+     * @return propertiesBytesDropped
+     */
+    @jakarta.annotation.Nullable public BigDecimal getPropertiesBytesDropped() {
+        return propertiesBytesDropped;
+    }
+
+    public void setPropertiesBytesDropped(
+            @jakarta.annotation.Nullable BigDecimal propertiesBytesDropped) {
+        this.propertiesBytesDropped = propertiesBytesDropped;
+    }
+
     public IndexingStatusResponseReindexProgress docsPerSecond(
             @jakarta.annotation.Nonnull BigDecimal docsPerSecond) {
         this.docsPerSecond = docsPerSecond;
@@ -598,6 +648,12 @@ public class IndexingStatusResponseReindexProgress {
                         this.embeddingsPropertiesSkipped,
                         indexingStatusResponseReindexProgress.embeddingsPropertiesSkipped)
                 && Objects.equals(
+                        this.propertiesValuesTrimmed,
+                        indexingStatusResponseReindexProgress.propertiesValuesTrimmed)
+                && Objects.equals(
+                        this.propertiesBytesDropped,
+                        indexingStatusResponseReindexProgress.propertiesBytesDropped)
+                && Objects.equals(
                         this.docsPerSecond, indexingStatusResponseReindexProgress.docsPerSecond)
                 && Objects.equals(
                         this.elapsedSeconds, indexingStatusResponseReindexProgress.elapsedSeconds)
@@ -629,6 +685,8 @@ public class IndexingStatusResponseReindexProgress {
                 embeddingsTextSkipped,
                 embeddingsImageSkipped,
                 embeddingsPropertiesSkipped,
+                propertiesValuesTrimmed,
+                propertiesBytesDropped,
                 docsPerSecond,
                 elapsedSeconds,
                 estimatedSecondsRemaining,
@@ -671,6 +729,12 @@ public class IndexingStatusResponseReindexProgress {
                 .append("\n");
         sb.append("    embeddingsPropertiesSkipped: ")
                 .append(toIndentedString(embeddingsPropertiesSkipped))
+                .append("\n");
+        sb.append("    propertiesValuesTrimmed: ")
+                .append(toIndentedString(propertiesValuesTrimmed))
+                .append("\n");
+        sb.append("    propertiesBytesDropped: ")
+                .append(toIndentedString(propertiesBytesDropped))
                 .append("\n");
         sb.append("    docsPerSecond: ").append(toIndentedString(docsPerSecond)).append("\n");
         sb.append("    elapsedSeconds: ").append(toIndentedString(elapsedSeconds)).append("\n");
@@ -715,6 +779,8 @@ public class IndexingStatusResponseReindexProgress {
                                 "embeddings_text_skipped",
                                 "embeddings_image_skipped",
                                 "embeddings_properties_skipped",
+                                "properties_values_trimmed",
+                                "properties_bytes_dropped",
                                 "docs_per_second",
                                 "elapsed_seconds",
                                 "estimated_seconds_remaining",

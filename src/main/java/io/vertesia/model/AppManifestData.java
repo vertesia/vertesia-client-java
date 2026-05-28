@@ -401,7 +401,7 @@ public class AppManifestData {
     }
 
     /**
-     * The UI configuration of the app. If not specified and the app \&quot;ui\&quot; is in the app capabilities  then the ui configuration will be fetched from the endpoint property.
+     * The UI configuration of the app. If not specified and the app \&quot;ui\&quot; is in the app capabilities then the ui configuration will be fetched from the endpoint property.
      * @return ui
      */
     @jakarta.annotation.Nullable public AppUIConfig getUi() {
@@ -536,7 +536,7 @@ public class AppManifestData {
     }
 
     /**
-     * The app endpoint URL This URL should return a JSON object describing the contributions provided by the app. The object shape must satisfies AppPackage interface. The endpoint must support GET method and a &#x60;scope&#x60; parameter to filter which resources are included in the returned AppPackage: The supported scope values are: - ui - tools - interactions - types - processes - settings - all (the default if no scope is provided)  You can also use comma-separated values to combine scopes (e.g. \&quot;ui,tools\&quot;).  Example:  - ?scope&#x3D;ui,tools - returns only the UI configuration
+     * The app endpoint URL This URL should return a JSON object describing the contributions provided by the app. The object shape must satisfies AppPackage interface. The endpoint must support GET method and a &#x60;scope&#x60; parameter to filter which resources are included in the returned AppPackage: The supported scope values are: - ui - tools - interactions - types - processes - settings - all (the default if no scope is provided)  You can also use comma-separated values to combine scopes (e.g. \&quot;ui,tools\&quot;).  Example: - ?scope&#x3D;ui,tools - returns only the UI configuration
      * @return endpoint
      */
     @jakarta.annotation.Nullable public String getEndpoint() {

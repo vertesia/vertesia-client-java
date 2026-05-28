@@ -57,6 +57,18 @@ public class IndexingStatusResponse {
     @jakarta.annotation.Nonnull
     private Boolean queryEnabled;
 
+    public static final String SERIALIZED_NAME_BACKEND = "backend";
+
+    @SerializedName(SERIALIZED_NAME_BACKEND)
+    @jakarta.annotation.Nonnull
+    private ElasticsearchBackend backend;
+
+    public static final String SERIALIZED_NAME_SEARCH_TIER = "search_tier";
+
+    @SerializedName(SERIALIZED_NAME_SEARCH_TIER)
+    @jakarta.annotation.Nonnull
+    private ProjectSearchTier searchTier;
+
     public static final String SERIALIZED_NAME_INDEX = "index";
 
     @SerializedName(SERIALIZED_NAME_INDEX)
@@ -141,6 +153,44 @@ public class IndexingStatusResponse {
     @Deprecated
     public void setQueryEnabled(@jakarta.annotation.Nonnull Boolean queryEnabled) {
         this.queryEnabled = queryEnabled;
+    }
+
+    public IndexingStatusResponse backend(
+            @jakarta.annotation.Nonnull ElasticsearchBackend backend) {
+        this.backend = backend;
+        return this;
+    }
+
+    /**
+     * Resolved Elasticsearch backend serving this project
+     * @return backend
+     */
+    @jakarta.annotation.Nonnull
+    public ElasticsearchBackend getBackend() {
+        return backend;
+    }
+
+    public void setBackend(@jakarta.annotation.Nonnull ElasticsearchBackend backend) {
+        this.backend = backend;
+    }
+
+    public IndexingStatusResponse searchTier(
+            @jakarta.annotation.Nonnull ProjectSearchTier searchTier) {
+        this.searchTier = searchTier;
+        return this;
+    }
+
+    /**
+     * Resolved search tier for this project
+     * @return searchTier
+     */
+    @jakarta.annotation.Nonnull
+    public ProjectSearchTier getSearchTier() {
+        return searchTier;
+    }
+
+    public void setSearchTier(@jakarta.annotation.Nonnull ProjectSearchTier searchTier) {
+        this.searchTier = searchTier;
     }
 
     public IndexingStatusResponse index(
@@ -277,6 +327,8 @@ public class IndexingStatusResponse {
                         this.infrastructureEnabled, indexingStatusResponse.infrastructureEnabled)
                 && Objects.equals(this.indexingEnabled, indexingStatusResponse.indexingEnabled)
                 && Objects.equals(this.queryEnabled, indexingStatusResponse.queryEnabled)
+                && Objects.equals(this.backend, indexingStatusResponse.backend)
+                && Objects.equals(this.searchTier, indexingStatusResponse.searchTier)
                 && Objects.equals(this.index, indexingStatusResponse.index)
                 && Objects.equals(
                         this.mongoDocumentCount, indexingStatusResponse.mongoDocumentCount)
@@ -292,6 +344,8 @@ public class IndexingStatusResponse {
                 infrastructureEnabled,
                 indexingEnabled,
                 queryEnabled,
+                backend,
+                searchTier,
                 index,
                 mongoDocumentCount,
                 reindexInProgress,
@@ -308,6 +362,8 @@ public class IndexingStatusResponse {
                 .append("\n");
         sb.append("    indexingEnabled: ").append(toIndentedString(indexingEnabled)).append("\n");
         sb.append("    queryEnabled: ").append(toIndentedString(queryEnabled)).append("\n");
+        sb.append("    backend: ").append(toIndentedString(backend)).append("\n");
+        sb.append("    searchTier: ").append(toIndentedString(searchTier)).append("\n");
         sb.append("    index: ").append(toIndentedString(index)).append("\n");
         sb.append("    mongoDocumentCount: ")
                 .append(toIndentedString(mongoDocumentCount))
@@ -342,6 +398,8 @@ public class IndexingStatusResponse {
                                 "infrastructure_enabled",
                                 "indexing_enabled",
                                 "query_enabled",
+                                "backend",
+                                "search_tier",
                                 "index",
                                 "mongo_document_count",
                                 "reindex_in_progress",
@@ -354,6 +412,8 @@ public class IndexingStatusResponse {
                                 "infrastructure_enabled",
                                 "indexing_enabled",
                                 "query_enabled",
+                                "backend",
+                                "search_tier",
                                 "index",
                                 "mongo_document_count",
                                 "reindex_in_progress"));
@@ -389,6 +449,10 @@ public class IndexingStatusResponse {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the required field `backend`
+        ElasticsearchBackend.validateJsonElement(jsonObj.get("backend"));
+        // validate the required field `search_tier`
+        ProjectSearchTier.validateJsonElement(jsonObj.get("search_tier"));
         // validate the required field `index`
         IndexingStatusResponseIndex.validateJsonElement(jsonObj.get("index"));
         // validate the optional field `reindex_progress`
