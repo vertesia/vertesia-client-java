@@ -251,6 +251,11 @@ public class AppManifest {
     @SerializedName(SERIALIZED_NAME_TAGS)
     @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_ACCESS_CONTROL = "access_control";
+
+    @SerializedName(SERIALIZED_NAME_ACCESS_CONTROL)
+    @jakarta.annotation.Nullable private AppAccessControl accessControl;
+
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
@@ -639,6 +644,23 @@ public class AppManifest {
         this.tags = tags;
     }
 
+    public AppManifest accessControl(@jakarta.annotation.Nullable AppAccessControl accessControl) {
+        this.accessControl = accessControl;
+        return this;
+    }
+
+    /**
+     * Access control policy for the app. Defaults to &#39;all&#39; (ACE-gated everywhere) when undefined. See  {@link  AppAccessControl }  for semantics. May be overridden on the AppInstallation.
+     * @return accessControl
+     */
+    @jakarta.annotation.Nullable public AppAccessControl getAccessControl() {
+        return accessControl;
+    }
+
+    public void setAccessControl(@jakarta.annotation.Nullable AppAccessControl accessControl) {
+        this.accessControl = accessControl;
+    }
+
     public AppManifest id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
@@ -737,6 +759,7 @@ public class AppManifest {
                 && Objects.equals(this.endpointOverrides, appManifest.endpointOverrides)
                 && Objects.equals(this.version, appManifest.version)
                 && Objects.equals(this.tags, appManifest.tags)
+                && Objects.equals(this.accessControl, appManifest.accessControl)
                 && Objects.equals(this.id, appManifest.id)
                 && Objects.equals(this.account, appManifest.account)
                 && Objects.equals(this.createdAt, appManifest.createdAt)
@@ -764,6 +787,7 @@ public class AppManifest {
                 endpointOverrides,
                 version,
                 tags,
+                accessControl,
                 id,
                 account,
                 createdAt,
@@ -794,6 +818,7 @@ public class AppManifest {
                 .append("\n");
         sb.append("    version: ").append(toIndentedString(version)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+        sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    account: ").append(toIndentedString(account)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -836,6 +861,7 @@ public class AppManifest {
                                 "endpoint_overrides",
                                 "version",
                                 "tags",
+                                "access_control",
                                 "id",
                                 "account",
                                 "created_at",
@@ -1020,6 +1046,10 @@ public class AppManifest {
                             java.util.Locale.ROOT,
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
+        }
+        // validate the optional field `access_control`
+        if (jsonObj.get("access_control") != null && !jsonObj.get("access_control").isJsonNull()) {
+            AppAccessControl.validateJsonElement(jsonObj.get("access_control"));
         }
         if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(

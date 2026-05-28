@@ -101,6 +101,7 @@ src/main/java/io/vertesia/model/ApiKeyReadResponse.java
 src/main/java/io/vertesia/model/ApiKeyTokenRequest.java
 src/main/java/io/vertesia/model/ApiKeyTypes.java
 src/main/java/io/vertesia/model/ApiKeyWithValue.java
+src/main/java/io/vertesia/model/AppAccessControl.java
 src/main/java/io/vertesia/model/AppAvailableIn.java
 src/main/java/io/vertesia/model/AppCapabilities.java
 src/main/java/io/vertesia/model/AppInstallation.java

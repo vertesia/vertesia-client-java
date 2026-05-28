@@ -251,6 +251,11 @@ public class AppManifestData {
     @SerializedName(SERIALIZED_NAME_TAGS)
     @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_ACCESS_CONTROL = "access_control";
+
+    @SerializedName(SERIALIZED_NAME_ACCESS_CONTROL)
+    @jakarta.annotation.Nullable private AppAccessControl accessControl;
+
     public AppManifestData() {}
 
     public AppManifestData name(@jakarta.annotation.Nonnull String name) {
@@ -616,6 +621,24 @@ public class AppManifestData {
         this.tags = tags;
     }
 
+    public AppManifestData accessControl(
+            @jakarta.annotation.Nullable AppAccessControl accessControl) {
+        this.accessControl = accessControl;
+        return this;
+    }
+
+    /**
+     * Access control policy for the app. Defaults to &#39;all&#39; (ACE-gated everywhere) when undefined. See  {@link  AppAccessControl }  for semantics. May be overridden on the AppInstallation.
+     * @return accessControl
+     */
+    @jakarta.annotation.Nullable public AppAccessControl getAccessControl() {
+        return accessControl;
+    }
+
+    public void setAccessControl(@jakarta.annotation.Nullable AppAccessControl accessControl) {
+        this.accessControl = accessControl;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -642,7 +665,8 @@ public class AppManifestData {
                 && Objects.equals(this.endpoint, appManifestData.endpoint)
                 && Objects.equals(this.endpointOverrides, appManifestData.endpointOverrides)
                 && Objects.equals(this.version, appManifestData.version)
-                && Objects.equals(this.tags, appManifestData.tags);
+                && Objects.equals(this.tags, appManifestData.tags)
+                && Objects.equals(this.accessControl, appManifestData.accessControl);
     }
 
     @Override
@@ -665,7 +689,8 @@ public class AppManifestData {
                 endpoint,
                 endpointOverrides,
                 version,
-                tags);
+                tags,
+                accessControl);
     }
 
     @Override
@@ -692,6 +717,7 @@ public class AppManifestData {
                 .append("\n");
         sb.append("    version: ").append(toIndentedString(version)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+        sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -729,7 +755,8 @@ public class AppManifestData {
                                 "endpoint",
                                 "endpoint_overrides",
                                 "version",
-                                "tags"));
+                                "tags",
+                                "access_control"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -907,6 +934,10 @@ public class AppManifestData {
                             java.util.Locale.ROOT,
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
+        }
+        // validate the optional field `access_control`
+        if (jsonObj.get("access_control") != null && !jsonObj.get("access_control").isJsonNull()) {
+            AppAccessControl.validateJsonElement(jsonObj.get("access_control"));
         }
     }
 

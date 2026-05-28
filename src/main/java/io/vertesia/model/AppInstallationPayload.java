@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * AppInstallationPayload
@@ -46,6 +47,11 @@ public class AppInstallationPayload {
 
     @SerializedName(SERIALIZED_NAME_SETTINGS)
     @jakarta.annotation.Nullable private Map<String, Object> settings = new HashMap<>();
+
+    public static final String SERIALIZED_NAME_ACCESS_CONTROL = "access_control";
+
+    @SerializedName(SERIALIZED_NAME_ACCESS_CONTROL)
+    @jakarta.annotation.Nullable private AppAccessControl accessControl;
 
     public static final String SERIALIZED_NAME_OAUTH_PARAMS = "oauth_params";
 
@@ -101,6 +107,24 @@ public class AppInstallationPayload {
 
     public void setSettings(@jakarta.annotation.Nullable Map<String, Object> settings) {
         this.settings = settings;
+    }
+
+    public AppInstallationPayload accessControl(
+            @jakarta.annotation.Nullable AppAccessControl accessControl) {
+        this.accessControl = accessControl;
+        return this;
+    }
+
+    /**
+     * Per-installation override of the manifest&#39;s &#x60;access_control&#x60; policy. When provided, takes precedence over the manifest default for every access check. Sibling of &#x60;settings&#x60; — admin-controlled, not part of the app&#39;s own settings JSON.  Three send-time semantics on update:  - Field omitted entirely from the payload → leave the existing override unchanged.  - Explicit &#x60;null&#x60; → clear the override, fall back to the manifest default.  - String enum → set the override to that value.  (On install, the same shape applies; omit or pass &#x60;null&#x60; to use the manifest default.)
+     * @return accessControl
+     */
+    @jakarta.annotation.Nullable public AppAccessControl getAccessControl() {
+        return accessControl;
+    }
+
+    public void setAccessControl(@jakarta.annotation.Nullable AppAccessControl accessControl) {
+        this.accessControl = accessControl;
     }
 
     public AppInstallationPayload oauthParams(
@@ -170,14 +194,31 @@ public class AppInstallationPayload {
         AppInstallationPayload appInstallationPayload = (AppInstallationPayload) o;
         return Objects.equals(this.appId, appInstallationPayload.appId)
                 && Objects.equals(this.settings, appInstallationPayload.settings)
+                && Objects.equals(this.accessControl, appInstallationPayload.accessControl)
                 && Objects.equals(this.oauthParams, appInstallationPayload.oauthParams)
                 && Objects.equals(
                         this.oauthProviderParams, appInstallationPayload.oauthProviderParams);
     }
 
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
+    }
+
     @Override
     public int hashCode() {
-        return Objects.hash(appId, settings, oauthParams, oauthProviderParams);
+        return Objects.hash(appId, settings, accessControl, oauthParams, oauthProviderParams);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -186,6 +227,7 @@ public class AppInstallationPayload {
         sb.append("class AppInstallationPayload {\n");
         sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
+        sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
         sb.append("    oauthParams: ").append(toIndentedString(oauthParams)).append("\n");
         sb.append("    oauthProviderParams: ")
                 .append(toIndentedString(oauthProviderParams))
@@ -210,7 +252,11 @@ public class AppInstallationPayload {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "app_id", "settings", "oauth_params", "oauth_provider_params"));
+                                "app_id",
+                                "settings",
+                                "access_control",
+                                "oauth_params",
+                                "oauth_provider_params"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("app_id"));
@@ -252,6 +298,10 @@ public class AppInstallationPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `app_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("app_id").toString()));
+        }
+        // validate the optional field `access_control`
+        if (jsonObj.get("access_control") != null && !jsonObj.get("access_control").isJsonNull()) {
+            AppAccessControl.validateJsonElement(jsonObj.get("access_control"));
         }
     }
 

@@ -71,6 +71,11 @@ public class AppInstallationListEntry {
     @SerializedName(SERIALIZED_NAME_PROVIDER_BINDINGS)
     @jakarta.annotation.Nullable private List<AppInstallationProviderBinding> providerBindings = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_ACCESS_CONTROL = "access_control";
+
+    @SerializedName(SERIALIZED_NAME_ACCESS_CONTROL)
+    @jakarta.annotation.Nullable private AppAccessControl accessControl;
+
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -239,6 +244,24 @@ public class AppInstallationListEntry {
         this.providerBindings = providerBindings;
     }
 
+    public AppInstallationListEntry accessControl(
+            @jakarta.annotation.Nullable AppAccessControl accessControl) {
+        this.accessControl = accessControl;
+        return this;
+    }
+
+    /**
+     * Per-installation override of the manifest&#39;s access_control policy. When set, takes precedence over the manifest value. When undefined, the manifest value (or &#39;all&#39; default) applies.
+     * @return accessControl
+     */
+    @jakarta.annotation.Nullable public AppAccessControl getAccessControl() {
+        return accessControl;
+    }
+
+    public void setAccessControl(@jakarta.annotation.Nullable AppAccessControl accessControl) {
+        this.accessControl = accessControl;
+    }
+
     public AppInstallationListEntry createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -334,6 +357,7 @@ public class AppInstallationListEntry {
                 && Objects.equals(this.toolAllowlist, appInstallationListEntry.toolAllowlist)
                 && Objects.equals(this.oauthBindings, appInstallationListEntry.oauthBindings)
                 && Objects.equals(this.providerBindings, appInstallationListEntry.providerBindings)
+                && Objects.equals(this.accessControl, appInstallationListEntry.accessControl)
                 && Objects.equals(this.createdAt, appInstallationListEntry.createdAt)
                 && Objects.equals(this.updatedAt, appInstallationListEntry.updatedAt)
                 && Objects.equals(this.manifest, appInstallationListEntry.manifest)
@@ -350,6 +374,7 @@ public class AppInstallationListEntry {
                 toolAllowlist,
                 oauthBindings,
                 providerBindings,
+                accessControl,
                 createdAt,
                 updatedAt,
                 manifest,
@@ -366,6 +391,7 @@ public class AppInstallationListEntry {
         sb.append("    toolAllowlist: ").append(toIndentedString(toolAllowlist)).append("\n");
         sb.append("    oauthBindings: ").append(toIndentedString(oauthBindings)).append("\n");
         sb.append("    providerBindings: ").append(toIndentedString(providerBindings)).append("\n");
+        sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("    manifest: ").append(toIndentedString(manifest)).append("\n");
@@ -398,6 +424,7 @@ public class AppInstallationListEntry {
                                 "tool_allowlist",
                                 "oauth_bindings",
                                 "provider_bindings",
+                                "access_control",
                                 "created_at",
                                 "updated_at",
                                 "manifest",
@@ -502,6 +529,10 @@ public class AppInstallationListEntry {
                 }
                 ;
             }
+        }
+        // validate the optional field `access_control`
+        if (jsonObj.get("access_control") != null && !jsonObj.get("access_control").isJsonNull()) {
+            AppAccessControl.validateJsonElement(jsonObj.get("access_control"));
         }
         if (!jsonObj.get("created_at").isJsonPrimitive()) {
             throw new IllegalArgumentException(

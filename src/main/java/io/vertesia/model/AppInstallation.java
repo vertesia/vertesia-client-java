@@ -77,6 +77,11 @@ public class AppInstallation {
     @SerializedName(SERIALIZED_NAME_PROVIDER_BINDINGS)
     @jakarta.annotation.Nullable private List<AppInstallationProviderBinding> providerBindings = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_ACCESS_CONTROL = "access_control";
+
+    @SerializedName(SERIALIZED_NAME_ACCESS_CONTROL)
+    @jakarta.annotation.Nullable private AppAccessControl accessControl;
+
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -250,6 +255,24 @@ public class AppInstallation {
         this.providerBindings = providerBindings;
     }
 
+    public AppInstallation accessControl(
+            @jakarta.annotation.Nullable AppAccessControl accessControl) {
+        this.accessControl = accessControl;
+        return this;
+    }
+
+    /**
+     * Per-installation override of the manifest&#39;s access_control policy. When set, takes precedence over the manifest value. When undefined, the manifest value (or &#39;all&#39; default) applies.
+     * @return accessControl
+     */
+    @jakarta.annotation.Nullable public AppAccessControl getAccessControl() {
+        return accessControl;
+    }
+
+    public void setAccessControl(@jakarta.annotation.Nullable AppAccessControl accessControl) {
+        this.accessControl = accessControl;
+    }
+
     public AppInstallation createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -302,6 +325,7 @@ public class AppInstallation {
                 && Objects.equals(this.toolAllowlist, appInstallation.toolAllowlist)
                 && Objects.equals(this.oauthBindings, appInstallation.oauthBindings)
                 && Objects.equals(this.providerBindings, appInstallation.providerBindings)
+                && Objects.equals(this.accessControl, appInstallation.accessControl)
                 && Objects.equals(this.createdAt, appInstallation.createdAt)
                 && Objects.equals(this.updatedAt, appInstallation.updatedAt);
     }
@@ -316,6 +340,7 @@ public class AppInstallation {
                 toolAllowlist,
                 oauthBindings,
                 providerBindings,
+                accessControl,
                 createdAt,
                 updatedAt);
     }
@@ -331,6 +356,7 @@ public class AppInstallation {
         sb.append("    toolAllowlist: ").append(toIndentedString(toolAllowlist)).append("\n");
         sb.append("    oauthBindings: ").append(toIndentedString(oauthBindings)).append("\n");
         sb.append("    providerBindings: ").append(toIndentedString(providerBindings)).append("\n");
+        sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("}");
@@ -360,6 +386,7 @@ public class AppInstallation {
                                 "tool_allowlist",
                                 "oauth_bindings",
                                 "provider_bindings",
+                                "access_control",
                                 "created_at",
                                 "updated_at"));
 
@@ -469,6 +496,10 @@ public class AppInstallation {
                 }
                 ;
             }
+        }
+        // validate the optional field `access_control`
+        if (jsonObj.get("access_control") != null && !jsonObj.get("access_control").isJsonNull()) {
+            AppAccessControl.validateJsonElement(jsonObj.get("access_control"));
         }
         if (!jsonObj.get("created_at").isJsonPrimitive()) {
             throw new IllegalArgumentException(
