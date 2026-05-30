@@ -78,11 +78,6 @@ public class AsyncConversationExecutionPayload {
     @SerializedName(SERIALIZED_NAME_CONVERSATION)
     @jakarta.annotation.Nullable private Object conversation = null;
 
-    public static final String SERIALIZED_NAME_TOOL_DEFINITIONS = "tool_definitions";
-
-    @SerializedName(SERIALIZED_NAME_TOOL_DEFINITIONS)
-    @jakarta.annotation.Nullable private List<ToolDefinition> toolDefinitions = new ArrayList<>();
-
     public static final String SERIALIZED_NAME_WORKFLOW = "workflow";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW)
@@ -410,34 +405,6 @@ public class AsyncConversationExecutionPayload {
 
     public void setConversation(@jakarta.annotation.Nullable Object conversation) {
         this.conversation = conversation;
-    }
-
-    public AsyncConversationExecutionPayload toolDefinitions(
-            @jakarta.annotation.Nullable List<ToolDefinition> toolDefinitions) {
-        this.toolDefinitions = toolDefinitions;
-        return this;
-    }
-
-    public AsyncConversationExecutionPayload addToolDefinitionsItem(
-            ToolDefinition toolDefinitionsItem) {
-        if (this.toolDefinitions == null) {
-            this.toolDefinitions = new ArrayList<>();
-        }
-        this.toolDefinitions.add(toolDefinitionsItem);
-        return this;
-    }
-
-    /**
-     * The tools to be used in the execution
-     * @return toolDefinitions
-     */
-    @jakarta.annotation.Nullable public List<ToolDefinition> getToolDefinitions() {
-        return toolDefinitions;
-    }
-
-    public void setToolDefinitions(
-            @jakarta.annotation.Nullable List<ToolDefinition> toolDefinitions) {
-        this.toolDefinitions = toolDefinitions;
     }
 
     public AsyncConversationExecutionPayload workflow(
@@ -1034,8 +1001,6 @@ public class AsyncConversationExecutionPayload {
                 && Objects.equals(this.doValidate, asyncConversationExecutionPayload.doValidate)
                 && Objects.equals(this.tags, asyncConversationExecutionPayload.tags)
                 && Objects.equals(this.conversation, asyncConversationExecutionPayload.conversation)
-                && Objects.equals(
-                        this.toolDefinitions, asyncConversationExecutionPayload.toolDefinitions)
                 && Objects.equals(this.workflow, asyncConversationExecutionPayload.workflow)
                 && Objects.equals(this.prompts, asyncConversationExecutionPayload.prompts)
                 && Objects.equals(
@@ -1102,7 +1067,6 @@ public class AsyncConversationExecutionPayload {
                 doValidate,
                 tags,
                 conversation,
-                toolDefinitions,
                 workflow,
                 prompts,
                 asyncCompletion,
@@ -1151,7 +1115,6 @@ public class AsyncConversationExecutionPayload {
         sb.append("    doValidate: ").append(toIndentedString(doValidate)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
         sb.append("    conversation: ").append(toIndentedString(conversation)).append("\n");
-        sb.append("    toolDefinitions: ").append(toIndentedString(toolDefinitions)).append("\n");
         sb.append("    workflow: ").append(toIndentedString(workflow)).append("\n");
         sb.append("    prompts: ").append(toIndentedString(prompts)).append("\n");
         sb.append("    asyncCompletion: ").append(toIndentedString(asyncCompletion)).append("\n");
@@ -1219,7 +1182,6 @@ public class AsyncConversationExecutionPayload {
                                 "do_validate",
                                 "tags",
                                 "conversation",
-                                "tool_definitions",
                                 "workflow",
                                 "prompts",
                                 "asyncCompletion",
@@ -1307,26 +1269,6 @@ public class AsyncConversationExecutionPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
-        }
-        if (jsonObj.get("tool_definitions") != null
-                && !jsonObj.get("tool_definitions").isJsonNull()) {
-            JsonArray jsonArraytoolDefinitions = jsonObj.getAsJsonArray("tool_definitions");
-            if (jsonArraytoolDefinitions != null) {
-                // ensure the json data is an array
-                if (!jsonObj.get("tool_definitions").isJsonArray()) {
-                    throw new IllegalArgumentException(
-                            String.format(
-                                    java.util.Locale.ROOT,
-                                    "Expected the field `tool_definitions` to be an array in the JSON string but got `%s`",
-                                    jsonObj.get("tool_definitions").toString()));
-                }
-
-                // validate the optional field `tool_definitions` (array)
-                for (int i = 0; i < jsonArraytoolDefinitions.size(); i++) {
-                    ToolDefinition.validateJsonElement(jsonArraytoolDefinitions.get(i));
-                }
-                ;
-            }
         }
         // validate the optional field `workflow`
         if (jsonObj.get("workflow") != null && !jsonObj.get("workflow").isJsonNull()) {

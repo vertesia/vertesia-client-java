@@ -69,6 +69,11 @@ public class InteractionExecutionConfiguration {
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
     @jakarta.annotation.Nullable private ModelOptions modelOptions;
 
+    public static final String SERIALIZED_NAME_HTTP_TIMEOUT = "http_timeout";
+
+    @SerializedName(SERIALIZED_NAME_HTTP_TIMEOUT)
+    @jakarta.annotation.Nullable private HttpTimeoutOptions httpTimeout;
+
     public InteractionExecutionConfiguration() {}
 
     public InteractionExecutionConfiguration id(@jakarta.annotation.Nullable String id) {
@@ -195,6 +200,24 @@ public class InteractionExecutionConfiguration {
         this.modelOptions = modelOptions;
     }
 
+    public InteractionExecutionConfiguration httpTimeout(
+            @jakarta.annotation.Nullable HttpTimeoutOptions httpTimeout) {
+        this.httpTimeout = httpTimeout;
+        return this;
+    }
+
+    /**
+     * Per-run HTTP timeouts for upstream LLM-provider calls.
+     * @return httpTimeout
+     */
+    @jakarta.annotation.Nullable public HttpTimeoutOptions getHttpTimeout() {
+        return httpTimeout;
+    }
+
+    public void setHttpTimeout(@jakarta.annotation.Nullable HttpTimeoutOptions httpTimeout) {
+        this.httpTimeout = httpTimeout;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -211,13 +234,14 @@ public class InteractionExecutionConfiguration {
                 && Objects.equals(this.doValidate, interactionExecutionConfiguration.doValidate)
                 && Objects.equals(this.runData, interactionExecutionConfiguration.runData)
                 && Objects.equals(this.configMode, interactionExecutionConfiguration.configMode)
-                && Objects.equals(
-                        this.modelOptions, interactionExecutionConfiguration.modelOptions);
+                && Objects.equals(this.modelOptions, interactionExecutionConfiguration.modelOptions)
+                && Objects.equals(this.httpTimeout, interactionExecutionConfiguration.httpTimeout);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, environment, model, doValidate, runData, configMode, modelOptions);
+        return Objects.hash(
+                id, environment, model, doValidate, runData, configMode, modelOptions, httpTimeout);
     }
 
     @Override
@@ -231,6 +255,7 @@ public class InteractionExecutionConfiguration {
         sb.append("    runData: ").append(toIndentedString(runData)).append("\n");
         sb.append("    configMode: ").append(toIndentedString(configMode)).append("\n");
         sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
+        sb.append("    httpTimeout: ").append(toIndentedString(httpTimeout)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -257,7 +282,8 @@ public class InteractionExecutionConfiguration {
                                 "do_validate",
                                 "run_data",
                                 "configMode",
-                                "model_options"));
+                                "model_options",
+                                "http_timeout"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -317,6 +343,10 @@ public class InteractionExecutionConfiguration {
         // validate the optional field `model_options`
         if (jsonObj.get("model_options") != null && !jsonObj.get("model_options").isJsonNull()) {
             ModelOptions.validateJsonElement(jsonObj.get("model_options"));
+        }
+        // validate the optional field `http_timeout`
+        if (jsonObj.get("http_timeout") != null && !jsonObj.get("http_timeout").isJsonNull()) {
+            HttpTimeoutOptions.validateJsonElement(jsonObj.get("http_timeout"));
         }
     }
 

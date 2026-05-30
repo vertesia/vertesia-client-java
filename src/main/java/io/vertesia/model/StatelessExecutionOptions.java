@@ -61,6 +61,11 @@ public class StatelessExecutionOptions {
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
     @jakarta.annotation.Nullable private ModelOptions modelOptions;
 
+    public static final String SERIALIZED_NAME_HTTP_TIMEOUT = "httpTimeout";
+
+    @SerializedName(SERIALIZED_NAME_HTTP_TIMEOUT)
+    @jakarta.annotation.Nullable private HttpTimeoutOptions httpTimeout;
+
     public static final String SERIALIZED_NAME_OUTPUT_MODALITY = "output_modality";
 
     @Deprecated
@@ -159,6 +164,24 @@ public class StatelessExecutionOptions {
         this.modelOptions = modelOptions;
     }
 
+    public StatelessExecutionOptions httpTimeout(
+            @jakarta.annotation.Nullable HttpTimeoutOptions httpTimeout) {
+        this.httpTimeout = httpTimeout;
+        return this;
+    }
+
+    /**
+     * Per-call HTTP timeouts for upstream LLM-provider calls. These override the driver&#39;s default &#x60;DriverOptions.httpTimeout&#x60; for this execution only.
+     * @return httpTimeout
+     */
+    @jakarta.annotation.Nullable public HttpTimeoutOptions getHttpTimeout() {
+        return httpTimeout;
+    }
+
+    public void setHttpTimeout(@jakarta.annotation.Nullable HttpTimeoutOptions httpTimeout) {
+        this.httpTimeout = httpTimeout;
+    }
+
     @Deprecated
     public StatelessExecutionOptions outputModality(
             @jakarta.annotation.Nullable Modalities outputModality) {
@@ -197,13 +220,20 @@ public class StatelessExecutionOptions {
                         this.includeOriginalResponse,
                         statelessExecutionOptions.includeOriginalResponse)
                 && Objects.equals(this.modelOptions, statelessExecutionOptions.modelOptions)
+                && Objects.equals(this.httpTimeout, statelessExecutionOptions.httpTimeout)
                 && Objects.equals(this.outputModality, statelessExecutionOptions.outputModality);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                model, format, resultSchema, includeOriginalResponse, modelOptions, outputModality);
+                model,
+                format,
+                resultSchema,
+                includeOriginalResponse,
+                modelOptions,
+                httpTimeout,
+                outputModality);
     }
 
     @Override
@@ -217,6 +247,7 @@ public class StatelessExecutionOptions {
                 .append(toIndentedString(includeOriginalResponse))
                 .append("\n");
         sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
+        sb.append("    httpTimeout: ").append(toIndentedString(httpTimeout)).append("\n");
         sb.append("    outputModality: ").append(toIndentedString(outputModality)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -243,6 +274,7 @@ public class StatelessExecutionOptions {
                                 "result_schema",
                                 "include_original_response",
                                 "model_options",
+                                "httpTimeout",
                                 "output_modality"));
 
         // a set of required properties/fields (JSON key names)
@@ -297,6 +329,10 @@ public class StatelessExecutionOptions {
         // validate the optional field `model_options`
         if (jsonObj.get("model_options") != null && !jsonObj.get("model_options").isJsonNull()) {
             ModelOptions.validateJsonElement(jsonObj.get("model_options"));
+        }
+        // validate the optional field `httpTimeout`
+        if (jsonObj.get("httpTimeout") != null && !jsonObj.get("httpTimeout").isJsonNull()) {
+            HttpTimeoutOptions.validateJsonElement(jsonObj.get("httpTimeout"));
         }
         // validate the optional field `output_modality`
         if (jsonObj.get("output_modality") != null
