@@ -482,7 +482,7 @@ public class ProcessesApi {
 
     /**
      * Retrieve a process definition
-     * Retrieves a process definition by id.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Retrieves a process definition by id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param processId  (required)
      * @return ProcessDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -503,7 +503,7 @@ public class ProcessesApi {
 
     /**
      * Retrieve a process definition
-     * Retrieves a process definition by id.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Retrieves a process definition by id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param processId  (required)
      * @return ApiResponse&lt;ProcessDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -525,7 +525,7 @@ public class ProcessesApi {
 
     /**
      * Retrieve a process definition (asynchronously)
-     * Retrieves a process definition by id.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Retrieves a process definition by id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param processId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -639,7 +639,7 @@ public class ProcessesApi {
 
     /**
      * List process definition versions
-     * Lists all revisions for the process definition revision bucket containing the requested process id.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists all revisions for the process definition revision bucket containing the requested process id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param processId  (required)
      * @return List&lt;ProcessDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -661,7 +661,7 @@ public class ProcessesApi {
 
     /**
      * List process definition versions
-     * Lists all revisions for the process definition revision bucket containing the requested process id.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists all revisions for the process definition revision bucket containing the requested process id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param processId  (required)
      * @return ApiResponse&lt;List&lt;ProcessDefinition&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -684,7 +684,7 @@ public class ProcessesApi {
 
     /**
      * List process definition versions (asynchronously)
-     * Lists all revisions for the process definition revision bucket containing the requested process id.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists all revisions for the process definition revision bucket containing the requested process id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param processId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -817,7 +817,7 @@ public class ProcessesApi {
 
     /**
      * List process definitions
-     * Lists process definitions in the current project with optional status, process id, pagination, and revision filters. By default only the latest head revision for each process is returned; set &#x60;all_versions&#x3D;true&#x60; to include every revision document.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists process definitions in the current project with optional status, process id, pagination, and revision filters. By default only the latest head revision for each process is returned; set &#x60;all_versions&#x3D;true&#x60; to include every revision document.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param process  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
@@ -846,7 +846,7 @@ public class ProcessesApi {
 
     /**
      * List process definitions
-     * Lists process definitions in the current project with optional status, process id, pagination, and revision filters. By default only the latest head revision for each process is returned; set &#x60;all_versions&#x3D;true&#x60; to include every revision document.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists process definitions in the current project with optional status, process id, pagination, and revision filters. By default only the latest head revision for each process is returned; set &#x60;all_versions&#x3D;true&#x60; to include every revision document.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param process  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
@@ -876,7 +876,7 @@ public class ProcessesApi {
 
     /**
      * List process definitions (asynchronously)
-     * Lists process definitions in the current project with optional status, process id, pagination, and revision filters. By default only the latest head revision for each process is returned; set &#x60;all_versions&#x3D;true&#x60; to include every revision document.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists process definitions in the current project with optional status, process id, pagination, and revision filters. By default only the latest head revision for each process is returned; set &#x60;all_versions&#x3D;true&#x60; to include every revision document.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param process  (optional)
      * @param limit  (optional)
      * @param offset  (optional)

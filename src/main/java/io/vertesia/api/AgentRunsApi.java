@@ -1042,7 +1042,7 @@ public class AgentRunsApi {
 
     /**
      * Retrieve an agent run
-     * Retrieves a single agent run by stable agent run ID.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Retrieves a single agent run by stable agent run ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @return AgentRun
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1062,7 +1062,7 @@ public class AgentRunsApi {
 
     /**
      * Retrieve an agent run
-     * Retrieves a single agent run by stable agent run ID.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Retrieves a single agent run by stable agent run ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @return ApiResponse&lt;AgentRun&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1084,7 +1084,7 @@ public class AgentRunsApi {
 
     /**
      * Retrieve an agent run (asynchronously)
-     * Retrieves a single agent run by stable agent run ID.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Retrieves a single agent run by stable agent run ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1233,7 +1233,7 @@ public class AgentRunsApi {
 
     /**
      * Get an agent run artifact
-     * Downloads an artifact or returns a signed download URL when &#x60;url&#x3D;1&#x60; is supplied.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Downloads an artifact or returns a signed download URL when &#x60;url&#x3D;1&#x60; is supplied.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param path  (required)
      * @param url  (optional)
@@ -1264,7 +1264,7 @@ public class AgentRunsApi {
 
     /**
      * Get an agent run artifact
-     * Downloads an artifact or returns a signed download URL when &#x60;url&#x3D;1&#x60; is supplied.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Downloads an artifact or returns a signed download URL when &#x60;url&#x3D;1&#x60; is supplied.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param path  (required)
      * @param url  (optional)
@@ -1297,7 +1297,7 @@ public class AgentRunsApi {
 
     /**
      * Get an agent run artifact (asynchronously)
-     * Downloads an artifact or returns a signed download URL when &#x60;url&#x3D;1&#x60; is supplied.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Downloads an artifact or returns a signed download URL when &#x60;url&#x3D;1&#x60; is supplied.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param path  (required)
      * @param url  (optional)
@@ -1435,7 +1435,7 @@ public class AgentRunsApi {
 
     /**
      * Get child agent run details
-     * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param childWorkflowId  (required)
      * @return WorkflowRunWithDetails
@@ -1460,7 +1460,7 @@ public class AgentRunsApi {
 
     /**
      * Get child agent run details
-     * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param childWorkflowId  (required)
      * @return ApiResponse&lt;WorkflowRunWithDetails&gt;
@@ -1486,7 +1486,7 @@ public class AgentRunsApi {
 
     /**
      * Get child agent run details (asynchronously)
-     * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param childWorkflowId  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1621,7 +1621,7 @@ public class AgentRunsApi {
 
     /**
      * Get agent run details
-     * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param includeHistory  (optional)
      * @param hydratePayloads  (optional)
@@ -1648,7 +1648,7 @@ public class AgentRunsApi {
 
     /**
      * Get agent run details
-     * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param includeHistory  (optional)
      * @param hydratePayloads  (optional)
@@ -1677,7 +1677,7 @@ public class AgentRunsApi {
 
     /**
      * Get agent run details (asynchronously)
-     * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param includeHistory  (optional)
      * @param hydratePayloads  (optional)
@@ -1797,7 +1797,7 @@ public class AgentRunsApi {
 
     /**
      * Get process run context
-     * Returns the current node and the current process context snapshot for a process run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Returns the current node and the current process context snapshot for a process run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @return ProcessContextResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1819,7 +1819,7 @@ public class AgentRunsApi {
 
     /**
      * Get process run context
-     * Returns the current node and the current process context snapshot for a process run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Returns the current node and the current process context snapshot for a process run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @return ApiResponse&lt;ProcessContextResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1841,7 +1841,7 @@ public class AgentRunsApi {
 
     /**
      * Get process run context (asynchronously)
-     * Returns the current node and the current process context snapshot for a process run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Returns the current node and the current process context snapshot for a process run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1955,7 +1955,7 @@ public class AgentRunsApi {
 
     /**
      * Get process run history
-     * Returns the hydrated node history for a process run, loading full history artifacts when available for long-running executions.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Returns the hydrated node history for a process run, loading full history artifacts when available for long-running executions.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @return ProcessHistoryResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1977,7 +1977,7 @@ public class AgentRunsApi {
 
     /**
      * Get process run history
-     * Returns the hydrated node history for a process run, loading full history artifacts when available for long-running executions.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Returns the hydrated node history for a process run, loading full history artifacts when available for long-running executions.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @return ApiResponse&lt;ProcessHistoryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1999,7 +1999,7 @@ public class AgentRunsApi {
 
     /**
      * Get process run history (asynchronously)
-     * Returns the hydrated node history for a process run, loading full history artifacts when available for long-running executions.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Returns the hydrated node history for a process run, loading full history artifacts when available for long-running executions.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2122,7 +2122,7 @@ public class AgentRunsApi {
 
     /**
      * List agent run artifacts
-     * Lists user-visible artifact paths for an agent run. Internal artifact files are excluded by default.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists user-visible artifact paths for an agent run. Internal artifact files are excluded by default.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param visibility  (optional)
      * @return List&lt;String&gt;
@@ -2147,7 +2147,7 @@ public class AgentRunsApi {
 
     /**
      * List agent run artifacts
-     * Lists user-visible artifact paths for an agent run. Internal artifact files are excluded by default.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists user-visible artifact paths for an agent run. Internal artifact files are excluded by default.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param visibility  (optional)
      * @return ApiResponse&lt;List&lt;String&gt;&gt;
@@ -2173,7 +2173,7 @@ public class AgentRunsApi {
 
     /**
      * List agent run artifacts (asynchronously)
-     * Lists user-visible artifact paths for an agent run. Internal artifact files are excluded by default.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists user-visible artifact paths for an agent run. Internal artifact files are excluded by default.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param visibility  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2290,7 +2290,7 @@ public class AgentRunsApi {
 
     /**
      * List child agent runs
-     * Lists child workflows or sub-agent executions associated with an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists child workflows or sub-agent executions associated with an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @return ListWorkflowRunsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2312,7 +2312,7 @@ public class AgentRunsApi {
 
     /**
      * List child agent runs
-     * Lists child workflows or sub-agent executions associated with an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists child workflows or sub-agent executions associated with an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @return ApiResponse&lt;ListWorkflowRunsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2334,7 +2334,7 @@ public class AgentRunsApi {
 
     /**
      * List child agent runs (asynchronously)
-     * Lists child workflows or sub-agent executions associated with an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists child workflows or sub-agent executions associated with an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2457,7 +2457,7 @@ public class AgentRunsApi {
 
     /**
      * List agent run updates
-     * Returns stored compact messages for an agent run after an optional timestamp cursor.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Returns stored compact messages for an agent run after an optional timestamp cursor.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param since  (optional)
      * @return AgentRunUpdatesResponse
@@ -2482,7 +2482,7 @@ public class AgentRunsApi {
 
     /**
      * List agent run updates
-     * Returns stored compact messages for an agent run after an optional timestamp cursor.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Returns stored compact messages for an agent run after an optional timestamp cursor.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param since  (optional)
      * @return ApiResponse&lt;AgentRunUpdatesResponse&gt;
@@ -2507,7 +2507,7 @@ public class AgentRunsApi {
 
     /**
      * List agent run updates (asynchronously)
-     * Returns stored compact messages for an agent run after an optional timestamp cursor.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Returns stored compact messages for an agent run after an optional timestamp cursor.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param since  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2738,7 +2738,7 @@ public class AgentRunsApi {
 
     /**
      * List agent runs
-     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param id Filter by agent run ID (optional)
      * @param status Filter by status (single or multiple) (optional)
      * @param interaction Filter by interaction ID or code (optional)
@@ -2804,7 +2804,7 @@ public class AgentRunsApi {
 
     /**
      * List agent runs
-     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param id Filter by agent run ID (optional)
      * @param status Filter by status (single or multiple) (optional)
      * @param interaction Filter by interaction ID or code (optional)
@@ -2872,7 +2872,7 @@ public class AgentRunsApi {
 
     /**
      * List agent runs (asynchronously)
-     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Lists agent runs with filters for ID, status, interaction, starter, date range, schedule, type, pagination cursor or offset, and sort order.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param id Filter by agent run ID (optional)
      * @param status Filter by status (single or multiple) (optional)
      * @param interaction Filter by interaction ID or code (optional)
@@ -3670,7 +3670,7 @@ public class AgentRunsApi {
 
     /**
      * Search agent runs
-     * Searches indexed agent runs with full-text query support and filters for status, interaction, starter, categories, tags, content type, and date range.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Searches indexed agent runs with full-text query support and filters for status, interaction, starter, categories, tags, content type, and date range.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param query Full-text search across name, title, topic, interaction_name, and content (optional)
      * @param status Filter by status (single or multiple) (optional)
      * @param interaction Filter by interaction ID or code (optional)
@@ -3730,7 +3730,7 @@ public class AgentRunsApi {
 
     /**
      * Search agent runs
-     * Searches indexed agent runs with full-text query support and filters for status, interaction, starter, categories, tags, content type, and date range.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Searches indexed agent runs with full-text query support and filters for status, interaction, starter, categories, tags, content type, and date range.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param query Full-text search across name, title, topic, interaction_name, and content (optional)
      * @param status Filter by status (single or multiple) (optional)
      * @param interaction Filter by interaction ID or code (optional)
@@ -3792,7 +3792,7 @@ public class AgentRunsApi {
 
     /**
      * Search agent runs (asynchronously)
-     * Searches indexed agent runs with full-text query support and filters for status, interaction, starter, categories, tags, content type, and date range.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Searches indexed agent runs with full-text query support and filters for status, interaction, starter, categories, tags, content type, and date range.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param query Full-text search across name, title, topic, interaction_name, and content (optional)
      * @param status Filter by status (single or multiple) (optional)
      * @param interaction Filter by interaction ID or code (optional)
@@ -3962,7 +3962,7 @@ public class AgentRunsApi {
 
     /**
      * Stream an agent run
-     * Opens a Server-Sent Events stream for live and archived agent run messages.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Opens a Server-Sent Events stream for live and archived agent run messages.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param since  (optional)
      * @param skipHistory  (optional)
@@ -3989,7 +3989,7 @@ public class AgentRunsApi {
 
     /**
      * Stream an agent run
-     * Opens a Server-Sent Events stream for live and archived agent run messages.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Opens a Server-Sent Events stream for live and archived agent run messages.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param since  (optional)
      * @param skipHistory  (optional)
@@ -4017,7 +4017,7 @@ public class AgentRunsApi {
 
     /**
      * Stream an agent run (asynchronously)
-     * Opens a Server-Sent Events stream for live and archived agent run messages.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Opens a Server-Sent Events stream for live and archived agent run messages.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param since  (optional)
      * @param skipHistory  (optional)
@@ -4136,7 +4136,7 @@ public class AgentRunsApi {
 
     /**
      * Stream agent run details
-     * Streams Temporal history events for an agent run across continue-as-new workflow runs.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Streams Temporal history events for an agent run across continue-as-new workflow runs.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4157,7 +4157,7 @@ public class AgentRunsApi {
 
     /**
      * Stream agent run details
-     * Streams Temporal history events for an agent run across continue-as-new workflow runs.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Streams Temporal history events for an agent run across continue-as-new workflow runs.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4179,7 +4179,7 @@ public class AgentRunsApi {
 
     /**
      * Stream agent run details (asynchronously)
-     * Streams Temporal history events for an agent run across continue-as-new workflow runs.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Streams Temporal history events for an agent run across continue-as-new workflow runs.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

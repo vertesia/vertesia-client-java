@@ -474,7 +474,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Retrieve a workflow definition
-     * Retrieves a DSL workflow definition by ID.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Retrieves a DSL workflow definition by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
      * @return DSLWorkflowDefinitionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -496,7 +496,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Retrieve a workflow definition
-     * Retrieves a DSL workflow definition by ID.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Retrieves a DSL workflow definition by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
      * @return ApiResponse&lt;DSLWorkflowDefinitionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -518,7 +518,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Retrieve a workflow definition (asynchronously)
-     * Retrieves a DSL workflow definition by ID.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Retrieves a DSL workflow definition by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -619,7 +619,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * List workflow definitions
-     * Lists DSL workflow definitions in the current project.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Lists DSL workflow definitions in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @return List&lt;WorkflowDefinitionRef&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -639,7 +639,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * List workflow definitions
-     * Lists DSL workflow definitions in the current project.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Lists DSL workflow definitions in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @return ApiResponse&lt;List&lt;WorkflowDefinitionRef&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -660,7 +660,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * List workflow definitions (asynchronously)
-     * Lists DSL workflow definitions in the current project.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Lists DSL workflow definitions in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

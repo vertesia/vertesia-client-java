@@ -40,6 +40,10 @@ public enum ProjectRoles {
 
     READER("reader"),
 
+    AUDITOR("auditor"),
+
+    SUPPORT("support"),
+
     BILLING("billing"),
 
     MEMBER("member"),

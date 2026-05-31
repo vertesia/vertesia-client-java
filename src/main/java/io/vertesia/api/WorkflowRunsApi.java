@@ -759,7 +759,7 @@ public class WorkflowRunsApi {
 
     /**
      * Retrieve a workflow run
-     * Retrieves workflow run status, timing, input, result, and optional execution history.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Retrieves workflow run status, timing, input, result, and optional execution history.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
      * @param includeHistory  (optional)
@@ -791,7 +791,7 @@ public class WorkflowRunsApi {
 
     /**
      * Retrieve a workflow run
-     * Retrieves workflow run status, timing, input, result, and optional execution history.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Retrieves workflow run status, timing, input, result, and optional execution history.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
      * @param includeHistory  (optional)
@@ -824,7 +824,7 @@ public class WorkflowRunsApi {
 
     /**
      * Retrieve a workflow run (asynchronously)
-     * Retrieves workflow run status, timing, input, result, and optional execution history.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Retrieves workflow run status, timing, input, result, and optional execution history.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
      * @param includeHistory  (optional)
@@ -974,7 +974,7 @@ public class WorkflowRunsApi {
 
     /**
      * Get workflow run updates
-     * Retrieves compact workflow updates published since the provided offset.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Retrieves compact workflow updates published since the provided offset.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
      * @param since  (optional)
@@ -1001,7 +1001,7 @@ public class WorkflowRunsApi {
 
     /**
      * Get workflow run updates
-     * Retrieves compact workflow updates published since the provided offset.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Retrieves compact workflow updates published since the provided offset.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
      * @param since  (optional)
@@ -1029,7 +1029,7 @@ public class WorkflowRunsApi {
 
     /**
      * Get workflow run updates (asynchronously)
-     * Retrieves compact workflow updates published since the provided offset.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Retrieves compact workflow updates published since the provided offset.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
      * @param since  (optional)
@@ -1148,7 +1148,7 @@ public class WorkflowRunsApi {
 
     /**
      * List runs for a workflow rule
-     * Lists workflow runs started from a specific workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Lists workflow runs started from a specific workflow rule.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @return ListWorkflowRunsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1170,7 +1170,7 @@ public class WorkflowRunsApi {
 
     /**
      * List runs for a workflow rule
-     * Lists workflow runs started from a specific workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Lists workflow runs started from a specific workflow rule.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @return ApiResponse&lt;ListWorkflowRunsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1192,7 +1192,7 @@ public class WorkflowRunsApi {
 
     /**
      * List runs for a workflow rule (asynchronously)
-     * Lists workflow runs started from a specific workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Lists workflow runs started from a specific workflow rule.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1304,7 +1304,7 @@ public class WorkflowRunsApi {
 
     /**
      * List workflow runs
-     * Lists workflow runs with filtering, pagination, and optional rule scoping.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Lists workflow runs with filtering, pagination, and optional rule scoping.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param listWorkflowRunsPayload  (required)
      * @return ListWorkflowRunsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1327,7 +1327,7 @@ public class WorkflowRunsApi {
 
     /**
      * List workflow runs
-     * Lists workflow runs with filtering, pagination, and optional rule scoping.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Lists workflow runs with filtering, pagination, and optional rule scoping.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param listWorkflowRunsPayload  (required)
      * @return ApiResponse&lt;ListWorkflowRunsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1351,7 +1351,7 @@ public class WorkflowRunsApi {
 
     /**
      * List workflow runs (asynchronously)
-     * Lists workflow runs with filtering, pagination, and optional rule scoping.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Lists workflow runs with filtering, pagination, and optional rule scoping.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param listWorkflowRunsPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1672,7 +1672,7 @@ public class WorkflowRunsApi {
 
     /**
      * Query a workflow run
-     * Executes a named query against a workflow run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Executes a named query against a workflow run.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
      * @param queryName  (required)
@@ -1699,7 +1699,7 @@ public class WorkflowRunsApi {
 
     /**
      * Query a workflow run
-     * Executes a named query against a workflow run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Executes a named query against a workflow run.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
      * @param queryName  (required)
@@ -1727,7 +1727,7 @@ public class WorkflowRunsApi {
 
     /**
      * Query a workflow run (asynchronously)
-     * Executes a named query against a workflow run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Executes a named query against a workflow run.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
      * @param queryName  (required)
@@ -2092,7 +2092,7 @@ public class WorkflowRunsApi {
 
     /**
      * Stream workflow run updates
-     * Streams workflow messages and updates for a workflow run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Streams workflow messages and updates for a workflow run.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
      * @param since  (optional)
@@ -2121,7 +2121,7 @@ public class WorkflowRunsApi {
 
     /**
      * Stream workflow run updates
-     * Streams workflow messages and updates for a workflow run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Streams workflow messages and updates for a workflow run.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
      * @param since  (optional)
@@ -2152,7 +2152,7 @@ public class WorkflowRunsApi {
 
     /**
      * Stream workflow run updates (asynchronously)
-     * Streams workflow messages and updates for a workflow run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * Streams workflow messages and updates for a workflow run.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
      * @param workflowId  (required)
      * @param runId  (required)
      * @param since  (optional)

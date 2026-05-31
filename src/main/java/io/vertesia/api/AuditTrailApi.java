@@ -247,7 +247,7 @@ public class AuditTrailApi {
 
     /**
      * List audit trail events
-     * Lists audit trail events with optional filtering by project, resource, principal, action, and time range.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
+     * Lists audit trail events with optional filtering by project, resource, principal, action, and time range.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
      * @param actions Filter by action types (optional)
      * @param resourceTypes Filter by resource types (optional)
      * @param resourceId Filter by resource ID (optional)
@@ -304,7 +304,7 @@ public class AuditTrailApi {
 
     /**
      * List audit trail events
-     * Lists audit trail events with optional filtering by project, resource, principal, action, and time range.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
+     * Lists audit trail events with optional filtering by project, resource, principal, action, and time range.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
      * @param actions Filter by action types (optional)
      * @param resourceTypes Filter by resource types (optional)
      * @param resourceId Filter by resource ID (optional)
@@ -363,7 +363,7 @@ public class AuditTrailApi {
 
     /**
      * List audit trail events (asynchronously)
-     * Lists audit trail events with optional filtering by project, resource, principal, action, and time range.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;
+     * Lists audit trail events with optional filtering by project, resource, principal, action, and time range.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
      * @param actions Filter by action types (optional)
      * @param resourceTypes Filter by resource types (optional)
      * @param resourceId Filter by resource ID (optional)

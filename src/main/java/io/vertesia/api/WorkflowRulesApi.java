@@ -472,7 +472,7 @@ public class WorkflowRulesApi {
 
     /**
      * Retrieve a workflow rule
-     * Retrieves a workflow rule by ID.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Retrieves a workflow rule by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @return WorkflowRule
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -493,7 +493,7 @@ public class WorkflowRulesApi {
 
     /**
      * Retrieve a workflow rule
-     * Retrieves a workflow rule by ID.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Retrieves a workflow rule by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @return ApiResponse&lt;WorkflowRule&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -515,7 +515,7 @@ public class WorkflowRulesApi {
 
     /**
      * Retrieve a workflow rule (asynchronously)
-     * Retrieves a workflow rule by ID.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Retrieves a workflow rule by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -614,7 +614,7 @@ public class WorkflowRulesApi {
 
     /**
      * List workflow rules
-     * Lists workflow rules available in the current project.
+     * Lists workflow rules available in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @return List&lt;WorkflowRuleItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -633,7 +633,7 @@ public class WorkflowRulesApi {
 
     /**
      * List workflow rules
-     * Lists workflow rules available in the current project.
+     * Lists workflow rules available in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @return ApiResponse&lt;List&lt;WorkflowRuleItem&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -653,7 +653,7 @@ public class WorkflowRulesApi {
 
     /**
      * List workflow rules (asynchronously)
-     * Lists workflow rules available in the current project.
+     * Lists workflow rules available in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

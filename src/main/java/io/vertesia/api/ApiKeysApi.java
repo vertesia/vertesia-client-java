@@ -648,7 +648,7 @@ public class ApiKeysApi {
 
     /**
      * Get an API key token
-     * Returns a generated auth token derived from a retrievable API key value.  **Required permissions:** &#x60;api_key:read&#x60;
+     * Returns a generated auth token derived from a retrievable API key value.  **Required permissions:** &#x60;api_key:secret_read&#x60;
      * @param keyId  (required)
      * @return AuthTokenResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -669,7 +669,7 @@ public class ApiKeysApi {
 
     /**
      * Get an API key token
-     * Returns a generated auth token derived from a retrievable API key value.  **Required permissions:** &#x60;api_key:read&#x60;
+     * Returns a generated auth token derived from a retrievable API key value.  **Required permissions:** &#x60;api_key:secret_read&#x60;
      * @param keyId  (required)
      * @return ApiResponse&lt;AuthTokenResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -691,7 +691,7 @@ public class ApiKeysApi {
 
     /**
      * Get an API key token (asynchronously)
-     * Returns a generated auth token derived from a retrievable API key value.  **Required permissions:** &#x60;api_key:read&#x60;
+     * Returns a generated auth token derived from a retrievable API key value.  **Required permissions:** &#x60;api_key:secret_read&#x60;
      * @param keyId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

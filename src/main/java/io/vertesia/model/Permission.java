@@ -48,6 +48,8 @@ public enum Permission {
 
     API_KEY_READ("api_key:read"),
 
+    API_KEY_SECRET_READ("api_key:secret_read"),
+
     API_KEY_UPDATE("api_key:update"),
 
     API_KEY_DELETE("api_key:delete"),
@@ -62,9 +64,13 @@ public enum Permission {
 
     BILLING_READ("billing:read"),
 
+    AUDIT_READ("audit:read"),
+
     ACCOUNT_MEMBER("account:member"),
 
     CONTENT_READ("content:read"),
+
+    CONTENT_READ_ALL("content:read_all"),
 
     CONTENT_WRITE("content:write"),
 
@@ -74,11 +80,15 @@ public enum Permission {
 
     CONTENT_SUPERADMIN("content:superadmin"),
 
+    WORKFLOW_READ("workflow:read"),
+
     WORKFLOW_RUN("workflow:run"),
 
     WORKFLOW_ADMIN("workflow:admin"),
 
     WORKFLOW_SUPERADMIN("workflow:superadmin"),
+
+    AGENT_RUN_READ("agent_run:read"),
 
     TASK_READ("task:read"),
 
