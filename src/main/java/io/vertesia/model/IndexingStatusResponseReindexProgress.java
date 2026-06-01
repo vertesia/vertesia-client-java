@@ -133,6 +133,31 @@ public class IndexingStatusResponseReindexProgress {
     @SerializedName(SERIALIZED_NAME_PROPERTIES_BYTES_DROPPED)
     @jakarta.annotation.Nullable private BigDecimal propertiesBytesDropped;
 
+    public static final String SERIALIZED_NAME_BATCHES_FLUSHED = "batches_flushed";
+
+    @SerializedName(SERIALIZED_NAME_BATCHES_FLUSHED)
+    @jakarta.annotation.Nullable private BigDecimal batchesFlushed;
+
+    public static final String SERIALIZED_NAME_BULK_CHUNKS_WRITTEN = "bulk_chunks_written";
+
+    @SerializedName(SERIALIZED_NAME_BULK_CHUNKS_WRITTEN)
+    @jakarta.annotation.Nullable private BigDecimal bulkChunksWritten;
+
+    public static final String SERIALIZED_NAME_BULK_ERRORS = "bulk_errors";
+
+    @SerializedName(SERIALIZED_NAME_BULK_ERRORS)
+    @jakarta.annotation.Nullable private BigDecimal bulkErrors;
+
+    public static final String SERIALIZED_NAME_AVG_DOCS_PER_BATCH = "avg_docs_per_batch";
+
+    @SerializedName(SERIALIZED_NAME_AVG_DOCS_PER_BATCH)
+    @jakarta.annotation.Nullable private BigDecimal avgDocsPerBatch;
+
+    public static final String SERIALIZED_NAME_AVG_CHUNKS_PER_BATCH = "avg_chunks_per_batch";
+
+    @SerializedName(SERIALIZED_NAME_AVG_CHUNKS_PER_BATCH)
+    @jakarta.annotation.Nullable private BigDecimal avgChunksPerBatch;
+
     public static final String SERIALIZED_NAME_DOCS_PER_SECOND = "docs_per_second";
 
     @SerializedName(SERIALIZED_NAME_DOCS_PER_SECOND)
@@ -491,6 +516,96 @@ public class IndexingStatusResponseReindexProgress {
         this.propertiesBytesDropped = propertiesBytesDropped;
     }
 
+    public IndexingStatusResponseReindexProgress batchesFlushed(
+            @jakarta.annotation.Nullable BigDecimal batchesFlushed) {
+        this.batchesFlushed = batchesFlushed;
+        return this;
+    }
+
+    /**
+     * Total batcher flushes across all completed shards (cumulative)
+     * @return batchesFlushed
+     */
+    @jakarta.annotation.Nullable public BigDecimal getBatchesFlushed() {
+        return batchesFlushed;
+    }
+
+    public void setBatchesFlushed(@jakarta.annotation.Nullable BigDecimal batchesFlushed) {
+        this.batchesFlushed = batchesFlushed;
+    }
+
+    public IndexingStatusResponseReindexProgress bulkChunksWritten(
+            @jakarta.annotation.Nullable BigDecimal bulkChunksWritten) {
+        this.bulkChunksWritten = bulkChunksWritten;
+        return this;
+    }
+
+    /**
+     * Total ES bulk requests sent across all completed shards (cumulative)
+     * @return bulkChunksWritten
+     */
+    @jakarta.annotation.Nullable public BigDecimal getBulkChunksWritten() {
+        return bulkChunksWritten;
+    }
+
+    public void setBulkChunksWritten(@jakarta.annotation.Nullable BigDecimal bulkChunksWritten) {
+        this.bulkChunksWritten = bulkChunksWritten;
+    }
+
+    public IndexingStatusResponseReindexProgress bulkErrors(
+            @jakarta.annotation.Nullable BigDecimal bulkErrors) {
+        this.bulkErrors = bulkErrors;
+        return this;
+    }
+
+    /**
+     * Total per-document ES bulk-item failures across all shards (cumulative). Counts docs ES rejected — they aren&#39;t in the indexed set.
+     * @return bulkErrors
+     */
+    @jakarta.annotation.Nullable public BigDecimal getBulkErrors() {
+        return bulkErrors;
+    }
+
+    public void setBulkErrors(@jakarta.annotation.Nullable BigDecimal bulkErrors) {
+        this.bulkErrors = bulkErrors;
+    }
+
+    public IndexingStatusResponseReindexProgress avgDocsPerBatch(
+            @jakarta.annotation.Nullable BigDecimal avgDocsPerBatch) {
+        this.avgDocsPerBatch = avgDocsPerBatch;
+        return this;
+    }
+
+    /**
+     * Average documents per batch flush (written / batches_flushed) — useful to spot under/over-batching
+     * @return avgDocsPerBatch
+     */
+    @jakarta.annotation.Nullable public BigDecimal getAvgDocsPerBatch() {
+        return avgDocsPerBatch;
+    }
+
+    public void setAvgDocsPerBatch(@jakarta.annotation.Nullable BigDecimal avgDocsPerBatch) {
+        this.avgDocsPerBatch = avgDocsPerBatch;
+    }
+
+    public IndexingStatusResponseReindexProgress avgChunksPerBatch(
+            @jakarta.annotation.Nullable BigDecimal avgChunksPerBatch) {
+        this.avgChunksPerBatch = avgChunksPerBatch;
+        return this;
+    }
+
+    /**
+     * Average chunks per batch (&gt;1 means bulk_size_bytes cap is splitting batches frequently)
+     * @return avgChunksPerBatch
+     */
+    @jakarta.annotation.Nullable public BigDecimal getAvgChunksPerBatch() {
+        return avgChunksPerBatch;
+    }
+
+    public void setAvgChunksPerBatch(@jakarta.annotation.Nullable BigDecimal avgChunksPerBatch) {
+        this.avgChunksPerBatch = avgChunksPerBatch;
+    }
+
     public IndexingStatusResponseReindexProgress docsPerSecond(
             @jakarta.annotation.Nonnull BigDecimal docsPerSecond) {
         this.docsPerSecond = docsPerSecond;
@@ -654,6 +769,17 @@ public class IndexingStatusResponseReindexProgress {
                         this.propertiesBytesDropped,
                         indexingStatusResponseReindexProgress.propertiesBytesDropped)
                 && Objects.equals(
+                        this.batchesFlushed, indexingStatusResponseReindexProgress.batchesFlushed)
+                && Objects.equals(
+                        this.bulkChunksWritten,
+                        indexingStatusResponseReindexProgress.bulkChunksWritten)
+                && Objects.equals(this.bulkErrors, indexingStatusResponseReindexProgress.bulkErrors)
+                && Objects.equals(
+                        this.avgDocsPerBatch, indexingStatusResponseReindexProgress.avgDocsPerBatch)
+                && Objects.equals(
+                        this.avgChunksPerBatch,
+                        indexingStatusResponseReindexProgress.avgChunksPerBatch)
+                && Objects.equals(
                         this.docsPerSecond, indexingStatusResponseReindexProgress.docsPerSecond)
                 && Objects.equals(
                         this.elapsedSeconds, indexingStatusResponseReindexProgress.elapsedSeconds)
@@ -687,6 +813,11 @@ public class IndexingStatusResponseReindexProgress {
                 embeddingsPropertiesSkipped,
                 propertiesValuesTrimmed,
                 propertiesBytesDropped,
+                batchesFlushed,
+                bulkChunksWritten,
+                bulkErrors,
+                avgDocsPerBatch,
+                avgChunksPerBatch,
                 docsPerSecond,
                 elapsedSeconds,
                 estimatedSecondsRemaining,
@@ -736,6 +867,15 @@ public class IndexingStatusResponseReindexProgress {
         sb.append("    propertiesBytesDropped: ")
                 .append(toIndentedString(propertiesBytesDropped))
                 .append("\n");
+        sb.append("    batchesFlushed: ").append(toIndentedString(batchesFlushed)).append("\n");
+        sb.append("    bulkChunksWritten: ")
+                .append(toIndentedString(bulkChunksWritten))
+                .append("\n");
+        sb.append("    bulkErrors: ").append(toIndentedString(bulkErrors)).append("\n");
+        sb.append("    avgDocsPerBatch: ").append(toIndentedString(avgDocsPerBatch)).append("\n");
+        sb.append("    avgChunksPerBatch: ")
+                .append(toIndentedString(avgChunksPerBatch))
+                .append("\n");
         sb.append("    docsPerSecond: ").append(toIndentedString(docsPerSecond)).append("\n");
         sb.append("    elapsedSeconds: ").append(toIndentedString(elapsedSeconds)).append("\n");
         sb.append("    estimatedSecondsRemaining: ")
@@ -781,6 +921,11 @@ public class IndexingStatusResponseReindexProgress {
                                 "embeddings_properties_skipped",
                                 "properties_values_trimmed",
                                 "properties_bytes_dropped",
+                                "batches_flushed",
+                                "bulk_chunks_written",
+                                "bulk_errors",
+                                "avg_docs_per_batch",
+                                "avg_chunks_per_batch",
                                 "docs_per_second",
                                 "elapsed_seconds",
                                 "estimated_seconds_remaining",
