@@ -497,6 +497,7 @@ src/main/java/io/vertesia/model/OAuthAuthorizeResponse.java
 src/main/java/io/vertesia/model/OAuthClient.java
 src/main/java/io/vertesia/model/OAuthClientCreateResponse.java
 src/main/java/io/vertesia/model/OAuthClientCredentials.java
+src/main/java/io/vertesia/model/OAuthClientScopeMetadata.java
 src/main/java/io/vertesia/model/OAuthClientStatus.java
 src/main/java/io/vertesia/model/OAuthClientType.java
 src/main/java/io/vertesia/model/OAuthGrant.java
