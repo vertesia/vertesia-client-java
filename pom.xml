@@ -47,7 +47,7 @@
         <jackson-databind-nullable-version>0.2.10</jackson-databind-nullable-version>
         <jakarta-annotation-version>3.0.0</jakarta-annotation-version>
         <jakarta.ws.rs-api-version>4.0.0</jakarta.ws.rs-api-version>
-        <junit-version>6.0.3</junit-version>
+        <junit-version>6.1.0</junit-version>
         <spotless-maven-plugin.version>3.5.1</spotless-maven-plugin.version>
         <google-java-format.version>1.28.0</google-java-format.version>
         <maven-release-plugin.version>3.3.1</maven-release-plugin.version>
@@ -143,7 +143,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.5.5</version>
+                <version>3.5.6</version>
                 <configuration>
                     <argLine>-Xms512m -Xmx1500m</argLine>
                 </configuration>
