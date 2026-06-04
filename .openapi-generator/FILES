@@ -40,6 +40,7 @@ src/main/java/io/vertesia/api/RolesApi.java
 src/main/java/io/vertesia/api/SecretsApi.java
 src/main/java/io/vertesia/api/TasksApi.java
 src/main/java/io/vertesia/api/TokenServiceApi.java
+src/main/java/io/vertesia/api/ToolsApi.java
 src/main/java/io/vertesia/api/UserGroupsApi.java
 src/main/java/io/vertesia/api/UsersApi.java
 src/main/java/io/vertesia/api/WorkflowDefinitionsApi.java
@@ -87,6 +88,7 @@ src/main/java/io/vertesia/model/AgentTask.java
 src/main/java/io/vertesia/model/AgentTaskError.java
 src/main/java/io/vertesia/model/AgentTokenRequest.java
 src/main/java/io/vertesia/model/AgentToolDefinition.java
+src/main/java/io/vertesia/model/AggregatedTool.java
 src/main/java/io/vertesia/model/AlterTableOperation.java
 src/main/java/io/vertesia/model/AlterTableOperationOneOf.java
 src/main/java/io/vertesia/model/AlterTableOperationOneOf1.java
@@ -714,7 +716,10 @@ src/main/java/io/vertesia/model/ToolCollectionAuthType.java
 src/main/java/io/vertesia/model/ToolCollectionObject.java
 src/main/java/io/vertesia/model/ToolDefinition.java
 src/main/java/io/vertesia/model/ToolReference.java
+src/main/java/io/vertesia/model/ToolSource.java
 src/main/java/io/vertesia/model/ToolUse.java
+src/main/java/io/vertesia/model/ToolValidationResult.java
+src/main/java/io/vertesia/model/ToolValidationResultCollisionsInner.java
 src/main/java/io/vertesia/model/Transcript.java
 src/main/java/io/vertesia/model/TranscriptSegment.java
 src/main/java/io/vertesia/model/TransientTokenUserInviteTokenDataArray.java
@@ -738,6 +743,8 @@ src/main/java/io/vertesia/model/UserChannel.java
 src/main/java/io/vertesia/model/UserGroup.java
 src/main/java/io/vertesia/model/UserRef.java
 src/main/java/io/vertesia/model/UserTokenRequest.java
+src/main/java/io/vertesia/model/ValidateToolNamesPayload.java
+src/main/java/io/vertesia/model/ValidateToolNamesResponse.java
 src/main/java/io/vertesia/model/ValidateUrlRequest.java
 src/main/java/io/vertesia/model/ValidateUrlResponse.java
 src/main/java/io/vertesia/model/VectorSearchQuery.java
