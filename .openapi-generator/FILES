@@ -365,6 +365,7 @@ src/main/java/io/vertesia/model/ExecutionEnvironmentConfigUpdatePayload.java
 src/main/java/io/vertesia/model/ExecutionEnvironmentConfigUpdatePayloadConfig.java
 src/main/java/io/vertesia/model/ExecutionEnvironmentCreatePayload.java
 src/main/java/io/vertesia/model/ExecutionEnvironmentRef.java
+src/main/java/io/vertesia/model/ExecutionEnvironmentSettings.java
 src/main/java/io/vertesia/model/ExecutionEnvironmentUpdatePayload.java
 src/main/java/io/vertesia/model/ExecutionRun.java
 src/main/java/io/vertesia/model/ExecutionRunDocRef.java
