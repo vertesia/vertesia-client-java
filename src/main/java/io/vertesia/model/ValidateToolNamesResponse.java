@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -48,7 +47,7 @@ public class ValidateToolNamesResponse {
 
     @SerializedName(SERIALIZED_NAME_INVALID_COUNT)
     @jakarta.annotation.Nonnull
-    private BigDecimal invalidCount;
+    private Integer invalidCount;
 
     public ValidateToolNamesResponse() {}
 
@@ -80,21 +79,22 @@ public class ValidateToolNamesResponse {
     }
 
     public ValidateToolNamesResponse invalidCount(
-            @jakarta.annotation.Nonnull BigDecimal invalidCount) {
+            @jakarta.annotation.Nonnull Integer invalidCount) {
         this.invalidCount = invalidCount;
         return this;
     }
 
     /**
      * Convenience count of &#x60;results.filter(r &#x3D;&gt; !r.valid).length&#x60;.
+     * minimum: 0
      * @return invalidCount
      */
     @jakarta.annotation.Nonnull
-    public BigDecimal getInvalidCount() {
+    public Integer getInvalidCount() {
         return invalidCount;
     }
 
-    public void setInvalidCount(@jakarta.annotation.Nonnull BigDecimal invalidCount) {
+    public void setInvalidCount(@jakarta.annotation.Nonnull Integer invalidCount) {
         this.invalidCount = invalidCount;
     }
 

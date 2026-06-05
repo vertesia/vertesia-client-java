@@ -68,13 +68,13 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "AutonomousRunResponse",
+                                                "autonomous",
                                                 io.vertesia.model.AutonomousRunResponse.class);
                                         classByDiscriminatorValue.put(
-                                                "ProgrammaticRunResponse",
+                                                "programmatic",
                                                 io.vertesia.model.ProgrammaticRunResponse.class);
                                         classByDiscriminatorValue.put(
-                                                "SupervisedRunResponse",
+                                                "supervised",
                                                 io.vertesia.model.SupervisedRunResponse.class);
                                         classByDiscriminatorValue.put(
                                                 "AgentRunResponse",
@@ -121,11 +121,11 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "AsyncConversationExecutionPayload",
+                                                "conversation",
                                                 io.vertesia.model.AsyncConversationExecutionPayload
                                                         .class);
                                         classByDiscriminatorValue.put(
-                                                "AsyncInteractionExecutionPayload",
+                                                "interaction",
                                                 io.vertesia.model.AsyncInteractionExecutionPayload
                                                         .class);
                                         classByDiscriminatorValue.put(
@@ -137,53 +137,6 @@ public class JSON {
                                     }
                                 })
                         .registerTypeSelector(
-                                io.vertesia.model.BedrockOptions.class,
-                                new TypeSelector<io.vertesia.model.BedrockOptions>() {
-                                    @Override
-                                    public Class<? extends io.vertesia.model.BedrockOptions>
-                                            getClassForElement(JsonElement readElement) {
-                                        Map<String, Class> classByDiscriminatorValue =
-                                                new HashMap<String, Class>();
-                                        classByDiscriminatorValue.put(
-                                                "BedrockAI21Options",
-                                                io.vertesia.model.BedrockAI21Options.class);
-                                        classByDiscriminatorValue.put(
-                                                "BedrockClaudeOptions",
-                                                io.vertesia.model.BedrockClaudeOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "BedrockCohereCommandOptions",
-                                                io.vertesia.model.BedrockCohereCommandOptions
-                                                        .class);
-                                        classByDiscriminatorValue.put(
-                                                "BedrockConverseOptions",
-                                                io.vertesia.model.BedrockConverseOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "BedrockGptOssOptions",
-                                                io.vertesia.model.BedrockGptOssOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "BedrockMistralOptions",
-                                                io.vertesia.model.BedrockMistralOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "BedrockNovaOptions",
-                                                io.vertesia.model.BedrockNovaOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "BedrockPalmyraOptions",
-                                                io.vertesia.model.BedrockPalmyraOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "NovaCanvasOptions",
-                                                io.vertesia.model.NovaCanvasOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "TwelvelabsPegasusOptions",
-                                                io.vertesia.model.TwelvelabsPegasusOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "BedrockOptions",
-                                                io.vertesia.model.BedrockOptions.class);
-                                        return getClassByDiscriminator(
-                                                classByDiscriminatorValue,
-                                                getDiscriminatorValue(readElement, "_option_id"));
-                                    }
-                                })
-                        .registerTypeSelector(
                                 io.vertesia.model.BulkOperationResponse.class,
                                 new TypeSelector<io.vertesia.model.BulkOperationResponse>() {
                                     @Override
@@ -192,17 +145,17 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "BulkObjectCreateResult",
+                                                "create",
                                                 io.vertesia.model.BulkObjectCreateResult.class);
                                         classByDiscriminatorValue.put(
-                                                "BulkObjectDeleteResult",
+                                                "delete",
                                                 io.vertesia.model.BulkObjectDeleteResult.class);
                                         classByDiscriminatorValue.put(
-                                                "BulkObjectUpdateResult",
-                                                io.vertesia.model.BulkObjectUpdateResult.class);
-                                        classByDiscriminatorValue.put(
-                                                "BulkOperationResult",
+                                                "generic",
                                                 io.vertesia.model.BulkOperationResult.class);
+                                        classByDiscriminatorValue.put(
+                                                "update",
+                                                io.vertesia.model.BulkObjectUpdateResult.class);
                                         classByDiscriminatorValue.put(
                                                 "BulkOperationResponse",
                                                 io.vertesia.model.BulkOperationResponse.class);
@@ -220,11 +173,11 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "ImageResult", io.vertesia.model.ImageResult.class);
+                                                "image", io.vertesia.model.ImageResult.class);
                                         classByDiscriminatorValue.put(
-                                                "JsonResult", io.vertesia.model.JsonResult.class);
+                                                "json", io.vertesia.model.JsonResult.class);
                                         classByDiscriminatorValue.put(
-                                                "TextResult", io.vertesia.model.TextResult.class);
+                                                "text", io.vertesia.model.TextResult.class);
                                         classByDiscriminatorValue.put(
                                                 "CompletionResult",
                                                 io.vertesia.model.CompletionResult.class);
@@ -242,11 +195,9 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "InCodeTypeRef",
-                                                io.vertesia.model.InCodeTypeRef.class);
+                                                "incode", io.vertesia.model.InCodeTypeRef.class);
                                         classByDiscriminatorValue.put(
-                                                "StoredTypeRef",
-                                                io.vertesia.model.StoredTypeRef.class);
+                                                "stored", io.vertesia.model.StoredTypeRef.class);
                                         classByDiscriminatorValue.put(
                                                 "ContentObjectTypeRef",
                                                 io.vertesia.model.ContentObjectTypeRef.class);
@@ -264,11 +215,11 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "DSLWorkflowSpecWithActivities",
+                                                "activities",
                                                 io.vertesia.model.DSLWorkflowSpecWithActivities
                                                         .class);
                                         classByDiscriminatorValue.put(
-                                                "DSLWorkflowSpecWithSteps",
+                                                "steps",
                                                 io.vertesia.model.DSLWorkflowSpecWithSteps.class);
                                         classByDiscriminatorValue.put(
                                                 "DSLWorkflowSpec",
@@ -287,10 +238,10 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "DSLActivityStep",
+                                                "activity",
                                                 io.vertesia.model.DSLActivityStep.class);
                                         classByDiscriminatorValue.put(
-                                                "DSLChildWorkflowStep",
+                                                "workflow",
                                                 io.vertesia.model.DSLChildWorkflowStep.class);
                                         classByDiscriminatorValue.put(
                                                 "DSLWorkflowStep",
@@ -312,10 +263,9 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "DataSchemaForAI",
-                                                io.vertesia.model.DataSchemaForAI.class);
+                                                "ai", io.vertesia.model.DataSchemaForAI.class);
                                         classByDiscriminatorValue.put(
-                                                "DataStoreFullSchemaResponse",
+                                                "full",
                                                 io.vertesia.model.DataStoreFullSchemaResponse
                                                         .class);
                                         classByDiscriminatorValue.put(
@@ -336,9 +286,10 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "DocTableCsv", io.vertesia.model.DocTableCsv.class);
+                                                "application/csv",
+                                                io.vertesia.model.DocTableCsv.class);
                                         classByDiscriminatorValue.put(
-                                                "DocTableJson",
+                                                "application/json",
                                                 io.vertesia.model.DocTableJson.class);
                                         classByDiscriminatorValue.put(
                                                 "DocTableResponse",
@@ -357,16 +308,16 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "EmbeddingsApiAudioInput",
+                                                "audio",
                                                 io.vertesia.model.EmbeddingsApiAudioInput.class);
                                         classByDiscriminatorValue.put(
-                                                "EmbeddingsApiImageInput",
+                                                "image",
                                                 io.vertesia.model.EmbeddingsApiImageInput.class);
                                         classByDiscriminatorValue.put(
-                                                "EmbeddingsApiTextInput",
+                                                "text",
                                                 io.vertesia.model.EmbeddingsApiTextInput.class);
                                         classByDiscriminatorValue.put(
-                                                "EmbeddingsApiVideoInput",
+                                                "video",
                                                 io.vertesia.model.EmbeddingsApiVideoInput.class);
                                         classByDiscriminatorValue.put(
                                                 "EmbeddingsApiInput",
@@ -385,23 +336,21 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "AgentTokenRequest",
-                                                io.vertesia.model.AgentTokenRequest.class);
+                                                "agent", io.vertesia.model.AgentTokenRequest.class);
                                         classByDiscriminatorValue.put(
-                                                "ApiKeyTokenRequest",
+                                                "apikey",
                                                 io.vertesia.model.ApiKeyTokenRequest.class);
                                         classByDiscriminatorValue.put(
-                                                "EnvironmentTokenRequest",
+                                                "environment",
                                                 io.vertesia.model.EnvironmentTokenRequest.class);
                                         classByDiscriminatorValue.put(
-                                                "ProjectTokenRequest",
+                                                "project",
                                                 io.vertesia.model.ProjectTokenRequest.class);
                                         classByDiscriminatorValue.put(
-                                                "ServiceAccountTokenRequest",
+                                                "service_account",
                                                 io.vertesia.model.ServiceAccountTokenRequest.class);
                                         classByDiscriminatorValue.put(
-                                                "UserTokenRequest",
-                                                io.vertesia.model.UserTokenRequest.class);
+                                                "user", io.vertesia.model.UserTokenRequest.class);
                                         classByDiscriminatorValue.put(
                                                 "IssueTokenRequest",
                                                 io.vertesia.model.IssueTokenRequest.class);
@@ -419,50 +368,66 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "BedrockOptions",
-                                                io.vertesia.model.BedrockOptions.class);
+                                                "bedrock-ai21",
+                                                io.vertesia.model.BedrockAI21Options.class);
                                         classByDiscriminatorValue.put(
-                                                "GroqOptions", io.vertesia.model.GroqOptions.class);
+                                                "bedrock-claude",
+                                                io.vertesia.model.BedrockClaudeOptions.class);
                                         classByDiscriminatorValue.put(
-                                                "OpenAiOptions",
-                                                io.vertesia.model.OpenAiOptions.class);
+                                                "bedrock-cohere-command",
+                                                io.vertesia.model.BedrockCohereCommandOptions
+                                                        .class);
                                         classByDiscriminatorValue.put(
-                                                "TextFallbackOptions",
+                                                "bedrock-converse",
+                                                io.vertesia.model.BedrockConverseOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "bedrock-gpt-oss",
+                                                io.vertesia.model.BedrockGptOssOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "bedrock-mistral",
+                                                io.vertesia.model.BedrockMistralOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "bedrock-nova",
+                                                io.vertesia.model.BedrockNovaOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "bedrock-nova-canvas",
+                                                io.vertesia.model.NovaCanvasOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "bedrock-palmyra",
+                                                io.vertesia.model.BedrockPalmyraOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "bedrock-twelvelabs-pegasus",
+                                                io.vertesia.model.TwelvelabsPegasusOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "groq-deepseek-thinking",
+                                                io.vertesia.model.GroqOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "openai-dalle",
+                                                io.vertesia.model.OpenAiDalleOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "openai-gpt-image",
+                                                io.vertesia.model.OpenAiGptImageOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "openai-text",
+                                                io.vertesia.model.OpenAiTextOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "openai-thinking",
+                                                io.vertesia.model.OpenAiThinkingOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "text-fallback",
                                                 io.vertesia.model.TextFallbackOptions.class);
                                         classByDiscriminatorValue.put(
-                                                "VertexAIOptions",
-                                                io.vertesia.model.VertexAIOptions.class);
+                                                "vertexai-claude",
+                                                io.vertesia.model.VertexAIClaudeOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "vertexai-gemini",
+                                                io.vertesia.model.VertexAIGeminiOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "vertexai-imagen",
+                                                io.vertesia.model.ImagenOptions.class);
                                         classByDiscriminatorValue.put(
                                                 "ModelOptions",
                                                 io.vertesia.model.ModelOptions.class);
-                                        return getClassByDiscriminator(
-                                                classByDiscriminatorValue,
-                                                getDiscriminatorValue(readElement, "_option_id"));
-                                    }
-                                })
-                        .registerTypeSelector(
-                                io.vertesia.model.OpenAiOptions.class,
-                                new TypeSelector<io.vertesia.model.OpenAiOptions>() {
-                                    @Override
-                                    public Class<? extends io.vertesia.model.OpenAiOptions>
-                                            getClassForElement(JsonElement readElement) {
-                                        Map<String, Class> classByDiscriminatorValue =
-                                                new HashMap<String, Class>();
-                                        classByDiscriminatorValue.put(
-                                                "OpenAiDalleOptions",
-                                                io.vertesia.model.OpenAiDalleOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "OpenAiGptImageOptions",
-                                                io.vertesia.model.OpenAiGptImageOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "OpenAiTextOptions",
-                                                io.vertesia.model.OpenAiTextOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "OpenAiThinkingOptions",
-                                                io.vertesia.model.OpenAiThinkingOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "OpenAiOptions",
-                                                io.vertesia.model.OpenAiOptions.class);
                                         return getClassByDiscriminator(
                                                 classByDiscriminatorValue,
                                                 getDiscriminatorValue(readElement, "_option_id"));
@@ -481,32 +446,31 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "AskUserWebhookConfigurationInput",
+                                                "ask_user_webhook",
                                                 io.vertesia.model.AskUserWebhookConfigurationInput
                                                         .class);
                                         classByDiscriminatorValue.put(
-                                                "AwsConfiguration",
-                                                io.vertesia.model.AwsConfiguration.class);
+                                                "aws", io.vertesia.model.AwsConfiguration.class);
                                         classByDiscriminatorValue.put(
-                                                "ExaConfigurationInput",
+                                                "exa",
                                                 io.vertesia.model.ExaConfigurationInput.class);
                                         classByDiscriminatorValue.put(
-                                                "GithubConfiguration",
+                                                "github",
                                                 io.vertesia.model.GithubConfiguration.class);
                                         classByDiscriminatorValue.put(
-                                                "GladiaConfigurationInput",
+                                                "gladia",
                                                 io.vertesia.model.GladiaConfigurationInput.class);
                                         classByDiscriminatorValue.put(
-                                                "LinkupConfigurationInput",
+                                                "linkup",
                                                 io.vertesia.model.LinkupConfigurationInput.class);
                                         classByDiscriminatorValue.put(
-                                                "MagicPdfConfiguration",
+                                                "magic_pdf",
                                                 io.vertesia.model.MagicPdfConfiguration.class);
                                         classByDiscriminatorValue.put(
-                                                "ResendConfigurationInput",
+                                                "resend",
                                                 io.vertesia.model.ResendConfigurationInput.class);
                                         classByDiscriminatorValue.put(
-                                                "SerperConfigurationInput",
+                                                "serper",
                                                 io.vertesia.model.SerperConfigurationInput.class);
                                         classByDiscriminatorValue.put(
                                                 "ProjectIntegrationConfigRequest",
@@ -530,32 +494,30 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "AskUserWebhookConfiguration",
+                                                "ask_user_webhook",
                                                 io.vertesia.model.AskUserWebhookConfiguration
                                                         .class);
                                         classByDiscriminatorValue.put(
-                                                "AwsConfiguration",
-                                                io.vertesia.model.AwsConfiguration.class);
+                                                "aws", io.vertesia.model.AwsConfiguration.class);
                                         classByDiscriminatorValue.put(
-                                                "ExaConfiguration",
-                                                io.vertesia.model.ExaConfiguration.class);
+                                                "exa", io.vertesia.model.ExaConfiguration.class);
                                         classByDiscriminatorValue.put(
-                                                "GithubConfiguration",
+                                                "github",
                                                 io.vertesia.model.GithubConfiguration.class);
                                         classByDiscriminatorValue.put(
-                                                "GladiaConfiguration",
+                                                "gladia",
                                                 io.vertesia.model.GladiaConfiguration.class);
                                         classByDiscriminatorValue.put(
-                                                "LinkupConfiguration",
+                                                "linkup",
                                                 io.vertesia.model.LinkupConfiguration.class);
                                         classByDiscriminatorValue.put(
-                                                "MagicPdfConfiguration",
+                                                "magic_pdf",
                                                 io.vertesia.model.MagicPdfConfiguration.class);
                                         classByDiscriminatorValue.put(
-                                                "ResendConfiguration",
+                                                "resend",
                                                 io.vertesia.model.ResendConfiguration.class);
                                         classByDiscriminatorValue.put(
-                                                "SerperConfiguration",
+                                                "serper",
                                                 io.vertesia.model.SerperConfiguration.class);
                                         classByDiscriminatorValue.put(
                                                 "ProjectIntegrationConfigResponse",
@@ -575,10 +537,10 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "MCPToolCollectionObject",
+                                                "mcp",
                                                 io.vertesia.model.MCPToolCollectionObject.class);
                                         classByDiscriminatorValue.put(
-                                                "VertesiaSDKToolCollectionObject",
+                                                "vertesia_sdk",
                                                 io.vertesia.model.VertesiaSDKToolCollectionObject
                                                         .class);
                                         classByDiscriminatorValue.put(
@@ -598,41 +560,15 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "EmailChannel",
-                                                io.vertesia.model.EmailChannel.class);
+                                                "email", io.vertesia.model.EmailChannel.class);
                                         classByDiscriminatorValue.put(
-                                                "InteractiveChannel",
+                                                "interactive",
                                                 io.vertesia.model.InteractiveChannel.class);
                                         classByDiscriminatorValue.put(
                                                 "UserChannel", io.vertesia.model.UserChannel.class);
                                         return getClassByDiscriminator(
                                                 classByDiscriminatorValue,
                                                 getDiscriminatorValue(readElement, "type"));
-                                    }
-                                })
-                        .registerTypeSelector(
-                                io.vertesia.model.VertexAIOptions.class,
-                                new TypeSelector<io.vertesia.model.VertexAIOptions>() {
-                                    @Override
-                                    public Class<? extends io.vertesia.model.VertexAIOptions>
-                                            getClassForElement(JsonElement readElement) {
-                                        Map<String, Class> classByDiscriminatorValue =
-                                                new HashMap<String, Class>();
-                                        classByDiscriminatorValue.put(
-                                                "ImagenOptions",
-                                                io.vertesia.model.ImagenOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "VertexAIClaudeOptions",
-                                                io.vertesia.model.VertexAIClaudeOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "VertexAIGeminiOptions",
-                                                io.vertesia.model.VertexAIGeminiOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "VertexAIOptions",
-                                                io.vertesia.model.VertexAIOptions.class);
-                                        return getClassByDiscriminator(
-                                                classByDiscriminatorValue,
-                                                getDiscriminatorValue(readElement, "_option_id"));
                                     }
                                 })
                         .registerTypeSelector(
@@ -691,15 +627,14 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
-                                                "ActivityTask",
-                                                io.vertesia.model.ActivityTask.class);
+                                                "activity", io.vertesia.model.ActivityTask.class);
                                         classByDiscriminatorValue.put(
-                                                "ChildWorkflowTask",
+                                                "childWorkflow",
                                                 io.vertesia.model.ChildWorkflowTask.class);
                                         classByDiscriminatorValue.put(
-                                                "SignalTask", io.vertesia.model.SignalTask.class);
+                                                "signal", io.vertesia.model.SignalTask.class);
                                         classByDiscriminatorValue.put(
-                                                "TimerTask", io.vertesia.model.TimerTask.class);
+                                                "timer", io.vertesia.model.TimerTask.class);
                                         classByDiscriminatorValue.put(
                                                 "WorkflowTask",
                                                 io.vertesia.model.WorkflowTask.class);
@@ -902,8 +837,6 @@ public class JSON {
                 new io.vertesia.model.BedrockMistralOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.BedrockNovaOptions.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.BedrockOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.BedrockPalmyraOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1576,8 +1509,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.OpenAiGptImageOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.OpenAiOptions.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.OpenAiTextOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.OpenAiThinkingOptions.CustomTypeAdapterFactory());
@@ -1945,8 +1876,6 @@ public class JSON {
                 new io.vertesia.model.VertexAIClaudeOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.VertexAIGeminiOptions.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.VertexAIOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.VideoMetadata.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

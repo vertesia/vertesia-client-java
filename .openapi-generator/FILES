@@ -144,7 +144,6 @@ src/main/java/io/vertesia/model/BedrockConverseOptions.java
 src/main/java/io/vertesia/model/BedrockGptOssOptions.java
 src/main/java/io/vertesia/model/BedrockMistralOptions.java
 src/main/java/io/vertesia/model/BedrockNovaOptions.java
-src/main/java/io/vertesia/model/BedrockOptions.java
 src/main/java/io/vertesia/model/BedrockPalmyraOptions.java
 src/main/java/io/vertesia/model/BillingMethod.java
 src/main/java/io/vertesia/model/BranchDefinition.java
@@ -525,7 +524,6 @@ src/main/java/io/vertesia/model/OkBoolean.java
 src/main/java/io/vertesia/model/OnboardingProgress.java
 src/main/java/io/vertesia/model/OpenAiDalleOptions.java
 src/main/java/io/vertesia/model/OpenAiGptImageOptions.java
-src/main/java/io/vertesia/model/OpenAiOptions.java
 src/main/java/io/vertesia/model/OpenAiTextOptions.java
 src/main/java/io/vertesia/model/OpenAiThinkingOptions.java
 src/main/java/io/vertesia/model/ParallelCollectDefinition.java
@@ -751,7 +749,6 @@ src/main/java/io/vertesia/model/VectorSearchQuery.java
 src/main/java/io/vertesia/model/VertesiaSDKToolCollectionObject.java
 src/main/java/io/vertesia/model/VertexAIClaudeOptions.java
 src/main/java/io/vertesia/model/VertexAIGeminiOptions.java
-src/main/java/io/vertesia/model/VertexAIOptions.java
 src/main/java/io/vertesia/model/VideoMetadata.java
 src/main/java/io/vertesia/model/VirtualEnvEntry.java
 src/main/java/io/vertesia/model/WebsiteCredentialCapability.java

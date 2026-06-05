@@ -43,12 +43,40 @@ public class ModelOptions extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<TextFallbackOptions> adapterTextFallbackOptions =
                     gson.getDelegateAdapter(this, TypeToken.get(TextFallbackOptions.class));
-            final TypeAdapter<VertexAIOptions> adapterVertexAIOptions =
-                    gson.getDelegateAdapter(this, TypeToken.get(VertexAIOptions.class));
-            final TypeAdapter<BedrockOptions> adapterBedrockOptions =
-                    gson.getDelegateAdapter(this, TypeToken.get(BedrockOptions.class));
-            final TypeAdapter<OpenAiOptions> adapterOpenAiOptions =
-                    gson.getDelegateAdapter(this, TypeToken.get(OpenAiOptions.class));
+            final TypeAdapter<ImagenOptions> adapterImagenOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(ImagenOptions.class));
+            final TypeAdapter<VertexAIClaudeOptions> adapterVertexAIClaudeOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(VertexAIClaudeOptions.class));
+            final TypeAdapter<VertexAIGeminiOptions> adapterVertexAIGeminiOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(VertexAIGeminiOptions.class));
+            final TypeAdapter<NovaCanvasOptions> adapterNovaCanvasOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(NovaCanvasOptions.class));
+            final TypeAdapter<BedrockConverseOptions> adapterBedrockConverseOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(BedrockConverseOptions.class));
+            final TypeAdapter<BedrockNovaOptions> adapterBedrockNovaOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(BedrockNovaOptions.class));
+            final TypeAdapter<BedrockMistralOptions> adapterBedrockMistralOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(BedrockMistralOptions.class));
+            final TypeAdapter<BedrockAI21Options> adapterBedrockAI21Options =
+                    gson.getDelegateAdapter(this, TypeToken.get(BedrockAI21Options.class));
+            final TypeAdapter<BedrockCohereCommandOptions> adapterBedrockCohereCommandOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(BedrockCohereCommandOptions.class));
+            final TypeAdapter<BedrockClaudeOptions> adapterBedrockClaudeOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(BedrockClaudeOptions.class));
+            final TypeAdapter<BedrockPalmyraOptions> adapterBedrockPalmyraOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(BedrockPalmyraOptions.class));
+            final TypeAdapter<BedrockGptOssOptions> adapterBedrockGptOssOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(BedrockGptOssOptions.class));
+            final TypeAdapter<TwelvelabsPegasusOptions> adapterTwelvelabsPegasusOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(TwelvelabsPegasusOptions.class));
+            final TypeAdapter<OpenAiThinkingOptions> adapterOpenAiThinkingOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(OpenAiThinkingOptions.class));
+            final TypeAdapter<OpenAiTextOptions> adapterOpenAiTextOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(OpenAiTextOptions.class));
+            final TypeAdapter<OpenAiDalleOptions> adapterOpenAiDalleOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(OpenAiDalleOptions.class));
+            final TypeAdapter<OpenAiGptImageOptions> adapterOpenAiGptImageOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(OpenAiGptImageOptions.class));
             final TypeAdapter<GroqOptions> adapterGroqOptions =
                     gson.getDelegateAdapter(this, TypeToken.get(GroqOptions.class));
 
@@ -69,27 +97,143 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 elementAdapter.write(out, element);
                                 return;
                             }
-                            // check if the actual instance is of the type `VertexAIOptions`
-                            if (value.getActualInstance() instanceof VertexAIOptions) {
+                            // check if the actual instance is of the type `ImagenOptions`
+                            if (value.getActualInstance() instanceof ImagenOptions) {
                                 JsonElement element =
-                                        adapterVertexAIOptions.toJsonTree(
-                                                (VertexAIOptions) value.getActualInstance());
+                                        adapterImagenOptions.toJsonTree(
+                                                (ImagenOptions) value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
-                            // check if the actual instance is of the type `BedrockOptions`
-                            if (value.getActualInstance() instanceof BedrockOptions) {
+                            // check if the actual instance is of the type `VertexAIClaudeOptions`
+                            if (value.getActualInstance() instanceof VertexAIClaudeOptions) {
                                 JsonElement element =
-                                        adapterBedrockOptions.toJsonTree(
-                                                (BedrockOptions) value.getActualInstance());
+                                        adapterVertexAIClaudeOptions.toJsonTree(
+                                                (VertexAIClaudeOptions) value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
-                            // check if the actual instance is of the type `OpenAiOptions`
-                            if (value.getActualInstance() instanceof OpenAiOptions) {
+                            // check if the actual instance is of the type `VertexAIGeminiOptions`
+                            if (value.getActualInstance() instanceof VertexAIGeminiOptions) {
                                 JsonElement element =
-                                        adapterOpenAiOptions.toJsonTree(
-                                                (OpenAiOptions) value.getActualInstance());
+                                        adapterVertexAIGeminiOptions.toJsonTree(
+                                                (VertexAIGeminiOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `NovaCanvasOptions`
+                            if (value.getActualInstance() instanceof NovaCanvasOptions) {
+                                JsonElement element =
+                                        adapterNovaCanvasOptions.toJsonTree(
+                                                (NovaCanvasOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `BedrockConverseOptions`
+                            if (value.getActualInstance() instanceof BedrockConverseOptions) {
+                                JsonElement element =
+                                        adapterBedrockConverseOptions.toJsonTree(
+                                                (BedrockConverseOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `BedrockNovaOptions`
+                            if (value.getActualInstance() instanceof BedrockNovaOptions) {
+                                JsonElement element =
+                                        adapterBedrockNovaOptions.toJsonTree(
+                                                (BedrockNovaOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `BedrockMistralOptions`
+                            if (value.getActualInstance() instanceof BedrockMistralOptions) {
+                                JsonElement element =
+                                        adapterBedrockMistralOptions.toJsonTree(
+                                                (BedrockMistralOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `BedrockAI21Options`
+                            if (value.getActualInstance() instanceof BedrockAI21Options) {
+                                JsonElement element =
+                                        adapterBedrockAI21Options.toJsonTree(
+                                                (BedrockAI21Options) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type
+                            // `BedrockCohereCommandOptions`
+                            if (value.getActualInstance() instanceof BedrockCohereCommandOptions) {
+                                JsonElement element =
+                                        adapterBedrockCohereCommandOptions.toJsonTree(
+                                                (BedrockCohereCommandOptions)
+                                                        value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `BedrockClaudeOptions`
+                            if (value.getActualInstance() instanceof BedrockClaudeOptions) {
+                                JsonElement element =
+                                        adapterBedrockClaudeOptions.toJsonTree(
+                                                (BedrockClaudeOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `BedrockPalmyraOptions`
+                            if (value.getActualInstance() instanceof BedrockPalmyraOptions) {
+                                JsonElement element =
+                                        adapterBedrockPalmyraOptions.toJsonTree(
+                                                (BedrockPalmyraOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `BedrockGptOssOptions`
+                            if (value.getActualInstance() instanceof BedrockGptOssOptions) {
+                                JsonElement element =
+                                        adapterBedrockGptOssOptions.toJsonTree(
+                                                (BedrockGptOssOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type
+                            // `TwelvelabsPegasusOptions`
+                            if (value.getActualInstance() instanceof TwelvelabsPegasusOptions) {
+                                JsonElement element =
+                                        adapterTwelvelabsPegasusOptions.toJsonTree(
+                                                (TwelvelabsPegasusOptions)
+                                                        value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `OpenAiThinkingOptions`
+                            if (value.getActualInstance() instanceof OpenAiThinkingOptions) {
+                                JsonElement element =
+                                        adapterOpenAiThinkingOptions.toJsonTree(
+                                                (OpenAiThinkingOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `OpenAiTextOptions`
+                            if (value.getActualInstance() instanceof OpenAiTextOptions) {
+                                JsonElement element =
+                                        adapterOpenAiTextOptions.toJsonTree(
+                                                (OpenAiTextOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `OpenAiDalleOptions`
+                            if (value.getActualInstance() instanceof OpenAiDalleOptions) {
+                                JsonElement element =
+                                        adapterOpenAiDalleOptions.toJsonTree(
+                                                (OpenAiDalleOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `OpenAiGptImageOptions`
+                            if (value.getActualInstance() instanceof OpenAiGptImageOptions) {
+                                JsonElement element =
+                                        adapterOpenAiGptImageOptions.toJsonTree(
+                                                (OpenAiGptImageOptions) value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
@@ -102,7 +246,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 return;
                             }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: BedrockOptions, GroqOptions, OpenAiOptions, TextFallbackOptions, VertexAIOptions");
+                                    "Failed to serialize as the type doesn't match oneOf schemas: BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions");
                         }
 
                         @Override
@@ -135,61 +279,359 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                         "Input data does not match schema 'TextFallbackOptions'",
                                         e);
                             }
-                            // deserialize VertexAIOptions
+                            // deserialize ImagenOptions
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                VertexAIOptions.validateJsonElement(jsonElement);
-                                actualAdapter = adapterVertexAIOptions;
+                                ImagenOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterImagenOptions;
                                 match++;
-                                log.log(Level.FINER, "Input data matches schema 'VertexAIOptions'");
+                                log.log(Level.FINER, "Input data matches schema 'ImagenOptions'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for VertexAIOptions failed with `%s`.",
+                                                "Deserialization for ImagenOptions failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'VertexAIOptions'",
+                                        "Input data does not match schema 'ImagenOptions'",
                                         e);
                             }
-                            // deserialize BedrockOptions
+                            // deserialize VertexAIClaudeOptions
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                BedrockOptions.validateJsonElement(jsonElement);
-                                actualAdapter = adapterBedrockOptions;
+                                VertexAIClaudeOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterVertexAIClaudeOptions;
                                 match++;
-                                log.log(Level.FINER, "Input data matches schema 'BedrockOptions'");
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'VertexAIClaudeOptions'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for BedrockOptions failed with `%s`.",
+                                                "Deserialization for VertexAIClaudeOptions failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'BedrockOptions'",
+                                        "Input data does not match schema 'VertexAIClaudeOptions'",
                                         e);
                             }
-                            // deserialize OpenAiOptions
+                            // deserialize VertexAIGeminiOptions
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                OpenAiOptions.validateJsonElement(jsonElement);
-                                actualAdapter = adapterOpenAiOptions;
+                                VertexAIGeminiOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterVertexAIGeminiOptions;
                                 match++;
-                                log.log(Level.FINER, "Input data matches schema 'OpenAiOptions'");
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'VertexAIGeminiOptions'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for OpenAiOptions failed with `%s`.",
+                                                "Deserialization for VertexAIGeminiOptions failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'OpenAiOptions'",
+                                        "Input data does not match schema 'VertexAIGeminiOptions'",
+                                        e);
+                            }
+                            // deserialize NovaCanvasOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                NovaCanvasOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterNovaCanvasOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'NovaCanvasOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for NovaCanvasOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'NovaCanvasOptions'",
+                                        e);
+                            }
+                            // deserialize BedrockConverseOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                BedrockConverseOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterBedrockConverseOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'BedrockConverseOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for BedrockConverseOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'BedrockConverseOptions'",
+                                        e);
+                            }
+                            // deserialize BedrockNovaOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                BedrockNovaOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterBedrockNovaOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'BedrockNovaOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for BedrockNovaOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'BedrockNovaOptions'",
+                                        e);
+                            }
+                            // deserialize BedrockMistralOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                BedrockMistralOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterBedrockMistralOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'BedrockMistralOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for BedrockMistralOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'BedrockMistralOptions'",
+                                        e);
+                            }
+                            // deserialize BedrockAI21Options
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                BedrockAI21Options.validateJsonElement(jsonElement);
+                                actualAdapter = adapterBedrockAI21Options;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'BedrockAI21Options'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for BedrockAI21Options failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'BedrockAI21Options'",
+                                        e);
+                            }
+                            // deserialize BedrockCohereCommandOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                BedrockCohereCommandOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterBedrockCohereCommandOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'BedrockCohereCommandOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for BedrockCohereCommandOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'BedrockCohereCommandOptions'",
+                                        e);
+                            }
+                            // deserialize BedrockClaudeOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                BedrockClaudeOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterBedrockClaudeOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'BedrockClaudeOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for BedrockClaudeOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'BedrockClaudeOptions'",
+                                        e);
+                            }
+                            // deserialize BedrockPalmyraOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                BedrockPalmyraOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterBedrockPalmyraOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'BedrockPalmyraOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for BedrockPalmyraOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'BedrockPalmyraOptions'",
+                                        e);
+                            }
+                            // deserialize BedrockGptOssOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                BedrockGptOssOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterBedrockGptOssOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'BedrockGptOssOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for BedrockGptOssOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'BedrockGptOssOptions'",
+                                        e);
+                            }
+                            // deserialize TwelvelabsPegasusOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                TwelvelabsPegasusOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterTwelvelabsPegasusOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'TwelvelabsPegasusOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for TwelvelabsPegasusOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'TwelvelabsPegasusOptions'",
+                                        e);
+                            }
+                            // deserialize OpenAiThinkingOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                OpenAiThinkingOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterOpenAiThinkingOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'OpenAiThinkingOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for OpenAiThinkingOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'OpenAiThinkingOptions'",
+                                        e);
+                            }
+                            // deserialize OpenAiTextOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                OpenAiTextOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterOpenAiTextOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'OpenAiTextOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for OpenAiTextOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'OpenAiTextOptions'",
+                                        e);
+                            }
+                            // deserialize OpenAiDalleOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                OpenAiDalleOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterOpenAiDalleOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'OpenAiDalleOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for OpenAiDalleOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'OpenAiDalleOptions'",
+                                        e);
+                            }
+                            // deserialize OpenAiGptImageOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                OpenAiGptImageOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterOpenAiGptImageOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'OpenAiGptImageOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for OpenAiGptImageOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'OpenAiGptImageOptions'",
                                         e);
                             }
                             // deserialize GroqOptions
@@ -244,9 +686,23 @@ public class ModelOptions extends AbstractOpenApiSchema {
 
     static {
         schemas.put("TextFallbackOptions", TextFallbackOptions.class);
-        schemas.put("VertexAIOptions", VertexAIOptions.class);
-        schemas.put("BedrockOptions", BedrockOptions.class);
-        schemas.put("OpenAiOptions", OpenAiOptions.class);
+        schemas.put("ImagenOptions", ImagenOptions.class);
+        schemas.put("VertexAIClaudeOptions", VertexAIClaudeOptions.class);
+        schemas.put("VertexAIGeminiOptions", VertexAIGeminiOptions.class);
+        schemas.put("NovaCanvasOptions", NovaCanvasOptions.class);
+        schemas.put("BedrockConverseOptions", BedrockConverseOptions.class);
+        schemas.put("BedrockNovaOptions", BedrockNovaOptions.class);
+        schemas.put("BedrockMistralOptions", BedrockMistralOptions.class);
+        schemas.put("BedrockAI21Options", BedrockAI21Options.class);
+        schemas.put("BedrockCohereCommandOptions", BedrockCohereCommandOptions.class);
+        schemas.put("BedrockClaudeOptions", BedrockClaudeOptions.class);
+        schemas.put("BedrockPalmyraOptions", BedrockPalmyraOptions.class);
+        schemas.put("BedrockGptOssOptions", BedrockGptOssOptions.class);
+        schemas.put("TwelvelabsPegasusOptions", TwelvelabsPegasusOptions.class);
+        schemas.put("OpenAiThinkingOptions", OpenAiThinkingOptions.class);
+        schemas.put("OpenAiTextOptions", OpenAiTextOptions.class);
+        schemas.put("OpenAiDalleOptions", OpenAiDalleOptions.class);
+        schemas.put("OpenAiGptImageOptions", OpenAiGptImageOptions.class);
         schemas.put("GroqOptions", GroqOptions.class);
     }
 
@@ -258,7 +714,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * BedrockOptions, GroqOptions, OpenAiOptions, TextFallbackOptions, VertexAIOptions
+     * BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -269,17 +725,87 @@ public class ModelOptions extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof VertexAIOptions) {
+        if (instance instanceof ImagenOptions) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof BedrockOptions) {
+        if (instance instanceof VertexAIClaudeOptions) {
             super.setActualInstance(instance);
             return;
         }
 
-        if (instance instanceof OpenAiOptions) {
+        if (instance instanceof VertexAIGeminiOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof NovaCanvasOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof BedrockConverseOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof BedrockNovaOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof BedrockMistralOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof BedrockAI21Options) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof BedrockCohereCommandOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof BedrockClaudeOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof BedrockPalmyraOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof BedrockGptOssOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof TwelvelabsPegasusOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof OpenAiThinkingOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof OpenAiTextOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof OpenAiDalleOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof OpenAiGptImageOptions) {
             super.setActualInstance(instance);
             return;
         }
@@ -290,14 +816,14 @@ public class ModelOptions extends AbstractOpenApiSchema {
         }
 
         throw new RuntimeException(
-                "Invalid instance type. Must be BedrockOptions, GroqOptions, OpenAiOptions, TextFallbackOptions, VertexAIOptions");
+                "Invalid instance type. Must be BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * BedrockOptions, GroqOptions, OpenAiOptions, TextFallbackOptions, VertexAIOptions
+     * BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions
      *
-     * @return The actual instance (BedrockOptions, GroqOptions, OpenAiOptions, TextFallbackOptions, VertexAIOptions)
+     * @return The actual instance (BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -318,39 +844,207 @@ public class ModelOptions extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `VertexAIOptions`. If the actual instance is not `VertexAIOptions`,
+     * Get the actual instance of `ImagenOptions`. If the actual instance is not `ImagenOptions`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `VertexAIOptions`
-     * @throws ClassCastException if the instance is not `VertexAIOptions`
+     * @return The actual instance of `ImagenOptions`
+     * @throws ClassCastException if the instance is not `ImagenOptions`
      */
     @SuppressWarnings("unchecked")
-    public VertexAIOptions getVertexAIOptions() throws ClassCastException {
-        return (VertexAIOptions) super.getActualInstance();
+    public ImagenOptions getImagenOptions() throws ClassCastException {
+        return (ImagenOptions) super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `BedrockOptions`. If the actual instance is not `BedrockOptions`,
+     * Get the actual instance of `VertexAIClaudeOptions`. If the actual instance is not `VertexAIClaudeOptions`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `BedrockOptions`
-     * @throws ClassCastException if the instance is not `BedrockOptions`
+     * @return The actual instance of `VertexAIClaudeOptions`
+     * @throws ClassCastException if the instance is not `VertexAIClaudeOptions`
      */
     @SuppressWarnings("unchecked")
-    public BedrockOptions getBedrockOptions() throws ClassCastException {
-        return (BedrockOptions) super.getActualInstance();
+    public VertexAIClaudeOptions getVertexAIClaudeOptions() throws ClassCastException {
+        return (VertexAIClaudeOptions) super.getActualInstance();
     }
 
     /**
-     * Get the actual instance of `OpenAiOptions`. If the actual instance is not `OpenAiOptions`,
+     * Get the actual instance of `VertexAIGeminiOptions`. If the actual instance is not `VertexAIGeminiOptions`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `OpenAiOptions`
-     * @throws ClassCastException if the instance is not `OpenAiOptions`
+     * @return The actual instance of `VertexAIGeminiOptions`
+     * @throws ClassCastException if the instance is not `VertexAIGeminiOptions`
      */
     @SuppressWarnings("unchecked")
-    public OpenAiOptions getOpenAiOptions() throws ClassCastException {
-        return (OpenAiOptions) super.getActualInstance();
+    public VertexAIGeminiOptions getVertexAIGeminiOptions() throws ClassCastException {
+        return (VertexAIGeminiOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `NovaCanvasOptions`. If the actual instance is not `NovaCanvasOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `NovaCanvasOptions`
+     * @throws ClassCastException if the instance is not `NovaCanvasOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public NovaCanvasOptions getNovaCanvasOptions() throws ClassCastException {
+        return (NovaCanvasOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `BedrockConverseOptions`. If the actual instance is not `BedrockConverseOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BedrockConverseOptions`
+     * @throws ClassCastException if the instance is not `BedrockConverseOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public BedrockConverseOptions getBedrockConverseOptions() throws ClassCastException {
+        return (BedrockConverseOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `BedrockNovaOptions`. If the actual instance is not `BedrockNovaOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BedrockNovaOptions`
+     * @throws ClassCastException if the instance is not `BedrockNovaOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public BedrockNovaOptions getBedrockNovaOptions() throws ClassCastException {
+        return (BedrockNovaOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `BedrockMistralOptions`. If the actual instance is not `BedrockMistralOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BedrockMistralOptions`
+     * @throws ClassCastException if the instance is not `BedrockMistralOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public BedrockMistralOptions getBedrockMistralOptions() throws ClassCastException {
+        return (BedrockMistralOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `BedrockAI21Options`. If the actual instance is not `BedrockAI21Options`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BedrockAI21Options`
+     * @throws ClassCastException if the instance is not `BedrockAI21Options`
+     */
+    @SuppressWarnings("unchecked")
+    public BedrockAI21Options getBedrockAI21Options() throws ClassCastException {
+        return (BedrockAI21Options) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `BedrockCohereCommandOptions`. If the actual instance is not `BedrockCohereCommandOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BedrockCohereCommandOptions`
+     * @throws ClassCastException if the instance is not `BedrockCohereCommandOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public BedrockCohereCommandOptions getBedrockCohereCommandOptions() throws ClassCastException {
+        return (BedrockCohereCommandOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `BedrockClaudeOptions`. If the actual instance is not `BedrockClaudeOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BedrockClaudeOptions`
+     * @throws ClassCastException if the instance is not `BedrockClaudeOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public BedrockClaudeOptions getBedrockClaudeOptions() throws ClassCastException {
+        return (BedrockClaudeOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `BedrockPalmyraOptions`. If the actual instance is not `BedrockPalmyraOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BedrockPalmyraOptions`
+     * @throws ClassCastException if the instance is not `BedrockPalmyraOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public BedrockPalmyraOptions getBedrockPalmyraOptions() throws ClassCastException {
+        return (BedrockPalmyraOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `BedrockGptOssOptions`. If the actual instance is not `BedrockGptOssOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BedrockGptOssOptions`
+     * @throws ClassCastException if the instance is not `BedrockGptOssOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public BedrockGptOssOptions getBedrockGptOssOptions() throws ClassCastException {
+        return (BedrockGptOssOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `TwelvelabsPegasusOptions`. If the actual instance is not `TwelvelabsPegasusOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `TwelvelabsPegasusOptions`
+     * @throws ClassCastException if the instance is not `TwelvelabsPegasusOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public TwelvelabsPegasusOptions getTwelvelabsPegasusOptions() throws ClassCastException {
+        return (TwelvelabsPegasusOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `OpenAiThinkingOptions`. If the actual instance is not `OpenAiThinkingOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `OpenAiThinkingOptions`
+     * @throws ClassCastException if the instance is not `OpenAiThinkingOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public OpenAiThinkingOptions getOpenAiThinkingOptions() throws ClassCastException {
+        return (OpenAiThinkingOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `OpenAiTextOptions`. If the actual instance is not `OpenAiTextOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `OpenAiTextOptions`
+     * @throws ClassCastException if the instance is not `OpenAiTextOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public OpenAiTextOptions getOpenAiTextOptions() throws ClassCastException {
+        return (OpenAiTextOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `OpenAiDalleOptions`. If the actual instance is not `OpenAiDalleOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `OpenAiDalleOptions`
+     * @throws ClassCastException if the instance is not `OpenAiDalleOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public OpenAiDalleOptions getOpenAiDalleOptions() throws ClassCastException {
+        return (OpenAiDalleOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `OpenAiGptImageOptions`. If the actual instance is not `OpenAiGptImageOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `OpenAiGptImageOptions`
+     * @throws ClassCastException if the instance is not `OpenAiGptImageOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public OpenAiGptImageOptions getOpenAiGptImageOptions() throws ClassCastException {
+        return (OpenAiGptImageOptions) super.getActualInstance();
     }
 
     /**
@@ -387,39 +1081,207 @@ public class ModelOptions extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with VertexAIOptions
+        // validate the json string with ImagenOptions
         try {
-            VertexAIOptions.validateJsonElement(jsonElement);
+            ImagenOptions.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for VertexAIOptions failed with `%s`.",
+                            "Deserialization for ImagenOptions failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with BedrockOptions
+        // validate the json string with VertexAIClaudeOptions
         try {
-            BedrockOptions.validateJsonElement(jsonElement);
+            VertexAIClaudeOptions.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for BedrockOptions failed with `%s`.",
+                            "Deserialization for VertexAIClaudeOptions failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with OpenAiOptions
+        // validate the json string with VertexAIGeminiOptions
         try {
-            OpenAiOptions.validateJsonElement(jsonElement);
+            VertexAIGeminiOptions.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for OpenAiOptions failed with `%s`.",
+                            "Deserialization for VertexAIGeminiOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with NovaCanvasOptions
+        try {
+            NovaCanvasOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for NovaCanvasOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with BedrockConverseOptions
+        try {
+            BedrockConverseOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for BedrockConverseOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with BedrockNovaOptions
+        try {
+            BedrockNovaOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for BedrockNovaOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with BedrockMistralOptions
+        try {
+            BedrockMistralOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for BedrockMistralOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with BedrockAI21Options
+        try {
+            BedrockAI21Options.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for BedrockAI21Options failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with BedrockCohereCommandOptions
+        try {
+            BedrockCohereCommandOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for BedrockCohereCommandOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with BedrockClaudeOptions
+        try {
+            BedrockClaudeOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for BedrockClaudeOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with BedrockPalmyraOptions
+        try {
+            BedrockPalmyraOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for BedrockPalmyraOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with BedrockGptOssOptions
+        try {
+            BedrockGptOssOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for BedrockGptOssOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with TwelvelabsPegasusOptions
+        try {
+            TwelvelabsPegasusOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for TwelvelabsPegasusOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with OpenAiThinkingOptions
+        try {
+            OpenAiThinkingOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for OpenAiThinkingOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with OpenAiTextOptions
+        try {
+            OpenAiTextOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for OpenAiTextOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with OpenAiDalleOptions
+        try {
+            OpenAiDalleOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for OpenAiDalleOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with OpenAiGptImageOptions
+        try {
+            OpenAiGptImageOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for OpenAiGptImageOptions failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
@@ -439,7 +1301,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
             throw new IOException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for ModelOptions with oneOf schemas: BedrockOptions, GroqOptions, OpenAiOptions, TextFallbackOptions, VertexAIOptions. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            "The JSON string is invalid for ModelOptions with oneOf schemas: BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
