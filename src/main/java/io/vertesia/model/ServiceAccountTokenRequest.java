@@ -121,7 +121,7 @@ public class ServiceAccountTokenRequest {
     public static final String SERIALIZED_NAME_ROLES = "roles";
 
     @SerializedName(SERIALIZED_NAME_ROLES)
-    @jakarta.annotation.Nullable private List<String> roles = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<ProjectRoles> roles = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -219,12 +219,12 @@ public class ServiceAccountTokenRequest {
         this.projectId = projectId;
     }
 
-    public ServiceAccountTokenRequest roles(@jakarta.annotation.Nullable List<String> roles) {
+    public ServiceAccountTokenRequest roles(@jakarta.annotation.Nullable List<ProjectRoles> roles) {
         this.roles = roles;
         return this;
     }
 
-    public ServiceAccountTokenRequest addRolesItem(String rolesItem) {
+    public ServiceAccountTokenRequest addRolesItem(ProjectRoles rolesItem) {
         if (this.roles == null) {
             this.roles = new ArrayList<>();
         }
@@ -236,11 +236,11 @@ public class ServiceAccountTokenRequest {
      * Get roles
      * @return roles
      */
-    @jakarta.annotation.Nullable public List<String> getRoles() {
+    @jakarta.annotation.Nullable public List<ProjectRoles> getRoles() {
         return roles;
     }
 
-    public void setRoles(@jakarta.annotation.Nullable List<String> roles) {
+    public void setRoles(@jakarta.annotation.Nullable List<ProjectRoles> roles) {
         this.roles = roles;
     }
 

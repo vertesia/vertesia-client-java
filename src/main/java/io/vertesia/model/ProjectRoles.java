@@ -34,6 +34,10 @@ public enum ProjectRoles {
 
     APPLICATION("application"),
 
+    AUTOMATION("automation"),
+
+    CONTENT_PROCESSOR("content_processor"),
+
     CONSUMER("consumer"),
 
     EXECUTOR("executor"),
