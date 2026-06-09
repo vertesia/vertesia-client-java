@@ -38,6 +38,8 @@ public enum Permission {
 
     ENVIRONMENT_ADMIN("environment:admin"),
 
+    APP_MANAGE("app:manage"),
+
     PROJECT_ADMIN("project:admin"),
 
     PROJECT_INTEGRATION_READ("project:integration_read"),
