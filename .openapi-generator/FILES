@@ -581,7 +581,6 @@ src/main/java/io/vertesia/model/ProjectIntegrationListResponse.java
 src/main/java/io/vertesia/model/ProjectModelDefaults.java
 src/main/java/io/vertesia/model/ProjectPluginsUpdatePayload.java
 src/main/java/io/vertesia/model/ProjectRef.java
-src/main/java/io/vertesia/model/ProjectRoles.java
 src/main/java/io/vertesia/model/ProjectSearchTier.java
 src/main/java/io/vertesia/model/ProjectTokenRequest.java
 src/main/java/io/vertesia/model/ProjectToolInfo.java
@@ -639,6 +638,7 @@ src/main/java/io/vertesia/model/RetryProcessNodePayload.java
 src/main/java/io/vertesia/model/RevertProcessDefinitionPayload.java
 src/main/java/io/vertesia/model/RevisionInfo.java
 src/main/java/io/vertesia/model/RoleDefinition.java
+src/main/java/io/vertesia/model/RoleDomain.java
 src/main/java/io/vertesia/model/RunAnalyticsGroupBy.java
 src/main/java/io/vertesia/model/RunAnalyticsQuery.java
 src/main/java/io/vertesia/model/RunAnalyticsResult.java
@@ -692,6 +692,8 @@ src/main/java/io/vertesia/model/SupportedIntegrationsResend.java
 src/main/java/io/vertesia/model/SupportedIntegrationsSerper.java
 src/main/java/io/vertesia/model/SupportedProviders.java
 src/main/java/io/vertesia/model/SystemDefaults.java
+src/main/java/io/vertesia/model/SystemRoleDefinition.java
+src/main/java/io/vertesia/model/SystemRoles.java
 src/main/java/io/vertesia/model/Task.java
 src/main/java/io/vertesia/model/TaskField.java
 src/main/java/io/vertesia/model/TaskFieldType.java

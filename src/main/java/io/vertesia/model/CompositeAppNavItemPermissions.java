@@ -120,7 +120,7 @@ public class CompositeAppNavItemPermissions {
     }
 
     /**
-     * ProjectRoles values (e.g. \&quot;developer\&quot;, \&quot;manager\&quot;) whose holders can see this item.
+     * SystemRoles values (e.g. \&quot;developer\&quot;, \&quot;manager\&quot;) whose holders can see this item.
      * @return rolesAllowed
      */
     @jakarta.annotation.Nullable public List<String> getRolesAllowed() {

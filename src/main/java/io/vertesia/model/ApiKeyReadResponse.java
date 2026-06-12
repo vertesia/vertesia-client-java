@@ -57,7 +57,7 @@ public class ApiKeyReadResponse {
 
     @SerializedName(SERIALIZED_NAME_ROLE)
     @jakarta.annotation.Nonnull
-    private ProjectRoles role;
+    private SystemRoles role;
 
     public static final String SERIALIZED_NAME_MASKED_VALUE = "maskedValue";
 
@@ -177,7 +177,7 @@ public class ApiKeyReadResponse {
         this.type = type;
     }
 
-    public ApiKeyReadResponse role(@jakarta.annotation.Nonnull ProjectRoles role) {
+    public ApiKeyReadResponse role(@jakarta.annotation.Nonnull SystemRoles role) {
         this.role = role;
         return this;
     }
@@ -187,11 +187,11 @@ public class ApiKeyReadResponse {
      * @return role
      */
     @jakarta.annotation.Nonnull
-    public ProjectRoles getRole() {
+    public SystemRoles getRole() {
         return role;
     }
 
-    public void setRole(@jakarta.annotation.Nonnull ProjectRoles role) {
+    public void setRole(@jakarta.annotation.Nonnull SystemRoles role) {
         this.role = role;
     }
 
@@ -555,7 +555,7 @@ public class ApiKeyReadResponse {
         // validate the required field `type`
         ApiKeyTypes.validateJsonElement(jsonObj.get("type"));
         // validate the required field `role`
-        ProjectRoles.validateJsonElement(jsonObj.get("role"));
+        SystemRoles.validateJsonElement(jsonObj.get("role"));
         if ((jsonObj.get("maskedValue") != null && !jsonObj.get("maskedValue").isJsonNull())
                 && !jsonObj.get("maskedValue").isJsonPrimitive()) {
             throw new IllegalArgumentException(

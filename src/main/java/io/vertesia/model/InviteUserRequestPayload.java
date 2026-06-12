@@ -44,7 +44,7 @@ public class InviteUserRequestPayload {
 
     @SerializedName(SERIALIZED_NAME_ROLE)
     @jakarta.annotation.Nonnull
-    private ProjectRoles role;
+    private SystemRoles role;
 
     public InviteUserRequestPayload() {}
 
@@ -66,7 +66,7 @@ public class InviteUserRequestPayload {
         this.email = email;
     }
 
-    public InviteUserRequestPayload role(@jakarta.annotation.Nonnull ProjectRoles role) {
+    public InviteUserRequestPayload role(@jakarta.annotation.Nonnull SystemRoles role) {
         this.role = role;
         return this;
     }
@@ -76,11 +76,11 @@ public class InviteUserRequestPayload {
      * @return role
      */
     @jakarta.annotation.Nonnull
-    public ProjectRoles getRole() {
+    public SystemRoles getRole() {
         return role;
     }
 
-    public void setRole(@jakarta.annotation.Nonnull ProjectRoles role) {
+    public void setRole(@jakarta.annotation.Nonnull SystemRoles role) {
         this.role = role;
     }
 
@@ -169,7 +169,7 @@ public class InviteUserRequestPayload {
                             jsonObj.get("email").toString()));
         }
         // validate the required field `role`
-        ProjectRoles.validateJsonElement(jsonObj.get("role"));
+        SystemRoles.validateJsonElement(jsonObj.get("role"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

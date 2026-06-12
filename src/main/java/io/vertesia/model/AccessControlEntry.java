@@ -40,7 +40,7 @@ public class AccessControlEntry {
 
     @SerializedName(SERIALIZED_NAME_ROLE)
     @jakarta.annotation.Nonnull
-    private ProjectRoles role;
+    private SystemRoles role;
 
     public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource_type";
 
@@ -109,7 +109,7 @@ public class AccessControlEntry {
 
     public AccessControlEntry() {}
 
-    public AccessControlEntry role(@jakarta.annotation.Nonnull ProjectRoles role) {
+    public AccessControlEntry role(@jakarta.annotation.Nonnull SystemRoles role) {
         this.role = role;
         return this;
     }
@@ -119,11 +119,11 @@ public class AccessControlEntry {
      * @return role
      */
     @jakarta.annotation.Nonnull
-    public ProjectRoles getRole() {
+    public SystemRoles getRole() {
         return role;
     }
 
-    public void setRole(@jakarta.annotation.Nonnull ProjectRoles role) {
+    public void setRole(@jakarta.annotation.Nonnull SystemRoles role) {
         this.role = role;
     }
 
@@ -484,7 +484,7 @@ public class AccessControlEntry {
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the required field `role`
-        ProjectRoles.validateJsonElement(jsonObj.get("role"));
+        SystemRoles.validateJsonElement(jsonObj.get("role"));
         // validate the required field `resource_type`
         AccessControlResourceType.validateJsonElement(jsonObj.get("resource_type"));
         if (!jsonObj.get("resource").isJsonPrimitive()) {

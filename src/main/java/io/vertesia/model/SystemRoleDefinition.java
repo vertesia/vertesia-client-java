@@ -30,12 +30,12 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Wire shape of a role returned by the IAM &#x60;/roles&#x60; endpoint.  Permissions are typed &#x60;string[]&#x60; because role names span multiple partitions (system, content, future tasks/etc.) and each partition has its own vocabulary. For the tightly-typed system-only view (with &#x60;permissions: Permission[]&#x60;) use &#x60;SystemRoleDefinition&#x60; and the &#x60;/roles/system&#x60; endpoint.  NOTE: this interface is intentionally non-generic. The OpenAPI generator doesn&#39;t handle TypeScript generics cleanly in array response types and produces a degenerate &#x60;RoleDefinitionArray&#x60; schema. Keeping the wire shapes concrete avoids that. &#x60;SystemRoleDefinition&#x60; extends and narrows &#x60;permissions&#x60; to &#x60;Permission[]&#x60;.
+ * Tightly-typed view of a system-domain role: permissions are central &#x60;Permission&#x60; enum values. Returned by &#x60;client.iam.roles.listSystem()&#x60; and by the server&#39;s &#x60;/roles/system&#x60; endpoint.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class RoleDefinition {
+public class SystemRoleDefinition {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -46,7 +46,7 @@ public class RoleDefinition {
 
     @SerializedName(SERIALIZED_NAME_PERMISSIONS)
     @jakarta.annotation.Nonnull
-    private List<String> permissions = new ArrayList<>();
+    private List<Permission> permissions = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_DOMAIN = "domain";
 
@@ -54,9 +54,9 @@ public class RoleDefinition {
     @jakarta.annotation.Nonnull
     private RoleDomain domain;
 
-    public RoleDefinition() {}
+    public SystemRoleDefinition() {}
 
-    public RoleDefinition name(@jakarta.annotation.Nonnull String name) {
+    public SystemRoleDefinition name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -74,12 +74,13 @@ public class RoleDefinition {
         this.name = name;
     }
 
-    public RoleDefinition permissions(@jakarta.annotation.Nonnull List<String> permissions) {
+    public SystemRoleDefinition permissions(
+            @jakarta.annotation.Nonnull List<Permission> permissions) {
         this.permissions = permissions;
         return this;
     }
 
-    public RoleDefinition addPermissionsItem(String permissionsItem) {
+    public SystemRoleDefinition addPermissionsItem(Permission permissionsItem) {
         if (this.permissions == null) {
             this.permissions = new ArrayList<>();
         }
@@ -92,15 +93,15 @@ public class RoleDefinition {
      * @return permissions
      */
     @jakarta.annotation.Nonnull
-    public List<String> getPermissions() {
+    public List<Permission> getPermissions() {
         return permissions;
     }
 
-    public void setPermissions(@jakarta.annotation.Nonnull List<String> permissions) {
+    public void setPermissions(@jakarta.annotation.Nonnull List<Permission> permissions) {
         this.permissions = permissions;
     }
 
-    public RoleDefinition domain(@jakarta.annotation.Nonnull RoleDomain domain) {
+    public SystemRoleDefinition domain(@jakarta.annotation.Nonnull RoleDomain domain) {
         this.domain = domain;
         return this;
     }
@@ -126,10 +127,10 @@ public class RoleDefinition {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        RoleDefinition roleDefinition = (RoleDefinition) o;
-        return Objects.equals(this.name, roleDefinition.name)
-                && Objects.equals(this.permissions, roleDefinition.permissions)
-                && Objects.equals(this.domain, roleDefinition.domain);
+        SystemRoleDefinition systemRoleDefinition = (SystemRoleDefinition) o;
+        return Objects.equals(this.name, systemRoleDefinition.name)
+                && Objects.equals(this.permissions, systemRoleDefinition.permissions)
+                && Objects.equals(this.domain, systemRoleDefinition.domain);
     }
 
     @Override
@@ -140,7 +141,7 @@ public class RoleDefinition {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class RoleDefinition {\n");
+        sb.append("class SystemRoleDefinition {\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    permissions: ").append(toIndentedString(permissions)).append("\n");
         sb.append("    domain: ").append(toIndentedString(domain)).append("\n");
@@ -171,22 +172,22 @@ public class RoleDefinition {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to RoleDefinition
+     * @throws IOException if the JSON Element is invalid with respect to SystemRoleDefinition
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!RoleDefinition.openapiRequiredFields
+            if (!SystemRoleDefinition.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 java.util.Locale.ROOT,
-                                "The required field(s) %s in RoleDefinition is not found in the empty JSON string",
-                                RoleDefinition.openapiRequiredFields.toString()));
+                                "The required field(s) %s in SystemRoleDefinition is not found in the empty JSON string",
+                                SystemRoleDefinition.openapiRequiredFields.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : RoleDefinition.openapiRequiredFields) {
+        for (String requiredField : SystemRoleDefinition.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -223,23 +224,24 @@ public class RoleDefinition {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!RoleDefinition.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'RoleDefinition' and its subtypes
+            if (!SystemRoleDefinition.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'SystemRoleDefinition' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<RoleDefinition> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(RoleDefinition.class));
+            final TypeAdapter<SystemRoleDefinition> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(SystemRoleDefinition.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<RoleDefinition>() {
+                    new TypeAdapter<SystemRoleDefinition>() {
                         @Override
-                        public void write(JsonWriter out, RoleDefinition value) throws IOException {
+                        public void write(JsonWriter out, SystemRoleDefinition value)
+                                throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public RoleDefinition read(JsonReader in) throws IOException {
+                        public SystemRoleDefinition read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -249,18 +251,18 @@ public class RoleDefinition {
     }
 
     /**
-     * Create an instance of RoleDefinition given an JSON string
+     * Create an instance of SystemRoleDefinition given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of RoleDefinition
-     * @throws IOException if the JSON string is invalid with respect to RoleDefinition
+     * @return An instance of SystemRoleDefinition
+     * @throws IOException if the JSON string is invalid with respect to SystemRoleDefinition
      */
-    public static RoleDefinition fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, RoleDefinition.class);
+    public static SystemRoleDefinition fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, SystemRoleDefinition.class);
     }
 
     /**
-     * Convert an instance of RoleDefinition to an JSON string
+     * Convert an instance of SystemRoleDefinition to an JSON string
      *
      * @return JSON string
      */

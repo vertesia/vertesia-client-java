@@ -39,7 +39,7 @@ public class ACEUpdatePayload {
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @jakarta.annotation.Nullable private ProjectRoles role;
+    @jakarta.annotation.Nullable private SystemRoles role;
 
     public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource_type";
 
@@ -88,7 +88,7 @@ public class ACEUpdatePayload {
 
     public ACEUpdatePayload() {}
 
-    public ACEUpdatePayload role(@jakarta.annotation.Nullable ProjectRoles role) {
+    public ACEUpdatePayload role(@jakarta.annotation.Nullable SystemRoles role) {
         this.role = role;
         return this;
     }
@@ -97,11 +97,11 @@ public class ACEUpdatePayload {
      * Get role
      * @return role
      */
-    @jakarta.annotation.Nullable public ProjectRoles getRole() {
+    @jakarta.annotation.Nullable public SystemRoles getRole() {
         return role;
     }
 
-    public void setRole(@jakarta.annotation.Nullable ProjectRoles role) {
+    public void setRole(@jakarta.annotation.Nullable SystemRoles role) {
         this.role = role;
     }
 
@@ -375,7 +375,7 @@ public class ACEUpdatePayload {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `role`
         if (jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) {
-            ProjectRoles.validateJsonElement(jsonObj.get("role"));
+            SystemRoles.validateJsonElement(jsonObj.get("role"));
         }
         // validate the optional field `resource_type`
         if (jsonObj.get("resource_type") != null && !jsonObj.get("resource_type").isJsonNull()) {
