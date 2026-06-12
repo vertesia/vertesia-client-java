@@ -77,6 +77,11 @@ public class AgentRunnerOptions {
     @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
     @jakarta.annotation.Nullable private String collectionId;
 
+    public static final String SERIALIZED_NAME_REQUEST_TEMPLATE = "request_template";
+
+    @SerializedName(SERIALIZED_NAME_REQUEST_TEMPLATE)
+    @jakarta.annotation.Nullable private String requestTemplate;
+
     public AgentRunnerOptions() {}
 
     public AgentRunnerOptions isAgent(@jakarta.annotation.Nullable Boolean isAgent) {
@@ -226,6 +231,23 @@ public class AgentRunnerOptions {
         this.collectionId = collectionId;
     }
 
+    public AgentRunnerOptions requestTemplate(@jakarta.annotation.Nullable String requestTemplate) {
+        this.requestTemplate = requestTemplate;
+        return this;
+    }
+
+    /**
+     * Optional user-facing template for rendering run input as the first conversation entry. Supports {{field_name}}, {{nested.field}}, {{items.0.name}}, and {{json}} placeholders resolved from the run data.
+     * @return requestTemplate
+     */
+    @jakarta.annotation.Nullable public String getRequestTemplate() {
+        return requestTemplate;
+    }
+
+    public void setRequestTemplate(@jakarta.annotation.Nullable String requestTemplate) {
+        this.requestTemplate = requestTemplate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -242,7 +264,8 @@ public class AgentRunnerOptions {
                 && Objects.equals(this.skillPriority, agentRunnerOptions.skillPriority)
                 && Objects.equals(this.toolNames, agentRunnerOptions.toolNames)
                 && Objects.equals(this.searchScope, agentRunnerOptions.searchScope)
-                && Objects.equals(this.collectionId, agentRunnerOptions.collectionId);
+                && Objects.equals(this.collectionId, agentRunnerOptions.collectionId)
+                && Objects.equals(this.requestTemplate, agentRunnerOptions.requestTemplate);
     }
 
     @Override
@@ -255,7 +278,8 @@ public class AgentRunnerOptions {
                 skillPriority,
                 toolNames,
                 searchScope,
-                collectionId);
+                collectionId,
+                requestTemplate);
     }
 
     @Override
@@ -270,6 +294,7 @@ public class AgentRunnerOptions {
         sb.append("    toolNames: ").append(toIndentedString(toolNames)).append("\n");
         sb.append("    searchScope: ").append(toIndentedString(searchScope)).append("\n");
         sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
+        sb.append("    requestTemplate: ").append(toIndentedString(requestTemplate)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -297,7 +322,8 @@ public class AgentRunnerOptions {
                                 "skill_priority",
                                 "tool_names",
                                 "search_scope",
-                                "collection_id"));
+                                "collection_id",
+                                "request_template"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -347,6 +373,15 @@ public class AgentRunnerOptions {
                             java.util.Locale.ROOT,
                             "Expected the field `collection_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("collection_id").toString()));
+        }
+        if ((jsonObj.get("request_template") != null
+                        && !jsonObj.get("request_template").isJsonNull())
+                && !jsonObj.get("request_template").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `request_template` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("request_template").toString()));
         }
     }
 

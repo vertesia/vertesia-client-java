@@ -57,6 +57,70 @@ public class AgentMessageDetails {
     @SerializedName(SERIALIZED_NAME_TOOLS)
     @jakarta.annotation.Nullable private List<String> tools = new ArrayList<>();
 
+    /**
+     * Gets or Sets toolEvent
+     */
+    @JsonAdapter(ToolEventEnum.Adapter.class)
+    public enum ToolEventEnum {
+        STARTED("started"),
+
+        PROGRESS("progress"),
+
+        COMPLETED("completed"),
+
+        FAILED("failed"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        ToolEventEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ToolEventEnum fromValue(String value) {
+            for (ToolEventEnum b : ToolEventEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<ToolEventEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ToolEventEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ToolEventEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ToolEventEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            ToolEventEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_TOOL_EVENT = "tool_event";
+
+    @SerializedName(SERIALIZED_NAME_TOOL_EVENT)
+    @jakarta.annotation.Nullable private ToolEventEnum toolEvent;
+
     public static final String SERIALIZED_NAME_STREAMED = "streamed";
 
     @SerializedName(SERIALIZED_NAME_STREAMED)
@@ -86,6 +150,11 @@ public class AgentMessageDetails {
 
     @SerializedName(SERIALIZED_NAME_TOOL_RUN_ID)
     @jakarta.annotation.Nullable private String toolRunId;
+
+    public static final String SERIALIZED_NAME_TOOL_USE_ID = "tool_use_id";
+
+    @SerializedName(SERIALIZED_NAME_TOOL_USE_ID)
+    @jakarta.annotation.Nullable private String toolUseId;
 
     /**
      * Gets or Sets toolStatus
@@ -155,6 +224,16 @@ public class AgentMessageDetails {
 
     @SerializedName(SERIALIZED_NAME_TOOL_ITERATION)
     @jakarta.annotation.Nullable private BigDecimal toolIteration;
+
+    public static final String SERIALIZED_NAME_MESSAGE_TO_HUMAN = "message_to_human";
+
+    @SerializedName(SERIALIZED_NAME_MESSAGE_TO_HUMAN)
+    @jakarta.annotation.Nullable private String messageToHuman;
+
+    public static final String SERIALIZED_NAME_DURATION_MS = "duration_ms";
+
+    @SerializedName(SERIALIZED_NAME_DURATION_MS)
+    @jakarta.annotation.Nullable private BigDecimal durationMs;
 
     public static final String SERIALIZED_NAME_OBSERVATION = "observation";
 
@@ -267,6 +346,23 @@ public class AgentMessageDetails {
         this.tools = tools;
     }
 
+    public AgentMessageDetails toolEvent(@jakarta.annotation.Nullable ToolEventEnum toolEvent) {
+        this.toolEvent = toolEvent;
+        return this;
+    }
+
+    /**
+     * Get toolEvent
+     * @return toolEvent
+     */
+    @jakarta.annotation.Nullable public ToolEventEnum getToolEvent() {
+        return toolEvent;
+    }
+
+    public void setToolEvent(@jakarta.annotation.Nullable ToolEventEnum toolEvent) {
+        this.toolEvent = toolEvent;
+    }
+
     public AgentMessageDetails streamed(@jakarta.annotation.Nullable Boolean streamed) {
         this.streamed = streamed;
         return this;
@@ -370,6 +466,23 @@ public class AgentMessageDetails {
         this.toolRunId = toolRunId;
     }
 
+    public AgentMessageDetails toolUseId(@jakarta.annotation.Nullable String toolUseId) {
+        this.toolUseId = toolUseId;
+        return this;
+    }
+
+    /**
+     * Get toolUseId
+     * @return toolUseId
+     */
+    @jakarta.annotation.Nullable public String getToolUseId() {
+        return toolUseId;
+    }
+
+    public void setToolUseId(@jakarta.annotation.Nullable String toolUseId) {
+        this.toolUseId = toolUseId;
+    }
+
     public AgentMessageDetails toolStatus(@jakarta.annotation.Nullable ToolStatusEnum toolStatus) {
         this.toolStatus = toolStatus;
         return this;
@@ -403,6 +516,40 @@ public class AgentMessageDetails {
 
     public void setToolIteration(@jakarta.annotation.Nullable BigDecimal toolIteration) {
         this.toolIteration = toolIteration;
+    }
+
+    public AgentMessageDetails messageToHuman(@jakarta.annotation.Nullable String messageToHuman) {
+        this.messageToHuman = messageToHuman;
+        return this;
+    }
+
+    /**
+     * Get messageToHuman
+     * @return messageToHuman
+     */
+    @jakarta.annotation.Nullable public String getMessageToHuman() {
+        return messageToHuman;
+    }
+
+    public void setMessageToHuman(@jakarta.annotation.Nullable String messageToHuman) {
+        this.messageToHuman = messageToHuman;
+    }
+
+    public AgentMessageDetails durationMs(@jakarta.annotation.Nullable BigDecimal durationMs) {
+        this.durationMs = durationMs;
+        return this;
+    }
+
+    /**
+     * Get durationMs
+     * @return durationMs
+     */
+    @jakarta.annotation.Nullable public BigDecimal getDurationMs() {
+        return durationMs;
+    }
+
+    public void setDurationMs(@jakarta.annotation.Nullable BigDecimal durationMs) {
+        this.durationMs = durationMs;
     }
 
     public AgentMessageDetails observation(@jakarta.annotation.Nullable Object observation) {
@@ -657,14 +804,18 @@ public class AgentMessageDetails {
         return Objects.equals(this.eventClass, agentMessageDetails.eventClass)
                 && Objects.equals(this.tool, agentMessageDetails.tool)
                 && Objects.equals(this.tools, agentMessageDetails.tools)
+                && Objects.equals(this.toolEvent, agentMessageDetails.toolEvent)
                 && Objects.equals(this.streamed, agentMessageDetails.streamed)
                 && Objects.equals(this.displayRole, agentMessageDetails.displayRole)
                 && Objects.equals(this.activityId, agentMessageDetails.activityId)
                 && Objects.equals(this.activityGroupId, agentMessageDetails.activityGroupId)
                 && Objects.equals(this.batchId, agentMessageDetails.batchId)
                 && Objects.equals(this.toolRunId, agentMessageDetails.toolRunId)
+                && Objects.equals(this.toolUseId, agentMessageDetails.toolUseId)
                 && Objects.equals(this.toolStatus, agentMessageDetails.toolStatus)
                 && Objects.equals(this.toolIteration, agentMessageDetails.toolIteration)
+                && Objects.equals(this.messageToHuman, agentMessageDetails.messageToHuman)
+                && Objects.equals(this.durationMs, agentMessageDetails.durationMs)
                 && Objects.equals(this.observation, agentMessageDetails.observation)
                 && Objects.equals(this.workflowRunId, agentMessageDetails.workflowRunId)
                 && Objects.equals(this.outputFiles, agentMessageDetails.outputFiles)
@@ -694,14 +845,18 @@ public class AgentMessageDetails {
                 eventClass,
                 tool,
                 tools,
+                toolEvent,
                 streamed,
                 displayRole,
                 activityId,
                 activityGroupId,
                 batchId,
                 toolRunId,
+                toolUseId,
                 toolStatus,
                 toolIteration,
+                messageToHuman,
+                durationMs,
                 observation,
                 workflowRunId,
                 outputFiles,
@@ -729,14 +884,18 @@ public class AgentMessageDetails {
         sb.append("    eventClass: ").append(toIndentedString(eventClass)).append("\n");
         sb.append("    tool: ").append(toIndentedString(tool)).append("\n");
         sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
+        sb.append("    toolEvent: ").append(toIndentedString(toolEvent)).append("\n");
         sb.append("    streamed: ").append(toIndentedString(streamed)).append("\n");
         sb.append("    displayRole: ").append(toIndentedString(displayRole)).append("\n");
         sb.append("    activityId: ").append(toIndentedString(activityId)).append("\n");
         sb.append("    activityGroupId: ").append(toIndentedString(activityGroupId)).append("\n");
         sb.append("    batchId: ").append(toIndentedString(batchId)).append("\n");
         sb.append("    toolRunId: ").append(toIndentedString(toolRunId)).append("\n");
+        sb.append("    toolUseId: ").append(toIndentedString(toolUseId)).append("\n");
         sb.append("    toolStatus: ").append(toIndentedString(toolStatus)).append("\n");
         sb.append("    toolIteration: ").append(toIndentedString(toolIteration)).append("\n");
+        sb.append("    messageToHuman: ").append(toIndentedString(messageToHuman)).append("\n");
+        sb.append("    durationMs: ").append(toIndentedString(durationMs)).append("\n");
         sb.append("    observation: ").append(toIndentedString(observation)).append("\n");
         sb.append("    workflowRunId: ").append(toIndentedString(workflowRunId)).append("\n");
         sb.append("    outputFiles: ").append(toIndentedString(outputFiles)).append("\n");
@@ -773,14 +932,18 @@ public class AgentMessageDetails {
                                 "event_class",
                                 "tool",
                                 "tools",
+                                "tool_event",
                                 "streamed",
                                 "display_role",
                                 "activity_id",
                                 "activity_group_id",
                                 "batch_id",
                                 "tool_run_id",
+                                "tool_use_id",
                                 "tool_status",
                                 "tool_iteration",
+                                "message_to_human",
+                                "duration_ms",
                                 "observation",
                                 "workflow_run_id",
                                 "outputFiles",
@@ -840,6 +1003,18 @@ public class AgentMessageDetails {
                             "Expected the field `tools` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tools").toString()));
         }
+        if ((jsonObj.get("tool_event") != null && !jsonObj.get("tool_event").isJsonNull())
+                && !jsonObj.get("tool_event").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `tool_event` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("tool_event").toString()));
+        }
+        // validate the optional field `tool_event`
+        if (jsonObj.get("tool_event") != null && !jsonObj.get("tool_event").isJsonNull()) {
+            ToolEventEnum.validateJsonElement(jsonObj.get("tool_event"));
+        }
         if ((jsonObj.get("display_role") != null && !jsonObj.get("display_role").isJsonNull())
                 && !jsonObj.get("display_role").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -881,6 +1056,14 @@ public class AgentMessageDetails {
                             "Expected the field `tool_run_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("tool_run_id").toString()));
         }
+        if ((jsonObj.get("tool_use_id") != null && !jsonObj.get("tool_use_id").isJsonNull())
+                && !jsonObj.get("tool_use_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `tool_use_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("tool_use_id").toString()));
+        }
         if ((jsonObj.get("tool_status") != null && !jsonObj.get("tool_status").isJsonNull())
                 && !jsonObj.get("tool_status").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -892,6 +1075,15 @@ public class AgentMessageDetails {
         // validate the optional field `tool_status`
         if (jsonObj.get("tool_status") != null && !jsonObj.get("tool_status").isJsonNull()) {
             ToolStatusEnum.validateJsonElement(jsonObj.get("tool_status"));
+        }
+        if ((jsonObj.get("message_to_human") != null
+                        && !jsonObj.get("message_to_human").isJsonNull())
+                && !jsonObj.get("message_to_human").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `message_to_human` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("message_to_human").toString()));
         }
         if ((jsonObj.get("workflow_run_id") != null && !jsonObj.get("workflow_run_id").isJsonNull())
                 && !jsonObj.get("workflow_run_id").isJsonPrimitive()) {
