@@ -62,11 +62,6 @@ public class ExecutionRunRef {
     @SerializedName(SERIALIZED_NAME_TAGS)
     @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
-    public static final String SERIALIZED_NAME_INTERACTION_CODE = "interaction_code";
-
-    @SerializedName(SERIALIZED_NAME_INTERACTION_CODE)
-    @jakarta.annotation.Nullable private String interactionCode;
-
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
@@ -269,23 +264,6 @@ public class ExecutionRunRef {
 
     public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
-    }
-
-    public ExecutionRunRef interactionCode(@jakarta.annotation.Nullable String interactionCode) {
-        this.interactionCode = interactionCode;
-        return this;
-    }
-
-    /**
-     * Get interactionCode
-     * @return interactionCode
-     */
-    @jakarta.annotation.Nullable public String getInteractionCode() {
-        return interactionCode;
-    }
-
-    public void setInteractionCode(@jakarta.annotation.Nullable String interactionCode) {
-        this.interactionCode = interactionCode;
     }
 
     public ExecutionRunRef environment(
@@ -737,7 +715,6 @@ public class ExecutionRunRef {
                 && Objects.equals(this.parent, executionRunRef.parent)
                 && Objects.equals(this.evaluation, executionRunRef.evaluation)
                 && Objects.equals(this.tags, executionRunRef.tags)
-                && Objects.equals(this.interactionCode, executionRunRef.interactionCode)
                 && Objects.equals(this.environment, executionRunRef.environment)
                 && Objects.equals(this.modelId, executionRunRef.modelId)
                 && Objects.equals(this.resultSchema, executionRunRef.resultSchema)
@@ -779,7 +756,6 @@ public class ExecutionRunRef {
                 parent,
                 evaluation,
                 tags,
-                interactionCode,
                 environment,
                 modelId,
                 resultSchema,
@@ -820,7 +796,6 @@ public class ExecutionRunRef {
         sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
         sb.append("    evaluation: ").append(toIndentedString(evaluation)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-        sb.append("    interactionCode: ").append(toIndentedString(interactionCode)).append("\n");
         sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
         sb.append("    resultSchema: ").append(toIndentedString(resultSchema)).append("\n");
@@ -870,7 +845,6 @@ public class ExecutionRunRef {
                                 "parent",
                                 "evaluation",
                                 "tags",
-                                "interaction_code",
                                 "environment",
                                 "modelId",
                                 "result_schema",
@@ -966,15 +940,6 @@ public class ExecutionRunRef {
                             java.util.Locale.ROOT,
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
-        }
-        if ((jsonObj.get("interaction_code") != null
-                        && !jsonObj.get("interaction_code").isJsonNull())
-                && !jsonObj.get("interaction_code").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `interaction_code` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("interaction_code").toString()));
         }
         // validate the required field `environment`
         ExecutionEnvironmentRef.validateJsonElement(jsonObj.get("environment"));

@@ -226,11 +226,6 @@ public class CostAnalyticsQuery {
     @SerializedName(SERIALIZED_NAME_INTERACTION_ID)
     @jakarta.annotation.Nullable private String interactionId;
 
-    public static final String SERIALIZED_NAME_INTERACTION_CODE = "interaction_code";
-
-    @SerializedName(SERIALIZED_NAME_INTERACTION_CODE)
-    @jakarta.annotation.Nullable private String interactionCode;
-
     public static final String SERIALIZED_NAME_PRINCIPAL_ID = "principal_id";
 
     @SerializedName(SERIALIZED_NAME_PRINCIPAL_ID)
@@ -578,7 +573,7 @@ public class CostAnalyticsQuery {
     }
 
     /**
-     * Filter by saved-interaction ObjectId
+     * Filter by interaction id: stored ObjectId or namespaced in-code id
      * @return interactionId
      */
     @jakarta.annotation.Nullable public String getInteractionId() {
@@ -587,23 +582,6 @@ public class CostAnalyticsQuery {
 
     public void setInteractionId(@jakarta.annotation.Nullable String interactionId) {
         this.interactionId = interactionId;
-    }
-
-    public CostAnalyticsQuery interactionCode(@jakarta.annotation.Nullable String interactionCode) {
-        this.interactionCode = interactionCode;
-        return this;
-    }
-
-    /**
-     * Filter by in-code interaction code (e.g. \&quot;@sys:chat\&quot;)
-     * @return interactionCode
-     */
-    @jakarta.annotation.Nullable public String getInteractionCode() {
-        return interactionCode;
-    }
-
-    public void setInteractionCode(@jakarta.annotation.Nullable String interactionCode) {
-        this.interactionCode = interactionCode;
     }
 
     public CostAnalyticsQuery principalId(@jakarta.annotation.Nullable String principalId) {
@@ -714,7 +692,6 @@ public class CostAnalyticsQuery {
                 && Objects.equals(this.runId, costAnalyticsQuery.runId)
                 && Objects.equals(this.agentRunId, costAnalyticsQuery.agentRunId)
                 && Objects.equals(this.interactionId, costAnalyticsQuery.interactionId)
-                && Objects.equals(this.interactionCode, costAnalyticsQuery.interactionCode)
                 && Objects.equals(this.principalId, costAnalyticsQuery.principalId)
                 && Objects.equals(this.accountId, costAnalyticsQuery.accountId)
                 && Objects.equals(this.scope, costAnalyticsQuery.scope)
@@ -738,7 +715,6 @@ public class CostAnalyticsQuery {
                 runId,
                 agentRunId,
                 interactionId,
-                interactionCode,
                 principalId,
                 accountId,
                 scope,
@@ -763,7 +739,6 @@ public class CostAnalyticsQuery {
         sb.append("    runId: ").append(toIndentedString(runId)).append("\n");
         sb.append("    agentRunId: ").append(toIndentedString(agentRunId)).append("\n");
         sb.append("    interactionId: ").append(toIndentedString(interactionId)).append("\n");
-        sb.append("    interactionCode: ").append(toIndentedString(interactionCode)).append("\n");
         sb.append("    principalId: ").append(toIndentedString(principalId)).append("\n");
         sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
         sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
@@ -802,7 +777,6 @@ public class CostAnalyticsQuery {
                                 "run_id",
                                 "agent_run_id",
                                 "interaction_id",
-                                "interaction_code",
                                 "principal_id",
                                 "account_id",
                                 "scope",
@@ -934,15 +908,6 @@ public class CostAnalyticsQuery {
                             java.util.Locale.ROOT,
                             "Expected the field `interaction_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("interaction_id").toString()));
-        }
-        if ((jsonObj.get("interaction_code") != null
-                        && !jsonObj.get("interaction_code").isJsonNull())
-                && !jsonObj.get("interaction_code").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `interaction_code` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("interaction_code").toString()));
         }
         if ((jsonObj.get("principal_id") != null && !jsonObj.get("principal_id").isJsonNull())
                 && !jsonObj.get("principal_id").isJsonPrimitive()) {

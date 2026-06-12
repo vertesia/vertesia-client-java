@@ -75,11 +75,6 @@ public class InteractionExecutionResult {
     @SerializedName(SERIALIZED_NAME_TAGS)
     @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
-    public static final String SERIALIZED_NAME_INTERACTION_CODE = "interaction_code";
-
-    @SerializedName(SERIALIZED_NAME_INTERACTION_CODE)
-    @jakarta.annotation.Nullable private String interactionCode;
-
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
@@ -351,24 +346,6 @@ public class InteractionExecutionResult {
 
     public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
-    }
-
-    public InteractionExecutionResult interactionCode(
-            @jakarta.annotation.Nullable String interactionCode) {
-        this.interactionCode = interactionCode;
-        return this;
-    }
-
-    /**
-     * Get interactionCode
-     * @return interactionCode
-     */
-    @jakarta.annotation.Nullable public String getInteractionCode() {
-        return interactionCode;
-    }
-
-    public void setInteractionCode(@jakarta.annotation.Nullable String interactionCode) {
-        this.interactionCode = interactionCode;
     }
 
     public InteractionExecutionResult environment(
@@ -893,7 +870,6 @@ public class InteractionExecutionResult {
                 && Objects.equals(this.result, interactionExecutionResult.result)
                 && Objects.equals(this.parameters, interactionExecutionResult.parameters)
                 && Objects.equals(this.tags, interactionExecutionResult.tags)
-                && Objects.equals(this.interactionCode, interactionExecutionResult.interactionCode)
                 && Objects.equals(this.environment, interactionExecutionResult.environment)
                 && Objects.equals(this.modelId, interactionExecutionResult.modelId)
                 && Objects.equals(this.resultSchema, interactionExecutionResult.resultSchema)
@@ -941,7 +917,6 @@ public class InteractionExecutionResult {
                 result,
                 parameters,
                 tags,
-                interactionCode,
                 environment,
                 modelId,
                 resultSchema,
@@ -987,7 +962,6 @@ public class InteractionExecutionResult {
         sb.append("    result: ").append(toIndentedString(result)).append("\n");
         sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-        sb.append("    interactionCode: ").append(toIndentedString(interactionCode)).append("\n");
         sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
         sb.append("    resultSchema: ").append(toIndentedString(resultSchema)).append("\n");
@@ -1042,7 +1016,6 @@ public class InteractionExecutionResult {
                                 "result",
                                 "parameters",
                                 "tags",
-                                "interaction_code",
                                 "environment",
                                 "modelId",
                                 "result_schema",
@@ -1157,15 +1130,6 @@ public class InteractionExecutionResult {
                             java.util.Locale.ROOT,
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
-        }
-        if ((jsonObj.get("interaction_code") != null
-                        && !jsonObj.get("interaction_code").isJsonNull())
-                && !jsonObj.get("interaction_code").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `interaction_code` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("interaction_code").toString()));
         }
         // validate the required field `environment`
         ExecutionEnvironmentRef.validateJsonElement(jsonObj.get("environment"));

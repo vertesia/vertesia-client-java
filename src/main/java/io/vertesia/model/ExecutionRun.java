@@ -77,12 +77,7 @@ public class ExecutionRun {
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
-    @jakarta.annotation.Nullable private Interaction interaction;
-
-    public static final String SERIALIZED_NAME_INTERACTION_CODE = "interaction_code";
-
-    @SerializedName(SERIALIZED_NAME_INTERACTION_CODE)
-    @jakarta.annotation.Nullable private String interactionCode;
+    @jakarta.annotation.Nullable private InteractionRef interaction;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
@@ -326,38 +321,21 @@ public class ExecutionRun {
         this.tags = tags;
     }
 
-    public ExecutionRun interaction(@jakarta.annotation.Nullable Interaction interaction) {
+    public ExecutionRun interaction(@jakarta.annotation.Nullable InteractionRef interaction) {
         this.interaction = interaction;
         return this;
     }
 
     /**
-     * Get interaction
+     * Interaction reference. Stored interactions may be populated as full Interaction documents; in-code interactions are represented as refs whose &#x60;id&#x60; is the namespaced interaction id.
      * @return interaction
      */
-    @jakarta.annotation.Nullable public Interaction getInteraction() {
+    @jakarta.annotation.Nullable public InteractionRef getInteraction() {
         return interaction;
     }
 
-    public void setInteraction(@jakarta.annotation.Nullable Interaction interaction) {
+    public void setInteraction(@jakarta.annotation.Nullable InteractionRef interaction) {
         this.interaction = interaction;
-    }
-
-    public ExecutionRun interactionCode(@jakarta.annotation.Nullable String interactionCode) {
-        this.interactionCode = interactionCode;
-        return this;
-    }
-
-    /**
-     * Get interactionCode
-     * @return interactionCode
-     */
-    @jakarta.annotation.Nullable public String getInteractionCode() {
-        return interactionCode;
-    }
-
-    public void setInteractionCode(@jakarta.annotation.Nullable String interactionCode) {
-        this.interactionCode = interactionCode;
     }
 
     public ExecutionRun environment(
@@ -795,7 +773,6 @@ public class ExecutionRun {
                 && Objects.equals(this.parameters, executionRun.parameters)
                 && Objects.equals(this.tags, executionRun.tags)
                 && Objects.equals(this.interaction, executionRun.interaction)
-                && Objects.equals(this.interactionCode, executionRun.interactionCode)
                 && Objects.equals(this.environment, executionRun.environment)
                 && Objects.equals(this.modelId, executionRun.modelId)
                 && Objects.equals(this.resultSchema, executionRun.resultSchema)
@@ -839,7 +816,6 @@ public class ExecutionRun {
                 parameters,
                 tags,
                 interaction,
-                interactionCode,
                 environment,
                 modelId,
                 resultSchema,
@@ -882,7 +858,6 @@ public class ExecutionRun {
         sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
         sb.append("    interaction: ").append(toIndentedString(interaction)).append("\n");
-        sb.append("    interactionCode: ").append(toIndentedString(interactionCode)).append("\n");
         sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
         sb.append("    resultSchema: ").append(toIndentedString(resultSchema)).append("\n");
@@ -934,7 +909,6 @@ public class ExecutionRun {
                                 "parameters",
                                 "tags",
                                 "interaction",
-                                "interaction_code",
                                 "environment",
                                 "modelId",
                                 "result_schema",
@@ -1048,16 +1022,7 @@ public class ExecutionRun {
         }
         // validate the optional field `interaction`
         if (jsonObj.get("interaction") != null && !jsonObj.get("interaction").isJsonNull()) {
-            Interaction.validateJsonElement(jsonObj.get("interaction"));
-        }
-        if ((jsonObj.get("interaction_code") != null
-                        && !jsonObj.get("interaction_code").isJsonNull())
-                && !jsonObj.get("interaction_code").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `interaction_code` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("interaction_code").toString()));
+            InteractionRef.validateJsonElement(jsonObj.get("interaction"));
         }
         // validate the required field `environment`
         ExecutionEnvironmentRef.validateJsonElement(jsonObj.get("environment"));

@@ -94,11 +94,11 @@ public class InCodeTypeRef {
     @jakarta.annotation.Nonnull
     private RefTypeEnum refType;
 
-    public static final String SERIALIZED_NAME_CODE = "code";
+    public static final String SERIALIZED_NAME_ID = "id";
 
-    @SerializedName(SERIALIZED_NAME_CODE)
+    @SerializedName(SERIALIZED_NAME_ID)
     @jakarta.annotation.Nonnull
-    private String code;
+    private String id;
 
     public static final String SERIALIZED_NAME_NAME = "name";
 
@@ -126,22 +126,22 @@ public class InCodeTypeRef {
         this.refType = refType;
     }
 
-    public InCodeTypeRef code(@jakarta.annotation.Nonnull String code) {
-        this.code = code;
+    public InCodeTypeRef id(@jakarta.annotation.Nonnull String id) {
+        this.id = id;
         return this;
     }
 
     /**
      * Namespaced identifier for in-code types (e.g. \&quot;sys:Invoice\&quot;, \&quot;app:myapp:Contract\&quot;)
-     * @return code
+     * @return id
      */
     @jakarta.annotation.Nonnull
-    public String getCode() {
-        return code;
+    public String getId() {
+        return id;
     }
 
-    public void setCode(@jakarta.annotation.Nonnull String code) {
-        this.code = code;
+    public void setId(@jakarta.annotation.Nonnull String id) {
+        this.id = id;
     }
 
     public InCodeTypeRef name(@jakarta.annotation.Nonnull String name) {
@@ -172,13 +172,13 @@ public class InCodeTypeRef {
         }
         InCodeTypeRef inCodeTypeRef = (InCodeTypeRef) o;
         return Objects.equals(this.refType, inCodeTypeRef.refType)
-                && Objects.equals(this.code, inCodeTypeRef.code)
+                && Objects.equals(this.id, inCodeTypeRef.id)
                 && Objects.equals(this.name, inCodeTypeRef.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(refType, code, name);
+        return Objects.hash(refType, id, name);
     }
 
     @Override
@@ -186,7 +186,7 @@ public class InCodeTypeRef {
         StringBuilder sb = new StringBuilder();
         sb.append("class InCodeTypeRef {\n");
         sb.append("    refType: ").append(toIndentedString(refType)).append("\n");
-        sb.append("    code: ").append(toIndentedString(code)).append("\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -205,10 +205,10 @@ public class InCodeTypeRef {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("ref_type", "code", "name"));
+        openapiFields = new HashSet<String>(Arrays.asList("ref_type", "id", "name"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("ref_type", "code", "name"));
+        openapiRequiredFields = new HashSet<String>(Arrays.asList("ref_type", "id", "name"));
     }
 
     /**
@@ -250,12 +250,12 @@ public class InCodeTypeRef {
         }
         // validate the required field `ref_type`
         RefTypeEnum.validateJsonElement(jsonObj.get("ref_type"));
-        if (!jsonObj.get("code").isJsonPrimitive()) {
+        if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `code` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("code").toString()));
+                            "Expected the field `id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("id").toString()));
         }
         if (!jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(
