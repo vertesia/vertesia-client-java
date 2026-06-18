@@ -42,6 +42,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AgentMessageDetails {
+    public static final String SERIALIZED_NAME_ACK = "ack";
+
+    @SerializedName(SERIALIZED_NAME_ACK)
+    @jakarta.annotation.Nullable private String ack;
+
     public static final String SERIALIZED_NAME_EVENT_CLASS = "event_class";
 
     @SerializedName(SERIALIZED_NAME_EVENT_CLASS)
@@ -240,6 +245,21 @@ public class AgentMessageDetails {
     @SerializedName(SERIALIZED_NAME_OBSERVATION)
     @jakarta.annotation.Nullable private Object observation = null;
 
+    public static final String SERIALIZED_NAME_TOKEN_USAGE = "token_usage";
+
+    @SerializedName(SERIALIZED_NAME_TOKEN_USAGE)
+    @jakarta.annotation.Nullable private ExecutionTokenUsage tokenUsage;
+
+    public static final String SERIALIZED_NAME_CHECKPOINT_AT = "checkpoint_at";
+
+    @SerializedName(SERIALIZED_NAME_CHECKPOINT_AT)
+    @jakarta.annotation.Nullable private BigDecimal checkpointAt;
+
+    public static final String SERIALIZED_NAME_CHECKPOINT_THRESHOLD = "checkpoint_threshold";
+
+    @SerializedName(SERIALIZED_NAME_CHECKPOINT_THRESHOLD)
+    @jakarta.annotation.Nullable private BigDecimal checkpointThreshold;
+
     public static final String SERIALIZED_NAME_WORKFLOW_RUN_ID = "workflow_run_id";
 
     @SerializedName(SERIALIZED_NAME_WORKFLOW_RUN_ID)
@@ -265,6 +285,66 @@ public class AgentMessageDetails {
     @SerializedName(SERIALIZED_NAME_STREAMING_ID)
     @jakarta.annotation.Nullable private String streamingId;
 
+    /**
+     * Gets or Sets streamingIdScope
+     */
+    @JsonAdapter(StreamingIdScopeEnum.Adapter.class)
+    public enum StreamingIdScopeEnum {
+        WORKFLOW_RUN("workflow_run"),
+
+        WORKSTREAM("workstream"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        StreamingIdScopeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static StreamingIdScopeEnum fromValue(String value) {
+            for (StreamingIdScopeEnum b : StreamingIdScopeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<StreamingIdScopeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final StreamingIdScopeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public StreamingIdScopeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return StreamingIdScopeEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            StreamingIdScopeEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_STREAMING_ID_SCOPE = "streaming_id_scope";
+
+    @SerializedName(SERIALIZED_NAME_STREAMING_ID_SCOPE)
+    @jakarta.annotation.Nullable private StreamingIdScopeEnum streamingIdScope;
+
     public static final String SERIALIZED_NAME_CHUNK_INDEX = "chunk_index";
 
     @SerializedName(SERIALIZED_NAME_CHUNK_INDEX)
@@ -285,7 +365,88 @@ public class AgentMessageDetails {
     @SerializedName(SERIALIZED_NAME_MESSAGE_ID)
     @jakarta.annotation.Nullable private String messageId;
 
+    /**
+     * Gets or Sets deliveryStatus
+     */
+    @JsonAdapter(DeliveryStatusEnum.Adapter.class)
+    public enum DeliveryStatusEnum {
+        SENDING("sending"),
+
+        RECEIVED("received"),
+
+        CONSUMED("consumed"),
+
+        FAILED("failed"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        DeliveryStatusEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static DeliveryStatusEnum fromValue(String value) {
+            for (DeliveryStatusEnum b : DeliveryStatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<DeliveryStatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final DeliveryStatusEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public DeliveryStatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return DeliveryStatusEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            DeliveryStatusEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_DELIVERY_STATUS = "_deliveryStatus";
+
+    @SerializedName(SERIALIZED_NAME_DELIVERY_STATUS)
+    @jakarta.annotation.Nullable private DeliveryStatusEnum deliveryStatus;
+
     public AgentMessageDetails() {}
+
+    public AgentMessageDetails ack(@jakarta.annotation.Nullable String ack) {
+        this.ack = ack;
+        return this;
+    }
+
+    /**
+     * Get ack
+     * @return ack
+     */
+    @jakarta.annotation.Nullable public String getAck() {
+        return ack;
+    }
+
+    public void setAck(@jakarta.annotation.Nullable String ack) {
+        this.ack = ack;
+    }
 
     public AgentMessageDetails eventClass(@jakarta.annotation.Nullable String eventClass) {
         this.eventClass = eventClass;
@@ -569,6 +730,60 @@ public class AgentMessageDetails {
         this.observation = observation;
     }
 
+    public AgentMessageDetails tokenUsage(
+            @jakarta.annotation.Nullable ExecutionTokenUsage tokenUsage) {
+        this.tokenUsage = tokenUsage;
+        return this;
+    }
+
+    /**
+     * Get tokenUsage
+     * @return tokenUsage
+     */
+    @jakarta.annotation.Nullable public ExecutionTokenUsage getTokenUsage() {
+        return tokenUsage;
+    }
+
+    public void setTokenUsage(@jakarta.annotation.Nullable ExecutionTokenUsage tokenUsage) {
+        this.tokenUsage = tokenUsage;
+    }
+
+    public AgentMessageDetails checkpointAt(@jakarta.annotation.Nullable BigDecimal checkpointAt) {
+        this.checkpointAt = checkpointAt;
+        return this;
+    }
+
+    /**
+     * Get checkpointAt
+     * @return checkpointAt
+     */
+    @jakarta.annotation.Nullable public BigDecimal getCheckpointAt() {
+        return checkpointAt;
+    }
+
+    public void setCheckpointAt(@jakarta.annotation.Nullable BigDecimal checkpointAt) {
+        this.checkpointAt = checkpointAt;
+    }
+
+    public AgentMessageDetails checkpointThreshold(
+            @jakarta.annotation.Nullable BigDecimal checkpointThreshold) {
+        this.checkpointThreshold = checkpointThreshold;
+        return this;
+    }
+
+    /**
+     * Get checkpointThreshold
+     * @return checkpointThreshold
+     */
+    @jakarta.annotation.Nullable public BigDecimal getCheckpointThreshold() {
+        return checkpointThreshold;
+    }
+
+    public void setCheckpointThreshold(
+            @jakarta.annotation.Nullable BigDecimal checkpointThreshold) {
+        this.checkpointThreshold = checkpointThreshold;
+    }
+
     public AgentMessageDetails workflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
         return this;
@@ -679,6 +894,25 @@ public class AgentMessageDetails {
         this.streamingId = streamingId;
     }
 
+    public AgentMessageDetails streamingIdScope(
+            @jakarta.annotation.Nullable StreamingIdScopeEnum streamingIdScope) {
+        this.streamingIdScope = streamingIdScope;
+        return this;
+    }
+
+    /**
+     * Get streamingIdScope
+     * @return streamingIdScope
+     */
+    @jakarta.annotation.Nullable public StreamingIdScopeEnum getStreamingIdScope() {
+        return streamingIdScope;
+    }
+
+    public void setStreamingIdScope(
+            @jakarta.annotation.Nullable StreamingIdScopeEnum streamingIdScope) {
+        this.streamingIdScope = streamingIdScope;
+    }
+
     public AgentMessageDetails chunkIndex(@jakarta.annotation.Nullable BigDecimal chunkIndex) {
         this.chunkIndex = chunkIndex;
         return this;
@@ -747,6 +981,24 @@ public class AgentMessageDetails {
         this.messageId = messageId;
     }
 
+    public AgentMessageDetails deliveryStatus(
+            @jakarta.annotation.Nullable DeliveryStatusEnum deliveryStatus) {
+        this.deliveryStatus = deliveryStatus;
+        return this;
+    }
+
+    /**
+     * Get deliveryStatus
+     * @return deliveryStatus
+     */
+    @jakarta.annotation.Nullable public DeliveryStatusEnum getDeliveryStatus() {
+        return deliveryStatus;
+    }
+
+    public void setDeliveryStatus(@jakarta.annotation.Nullable DeliveryStatusEnum deliveryStatus) {
+        this.deliveryStatus = deliveryStatus;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -801,7 +1053,8 @@ public class AgentMessageDetails {
             return false;
         }
         AgentMessageDetails agentMessageDetails = (AgentMessageDetails) o;
-        return Objects.equals(this.eventClass, agentMessageDetails.eventClass)
+        return Objects.equals(this.ack, agentMessageDetails.ack)
+                && Objects.equals(this.eventClass, agentMessageDetails.eventClass)
                 && Objects.equals(this.tool, agentMessageDetails.tool)
                 && Objects.equals(this.tools, agentMessageDetails.tools)
                 && Objects.equals(this.toolEvent, agentMessageDetails.toolEvent)
@@ -817,15 +1070,20 @@ public class AgentMessageDetails {
                 && Objects.equals(this.messageToHuman, agentMessageDetails.messageToHuman)
                 && Objects.equals(this.durationMs, agentMessageDetails.durationMs)
                 && Objects.equals(this.observation, agentMessageDetails.observation)
+                && Objects.equals(this.tokenUsage, agentMessageDetails.tokenUsage)
+                && Objects.equals(this.checkpointAt, agentMessageDetails.checkpointAt)
+                && Objects.equals(this.checkpointThreshold, agentMessageDetails.checkpointThreshold)
                 && Objects.equals(this.workflowRunId, agentMessageDetails.workflowRunId)
                 && Objects.equals(this.outputFiles, agentMessageDetails.outputFiles)
                 && Objects.equals(this.files, agentMessageDetails.files)
                 && Objects.equals(this.plan, agentMessageDetails.plan)
                 && Objects.equals(this.streamingId, agentMessageDetails.streamingId)
+                && Objects.equals(this.streamingIdScope, agentMessageDetails.streamingIdScope)
                 && Objects.equals(this.chunkIndex, agentMessageDetails.chunkIndex)
                 && Objects.equals(this.isFinal, agentMessageDetails.isFinal)
                 && Objects.equals(this.optimistic, agentMessageDetails.optimistic)
                 && Objects.equals(this.messageId, agentMessageDetails.messageId)
+                && Objects.equals(this.deliveryStatus, agentMessageDetails.deliveryStatus)
                 && Objects.equals(
                         this.additionalProperties, agentMessageDetails.additionalProperties);
     }
@@ -842,6 +1100,7 @@ public class AgentMessageDetails {
     @Override
     public int hashCode() {
         return Objects.hash(
+                ack,
                 eventClass,
                 tool,
                 tools,
@@ -858,15 +1117,20 @@ public class AgentMessageDetails {
                 messageToHuman,
                 durationMs,
                 observation,
+                tokenUsage,
+                checkpointAt,
+                checkpointThreshold,
                 workflowRunId,
                 outputFiles,
                 files,
                 plan,
                 streamingId,
+                streamingIdScope,
                 chunkIndex,
                 isFinal,
                 optimistic,
                 messageId,
+                deliveryStatus,
                 additionalProperties);
     }
 
@@ -881,6 +1145,7 @@ public class AgentMessageDetails {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AgentMessageDetails {\n");
+        sb.append("    ack: ").append(toIndentedString(ack)).append("\n");
         sb.append("    eventClass: ").append(toIndentedString(eventClass)).append("\n");
         sb.append("    tool: ").append(toIndentedString(tool)).append("\n");
         sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
@@ -897,15 +1162,22 @@ public class AgentMessageDetails {
         sb.append("    messageToHuman: ").append(toIndentedString(messageToHuman)).append("\n");
         sb.append("    durationMs: ").append(toIndentedString(durationMs)).append("\n");
         sb.append("    observation: ").append(toIndentedString(observation)).append("\n");
+        sb.append("    tokenUsage: ").append(toIndentedString(tokenUsage)).append("\n");
+        sb.append("    checkpointAt: ").append(toIndentedString(checkpointAt)).append("\n");
+        sb.append("    checkpointThreshold: ")
+                .append(toIndentedString(checkpointThreshold))
+                .append("\n");
         sb.append("    workflowRunId: ").append(toIndentedString(workflowRunId)).append("\n");
         sb.append("    outputFiles: ").append(toIndentedString(outputFiles)).append("\n");
         sb.append("    files: ").append(toIndentedString(files)).append("\n");
         sb.append("    plan: ").append(toIndentedString(plan)).append("\n");
         sb.append("    streamingId: ").append(toIndentedString(streamingId)).append("\n");
+        sb.append("    streamingIdScope: ").append(toIndentedString(streamingIdScope)).append("\n");
         sb.append("    chunkIndex: ").append(toIndentedString(chunkIndex)).append("\n");
         sb.append("    isFinal: ").append(toIndentedString(isFinal)).append("\n");
         sb.append("    optimistic: ").append(toIndentedString(optimistic)).append("\n");
         sb.append("    messageId: ").append(toIndentedString(messageId)).append("\n");
+        sb.append("    deliveryStatus: ").append(toIndentedString(deliveryStatus)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -929,6 +1201,7 @@ public class AgentMessageDetails {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "ack",
                                 "event_class",
                                 "tool",
                                 "tools",
@@ -945,15 +1218,20 @@ public class AgentMessageDetails {
                                 "message_to_human",
                                 "duration_ms",
                                 "observation",
+                                "token_usage",
+                                "checkpoint_at",
+                                "checkpoint_threshold",
                                 "workflow_run_id",
                                 "outputFiles",
                                 "files",
                                 "plan",
                                 "streaming_id",
+                                "streaming_id_scope",
                                 "chunk_index",
                                 "is_final",
                                 "_optimistic",
-                                "_messageId"));
+                                "_messageId",
+                                "_deliveryStatus"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -977,6 +1255,14 @@ public class AgentMessageDetails {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if ((jsonObj.get("ack") != null && !jsonObj.get("ack").isJsonNull())
+                && !jsonObj.get("ack").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `ack` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("ack").toString()));
+        }
         if ((jsonObj.get("event_class") != null && !jsonObj.get("event_class").isJsonNull())
                 && !jsonObj.get("event_class").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -1085,6 +1371,10 @@ public class AgentMessageDetails {
                             "Expected the field `message_to_human` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("message_to_human").toString()));
         }
+        // validate the optional field `token_usage`
+        if (jsonObj.get("token_usage") != null && !jsonObj.get("token_usage").isJsonNull()) {
+            ExecutionTokenUsage.validateJsonElement(jsonObj.get("token_usage"));
+        }
         if ((jsonObj.get("workflow_run_id") != null && !jsonObj.get("workflow_run_id").isJsonNull())
                 && !jsonObj.get("workflow_run_id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -1149,6 +1439,20 @@ public class AgentMessageDetails {
                             "Expected the field `streaming_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("streaming_id").toString()));
         }
+        if ((jsonObj.get("streaming_id_scope") != null
+                        && !jsonObj.get("streaming_id_scope").isJsonNull())
+                && !jsonObj.get("streaming_id_scope").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `streaming_id_scope` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("streaming_id_scope").toString()));
+        }
+        // validate the optional field `streaming_id_scope`
+        if (jsonObj.get("streaming_id_scope") != null
+                && !jsonObj.get("streaming_id_scope").isJsonNull()) {
+            StreamingIdScopeEnum.validateJsonElement(jsonObj.get("streaming_id_scope"));
+        }
         if ((jsonObj.get("_messageId") != null && !jsonObj.get("_messageId").isJsonNull())
                 && !jsonObj.get("_messageId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -1156,6 +1460,19 @@ public class AgentMessageDetails {
                             java.util.Locale.ROOT,
                             "Expected the field `_messageId` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("_messageId").toString()));
+        }
+        if ((jsonObj.get("_deliveryStatus") != null && !jsonObj.get("_deliveryStatus").isJsonNull())
+                && !jsonObj.get("_deliveryStatus").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `_deliveryStatus` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("_deliveryStatus").toString()));
+        }
+        // validate the optional field `_deliveryStatus`
+        if (jsonObj.get("_deliveryStatus") != null
+                && !jsonObj.get("_deliveryStatus").isJsonNull()) {
+            DeliveryStatusEnum.validateJsonElement(jsonObj.get("_deliveryStatus"));
         }
     }
 

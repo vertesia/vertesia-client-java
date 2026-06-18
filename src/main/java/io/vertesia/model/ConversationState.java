@@ -171,6 +171,11 @@ public class ConversationState {
     @SerializedName(SERIALIZED_NAME_LATEST_ACTIVITY_ID)
     @jakarta.annotation.Nullable private String latestActivityId;
 
+    public static final String SERIALIZED_NAME_LATEST_STREAMING_ID = "latest_streaming_id";
+
+    @SerializedName(SERIALIZED_NAME_LATEST_STREAMING_ID)
+    @jakarta.annotation.Nullable private String latestStreamingId;
+
     public static final String SERIALIZED_NAME_SKILL_TOOL_MAP = "skill_tool_map";
 
     @SerializedName(SERIALIZED_NAME_SKILL_TOOL_MAP)
@@ -732,6 +737,24 @@ public class ConversationState {
         this.latestActivityId = latestActivityId;
     }
 
+    public ConversationState latestStreamingId(
+            @jakarta.annotation.Nullable String latestStreamingId) {
+        this.latestStreamingId = latestStreamingId;
+        return this;
+    }
+
+    /**
+     * Stable streaming ID from the latest LLM call. Unlike Temporal activity IDs, this is scoped to the concrete workflow run that produced the stream, so it remains safe across continue-as-new.
+     * @return latestStreamingId
+     */
+    @jakarta.annotation.Nullable public String getLatestStreamingId() {
+        return latestStreamingId;
+    }
+
+    public void setLatestStreamingId(@jakarta.annotation.Nullable String latestStreamingId) {
+        this.latestStreamingId = latestStreamingId;
+    }
+
     public ConversationState skillToolMap(
             @jakarta.annotation.Nullable Map<String, List<String>> skillToolMap) {
         this.skillToolMap = skillToolMap;
@@ -911,6 +934,7 @@ public class ConversationState {
                 && Objects.equals(this.endConversation, conversationState.endConversation)
                 && Objects.equals(this.unlockedTools, conversationState.unlockedTools)
                 && Objects.equals(this.latestActivityId, conversationState.latestActivityId)
+                && Objects.equals(this.latestStreamingId, conversationState.latestStreamingId)
                 && Objects.equals(this.skillToolMap, conversationState.skillToolMap)
                 && Objects.equals(
                         this.activeActivityGroupId, conversationState.activeActivityGroupId)
@@ -949,6 +973,7 @@ public class ConversationState {
                 endConversation,
                 unlockedTools,
                 latestActivityId,
+                latestStreamingId,
                 skillToolMap,
                 activeActivityGroupId,
                 finishReason,
@@ -992,6 +1017,9 @@ public class ConversationState {
         sb.append("    endConversation: ").append(toIndentedString(endConversation)).append("\n");
         sb.append("    unlockedTools: ").append(toIndentedString(unlockedTools)).append("\n");
         sb.append("    latestActivityId: ").append(toIndentedString(latestActivityId)).append("\n");
+        sb.append("    latestStreamingId: ")
+                .append(toIndentedString(latestStreamingId))
+                .append("\n");
         sb.append("    skillToolMap: ").append(toIndentedString(skillToolMap)).append("\n");
         sb.append("    activeActivityGroupId: ")
                 .append(toIndentedString(activeActivityGroupId))
@@ -1047,6 +1075,7 @@ public class ConversationState {
                                 "end_conversation",
                                 "unlocked_tools",
                                 "latest_activity_id",
+                                "latest_streaming_id",
                                 "skill_tool_map",
                                 "active_activity_group_id",
                                 "finish_reason",
@@ -1291,6 +1320,15 @@ public class ConversationState {
                             java.util.Locale.ROOT,
                             "Expected the field `latest_activity_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("latest_activity_id").toString()));
+        }
+        if ((jsonObj.get("latest_streaming_id") != null
+                        && !jsonObj.get("latest_streaming_id").isJsonNull())
+                && !jsonObj.get("latest_streaming_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `latest_streaming_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("latest_streaming_id").toString()));
         }
         if ((jsonObj.get("active_activity_group_id") != null
                         && !jsonObj.get("active_activity_group_id").isJsonNull())
