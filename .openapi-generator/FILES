@@ -305,6 +305,8 @@ src/main/java/io/vertesia/model/DataStoreArchiveResult.java
 src/main/java/io/vertesia/model/DataStoreDownloadInfo.java
 src/main/java/io/vertesia/model/DataStoreFullSchemaResponse.java
 src/main/java/io/vertesia/model/DataStoreItem.java
+src/main/java/io/vertesia/model/DataStoreMutateRowsPayload.java
+src/main/java/io/vertesia/model/DataStoreMutateRowsResult.java
 src/main/java/io/vertesia/model/DataStoreSchemaResponse.java
 src/main/java/io/vertesia/model/DataStoreStatus.java
 src/main/java/io/vertesia/model/DataStoreTableDetail.java

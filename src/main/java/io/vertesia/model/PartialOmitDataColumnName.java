@@ -61,6 +61,11 @@ public class PartialOmitDataColumnName {
     @SerializedName(SERIALIZED_NAME_PRIMARY_KEY)
     @jakarta.annotation.Nullable private Boolean primaryKey;
 
+    public static final String SERIALIZED_NAME_AUTO_INCREMENT = "auto_increment";
+
+    @SerializedName(SERIALIZED_NAME_AUTO_INCREMENT)
+    @jakarta.annotation.Nullable private Boolean autoIncrement;
+
     public static final String SERIALIZED_NAME_UNIQUE = "unique";
 
     @SerializedName(SERIALIZED_NAME_UNIQUE)
@@ -163,6 +168,24 @@ public class PartialOmitDataColumnName {
         this.primaryKey = primaryKey;
     }
 
+    public PartialOmitDataColumnName autoIncrement(
+            @jakarta.annotation.Nullable Boolean autoIncrement) {
+        this.autoIncrement = autoIncrement;
+        return this;
+    }
+
+    /**
+     * Whether this column should use a sequence-backed auto-increment default
+     * @return autoIncrement
+     */
+    @jakarta.annotation.Nullable public Boolean getAutoIncrement() {
+        return autoIncrement;
+    }
+
+    public void setAutoIncrement(@jakarta.annotation.Nullable Boolean autoIncrement) {
+        this.autoIncrement = autoIncrement;
+    }
+
     public PartialOmitDataColumnName unique(@jakarta.annotation.Nullable Boolean unique) {
         this.unique = unique;
         return this;
@@ -237,6 +260,7 @@ public class PartialOmitDataColumnName {
                 && Objects.equals(this.nullable, partialOmitDataColumnName.nullable)
                 && Objects.equals(this._default, partialOmitDataColumnName._default)
                 && Objects.equals(this.primaryKey, partialOmitDataColumnName.primaryKey)
+                && Objects.equals(this.autoIncrement, partialOmitDataColumnName.autoIncrement)
                 && Objects.equals(this.unique, partialOmitDataColumnName.unique)
                 && Objects.equals(this.semanticType, partialOmitDataColumnName.semanticType)
                 && Objects.equals(this.examples, partialOmitDataColumnName.examples);
@@ -245,7 +269,15 @@ public class PartialOmitDataColumnName {
     @Override
     public int hashCode() {
         return Objects.hash(
-                type, description, nullable, _default, primaryKey, unique, semanticType, examples);
+                type,
+                description,
+                nullable,
+                _default,
+                primaryKey,
+                autoIncrement,
+                unique,
+                semanticType,
+                examples);
     }
 
     @Override
@@ -257,6 +289,7 @@ public class PartialOmitDataColumnName {
         sb.append("    nullable: ").append(toIndentedString(nullable)).append("\n");
         sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
         sb.append("    primaryKey: ").append(toIndentedString(primaryKey)).append("\n");
+        sb.append("    autoIncrement: ").append(toIndentedString(autoIncrement)).append("\n");
         sb.append("    unique: ").append(toIndentedString(unique)).append("\n");
         sb.append("    semanticType: ").append(toIndentedString(semanticType)).append("\n");
         sb.append("    examples: ").append(toIndentedString(examples)).append("\n");
@@ -285,6 +318,7 @@ public class PartialOmitDataColumnName {
                                 "nullable",
                                 "default",
                                 "primary_key",
+                                "auto_increment",
                                 "unique",
                                 "semantic_type",
                                 "examples"));

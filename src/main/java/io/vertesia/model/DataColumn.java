@@ -68,6 +68,11 @@ public class DataColumn {
     @SerializedName(SERIALIZED_NAME_PRIMARY_KEY)
     @jakarta.annotation.Nullable private Boolean primaryKey;
 
+    public static final String SERIALIZED_NAME_AUTO_INCREMENT = "auto_increment";
+
+    @SerializedName(SERIALIZED_NAME_AUTO_INCREMENT)
+    @jakarta.annotation.Nullable private Boolean autoIncrement;
+
     public static final String SERIALIZED_NAME_UNIQUE = "unique";
 
     @SerializedName(SERIALIZED_NAME_UNIQUE)
@@ -189,6 +194,23 @@ public class DataColumn {
         this.primaryKey = primaryKey;
     }
 
+    public DataColumn autoIncrement(@jakarta.annotation.Nullable Boolean autoIncrement) {
+        this.autoIncrement = autoIncrement;
+        return this;
+    }
+
+    /**
+     * Whether this column should use a sequence-backed auto-increment default
+     * @return autoIncrement
+     */
+    @jakarta.annotation.Nullable public Boolean getAutoIncrement() {
+        return autoIncrement;
+    }
+
+    public void setAutoIncrement(@jakarta.annotation.Nullable Boolean autoIncrement) {
+        this.autoIncrement = autoIncrement;
+    }
+
     public DataColumn unique(@jakarta.annotation.Nullable Boolean unique) {
         this.unique = unique;
         return this;
@@ -263,6 +285,7 @@ public class DataColumn {
                 && Objects.equals(this.nullable, dataColumn.nullable)
                 && Objects.equals(this._default, dataColumn._default)
                 && Objects.equals(this.primaryKey, dataColumn.primaryKey)
+                && Objects.equals(this.autoIncrement, dataColumn.autoIncrement)
                 && Objects.equals(this.unique, dataColumn.unique)
                 && Objects.equals(this.semanticType, dataColumn.semanticType)
                 && Objects.equals(this.examples, dataColumn.examples);
@@ -277,6 +300,7 @@ public class DataColumn {
                 nullable,
                 _default,
                 primaryKey,
+                autoIncrement,
                 unique,
                 semanticType,
                 examples);
@@ -292,6 +316,7 @@ public class DataColumn {
         sb.append("    nullable: ").append(toIndentedString(nullable)).append("\n");
         sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
         sb.append("    primaryKey: ").append(toIndentedString(primaryKey)).append("\n");
+        sb.append("    autoIncrement: ").append(toIndentedString(autoIncrement)).append("\n");
         sb.append("    unique: ").append(toIndentedString(unique)).append("\n");
         sb.append("    semanticType: ").append(toIndentedString(semanticType)).append("\n");
         sb.append("    examples: ").append(toIndentedString(examples)).append("\n");
@@ -321,6 +346,7 @@ public class DataColumn {
                                 "nullable",
                                 "default",
                                 "primary_key",
+                                "auto_increment",
                                 "unique",
                                 "semantic_type",
                                 "examples"));

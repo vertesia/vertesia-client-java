@@ -40,6 +40,8 @@ import io.vertesia.model.DataStore;
 import io.vertesia.model.DataStoreArchiveResult;
 import io.vertesia.model.DataStoreDownloadInfo;
 import io.vertesia.model.DataStoreItem;
+import io.vertesia.model.DataStoreMutateRowsPayload;
+import io.vertesia.model.DataStoreMutateRowsResult;
 import io.vertesia.model.DataStoreSchemaResponse;
 import io.vertesia.model.DataStoreTableDetail;
 import io.vertesia.model.DataStoreTableDropResult;
@@ -4261,6 +4263,186 @@ public class DataApi {
 
         okhttp3.Call localVarCall = listDataStoresValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<List<DataStoreItem>>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for mutateDataStoreRows
+     * @param storeId  (required)
+     * @param dataStoreMutateRowsPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Row mutation result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call mutateDataStoreRowsCall(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull DataStoreMutateRowsPayload dataStoreMutateRowsPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = dataStoreMutateRowsPayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/data/{storeId}/mutate"
+                        .replace(
+                                "{" + "storeId" + "}",
+                                localVarApiClient.escapeString(storeId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call mutateDataStoreRowsValidateBeforeCall(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull DataStoreMutateRowsPayload dataStoreMutateRowsPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'storeId' is set
+        if (storeId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'storeId' when calling mutateDataStoreRows(Async)");
+        }
+
+        // verify the required parameter 'dataStoreMutateRowsPayload' is set
+        if (dataStoreMutateRowsPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'dataStoreMutateRowsPayload' when calling mutateDataStoreRows(Async)");
+        }
+
+        return mutateDataStoreRowsCall(storeId, dataStoreMutateRowsPayload, _callback);
+    }
+
+    /**
+     * Mutate data store rows
+     * Executes a single UPDATE or DELETE statement against the latest data store state and creates a new version.  **Required permissions:** &#x60;content:write&#x60;
+     * @param storeId  (required)
+     * @param dataStoreMutateRowsPayload  (required)
+     * @return DataStoreMutateRowsResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Row mutation result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public DataStoreMutateRowsResult mutateDataStoreRows(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull DataStoreMutateRowsPayload dataStoreMutateRowsPayload)
+            throws ApiException {
+        ApiResponse<DataStoreMutateRowsResult> localVarResp =
+                mutateDataStoreRowsWithHttpInfo(storeId, dataStoreMutateRowsPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Mutate data store rows
+     * Executes a single UPDATE or DELETE statement against the latest data store state and creates a new version.  **Required permissions:** &#x60;content:write&#x60;
+     * @param storeId  (required)
+     * @param dataStoreMutateRowsPayload  (required)
+     * @return ApiResponse&lt;DataStoreMutateRowsResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Row mutation result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<DataStoreMutateRowsResult> mutateDataStoreRowsWithHttpInfo(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull DataStoreMutateRowsPayload dataStoreMutateRowsPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                mutateDataStoreRowsValidateBeforeCall(storeId, dataStoreMutateRowsPayload, null);
+        Type localVarReturnType = new TypeToken<DataStoreMutateRowsResult>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Mutate data store rows (asynchronously)
+     * Executes a single UPDATE or DELETE statement against the latest data store state and creates a new version.  **Required permissions:** &#x60;content:write&#x60;
+     * @param storeId  (required)
+     * @param dataStoreMutateRowsPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Row mutation result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call mutateDataStoreRowsAsync(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull DataStoreMutateRowsPayload dataStoreMutateRowsPayload,
+            final ApiCallback<DataStoreMutateRowsResult> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                mutateDataStoreRowsValidateBeforeCall(
+                        storeId, dataStoreMutateRowsPayload, _callback);
+        Type localVarReturnType = new TypeToken<DataStoreMutateRowsResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

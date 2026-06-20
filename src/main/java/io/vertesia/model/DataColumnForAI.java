@@ -64,6 +64,12 @@ public class DataColumnForAI {
     @jakarta.annotation.Nonnull
     private Boolean primaryKey;
 
+    public static final String SERIALIZED_NAME_AUTO_INCREMENT = "auto_increment";
+
+    @SerializedName(SERIALIZED_NAME_AUTO_INCREMENT)
+    @jakarta.annotation.Nonnull
+    private Boolean autoIncrement;
+
     public static final String SERIALIZED_NAME_EXAMPLES = "examples";
 
     @SerializedName(SERIALIZED_NAME_EXAMPLES)
@@ -160,6 +166,24 @@ public class DataColumnForAI {
         this.primaryKey = primaryKey;
     }
 
+    public DataColumnForAI autoIncrement(@jakarta.annotation.Nonnull Boolean autoIncrement) {
+        this.autoIncrement = autoIncrement;
+        return this;
+    }
+
+    /**
+     * Whether sequence-backed auto-increment is enabled
+     * @return autoIncrement
+     */
+    @jakarta.annotation.Nonnull
+    public Boolean getAutoIncrement() {
+        return autoIncrement;
+    }
+
+    public void setAutoIncrement(@jakarta.annotation.Nonnull Boolean autoIncrement) {
+        this.autoIncrement = autoIncrement;
+    }
+
     public DataColumnForAI examples(@jakarta.annotation.Nullable List<String> examples) {
         this.examples = examples;
         return this;
@@ -199,12 +223,14 @@ public class DataColumnForAI {
                 && Objects.equals(this.semanticType, dataColumnForAI.semanticType)
                 && Objects.equals(this.nullable, dataColumnForAI.nullable)
                 && Objects.equals(this.primaryKey, dataColumnForAI.primaryKey)
+                && Objects.equals(this.autoIncrement, dataColumnForAI.autoIncrement)
                 && Objects.equals(this.examples, dataColumnForAI.examples);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, description, semanticType, nullable, primaryKey, examples);
+        return Objects.hash(
+                type, description, semanticType, nullable, primaryKey, autoIncrement, examples);
     }
 
     @Override
@@ -216,6 +242,7 @@ public class DataColumnForAI {
         sb.append("    semanticType: ").append(toIndentedString(semanticType)).append("\n");
         sb.append("    nullable: ").append(toIndentedString(nullable)).append("\n");
         sb.append("    primaryKey: ").append(toIndentedString(primaryKey)).append("\n");
+        sb.append("    autoIncrement: ").append(toIndentedString(autoIncrement)).append("\n");
         sb.append("    examples: ").append(toIndentedString(examples)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -242,11 +269,13 @@ public class DataColumnForAI {
                                 "semantic_type",
                                 "nullable",
                                 "primary_key",
+                                "auto_increment",
                                 "examples"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
-                new HashSet<String>(Arrays.asList("type", "nullable", "primary_key"));
+                new HashSet<String>(
+                        Arrays.asList("type", "nullable", "primary_key", "auto_increment"));
     }
 
     /**
