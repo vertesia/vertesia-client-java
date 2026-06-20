@@ -203,6 +203,12 @@ public class AsyncConversationExecutionPayload {
     @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
     @jakarta.annotation.Nullable private String collectionId;
 
+    public static final String SERIALIZED_NAME_DISABLED_MCP_COLLECTIONS =
+            "disabled_mcp_collections";
+
+    @SerializedName(SERIALIZED_NAME_DISABLED_MCP_COLLECTIONS)
+    @jakarta.annotation.Nullable private List<String> disabledMcpCollections = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_CHECKPOINT_TOKENS = "checkpoint_tokens";
 
     @SerializedName(SERIALIZED_NAME_CHECKPOINT_TOKENS)
@@ -694,6 +700,34 @@ public class AsyncConversationExecutionPayload {
         this.collectionId = collectionId;
     }
 
+    public AsyncConversationExecutionPayload disabledMcpCollections(
+            @jakarta.annotation.Nullable List<String> disabledMcpCollections) {
+        this.disabledMcpCollections = disabledMcpCollections;
+        return this;
+    }
+
+    public AsyncConversationExecutionPayload addDisabledMcpCollectionsItem(
+            String disabledMcpCollectionsItem) {
+        if (this.disabledMcpCollections == null) {
+            this.disabledMcpCollections = new ArrayList<>();
+        }
+        this.disabledMcpCollections.add(disabledMcpCollectionsItem);
+        return this;
+    }
+
+    /**
+     * Denylist of MCP tool-collection ids deactivated for this conversation. &#x60;undefined&#x60;/empty means all installed/connected MCP collections are active (back-compat, and new servers stay active by default). Listed collections are excluded even if connected. Can be updated mid-conversation via the MCP config signal.
+     * @return disabledMcpCollections
+     */
+    @jakarta.annotation.Nullable public List<String> getDisabledMcpCollections() {
+        return disabledMcpCollections;
+    }
+
+    public void setDisabledMcpCollections(
+            @jakarta.annotation.Nullable List<String> disabledMcpCollections) {
+        this.disabledMcpCollections = disabledMcpCollections;
+    }
+
     public AsyncConversationExecutionPayload checkpointTokens(
             @jakarta.annotation.Nullable BigDecimal checkpointTokens) {
         this.checkpointTokens = checkpointTokens;
@@ -1021,6 +1055,9 @@ public class AsyncConversationExecutionPayload {
                 && Objects.equals(this.searchScope, asyncConversationExecutionPayload.searchScope)
                 && Objects.equals(this.collectionId, asyncConversationExecutionPayload.collectionId)
                 && Objects.equals(
+                        this.disabledMcpCollections,
+                        asyncConversationExecutionPayload.disabledMcpCollections)
+                && Objects.equals(
                         this.checkpointTokens, asyncConversationExecutionPayload.checkpointTokens)
                 && Objects.equals(this.stripOptions, asyncConversationExecutionPayload.stripOptions)
                 && Objects.equals(this.taskId, asyncConversationExecutionPayload.taskId)
@@ -1081,6 +1118,7 @@ public class AsyncConversationExecutionPayload {
                 disableInteractionTools,
                 searchScope,
                 collectionId,
+                disabledMcpCollections,
                 checkpointTokens,
                 stripOptions,
                 taskId,
@@ -1131,6 +1169,9 @@ public class AsyncConversationExecutionPayload {
                 .append("\n");
         sb.append("    searchScope: ").append(toIndentedString(searchScope)).append("\n");
         sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
+        sb.append("    disabledMcpCollections: ")
+                .append(toIndentedString(disabledMcpCollections))
+                .append("\n");
         sb.append("    checkpointTokens: ").append(toIndentedString(checkpointTokens)).append("\n");
         sb.append("    stripOptions: ").append(toIndentedString(stripOptions)).append("\n");
         sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
@@ -1196,6 +1237,7 @@ public class AsyncConversationExecutionPayload {
                                 "disable_interaction_tools",
                                 "search_scope",
                                 "collection_id",
+                                "disabled_mcp_collections",
                                 "checkpoint_tokens",
                                 "strip_options",
                                 "task_id",
@@ -1369,6 +1411,16 @@ public class AsyncConversationExecutionPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `collection_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("collection_id").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("disabled_mcp_collections") != null
+                && !jsonObj.get("disabled_mcp_collections").isJsonNull()
+                && !jsonObj.get("disabled_mcp_collections").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `disabled_mcp_collections` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("disabled_mcp_collections").toString()));
         }
         // validate the optional field `strip_options`
         if (jsonObj.get("strip_options") != null && !jsonObj.get("strip_options").isJsonNull()) {

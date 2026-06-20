@@ -181,6 +181,17 @@ public class ConversationState {
     @SerializedName(SERIALIZED_NAME_SKILL_TOOL_MAP)
     @jakarta.annotation.Nullable private Map<String, List<String>> skillToolMap;
 
+    public static final String SERIALIZED_NAME_DISABLED_MCP_COLLECTIONS =
+            "disabled_mcp_collections";
+
+    @SerializedName(SERIALIZED_NAME_DISABLED_MCP_COLLECTIONS)
+    @jakarta.annotation.Nullable private List<String> disabledMcpCollections = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_PENDING_MCP_CONNECTIONS = "pending_mcp_connections";
+
+    @SerializedName(SERIALIZED_NAME_PENDING_MCP_CONNECTIONS)
+    @jakarta.annotation.Nullable private List<PendingMcpConnection> pendingMcpConnections = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_ACTIVE_ACTIVITY_GROUP_ID =
             "active_activity_group_id";
 
@@ -782,6 +793,61 @@ public class ConversationState {
         this.skillToolMap = skillToolMap;
     }
 
+    public ConversationState disabledMcpCollections(
+            @jakarta.annotation.Nullable List<String> disabledMcpCollections) {
+        this.disabledMcpCollections = disabledMcpCollections;
+        return this;
+    }
+
+    public ConversationState addDisabledMcpCollectionsItem(String disabledMcpCollectionsItem) {
+        if (this.disabledMcpCollections == null) {
+            this.disabledMcpCollections = new ArrayList<>();
+        }
+        this.disabledMcpCollections.add(disabledMcpCollectionsItem);
+        return this;
+    }
+
+    /**
+     * Denylist of MCP tool-collection ids deactivated for this conversation. &#x60;undefined&#x60;/empty means all installed/connected MCP collections are active. Updated mid-conversation via the MCP config signal; consumed when tools are re-discovered.
+     * @return disabledMcpCollections
+     */
+    @jakarta.annotation.Nullable public List<String> getDisabledMcpCollections() {
+        return disabledMcpCollections;
+    }
+
+    public void setDisabledMcpCollections(
+            @jakarta.annotation.Nullable List<String> disabledMcpCollections) {
+        this.disabledMcpCollections = disabledMcpCollections;
+    }
+
+    public ConversationState pendingMcpConnections(
+            @jakarta.annotation.Nullable List<PendingMcpConnection> pendingMcpConnections) {
+        this.pendingMcpConnections = pendingMcpConnections;
+        return this;
+    }
+
+    public ConversationState addPendingMcpConnectionsItem(
+            PendingMcpConnection pendingMcpConnectionsItem) {
+        if (this.pendingMcpConnections == null) {
+            this.pendingMcpConnections = new ArrayList<>();
+        }
+        this.pendingMcpConnections.add(pendingMcpConnectionsItem);
+        return this;
+    }
+
+    /**
+     * MCP servers that are active (not disabled) and accessible to the user but not yet OAuth-connected. Surfaced to the agent (via discover_tools) so it can offer to connect.
+     * @return pendingMcpConnections
+     */
+    @jakarta.annotation.Nullable public List<PendingMcpConnection> getPendingMcpConnections() {
+        return pendingMcpConnections;
+    }
+
+    public void setPendingMcpConnections(
+            @jakarta.annotation.Nullable List<PendingMcpConnection> pendingMcpConnections) {
+        this.pendingMcpConnections = pendingMcpConnections;
+    }
+
     public ConversationState activeActivityGroupId(
             @jakarta.annotation.Nullable String activeActivityGroupId) {
         this.activeActivityGroupId = activeActivityGroupId;
@@ -937,6 +1003,10 @@ public class ConversationState {
                 && Objects.equals(this.latestStreamingId, conversationState.latestStreamingId)
                 && Objects.equals(this.skillToolMap, conversationState.skillToolMap)
                 && Objects.equals(
+                        this.disabledMcpCollections, conversationState.disabledMcpCollections)
+                && Objects.equals(
+                        this.pendingMcpConnections, conversationState.pendingMcpConnections)
+                && Objects.equals(
                         this.activeActivityGroupId, conversationState.activeActivityGroupId)
                 && Objects.equals(this.finishReason, conversationState.finishReason)
                 && Objects.equals(this.agentRunId, conversationState.agentRunId)
@@ -975,6 +1045,8 @@ public class ConversationState {
                 latestActivityId,
                 latestStreamingId,
                 skillToolMap,
+                disabledMcpCollections,
+                pendingMcpConnections,
                 activeActivityGroupId,
                 finishReason,
                 agentRunId,
@@ -1021,6 +1093,12 @@ public class ConversationState {
                 .append(toIndentedString(latestStreamingId))
                 .append("\n");
         sb.append("    skillToolMap: ").append(toIndentedString(skillToolMap)).append("\n");
+        sb.append("    disabledMcpCollections: ")
+                .append(toIndentedString(disabledMcpCollections))
+                .append("\n");
+        sb.append("    pendingMcpConnections: ")
+                .append(toIndentedString(pendingMcpConnections))
+                .append("\n");
         sb.append("    activeActivityGroupId: ")
                 .append(toIndentedString(activeActivityGroupId))
                 .append("\n");
@@ -1077,6 +1155,8 @@ public class ConversationState {
                                 "latest_activity_id",
                                 "latest_streaming_id",
                                 "skill_tool_map",
+                                "disabled_mcp_collections",
+                                "pending_mcp_connections",
                                 "active_activity_group_id",
                                 "finish_reason",
                                 "agent_run_id",
@@ -1329,6 +1409,37 @@ public class ConversationState {
                             java.util.Locale.ROOT,
                             "Expected the field `latest_streaming_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("latest_streaming_id").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("disabled_mcp_collections") != null
+                && !jsonObj.get("disabled_mcp_collections").isJsonNull()
+                && !jsonObj.get("disabled_mcp_collections").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `disabled_mcp_collections` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("disabled_mcp_collections").toString()));
+        }
+        if (jsonObj.get("pending_mcp_connections") != null
+                && !jsonObj.get("pending_mcp_connections").isJsonNull()) {
+            JsonArray jsonArraypendingMcpConnections =
+                    jsonObj.getAsJsonArray("pending_mcp_connections");
+            if (jsonArraypendingMcpConnections != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("pending_mcp_connections").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `pending_mcp_connections` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("pending_mcp_connections").toString()));
+                }
+
+                // validate the optional field `pending_mcp_connections` (array)
+                for (int i = 0; i < jsonArraypendingMcpConnections.size(); i++) {
+                    PendingMcpConnection.validateJsonElement(jsonArraypendingMcpConnections.get(i));
+                }
+                ;
+            }
         }
         if ((jsonObj.get("active_activity_group_id") != null
                         && !jsonObj.get("active_activity_group_id").isJsonNull())

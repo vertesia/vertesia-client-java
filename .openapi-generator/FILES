@@ -546,6 +546,7 @@ src/main/java/io/vertesia/model/PartialWebsiteCredentialMetadata.java
 src/main/java/io/vertesia/model/PdfRenderingMetadata.java
 src/main/java/io/vertesia/model/PdfToRichtextOptions.java
 src/main/java/io/vertesia/model/PendingActivity.java
+src/main/java/io/vertesia/model/PendingMcpConnection.java
 src/main/java/io/vertesia/model/Permission.java
 src/main/java/io/vertesia/model/PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode.java
 src/main/java/io/vertesia/model/Plan.java

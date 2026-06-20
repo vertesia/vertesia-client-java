@@ -72,6 +72,12 @@ public class AutonomousRunResponse {
     @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
     @jakarta.annotation.Nullable private String collectionId;
 
+    public static final String SERIALIZED_NAME_DISABLED_MCP_COLLECTIONS =
+            "disabled_mcp_collections";
+
+    @SerializedName(SERIALIZED_NAME_DISABLED_MCP_COLLECTIONS)
+    @jakarta.annotation.Nullable private List<String> disabledMcpCollections = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_CONTENT_TYPE = "content_type";
 
     @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
@@ -480,6 +486,33 @@ public class AutonomousRunResponse {
 
     public void setCollectionId(@jakarta.annotation.Nullable String collectionId) {
         this.collectionId = collectionId;
+    }
+
+    public AutonomousRunResponse disabledMcpCollections(
+            @jakarta.annotation.Nullable List<String> disabledMcpCollections) {
+        this.disabledMcpCollections = disabledMcpCollections;
+        return this;
+    }
+
+    public AutonomousRunResponse addDisabledMcpCollectionsItem(String disabledMcpCollectionsItem) {
+        if (this.disabledMcpCollections == null) {
+            this.disabledMcpCollections = new ArrayList<>();
+        }
+        this.disabledMcpCollections.add(disabledMcpCollectionsItem);
+        return this;
+    }
+
+    /**
+     * Denylist of MCP tool-collection ids deactivated for this run. &#x60;undefined&#x60;/empty means all installed/connected MCP collections are active (back-compat, and new servers stay active by default). Listed collections are excluded even if connected.
+     * @return disabledMcpCollections
+     */
+    @jakarta.annotation.Nullable public List<String> getDisabledMcpCollections() {
+        return disabledMcpCollections;
+    }
+
+    public void setDisabledMcpCollections(
+            @jakarta.annotation.Nullable List<String> disabledMcpCollections) {
+        this.disabledMcpCollections = disabledMcpCollections;
     }
 
     public AutonomousRunResponse contentType(
@@ -1181,6 +1214,8 @@ public class AutonomousRunResponse {
                 && Objects.equals(this.interactive, autonomousRunResponse.interactive)
                 && Objects.equals(this.toolNames, autonomousRunResponse.toolNames)
                 && Objects.equals(this.collectionId, autonomousRunResponse.collectionId)
+                && Objects.equals(
+                        this.disabledMcpCollections, autonomousRunResponse.disabledMcpCollections)
                 && Objects.equals(this.contentType, autonomousRunResponse.contentType)
                 && Objects.equals(this.visibility, autonomousRunResponse.visibility)
                 && Objects.equals(this.tags, autonomousRunResponse.tags)
@@ -1228,6 +1263,7 @@ public class AutonomousRunResponse {
                 interactive,
                 toolNames,
                 collectionId,
+                disabledMcpCollections,
                 contentType,
                 visibility,
                 tags,
@@ -1275,6 +1311,9 @@ public class AutonomousRunResponse {
         sb.append("    interactive: ").append(toIndentedString(interactive)).append("\n");
         sb.append("    toolNames: ").append(toIndentedString(toolNames)).append("\n");
         sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
+        sb.append("    disabledMcpCollections: ")
+                .append(toIndentedString(disabledMcpCollections))
+                .append("\n");
         sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
         sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -1340,6 +1379,7 @@ public class AutonomousRunResponse {
                                 "interactive",
                                 "tool_names",
                                 "collection_id",
+                                "disabled_mcp_collections",
                                 "content_type",
                                 "visibility",
                                 "tags",
@@ -1451,6 +1491,16 @@ public class AutonomousRunResponse {
                             java.util.Locale.ROOT,
                             "Expected the field `collection_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("collection_id").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("disabled_mcp_collections") != null
+                && !jsonObj.get("disabled_mcp_collections").isJsonNull()
+                && !jsonObj.get("disabled_mcp_collections").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `disabled_mcp_collections` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("disabled_mcp_collections").toString()));
         }
         // validate the optional field `content_type`
         if (jsonObj.get("content_type") != null && !jsonObj.get("content_type").isJsonNull()) {
