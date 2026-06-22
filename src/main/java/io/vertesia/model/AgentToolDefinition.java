@@ -80,11 +80,10 @@ public class AgentToolDefinition {
     @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
     @jakarta.annotation.Nullable private MCPToolAnnotations annotations;
 
-    public static final String SERIALIZED_NAME_REQUIRES_USER_CONFIRMATION =
-            "requires_user_confirmation";
+    public static final String SERIALIZED_NAME_APPROVAL_CLASS = "approval_class";
 
-    @SerializedName(SERIALIZED_NAME_REQUIRES_USER_CONFIRMATION)
-    @jakarta.annotation.Nullable private Boolean requiresUserConfirmation;
+    @SerializedName(SERIALIZED_NAME_APPROVAL_CLASS)
+    @jakarta.annotation.Nullable private AgentToolApprovalClass approvalClass;
 
     public AgentToolDefinition() {}
 
@@ -244,23 +243,23 @@ public class AgentToolDefinition {
         this.annotations = annotations;
     }
 
-    public AgentToolDefinition requiresUserConfirmation(
-            @jakarta.annotation.Nullable Boolean requiresUserConfirmation) {
-        this.requiresUserConfirmation = requiresUserConfirmation;
+    public AgentToolDefinition approvalClass(
+            @jakarta.annotation.Nullable AgentToolApprovalClass approvalClass) {
+        this.approvalClass = approvalClass;
         return this;
     }
 
     /**
-     * When true, agents must obtain explicit user confirmation via &#x60;ask_user&#x60; (Yes/No) before invoking this tool. If the user answers No, the tool must not run and should return an error indicating the user declined.  Stronger than &#x60;annotations.destructiveHint&#x60; (which is only a hint) — this is a hard contract the agent is expected to honor. Set on tools that perform irreversible or destructive actions (e.g. delete_*).
-     * @return requiresUserConfirmation
+     * Approval classification used by interactive agent approval modes. Use &#x60;requires_confirmation&#x60; for actions that must prompt even in full-control mode.
+     * @return approvalClass
      */
-    @jakarta.annotation.Nullable public Boolean getRequiresUserConfirmation() {
-        return requiresUserConfirmation;
+    @jakarta.annotation.Nullable public AgentToolApprovalClass getApprovalClass() {
+        return approvalClass;
     }
 
-    public void setRequiresUserConfirmation(
-            @jakarta.annotation.Nullable Boolean requiresUserConfirmation) {
-        this.requiresUserConfirmation = requiresUserConfirmation;
+    public void setApprovalClass(
+            @jakarta.annotation.Nullable AgentToolApprovalClass approvalClass) {
+        this.approvalClass = approvalClass;
     }
 
     @Override
@@ -280,9 +279,7 @@ public class AgentToolDefinition {
                 && Objects.equals(this._default, agentToolDefinition._default)
                 && Objects.equals(this.tools, agentToolDefinition.tools)
                 && Objects.equals(this.annotations, agentToolDefinition.annotations)
-                && Objects.equals(
-                        this.requiresUserConfirmation,
-                        agentToolDefinition.requiresUserConfirmation);
+                && Objects.equals(this.approvalClass, agentToolDefinition.approvalClass);
     }
 
     @Override
@@ -296,7 +293,7 @@ public class AgentToolDefinition {
                 _default,
                 tools,
                 annotations,
-                requiresUserConfirmation);
+                approvalClass);
     }
 
     @Override
@@ -311,9 +308,7 @@ public class AgentToolDefinition {
         sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
         sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
         sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
-        sb.append("    requiresUserConfirmation: ")
-                .append(toIndentedString(requiresUserConfirmation))
-                .append("\n");
+        sb.append("    approvalClass: ").append(toIndentedString(approvalClass)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -342,7 +337,7 @@ public class AgentToolDefinition {
                                 "default",
                                 "tools",
                                 "annotations",
-                                "requires_user_confirmation"));
+                                "approval_class"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "input_schema"));
@@ -422,6 +417,10 @@ public class AgentToolDefinition {
         // validate the optional field `annotations`
         if (jsonObj.get("annotations") != null && !jsonObj.get("annotations").isJsonNull()) {
             MCPToolAnnotations.validateJsonElement(jsonObj.get("annotations"));
+        }
+        // validate the optional field `approval_class`
+        if (jsonObj.get("approval_class") != null && !jsonObj.get("approval_class").isJsonNull()) {
+            AgentToolApprovalClass.validateJsonElement(jsonObj.get("approval_class"));
         }
     }
 

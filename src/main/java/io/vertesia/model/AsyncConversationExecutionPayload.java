@@ -162,6 +162,11 @@ public class AsyncConversationExecutionPayload {
     @SerializedName(SERIALIZED_NAME_TASK_QUEUE)
     @jakarta.annotation.Nullable private String taskQueue;
 
+    public static final String SERIALIZED_NAME_TOOL_APPROVAL_MODE = "tool_approval_mode";
+
+    @SerializedName(SERIALIZED_NAME_TOOL_APPROVAL_MODE)
+    @jakarta.annotation.Nullable private AgentToolApprovalMode toolApprovalMode;
+
     public static final String SERIALIZED_NAME_VISIBILITY = "visibility";
 
     @SerializedName(SERIALIZED_NAME_VISIBILITY)
@@ -536,6 +541,25 @@ public class AsyncConversationExecutionPayload {
 
     public void setTaskQueue(@jakarta.annotation.Nullable String taskQueue) {
         this.taskQueue = taskQueue;
+    }
+
+    public AsyncConversationExecutionPayload toolApprovalMode(
+            @jakarta.annotation.Nullable AgentToolApprovalMode toolApprovalMode) {
+        this.toolApprovalMode = toolApprovalMode;
+        return this;
+    }
+
+    /**
+     * Effective tool approval mode for interactive agent conversations.
+     * @return toolApprovalMode
+     */
+    @jakarta.annotation.Nullable public AgentToolApprovalMode getToolApprovalMode() {
+        return toolApprovalMode;
+    }
+
+    public void setToolApprovalMode(
+            @jakarta.annotation.Nullable AgentToolApprovalMode toolApprovalMode) {
+        this.toolApprovalMode = toolApprovalMode;
     }
 
     public AsyncConversationExecutionPayload visibility(
@@ -1043,6 +1067,8 @@ public class AsyncConversationExecutionPayload {
                 && Objects.equals(
                         this.notifyEndpoints, asyncConversationExecutionPayload.notifyEndpoints)
                 && Objects.equals(this.taskQueue, asyncConversationExecutionPayload.taskQueue)
+                && Objects.equals(
+                        this.toolApprovalMode, asyncConversationExecutionPayload.toolApprovalMode)
                 && Objects.equals(this.visibility, asyncConversationExecutionPayload.visibility)
                 && Objects.equals(this.toolNames, asyncConversationExecutionPayload.toolNames)
                 && Objects.equals(
@@ -1110,6 +1136,7 @@ public class AsyncConversationExecutionPayload {
                 type,
                 notifyEndpoints,
                 taskQueue,
+                toolApprovalMode,
                 visibility,
                 toolNames,
                 maxIterations,
@@ -1159,6 +1186,7 @@ public class AsyncConversationExecutionPayload {
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    notifyEndpoints: ").append(toIndentedString(notifyEndpoints)).append("\n");
         sb.append("    taskQueue: ").append(toIndentedString(taskQueue)).append("\n");
+        sb.append("    toolApprovalMode: ").append(toIndentedString(toolApprovalMode)).append("\n");
         sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
         sb.append("    toolNames: ").append(toIndentedString(toolNames)).append("\n");
         sb.append("    maxIterations: ").append(toIndentedString(maxIterations)).append("\n");
@@ -1229,6 +1257,7 @@ public class AsyncConversationExecutionPayload {
                                 "type",
                                 "notify_endpoints",
                                 "task_queue",
+                                "tool_approval_mode",
                                 "visibility",
                                 "tool_names",
                                 "max_iterations",
@@ -1366,6 +1395,11 @@ public class AsyncConversationExecutionPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `task_queue` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("task_queue").toString()));
+        }
+        // validate the optional field `tool_approval_mode`
+        if (jsonObj.get("tool_approval_mode") != null
+                && !jsonObj.get("tool_approval_mode").isJsonNull()) {
+            AgentToolApprovalMode.validateJsonElement(jsonObj.get("tool_approval_mode"));
         }
         // validate the optional field `visibility`
         if (jsonObj.get("visibility") != null && !jsonObj.get("visibility").isJsonNull()) {

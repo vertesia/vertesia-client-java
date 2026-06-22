@@ -87,6 +87,8 @@ src/main/java/io/vertesia/model/AgentSearchScopeCollection.java
 src/main/java/io/vertesia/model/AgentTask.java
 src/main/java/io/vertesia/model/AgentTaskError.java
 src/main/java/io/vertesia/model/AgentTokenRequest.java
+src/main/java/io/vertesia/model/AgentToolApprovalClass.java
+src/main/java/io/vertesia/model/AgentToolApprovalMode.java
 src/main/java/io/vertesia/model/AgentToolDefinition.java
 src/main/java/io/vertesia/model/AggregatedTool.java
 src/main/java/io/vertesia/model/AlterTableOperation.java
@@ -547,6 +549,7 @@ src/main/java/io/vertesia/model/PdfRenderingMetadata.java
 src/main/java/io/vertesia/model/PdfToRichtextOptions.java
 src/main/java/io/vertesia/model/PendingActivity.java
 src/main/java/io/vertesia/model/PendingMcpConnection.java
+src/main/java/io/vertesia/model/PendingToolApprovalResults.java
 src/main/java/io/vertesia/model/Permission.java
 src/main/java/io/vertesia/model/PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode.java
 src/main/java/io/vertesia/model/Plan.java
@@ -715,10 +718,12 @@ src/main/java/io/vertesia/model/ThinkingLevel.java
 src/main/java/io/vertesia/model/TimeResolution.java
 src/main/java/io/vertesia/model/TimerTask.java
 src/main/java/io/vertesia/model/ToolActivationMetadata.java
+src/main/java/io/vertesia/model/ToolApprovalGrant.java
 src/main/java/io/vertesia/model/ToolCollectionAuthType.java
 src/main/java/io/vertesia/model/ToolCollectionObject.java
 src/main/java/io/vertesia/model/ToolDefinition.java
 src/main/java/io/vertesia/model/ToolReference.java
+src/main/java/io/vertesia/model/ToolResult.java
 src/main/java/io/vertesia/model/ToolSource.java
 src/main/java/io/vertesia/model/ToolUse.java
 src/main/java/io/vertesia/model/ToolValidationResult.java

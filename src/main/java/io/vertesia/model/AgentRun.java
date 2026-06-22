@@ -62,6 +62,11 @@ public class AgentRun {
     @SerializedName(SERIALIZED_NAME_INTERACTIVE)
     @jakarta.annotation.Nullable private Boolean interactive;
 
+    public static final String SERIALIZED_NAME_TOOL_APPROVAL_MODE = "tool_approval_mode";
+
+    @SerializedName(SERIALIZED_NAME_TOOL_APPROVAL_MODE)
+    @jakarta.annotation.Nullable private AgentToolApprovalMode toolApprovalMode;
+
     public static final String SERIALIZED_NAME_TOOL_NAMES = "tool_names";
 
     @SerializedName(SERIALIZED_NAME_TOOL_NAMES)
@@ -443,6 +448,25 @@ public class AgentRun {
 
     public void setInteractive(@jakarta.annotation.Nullable Boolean interactive) {
         this.interactive = interactive;
+    }
+
+    public AgentRun toolApprovalMode(
+            @jakarta.annotation.Nullable AgentToolApprovalMode toolApprovalMode) {
+        this.toolApprovalMode = toolApprovalMode;
+        return this;
+    }
+
+    /**
+     * How side-effecting tool actions are approved for interactive runs.
+     * @return toolApprovalMode
+     */
+    @jakarta.annotation.Nullable public AgentToolApprovalMode getToolApprovalMode() {
+        return toolApprovalMode;
+    }
+
+    public void setToolApprovalMode(
+            @jakarta.annotation.Nullable AgentToolApprovalMode toolApprovalMode) {
+        this.toolApprovalMode = toolApprovalMode;
     }
 
     public AgentRun toolNames(@jakarta.annotation.Nullable List<String> toolNames) {
@@ -1199,6 +1223,7 @@ public class AgentRun {
                 && Objects.equals(this.data, agentRun.data)
                 && Objects.equals(this.config, agentRun.config)
                 && Objects.equals(this.interactive, agentRun.interactive)
+                && Objects.equals(this.toolApprovalMode, agentRun.toolApprovalMode)
                 && Objects.equals(this.toolNames, agentRun.toolNames)
                 && Objects.equals(this.collectionId, agentRun.collectionId)
                 && Objects.equals(this.disabledMcpCollections, agentRun.disabledMcpCollections)
@@ -1246,6 +1271,7 @@ public class AgentRun {
                 data,
                 config,
                 interactive,
+                toolApprovalMode,
                 toolNames,
                 collectionId,
                 disabledMcpCollections,
@@ -1294,6 +1320,7 @@ public class AgentRun {
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    config: ").append(toIndentedString(config)).append("\n");
         sb.append("    interactive: ").append(toIndentedString(interactive)).append("\n");
+        sb.append("    toolApprovalMode: ").append(toIndentedString(toolApprovalMode)).append("\n");
         sb.append("    toolNames: ").append(toIndentedString(toolNames)).append("\n");
         sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
         sb.append("    disabledMcpCollections: ")
@@ -1362,6 +1389,7 @@ public class AgentRun {
                                 "data",
                                 "config",
                                 "interactive",
+                                "tool_approval_mode",
                                 "tool_names",
                                 "collection_id",
                                 "disabled_mcp_collections",
@@ -1458,6 +1486,11 @@ public class AgentRun {
         // validate the optional field `config`
         if (jsonObj.get("config") != null && !jsonObj.get("config").isJsonNull()) {
             InteractionExecutionConfiguration.validateJsonElement(jsonObj.get("config"));
+        }
+        // validate the optional field `tool_approval_mode`
+        if (jsonObj.get("tool_approval_mode") != null
+                && !jsonObj.get("tool_approval_mode").isJsonNull()) {
+            AgentToolApprovalMode.validateJsonElement(jsonObj.get("tool_approval_mode"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("tool_names") != null

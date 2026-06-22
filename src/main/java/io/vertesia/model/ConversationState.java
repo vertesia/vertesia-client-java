@@ -62,6 +62,27 @@ public class ConversationState {
     @SerializedName(SERIALIZED_NAME_TOOL_USE)
     @jakarta.annotation.Nullable private List<ToolUse> toolUse = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_TOOL_APPROVAL_MODE = "tool_approval_mode";
+
+    @SerializedName(SERIALIZED_NAME_TOOL_APPROVAL_MODE)
+    @jakarta.annotation.Nullable private AgentToolApprovalMode toolApprovalMode;
+
+    public static final String SERIALIZED_NAME_TOOL_APPROVAL_GRANTS = "tool_approval_grants";
+
+    @SerializedName(SERIALIZED_NAME_TOOL_APPROVAL_GRANTS)
+    @jakarta.annotation.Nullable private Map<String, ToolApprovalGrant> toolApprovalGrants;
+
+    public static final String SERIALIZED_NAME_PENDING_TOOL_APPROVAL_RESULTS =
+            "pending_tool_approval_results";
+
+    @SerializedName(SERIALIZED_NAME_PENDING_TOOL_APPROVAL_RESULTS)
+    @jakarta.annotation.Nullable private PendingToolApprovalResults pendingToolApprovalResults;
+
+    public static final String SERIALIZED_NAME_LATEST_USER_MESSAGE = "latest_user_message";
+
+    @SerializedName(SERIALIZED_NAME_LATEST_USER_MESSAGE)
+    @jakarta.annotation.Nullable private String latestUserMessage;
+
     public static final String SERIALIZED_NAME_OUTPUT = "output";
 
     @SerializedName(SERIALIZED_NAME_OUTPUT)
@@ -293,6 +314,90 @@ public class ConversationState {
 
     public void setToolUse(@jakarta.annotation.Nullable List<ToolUse> toolUse) {
         this.toolUse = toolUse;
+    }
+
+    public ConversationState toolApprovalMode(
+            @jakarta.annotation.Nullable AgentToolApprovalMode toolApprovalMode) {
+        this.toolApprovalMode = toolApprovalMode;
+        return this;
+    }
+
+    /**
+     * Effective side-effecting tool approval mode for this interactive conversation.
+     * @return toolApprovalMode
+     */
+    @jakarta.annotation.Nullable public AgentToolApprovalMode getToolApprovalMode() {
+        return toolApprovalMode;
+    }
+
+    public void setToolApprovalMode(
+            @jakarta.annotation.Nullable AgentToolApprovalMode toolApprovalMode) {
+        this.toolApprovalMode = toolApprovalMode;
+    }
+
+    public ConversationState toolApprovalGrants(
+            @jakarta.annotation.Nullable Map<String, ToolApprovalGrant> toolApprovalGrants) {
+        this.toolApprovalGrants = toolApprovalGrants;
+        return this;
+    }
+
+    public ConversationState putToolApprovalGrantsItem(
+            String key, ToolApprovalGrant toolApprovalGrantsItem) {
+        if (this.toolApprovalGrants == null) {
+            this.toolApprovalGrants = new HashMap<>();
+        }
+        this.toolApprovalGrants.put(key, toolApprovalGrantsItem);
+        return this;
+    }
+
+    /**
+     * Run-scoped, exact-target grants created by \&quot;allow this action for this run\&quot;.
+     * @return toolApprovalGrants
+     */
+    @jakarta.annotation.Nullable public Map<String, ToolApprovalGrant> getToolApprovalGrants() {
+        return toolApprovalGrants;
+    }
+
+    public void setToolApprovalGrants(
+            @jakarta.annotation.Nullable Map<String, ToolApprovalGrant> toolApprovalGrants) {
+        this.toolApprovalGrants = toolApprovalGrants;
+    }
+
+    public ConversationState pendingToolApprovalResults(
+            @jakarta.annotation.Nullable PendingToolApprovalResults pendingToolApprovalResults) {
+        this.pendingToolApprovalResults = pendingToolApprovalResults;
+        return this;
+    }
+
+    /**
+     * Buffered tool results held while approval denial pauses until the next user message.
+     * @return pendingToolApprovalResults
+     */
+    @jakarta.annotation.Nullable public PendingToolApprovalResults getPendingToolApprovalResults() {
+        return pendingToolApprovalResults;
+    }
+
+    public void setPendingToolApprovalResults(
+            @jakarta.annotation.Nullable PendingToolApprovalResults pendingToolApprovalResults) {
+        this.pendingToolApprovalResults = pendingToolApprovalResults;
+    }
+
+    public ConversationState latestUserMessage(
+            @jakarta.annotation.Nullable String latestUserMessage) {
+        this.latestUserMessage = latestUserMessage;
+        return this;
+    }
+
+    /**
+     * Compact, redacted latest user intent for reviewer-style system interactions.
+     * @return latestUserMessage
+     */
+    @jakarta.annotation.Nullable public String getLatestUserMessage() {
+        return latestUserMessage;
+    }
+
+    public void setLatestUserMessage(@jakarta.annotation.Nullable String latestUserMessage) {
+        this.latestUserMessage = latestUserMessage;
     }
 
     public ConversationState output(@jakarta.annotation.Nonnull List<CompletionResult> output) {
@@ -976,6 +1081,12 @@ public class ConversationState {
                 && Objects.equals(this.environment, conversationState.environment)
                 && Objects.equals(this.options, conversationState.options)
                 && Objects.equals(this.toolUse, conversationState.toolUse)
+                && Objects.equals(this.toolApprovalMode, conversationState.toolApprovalMode)
+                && Objects.equals(this.toolApprovalGrants, conversationState.toolApprovalGrants)
+                && Objects.equals(
+                        this.pendingToolApprovalResults,
+                        conversationState.pendingToolApprovalResults)
+                && Objects.equals(this.latestUserMessage, conversationState.latestUserMessage)
                 && Objects.equals(this.output, conversationState.output)
                 && Objects.equals(this.tokenUsage, conversationState.tokenUsage)
                 && Objects.equals(this.parent, conversationState.parent)
@@ -1022,6 +1133,10 @@ public class ConversationState {
                 environment,
                 options,
                 toolUse,
+                toolApprovalMode,
+                toolApprovalGrants,
+                pendingToolApprovalResults,
+                latestUserMessage,
                 output,
                 tokenUsage,
                 parent,
@@ -1062,6 +1177,16 @@ public class ConversationState {
         sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    options: ").append(toIndentedString(options)).append("\n");
         sb.append("    toolUse: ").append(toIndentedString(toolUse)).append("\n");
+        sb.append("    toolApprovalMode: ").append(toIndentedString(toolApprovalMode)).append("\n");
+        sb.append("    toolApprovalGrants: ")
+                .append(toIndentedString(toolApprovalGrants))
+                .append("\n");
+        sb.append("    pendingToolApprovalResults: ")
+                .append(toIndentedString(pendingToolApprovalResults))
+                .append("\n");
+        sb.append("    latestUserMessage: ")
+                .append(toIndentedString(latestUserMessage))
+                .append("\n");
         sb.append("    output: ").append(toIndentedString(output)).append("\n");
         sb.append("    tokenUsage: ").append(toIndentedString(tokenUsage)).append("\n");
         sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
@@ -1132,6 +1257,10 @@ public class ConversationState {
                                 "environment",
                                 "options",
                                 "tool_use",
+                                "tool_approval_mode",
+                                "tool_approval_grants",
+                                "pending_tool_approval_results",
+                                "latest_user_message",
                                 "output",
                                 "token_usage",
                                 "parent",
@@ -1227,6 +1356,26 @@ public class ConversationState {
                 }
                 ;
             }
+        }
+        // validate the optional field `tool_approval_mode`
+        if (jsonObj.get("tool_approval_mode") != null
+                && !jsonObj.get("tool_approval_mode").isJsonNull()) {
+            AgentToolApprovalMode.validateJsonElement(jsonObj.get("tool_approval_mode"));
+        }
+        // validate the optional field `pending_tool_approval_results`
+        if (jsonObj.get("pending_tool_approval_results") != null
+                && !jsonObj.get("pending_tool_approval_results").isJsonNull()) {
+            PendingToolApprovalResults.validateJsonElement(
+                    jsonObj.get("pending_tool_approval_results"));
+        }
+        if ((jsonObj.get("latest_user_message") != null
+                        && !jsonObj.get("latest_user_message").isJsonNull())
+                && !jsonObj.get("latest_user_message").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `latest_user_message` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("latest_user_message").toString()));
         }
         if (jsonObj.get("output") != null) {
             if (!jsonObj.get("output").isJsonArray()) {
