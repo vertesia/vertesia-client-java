@@ -109,6 +109,12 @@ public class OAuthClientCreateResponse {
     @SerializedName(SERIALIZED_NAME_FIXED_PROJECT_ID)
     @jakarta.annotation.Nullable private String fixedProjectId;
 
+    public static final String SERIALIZED_NAME_RESTRICT_TO_OWNER_ACCOUNT =
+            "restrict_to_owner_account";
+
+    @SerializedName(SERIALIZED_NAME_RESTRICT_TO_OWNER_ACCOUNT)
+    @jakarta.annotation.Nullable private Boolean restrictToOwnerAccount;
+
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
@@ -418,6 +424,25 @@ public class OAuthClientCreateResponse {
         this.fixedProjectId = fixedProjectId;
     }
 
+    public OAuthClientCreateResponse restrictToOwnerAccount(
+            @jakarta.annotation.Nullable Boolean restrictToOwnerAccount) {
+        this.restrictToOwnerAccount = restrictToOwnerAccount;
+        return this;
+    }
+
+    /**
+     * When true (the default for new clients), the client may only be authorized for projects in its owning account/organization. Set to false to allow authorization for any project the approving user can access, regardless of account — required for OAuth/MCP clients used across organizations. The owning account itself is internal and not exposed here.
+     * @return restrictToOwnerAccount
+     */
+    @jakarta.annotation.Nullable public Boolean getRestrictToOwnerAccount() {
+        return restrictToOwnerAccount;
+    }
+
+    public void setRestrictToOwnerAccount(
+            @jakarta.annotation.Nullable Boolean restrictToOwnerAccount) {
+        this.restrictToOwnerAccount = restrictToOwnerAccount;
+    }
+
     public OAuthClientCreateResponse metadata(
             @jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
@@ -577,6 +602,9 @@ public class OAuthClientCreateResponse {
                 && Objects.equals(
                         this.projectBindingMode, oauthClientCreateResponse.projectBindingMode)
                 && Objects.equals(this.fixedProjectId, oauthClientCreateResponse.fixedProjectId)
+                && Objects.equals(
+                        this.restrictToOwnerAccount,
+                        oauthClientCreateResponse.restrictToOwnerAccount)
                 && Objects.equals(this.metadata, oauthClientCreateResponse.metadata)
                 && Objects.equals(this.createdBy, oauthClientCreateResponse.createdBy)
                 && Objects.equals(
@@ -603,6 +631,7 @@ public class OAuthClientCreateResponse {
                 status,
                 projectBindingMode,
                 fixedProjectId,
+                restrictToOwnerAccount,
                 metadata,
                 createdBy,
                 clientSecretConfigured,
@@ -634,6 +663,9 @@ public class OAuthClientCreateResponse {
                 .append(toIndentedString(projectBindingMode))
                 .append("\n");
         sb.append("    fixedProjectId: ").append(toIndentedString(fixedProjectId)).append("\n");
+        sb.append("    restrictToOwnerAccount: ")
+                .append(toIndentedString(restrictToOwnerAccount))
+                .append("\n");
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    clientSecretConfigured: ")
@@ -675,6 +707,7 @@ public class OAuthClientCreateResponse {
                                 "status",
                                 "project_binding_mode",
                                 "fixed_project_id",
+                                "restrict_to_owner_account",
                                 "metadata",
                                 "created_by",
                                 "client_secret_configured",

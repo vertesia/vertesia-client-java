@@ -423,6 +423,9 @@ public class JSON {
                                                 "vertexai-gemini",
                                                 io.vertesia.model.VertexAIGeminiOptions.class);
                                         classByDiscriminatorValue.put(
+                                                "vertexai-grok",
+                                                io.vertesia.model.VertexAIGrokOptions.class);
+                                        classByDiscriminatorValue.put(
                                                 "vertexai-imagen",
                                                 io.vertesia.model.ImagenOptions.class);
                                         classByDiscriminatorValue.put(
@@ -1890,6 +1893,8 @@ public class JSON {
                 new io.vertesia.model.VertexAIClaudeOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.VertexAIGeminiOptions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.VertexAIGrokOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.VideoMetadata.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

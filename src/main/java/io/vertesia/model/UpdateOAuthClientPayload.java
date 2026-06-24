@@ -89,6 +89,12 @@ public class UpdateOAuthClientPayload {
     @SerializedName(SERIALIZED_NAME_FIXED_PROJECT_ID)
     @jakarta.annotation.Nullable private String fixedProjectId;
 
+    public static final String SERIALIZED_NAME_RESTRICT_TO_OWNER_ACCOUNT =
+            "restrict_to_owner_account";
+
+    @SerializedName(SERIALIZED_NAME_RESTRICT_TO_OWNER_ACCOUNT)
+    @jakarta.annotation.Nullable private Boolean restrictToOwnerAccount;
+
     public static final String SERIALIZED_NAME_CLIENT_SECRET = "client_secret";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_SECRET)
@@ -322,6 +328,25 @@ public class UpdateOAuthClientPayload {
         this.fixedProjectId = fixedProjectId;
     }
 
+    public UpdateOAuthClientPayload restrictToOwnerAccount(
+            @jakarta.annotation.Nullable Boolean restrictToOwnerAccount) {
+        this.restrictToOwnerAccount = restrictToOwnerAccount;
+        return this;
+    }
+
+    /**
+     * Get restrictToOwnerAccount
+     * @return restrictToOwnerAccount
+     */
+    @jakarta.annotation.Nullable public Boolean getRestrictToOwnerAccount() {
+        return restrictToOwnerAccount;
+    }
+
+    public void setRestrictToOwnerAccount(
+            @jakarta.annotation.Nullable Boolean restrictToOwnerAccount) {
+        this.restrictToOwnerAccount = restrictToOwnerAccount;
+    }
+
     public UpdateOAuthClientPayload clientSecret(@jakarta.annotation.Nullable String clientSecret) {
         this.clientSecret = clientSecret;
         return this;
@@ -387,6 +412,9 @@ public class UpdateOAuthClientPayload {
                 && Objects.equals(
                         this.projectBindingMode, updateOAuthClientPayload.projectBindingMode)
                 && Objects.equals(this.fixedProjectId, updateOAuthClientPayload.fixedProjectId)
+                && Objects.equals(
+                        this.restrictToOwnerAccount,
+                        updateOAuthClientPayload.restrictToOwnerAccount)
                 && Objects.equals(this.clientSecret, updateOAuthClientPayload.clientSecret)
                 && Objects.equals(this.metadata, updateOAuthClientPayload.metadata);
     }
@@ -404,6 +432,7 @@ public class UpdateOAuthClientPayload {
                 status,
                 projectBindingMode,
                 fixedProjectId,
+                restrictToOwnerAccount,
                 clientSecret,
                 metadata);
     }
@@ -426,6 +455,9 @@ public class UpdateOAuthClientPayload {
                 .append(toIndentedString(projectBindingMode))
                 .append("\n");
         sb.append("    fixedProjectId: ").append(toIndentedString(fixedProjectId)).append("\n");
+        sb.append("    restrictToOwnerAccount: ")
+                .append(toIndentedString(restrictToOwnerAccount))
+                .append("\n");
         sb.append("    clientSecret: ").append(toIndentedString(clientSecret)).append("\n");
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
         sb.append("}");
@@ -458,6 +490,7 @@ public class UpdateOAuthClientPayload {
                                 "status",
                                 "project_binding_mode",
                                 "fixed_project_id",
+                                "restrict_to_owner_account",
                                 "client_secret",
                                 "metadata"));
 

@@ -759,6 +759,7 @@ src/main/java/io/vertesia/model/VectorSearchQuery.java
 src/main/java/io/vertesia/model/VertesiaSDKToolCollectionObject.java
 src/main/java/io/vertesia/model/VertexAIClaudeOptions.java
 src/main/java/io/vertesia/model/VertexAIGeminiOptions.java
+src/main/java/io/vertesia/model/VertexAIGrokOptions.java
 src/main/java/io/vertesia/model/VideoMetadata.java
 src/main/java/io/vertesia/model/VirtualEnvEntry.java
 src/main/java/io/vertesia/model/WebsiteCredentialCapability.java
