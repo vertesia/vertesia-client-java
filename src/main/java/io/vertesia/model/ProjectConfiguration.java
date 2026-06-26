@@ -83,6 +83,11 @@ public class ProjectConfiguration {
     @SerializedName(SERIALIZED_NAME_INDEXING)
     @jakarta.annotation.Nullable private ProjectConfigurationIndexing indexing;
 
+    public static final String SERIALIZED_NAME_INTAKE = "intake";
+
+    @SerializedName(SERIALIZED_NAME_INTAKE)
+    @jakarta.annotation.Nullable private ProjectIntakeConfiguration intake;
+
     public static final String SERIALIZED_NAME_MAIN_LANGUAGE = "main_language";
 
     @SerializedName(SERIALIZED_NAME_MAIN_LANGUAGE)
@@ -264,6 +269,24 @@ public class ProjectConfiguration {
         this.indexing = indexing;
     }
 
+    public ProjectConfiguration intake(
+            @jakarta.annotation.Nullable ProjectIntakeConfiguration intake) {
+        this.intake = intake;
+        return this;
+    }
+
+    /**
+     * Standard content intake behavior.
+     * @return intake
+     */
+    @jakarta.annotation.Nullable public ProjectIntakeConfiguration getIntake() {
+        return intake;
+    }
+
+    public void setIntake(@jakarta.annotation.Nullable ProjectIntakeConfiguration intake) {
+        this.intake = intake;
+    }
+
     public ProjectConfiguration mainLanguage(@jakarta.annotation.Nullable String mainLanguage) {
         this.mainLanguage = mainLanguage;
         return this;
@@ -383,6 +406,7 @@ public class ProjectConfiguration {
                 && Objects.equals(
                         this.agentStreamingEnabled, projectConfiguration.agentStreamingEnabled)
                 && Objects.equals(this.indexing, projectConfiguration.indexing)
+                && Objects.equals(this.intake, projectConfiguration.intake)
                 && Objects.equals(this.mainLanguage, projectConfiguration.mainLanguage)
                 && Objects.equals(this.browserUse, projectConfiguration.browserUse)
                 && Objects.equals(
@@ -403,6 +427,7 @@ public class ProjectConfiguration {
                 storageBucket,
                 agentStreamingEnabled,
                 indexing,
+                intake,
                 mainLanguage,
                 browserUse,
                 pdfTemplateObjectId,
@@ -428,6 +453,7 @@ public class ProjectConfiguration {
                 .append(toIndentedString(agentStreamingEnabled))
                 .append("\n");
         sb.append("    indexing: ").append(toIndentedString(indexing)).append("\n");
+        sb.append("    intake: ").append(toIndentedString(intake)).append("\n");
         sb.append("    mainLanguage: ").append(toIndentedString(mainLanguage)).append("\n");
         sb.append("    browserUse: ").append(toIndentedString(browserUse)).append("\n");
         sb.append("    pdfTemplateObjectId: ")
@@ -465,6 +491,7 @@ public class ProjectConfiguration {
                                 "storage_bucket",
                                 "agent_streaming_enabled",
                                 "indexing",
+                                "intake",
                                 "main_language",
                                 "browser_use",
                                 "pdf_template_object_id"));
@@ -541,6 +568,10 @@ public class ProjectConfiguration {
         // validate the optional field `indexing`
         if (jsonObj.get("indexing") != null && !jsonObj.get("indexing").isJsonNull()) {
             ProjectConfigurationIndexing.validateJsonElement(jsonObj.get("indexing"));
+        }
+        // validate the optional field `intake`
+        if (jsonObj.get("intake") != null && !jsonObj.get("intake").isJsonNull()) {
+            ProjectIntakeConfiguration.validateJsonElement(jsonObj.get("intake"));
         }
         if ((jsonObj.get("main_language") != null && !jsonObj.get("main_language").isJsonNull())
                 && !jsonObj.get("main_language").isJsonPrimitive()) {

@@ -128,6 +128,11 @@ public class ServiceAccountTokenRequest {
     @SerializedName(SERIALIZED_NAME_NAME)
     @jakarta.annotation.Nullable private String name;
 
+    public static final String SERIALIZED_NAME_EMAIL = "email";
+
+    @SerializedName(SERIALIZED_NAME_EMAIL)
+    @jakarta.annotation.Nullable private String email;
+
     public ServiceAccountTokenRequest() {}
 
     public ServiceAccountTokenRequest type(@jakarta.annotation.Nonnull TypeEnum type) {
@@ -261,6 +266,23 @@ public class ServiceAccountTokenRequest {
         this.name = name;
     }
 
+    public ServiceAccountTokenRequest email(@jakarta.annotation.Nullable String email) {
+        this.email = email;
+        return this;
+    }
+
+    /**
+     * Get email
+     * @return email
+     */
+    @jakarta.annotation.Nullable public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(@jakarta.annotation.Nullable String email) {
+        this.email = email;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -276,12 +298,13 @@ public class ServiceAccountTokenRequest {
                 && Objects.equals(this.accountId, serviceAccountTokenRequest.accountId)
                 && Objects.equals(this.projectId, serviceAccountTokenRequest.projectId)
                 && Objects.equals(this.roles, serviceAccountTokenRequest.roles)
-                && Objects.equals(this.name, serviceAccountTokenRequest.name);
+                && Objects.equals(this.name, serviceAccountTokenRequest.name)
+                && Objects.equals(this.email, serviceAccountTokenRequest.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, audience, algorithm, accountId, projectId, roles, name);
+        return Objects.hash(type, audience, algorithm, accountId, projectId, roles, name, email);
     }
 
     @Override
@@ -295,6 +318,7 @@ public class ServiceAccountTokenRequest {
         sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
         sb.append("    roles: ").append(toIndentedString(roles)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    email: ").append(toIndentedString(email)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -321,7 +345,8 @@ public class ServiceAccountTokenRequest {
                                 "account_id",
                                 "project_id",
                                 "roles",
-                                "name"));
+                                "name",
+                                "email"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -410,6 +435,14 @@ public class ServiceAccountTokenRequest {
                             java.util.Locale.ROOT,
                             "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("name").toString()));
+        }
+        if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull())
+                && !jsonObj.get("email").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `email` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("email").toString()));
         }
     }
 

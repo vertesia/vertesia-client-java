@@ -17,6 +17,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -120,6 +121,79 @@ public class WorkflowRule {
 
     @SerializedName(SERIALIZED_NAME_TASK_QUEUE)
     @jakarta.annotation.Nullable private String taskQueue;
+
+    /**
+     * Event subscription migration status for legacy workflow-rule cutover.
+     */
+    @JsonAdapter(EventSubscriptionMigrationStatusEnum.Adapter.class)
+    public enum EventSubscriptionMigrationStatusEnum {
+        MIGRATED("migrated"),
+
+        UNSUPPORTED_MATCH("unsupported_match"),
+
+        FAILED("failed"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        EventSubscriptionMigrationStatusEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static EventSubscriptionMigrationStatusEnum fromValue(String value) {
+            for (EventSubscriptionMigrationStatusEnum b :
+                    EventSubscriptionMigrationStatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<EventSubscriptionMigrationStatusEnum> {
+            @Override
+            public void write(
+                    final JsonWriter jsonWriter,
+                    final EventSubscriptionMigrationStatusEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public EventSubscriptionMigrationStatusEnum read(final JsonReader jsonReader)
+                    throws IOException {
+                String value = jsonReader.nextString();
+                return EventSubscriptionMigrationStatusEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            EventSubscriptionMigrationStatusEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_EVENT_SUBSCRIPTION_MIGRATION_STATUS =
+            "event_subscription_migration_status";
+
+    @SerializedName(SERIALIZED_NAME_EVENT_SUBSCRIPTION_MIGRATION_STATUS)
+    @jakarta.annotation.Nullable private EventSubscriptionMigrationStatusEnum eventSubscriptionMigrationStatus;
+
+    public static final String SERIALIZED_NAME_EVENT_SUBSCRIPTION_MIGRATION_ERROR =
+            "event_subscription_migration_error";
+
+    @SerializedName(SERIALIZED_NAME_EVENT_SUBSCRIPTION_MIGRATION_ERROR)
+    @jakarta.annotation.Nullable private String eventSubscriptionMigrationError;
 
     public WorkflowRule() {}
 
@@ -410,6 +484,44 @@ public class WorkflowRule {
         this.taskQueue = taskQueue;
     }
 
+    public WorkflowRule eventSubscriptionMigrationStatus(
+            @jakarta.annotation.Nullable EventSubscriptionMigrationStatusEnum eventSubscriptionMigrationStatus) {
+        this.eventSubscriptionMigrationStatus = eventSubscriptionMigrationStatus;
+        return this;
+    }
+
+    /**
+     * Event subscription migration status for legacy workflow-rule cutover.
+     * @return eventSubscriptionMigrationStatus
+     */
+    @jakarta.annotation.Nullable public EventSubscriptionMigrationStatusEnum getEventSubscriptionMigrationStatus() {
+        return eventSubscriptionMigrationStatus;
+    }
+
+    public void setEventSubscriptionMigrationStatus(
+            @jakarta.annotation.Nullable EventSubscriptionMigrationStatusEnum eventSubscriptionMigrationStatus) {
+        this.eventSubscriptionMigrationStatus = eventSubscriptionMigrationStatus;
+    }
+
+    public WorkflowRule eventSubscriptionMigrationError(
+            @jakarta.annotation.Nullable String eventSubscriptionMigrationError) {
+        this.eventSubscriptionMigrationError = eventSubscriptionMigrationError;
+        return this;
+    }
+
+    /**
+     * Migration failure or unsupported-match reason, when applicable.
+     * @return eventSubscriptionMigrationError
+     */
+    @jakarta.annotation.Nullable public String getEventSubscriptionMigrationError() {
+        return eventSubscriptionMigrationError;
+    }
+
+    public void setEventSubscriptionMigrationError(
+            @jakarta.annotation.Nullable String eventSubscriptionMigrationError) {
+        this.eventSubscriptionMigrationError = eventSubscriptionMigrationError;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -479,6 +591,12 @@ public class WorkflowRule {
                 && Objects.equals(this.debug, workflowRule.debug)
                 && Objects.equals(this.customerOverride, workflowRule.customerOverride)
                 && Objects.equals(this.taskQueue, workflowRule.taskQueue)
+                && Objects.equals(
+                        this.eventSubscriptionMigrationStatus,
+                        workflowRule.eventSubscriptionMigrationStatus)
+                && Objects.equals(
+                        this.eventSubscriptionMigrationError,
+                        workflowRule.eventSubscriptionMigrationError)
                 && Objects.equals(this.additionalProperties, workflowRule.additionalProperties);
     }
 
@@ -500,6 +618,8 @@ public class WorkflowRule {
                 debug,
                 customerOverride,
                 taskQueue,
+                eventSubscriptionMigrationStatus,
+                eventSubscriptionMigrationError,
                 additionalProperties);
     }
 
@@ -522,6 +642,12 @@ public class WorkflowRule {
         sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
         sb.append("    customerOverride: ").append(toIndentedString(customerOverride)).append("\n");
         sb.append("    taskQueue: ").append(toIndentedString(taskQueue)).append("\n");
+        sb.append("    eventSubscriptionMigrationStatus: ")
+                .append(toIndentedString(eventSubscriptionMigrationStatus))
+                .append("\n");
+        sb.append("    eventSubscriptionMigrationError: ")
+                .append(toIndentedString(eventSubscriptionMigrationError))
+                .append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -559,7 +685,9 @@ public class WorkflowRule {
                                 "config",
                                 "debug",
                                 "customer_override",
-                                "task_queue"));
+                                "task_queue",
+                                "event_subscription_migration_status",
+                                "event_subscription_migration_error"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -681,6 +809,30 @@ public class WorkflowRule {
                             java.util.Locale.ROOT,
                             "Expected the field `task_queue` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("task_queue").toString()));
+        }
+        if ((jsonObj.get("event_subscription_migration_status") != null
+                        && !jsonObj.get("event_subscription_migration_status").isJsonNull())
+                && !jsonObj.get("event_subscription_migration_status").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `event_subscription_migration_status` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("event_subscription_migration_status").toString()));
+        }
+        // validate the optional field `event_subscription_migration_status`
+        if (jsonObj.get("event_subscription_migration_status") != null
+                && !jsonObj.get("event_subscription_migration_status").isJsonNull()) {
+            EventSubscriptionMigrationStatusEnum.validateJsonElement(
+                    jsonObj.get("event_subscription_migration_status"));
+        }
+        if ((jsonObj.get("event_subscription_migration_error") != null
+                        && !jsonObj.get("event_subscription_migration_error").isJsonNull())
+                && !jsonObj.get("event_subscription_migration_error").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `event_subscription_migration_error` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("event_subscription_migration_error").toString()));
         }
     }
 

@@ -253,6 +253,16 @@ public class SupervisedRunResponse {
     @SerializedName(SERIALIZED_NAME_SCHEDULE_ID)
     @jakarta.annotation.Nullable private String scheduleId;
 
+    public static final String SERIALIZED_NAME_EVENT_SUBSCRIPTION_ID = "event_subscription_id";
+
+    @SerializedName(SERIALIZED_NAME_EVENT_SUBSCRIPTION_ID)
+    @jakarta.annotation.Nullable private String eventSubscriptionId;
+
+    public static final String SERIALIZED_NAME_EVENT_REF = "event_ref";
+
+    @SerializedName(SERIALIZED_NAME_EVENT_REF)
+    @jakarta.annotation.Nullable private EventRef eventRef;
+
     public static final String SERIALIZED_NAME_ARCHIVE_STATE = "archive_state";
 
     @SerializedName(SERIALIZED_NAME_ARCHIVE_STATE)
@@ -669,6 +679,41 @@ public class SupervisedRunResponse {
         this.scheduleId = scheduleId;
     }
 
+    public SupervisedRunResponse eventSubscriptionId(
+            @jakarta.annotation.Nullable String eventSubscriptionId) {
+        this.eventSubscriptionId = eventSubscriptionId;
+        return this;
+    }
+
+    /**
+     * Event subscription ID — set when this run was triggered by the event bus.
+     * @return eventSubscriptionId
+     */
+    @jakarta.annotation.Nullable public String getEventSubscriptionId() {
+        return eventSubscriptionId;
+    }
+
+    public void setEventSubscriptionId(@jakarta.annotation.Nullable String eventSubscriptionId) {
+        this.eventSubscriptionId = eventSubscriptionId;
+    }
+
+    public SupervisedRunResponse eventRef(@jakarta.annotation.Nullable EventRef eventRef) {
+        this.eventRef = eventRef;
+        return this;
+    }
+
+    /**
+     * Event reference — set when this run was triggered by the event bus.
+     * @return eventRef
+     */
+    @jakarta.annotation.Nullable public EventRef getEventRef() {
+        return eventRef;
+    }
+
+    public void setEventRef(@jakarta.annotation.Nullable EventRef eventRef) {
+        this.eventRef = eventRef;
+    }
+
     public SupervisedRunResponse archiveState(
             @jakarta.annotation.Nullable AgentRunArchiveState archiveState) {
         this.archiveState = archiveState;
@@ -843,6 +888,9 @@ public class SupervisedRunResponse {
                 && Objects.equals(this.source, supervisedRunResponse.source)
                 && Objects.equals(this.sourceType, supervisedRunResponse.sourceType)
                 && Objects.equals(this.scheduleId, supervisedRunResponse.scheduleId)
+                && Objects.equals(
+                        this.eventSubscriptionId, supervisedRunResponse.eventSubscriptionId)
+                && Objects.equals(this.eventRef, supervisedRunResponse.eventRef)
                 && Objects.equals(this.archiveState, supervisedRunResponse.archiveState)
                 && Objects.equals(this.createdAt, supervisedRunResponse.createdAt)
                 && Objects.equals(this.updatedAt, supervisedRunResponse.updatedAt)
@@ -878,6 +926,8 @@ public class SupervisedRunResponse {
                 source,
                 sourceType,
                 scheduleId,
+                eventSubscriptionId,
+                eventRef,
                 archiveState,
                 createdAt,
                 updatedAt,
@@ -914,6 +964,10 @@ public class SupervisedRunResponse {
         sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
         sb.append("    scheduleId: ").append(toIndentedString(scheduleId)).append("\n");
+        sb.append("    eventSubscriptionId: ")
+                .append(toIndentedString(eventSubscriptionId))
+                .append("\n");
+        sb.append("    eventRef: ").append(toIndentedString(eventRef)).append("\n");
         sb.append("    archiveState: ").append(toIndentedString(archiveState)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -964,6 +1018,8 @@ public class SupervisedRunResponse {
                                 "source",
                                 "source_type",
                                 "schedule_id",
+                                "event_subscription_id",
+                                "event_ref",
                                 "archive_state",
                                 "created_at",
                                 "updated_at",
@@ -1145,6 +1201,19 @@ public class SupervisedRunResponse {
                             java.util.Locale.ROOT,
                             "Expected the field `schedule_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("schedule_id").toString()));
+        }
+        if ((jsonObj.get("event_subscription_id") != null
+                        && !jsonObj.get("event_subscription_id").isJsonNull())
+                && !jsonObj.get("event_subscription_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `event_subscription_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("event_subscription_id").toString()));
+        }
+        // validate the optional field `event_ref`
+        if (jsonObj.get("event_ref") != null && !jsonObj.get("event_ref").isJsonNull()) {
+            EventRef.validateJsonElement(jsonObj.get("event_ref"));
         }
         // validate the optional field `archive_state`
         if (jsonObj.get("archive_state") != null && !jsonObj.get("archive_state").isJsonNull()) {

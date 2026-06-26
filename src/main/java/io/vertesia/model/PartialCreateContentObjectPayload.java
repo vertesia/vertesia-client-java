@@ -123,7 +123,7 @@ public class PartialCreateContentObjectPayload {
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @jakarta.annotation.Nullable private CreateContentObjectPayloadMetadata metadata;
+    @jakarta.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
 
     public static final String SERIALIZED_NAME_TOKENS = "tokens";
 
@@ -528,21 +528,28 @@ public class PartialCreateContentObjectPayload {
     }
 
     public PartialCreateContentObjectPayload metadata(
-            @jakarta.annotation.Nullable CreateContentObjectPayloadMetadata metadata) {
+            @jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
         return this;
     }
 
+    public PartialCreateContentObjectPayload putMetadataItem(String key, Object metadataItem) {
+        if (this.metadata == null) {
+            this.metadata = new HashMap<>();
+        }
+        this.metadata.put(key, metadataItem);
+        return this;
+    }
+
     /**
-     * Get metadata
+     * Technical metadata of the object
      * @return metadata
      */
-    @jakarta.annotation.Nullable public CreateContentObjectPayloadMetadata getMetadata() {
+    @jakarta.annotation.Nullable public Map<String, Object> getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(
-            @jakarta.annotation.Nullable CreateContentObjectPayloadMetadata metadata) {
+    public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
         this.metadata = metadata;
     }
 
@@ -1106,10 +1113,6 @@ public class PartialCreateContentObjectPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `external_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("external_id").toString()));
-        }
-        // validate the optional field `metadata`
-        if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
-            CreateContentObjectPayloadMetadata.validateJsonElement(jsonObj.get("metadata"));
         }
         // validate the optional field `tokens`
         if (jsonObj.get("tokens") != null && !jsonObj.get("tokens").isJsonNull()) {

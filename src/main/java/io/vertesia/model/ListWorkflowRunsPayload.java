@@ -157,7 +157,7 @@ public class ListWorkflowRunsPayload {
     }
 
     /**
-     * The workflow rule ID that triggered the workflow.
+     * Legacy workflow rule ID filter, when applicable.
      * @return ruleId
      */
     @jakarta.annotation.Nullable public String getRuleId() {

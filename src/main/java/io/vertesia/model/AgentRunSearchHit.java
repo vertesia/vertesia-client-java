@@ -148,6 +148,16 @@ public class AgentRunSearchHit {
     @SerializedName(SERIALIZED_NAME_SCHEDULE_ID)
     @jakarta.annotation.Nullable private String scheduleId;
 
+    public static final String SERIALIZED_NAME_EVENT_SUBSCRIPTION_ID = "event_subscription_id";
+
+    @SerializedName(SERIALIZED_NAME_EVENT_SUBSCRIPTION_ID)
+    @jakarta.annotation.Nullable private String eventSubscriptionId;
+
+    public static final String SERIALIZED_NAME_EVENT_REF = "event_ref";
+
+    @SerializedName(SERIALIZED_NAME_EVENT_REF)
+    @jakarta.annotation.Nullable private EventRef eventRef;
+
     public static final String SERIALIZED_NAME_SOURCE_TYPE = "source_type";
 
     @SerializedName(SERIALIZED_NAME_SOURCE_TYPE)
@@ -572,6 +582,41 @@ public class AgentRunSearchHit {
         this.scheduleId = scheduleId;
     }
 
+    public AgentRunSearchHit eventSubscriptionId(
+            @jakarta.annotation.Nullable String eventSubscriptionId) {
+        this.eventSubscriptionId = eventSubscriptionId;
+        return this;
+    }
+
+    /**
+     * Event subscription ID (if event-triggered)
+     * @return eventSubscriptionId
+     */
+    @jakarta.annotation.Nullable public String getEventSubscriptionId() {
+        return eventSubscriptionId;
+    }
+
+    public void setEventSubscriptionId(@jakarta.annotation.Nullable String eventSubscriptionId) {
+        this.eventSubscriptionId = eventSubscriptionId;
+    }
+
+    public AgentRunSearchHit eventRef(@jakarta.annotation.Nullable EventRef eventRef) {
+        this.eventRef = eventRef;
+        return this;
+    }
+
+    /**
+     * Event reference (if event-triggered)
+     * @return eventRef
+     */
+    @jakarta.annotation.Nullable public EventRef getEventRef() {
+        return eventRef;
+    }
+
+    public void setEventRef(@jakarta.annotation.Nullable EventRef eventRef) {
+        this.eventRef = eventRef;
+    }
+
     public AgentRunSearchHit sourceType(@jakarta.annotation.Nullable AgentRunType sourceType) {
         this.sourceType = sourceType;
         return this;
@@ -676,6 +721,8 @@ public class AgentRunSearchHit {
                 && Objects.equals(this.contentType, agentRunSearchHit.contentType)
                 && Objects.equals(this.toolNames, agentRunSearchHit.toolNames)
                 && Objects.equals(this.scheduleId, agentRunSearchHit.scheduleId)
+                && Objects.equals(this.eventSubscriptionId, agentRunSearchHit.eventSubscriptionId)
+                && Objects.equals(this.eventRef, agentRunSearchHit.eventRef)
                 && Objects.equals(this.sourceType, agentRunSearchHit.sourceType)
                 && Objects.equals(this.type, agentRunSearchHit.type)
                 && Objects.equals(this.createdAt, agentRunSearchHit.createdAt)
@@ -706,6 +753,8 @@ public class AgentRunSearchHit {
                 contentType,
                 toolNames,
                 scheduleId,
+                eventSubscriptionId,
+                eventRef,
                 sourceType,
                 type,
                 createdAt,
@@ -737,6 +786,10 @@ public class AgentRunSearchHit {
         sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
         sb.append("    toolNames: ").append(toIndentedString(toolNames)).append("\n");
         sb.append("    scheduleId: ").append(toIndentedString(scheduleId)).append("\n");
+        sb.append("    eventSubscriptionId: ")
+                .append(toIndentedString(eventSubscriptionId))
+                .append("\n");
+        sb.append("    eventRef: ").append(toIndentedString(eventRef)).append("\n");
         sb.append("    sourceType: ").append(toIndentedString(sourceType)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -782,6 +835,8 @@ public class AgentRunSearchHit {
                                 "content_type",
                                 "tool_names",
                                 "schedule_id",
+                                "event_subscription_id",
+                                "event_ref",
                                 "source_type",
                                 "type",
                                 "created_at",
@@ -966,6 +1021,19 @@ public class AgentRunSearchHit {
                             java.util.Locale.ROOT,
                             "Expected the field `schedule_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("schedule_id").toString()));
+        }
+        if ((jsonObj.get("event_subscription_id") != null
+                        && !jsonObj.get("event_subscription_id").isJsonNull())
+                && !jsonObj.get("event_subscription_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `event_subscription_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("event_subscription_id").toString()));
+        }
+        // validate the optional field `event_ref`
+        if (jsonObj.get("event_ref") != null && !jsonObj.get("event_ref").isJsonNull()) {
+            EventRef.validateJsonElement(jsonObj.get("event_ref"));
         }
         // validate the optional field `source_type`
         if (jsonObj.get("source_type") != null && !jsonObj.get("source_type").isJsonNull()) {

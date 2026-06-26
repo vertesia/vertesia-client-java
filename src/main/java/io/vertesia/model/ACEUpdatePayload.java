@@ -39,7 +39,7 @@ public class ACEUpdatePayload {
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @jakarta.annotation.Nullable private SystemRoles role;
+    @jakarta.annotation.Nullable private String role;
 
     public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource_type";
 
@@ -88,20 +88,20 @@ public class ACEUpdatePayload {
 
     public ACEUpdatePayload() {}
 
-    public ACEUpdatePayload role(@jakarta.annotation.Nullable SystemRoles role) {
+    public ACEUpdatePayload role(@jakarta.annotation.Nullable String role) {
         this.role = role;
         return this;
     }
 
     /**
-     * Get role
+     * Role name. Typed as &#x60;string&#x60; because role names now span multiple partitions: &#x60;SystemRoles&#x60; enum values for system-domain roles, and bare strings for ABAC-domain roles (e.g. &#x60;&#39;content:reader&#39;&#x60;, &#x60;&#39;content:writer&#39;&#x60;, &#x60;&#39;content:manager&#39;&#x60;). Mongoose schema validates the value against the registered role catalog via &#x60;getAllRoleNames()&#x60;.
      * @return role
      */
-    @jakarta.annotation.Nullable public SystemRoles getRole() {
+    @jakarta.annotation.Nullable public String getRole() {
         return role;
     }
 
-    public void setRole(@jakarta.annotation.Nullable SystemRoles role) {
+    public void setRole(@jakarta.annotation.Nullable String role) {
         this.role = role;
     }
 
@@ -373,9 +373,13 @@ public class ACEUpdatePayload {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `role`
-        if (jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) {
-            SystemRoles.validateJsonElement(jsonObj.get("role"));
+        if ((jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull())
+                && !jsonObj.get("role").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `role` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("role").toString()));
         }
         // validate the optional field `resource_type`
         if (jsonObj.get("resource_type") != null && !jsonObj.get("resource_type").isJsonNull()) {

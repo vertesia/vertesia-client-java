@@ -51,6 +51,11 @@ public class UpdateAccountPayload {
     @SerializedName(SERIALIZED_NAME_BILLING)
     @jakarta.annotation.Nullable private AccountBilling billing;
 
+    public static final String SERIALIZED_NAME_QUOTA_TIER = "quota_tier";
+
+    @SerializedName(SERIALIZED_NAME_QUOTA_TIER)
+    @jakarta.annotation.Nullable private QuotaTier quotaTier;
+
     public UpdateAccountPayload() {}
 
     public UpdateAccountPayload name(@jakarta.annotation.Nullable String name) {
@@ -113,6 +118,23 @@ public class UpdateAccountPayload {
         this.billing = billing;
     }
 
+    public UpdateAccountPayload quotaTier(@jakarta.annotation.Nullable QuotaTier quotaTier) {
+        this.quotaTier = quotaTier;
+        return this;
+    }
+
+    /**
+     * Get quotaTier
+     * @return quotaTier
+     */
+    @jakarta.annotation.Nullable public QuotaTier getQuotaTier() {
+        return quotaTier;
+    }
+
+    public void setQuotaTier(@jakarta.annotation.Nullable QuotaTier quotaTier) {
+        this.quotaTier = quotaTier;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -124,12 +146,13 @@ public class UpdateAccountPayload {
         UpdateAccountPayload updateAccountPayload = (UpdateAccountPayload) o;
         return Objects.equals(this.name, updateAccountPayload.name)
                 && Objects.equals(this.emailDomains, updateAccountPayload.emailDomains)
-                && Objects.equals(this.billing, updateAccountPayload.billing);
+                && Objects.equals(this.billing, updateAccountPayload.billing)
+                && Objects.equals(this.quotaTier, updateAccountPayload.quotaTier);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, emailDomains, billing);
+        return Objects.hash(name, emailDomains, billing, quotaTier);
     }
 
     @Override
@@ -139,6 +162,7 @@ public class UpdateAccountPayload {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    emailDomains: ").append(toIndentedString(emailDomains)).append("\n");
         sb.append("    billing: ").append(toIndentedString(billing)).append("\n");
+        sb.append("    quotaTier: ").append(toIndentedString(quotaTier)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -156,7 +180,9 @@ public class UpdateAccountPayload {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("name", "email_domains", "billing"));
+        openapiFields =
+                new HashSet<String>(
+                        Arrays.asList("name", "email_domains", "billing", "quota_tier"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -201,6 +227,10 @@ public class UpdateAccountPayload {
         // validate the optional field `billing`
         if (jsonObj.get("billing") != null && !jsonObj.get("billing").isJsonNull()) {
             AccountBilling.validateJsonElement(jsonObj.get("billing"));
+        }
+        // validate the optional field `quota_tier`
+        if (jsonObj.get("quota_tier") != null && !jsonObj.get("quota_tier").isJsonNull()) {
+            QuotaTier.validateJsonElement(jsonObj.get("quota_tier"));
         }
     }
 

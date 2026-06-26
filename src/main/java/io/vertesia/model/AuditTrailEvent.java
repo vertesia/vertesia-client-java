@@ -101,6 +101,56 @@ public class AuditTrailEvent {
     @jakarta.annotation.Nonnull
     private EventTypeEnum eventType;
 
+    public static final String SERIALIZED_NAME_EVENT_ID = "event_id";
+
+    @SerializedName(SERIALIZED_NAME_EVENT_ID)
+    @jakarta.annotation.Nullable private String eventId;
+
+    public static final String SERIALIZED_NAME_EVENT_CATEGORY = "event_category";
+
+    @SerializedName(SERIALIZED_NAME_EVENT_CATEGORY)
+    @jakarta.annotation.Nullable private EventCategory eventCategory;
+
+    public static final String SERIALIZED_NAME_SOURCE = "source";
+
+    @SerializedName(SERIALIZED_NAME_SOURCE)
+    @jakarta.annotation.Nullable private String source;
+
+    public static final String SERIALIZED_NAME_ROOT_EVENT_ID = "root_event_id";
+
+    @SerializedName(SERIALIZED_NAME_ROOT_EVENT_ID)
+    @jakarta.annotation.Nullable private String rootEventId;
+
+    public static final String SERIALIZED_NAME_CAUSED_BY_EVENT_ID = "caused_by_event_id";
+
+    @SerializedName(SERIALIZED_NAME_CAUSED_BY_EVENT_ID)
+    @jakarta.annotation.Nullable private String causedByEventId;
+
+    public static final String SERIALIZED_NAME_HOP_COUNT = "hop_count";
+
+    @SerializedName(SERIALIZED_NAME_HOP_COUNT)
+    @jakarta.annotation.Nullable private BigDecimal hopCount;
+
+    public static final String SERIALIZED_NAME_AUDIT_TRAIL = "audit_trail";
+
+    @SerializedName(SERIALIZED_NAME_AUDIT_TRAIL)
+    @jakarta.annotation.Nullable private Boolean auditTrail;
+
+    public static final String SERIALIZED_NAME_REPLAY_OF = "replay_of";
+
+    @SerializedName(SERIALIZED_NAME_REPLAY_OF)
+    @jakarta.annotation.Nullable private String replayOf;
+
+    public static final String SERIALIZED_NAME_REPLAY_ROOT_EVENT_ID = "replay_root_event_id";
+
+    @SerializedName(SERIALIZED_NAME_REPLAY_ROOT_EVENT_ID)
+    @jakarta.annotation.Nullable private String replayRootEventId;
+
+    public static final String SERIALIZED_NAME_REPLAYED_BY = "replayed_by";
+
+    @SerializedName(SERIALIZED_NAME_REPLAYED_BY)
+    @jakarta.annotation.Nullable private String replayedBy;
+
     public static final String SERIALIZED_NAME_ACTION = "action";
 
     @SerializedName(SERIALIZED_NAME_ACTION)
@@ -222,6 +272,177 @@ public class AuditTrailEvent {
 
     public void setEventType(@jakarta.annotation.Nonnull EventTypeEnum eventType) {
         this.eventType = eventType;
+    }
+
+    public AuditTrailEvent eventId(@jakarta.annotation.Nullable String eventId) {
+        this.eventId = eventId;
+        return this;
+    }
+
+    /**
+     * Get eventId
+     * @return eventId
+     */
+    @jakarta.annotation.Nullable public String getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(@jakarta.annotation.Nullable String eventId) {
+        this.eventId = eventId;
+    }
+
+    public AuditTrailEvent eventCategory(@jakarta.annotation.Nullable EventCategory eventCategory) {
+        this.eventCategory = eventCategory;
+        return this;
+    }
+
+    /**
+     * Get eventCategory
+     * @return eventCategory
+     */
+    @jakarta.annotation.Nullable public EventCategory getEventCategory() {
+        return eventCategory;
+    }
+
+    public void setEventCategory(@jakarta.annotation.Nullable EventCategory eventCategory) {
+        this.eventCategory = eventCategory;
+    }
+
+    public AuditTrailEvent source(@jakarta.annotation.Nullable String source) {
+        this.source = source;
+        return this;
+    }
+
+    /**
+     * Get source
+     * @return source
+     */
+    @jakarta.annotation.Nullable public String getSource() {
+        return source;
+    }
+
+    public void setSource(@jakarta.annotation.Nullable String source) {
+        this.source = source;
+    }
+
+    public AuditTrailEvent rootEventId(@jakarta.annotation.Nullable String rootEventId) {
+        this.rootEventId = rootEventId;
+        return this;
+    }
+
+    /**
+     * Get rootEventId
+     * @return rootEventId
+     */
+    @jakarta.annotation.Nullable public String getRootEventId() {
+        return rootEventId;
+    }
+
+    public void setRootEventId(@jakarta.annotation.Nullable String rootEventId) {
+        this.rootEventId = rootEventId;
+    }
+
+    public AuditTrailEvent causedByEventId(@jakarta.annotation.Nullable String causedByEventId) {
+        this.causedByEventId = causedByEventId;
+        return this;
+    }
+
+    /**
+     * Get causedByEventId
+     * @return causedByEventId
+     */
+    @jakarta.annotation.Nullable public String getCausedByEventId() {
+        return causedByEventId;
+    }
+
+    public void setCausedByEventId(@jakarta.annotation.Nullable String causedByEventId) {
+        this.causedByEventId = causedByEventId;
+    }
+
+    public AuditTrailEvent hopCount(@jakarta.annotation.Nullable BigDecimal hopCount) {
+        this.hopCount = hopCount;
+        return this;
+    }
+
+    /**
+     * Get hopCount
+     * @return hopCount
+     */
+    @jakarta.annotation.Nullable public BigDecimal getHopCount() {
+        return hopCount;
+    }
+
+    public void setHopCount(@jakarta.annotation.Nullable BigDecimal hopCount) {
+        this.hopCount = hopCount;
+    }
+
+    public AuditTrailEvent auditTrail(@jakarta.annotation.Nullable Boolean auditTrail) {
+        this.auditTrail = auditTrail;
+        return this;
+    }
+
+    /**
+     * Get auditTrail
+     * @return auditTrail
+     */
+    @jakarta.annotation.Nullable public Boolean getAuditTrail() {
+        return auditTrail;
+    }
+
+    public void setAuditTrail(@jakarta.annotation.Nullable Boolean auditTrail) {
+        this.auditTrail = auditTrail;
+    }
+
+    public AuditTrailEvent replayOf(@jakarta.annotation.Nullable String replayOf) {
+        this.replayOf = replayOf;
+        return this;
+    }
+
+    /**
+     * Get replayOf
+     * @return replayOf
+     */
+    @jakarta.annotation.Nullable public String getReplayOf() {
+        return replayOf;
+    }
+
+    public void setReplayOf(@jakarta.annotation.Nullable String replayOf) {
+        this.replayOf = replayOf;
+    }
+
+    public AuditTrailEvent replayRootEventId(
+            @jakarta.annotation.Nullable String replayRootEventId) {
+        this.replayRootEventId = replayRootEventId;
+        return this;
+    }
+
+    /**
+     * Get replayRootEventId
+     * @return replayRootEventId
+     */
+    @jakarta.annotation.Nullable public String getReplayRootEventId() {
+        return replayRootEventId;
+    }
+
+    public void setReplayRootEventId(@jakarta.annotation.Nullable String replayRootEventId) {
+        this.replayRootEventId = replayRootEventId;
+    }
+
+    public AuditTrailEvent replayedBy(@jakarta.annotation.Nullable String replayedBy) {
+        this.replayedBy = replayedBy;
+        return this;
+    }
+
+    /**
+     * Get replayedBy
+     * @return replayedBy
+     */
+    @jakarta.annotation.Nullable public String getReplayedBy() {
+        return replayedBy;
+    }
+
+    public void setReplayedBy(@jakarta.annotation.Nullable String replayedBy) {
+        this.replayedBy = replayedBy;
     }
 
     public AuditTrailEvent action(@jakarta.annotation.Nonnull AuditAction action) {
@@ -635,6 +856,16 @@ public class AuditTrailEvent {
         }
         AuditTrailEvent auditTrailEvent = (AuditTrailEvent) o;
         return Objects.equals(this.eventType, auditTrailEvent.eventType)
+                && Objects.equals(this.eventId, auditTrailEvent.eventId)
+                && Objects.equals(this.eventCategory, auditTrailEvent.eventCategory)
+                && Objects.equals(this.source, auditTrailEvent.source)
+                && Objects.equals(this.rootEventId, auditTrailEvent.rootEventId)
+                && Objects.equals(this.causedByEventId, auditTrailEvent.causedByEventId)
+                && Objects.equals(this.hopCount, auditTrailEvent.hopCount)
+                && Objects.equals(this.auditTrail, auditTrailEvent.auditTrail)
+                && Objects.equals(this.replayOf, auditTrailEvent.replayOf)
+                && Objects.equals(this.replayRootEventId, auditTrailEvent.replayRootEventId)
+                && Objects.equals(this.replayedBy, auditTrailEvent.replayedBy)
                 && Objects.equals(this.action, auditTrailEvent.action)
                 && Objects.equals(this.resourceType, auditTrailEvent.resourceType)
                 && Objects.equals(this.resourceId, auditTrailEvent.resourceId)
@@ -670,6 +901,16 @@ public class AuditTrailEvent {
     public int hashCode() {
         return Objects.hash(
                 eventType,
+                eventId,
+                eventCategory,
+                source,
+                rootEventId,
+                causedByEventId,
+                hopCount,
+                auditTrail,
+                replayOf,
+                replayRootEventId,
+                replayedBy,
                 action,
                 resourceType,
                 resourceId,
@@ -704,6 +945,18 @@ public class AuditTrailEvent {
         StringBuilder sb = new StringBuilder();
         sb.append("class AuditTrailEvent {\n");
         sb.append("    eventType: ").append(toIndentedString(eventType)).append("\n");
+        sb.append("    eventId: ").append(toIndentedString(eventId)).append("\n");
+        sb.append("    eventCategory: ").append(toIndentedString(eventCategory)).append("\n");
+        sb.append("    source: ").append(toIndentedString(source)).append("\n");
+        sb.append("    rootEventId: ").append(toIndentedString(rootEventId)).append("\n");
+        sb.append("    causedByEventId: ").append(toIndentedString(causedByEventId)).append("\n");
+        sb.append("    hopCount: ").append(toIndentedString(hopCount)).append("\n");
+        sb.append("    auditTrail: ").append(toIndentedString(auditTrail)).append("\n");
+        sb.append("    replayOf: ").append(toIndentedString(replayOf)).append("\n");
+        sb.append("    replayRootEventId: ")
+                .append(toIndentedString(replayRootEventId))
+                .append("\n");
+        sb.append("    replayedBy: ").append(toIndentedString(replayedBy)).append("\n");
         sb.append("    action: ").append(toIndentedString(action)).append("\n");
         sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
         sb.append("    resourceId: ").append(toIndentedString(resourceId)).append("\n");
@@ -749,6 +1002,16 @@ public class AuditTrailEvent {
                 new HashSet<String>(
                         Arrays.asList(
                                 "event_type",
+                                "event_id",
+                                "event_category",
+                                "source",
+                                "root_event_id",
+                                "caused_by_event_id",
+                                "hop_count",
+                                "audit_trail",
+                                "replay_of",
+                                "replay_root_event_id",
+                                "replayed_by",
                                 "action",
                                 "resource_type",
                                 "resource_id",
@@ -831,6 +1094,68 @@ public class AuditTrailEvent {
         }
         // validate the required field `event_type`
         EventTypeEnum.validateJsonElement(jsonObj.get("event_type"));
+        if ((jsonObj.get("event_id") != null && !jsonObj.get("event_id").isJsonNull())
+                && !jsonObj.get("event_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `event_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("event_id").toString()));
+        }
+        // validate the optional field `event_category`
+        if (jsonObj.get("event_category") != null && !jsonObj.get("event_category").isJsonNull()) {
+            EventCategory.validateJsonElement(jsonObj.get("event_category"));
+        }
+        if ((jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull())
+                && !jsonObj.get("source").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `source` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("source").toString()));
+        }
+        if ((jsonObj.get("root_event_id") != null && !jsonObj.get("root_event_id").isJsonNull())
+                && !jsonObj.get("root_event_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `root_event_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("root_event_id").toString()));
+        }
+        if ((jsonObj.get("caused_by_event_id") != null
+                        && !jsonObj.get("caused_by_event_id").isJsonNull())
+                && !jsonObj.get("caused_by_event_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `caused_by_event_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("caused_by_event_id").toString()));
+        }
+        if ((jsonObj.get("replay_of") != null && !jsonObj.get("replay_of").isJsonNull())
+                && !jsonObj.get("replay_of").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `replay_of` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("replay_of").toString()));
+        }
+        if ((jsonObj.get("replay_root_event_id") != null
+                        && !jsonObj.get("replay_root_event_id").isJsonNull())
+                && !jsonObj.get("replay_root_event_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `replay_root_event_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("replay_root_event_id").toString()));
+        }
+        if ((jsonObj.get("replayed_by") != null && !jsonObj.get("replayed_by").isJsonNull())
+                && !jsonObj.get("replayed_by").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `replayed_by` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("replayed_by").toString()));
+        }
         // validate the required field `action`
         AuditAction.validateJsonElement(jsonObj.get("action"));
         if (!jsonObj.get("resource_type").isJsonPrimitive()) {

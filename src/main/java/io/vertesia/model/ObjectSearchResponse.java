@@ -43,7 +43,7 @@ public class ObjectSearchResponse {
 
     @SerializedName(SERIALIZED_NAME_RESULTS)
     @jakarta.annotation.Nonnull
-    private List<ContentObjectItem> results = new ArrayList<>();
+    private List<ContentObjectItemApiResponse> results = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_FACETS = "facets";
 
@@ -59,12 +59,12 @@ public class ObjectSearchResponse {
     public ObjectSearchResponse() {}
 
     public ObjectSearchResponse results(
-            @jakarta.annotation.Nonnull List<ContentObjectItem> results) {
+            @jakarta.annotation.Nonnull List<ContentObjectItemApiResponse> results) {
         this.results = results;
         return this;
     }
 
-    public ObjectSearchResponse addResultsItem(ContentObjectItem resultsItem) {
+    public ObjectSearchResponse addResultsItem(ContentObjectItemApiResponse resultsItem) {
         if (this.results == null) {
             this.results = new ArrayList<>();
         }
@@ -77,11 +77,11 @@ public class ObjectSearchResponse {
      * @return results
      */
     @jakarta.annotation.Nonnull
-    public List<ContentObjectItem> getResults() {
+    public List<ContentObjectItemApiResponse> getResults() {
         return results;
     }
 
-    public void setResults(@jakarta.annotation.Nonnull List<ContentObjectItem> results) {
+    public void setResults(@jakarta.annotation.Nonnull List<ContentObjectItemApiResponse> results) {
         this.results = results;
     }
 
@@ -219,7 +219,7 @@ public class ObjectSearchResponse {
             JsonArray jsonArrayresults = jsonObj.getAsJsonArray("results");
             // validate the required field `results` (array)
             for (int i = 0; i < jsonArrayresults.size(); i++) {
-                ContentObjectItem.validateJsonElement(jsonArrayresults.get(i));
+                ContentObjectItemApiResponse.validateJsonElement(jsonArrayresults.get(i));
             }
         }
     }

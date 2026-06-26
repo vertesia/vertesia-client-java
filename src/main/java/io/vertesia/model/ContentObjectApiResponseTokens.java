@@ -38,24 +38,21 @@ public class ContentObjectApiResponseTokens {
     public static final String SERIALIZED_NAME_COUNT = "count";
 
     @SerializedName(SERIALIZED_NAME_COUNT)
-    @jakarta.annotation.Nonnull
-    private BigDecimal count;
+    @jakarta.annotation.Nullable private BigDecimal count;
 
     public static final String SERIALIZED_NAME_ENCODING = "encoding";
 
     @SerializedName(SERIALIZED_NAME_ENCODING)
-    @jakarta.annotation.Nonnull
-    private String encoding;
+    @jakarta.annotation.Nullable private String encoding;
 
     public static final String SERIALIZED_NAME_ETAG = "etag";
 
     @SerializedName(SERIALIZED_NAME_ETAG)
-    @jakarta.annotation.Nonnull
-    private String etag;
+    @jakarta.annotation.Nullable private String etag;
 
     public ContentObjectApiResponseTokens() {}
 
-    public ContentObjectApiResponseTokens count(@jakarta.annotation.Nonnull BigDecimal count) {
+    public ContentObjectApiResponseTokens count(@jakarta.annotation.Nullable BigDecimal count) {
         this.count = count;
         return this;
     }
@@ -64,16 +61,15 @@ public class ContentObjectApiResponseTokens {
      * Get count
      * @return count
      */
-    @jakarta.annotation.Nonnull
-    public BigDecimal getCount() {
+    @jakarta.annotation.Nullable public BigDecimal getCount() {
         return count;
     }
 
-    public void setCount(@jakarta.annotation.Nonnull BigDecimal count) {
+    public void setCount(@jakarta.annotation.Nullable BigDecimal count) {
         this.count = count;
     }
 
-    public ContentObjectApiResponseTokens encoding(@jakarta.annotation.Nonnull String encoding) {
+    public ContentObjectApiResponseTokens encoding(@jakarta.annotation.Nullable String encoding) {
         this.encoding = encoding;
         return this;
     }
@@ -82,16 +78,15 @@ public class ContentObjectApiResponseTokens {
      * Get encoding
      * @return encoding
      */
-    @jakarta.annotation.Nonnull
-    public String getEncoding() {
+    @jakarta.annotation.Nullable public String getEncoding() {
         return encoding;
     }
 
-    public void setEncoding(@jakarta.annotation.Nonnull String encoding) {
+    public void setEncoding(@jakarta.annotation.Nullable String encoding) {
         this.encoding = encoding;
     }
 
-    public ContentObjectApiResponseTokens etag(@jakarta.annotation.Nonnull String etag) {
+    public ContentObjectApiResponseTokens etag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
         return this;
     }
@@ -100,12 +95,11 @@ public class ContentObjectApiResponseTokens {
      * Get etag
      * @return etag
      */
-    @jakarta.annotation.Nonnull
-    public String getEtag() {
+    @jakarta.annotation.Nullable public String getEtag() {
         return etag;
     }
 
-    public void setEtag(@jakarta.annotation.Nonnull String etag) {
+    public void setEtag(@jakarta.annotation.Nullable String etag) {
         this.etag = etag;
     }
 
@@ -156,7 +150,7 @@ public class ContentObjectApiResponseTokens {
         openapiFields = new HashSet<String>(Arrays.asList("count", "encoding", "etag"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("count", "encoding", "etag"));
+        openapiRequiredFields = new HashSet<String>(0);
     }
 
     /**
@@ -176,27 +170,17 @@ public class ContentObjectApiResponseTokens {
                                 ContentObjectApiResponseTokens.openapiRequiredFields.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ContentObjectApiResponseTokens.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                java.util.Locale.ROOT,
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField,
-                                jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("encoding").isJsonPrimitive()) {
+        if ((jsonObj.get("encoding") != null && !jsonObj.get("encoding").isJsonNull())
+                && !jsonObj.get("encoding").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
                             "Expected the field `encoding` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("encoding").toString()));
         }
-        if (!jsonObj.get("etag").isJsonPrimitive()) {
+        if ((jsonObj.get("etag") != null && !jsonObj.get("etag").isJsonNull())
+                && !jsonObj.get("etag").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,

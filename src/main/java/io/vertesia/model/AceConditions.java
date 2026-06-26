@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Conditions attached to an ACE for dynamic matching. - &#x60;principal_props&#x60;: matched against user/group properties at token time (PrincipalSet). - &#x60;resource_props&#x60;: matched against content properties at query time (ContentSet).
+ * Conditions attached to an ACE for dynamic matching. - &#x60;principal_props&#x60;: matched against user/group properties at token time (PrincipalSet). - &#x60;resource_props&#x60;: matched against object properties at query time (ResourceSet).
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -45,6 +45,11 @@ public class AceConditions {
 
     @SerializedName(SERIALIZED_NAME_RESOURCE_PROPS)
     @jakarta.annotation.Nullable private Map<String, Object> resourceProps;
+
+    public static final String SERIALIZED_NAME_SCOPE = "scope";
+
+    @SerializedName(SERIALIZED_NAME_SCOPE)
+    @jakarta.annotation.Nullable private AbacScope scope;
 
     public AceConditions() {}
 
@@ -89,7 +94,7 @@ public class AceConditions {
     }
 
     /**
-     * Property conditions matched against content properties at query time (ContentSet).
+     * Property conditions matched against object properties at query time (ResourceSet).
      * @return resourceProps
      */
     @jakarta.annotation.Nullable public Map<String, Object> getResourceProps() {
@@ -98,6 +103,23 @@ public class AceConditions {
 
     public void setResourceProps(@jakarta.annotation.Nullable Map<String, Object> resourceProps) {
         this.resourceProps = resourceProps;
+    }
+
+    public AceConditions scope(@jakarta.annotation.Nullable AbacScope scope) {
+        this.scope = scope;
+        return this;
+    }
+
+    /**
+     * Kind of object the &#x60;resource_props&#x60; matches. Used to disambiguate which partition&#39;s roles apply (e.g. content roles vs task roles) and to form the JWT &#x60;content_security&#x60; key prefix (&#x60;{scope}:{verb}&#x60;). Absent → &#x60;&#39;document&#39;&#x60; (default; emits bare &#x60;read&#x60;/&#x60;write&#x60;/&#x60;delete&#x60; keys for backward compatibility).
+     * @return scope
+     */
+    @jakarta.annotation.Nullable public AbacScope getScope() {
+        return scope;
+    }
+
+    public void setScope(@jakarta.annotation.Nullable AbacScope scope) {
+        this.scope = scope;
     }
 
     @Override
@@ -110,12 +132,13 @@ public class AceConditions {
         }
         AceConditions aceConditions = (AceConditions) o;
         return Objects.equals(this.principalProps, aceConditions.principalProps)
-                && Objects.equals(this.resourceProps, aceConditions.resourceProps);
+                && Objects.equals(this.resourceProps, aceConditions.resourceProps)
+                && Objects.equals(this.scope, aceConditions.scope);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(principalProps, resourceProps);
+        return Objects.hash(principalProps, resourceProps, scope);
     }
 
     @Override
@@ -124,6 +147,7 @@ public class AceConditions {
         sb.append("class AceConditions {\n");
         sb.append("    principalProps: ").append(toIndentedString(principalProps)).append("\n");
         sb.append("    resourceProps: ").append(toIndentedString(resourceProps)).append("\n");
+        sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -141,7 +165,8 @@ public class AceConditions {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("principal_props", "resource_props"));
+        openapiFields =
+                new HashSet<String>(Arrays.asList("principal_props", "resource_props", "scope"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -165,6 +190,10 @@ public class AceConditions {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the optional field `scope`
+        if (jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonNull()) {
+            AbacScope.validateJsonElement(jsonObj.get("scope"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

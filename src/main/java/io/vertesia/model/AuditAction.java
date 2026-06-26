@@ -12,92 +12,279 @@
 
 package io.vertesia.model;
 
+import com.google.gson.Gson;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonPrimitive;
 import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import io.vertesia.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- * Gets or Sets AuditAction
- */
-@JsonAdapter(AuditAction.Adapter.class)
-public enum AuditAction {
-    CREATE("create"),
+@jakarta.annotation.Generated(
+        value = "org.openapitools.codegen.languages.JavaClientCodegen",
+        comments = "Generator version: 7.22.0")
+public class AuditAction extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(AuditAction.class.getName());
 
-    UPDATE("update"),
+    public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+        @SuppressWarnings("unchecked")
+        @Override
+        public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
+            if (!AuditAction.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'AuditAction' and its subtypes
+            }
+            final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
+            final TypeAdapter<KnownAuditAction> adapterKnownAuditAction =
+                    gson.getDelegateAdapter(this, TypeToken.get(KnownAuditAction.class));
+            final TypeAdapter<String> adapterString =
+                    gson.getDelegateAdapter(this, TypeToken.get(String.class));
 
-    DELETE("delete"),
+            return (TypeAdapter<T>)
+                    new TypeAdapter<AuditAction>() {
+                        @Override
+                        public void write(JsonWriter out, AuditAction value) throws IOException {
+                            if (value == null || value.getActualInstance() == null) {
+                                elementAdapter.write(out, null);
+                                return;
+                            }
 
-    BULK_CREATE("bulk_create"),
+                            // check if the actual instance is of the type `KnownAuditAction`
+                            if (value.getActualInstance() instanceof KnownAuditAction) {
+                                JsonElement element =
+                                        adapterKnownAuditAction.toJsonTree(
+                                                (KnownAuditAction) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `String`
+                            if (value.getActualInstance() instanceof String) {
+                                JsonPrimitive primitive =
+                                        adapterString
+                                                .toJsonTree((String) value.getActualInstance())
+                                                .getAsJsonPrimitive();
+                                elementAdapter.write(out, primitive);
+                                return;
+                            }
+                            throw new IOException(
+                                    "Failed to serialize as the type doesn't match anyOf schemas: KnownAuditAction, String");
+                        }
 
-    BULK_CHANGE_TYPE("bulk_change_type"),
+                        @Override
+                        public AuditAction read(JsonReader in) throws IOException {
+                            Object deserialized = null;
+                            JsonElement jsonElement = elementAdapter.read(in);
 
-    BULK_UPDATE("bulk_update"),
+                            ArrayList<String> errorMessages = new ArrayList<>();
+                            TypeAdapter actualAdapter = elementAdapter;
 
-    BULK_DELETE("bulk_delete"),
+                            // deserialize KnownAuditAction
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                KnownAuditAction.validateJsonElement(jsonElement);
+                                actualAdapter = adapterKnownAuditAction;
+                                AuditAction ret = new AuditAction();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for KnownAuditAction failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'KnownAuditAction'",
+                                        e);
+                            }
+                            // deserialize String
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                if (!jsonElement.getAsJsonPrimitive().isString()) {
+                                    throw new IllegalArgumentException(
+                                            String.format(
+                                                    java.util.Locale.ROOT,
+                                                    "Expected json element to be of type String in the JSON string but got `%s`",
+                                                    jsonElement.toString()));
+                                }
+                                actualAdapter = adapterString;
+                                AuditAction ret = new AuditAction();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for String failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'String'",
+                                        e);
+                            }
 
-    ATTACH("attach"),
-
-    DETACH("detach"),
-
-    CREDENTIALS_FILL("credentials_fill"),
-
-    CREDENTIALS_TOTP_GENERATION("credentials_totp_generation"),
-
-    PUBLISH("publish"),
-
-    UNPUBLISH("unpublish"),
-
-    INFERENCE("inference"),
-
-    EMBEDDING("embedding"),
-
-    IMAGE_GENERATION("image_generation"),
-
-    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
-
-    private String value;
-
-    AuditAction(String value) {
-        this.value = value;
+                            throw new IOException(
+                                    String.format(
+                                            java.util.Locale.ROOT,
+                                            "Failed deserialization for AuditAction: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
+                                            errorMessages,
+                                            jsonElement.toString()));
+                        }
+                    }.nullSafe();
+        }
     }
 
-    public String getValue() {
-        return value;
+    // store a list of schema names defined in anyOf
+    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
+
+    public AuditAction() {
+        super("anyOf", Boolean.FALSE);
+    }
+
+    public AuditAction(Object o) {
+        super("anyOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("KnownAuditAction", KnownAuditAction.class);
+        schemas.put("String", String.class);
     }
 
     @Override
-    public String toString() {
-        return String.valueOf(value);
+    public Map<String, Class<?>> getSchemas() {
+        return AuditAction.schemas;
     }
 
-    public static AuditAction fromValue(String value) {
-        for (AuditAction b : AuditAction.values()) {
-            if (b.value.equals(value)) {
-                return b;
-            }
+    /**
+     * Set the instance that matches the anyOf child schema, check
+     * the instance parameter is valid against the anyOf child schemas:
+     * KnownAuditAction, String
+     *
+     * It could be an instance of the 'anyOf' schemas.
+     */
+    @Override
+    public void setActualInstance(Object instance) {
+        if (instance instanceof KnownAuditAction) {
+            super.setActualInstance(instance);
+            return;
         }
-        return UNKNOWN_DEFAULT_OPEN_API;
+
+        if (instance instanceof String) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException("Invalid instance type. Must be KnownAuditAction, String");
     }
 
-    public static class Adapter extends TypeAdapter<AuditAction> {
-        @Override
-        public void write(final JsonWriter jsonWriter, final AuditAction enumeration)
-                throws IOException {
-            jsonWriter.value(enumeration.getValue());
-        }
-
-        @Override
-        public AuditAction read(final JsonReader jsonReader) throws IOException {
-            String value = jsonReader.nextString();
-            return AuditAction.fromValue(value);
-        }
+    /**
+     * Get the actual instance, which can be the following:
+     * KnownAuditAction, String
+     *
+     * @return The actual instance (KnownAuditAction, String)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
     }
 
+    /**
+     * Get the actual instance of `KnownAuditAction`. If the actual instance is not `KnownAuditAction`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `KnownAuditAction`
+     * @throws ClassCastException if the instance is not `KnownAuditAction`
+     */
+    public KnownAuditAction getKnownAuditAction() throws ClassCastException {
+        return (KnownAuditAction) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `String`. If the actual instance is not `String`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `String`
+     * @throws ClassCastException if the instance is not `String`
+     */
+    public String getString() throws ClassCastException {
+        return (String) super.getActualInstance();
+    }
+
+    /**
+     * Validates the JSON Element and throws an exception if issues found
+     *
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to AuditAction
+     */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        String value = jsonElement.getAsString();
-        AuditAction.fromValue(value);
+        // validate anyOf schemas one by one
+        ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with KnownAuditAction
+        try {
+            KnownAuditAction.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for KnownAuditAction failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with String
+        try {
+            if (!jsonElement.getAsJsonPrimitive().isString()) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                java.util.Locale.ROOT,
+                                "Expected json element to be of type String in the JSON string but got `%s`",
+                                jsonElement.toString()));
+            }
+            return;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for String failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        throw new IOException(
+                String.format(
+                        java.util.Locale.ROOT,
+                        "The JSON string is invalid for AuditAction with anyOf schemas: KnownAuditAction, String. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
+                        errorMessages,
+                        jsonElement.toString()));
+    }
+
+    /**
+     * Create an instance of AuditAction given an JSON string
+     *
+     * @param jsonString JSON string
+     * @return An instance of AuditAction
+     * @throws IOException if the JSON string is invalid with respect to AuditAction
+     */
+    public static AuditAction fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, AuditAction.class);
+    }
+
+    /**
+     * Convert an instance of AuditAction to an JSON string
+     *
+     * @return JSON string
+     */
+    public String toJson() {
+        return JSON.getGson().toJson(this);
     }
 }

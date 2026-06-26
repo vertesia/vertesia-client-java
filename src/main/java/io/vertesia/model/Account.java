@@ -80,6 +80,11 @@ public class Account {
     @jakarta.annotation.Nonnull
     private AccountBilling billing;
 
+    public static final String SERIALIZED_NAME_QUOTA_TIER = "quota_tier";
+
+    @SerializedName(SERIALIZED_NAME_QUOTA_TIER)
+    @jakarta.annotation.Nullable private QuotaTier quotaTier;
+
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
@@ -240,6 +245,23 @@ public class Account {
         this.billing = billing;
     }
 
+    public Account quotaTier(@jakarta.annotation.Nullable QuotaTier quotaTier) {
+        this.quotaTier = quotaTier;
+        return this;
+    }
+
+    /**
+     * Quota/rate-limit tier. Unset → the deployment default tier (env &#x60;QUOTA_BASE_TIER&#x60;).
+     * @return quotaTier
+     */
+    @jakarta.annotation.Nullable public QuotaTier getQuotaTier() {
+        return quotaTier;
+    }
+
+    public void setQuotaTier(@jakarta.annotation.Nullable QuotaTier quotaTier) {
+        this.quotaTier = quotaTier;
+    }
+
     public Account createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
@@ -373,6 +395,7 @@ public class Account {
                 && Objects.equals(this.datacenter, account.datacenter)
                 && Objects.equals(this.accountType, account.accountType)
                 && Objects.equals(this.billing, account.billing)
+                && Objects.equals(this.quotaTier, account.quotaTier)
                 && Objects.equals(this.createdBy, account.createdBy)
                 && Objects.equals(this.updatedBy, account.updatedBy)
                 && Objects.equals(this.createdAt, account.createdAt)
@@ -390,6 +413,7 @@ public class Account {
                 datacenter,
                 accountType,
                 billing,
+                quotaTier,
                 createdBy,
                 updatedBy,
                 createdAt,
@@ -408,6 +432,7 @@ public class Account {
         sb.append("    datacenter: ").append(toIndentedString(datacenter)).append("\n");
         sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
         sb.append("    billing: ").append(toIndentedString(billing)).append("\n");
+        sb.append("    quotaTier: ").append(toIndentedString(quotaTier)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -442,6 +467,7 @@ public class Account {
                                 "datacenter",
                                 "account_type",
                                 "billing",
+                                "quota_tier",
                                 "created_by",
                                 "updated_by",
                                 "created_at",
@@ -532,6 +558,10 @@ public class Account {
         AccountType.validateJsonElement(jsonObj.get("account_type"));
         // validate the required field `billing`
         AccountBilling.validateJsonElement(jsonObj.get("billing"));
+        // validate the optional field `quota_tier`
+        if (jsonObj.get("quota_tier") != null && !jsonObj.get("quota_tier").isJsonNull()) {
+            QuotaTier.validateJsonElement(jsonObj.get("quota_tier"));
+        }
         if (!jsonObj.get("created_by").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(

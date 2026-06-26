@@ -19,6 +19,7 @@ import io.vertesia.ApiException;
 import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
+import io.vertesia.model.AuditAction;
 import io.vertesia.model.AuditTrailResponse;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
@@ -91,7 +92,7 @@ public class AuditTrailApi {
      * </table>
      */
     public okhttp3.Call listAuditTrailEventsCall(
-            @jakarta.annotation.Nullable List<String> actions,
+            @jakarta.annotation.Nullable List<AuditAction> actions,
             @jakarta.annotation.Nullable List<String> resourceTypes,
             @jakarta.annotation.Nullable String resourceId,
             @jakarta.annotation.Nullable String principalId,
@@ -215,7 +216,7 @@ public class AuditTrailApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAuditTrailEventsValidateBeforeCall(
-            @jakarta.annotation.Nullable List<String> actions,
+            @jakarta.annotation.Nullable List<AuditAction> actions,
             @jakarta.annotation.Nullable List<String> resourceTypes,
             @jakarta.annotation.Nullable String resourceId,
             @jakarta.annotation.Nullable String principalId,
@@ -272,7 +273,7 @@ public class AuditTrailApi {
      * </table>
      */
     public AuditTrailResponse listAuditTrailEvents(
-            @jakarta.annotation.Nullable List<String> actions,
+            @jakarta.annotation.Nullable List<AuditAction> actions,
             @jakarta.annotation.Nullable List<String> resourceTypes,
             @jakarta.annotation.Nullable String resourceId,
             @jakarta.annotation.Nullable String principalId,
@@ -329,7 +330,7 @@ public class AuditTrailApi {
      * </table>
      */
     public ApiResponse<AuditTrailResponse> listAuditTrailEventsWithHttpInfo(
-            @jakarta.annotation.Nullable List<String> actions,
+            @jakarta.annotation.Nullable List<AuditAction> actions,
             @jakarta.annotation.Nullable List<String> resourceTypes,
             @jakarta.annotation.Nullable String resourceId,
             @jakarta.annotation.Nullable String principalId,
@@ -389,7 +390,7 @@ public class AuditTrailApi {
      * </table>
      */
     public okhttp3.Call listAuditTrailEventsAsync(
-            @jakarta.annotation.Nullable List<String> actions,
+            @jakarta.annotation.Nullable List<AuditAction> actions,
             @jakarta.annotation.Nullable List<String> resourceTypes,
             @jakarta.annotation.Nullable String resourceId,
             @jakarta.annotation.Nullable String principalId,

@@ -267,6 +267,11 @@ public class AppManifest {
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
     @jakarta.annotation.Nullable private String account;
 
+    public static final String SERIALIZED_NAME_SOURCE = "source";
+
+    @SerializedName(SERIALIZED_NAME_SOURCE)
+    @jakarta.annotation.Nullable private AppManifestSource source;
+
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
@@ -696,6 +701,23 @@ public class AppManifest {
         this.account = account;
     }
 
+    public AppManifest source(@jakarta.annotation.Nullable AppManifestSource source) {
+        this.source = source;
+        return this;
+    }
+
+    /**
+     * Source metadata for generated or synced app manifests.
+     * @return source
+     */
+    @jakarta.annotation.Nullable public AppManifestSource getSource() {
+        return source;
+    }
+
+    public void setSource(@jakarta.annotation.Nullable AppManifestSource source) {
+        this.source = source;
+    }
+
     public AppManifest createdAt(@jakarta.annotation.Nonnull String createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -762,6 +784,7 @@ public class AppManifest {
                 && Objects.equals(this.accessControl, appManifest.accessControl)
                 && Objects.equals(this.id, appManifest.id)
                 && Objects.equals(this.account, appManifest.account)
+                && Objects.equals(this.source, appManifest.source)
                 && Objects.equals(this.createdAt, appManifest.createdAt)
                 && Objects.equals(this.updatedAt, appManifest.updatedAt);
     }
@@ -790,6 +813,7 @@ public class AppManifest {
                 accessControl,
                 id,
                 account,
+                source,
                 createdAt,
                 updatedAt);
     }
@@ -821,6 +845,7 @@ public class AppManifest {
         sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    account: ").append(toIndentedString(account)).append("\n");
+        sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("}");
@@ -864,6 +889,7 @@ public class AppManifest {
                                 "access_control",
                                 "id",
                                 "account",
+                                "source",
                                 "created_at",
                                 "updated_at"));
 
@@ -1065,6 +1091,10 @@ public class AppManifest {
                             java.util.Locale.ROOT,
                             "Expected the field `account` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("account").toString()));
+        }
+        // validate the optional field `source`
+        if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) {
+            AppManifestSource.validateJsonElement(jsonObj.get("source"));
         }
         if (!jsonObj.get("created_at").isJsonPrimitive()) {
             throw new IllegalArgumentException(

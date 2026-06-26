@@ -313,6 +313,16 @@ public class AgentRun {
     @SerializedName(SERIALIZED_NAME_TITLE)
     @jakarta.annotation.Nullable private String title;
 
+    public static final String SERIALIZED_NAME_EVENT_SUBSCRIPTION_ID = "event_subscription_id";
+
+    @SerializedName(SERIALIZED_NAME_EVENT_SUBSCRIPTION_ID)
+    @jakarta.annotation.Nullable private String eventSubscriptionId;
+
+    public static final String SERIALIZED_NAME_EVENT_REF = "event_ref";
+
+    @SerializedName(SERIALIZED_NAME_EVENT_REF)
+    @jakarta.annotation.Nullable private EventRef eventRef;
+
     public static final String SERIALIZED_NAME_ARCHIVE_STATE = "archive_state";
 
     @SerializedName(SERIALIZED_NAME_ARCHIVE_STATE)
@@ -967,6 +977,40 @@ public class AgentRun {
         this.title = title;
     }
 
+    public AgentRun eventSubscriptionId(@jakarta.annotation.Nullable String eventSubscriptionId) {
+        this.eventSubscriptionId = eventSubscriptionId;
+        return this;
+    }
+
+    /**
+     * Event subscription ID — set when this run was triggered by the event bus.
+     * @return eventSubscriptionId
+     */
+    @jakarta.annotation.Nullable public String getEventSubscriptionId() {
+        return eventSubscriptionId;
+    }
+
+    public void setEventSubscriptionId(@jakarta.annotation.Nullable String eventSubscriptionId) {
+        this.eventSubscriptionId = eventSubscriptionId;
+    }
+
+    public AgentRun eventRef(@jakarta.annotation.Nullable EventRef eventRef) {
+        this.eventRef = eventRef;
+        return this;
+    }
+
+    /**
+     * Event reference — set when this run was triggered by the event bus.
+     * @return eventRef
+     */
+    @jakarta.annotation.Nullable public EventRef getEventRef() {
+        return eventRef;
+    }
+
+    public void setEventRef(@jakarta.annotation.Nullable EventRef eventRef) {
+        this.eventRef = eventRef;
+    }
+
     public AgentRun archiveState(@jakarta.annotation.Nullable AgentRunArchiveState archiveState) {
         this.archiveState = archiveState;
         return this;
@@ -1250,6 +1294,8 @@ public class AgentRun {
                 && Objects.equals(this.startedAt, agentRun.startedAt)
                 && Objects.equals(this.completedAt, agentRun.completedAt)
                 && Objects.equals(this.title, agentRun.title)
+                && Objects.equals(this.eventSubscriptionId, agentRun.eventSubscriptionId)
+                && Objects.equals(this.eventRef, agentRun.eventRef)
                 && Objects.equals(this.archiveState, agentRun.archiveState)
                 && Objects.equals(this.createdAt, agentRun.createdAt)
                 && Objects.equals(this.updatedAt, agentRun.updatedAt)
@@ -1298,6 +1344,8 @@ public class AgentRun {
                 startedAt,
                 completedAt,
                 title,
+                eventSubscriptionId,
+                eventRef,
                 archiveState,
                 createdAt,
                 updatedAt,
@@ -1351,6 +1399,10 @@ public class AgentRun {
         sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
         sb.append("    completedAt: ").append(toIndentedString(completedAt)).append("\n");
         sb.append("    title: ").append(toIndentedString(title)).append("\n");
+        sb.append("    eventSubscriptionId: ")
+                .append(toIndentedString(eventSubscriptionId))
+                .append("\n");
+        sb.append("    eventRef: ").append(toIndentedString(eventRef)).append("\n");
         sb.append("    archiveState: ").append(toIndentedString(archiveState)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
@@ -1416,6 +1468,8 @@ public class AgentRun {
                                 "started_at",
                                 "completed_at",
                                 "title",
+                                "event_subscription_id",
+                                "event_ref",
                                 "archive_state",
                                 "created_at",
                                 "updated_at",
@@ -1652,6 +1706,19 @@ public class AgentRun {
                             java.util.Locale.ROOT,
                             "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("title").toString()));
+        }
+        if ((jsonObj.get("event_subscription_id") != null
+                        && !jsonObj.get("event_subscription_id").isJsonNull())
+                && !jsonObj.get("event_subscription_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `event_subscription_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("event_subscription_id").toString()));
+        }
+        // validate the optional field `event_ref`
+        if (jsonObj.get("event_ref") != null && !jsonObj.get("event_ref").isJsonNull()) {
+            EventRef.validateJsonElement(jsonObj.get("event_ref"));
         }
         // validate the optional field `archive_state`
         if (jsonObj.get("archive_state") != null && !jsonObj.get("archive_state").isJsonNull()) {

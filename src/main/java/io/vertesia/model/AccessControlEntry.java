@@ -40,7 +40,7 @@ public class AccessControlEntry {
 
     @SerializedName(SERIALIZED_NAME_ROLE)
     @jakarta.annotation.Nonnull
-    private SystemRoles role;
+    private String role;
 
     public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource_type";
 
@@ -109,21 +109,21 @@ public class AccessControlEntry {
 
     public AccessControlEntry() {}
 
-    public AccessControlEntry role(@jakarta.annotation.Nonnull SystemRoles role) {
+    public AccessControlEntry role(@jakarta.annotation.Nonnull String role) {
         this.role = role;
         return this;
     }
 
     /**
-     * Get role
+     * Role name. Typed as &#x60;string&#x60; because role names now span multiple partitions: &#x60;SystemRoles&#x60; enum values for system-domain roles, and bare strings for ABAC-domain roles (e.g. &#x60;&#39;content:reader&#39;&#x60;, &#x60;&#39;content:writer&#39;&#x60;, &#x60;&#39;content:manager&#39;&#x60;). Mongoose schema validates the value against the registered role catalog via &#x60;getAllRoleNames()&#x60;.
      * @return role
      */
     @jakarta.annotation.Nonnull
-    public SystemRoles getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(@jakarta.annotation.Nonnull SystemRoles role) {
+    public void setRole(@jakarta.annotation.Nonnull String role) {
         this.role = role;
     }
 
@@ -483,8 +483,13 @@ public class AccessControlEntry {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `role`
-        SystemRoles.validateJsonElement(jsonObj.get("role"));
+        if (!jsonObj.get("role").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `role` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("role").toString()));
+        }
         // validate the required field `resource_type`
         AccessControlResourceType.validateJsonElement(jsonObj.get("resource_type"));
         if (!jsonObj.get("resource").isJsonPrimitive()) {
