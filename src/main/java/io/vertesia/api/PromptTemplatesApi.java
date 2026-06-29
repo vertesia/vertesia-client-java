@@ -1362,6 +1362,7 @@ public class PromptTemplatesApi {
      * @param limit  (optional)
      * @param offset  (optional)
      * @param role  (optional)
+     * @param tags  (optional)
      * @param matchInteractions  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1381,6 +1382,7 @@ public class PromptTemplatesApi {
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
             @jakarta.annotation.Nullable String role,
+            @jakarta.annotation.Nullable List<String> tags,
             @jakarta.annotation.Nullable Boolean matchInteractions,
             final ApiCallback _callback)
             throws ApiException {
@@ -1429,6 +1431,11 @@ public class PromptTemplatesApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("role", role));
         }
 
+        if (tags != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "tags", tags));
+        }
+
         if (matchInteractions != null) {
             localVarQueryParams.addAll(
                     localVarApiClient.parameterToPair("matchInteractions", matchInteractions));
@@ -1469,20 +1476,23 @@ public class PromptTemplatesApi {
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
             @jakarta.annotation.Nullable String role,
+            @jakarta.annotation.Nullable List<String> tags,
             @jakarta.annotation.Nullable Boolean matchInteractions,
             final ApiCallback _callback)
             throws ApiException {
-        return listPromptsCall(name, status, limit, offset, role, matchInteractions, _callback);
+        return listPromptsCall(
+                name, status, limit, offset, role, tags, matchInteractions, _callback);
     }
 
     /**
      * List prompts
-     * Lists draft prompt templates in the current project with optional filtering by name, role, and interaction references.  **Required permissions:** &#x60;interaction:read&#x60;
+     * Lists draft prompt templates in the current project with optional filtering by name, role, tags, and interaction references.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param name  (optional)
      * @param status  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
      * @param role  (optional)
+     * @param tags  (optional)
      * @param matchInteractions  (optional)
      * @return List&lt;PromptTemplateRef&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1501,21 +1511,23 @@ public class PromptTemplatesApi {
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
             @jakarta.annotation.Nullable String role,
+            @jakarta.annotation.Nullable List<String> tags,
             @jakarta.annotation.Nullable Boolean matchInteractions)
             throws ApiException {
         ApiResponse<List<PromptTemplateRef>> localVarResp =
-                listPromptsWithHttpInfo(name, status, limit, offset, role, matchInteractions);
+                listPromptsWithHttpInfo(name, status, limit, offset, role, tags, matchInteractions);
         return localVarResp.getData();
     }
 
     /**
      * List prompts
-     * Lists draft prompt templates in the current project with optional filtering by name, role, and interaction references.  **Required permissions:** &#x60;interaction:read&#x60;
+     * Lists draft prompt templates in the current project with optional filtering by name, role, tags, and interaction references.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param name  (optional)
      * @param status  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
      * @param role  (optional)
+     * @param tags  (optional)
      * @param matchInteractions  (optional)
      * @return ApiResponse&lt;List&lt;PromptTemplateRef&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1534,23 +1546,25 @@ public class PromptTemplatesApi {
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
             @jakarta.annotation.Nullable String role,
+            @jakarta.annotation.Nullable List<String> tags,
             @jakarta.annotation.Nullable Boolean matchInteractions)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listPromptsValidateBeforeCall(
-                        name, status, limit, offset, role, matchInteractions, null);
+                        name, status, limit, offset, role, tags, matchInteractions, null);
         Type localVarReturnType = new TypeToken<List<PromptTemplateRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List prompts (asynchronously)
-     * Lists draft prompt templates in the current project with optional filtering by name, role, and interaction references.  **Required permissions:** &#x60;interaction:read&#x60;
+     * Lists draft prompt templates in the current project with optional filtering by name, role, tags, and interaction references.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param name  (optional)
      * @param status  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
      * @param role  (optional)
+     * @param tags  (optional)
      * @param matchInteractions  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1570,13 +1584,14 @@ public class PromptTemplatesApi {
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
             @jakarta.annotation.Nullable String role,
+            @jakarta.annotation.Nullable List<String> tags,
             @jakarta.annotation.Nullable Boolean matchInteractions,
             final ApiCallback<List<PromptTemplateRef>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listPromptsValidateBeforeCall(
-                        name, status, limit, offset, role, matchInteractions, _callback);
+                        name, status, limit, offset, role, tags, matchInteractions, _callback);
         Type localVarReturnType = new TypeToken<List<PromptTemplateRef>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

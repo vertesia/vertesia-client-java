@@ -223,6 +223,11 @@ src/main/java/io/vertesia/model/ContentNatureVideo.java
 src/main/java/io/vertesia/model/ContentObjectApiResponse.java
 src/main/java/io/vertesia/model/ContentObjectApiResponseTokens.java
 src/main/java/io/vertesia/model/ContentObjectApiRevision.java
+src/main/java/io/vertesia/model/ContentObjectExportArtifact.java
+src/main/java/io/vertesia/model/ContentObjectExportArtifactFile.java
+src/main/java/io/vertesia/model/ContentObjectExportProgress.java
+src/main/java/io/vertesia/model/ContentObjectExportResult.java
+src/main/java/io/vertesia/model/ContentObjectExportStatusResponse.java
 src/main/java/io/vertesia/model/ContentObjectItemApiResponse.java
 src/main/java/io/vertesia/model/ContentObjectProcessingPriority.java
 src/main/java/io/vertesia/model/ContentObjectStatus.java
@@ -329,6 +334,7 @@ src/main/java/io/vertesia/model/DataTableForAI.java
 src/main/java/io/vertesia/model/DataTableSemanticType.java
 src/main/java/io/vertesia/model/DataTableSummary.java
 src/main/java/io/vertesia/model/DeleteByIdResult.java
+src/main/java/io/vertesia/model/DeleteContentObjectExportResponse.java
 src/main/java/io/vertesia/model/DeleteContentObjectResult.java
 src/main/java/io/vertesia/model/DeleteCountResult.java
 src/main/java/io/vertesia/model/DeleteFileResult.java
@@ -368,6 +374,7 @@ src/main/java/io/vertesia/model/EmbeddingsResult.java
 src/main/java/io/vertesia/model/EmbeddingsStatusResponse.java
 src/main/java/io/vertesia/model/EmbeddingsStatusResponseVectorIndex.java
 src/main/java/io/vertesia/model/EmbeddingsTokenUsage.java
+src/main/java/io/vertesia/model/EnableEnvironmentModelPayload.java
 src/main/java/io/vertesia/model/EnvironmentTokenRequest.java
 src/main/java/io/vertesia/model/ErrorResponse.java
 src/main/java/io/vertesia/model/EventCategory.java
@@ -406,6 +413,8 @@ src/main/java/io/vertesia/model/ExecutionRunRef.java
 src/main/java/io/vertesia/model/ExecutionRunStatus.java
 src/main/java/io/vertesia/model/ExecutionRunWorkflow.java
 src/main/java/io/vertesia/model/ExecutionTokenUsage.java
+src/main/java/io/vertesia/model/ExportContentObjectsFilter.java
+src/main/java/io/vertesia/model/ExportContentObjectsIncludeOptions.java
 src/main/java/io/vertesia/model/ExportPropertiesPayload.java
 src/main/java/io/vertesia/model/ExportPropertiesResponse.java
 src/main/java/io/vertesia/model/FacetSpec.java
@@ -495,6 +504,7 @@ src/main/java/io/vertesia/model/KnownAuditAction.java
 src/main/java/io/vertesia/model/LinkupConfiguration.java
 src/main/java/io/vertesia/model/LinkupConfigurationInput.java
 src/main/java/io/vertesia/model/ListAgentRunsResponse.java
+src/main/java/io/vertesia/model/ListContentObjectExportsResponse.java
 src/main/java/io/vertesia/model/ListEventDeliveriesPayload.java
 src/main/java/io/vertesia/model/ListEventDeliveriesResponse.java
 src/main/java/io/vertesia/model/ListSecretsResponse.java
@@ -725,6 +735,8 @@ src/main/java/io/vertesia/model/SigningAlgorithm.java
 src/main/java/io/vertesia/model/SkillContextTriggers.java
 src/main/java/io/vertesia/model/SortOption.java
 src/main/java/io/vertesia/model/SortOrder.java
+src/main/java/io/vertesia/model/StartContentObjectExportRequest.java
+src/main/java/io/vertesia/model/StartContentObjectExportResponse.java
 src/main/java/io/vertesia/model/StartProjectReindexPayload.java
 src/main/java/io/vertesia/model/StatelessExecutionOptions.java
 src/main/java/io/vertesia/model/StoredTypeRef.java
@@ -733,6 +745,7 @@ src/main/java/io/vertesia/model/StreamingTelemetryContext.java
 src/main/java/io/vertesia/model/StripeBillingStatusResponse.java
 src/main/java/io/vertesia/model/SuccessResponse.java
 src/main/java/io/vertesia/model/SupervisedRunResponse.java
+src/main/java/io/vertesia/model/SupportedEmbeddingTypes.java
 src/main/java/io/vertesia/model/SupportedIntegrations.java
 src/main/java/io/vertesia/model/SupportedIntegrationsAskUserWebhook.java
 src/main/java/io/vertesia/model/SupportedIntegrationsAws.java

@@ -27,12 +27,14 @@ import io.vertesia.model.ComplexSearchPayload;
 import io.vertesia.model.ComputeObjectFacetPayload;
 import io.vertesia.model.ComputedFacetResponse;
 import io.vertesia.model.ContentObjectApiResponse;
+import io.vertesia.model.ContentObjectExportStatusResponse;
 import io.vertesia.model.ContentObjectItemApiResponse;
 import io.vertesia.model.ContentObjectProcessingPriority;
 import io.vertesia.model.ContentObjectTextResponse;
 import io.vertesia.model.ContentSource;
 import io.vertesia.model.CountResult;
 import io.vertesia.model.CreateContentObjectPayload;
+import io.vertesia.model.DeleteContentObjectExportResponse;
 import io.vertesia.model.DeleteContentObjectResult;
 import io.vertesia.model.DocAnalyzeRunStatusResponse;
 import io.vertesia.model.DocAnalyzerResultResponse;
@@ -46,11 +48,14 @@ import io.vertesia.model.GetFileUrlPayload;
 import io.vertesia.model.GetFileUrlResponse;
 import io.vertesia.model.GetRenditionResponse;
 import io.vertesia.model.GetUploadUrlPayload;
+import io.vertesia.model.ListContentObjectExportsResponse;
 import io.vertesia.model.ListWorkflowRunsResponse;
 import io.vertesia.model.ObjectSearchResponse;
 import io.vertesia.model.PartialCreateContentObjectPayload;
 import io.vertesia.model.PdfToRichtextOptions;
 import io.vertesia.model.SetObjectEmbeddingsResponse;
+import io.vertesia.model.StartContentObjectExportRequest;
+import io.vertesia.model.StartContentObjectExportResponse;
 import io.vertesia.model.WorkflowRunStatus;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
@@ -1326,6 +1331,165 @@ public class ObjectsApi {
     }
 
     /**
+     * Build call for deleteContentObjectExport
+     * @param exportId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Deleted content object export artifact. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteContentObjectExportCall(
+            @jakarta.annotation.Nonnull String exportId, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/objects/export/bulk/artifacts/{exportId}"
+                        .replace(
+                                "{" + "exportId" + "}",
+                                localVarApiClient.escapeString(exportId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteContentObjectExportValidateBeforeCall(
+            @jakarta.annotation.Nonnull String exportId, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'exportId' is set
+        if (exportId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'exportId' when calling deleteContentObjectExport(Async)");
+        }
+
+        return deleteContentObjectExportCall(exportId, _callback);
+    }
+
+    /**
+     * Delete a content object export
+     * Deletes all files under a single content object export artifact folder in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param exportId  (required)
+     * @return DeleteContentObjectExportResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Deleted content object export artifact. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public DeleteContentObjectExportResponse deleteContentObjectExport(
+            @jakarta.annotation.Nonnull String exportId) throws ApiException {
+        ApiResponse<DeleteContentObjectExportResponse> localVarResp =
+                deleteContentObjectExportWithHttpInfo(exportId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a content object export
+     * Deletes all files under a single content object export artifact folder in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param exportId  (required)
+     * @return ApiResponse&lt;DeleteContentObjectExportResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Deleted content object export artifact. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<DeleteContentObjectExportResponse> deleteContentObjectExportWithHttpInfo(
+            @jakarta.annotation.Nonnull String exportId) throws ApiException {
+        okhttp3.Call localVarCall = deleteContentObjectExportValidateBeforeCall(exportId, null);
+        Type localVarReturnType = new TypeToken<DeleteContentObjectExportResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a content object export (asynchronously)
+     * Deletes all files under a single content object export artifact folder in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param exportId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Deleted content object export artifact. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteContentObjectExportAsync(
+            @jakarta.annotation.Nonnull String exportId,
+            final ApiCallback<DeleteContentObjectExportResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                deleteContentObjectExportValidateBeforeCall(exportId, _callback);
+        Type localVarReturnType = new TypeToken<DeleteContentObjectExportResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for deleteObject
      * @param objectId  (required)
      * @param _callback Callback for upload/download progress
@@ -1976,6 +2140,366 @@ public class ObjectsApi {
         okhttp3.Call localVarCall =
                 getAdaptedObjectTablesByRunValidateBeforeCall(objectId, runId, _callback);
         Type localVarReturnType = new TypeToken<Map<String, AdaptedTable>>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getContentObjectExportDownloadUrl
+     * @param exportId  (required)
+     * @param role  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getContentObjectExportDownloadUrlCall(
+            @jakarta.annotation.Nonnull String exportId,
+            @jakarta.annotation.Nonnull String role,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/objects/export/bulk/artifacts/{exportId}/{role}/download-url"
+                        .replace(
+                                "{" + "exportId" + "}",
+                                localVarApiClient.escapeString(exportId.toString()))
+                        .replace(
+                                "{" + "role" + "}",
+                                localVarApiClient.escapeString(role.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getContentObjectExportDownloadUrlValidateBeforeCall(
+            @jakarta.annotation.Nonnull String exportId,
+            @jakarta.annotation.Nonnull String role,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'exportId' is set
+        if (exportId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'exportId' when calling getContentObjectExportDownloadUrl(Async)");
+        }
+
+        // verify the required parameter 'role' is set
+        if (role == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'role' when calling getContentObjectExportDownloadUrl(Async)");
+        }
+
+        return getContentObjectExportDownloadUrlCall(exportId, role, _callback);
+    }
+
+    /**
+     * Create a content object export download URL
+     * Creates a signed download URL for a content object export data file or manifest sidecar.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param exportId  (required)
+     * @param role  (required)
+     * @return GetFileUrlResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public GetFileUrlResponse getContentObjectExportDownloadUrl(
+            @jakarta.annotation.Nonnull String exportId, @jakarta.annotation.Nonnull String role)
+            throws ApiException {
+        ApiResponse<GetFileUrlResponse> localVarResp =
+                getContentObjectExportDownloadUrlWithHttpInfo(exportId, role);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create a content object export download URL
+     * Creates a signed download URL for a content object export data file or manifest sidecar.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param exportId  (required)
+     * @param role  (required)
+     * @return ApiResponse&lt;GetFileUrlResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<GetFileUrlResponse> getContentObjectExportDownloadUrlWithHttpInfo(
+            @jakarta.annotation.Nonnull String exportId, @jakarta.annotation.Nonnull String role)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                getContentObjectExportDownloadUrlValidateBeforeCall(exportId, role, null);
+        Type localVarReturnType = new TypeToken<GetFileUrlResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create a content object export download URL (asynchronously)
+     * Creates a signed download URL for a content object export data file or manifest sidecar.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param exportId  (required)
+     * @param role  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Signed download URL metadata. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getContentObjectExportDownloadUrlAsync(
+            @jakarta.annotation.Nonnull String exportId,
+            @jakarta.annotation.Nonnull String role,
+            final ApiCallback<GetFileUrlResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getContentObjectExportDownloadUrlValidateBeforeCall(exportId, role, _callback);
+        Type localVarReturnType = new TypeToken<GetFileUrlResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getContentObjectsExportStatus
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Content object export workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getContentObjectsExportStatusCall(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/objects/export/bulk/{workflowId}/{runId}"
+                        .replace(
+                                "{" + "workflowId" + "}",
+                                localVarApiClient.escapeString(workflowId.toString()))
+                        .replace(
+                                "{" + "runId" + "}",
+                                localVarApiClient.escapeString(runId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getContentObjectsExportStatusValidateBeforeCall(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'workflowId' is set
+        if (workflowId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'workflowId' when calling getContentObjectsExportStatus(Async)");
+        }
+
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'runId' when calling getContentObjectsExportStatus(Async)");
+        }
+
+        return getContentObjectsExportStatusCall(workflowId, runId, _callback);
+    }
+
+    /**
+     * Get content object export status
+     * **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @return ContentObjectExportStatusResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Content object export workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ContentObjectExportStatusResponse getContentObjectsExportStatus(
+            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        ApiResponse<ContentObjectExportStatusResponse> localVarResp =
+                getContentObjectsExportStatusWithHttpInfo(workflowId, runId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get content object export status
+     * **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @return ApiResponse&lt;ContentObjectExportStatusResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Content object export workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ContentObjectExportStatusResponse> getContentObjectsExportStatusWithHttpInfo(
+            @jakarta.annotation.Nonnull String workflowId, @jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                getContentObjectsExportStatusValidateBeforeCall(workflowId, runId, null);
+        Type localVarReturnType = new TypeToken<ContentObjectExportStatusResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get content object export status (asynchronously)
+     * **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param workflowId  (required)
+     * @param runId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Content object export workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getContentObjectsExportStatusAsync(
+            @jakarta.annotation.Nonnull String workflowId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback<ContentObjectExportStatusResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getContentObjectsExportStatusValidateBeforeCall(workflowId, runId, _callback);
+        Type localVarReturnType = new TypeToken<ContentObjectExportStatusResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3337,6 +3861,145 @@ public class ObjectsApi {
     }
 
     /**
+     * Build call for listContentObjectExports
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Existing content object export artifacts. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listContentObjectExportsCall(final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/objects/export/bulk/artifacts";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listContentObjectExportsValidateBeforeCall(final ApiCallback _callback)
+            throws ApiException {
+        return listContentObjectExportsCall(_callback);
+    }
+
+    /**
+     * List content object exports
+     * Lists semi-transient content object export artifacts in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @return ListContentObjectExportsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Existing content object export artifacts. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ListContentObjectExportsResponse listContentObjectExports() throws ApiException {
+        ApiResponse<ListContentObjectExportsResponse> localVarResp =
+                listContentObjectExportsWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * List content object exports
+     * Lists semi-transient content object export artifacts in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @return ApiResponse&lt;ListContentObjectExportsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Existing content object export artifacts. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ListContentObjectExportsResponse> listContentObjectExportsWithHttpInfo()
+            throws ApiException {
+        okhttp3.Call localVarCall = listContentObjectExportsValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<ListContentObjectExportsResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List content object exports (asynchronously)
+     * Lists semi-transient content object export artifacts in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Existing content object export artifacts. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listContentObjectExportsAsync(
+            final ApiCallback<ListContentObjectExportsResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listContentObjectExportsValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<ListContentObjectExportsResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for listObjectCollections
      * @param objectId  (required)
      * @param _callback Callback for upload/download progress
@@ -4476,6 +5139,172 @@ public class ObjectsApi {
         okhttp3.Call localVarCall =
                 setObjectEmbeddingsValidateBeforeCall(objectId, type, embedding, _callback);
         Type localVarReturnType = new TypeToken<SetObjectEmbeddingsResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for startContentObjectsExport
+     * @param startContentObjectExportRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Started content object export workflow. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call startContentObjectsExportCall(
+            @jakarta.annotation.Nonnull
+                    StartContentObjectExportRequest startContentObjectExportRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = startContentObjectExportRequest;
+
+        // create path and map variables
+        String localVarPath = "/objects/export/bulk";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call startContentObjectsExportValidateBeforeCall(
+            @jakarta.annotation.Nonnull
+                    StartContentObjectExportRequest startContentObjectExportRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'startContentObjectExportRequest' is set
+        if (startContentObjectExportRequest == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'startContentObjectExportRequest' when calling startContentObjectsExport(Async)");
+        }
+
+        return startContentObjectsExportCall(startContentObjectExportRequest, _callback);
+    }
+
+    /**
+     * Start a content object export
+     * Starts a Temporal workflow that asks zeno-bulk to write a JSONL or JSONL.GZ export into the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param startContentObjectExportRequest  (required)
+     * @return StartContentObjectExportResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Started content object export workflow. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public StartContentObjectExportResponse startContentObjectsExport(
+            @jakarta.annotation.Nonnull
+                    StartContentObjectExportRequest startContentObjectExportRequest)
+            throws ApiException {
+        ApiResponse<StartContentObjectExportResponse> localVarResp =
+                startContentObjectsExportWithHttpInfo(startContentObjectExportRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Start a content object export
+     * Starts a Temporal workflow that asks zeno-bulk to write a JSONL or JSONL.GZ export into the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param startContentObjectExportRequest  (required)
+     * @return ApiResponse&lt;StartContentObjectExportResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Started content object export workflow. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<StartContentObjectExportResponse> startContentObjectsExportWithHttpInfo(
+            @jakarta.annotation.Nonnull
+                    StartContentObjectExportRequest startContentObjectExportRequest)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                startContentObjectsExportValidateBeforeCall(startContentObjectExportRequest, null);
+        Type localVarReturnType = new TypeToken<StartContentObjectExportResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Start a content object export (asynchronously)
+     * Starts a Temporal workflow that asks zeno-bulk to write a JSONL or JSONL.GZ export into the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
+     * @param startContentObjectExportRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Started content object export workflow. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call startContentObjectsExportAsync(
+            @jakarta.annotation.Nonnull
+                    StartContentObjectExportRequest startContentObjectExportRequest,
+            final ApiCallback<StartContentObjectExportResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                startContentObjectsExportValidateBeforeCall(
+                        startContentObjectExportRequest, _callback);
+        Type localVarReturnType = new TypeToken<StartContentObjectExportResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

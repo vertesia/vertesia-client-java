@@ -1050,6 +1050,16 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ContentObjectApiRevision.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ContentObjectExportArtifact.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ContentObjectExportArtifactFile.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ContentObjectExportProgress.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ContentObjectExportResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ContentObjectExportStatusResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ContentObjectItemApiResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ContentObjectTextResponse.CustomTypeAdapterFactory());
@@ -1244,6 +1254,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.DeleteByIdResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.DeleteContentObjectExportResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.DeleteContentObjectResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.DeleteCountResult.CustomTypeAdapterFactory());
@@ -1313,6 +1325,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.EmbeddingsTokenUsage.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.EnableEnvironmentModelPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.EnvironmentTokenRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ErrorResponse.CustomTypeAdapterFactory());
@@ -1377,6 +1391,11 @@ public class JSON {
                 new io.vertesia.model.ExecutionRunWorkflow.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ExecutionTokenUsage.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ExportContentObjectsFilter.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ExportContentObjectsIncludeOptions
+                        .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ExportPropertiesPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1542,6 +1561,8 @@ public class JSON {
                 new io.vertesia.model.LinkupConfigurationInput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ListAgentRunsResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ListContentObjectExportsResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ListEventDeliveriesPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1923,6 +1944,10 @@ public class JSON {
                 new io.vertesia.model.SkillContextTriggers.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.SortOption.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.StartContentObjectExportRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.StartContentObjectExportResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.StartProjectReindexPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

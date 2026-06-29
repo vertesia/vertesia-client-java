@@ -62,6 +62,11 @@ public class PromptSearchQuery {
     @SerializedName(SERIALIZED_NAME_ROLE)
     @jakarta.annotation.Nullable private String role;
 
+    public static final String SERIALIZED_NAME_TAGS = "tags";
+
+    @SerializedName(SERIALIZED_NAME_TAGS)
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_MATCH_INTERACTIONS = "matchInteractions";
 
     @SerializedName(SERIALIZED_NAME_MATCH_INTERACTIONS)
@@ -162,6 +167,31 @@ public class PromptSearchQuery {
         this.role = role;
     }
 
+    public PromptSearchQuery tags(@jakarta.annotation.Nullable List<String> tags) {
+        this.tags = tags;
+        return this;
+    }
+
+    public PromptSearchQuery addTagsItem(String tagsItem) {
+        if (this.tags == null) {
+            this.tags = new ArrayList<>();
+        }
+        this.tags.add(tagsItem);
+        return this;
+    }
+
+    /**
+     * Get tags
+     * @return tags
+     */
+    @jakarta.annotation.Nullable public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
+        this.tags = tags;
+    }
+
     public PromptSearchQuery matchInteractions(
             @jakarta.annotation.Nullable Boolean matchInteractions) {
         this.matchInteractions = matchInteractions;
@@ -194,12 +224,13 @@ public class PromptSearchQuery {
                 && Objects.equals(this.limit, promptSearchQuery.limit)
                 && Objects.equals(this.offset, promptSearchQuery.offset)
                 && Objects.equals(this.role, promptSearchQuery.role)
+                && Objects.equals(this.tags, promptSearchQuery.tags)
                 && Objects.equals(this.matchInteractions, promptSearchQuery.matchInteractions);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, status, limit, offset, role, matchInteractions);
+        return Objects.hash(name, status, limit, offset, role, tags, matchInteractions);
     }
 
     @Override
@@ -211,6 +242,7 @@ public class PromptSearchQuery {
         sb.append("    limit: ").append(toIndentedString(limit)).append("\n");
         sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
         sb.append("    role: ").append(toIndentedString(role)).append("\n");
+        sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
         sb.append("    matchInteractions: ")
                 .append(toIndentedString(matchInteractions))
                 .append("\n");
@@ -234,7 +266,13 @@ public class PromptSearchQuery {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "name", "status", "limit", "offset", "role", "matchInteractions"));
+                                "name",
+                                "status",
+                                "limit",
+                                "offset",
+                                "role",
+                                "tags",
+                                "matchInteractions"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -283,6 +321,16 @@ public class PromptSearchQuery {
                             java.util.Locale.ROOT,
                             "Expected the field `role` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("role").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("tags") != null
+                && !jsonObj.get("tags").isJsonNull()
+                && !jsonObj.get("tags").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `tags` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("tags").toString()));
         }
     }
 

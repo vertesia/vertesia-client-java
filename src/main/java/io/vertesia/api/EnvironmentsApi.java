@@ -23,6 +23,7 @@ import io.vertesia.model.AIModel;
 import io.vertesia.model.DeleteByIdResult;
 import io.vertesia.model.EmbeddingsApiRequest;
 import io.vertesia.model.EmbeddingsResult;
+import io.vertesia.model.EnableEnvironmentModelPayload;
 import io.vertesia.model.ExecutionEnvironment;
 import io.vertesia.model.ExecutionEnvironmentConfigUpdatePayload;
 import io.vertesia.model.ExecutionEnvironmentCreatePayload;
@@ -389,6 +390,366 @@ public class EnvironmentsApi {
 
         okhttp3.Call localVarCall = deleteEnvironmentValidateBeforeCall(envId, _callback);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for disableEnvironmentModel
+     * @param envId  (required)
+     * @param modelId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The environment with the model disabled. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call disableEnvironmentModelCall(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String modelId,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/environments/{envId}/models/enabled/{modelId}"
+                        .replace(
+                                "{" + "envId" + "}",
+                                localVarApiClient.escapeString(envId.toString()))
+                        .replace(
+                                "{" + "modelId" + "}",
+                                localVarApiClient.escapeString(modelId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call disableEnvironmentModelValidateBeforeCall(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String modelId,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'envId' is set
+        if (envId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'envId' when calling disableEnvironmentModel(Async)");
+        }
+
+        // verify the required parameter 'modelId' is set
+        if (modelId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'modelId' when calling disableEnvironmentModel(Async)");
+        }
+
+        return disableEnvironmentModelCall(envId, modelId, _callback);
+    }
+
+    /**
+     * Disable an environment model
+     * Removes one enabled model from an environment without replacing the full enabled model list. Disabling a model that is not enabled succeeds without changing the environment.  **Required permissions:** &#x60;environment:admin&#x60;
+     * @param envId  (required)
+     * @param modelId  (required)
+     * @return ExecutionEnvironment
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The environment with the model disabled. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ExecutionEnvironment disableEnvironmentModel(
+            @jakarta.annotation.Nonnull String envId, @jakarta.annotation.Nonnull String modelId)
+            throws ApiException {
+        ApiResponse<ExecutionEnvironment> localVarResp =
+                disableEnvironmentModelWithHttpInfo(envId, modelId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Disable an environment model
+     * Removes one enabled model from an environment without replacing the full enabled model list. Disabling a model that is not enabled succeeds without changing the environment.  **Required permissions:** &#x60;environment:admin&#x60;
+     * @param envId  (required)
+     * @param modelId  (required)
+     * @return ApiResponse&lt;ExecutionEnvironment&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The environment with the model disabled. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ExecutionEnvironment> disableEnvironmentModelWithHttpInfo(
+            @jakarta.annotation.Nonnull String envId, @jakarta.annotation.Nonnull String modelId)
+            throws ApiException {
+        okhttp3.Call localVarCall = disableEnvironmentModelValidateBeforeCall(envId, modelId, null);
+        Type localVarReturnType = new TypeToken<ExecutionEnvironment>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Disable an environment model (asynchronously)
+     * Removes one enabled model from an environment without replacing the full enabled model list. Disabling a model that is not enabled succeeds without changing the environment.  **Required permissions:** &#x60;environment:admin&#x60;
+     * @param envId  (required)
+     * @param modelId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The environment with the model disabled. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call disableEnvironmentModelAsync(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String modelId,
+            final ApiCallback<ExecutionEnvironment> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                disableEnvironmentModelValidateBeforeCall(envId, modelId, _callback);
+        Type localVarReturnType = new TypeToken<ExecutionEnvironment>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for enableEnvironmentModel
+     * @param envId  (required)
+     * @param enableEnvironmentModelPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The environment with the model enabled. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call enableEnvironmentModelCall(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull EnableEnvironmentModelPayload enableEnvironmentModelPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = enableEnvironmentModelPayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/environments/{envId}/models/enabled"
+                        .replace(
+                                "{" + "envId" + "}",
+                                localVarApiClient.escapeString(envId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call enableEnvironmentModelValidateBeforeCall(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull EnableEnvironmentModelPayload enableEnvironmentModelPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'envId' is set
+        if (envId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'envId' when calling enableEnvironmentModel(Async)");
+        }
+
+        // verify the required parameter 'enableEnvironmentModelPayload' is set
+        if (enableEnvironmentModelPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'enableEnvironmentModelPayload' when calling enableEnvironmentModel(Async)");
+        }
+
+        return enableEnvironmentModelCall(envId, enableEnvironmentModelPayload, _callback);
+    }
+
+    /**
+     * Enable an environment model
+     * Adds one model to an environment without replacing the full enabled model list. The model_id must resolve from the provider model listing for this environment.  **Required permissions:** &#x60;environment:admin&#x60;
+     * @param envId  (required)
+     * @param enableEnvironmentModelPayload  (required)
+     * @return ExecutionEnvironment
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The environment with the model enabled. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ExecutionEnvironment enableEnvironmentModel(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull EnableEnvironmentModelPayload enableEnvironmentModelPayload)
+            throws ApiException {
+        ApiResponse<ExecutionEnvironment> localVarResp =
+                enableEnvironmentModelWithHttpInfo(envId, enableEnvironmentModelPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Enable an environment model
+     * Adds one model to an environment without replacing the full enabled model list. The model_id must resolve from the provider model listing for this environment.  **Required permissions:** &#x60;environment:admin&#x60;
+     * @param envId  (required)
+     * @param enableEnvironmentModelPayload  (required)
+     * @return ApiResponse&lt;ExecutionEnvironment&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The environment with the model enabled. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ExecutionEnvironment> enableEnvironmentModelWithHttpInfo(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull EnableEnvironmentModelPayload enableEnvironmentModelPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                enableEnvironmentModelValidateBeforeCall(
+                        envId, enableEnvironmentModelPayload, null);
+        Type localVarReturnType = new TypeToken<ExecutionEnvironment>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Enable an environment model (asynchronously)
+     * Adds one model to an environment without replacing the full enabled model list. The model_id must resolve from the provider model listing for this environment.  **Required permissions:** &#x60;environment:admin&#x60;
+     * @param envId  (required)
+     * @param enableEnvironmentModelPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The environment with the model enabled. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call enableEnvironmentModelAsync(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull EnableEnvironmentModelPayload enableEnvironmentModelPayload,
+            final ApiCallback<ExecutionEnvironment> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                enableEnvironmentModelValidateBeforeCall(
+                        envId, enableEnvironmentModelPayload, _callback);
+        Type localVarReturnType = new TypeToken<ExecutionEnvironment>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

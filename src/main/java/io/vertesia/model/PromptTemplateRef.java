@@ -25,8 +25,10 @@ import io.vertesia.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -75,6 +77,11 @@ public class PromptTemplateRef {
 
     @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
     @jakarta.annotation.Nullable private TemplateType contentType;
+
+    public static final String SERIALIZED_NAME_TAGS = "tags";
+
+    @SerializedName(SERIALIZED_NAME_TAGS)
+    @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
 
@@ -214,6 +221,31 @@ public class PromptTemplateRef {
         this.contentType = contentType;
     }
 
+    public PromptTemplateRef tags(@jakarta.annotation.Nullable List<String> tags) {
+        this.tags = tags;
+        return this;
+    }
+
+    public PromptTemplateRef addTagsItem(String tagsItem) {
+        if (this.tags == null) {
+            this.tags = new ArrayList<>();
+        }
+        this.tags.add(tagsItem);
+        return this;
+    }
+
+    /**
+     * Get tags
+     * @return tags
+     */
+    @jakarta.annotation.Nullable public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(@jakarta.annotation.Nullable List<String> tags) {
+        this.tags = tags;
+    }
+
     public PromptTemplateRef createdAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
@@ -266,6 +298,7 @@ public class PromptTemplateRef {
                 && Objects.equals(this.version, promptTemplateRef.version)
                 && Objects.equals(this.status, promptTemplateRef.status)
                 && Objects.equals(this.contentType, promptTemplateRef.contentType)
+                && Objects.equals(this.tags, promptTemplateRef.tags)
                 && Objects.equals(this.createdAt, promptTemplateRef.createdAt)
                 && Objects.equals(this.updatedAt, promptTemplateRef.updatedAt);
     }
@@ -273,7 +306,16 @@ public class PromptTemplateRef {
     @Override
     public int hashCode() {
         return Objects.hash(
-                id, name, description, role, version, status, contentType, createdAt, updatedAt);
+                id,
+                name,
+                description,
+                role,
+                version,
+                status,
+                contentType,
+                tags,
+                createdAt,
+                updatedAt);
     }
 
     @Override
@@ -287,6 +329,7 @@ public class PromptTemplateRef {
         sb.append("    version: ").append(toIndentedString(version)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+        sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("}");
@@ -316,6 +359,7 @@ public class PromptTemplateRef {
                                 "version",
                                 "status",
                                 "content_type",
+                                "tags",
                                 "created_at",
                                 "updated_at"));
 
@@ -391,6 +435,16 @@ public class PromptTemplateRef {
         // validate the optional field `content_type`
         if (jsonObj.get("content_type") != null && !jsonObj.get("content_type").isJsonNull()) {
             TemplateType.validateJsonElement(jsonObj.get("content_type"));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("tags") != null
+                && !jsonObj.get("tags").isJsonNull()
+                && !jsonObj.get("tags").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `tags` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("tags").toString()));
         }
     }
 
