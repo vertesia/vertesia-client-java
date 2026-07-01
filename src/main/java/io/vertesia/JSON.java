@@ -521,7 +521,7 @@ public class JSON {
                                                 io.vertesia.model.ExaConfigurationInput.class);
                                         classByDiscriminatorValue.put(
                                                 "github",
-                                                io.vertesia.model.GithubConfiguration.class);
+                                                io.vertesia.model.GithubConfigurationInput.class);
                                         classByDiscriminatorValue.put(
                                                 "gladia",
                                                 io.vertesia.model.GladiaConfigurationInput.class);
@@ -1333,6 +1333,15 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.EventDeliveryIntentSummary.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.EventDeliveryQueueFailureSummary.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.EventDeliveryQueueSubscriptionSummary
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.EventDeliveryQueueSummaryPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.EventDeliveryQueueSummaryResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.EventDeliverySummary.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.EventDeliveryTarget.CustomTypeAdapterFactory());
@@ -1346,9 +1355,13 @@ public class JSON {
                 new io.vertesia.model.EventIngestChannelMutationResponse
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.EventIngestResourceRule.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.EventIngestSignatureConfig.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.EventIngestTransform.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.EventOutboxQueueSummary.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.EventRef.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1441,6 +1454,8 @@ public class JSON {
                 new io.vertesia.model.GetUploadUrlPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.GithubConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.GithubConfigurationInput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.GladiaConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

@@ -13,6 +13,7 @@
 package io.vertesia.model;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -23,6 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -52,10 +54,25 @@ public class EventIngestTransform {
     @SerializedName(SERIALIZED_NAME_RESOURCE_ID_PATH)
     @jakarta.annotation.Nullable private String resourceIdPath;
 
+    public static final String SERIALIZED_NAME_EVENT_TYPE_HEADER = "event_type_header";
+
+    @SerializedName(SERIALIZED_NAME_EVENT_TYPE_HEADER)
+    @jakarta.annotation.Nullable private String eventTypeHeader;
+
+    public static final String SERIALIZED_NAME_RESOURCE_RULES = "resource_rules";
+
+    @SerializedName(SERIALIZED_NAME_RESOURCE_RULES)
+    @jakarta.annotation.Nullable private List<EventIngestResourceRule> resourceRules = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_IDEMPOTENCY_KEY_PATH = "idempotency_key_path";
 
     @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_KEY_PATH)
     @jakarta.annotation.Nullable private String idempotencyKeyPath;
+
+    public static final String SERIALIZED_NAME_IDEMPOTENCY_KEY_HEADER = "idempotency_key_header";
+
+    @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_KEY_HEADER)
+    @jakarta.annotation.Nullable private String idempotencyKeyHeader;
 
     public static final String SERIALIZED_NAME_TIMESTAMP_PATH = "timestamp_path";
 
@@ -121,6 +138,51 @@ public class EventIngestTransform {
         this.resourceIdPath = resourceIdPath;
     }
 
+    public EventIngestTransform eventTypeHeader(
+            @jakarta.annotation.Nullable String eventTypeHeader) {
+        this.eventTypeHeader = eventTypeHeader;
+        return this;
+    }
+
+    /**
+     * Request **header** carrying the event family (e.g. GitHub&#39;s &#x60;x-github-event&#x60;), captured into &#x60;event.details.event_type&#x60;. Lets subscriptions and &#x60;resource_rules&#x60; discriminate event shapes when one channel receives heterogeneous payloads whose &#x60;action&#x60; alone is ambiguous (e.g. &#x60;created&#x60; for both an issue comment and a PR review comment).
+     * @return eventTypeHeader
+     */
+    @jakarta.annotation.Nullable public String getEventTypeHeader() {
+        return eventTypeHeader;
+    }
+
+    public void setEventTypeHeader(@jakarta.annotation.Nullable String eventTypeHeader) {
+        this.eventTypeHeader = eventTypeHeader;
+    }
+
+    public EventIngestTransform resourceRules(
+            @jakarta.annotation.Nullable List<EventIngestResourceRule> resourceRules) {
+        this.resourceRules = resourceRules;
+        return this;
+    }
+
+    public EventIngestTransform addResourceRulesItem(EventIngestResourceRule resourceRulesItem) {
+        if (this.resourceRules == null) {
+            this.resourceRules = new ArrayList<>();
+        }
+        this.resourceRules.add(resourceRulesItem);
+        return this;
+    }
+
+    /**
+     * Ordered conditional rules for &#x60;resource_type&#x60; + &#x60;resource_id&#x60; (first match wins). Used when a single &#x60;resource_id_path&#x60; can&#39;t serve every payload shape. Falls back to &#x60;resource_type_path&#x60; / &#x60;resource_id_path&#x60; / channel defaults when no rule matches.
+     * @return resourceRules
+     */
+    @jakarta.annotation.Nullable public List<EventIngestResourceRule> getResourceRules() {
+        return resourceRules;
+    }
+
+    public void setResourceRules(
+            @jakarta.annotation.Nullable List<EventIngestResourceRule> resourceRules) {
+        this.resourceRules = resourceRules;
+    }
+
     public EventIngestTransform idempotencyKeyPath(
             @jakarta.annotation.Nullable String idempotencyKeyPath) {
         this.idempotencyKeyPath = idempotencyKeyPath;
@@ -137,6 +199,24 @@ public class EventIngestTransform {
 
     public void setIdempotencyKeyPath(@jakarta.annotation.Nullable String idempotencyKeyPath) {
         this.idempotencyKeyPath = idempotencyKeyPath;
+    }
+
+    public EventIngestTransform idempotencyKeyHeader(
+            @jakarta.annotation.Nullable String idempotencyKeyHeader) {
+        this.idempotencyKeyHeader = idempotencyKeyHeader;
+        return this;
+    }
+
+    /**
+     * Request **header** to use as the deduplication key when the body has no stable per-delivery id — e.g. GitHub App&#39;s &#x60;x-github-delivery&#x60;, unique per delivery for all event types, which is the only reliable dedup key when one App webhook delivers heterogeneous payloads (issues + comments) to a single channel. Lower precedence than &#x60;idempotency_key_path&#x60;.
+     * @return idempotencyKeyHeader
+     */
+    @jakarta.annotation.Nullable public String getIdempotencyKeyHeader() {
+        return idempotencyKeyHeader;
+    }
+
+    public void setIdempotencyKeyHeader(@jakarta.annotation.Nullable String idempotencyKeyHeader) {
+        this.idempotencyKeyHeader = idempotencyKeyHeader;
     }
 
     public EventIngestTransform timestampPath(@jakarta.annotation.Nullable String timestampPath) {
@@ -239,7 +319,11 @@ public class EventIngestTransform {
         return Objects.equals(this.actionPath, eventIngestTransform.actionPath)
                 && Objects.equals(this.resourceTypePath, eventIngestTransform.resourceTypePath)
                 && Objects.equals(this.resourceIdPath, eventIngestTransform.resourceIdPath)
+                && Objects.equals(this.eventTypeHeader, eventIngestTransform.eventTypeHeader)
+                && Objects.equals(this.resourceRules, eventIngestTransform.resourceRules)
                 && Objects.equals(this.idempotencyKeyPath, eventIngestTransform.idempotencyKeyPath)
+                && Objects.equals(
+                        this.idempotencyKeyHeader, eventIngestTransform.idempotencyKeyHeader)
                 && Objects.equals(this.timestampPath, eventIngestTransform.timestampPath)
                 && Objects.equals(this.staticDetails, eventIngestTransform.staticDetails)
                 && Objects.equals(
@@ -252,7 +336,10 @@ public class EventIngestTransform {
                 actionPath,
                 resourceTypePath,
                 resourceIdPath,
+                eventTypeHeader,
+                resourceRules,
                 idempotencyKeyPath,
+                idempotencyKeyHeader,
                 timestampPath,
                 staticDetails,
                 additionalProperties);
@@ -265,8 +352,13 @@ public class EventIngestTransform {
         sb.append("    actionPath: ").append(toIndentedString(actionPath)).append("\n");
         sb.append("    resourceTypePath: ").append(toIndentedString(resourceTypePath)).append("\n");
         sb.append("    resourceIdPath: ").append(toIndentedString(resourceIdPath)).append("\n");
+        sb.append("    eventTypeHeader: ").append(toIndentedString(eventTypeHeader)).append("\n");
+        sb.append("    resourceRules: ").append(toIndentedString(resourceRules)).append("\n");
         sb.append("    idempotencyKeyPath: ")
                 .append(toIndentedString(idempotencyKeyPath))
+                .append("\n");
+        sb.append("    idempotencyKeyHeader: ")
+                .append(toIndentedString(idempotencyKeyHeader))
                 .append("\n");
         sb.append("    timestampPath: ").append(toIndentedString(timestampPath)).append("\n");
         sb.append("    staticDetails: ").append(toIndentedString(staticDetails)).append("\n");
@@ -296,7 +388,10 @@ public class EventIngestTransform {
                                 "action_path",
                                 "resource_type_path",
                                 "resource_id_path",
+                                "event_type_header",
+                                "resource_rules",
                                 "idempotency_key_path",
+                                "idempotency_key_header",
                                 "timestamp_path",
                                 "static_details"));
 
@@ -348,6 +443,34 @@ public class EventIngestTransform {
                             "Expected the field `resource_id_path` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("resource_id_path").toString()));
         }
+        if ((jsonObj.get("event_type_header") != null
+                        && !jsonObj.get("event_type_header").isJsonNull())
+                && !jsonObj.get("event_type_header").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `event_type_header` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("event_type_header").toString()));
+        }
+        if (jsonObj.get("resource_rules") != null && !jsonObj.get("resource_rules").isJsonNull()) {
+            JsonArray jsonArrayresourceRules = jsonObj.getAsJsonArray("resource_rules");
+            if (jsonArrayresourceRules != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("resource_rules").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `resource_rules` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("resource_rules").toString()));
+                }
+
+                // validate the optional field `resource_rules` (array)
+                for (int i = 0; i < jsonArrayresourceRules.size(); i++) {
+                    EventIngestResourceRule.validateJsonElement(jsonArrayresourceRules.get(i));
+                }
+                ;
+            }
+        }
         if ((jsonObj.get("idempotency_key_path") != null
                         && !jsonObj.get("idempotency_key_path").isJsonNull())
                 && !jsonObj.get("idempotency_key_path").isJsonPrimitive()) {
@@ -356,6 +479,15 @@ public class EventIngestTransform {
                             java.util.Locale.ROOT,
                             "Expected the field `idempotency_key_path` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("idempotency_key_path").toString()));
+        }
+        if ((jsonObj.get("idempotency_key_header") != null
+                        && !jsonObj.get("idempotency_key_header").isJsonNull())
+                && !jsonObj.get("idempotency_key_header").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `idempotency_key_header` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("idempotency_key_header").toString()));
         }
         if ((jsonObj.get("timestamp_path") != null && !jsonObj.get("timestamp_path").isJsonNull())
                 && !jsonObj.get("timestamp_path").isJsonPrimitive()) {

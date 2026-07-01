@@ -30,12 +30,12 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * GithubConfiguration
+ * GithubConfigurationInput
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class GithubConfiguration {
+public class GithubConfigurationInput {
     public static final String SERIALIZED_NAME_INTEGRATION = "integration";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATION)
@@ -56,18 +56,16 @@ public class GithubConfiguration {
     public static final String SERIALIZED_NAME_ALLOWED_REPOSITORIES = "allowed_repositories";
 
     @SerializedName(SERIALIZED_NAME_ALLOWED_REPOSITORIES)
-    @jakarta.annotation.Nonnull
-    private List<String> allowedRepositories = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<String> allowedRepositories = new ArrayList<>();
 
-    public static final String SERIALIZED_NAME_HAS_GITHUB_APP_PRIVATE_KEY =
-            "has_github_app_private_key";
+    public static final String SERIALIZED_NAME_PRIVATE_KEY = "private_key";
 
-    @SerializedName(SERIALIZED_NAME_HAS_GITHUB_APP_PRIVATE_KEY)
-    @jakarta.annotation.Nullable private Boolean hasGithubAppPrivateKey;
+    @SerializedName(SERIALIZED_NAME_PRIVATE_KEY)
+    @jakarta.annotation.Nullable private String privateKey;
 
-    public GithubConfiguration() {}
+    public GithubConfigurationInput() {}
 
-    public GithubConfiguration integration(
+    public GithubConfigurationInput integration(
             @jakarta.annotation.Nonnull SupportedIntegrationsGithub integration) {
         this.integration = integration;
         return this;
@@ -87,7 +85,7 @@ public class GithubConfiguration {
         this.integration = integration;
     }
 
-    public GithubConfiguration enabled(@jakarta.annotation.Nonnull Boolean enabled) {
+    public GithubConfigurationInput enabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
         return this;
     }
@@ -105,7 +103,7 @@ public class GithubConfiguration {
         this.enabled = enabled;
     }
 
-    public GithubConfiguration githubAppId(@jakarta.annotation.Nullable String githubAppId) {
+    public GithubConfigurationInput githubAppId(@jakarta.annotation.Nullable String githubAppId) {
         this.githubAppId = githubAppId;
         return this;
     }
@@ -122,13 +120,13 @@ public class GithubConfiguration {
         this.githubAppId = githubAppId;
     }
 
-    public GithubConfiguration allowedRepositories(
-            @jakarta.annotation.Nonnull List<String> allowedRepositories) {
+    public GithubConfigurationInput allowedRepositories(
+            @jakarta.annotation.Nullable List<String> allowedRepositories) {
         this.allowedRepositories = allowedRepositories;
         return this;
     }
 
-    public GithubConfiguration addAllowedRepositoriesItem(String allowedRepositoriesItem) {
+    public GithubConfigurationInput addAllowedRepositoriesItem(String allowedRepositoriesItem) {
         if (this.allowedRepositories == null) {
             this.allowedRepositories = new ArrayList<>();
         }
@@ -137,36 +135,33 @@ public class GithubConfiguration {
     }
 
     /**
-     * Get allowedRepositories
+     * Allow-list of &#x60;owner/name&#x60; repos the bot may mint installation tokens for (default-deny when empty).
      * @return allowedRepositories
      */
-    @jakarta.annotation.Nonnull
-    public List<String> getAllowedRepositories() {
+    @jakarta.annotation.Nullable public List<String> getAllowedRepositories() {
         return allowedRepositories;
     }
 
     public void setAllowedRepositories(
-            @jakarta.annotation.Nonnull List<String> allowedRepositories) {
+            @jakarta.annotation.Nullable List<String> allowedRepositories) {
         this.allowedRepositories = allowedRepositories;
     }
 
-    public GithubConfiguration hasGithubAppPrivateKey(
-            @jakarta.annotation.Nullable Boolean hasGithubAppPrivateKey) {
-        this.hasGithubAppPrivateKey = hasGithubAppPrivateKey;
+    public GithubConfigurationInput privateKey(@jakarta.annotation.Nullable String privateKey) {
+        this.privateKey = privateKey;
         return this;
     }
 
     /**
-     * True when a GitHub App private key is stored for the project (the key itself is never returned).
-     * @return hasGithubAppPrivateKey
+     * GitHub App private key (PEM). Write-only; never returned. Empty string clears it.
+     * @return privateKey
      */
-    @jakarta.annotation.Nullable public Boolean getHasGithubAppPrivateKey() {
-        return hasGithubAppPrivateKey;
+    @jakarta.annotation.Nullable public String getPrivateKey() {
+        return privateKey;
     }
 
-    public void setHasGithubAppPrivateKey(
-            @jakarta.annotation.Nullable Boolean hasGithubAppPrivateKey) {
-        this.hasGithubAppPrivateKey = hasGithubAppPrivateKey;
+    public void setPrivateKey(@jakarta.annotation.Nullable String privateKey) {
+        this.privateKey = privateKey;
     }
 
     @Override
@@ -177,34 +172,31 @@ public class GithubConfiguration {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        GithubConfiguration githubConfiguration = (GithubConfiguration) o;
-        return Objects.equals(this.integration, githubConfiguration.integration)
-                && Objects.equals(this.enabled, githubConfiguration.enabled)
-                && Objects.equals(this.githubAppId, githubConfiguration.githubAppId)
-                && Objects.equals(this.allowedRepositories, githubConfiguration.allowedRepositories)
+        GithubConfigurationInput githubConfigurationInput = (GithubConfigurationInput) o;
+        return Objects.equals(this.integration, githubConfigurationInput.integration)
+                && Objects.equals(this.enabled, githubConfigurationInput.enabled)
+                && Objects.equals(this.githubAppId, githubConfigurationInput.githubAppId)
                 && Objects.equals(
-                        this.hasGithubAppPrivateKey, githubConfiguration.hasGithubAppPrivateKey);
+                        this.allowedRepositories, githubConfigurationInput.allowedRepositories)
+                && Objects.equals(this.privateKey, githubConfigurationInput.privateKey);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(
-                integration, enabled, githubAppId, allowedRepositories, hasGithubAppPrivateKey);
+        return Objects.hash(integration, enabled, githubAppId, allowedRepositories, privateKey);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class GithubConfiguration {\n");
+        sb.append("class GithubConfigurationInput {\n");
         sb.append("    integration: ").append(toIndentedString(integration)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    githubAppId: ").append(toIndentedString(githubAppId)).append("\n");
         sb.append("    allowedRepositories: ")
                 .append(toIndentedString(allowedRepositories))
                 .append("\n");
-        sb.append("    hasGithubAppPrivateKey: ")
-                .append(toIndentedString(hasGithubAppPrivateKey))
-                .append("\n");
+        sb.append("    privateKey: ").append(toIndentedString(privateKey)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -229,34 +221,32 @@ public class GithubConfiguration {
                                 "enabled",
                                 "github_app_id",
                                 "allowed_repositories",
-                                "has_github_app_private_key"));
+                                "private_key"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields =
-                new HashSet<String>(
-                        Arrays.asList("integration", "enabled", "allowed_repositories"));
+        openapiRequiredFields = new HashSet<String>(Arrays.asList("integration", "enabled"));
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to GithubConfiguration
+     * @throws IOException if the JSON Element is invalid with respect to GithubConfigurationInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!GithubConfiguration.openapiRequiredFields
+            if (!GithubConfigurationInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 java.util.Locale.ROOT,
-                                "The required field(s) %s in GithubConfiguration is not found in the empty JSON string",
-                                GithubConfiguration.openapiRequiredFields.toString()));
+                                "The required field(s) %s in GithubConfigurationInput is not found in the empty JSON string",
+                                GithubConfigurationInput.openapiRequiredFields.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : GithubConfiguration.openapiRequiredFields) {
+        for (String requiredField : GithubConfigurationInput.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -277,16 +267,23 @@ public class GithubConfiguration {
                             "Expected the field `github_app_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("github_app_id").toString()));
         }
-        // ensure the required json array is present
-        if (jsonObj.get("allowed_repositories") == null) {
-            throw new IllegalArgumentException(
-                    "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-        } else if (!jsonObj.get("allowed_repositories").isJsonArray()) {
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("allowed_repositories") != null
+                && !jsonObj.get("allowed_repositories").isJsonNull()
+                && !jsonObj.get("allowed_repositories").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
                             "Expected the field `allowed_repositories` to be an array in the JSON string but got `%s`",
                             jsonObj.get("allowed_repositories").toString()));
+        }
+        if ((jsonObj.get("private_key") != null && !jsonObj.get("private_key").isJsonNull())
+                && !jsonObj.get("private_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `private_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("private_key").toString()));
         }
     }
 
@@ -294,24 +291,25 @@ public class GithubConfiguration {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!GithubConfiguration.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'GithubConfiguration' and its subtypes
+            if (!GithubConfigurationInput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'GithubConfigurationInput' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<GithubConfiguration> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(GithubConfiguration.class));
+            final TypeAdapter<GithubConfigurationInput> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(GithubConfigurationInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<GithubConfiguration>() {
+                    new TypeAdapter<GithubConfigurationInput>() {
                         @Override
-                        public void write(JsonWriter out, GithubConfiguration value)
+                        public void write(JsonWriter out, GithubConfigurationInput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public GithubConfiguration read(JsonReader in) throws IOException {
+                        public GithubConfigurationInput read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -321,18 +319,18 @@ public class GithubConfiguration {
     }
 
     /**
-     * Create an instance of GithubConfiguration given an JSON string
+     * Create an instance of GithubConfigurationInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of GithubConfiguration
-     * @throws IOException if the JSON string is invalid with respect to GithubConfiguration
+     * @return An instance of GithubConfigurationInput
+     * @throws IOException if the JSON string is invalid with respect to GithubConfigurationInput
      */
-    public static GithubConfiguration fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, GithubConfiguration.class);
+    public static GithubConfigurationInput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, GithubConfigurationInput.class);
     }
 
     /**
-     * Convert an instance of GithubConfiguration to an JSON string
+     * Convert an instance of GithubConfigurationInput to an JSON string
      *
      * @return JSON string
      */

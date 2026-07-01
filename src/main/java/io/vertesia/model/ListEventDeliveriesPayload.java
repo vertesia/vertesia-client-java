@@ -17,6 +17,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -66,6 +67,86 @@ public class ListEventDeliveriesPayload {
 
     @SerializedName(SERIALIZED_NAME_OUTBOX_STATUS)
     @jakarta.annotation.Nullable private List<EventOutboxStatus> outboxStatus = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_EVENT_CATEGORY = "event_category";
+
+    @SerializedName(SERIALIZED_NAME_EVENT_CATEGORY)
+    @jakarta.annotation.Nullable private List<EventCategory> eventCategory = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_ACTION = "action";
+
+    @SerializedName(SERIALIZED_NAME_ACTION)
+    @jakarta.annotation.Nullable private List<String> action = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_RESOURCE_TYPE = "resource_type";
+
+    @SerializedName(SERIALIZED_NAME_RESOURCE_TYPE)
+    @jakarta.annotation.Nullable private List<String> resourceType = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_SORT_BY = "sort_by";
+
+    @SerializedName(SERIALIZED_NAME_SORT_BY)
+    @jakarta.annotation.Nullable private EventDeliverySortField sortBy;
+
+    /**
+     * Sort order (default desc).
+     */
+    @JsonAdapter(SortOrderEnum.Adapter.class)
+    public enum SortOrderEnum {
+        ASC("asc"),
+
+        DESC("desc"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        SortOrderEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static SortOrderEnum fromValue(String value) {
+            for (SortOrderEnum b : SortOrderEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<SortOrderEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final SortOrderEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public SortOrderEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return SortOrderEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            SortOrderEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_SORT_ORDER = "sort_order";
+
+    @SerializedName(SERIALIZED_NAME_SORT_ORDER)
+    @jakarta.annotation.Nullable private SortOrderEnum sortOrder;
 
     public ListEventDeliveriesPayload() {}
 
@@ -190,6 +271,119 @@ public class ListEventDeliveriesPayload {
         this.outboxStatus = outboxStatus;
     }
 
+    public ListEventDeliveriesPayload eventCategory(
+            @jakarta.annotation.Nullable List<EventCategory> eventCategory) {
+        this.eventCategory = eventCategory;
+        return this;
+    }
+
+    public ListEventDeliveriesPayload addEventCategoryItem(EventCategory eventCategoryItem) {
+        if (this.eventCategory == null) {
+            this.eventCategory = new ArrayList<>();
+        }
+        this.eventCategory.add(eventCategoryItem);
+        return this;
+    }
+
+    /**
+     * Filter by outbox event category (e.g. external, content).
+     * @return eventCategory
+     */
+    @jakarta.annotation.Nullable public List<EventCategory> getEventCategory() {
+        return eventCategory;
+    }
+
+    public void setEventCategory(@jakarta.annotation.Nullable List<EventCategory> eventCategory) {
+        this.eventCategory = eventCategory;
+    }
+
+    public ListEventDeliveriesPayload action(@jakarta.annotation.Nullable List<String> action) {
+        this.action = action;
+        return this;
+    }
+
+    public ListEventDeliveriesPayload addActionItem(String actionItem) {
+        if (this.action == null) {
+            this.action = new ArrayList<>();
+        }
+        this.action.add(actionItem);
+        return this;
+    }
+
+    /**
+     * Filter by outbox action (e.g. opened, created).
+     * @return action
+     */
+    @jakarta.annotation.Nullable public List<String> getAction() {
+        return action;
+    }
+
+    public void setAction(@jakarta.annotation.Nullable List<String> action) {
+        this.action = action;
+    }
+
+    public ListEventDeliveriesPayload resourceType(
+            @jakarta.annotation.Nullable List<String> resourceType) {
+        this.resourceType = resourceType;
+        return this;
+    }
+
+    public ListEventDeliveriesPayload addResourceTypeItem(String resourceTypeItem) {
+        if (this.resourceType == null) {
+            this.resourceType = new ArrayList<>();
+        }
+        this.resourceType.add(resourceTypeItem);
+        return this;
+    }
+
+    /**
+     * Filter by outbox resource type (e.g. github_issue, content_object).
+     * @return resourceType
+     */
+    @jakarta.annotation.Nullable public List<String> getResourceType() {
+        return resourceType;
+    }
+
+    public void setResourceType(@jakarta.annotation.Nullable List<String> resourceType) {
+        this.resourceType = resourceType;
+    }
+
+    public ListEventDeliveriesPayload sortBy(
+            @jakarta.annotation.Nullable EventDeliverySortField sortBy) {
+        this.sortBy = sortBy;
+        return this;
+    }
+
+    /**
+     * Sort field (default created_at).
+     * @return sortBy
+     */
+    @jakarta.annotation.Nullable public EventDeliverySortField getSortBy() {
+        return sortBy;
+    }
+
+    public void setSortBy(@jakarta.annotation.Nullable EventDeliverySortField sortBy) {
+        this.sortBy = sortBy;
+    }
+
+    public ListEventDeliveriesPayload sortOrder(
+            @jakarta.annotation.Nullable SortOrderEnum sortOrder) {
+        this.sortOrder = sortOrder;
+        return this;
+    }
+
+    /**
+     * Sort order (default desc).
+     * @return sortOrder
+     */
+    @jakarta.annotation.Nullable public SortOrderEnum getSortOrder() {
+        return sortOrder;
+    }
+
+    public void setSortOrder(@jakarta.annotation.Nullable SortOrderEnum sortOrder) {
+        this.sortOrder = sortOrder;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -204,12 +398,28 @@ public class ListEventDeliveriesPayload {
                 && Objects.equals(this.resourceId, listEventDeliveriesPayload.resourceId)
                 && Objects.equals(this.subscriptionId, listEventDeliveriesPayload.subscriptionId)
                 && Objects.equals(this.status, listEventDeliveriesPayload.status)
-                && Objects.equals(this.outboxStatus, listEventDeliveriesPayload.outboxStatus);
+                && Objects.equals(this.outboxStatus, listEventDeliveriesPayload.outboxStatus)
+                && Objects.equals(this.eventCategory, listEventDeliveriesPayload.eventCategory)
+                && Objects.equals(this.action, listEventDeliveriesPayload.action)
+                && Objects.equals(this.resourceType, listEventDeliveriesPayload.resourceType)
+                && Objects.equals(this.sortBy, listEventDeliveriesPayload.sortBy)
+                && Objects.equals(this.sortOrder, listEventDeliveriesPayload.sortOrder);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(limit, eventId, resourceId, subscriptionId, status, outboxStatus);
+        return Objects.hash(
+                limit,
+                eventId,
+                resourceId,
+                subscriptionId,
+                status,
+                outboxStatus,
+                eventCategory,
+                action,
+                resourceType,
+                sortBy,
+                sortOrder);
     }
 
     @Override
@@ -222,6 +432,11 @@ public class ListEventDeliveriesPayload {
         sb.append("    subscriptionId: ").append(toIndentedString(subscriptionId)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    outboxStatus: ").append(toIndentedString(outboxStatus)).append("\n");
+        sb.append("    eventCategory: ").append(toIndentedString(eventCategory)).append("\n");
+        sb.append("    action: ").append(toIndentedString(action)).append("\n");
+        sb.append("    resourceType: ").append(toIndentedString(resourceType)).append("\n");
+        sb.append("    sortBy: ").append(toIndentedString(sortBy)).append("\n");
+        sb.append("    sortOrder: ").append(toIndentedString(sortOrder)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -247,7 +462,12 @@ public class ListEventDeliveriesPayload {
                                 "resource_id",
                                 "subscription_id",
                                 "status",
-                                "outbox_status"));
+                                "outbox_status",
+                                "event_category",
+                                "action",
+                                "resource_type",
+                                "sort_by",
+                                "sort_order"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -314,6 +534,52 @@ public class ListEventDeliveriesPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `outbox_status` to be an array in the JSON string but got `%s`",
                             jsonObj.get("outbox_status").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("event_category") != null
+                && !jsonObj.get("event_category").isJsonNull()
+                && !jsonObj.get("event_category").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `event_category` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("event_category").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("action") != null
+                && !jsonObj.get("action").isJsonNull()
+                && !jsonObj.get("action").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `action` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("action").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("resource_type") != null
+                && !jsonObj.get("resource_type").isJsonNull()
+                && !jsonObj.get("resource_type").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `resource_type` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("resource_type").toString()));
+        }
+        // validate the optional field `sort_by`
+        if (jsonObj.get("sort_by") != null && !jsonObj.get("sort_by").isJsonNull()) {
+            EventDeliverySortField.validateJsonElement(jsonObj.get("sort_by"));
+        }
+        if ((jsonObj.get("sort_order") != null && !jsonObj.get("sort_order").isJsonNull())
+                && !jsonObj.get("sort_order").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `sort_order` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("sort_order").toString()));
+        }
+        // validate the optional field `sort_order`
+        if (jsonObj.get("sort_order") != null && !jsonObj.get("sort_order").isJsonNull()) {
+            SortOrderEnum.validateJsonElement(jsonObj.get("sort_order"));
         }
     }
 

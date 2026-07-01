@@ -99,6 +99,11 @@ public class AgentEventDeliveryTarget {
     @jakarta.annotation.Nonnull
     private TypeEnum type;
 
+    public static final String SERIALIZED_NAME_ON_MATCH = "on_match";
+
+    @SerializedName(SERIALIZED_NAME_ON_MATCH)
+    @jakarta.annotation.Nullable private AgentDeliveryMatchMode onMatch;
+
     public static final String SERIALIZED_NAME_INTERACTION_REF = "interaction_ref";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION_REF)
@@ -149,6 +154,230 @@ public class AgentEventDeliveryTarget {
     @SerializedName(SERIALIZED_NAME_DEBUG_MODE)
     @jakarta.annotation.Nullable private Boolean debugMode;
 
+    /**
+     * Signal sent to an existing/restarted run. Only &#x60;UserInput&#x60; is implemented.
+     */
+    @JsonAdapter(SignalNameEnum.Adapter.class)
+    public enum SignalNameEnum {
+        USER_INPUT("UserInput"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        SignalNameEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static SignalNameEnum fromValue(String value) {
+            for (SignalNameEnum b : SignalNameEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<SignalNameEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final SignalNameEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public SignalNameEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return SignalNameEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            SignalNameEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_SIGNAL_NAME = "signal_name";
+
+    @SerializedName(SERIALIZED_NAME_SIGNAL_NAME)
+    @jakarta.annotation.Nullable private SignalNameEnum signalName;
+
+    public static final String SERIALIZED_NAME_MESSAGE_PATH = "message_path";
+
+    @SerializedName(SERIALIZED_NAME_MESSAGE_PATH)
+    @jakarta.annotation.Nullable private String messagePath;
+
+    public static final String SERIALIZED_NAME_CLIENT_MESSAGE_ID_PATH = "client_message_id_path";
+
+    @SerializedName(SERIALIZED_NAME_CLIENT_MESSAGE_ID_PATH)
+    @jakarta.annotation.Nullable private String clientMessageIdPath;
+
+    public static final String SERIALIZED_NAME_STATUSES = "statuses";
+
+    @SerializedName(SERIALIZED_NAME_STATUSES)
+    @jakarta.annotation.Nullable private List<AgentRunStatus> statuses = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_SKIP_IF_PATH_EXISTS = "skip_if_path_exists";
+
+    @SerializedName(SERIALIZED_NAME_SKIP_IF_PATH_EXISTS)
+    @jakarta.annotation.Nullable private String skipIfPathExists;
+
+    public static final String SERIALIZED_NAME_AUTHOR_PATH = "author_path";
+
+    @SerializedName(SERIALIZED_NAME_AUTHOR_PATH)
+    @jakarta.annotation.Nullable private String authorPath;
+
+    public static final String SERIALIZED_NAME_IGNORE_AUTHOR_PATTERNS = "ignore_author_patterns";
+
+    @SerializedName(SERIALIZED_NAME_IGNORE_AUTHOR_PATTERNS)
+    @jakarta.annotation.Nullable private List<String> ignoreAuthorPatterns = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_REQUIRE_COMMAND_PREFIXES =
+            "require_command_prefixes";
+
+    @SerializedName(SERIALIZED_NAME_REQUIRE_COMMAND_PREFIXES)
+    @jakarta.annotation.Nullable private List<String> requireCommandPrefixes = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_REQUIRE_MENTIONS = "require_mentions";
+
+    @SerializedName(SERIALIZED_NAME_REQUIRE_MENTIONS)
+    @jakarta.annotation.Nullable private List<String> requireMentions = new ArrayList<>();
+
+    /**
+     * &#x60;signal&#x60; mode only — no run yet (open/follow-up race): &#39;retry&#39; (default) or &#39;skip&#39;. Ignored for &#x60;ensure&#x60;.
+     */
+    @JsonAdapter(MissingThreadEnum.Adapter.class)
+    public enum MissingThreadEnum {
+        RETRY("retry"),
+
+        SKIP("skip"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        MissingThreadEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static MissingThreadEnum fromValue(String value) {
+            for (MissingThreadEnum b : MissingThreadEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<MissingThreadEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final MissingThreadEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public MissingThreadEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return MissingThreadEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            MissingThreadEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_MISSING_THREAD = "missing_thread";
+
+    @SerializedName(SERIALIZED_NAME_MISSING_THREAD)
+    @jakarta.annotation.Nullable private MissingThreadEnum missingThread;
+
+    /**
+     * Behaviour when only terminal runs match: &#x60;skip&#x60; (default) or &#x60;restart&#x60; then signal.
+     */
+    @JsonAdapter(OnTerminalEnum.Adapter.class)
+    public enum OnTerminalEnum {
+        SKIP("skip"),
+
+        RESTART("restart"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        OnTerminalEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static OnTerminalEnum fromValue(String value) {
+            for (OnTerminalEnum b : OnTerminalEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<OnTerminalEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final OnTerminalEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public OnTerminalEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return OnTerminalEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            OnTerminalEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_ON_TERMINAL = "on_terminal";
+
+    @SerializedName(SERIALIZED_NAME_ON_TERMINAL)
+    @jakarta.annotation.Nullable private OnTerminalEnum onTerminal;
+
+    public static final String SERIALIZED_NAME_METADATA = "metadata";
+
+    @SerializedName(SERIALIZED_NAME_METADATA)
+    @jakarta.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
+
     public AgentEventDeliveryTarget() {}
 
     public AgentEventDeliveryTarget type(@jakarta.annotation.Nonnull TypeEnum type) {
@@ -167,6 +396,24 @@ public class AgentEventDeliveryTarget {
 
     public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
+    }
+
+    public AgentEventDeliveryTarget onMatch(
+            @jakarta.annotation.Nullable AgentDeliveryMatchMode onMatch) {
+        this.onMatch = onMatch;
+        return this;
+    }
+
+    /**
+     * Behavior when an event matches. Defaults to &#x60;start&#x60;.
+     * @return onMatch
+     */
+    @jakarta.annotation.Nullable public AgentDeliveryMatchMode getOnMatch() {
+        return onMatch;
+    }
+
+    public void setOnMatch(@jakarta.annotation.Nullable AgentDeliveryMatchMode onMatch) {
+        this.onMatch = onMatch;
     }
 
     public AgentEventDeliveryTarget interactionRef(
@@ -376,6 +623,308 @@ public class AgentEventDeliveryTarget {
         this.debugMode = debugMode;
     }
 
+    public AgentEventDeliveryTarget signalName(
+            @jakarta.annotation.Nullable SignalNameEnum signalName) {
+        this.signalName = signalName;
+        return this;
+    }
+
+    /**
+     * Signal sent to an existing/restarted run. Only &#x60;UserInput&#x60; is implemented.
+     * @return signalName
+     */
+    @jakarta.annotation.Nullable public SignalNameEnum getSignalName() {
+        return signalName;
+    }
+
+    public void setSignalName(@jakarta.annotation.Nullable SignalNameEnum signalName) {
+        this.signalName = signalName;
+    }
+
+    public AgentEventDeliveryTarget messagePath(@jakarta.annotation.Nullable String messagePath) {
+        this.messagePath = messagePath;
+        return this;
+    }
+
+    /**
+     * Dot-path to the message (initial instruction when starting, else the signal). Required for signal/ensure.
+     * @return messagePath
+     */
+    @jakarta.annotation.Nullable public String getMessagePath() {
+        return messagePath;
+    }
+
+    public void setMessagePath(@jakarta.annotation.Nullable String messagePath) {
+        this.messagePath = messagePath;
+    }
+
+    public AgentEventDeliveryTarget clientMessageIdPath(
+            @jakarta.annotation.Nullable String clientMessageIdPath) {
+        this.clientMessageIdPath = clientMessageIdPath;
+        return this;
+    }
+
+    /**
+     * Dot-path to a stable per-message id, carried on the signal for (future) exactly-once dedupe.
+     * @return clientMessageIdPath
+     */
+    @jakarta.annotation.Nullable public String getClientMessageIdPath() {
+        return clientMessageIdPath;
+    }
+
+    public void setClientMessageIdPath(@jakarta.annotation.Nullable String clientMessageIdPath) {
+        this.clientMessageIdPath = clientMessageIdPath;
+    }
+
+    public AgentEventDeliveryTarget statuses(
+            @jakarta.annotation.Nullable List<AgentRunStatus> statuses) {
+        this.statuses = statuses;
+        return this;
+    }
+
+    public AgentEventDeliveryTarget addStatusesItem(AgentRunStatus statusesItem) {
+        if (this.statuses == null) {
+            this.statuses = new ArrayList<>();
+        }
+        this.statuses.add(statusesItem);
+        return this;
+    }
+
+    /**
+     * Run statuses eligible to receive the signal when a run exists. Defaults to [&#39;running&#39;].
+     * @return statuses
+     */
+    @jakarta.annotation.Nullable public List<AgentRunStatus> getStatuses() {
+        return statuses;
+    }
+
+    public void setStatuses(@jakarta.annotation.Nullable List<AgentRunStatus> statuses) {
+        this.statuses = statuses;
+    }
+
+    public AgentEventDeliveryTarget skipIfPathExists(
+            @jakarta.annotation.Nullable String skipIfPathExists) {
+        this.skipIfPathExists = skipIfPathExists;
+        return this;
+    }
+
+    /**
+     * If this dot-path resolves to a value, the delivery is skipped.
+     * @return skipIfPathExists
+     */
+    @jakarta.annotation.Nullable public String getSkipIfPathExists() {
+        return skipIfPathExists;
+    }
+
+    public void setSkipIfPathExists(@jakarta.annotation.Nullable String skipIfPathExists) {
+        this.skipIfPathExists = skipIfPathExists;
+    }
+
+    public AgentEventDeliveryTarget authorPath(@jakarta.annotation.Nullable String authorPath) {
+        this.authorPath = authorPath;
+        return this;
+    }
+
+    /**
+     * Dot-path to the message author, for the loop guard.
+     * @return authorPath
+     */
+    @jakarta.annotation.Nullable public String getAuthorPath() {
+        return authorPath;
+    }
+
+    public void setAuthorPath(@jakarta.annotation.Nullable String authorPath) {
+        this.authorPath = authorPath;
+    }
+
+    public AgentEventDeliveryTarget ignoreAuthorPatterns(
+            @jakarta.annotation.Nullable List<String> ignoreAuthorPatterns) {
+        this.ignoreAuthorPatterns = ignoreAuthorPatterns;
+        return this;
+    }
+
+    public AgentEventDeliveryTarget addIgnoreAuthorPatternsItem(String ignoreAuthorPatternsItem) {
+        if (this.ignoreAuthorPatterns == null) {
+            this.ignoreAuthorPatterns = new ArrayList<>();
+        }
+        this.ignoreAuthorPatterns.add(ignoreAuthorPatternsItem);
+        return this;
+    }
+
+    /**
+     * Regex patterns matched against the resolved author; a match skips the delivery (loop guard).
+     * @return ignoreAuthorPatterns
+     */
+    @jakarta.annotation.Nullable public List<String> getIgnoreAuthorPatterns() {
+        return ignoreAuthorPatterns;
+    }
+
+    public void setIgnoreAuthorPatterns(
+            @jakarta.annotation.Nullable List<String> ignoreAuthorPatterns) {
+        this.ignoreAuthorPatterns = ignoreAuthorPatterns;
+    }
+
+    public AgentEventDeliveryTarget requireCommandPrefixes(
+            @jakarta.annotation.Nullable List<String> requireCommandPrefixes) {
+        this.requireCommandPrefixes = requireCommandPrefixes;
+        return this;
+    }
+
+    public AgentEventDeliveryTarget addRequireCommandPrefixesItem(
+            String requireCommandPrefixesItem) {
+        if (this.requireCommandPrefixes == null) {
+            this.requireCommandPrefixes = new ArrayList<>();
+        }
+        this.requireCommandPrefixes.add(requireCommandPrefixesItem);
+        return this;
+    }
+
+    /**
+     * The message must start with one of these prefixes to be delivered.
+     * @return requireCommandPrefixes
+     */
+    @jakarta.annotation.Nullable public List<String> getRequireCommandPrefixes() {
+        return requireCommandPrefixes;
+    }
+
+    public void setRequireCommandPrefixes(
+            @jakarta.annotation.Nullable List<String> requireCommandPrefixes) {
+        this.requireCommandPrefixes = requireCommandPrefixes;
+    }
+
+    public AgentEventDeliveryTarget requireMentions(
+            @jakarta.annotation.Nullable List<String> requireMentions) {
+        this.requireMentions = requireMentions;
+        return this;
+    }
+
+    public AgentEventDeliveryTarget addRequireMentionsItem(String requireMentionsItem) {
+        if (this.requireMentions == null) {
+            this.requireMentions = new ArrayList<>();
+        }
+        this.requireMentions.add(requireMentionsItem);
+        return this;
+    }
+
+    /**
+     * ...or contain one of these mentions. Combined with prefixes as OR.
+     * @return requireMentions
+     */
+    @jakarta.annotation.Nullable public List<String> getRequireMentions() {
+        return requireMentions;
+    }
+
+    public void setRequireMentions(@jakarta.annotation.Nullable List<String> requireMentions) {
+        this.requireMentions = requireMentions;
+    }
+
+    public AgentEventDeliveryTarget missingThread(
+            @jakarta.annotation.Nullable MissingThreadEnum missingThread) {
+        this.missingThread = missingThread;
+        return this;
+    }
+
+    /**
+     * &#x60;signal&#x60; mode only — no run yet (open/follow-up race): &#39;retry&#39; (default) or &#39;skip&#39;. Ignored for &#x60;ensure&#x60;.
+     * @return missingThread
+     */
+    @jakarta.annotation.Nullable public MissingThreadEnum getMissingThread() {
+        return missingThread;
+    }
+
+    public void setMissingThread(@jakarta.annotation.Nullable MissingThreadEnum missingThread) {
+        this.missingThread = missingThread;
+    }
+
+    public AgentEventDeliveryTarget onTerminal(
+            @jakarta.annotation.Nullable OnTerminalEnum onTerminal) {
+        this.onTerminal = onTerminal;
+        return this;
+    }
+
+    /**
+     * Behaviour when only terminal runs match: &#x60;skip&#x60; (default) or &#x60;restart&#x60; then signal.
+     * @return onTerminal
+     */
+    @jakarta.annotation.Nullable public OnTerminalEnum getOnTerminal() {
+        return onTerminal;
+    }
+
+    public void setOnTerminal(@jakarta.annotation.Nullable OnTerminalEnum onTerminal) {
+        this.onTerminal = onTerminal;
+    }
+
+    public AgentEventDeliveryTarget metadata(
+            @jakarta.annotation.Nullable Map<String, Object> metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    public AgentEventDeliveryTarget putMetadataItem(String key, Object metadataItem) {
+        if (this.metadata == null) {
+            this.metadata = new HashMap<>();
+        }
+        this.metadata.put(key, metadataItem);
+        return this;
+    }
+
+    /**
+     * Extra fields merged into the signal&#39;s metadata; same &#x60;{{event.*}}&#x60; / &#x60;$event.x&#x60; templating as &#x60;data&#x60;.
+     * @return metadata
+     */
+    @jakarta.annotation.Nullable public Map<String, Object> getMetadata() {
+        return metadata;
+    }
+
+    public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
+        this.metadata = metadata;
+    }
+
+    /**
+     * A container for additional, undeclared properties.
+     * This is a holder for any undeclared properties as specified with
+     * the 'additionalProperties' keyword in the OAS document.
+     */
+    private Map<String, Object> additionalProperties;
+
+    /**
+     * Set the additional (undeclared) property with the specified name and value.
+     * If the property does not already exist, create it otherwise replace it.
+     *
+     * @param key name of the property
+     * @param value value of the property
+     * @return the AgentEventDeliveryTarget instance itself
+     */
+    public AgentEventDeliveryTarget putAdditionalProperty(String key, Object value) {
+        if (this.additionalProperties == null) {
+            this.additionalProperties = new HashMap<String, Object>();
+        }
+        this.additionalProperties.put(key, value);
+        return this;
+    }
+
+    /**
+     * Return the additional (undeclared) property.
+     *
+     * @return a map of objects
+     */
+    public Map<String, Object> getAdditionalProperties() {
+        return additionalProperties;
+    }
+
+    /**
+     * Return the additional (undeclared) property with the specified name.
+     *
+     * @param key name of the property
+     * @return an object
+     */
+    public Object getAdditionalProperty(String key) {
+        if (this.additionalProperties == null) {
+            return null;
+        }
+        return this.additionalProperties.get(key);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -386,6 +935,7 @@ public class AgentEventDeliveryTarget {
         }
         AgentEventDeliveryTarget agentEventDeliveryTarget = (AgentEventDeliveryTarget) o;
         return Objects.equals(this.type, agentEventDeliveryTarget.type)
+                && Objects.equals(this.onMatch, agentEventDeliveryTarget.onMatch)
                 && Objects.equals(this.interactionRef, agentEventDeliveryTarget.interactionRef)
                 && Objects.equals(this.data, agentEventDeliveryTarget.data)
                 && Objects.equals(this.config, agentEventDeliveryTarget.config)
@@ -395,13 +945,32 @@ public class AgentEventDeliveryTarget {
                 && Objects.equals(this.categories, agentEventDeliveryTarget.categories)
                 && Objects.equals(this.toolNames, agentEventDeliveryTarget.toolNames)
                 && Objects.equals(this.maxIterations, agentEventDeliveryTarget.maxIterations)
-                && Objects.equals(this.debugMode, agentEventDeliveryTarget.debugMode);
+                && Objects.equals(this.debugMode, agentEventDeliveryTarget.debugMode)
+                && Objects.equals(this.signalName, agentEventDeliveryTarget.signalName)
+                && Objects.equals(this.messagePath, agentEventDeliveryTarget.messagePath)
+                && Objects.equals(
+                        this.clientMessageIdPath, agentEventDeliveryTarget.clientMessageIdPath)
+                && Objects.equals(this.statuses, agentEventDeliveryTarget.statuses)
+                && Objects.equals(this.skipIfPathExists, agentEventDeliveryTarget.skipIfPathExists)
+                && Objects.equals(this.authorPath, agentEventDeliveryTarget.authorPath)
+                && Objects.equals(
+                        this.ignoreAuthorPatterns, agentEventDeliveryTarget.ignoreAuthorPatterns)
+                && Objects.equals(
+                        this.requireCommandPrefixes,
+                        agentEventDeliveryTarget.requireCommandPrefixes)
+                && Objects.equals(this.requireMentions, agentEventDeliveryTarget.requireMentions)
+                && Objects.equals(this.missingThread, agentEventDeliveryTarget.missingThread)
+                && Objects.equals(this.onTerminal, agentEventDeliveryTarget.onTerminal)
+                && Objects.equals(this.metadata, agentEventDeliveryTarget.metadata)
+                && Objects.equals(
+                        this.additionalProperties, agentEventDeliveryTarget.additionalProperties);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
                 type,
+                onMatch,
                 interactionRef,
                 data,
                 config,
@@ -411,7 +980,20 @@ public class AgentEventDeliveryTarget {
                 categories,
                 toolNames,
                 maxIterations,
-                debugMode);
+                debugMode,
+                signalName,
+                messagePath,
+                clientMessageIdPath,
+                statuses,
+                skipIfPathExists,
+                authorPath,
+                ignoreAuthorPatterns,
+                requireCommandPrefixes,
+                requireMentions,
+                missingThread,
+                onTerminal,
+                metadata,
+                additionalProperties);
     }
 
     @Override
@@ -419,6 +1001,7 @@ public class AgentEventDeliveryTarget {
         StringBuilder sb = new StringBuilder();
         sb.append("class AgentEventDeliveryTarget {\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    onMatch: ").append(toIndentedString(onMatch)).append("\n");
         sb.append("    interactionRef: ").append(toIndentedString(interactionRef)).append("\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    config: ").append(toIndentedString(config)).append("\n");
@@ -429,6 +1012,27 @@ public class AgentEventDeliveryTarget {
         sb.append("    toolNames: ").append(toIndentedString(toolNames)).append("\n");
         sb.append("    maxIterations: ").append(toIndentedString(maxIterations)).append("\n");
         sb.append("    debugMode: ").append(toIndentedString(debugMode)).append("\n");
+        sb.append("    signalName: ").append(toIndentedString(signalName)).append("\n");
+        sb.append("    messagePath: ").append(toIndentedString(messagePath)).append("\n");
+        sb.append("    clientMessageIdPath: ")
+                .append(toIndentedString(clientMessageIdPath))
+                .append("\n");
+        sb.append("    statuses: ").append(toIndentedString(statuses)).append("\n");
+        sb.append("    skipIfPathExists: ").append(toIndentedString(skipIfPathExists)).append("\n");
+        sb.append("    authorPath: ").append(toIndentedString(authorPath)).append("\n");
+        sb.append("    ignoreAuthorPatterns: ")
+                .append(toIndentedString(ignoreAuthorPatterns))
+                .append("\n");
+        sb.append("    requireCommandPrefixes: ")
+                .append(toIndentedString(requireCommandPrefixes))
+                .append("\n");
+        sb.append("    requireMentions: ").append(toIndentedString(requireMentions)).append("\n");
+        sb.append("    missingThread: ").append(toIndentedString(missingThread)).append("\n");
+        sb.append("    onTerminal: ").append(toIndentedString(onTerminal)).append("\n");
+        sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
+        sb.append("    additionalProperties: ")
+                .append(toIndentedString(additionalProperties))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -450,6 +1054,7 @@ public class AgentEventDeliveryTarget {
                 new HashSet<String>(
                         Arrays.asList(
                                 "type",
+                                "on_match",
                                 "interaction_ref",
                                 "data",
                                 "config",
@@ -459,7 +1064,19 @@ public class AgentEventDeliveryTarget {
                                 "categories",
                                 "tool_names",
                                 "max_iterations",
-                                "debug_mode"));
+                                "debug_mode",
+                                "signal_name",
+                                "message_path",
+                                "client_message_id_path",
+                                "statuses",
+                                "skip_if_path_exists",
+                                "author_path",
+                                "ignore_author_patterns",
+                                "require_command_prefixes",
+                                "require_mentions",
+                                "missing_thread",
+                                "on_terminal",
+                                "metadata"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("type"));
@@ -504,6 +1121,10 @@ public class AgentEventDeliveryTarget {
         }
         // validate the required field `type`
         TypeEnum.validateJsonElement(jsonObj.get("type"));
+        // validate the optional field `on_match`
+        if (jsonObj.get("on_match") != null && !jsonObj.get("on_match").isJsonNull()) {
+            AgentDeliveryMatchMode.validateJsonElement(jsonObj.get("on_match"));
+        }
         if ((jsonObj.get("interaction_ref") != null && !jsonObj.get("interaction_ref").isJsonNull())
                 && !jsonObj.get("interaction_ref").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -550,6 +1171,116 @@ public class AgentEventDeliveryTarget {
                             "Expected the field `tool_names` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tool_names").toString()));
         }
+        if ((jsonObj.get("signal_name") != null && !jsonObj.get("signal_name").isJsonNull())
+                && !jsonObj.get("signal_name").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `signal_name` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("signal_name").toString()));
+        }
+        // validate the optional field `signal_name`
+        if (jsonObj.get("signal_name") != null && !jsonObj.get("signal_name").isJsonNull()) {
+            SignalNameEnum.validateJsonElement(jsonObj.get("signal_name"));
+        }
+        if ((jsonObj.get("message_path") != null && !jsonObj.get("message_path").isJsonNull())
+                && !jsonObj.get("message_path").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `message_path` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("message_path").toString()));
+        }
+        if ((jsonObj.get("client_message_id_path") != null
+                        && !jsonObj.get("client_message_id_path").isJsonNull())
+                && !jsonObj.get("client_message_id_path").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `client_message_id_path` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("client_message_id_path").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("statuses") != null
+                && !jsonObj.get("statuses").isJsonNull()
+                && !jsonObj.get("statuses").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `statuses` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("statuses").toString()));
+        }
+        if ((jsonObj.get("skip_if_path_exists") != null
+                        && !jsonObj.get("skip_if_path_exists").isJsonNull())
+                && !jsonObj.get("skip_if_path_exists").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `skip_if_path_exists` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("skip_if_path_exists").toString()));
+        }
+        if ((jsonObj.get("author_path") != null && !jsonObj.get("author_path").isJsonNull())
+                && !jsonObj.get("author_path").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `author_path` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("author_path").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("ignore_author_patterns") != null
+                && !jsonObj.get("ignore_author_patterns").isJsonNull()
+                && !jsonObj.get("ignore_author_patterns").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `ignore_author_patterns` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("ignore_author_patterns").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("require_command_prefixes") != null
+                && !jsonObj.get("require_command_prefixes").isJsonNull()
+                && !jsonObj.get("require_command_prefixes").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `require_command_prefixes` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("require_command_prefixes").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("require_mentions") != null
+                && !jsonObj.get("require_mentions").isJsonNull()
+                && !jsonObj.get("require_mentions").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `require_mentions` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("require_mentions").toString()));
+        }
+        if ((jsonObj.get("missing_thread") != null && !jsonObj.get("missing_thread").isJsonNull())
+                && !jsonObj.get("missing_thread").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `missing_thread` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("missing_thread").toString()));
+        }
+        // validate the optional field `missing_thread`
+        if (jsonObj.get("missing_thread") != null && !jsonObj.get("missing_thread").isJsonNull()) {
+            MissingThreadEnum.validateJsonElement(jsonObj.get("missing_thread"));
+        }
+        if ((jsonObj.get("on_terminal") != null && !jsonObj.get("on_terminal").isJsonNull())
+                && !jsonObj.get("on_terminal").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `on_terminal` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("on_terminal").toString()));
+        }
+        // validate the optional field `on_terminal`
+        if (jsonObj.get("on_terminal") != null && !jsonObj.get("on_terminal").isJsonNull()) {
+            OnTerminalEnum.validateJsonElement(jsonObj.get("on_terminal"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -570,6 +1301,30 @@ public class AgentEventDeliveryTarget {
                         public void write(JsonWriter out, AgentEventDeliveryTarget value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+                            obj.remove("additionalProperties");
+                            // serialize additional properties
+                            if (value.getAdditionalProperties() != null) {
+                                for (Map.Entry<String, Object> entry :
+                                        value.getAdditionalProperties().entrySet()) {
+                                    if (entry.getValue() instanceof String)
+                                        obj.addProperty(entry.getKey(), (String) entry.getValue());
+                                    else if (entry.getValue() instanceof Number)
+                                        obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                                    else if (entry.getValue() instanceof Boolean)
+                                        obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                                    else if (entry.getValue() instanceof Character)
+                                        obj.addProperty(
+                                                entry.getKey(), (Character) entry.getValue());
+                                    else {
+                                        JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                                        if (jsonElement.isJsonArray()) {
+                                            obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                                        } else {
+                                            obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                                        }
+                                    }
+                                }
+                            }
                             elementAdapter.write(out, obj);
                         }
 
@@ -577,7 +1332,41 @@ public class AgentEventDeliveryTarget {
                         public AgentEventDeliveryTarget read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = jsonElement.getAsJsonObject();
+                            // store additional fields in the deserialized instance
+                            AgentEventDeliveryTarget instance = thisAdapter.fromJsonTree(jsonObj);
+                            for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+                                if (!openapiFields.contains(entry.getKey())) {
+                                    if (entry.getValue().isJsonPrimitive()) { // primitive type
+                                        if (entry.getValue().getAsJsonPrimitive().isString())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(), entry.getValue().getAsString());
+                                        else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(), entry.getValue().getAsNumber());
+                                        else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(),
+                                                    entry.getValue().getAsBoolean());
+                                        else
+                                            throw new IllegalArgumentException(
+                                                    String.format(
+                                                            java.util.Locale.ROOT,
+                                                            "The field `%s` has unknown primitive type. Value: %s",
+                                                            entry.getKey(),
+                                                            entry.getValue().toString()));
+                                    } else if (entry.getValue().isJsonArray()) {
+                                        instance.putAdditionalProperty(
+                                                entry.getKey(),
+                                                gson.fromJson(entry.getValue(), List.class));
+                                    } else { // JSON object
+                                        instance.putAdditionalProperty(
+                                                entry.getKey(),
+                                                gson.fromJson(entry.getValue(), HashMap.class));
+                                    }
+                                }
+                            }
+                            return instance;
                         }
                     }.nullSafe();
         }

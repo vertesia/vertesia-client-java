@@ -45,8 +45,8 @@ public class ProjectIntegrationConfigRequest extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<GladiaConfigurationInput> adapterGladiaConfigurationInput =
                     gson.getDelegateAdapter(this, TypeToken.get(GladiaConfigurationInput.class));
-            final TypeAdapter<GithubConfiguration> adapterGithubConfiguration =
-                    gson.getDelegateAdapter(this, TypeToken.get(GithubConfiguration.class));
+            final TypeAdapter<GithubConfigurationInput> adapterGithubConfigurationInput =
+                    gson.getDelegateAdapter(this, TypeToken.get(GithubConfigurationInput.class));
             final TypeAdapter<AwsConfiguration> adapterAwsConfiguration =
                     gson.getDelegateAdapter(this, TypeToken.get(AwsConfiguration.class));
             final TypeAdapter<MagicPdfConfiguration> adapterMagicPdfConfiguration =
@@ -84,11 +84,13 @@ public class ProjectIntegrationConfigRequest extends AbstractOpenApiSchema {
                                 elementAdapter.write(out, element);
                                 return;
                             }
-                            // check if the actual instance is of the type `GithubConfiguration`
-                            if (value.getActualInstance() instanceof GithubConfiguration) {
+                            // check if the actual instance is of the type
+                            // `GithubConfigurationInput`
+                            if (value.getActualInstance() instanceof GithubConfigurationInput) {
                                 JsonElement element =
-                                        adapterGithubConfiguration.toJsonTree(
-                                                (GithubConfiguration) value.getActualInstance());
+                                        adapterGithubConfigurationInput.toJsonTree(
+                                                (GithubConfigurationInput)
+                                                        value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
@@ -158,7 +160,7 @@ public class ProjectIntegrationConfigRequest extends AbstractOpenApiSchema {
                                 return;
                             }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: AskUserWebhookConfigurationInput, AwsConfiguration, ExaConfigurationInput, GithubConfiguration, GladiaConfigurationInput, LinkupConfigurationInput, MagicPdfConfiguration, ResendConfigurationInput, SerperConfigurationInput");
+                                    "Failed to serialize as the type doesn't match oneOf schemas: AskUserWebhookConfigurationInput, AwsConfiguration, ExaConfigurationInput, GithubConfigurationInput, GladiaConfigurationInput, LinkupConfigurationInput, MagicPdfConfiguration, ResendConfigurationInput, SerperConfigurationInput");
                         }
 
                         @Override
@@ -192,25 +194,25 @@ public class ProjectIntegrationConfigRequest extends AbstractOpenApiSchema {
                                         "Input data does not match schema 'GladiaConfigurationInput'",
                                         e);
                             }
-                            // deserialize GithubConfiguration
+                            // deserialize GithubConfigurationInput
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                GithubConfiguration.validateJsonElement(jsonElement);
-                                actualAdapter = adapterGithubConfiguration;
+                                GithubConfigurationInput.validateJsonElement(jsonElement);
+                                actualAdapter = adapterGithubConfigurationInput;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'GithubConfiguration'");
+                                        "Input data matches schema 'GithubConfigurationInput'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for GithubConfiguration failed with `%s`.",
+                                                "Deserialization for GithubConfigurationInput failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'GithubConfiguration'",
+                                        "Input data does not match schema 'GithubConfigurationInput'",
                                         e);
                             }
                             // deserialize AwsConfiguration
@@ -394,7 +396,7 @@ public class ProjectIntegrationConfigRequest extends AbstractOpenApiSchema {
 
     static {
         schemas.put("GladiaConfigurationInput", GladiaConfigurationInput.class);
-        schemas.put("GithubConfiguration", GithubConfiguration.class);
+        schemas.put("GithubConfigurationInput", GithubConfigurationInput.class);
         schemas.put("AwsConfiguration", AwsConfiguration.class);
         schemas.put("MagicPdfConfiguration", MagicPdfConfiguration.class);
         schemas.put("SerperConfigurationInput", SerperConfigurationInput.class);
@@ -412,7 +414,7 @@ public class ProjectIntegrationConfigRequest extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AskUserWebhookConfigurationInput, AwsConfiguration, ExaConfigurationInput, GithubConfiguration, GladiaConfigurationInput, LinkupConfigurationInput, MagicPdfConfiguration, ResendConfigurationInput, SerperConfigurationInput
+     * AskUserWebhookConfigurationInput, AwsConfiguration, ExaConfigurationInput, GithubConfigurationInput, GladiaConfigurationInput, LinkupConfigurationInput, MagicPdfConfiguration, ResendConfigurationInput, SerperConfigurationInput
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -423,7 +425,7 @@ public class ProjectIntegrationConfigRequest extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof GithubConfiguration) {
+        if (instance instanceof GithubConfigurationInput) {
             super.setActualInstance(instance);
             return;
         }
@@ -464,14 +466,14 @@ public class ProjectIntegrationConfigRequest extends AbstractOpenApiSchema {
         }
 
         throw new RuntimeException(
-                "Invalid instance type. Must be AskUserWebhookConfigurationInput, AwsConfiguration, ExaConfigurationInput, GithubConfiguration, GladiaConfigurationInput, LinkupConfigurationInput, MagicPdfConfiguration, ResendConfigurationInput, SerperConfigurationInput");
+                "Invalid instance type. Must be AskUserWebhookConfigurationInput, AwsConfiguration, ExaConfigurationInput, GithubConfigurationInput, GladiaConfigurationInput, LinkupConfigurationInput, MagicPdfConfiguration, ResendConfigurationInput, SerperConfigurationInput");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AskUserWebhookConfigurationInput, AwsConfiguration, ExaConfigurationInput, GithubConfiguration, GladiaConfigurationInput, LinkupConfigurationInput, MagicPdfConfiguration, ResendConfigurationInput, SerperConfigurationInput
+     * AskUserWebhookConfigurationInput, AwsConfiguration, ExaConfigurationInput, GithubConfigurationInput, GladiaConfigurationInput, LinkupConfigurationInput, MagicPdfConfiguration, ResendConfigurationInput, SerperConfigurationInput
      *
-     * @return The actual instance (AskUserWebhookConfigurationInput, AwsConfiguration, ExaConfigurationInput, GithubConfiguration, GladiaConfigurationInput, LinkupConfigurationInput, MagicPdfConfiguration, ResendConfigurationInput, SerperConfigurationInput)
+     * @return The actual instance (AskUserWebhookConfigurationInput, AwsConfiguration, ExaConfigurationInput, GithubConfigurationInput, GladiaConfigurationInput, LinkupConfigurationInput, MagicPdfConfiguration, ResendConfigurationInput, SerperConfigurationInput)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -492,15 +494,15 @@ public class ProjectIntegrationConfigRequest extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `GithubConfiguration`. If the actual instance is not `GithubConfiguration`,
+     * Get the actual instance of `GithubConfigurationInput`. If the actual instance is not `GithubConfigurationInput`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `GithubConfiguration`
-     * @throws ClassCastException if the instance is not `GithubConfiguration`
+     * @return The actual instance of `GithubConfigurationInput`
+     * @throws ClassCastException if the instance is not `GithubConfigurationInput`
      */
     @SuppressWarnings("unchecked")
-    public GithubConfiguration getGithubConfiguration() throws ClassCastException {
-        return (GithubConfiguration) super.getActualInstance();
+    public GithubConfigurationInput getGithubConfigurationInput() throws ClassCastException {
+        return (GithubConfigurationInput) super.getActualInstance();
     }
 
     /**
@@ -610,15 +612,15 @@ public class ProjectIntegrationConfigRequest extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with GithubConfiguration
+        // validate the json string with GithubConfigurationInput
         try {
-            GithubConfiguration.validateJsonElement(jsonElement);
+            GithubConfigurationInput.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for GithubConfiguration failed with `%s`.",
+                            "Deserialization for GithubConfigurationInput failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
@@ -710,7 +712,7 @@ public class ProjectIntegrationConfigRequest extends AbstractOpenApiSchema {
             throw new IOException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for ProjectIntegrationConfigRequest with oneOf schemas: AskUserWebhookConfigurationInput, AwsConfiguration, ExaConfigurationInput, GithubConfiguration, GladiaConfigurationInput, LinkupConfigurationInput, MagicPdfConfiguration, ResendConfigurationInput, SerperConfigurationInput. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            "The JSON string is invalid for ProjectIntegrationConfigRequest with oneOf schemas: AskUserWebhookConfigurationInput, AwsConfiguration, ExaConfigurationInput, GithubConfigurationInput, GladiaConfigurationInput, LinkupConfigurationInput, MagicPdfConfiguration, ResendConfigurationInput, SerperConfigurationInput. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
