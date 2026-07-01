@@ -76,13 +76,20 @@ public class CompositeAppConfig {
 
     public static final String SERIALIZED_NAME_HEADER = "header";
 
+    @Deprecated
     @SerializedName(SERIALIZED_NAME_HEADER)
     @jakarta.annotation.Nullable private CompositeAppHeaderOverrides header;
 
     public static final String SERIALIZED_NAME_USER_MENU = "userMenu";
 
+    @Deprecated
     @SerializedName(SERIALIZED_NAME_USER_MENU)
     @jakarta.annotation.Nullable private CompositeAppUserMenuOverrides userMenu;
+
+    public static final String SERIALIZED_NAME_HEADER_MENU = "headerMenu";
+
+    @SerializedName(SERIALIZED_NAME_HEADER_MENU)
+    @jakarta.annotation.Nullable private List<CompositeAppHeaderItem> headerMenu = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_THEME = "theme";
 
@@ -231,6 +238,7 @@ public class CompositeAppConfig {
         this.sidebar = sidebar;
     }
 
+    @Deprecated
     public CompositeAppConfig header(
             @jakarta.annotation.Nullable CompositeAppHeaderOverrides header) {
         this.header = header;
@@ -238,17 +246,21 @@ public class CompositeAppConfig {
     }
 
     /**
-     * Optional header button visibility overrides
+     * Deprecated: Use &#x60;headerMenu&#x60; instead. Optional header button visibility overrides. Still read to seed &#x60;headerMenu&#x60; defaults for configs saved before the header menu existed.
      * @return header
+     * @deprecated
      */
+    @Deprecated
     @jakarta.annotation.Nullable public CompositeAppHeaderOverrides getHeader() {
         return header;
     }
 
+    @Deprecated
     public void setHeader(@jakarta.annotation.Nullable CompositeAppHeaderOverrides header) {
         this.header = header;
     }
 
+    @Deprecated
     public CompositeAppConfig userMenu(
             @jakarta.annotation.Nullable CompositeAppUserMenuOverrides userMenu) {
         this.userMenu = userMenu;
@@ -256,15 +268,45 @@ public class CompositeAppConfig {
     }
 
     /**
-     * Optional user menu overrides
+     * Deprecated: Use the &#x60;user_menu&#x60; item in &#x60;headerMenu&#x60; instead. Optional user menu overrides. Still read to seed &#x60;headerMenu&#x60; defaults for configs saved before the header menu existed.
      * @return userMenu
+     * @deprecated
      */
+    @Deprecated
     @jakarta.annotation.Nullable public CompositeAppUserMenuOverrides getUserMenu() {
         return userMenu;
     }
 
+    @Deprecated
     public void setUserMenu(@jakarta.annotation.Nullable CompositeAppUserMenuOverrides userMenu) {
         this.userMenu = userMenu;
+    }
+
+    public CompositeAppConfig headerMenu(
+            @jakarta.annotation.Nullable List<CompositeAppHeaderItem> headerMenu) {
+        this.headerMenu = headerMenu;
+        return this;
+    }
+
+    public CompositeAppConfig addHeaderMenuItem(CompositeAppHeaderItem headerMenuItem) {
+        if (this.headerMenu == null) {
+            this.headerMenu = new ArrayList<>();
+        }
+        this.headerMenu.add(headerMenuItem);
+        return this;
+    }
+
+    /**
+     * Optional free-form header menu. When present, the header renders from this ordered list instead of the legacy &#x60;header&#x60;/&#x60;userMenu&#x60; flags. Built-in items (App Portal, Docs, Help, User Menu) can be hidden/relabeled/re-icon&#39;d/redirected; custom items are arbitrary buttons.
+     * @return headerMenu
+     */
+    @jakarta.annotation.Nullable public List<CompositeAppHeaderItem> getHeaderMenu() {
+        return headerMenu;
+    }
+
+    public void setHeaderMenu(
+            @jakarta.annotation.Nullable List<CompositeAppHeaderItem> headerMenu) {
+        this.headerMenu = headerMenu;
     }
 
     public CompositeAppConfig theme(@jakarta.annotation.Nullable CompositeAppThemeOverrides theme) {
@@ -372,6 +414,7 @@ public class CompositeAppConfig {
                 && Objects.equals(this.sidebar, compositeAppConfig.sidebar)
                 && Objects.equals(this.header, compositeAppConfig.header)
                 && Objects.equals(this.userMenu, compositeAppConfig.userMenu)
+                && Objects.equals(this.headerMenu, compositeAppConfig.headerMenu)
                 && Objects.equals(this.theme, compositeAppConfig.theme)
                 && Objects.equals(this.homePlugin, compositeAppConfig.homePlugin)
                 && Objects.equals(this.apps, compositeAppConfig.apps)
@@ -399,6 +442,7 @@ public class CompositeAppConfig {
                 sidebar,
                 header,
                 userMenu,
+                headerMenu,
                 theme,
                 homePlugin,
                 apps,
@@ -425,6 +469,7 @@ public class CompositeAppConfig {
         sb.append("    sidebar: ").append(toIndentedString(sidebar)).append("\n");
         sb.append("    header: ").append(toIndentedString(header)).append("\n");
         sb.append("    userMenu: ").append(toIndentedString(userMenu)).append("\n");
+        sb.append("    headerMenu: ").append(toIndentedString(headerMenu)).append("\n");
         sb.append("    theme: ").append(toIndentedString(theme)).append("\n");
         sb.append("    homePlugin: ").append(toIndentedString(homePlugin)).append("\n");
         sb.append("    apps: ").append(toIndentedString(apps)).append("\n");
@@ -458,6 +503,7 @@ public class CompositeAppConfig {
                                 "sidebar",
                                 "header",
                                 "userMenu",
+                                "headerMenu",
                                 "theme",
                                 "homePlugin",
                                 "apps",
@@ -539,6 +585,25 @@ public class CompositeAppConfig {
         // validate the optional field `userMenu`
         if (jsonObj.get("userMenu") != null && !jsonObj.get("userMenu").isJsonNull()) {
             CompositeAppUserMenuOverrides.validateJsonElement(jsonObj.get("userMenu"));
+        }
+        if (jsonObj.get("headerMenu") != null && !jsonObj.get("headerMenu").isJsonNull()) {
+            JsonArray jsonArrayheaderMenu = jsonObj.getAsJsonArray("headerMenu");
+            if (jsonArrayheaderMenu != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("headerMenu").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `headerMenu` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("headerMenu").toString()));
+                }
+
+                // validate the optional field `headerMenu` (array)
+                for (int i = 0; i < jsonArrayheaderMenu.size(); i++) {
+                    CompositeAppHeaderItem.validateJsonElement(jsonArrayheaderMenu.get(i));
+                }
+                ;
+            }
         }
         // validate the optional field `theme`
         if (jsonObj.get("theme") != null && !jsonObj.get("theme").isJsonNull()) {

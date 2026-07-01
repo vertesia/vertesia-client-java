@@ -197,6 +197,9 @@ src/main/java/io/vertesia/model/ComplexSearchQuery.java
 src/main/java/io/vertesia/model/CompositeAppCardOverrides.java
 src/main/java/io/vertesia/model/CompositeAppConfig.java
 src/main/java/io/vertesia/model/CompositeAppEntry.java
+src/main/java/io/vertesia/model/CompositeAppHeaderItem.java
+src/main/java/io/vertesia/model/CompositeAppHeaderItemKind.java
+src/main/java/io/vertesia/model/CompositeAppHeaderItemTarget.java
 src/main/java/io/vertesia/model/CompositeAppHeaderOverrides.java
 src/main/java/io/vertesia/model/CompositeAppHomePlugin.java
 src/main/java/io/vertesia/model/CompositeAppLogoOverrides.java
