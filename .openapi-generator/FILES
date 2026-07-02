@@ -684,6 +684,7 @@ src/main/java/io/vertesia/model/QuotaStandingResponseAdmission.java
 src/main/java/io/vertesia/model/QuotaStandingResponseLlm.java
 src/main/java/io/vertesia/model/QuotaStandingWindow.java
 src/main/java/io/vertesia/model/QuotaTier.java
+src/main/java/io/vertesia/model/QuotaTierResponse.java
 src/main/java/io/vertesia/model/RateLimitRequestPayload.java
 src/main/java/io/vertesia/model/RateLimitRequestResponse.java
 src/main/java/io/vertesia/model/ReasoningEffort.java

@@ -20,6 +20,7 @@ import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
 import io.vertesia.model.QuotaStandingResponse;
+import io.vertesia.model.QuotaTierResponse;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -195,6 +196,142 @@ public class QuotaApi {
 
         okhttp3.Call localVarCall = getQuotaStandingValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<QuotaStandingResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getQuotaTier
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The calling account&#39;s effective quota tier. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getQuotaTierCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/quota/tier";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getQuotaTierValidateBeforeCall(final ApiCallback _callback)
+            throws ApiException {
+        return getQuotaTierCall(_callback);
+    }
+
+    /**
+     * Get quota tier
+     * The calling account&#39;s effective quota tier: explicit account &#x60;quota_tier&#x60;, else its account_type-derived tier, else the deployment base tier when the account tier cannot be resolved. A lightweight lookup other services use to resolve a tenant tier without a direct account-store dependency.  **Required permissions:** &#x60;account:member&#x60;
+     * @return QuotaTierResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The calling account&#39;s effective quota tier. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public QuotaTierResponse getQuotaTier() throws ApiException {
+        ApiResponse<QuotaTierResponse> localVarResp = getQuotaTierWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get quota tier
+     * The calling account&#39;s effective quota tier: explicit account &#x60;quota_tier&#x60;, else its account_type-derived tier, else the deployment base tier when the account tier cannot be resolved. A lightweight lookup other services use to resolve a tenant tier without a direct account-store dependency.  **Required permissions:** &#x60;account:member&#x60;
+     * @return ApiResponse&lt;QuotaTierResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The calling account&#39;s effective quota tier. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<QuotaTierResponse> getQuotaTierWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = getQuotaTierValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<QuotaTierResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get quota tier (asynchronously)
+     * The calling account&#39;s effective quota tier: explicit account &#x60;quota_tier&#x60;, else its account_type-derived tier, else the deployment base tier when the account tier cannot be resolved. A lightweight lookup other services use to resolve a tenant tier without a direct account-store dependency.  **Required permissions:** &#x60;account:member&#x60;
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The calling account&#39;s effective quota tier. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getQuotaTierAsync(final ApiCallback<QuotaTierResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = getQuotaTierValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<QuotaTierResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
