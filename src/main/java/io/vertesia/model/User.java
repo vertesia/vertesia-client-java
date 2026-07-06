@@ -174,6 +174,11 @@ public class User {
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
     @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_ANNOTATIONS = "annotations";
+
+    @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
+    @jakarta.annotation.Nullable private List<String> annotations = new ArrayList<>();
+
     public User() {}
 
     public User id(@jakarta.annotation.Nonnull String id) {
@@ -451,6 +456,31 @@ public class User {
         this.compartments = compartments;
     }
 
+    public User annotations(@jakarta.annotation.Nullable List<String> annotations) {
+        this.annotations = annotations;
+        return this;
+    }
+
+    public User addAnnotationsItem(String annotationsItem) {
+        if (this.annotations == null) {
+            this.annotations = new ArrayList<>();
+        }
+        this.annotations.add(annotationsItem);
+        return this;
+    }
+
+    /**
+     * Free-form user metadata - restricted to internal use
+     * @return annotations
+     */
+    @jakarta.annotation.Nullable public List<String> getAnnotations() {
+        return annotations;
+    }
+
+    public void setAnnotations(@jakarta.annotation.Nullable List<String> annotations) {
+        this.annotations = annotations;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -520,6 +550,7 @@ public class User {
                 && Objects.equals(this.properties, user.properties)
                 && Objects.equals(this.clearance, user.clearance)
                 && Objects.equals(this.compartments, user.compartments)
+                && Objects.equals(this.annotations, user.annotations)
                 && Objects.equals(this.additionalProperties, user.additionalProperties);
     }
 
@@ -541,6 +572,7 @@ public class User {
                 properties,
                 clearance,
                 compartments,
+                annotations,
                 additionalProperties);
     }
 
@@ -565,6 +597,7 @@ public class User {
         sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
         sb.append("    clearance: ").append(toIndentedString(clearance)).append("\n");
         sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
+        sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -602,7 +635,8 @@ public class User {
                                 "updated_by",
                                 "properties",
                                 "clearance",
-                                "compartments"));
+                                "compartments",
+                                "annotations"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -746,6 +780,16 @@ public class User {
                             java.util.Locale.ROOT,
                             "Expected the field `compartments` to be an array in the JSON string but got `%s`",
                             jsonObj.get("compartments").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("annotations") != null
+                && !jsonObj.get("annotations").isJsonNull()
+                && !jsonObj.get("annotations").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `annotations` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("annotations").toString()));
         }
     }
 
