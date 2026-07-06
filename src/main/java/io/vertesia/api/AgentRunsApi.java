@@ -3123,6 +3123,186 @@ public class AgentRunsApi {
     }
 
     /**
+     * Build call for queryAgentRun
+     * @param agentRunId  (required)
+     * @param queryName  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Agent query result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call queryAgentRunCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String queryName,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/agents/{agentRunId}/query/{queryName}"
+                        .replace(
+                                "{" + "agentRunId" + "}",
+                                localVarApiClient.escapeString(agentRunId.toString()))
+                        .replace(
+                                "{" + "queryName" + "}",
+                                localVarApiClient.escapeString(queryName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call queryAgentRunValidateBeforeCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String queryName,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'agentRunId' is set
+        if (agentRunId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'agentRunId' when calling queryAgentRun(Async)");
+        }
+
+        // verify the required parameter 'queryName' is set
+        if (queryName == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'queryName' when calling queryAgentRun(Async)");
+        }
+
+        return queryAgentRunCall(agentRunId, queryName, _callback);
+    }
+
+    /**
+     * Query an agent run
+     * Runs a named query against an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param queryName  (required)
+     * @return Object
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Agent query result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public Object queryAgentRun(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String queryName)
+            throws ApiException {
+        ApiResponse<Object> localVarResp = queryAgentRunWithHttpInfo(agentRunId, queryName);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Query an agent run
+     * Runs a named query against an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param queryName  (required)
+     * @return ApiResponse&lt;Object&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Agent query result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<Object> queryAgentRunWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String queryName)
+            throws ApiException {
+        okhttp3.Call localVarCall = queryAgentRunValidateBeforeCall(agentRunId, queryName, null);
+        Type localVarReturnType = new TypeToken<Object>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Query an agent run (asynchronously)
+     * Runs a named query against an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param queryName  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Agent query result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call queryAgentRunAsync(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String queryName,
+            final ApiCallback<Object> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                queryAgentRunValidateBeforeCall(agentRunId, queryName, _callback);
+        Type localVarReturnType = new TypeToken<Object>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for restartAgentRun
      * @param agentRunId  (required)
      * @param ndRestartCountNumber  (required)
@@ -3852,6 +4032,197 @@ public class AgentRunsApi {
                         sort,
                         _callback);
         Type localVarReturnType = new TypeToken<SearchAgentRunsResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for signalAgentRun
+     * @param agentRunId  (required)
+     * @param signalName  (required)
+     * @param requestBody  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call signalAgentRunCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String signalName,
+            @jakarta.annotation.Nullable Map<String, Object> requestBody,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = requestBody;
+
+        // create path and map variables
+        String localVarPath =
+                "/agents/{agentRunId}/signal/{signalName}"
+                        .replace(
+                                "{" + "agentRunId" + "}",
+                                localVarApiClient.escapeString(agentRunId.toString()))
+                        .replace(
+                                "{" + "signalName" + "}",
+                                localVarApiClient.escapeString(signalName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call signalAgentRunValidateBeforeCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String signalName,
+            @jakarta.annotation.Nullable Map<String, Object> requestBody,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'agentRunId' is set
+        if (agentRunId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'agentRunId' when calling signalAgentRun(Async)");
+        }
+
+        // verify the required parameter 'signalName' is set
+        if (signalName == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'signalName' when calling signalAgentRun(Async)");
+        }
+
+        return signalAgentRunCall(agentRunId, signalName, requestBody, _callback);
+    }
+
+    /**
+     * Signal an agent run
+     * Sends a named signal to an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param signalName  (required)
+     * @param requestBody  (optional)
+     * @return SignalAgentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public SignalAgentResponse signalAgentRun(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String signalName,
+            @jakarta.annotation.Nullable Map<String, Object> requestBody)
+            throws ApiException {
+        ApiResponse<SignalAgentResponse> localVarResp =
+                signalAgentRunWithHttpInfo(agentRunId, signalName, requestBody);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Signal an agent run
+     * Sends a named signal to an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param signalName  (required)
+     * @param requestBody  (optional)
+     * @return ApiResponse&lt;SignalAgentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<SignalAgentResponse> signalAgentRunWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String signalName,
+            @jakarta.annotation.Nullable Map<String, Object> requestBody)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                signalAgentRunValidateBeforeCall(agentRunId, signalName, requestBody, null);
+        Type localVarReturnType = new TypeToken<SignalAgentResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Signal an agent run (asynchronously)
+     * Sends a named signal to an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param signalName  (required)
+     * @param requestBody  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call signalAgentRunAsync(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String signalName,
+            @jakarta.annotation.Nullable Map<String, Object> requestBody,
+            final ApiCallback<SignalAgentResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                signalAgentRunValidateBeforeCall(agentRunId, signalName, requestBody, _callback);
+        Type localVarReturnType = new TypeToken<SignalAgentResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
