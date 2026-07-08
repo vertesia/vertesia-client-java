@@ -351,6 +351,11 @@ public class AgentRun {
     @jakarta.annotation.Nonnull
     private InteractionRef interactionRef;
 
+    public static final String SERIALIZED_NAME_ENVIRONMENT_REF = "environmentRef";
+
+    @SerializedName(SERIALIZED_NAME_ENVIRONMENT_REF)
+    @jakarta.annotation.Nullable private ResourceRef environmentRef;
+
     public static final String SERIALIZED_NAME_TOPIC = "topic";
 
     @SerializedName(SERIALIZED_NAME_TOPIC)
@@ -1099,6 +1104,23 @@ public class AgentRun {
         this.interactionRef = interactionRef;
     }
 
+    public AgentRun environmentRef(@jakarta.annotation.Nullable ResourceRef environmentRef) {
+        this.environmentRef = environmentRef;
+        return this;
+    }
+
+    /**
+     * Resolved environment reference (name resolved from &#x60;config.environment&#x60; id). Populated by the list endpoint; may be absent on other endpoints or when the id cannot be resolved, in which case consumers should fall back to &#x60;config.environment&#x60;.
+     * @return environmentRef
+     */
+    @jakarta.annotation.Nullable public ResourceRef getEnvironmentRef() {
+        return environmentRef;
+    }
+
+    public void setEnvironmentRef(@jakarta.annotation.Nullable ResourceRef environmentRef) {
+        this.environmentRef = environmentRef;
+    }
+
     public AgentRun topic(@jakarta.annotation.Nullable String topic) {
         this.topic = topic;
         return this;
@@ -1301,6 +1323,7 @@ public class AgentRun {
                 && Objects.equals(this.updatedAt, agentRun.updatedAt)
                 && Objects.equals(this.interactionName, agentRun.interactionName)
                 && Objects.equals(this.interactionRef, agentRun.interactionRef)
+                && Objects.equals(this.environmentRef, agentRun.environmentRef)
                 && Objects.equals(this.topic, agentRun.topic)
                 && Objects.equals(this.lessonsLearned, agentRun.lessonsLearned)
                 && Objects.equals(this.archivedAt, agentRun.archivedAt)
@@ -1351,6 +1374,7 @@ public class AgentRun {
                 updatedAt,
                 interactionName,
                 interactionRef,
+                environmentRef,
                 topic,
                 lessonsLearned,
                 archivedAt,
@@ -1408,6 +1432,7 @@ public class AgentRun {
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("    interactionName: ").append(toIndentedString(interactionName)).append("\n");
         sb.append("    interactionRef: ").append(toIndentedString(interactionRef)).append("\n");
+        sb.append("    environmentRef: ").append(toIndentedString(environmentRef)).append("\n");
         sb.append("    topic: ").append(toIndentedString(topic)).append("\n");
         sb.append("    lessonsLearned: ").append(toIndentedString(lessonsLearned)).append("\n");
         sb.append("    archivedAt: ").append(toIndentedString(archivedAt)).append("\n");
@@ -1475,6 +1500,7 @@ public class AgentRun {
                                 "updated_at",
                                 "interaction_name",
                                 "interactionRef",
+                                "environmentRef",
                                 "topic",
                                 "lessons_learned",
                                 "archived_at",
@@ -1735,6 +1761,10 @@ public class AgentRun {
         }
         // validate the required field `interactionRef`
         InteractionRef.validateJsonElement(jsonObj.get("interactionRef"));
+        // validate the optional field `environmentRef`
+        if (jsonObj.get("environmentRef") != null && !jsonObj.get("environmentRef").isJsonNull()) {
+            ResourceRef.validateJsonElement(jsonObj.get("environmentRef"));
+        }
         if ((jsonObj.get("topic") != null && !jsonObj.get("topic").isJsonNull())
                 && !jsonObj.get("topic").isJsonPrimitive()) {
             throw new IllegalArgumentException(
