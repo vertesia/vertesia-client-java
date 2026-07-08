@@ -641,6 +641,7 @@ src/main/java/io/vertesia/model/ResendConfigurationInput.java
 src/main/java/io/vertesia/model/ResolvedEnvironmentInfo.java
 src/main/java/io/vertesia/model/ResolvedInteractionExecutionInfo.java
 src/main/java/io/vertesia/model/ResolvedRuntimeConfig.java
+src/main/java/io/vertesia/model/ResourceRef.java
 src/main/java/io/vertesia/model/ResourceVisibility.java
 src/main/java/io/vertesia/model/ResultStorageOptions.java
 src/main/java/io/vertesia/model/RetryProcessNodePayload.java
