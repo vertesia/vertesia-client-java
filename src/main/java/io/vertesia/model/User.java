@@ -49,8 +49,7 @@ public class User {
     public static final String SERIALIZED_NAME_EXTERNAL_ID = "externalId";
 
     @SerializedName(SERIALIZED_NAME_EXTERNAL_ID)
-    @jakarta.annotation.Nonnull
-    private String externalId;
+    @jakarta.annotation.Nullable private String externalId;
 
     public static final String SERIALIZED_NAME_EMAIL = "email";
 
@@ -194,7 +193,7 @@ public class User {
         this.id = id;
     }
 
-    public User externalId(@jakarta.annotation.Nonnull String externalId) {
+    public User externalId(@jakarta.annotation.Nullable String externalId) {
         this.externalId = externalId;
         return this;
     }
@@ -203,12 +202,11 @@ public class User {
      * Get externalId
      * @return externalId
      */
-    @jakarta.annotation.Nonnull
-    public String getExternalId() {
+    @jakarta.annotation.Nullable public String getExternalId() {
         return externalId;
     }
 
-    public void setExternalId(@jakarta.annotation.Nonnull String externalId) {
+    public void setExternalId(@jakarta.annotation.Nullable String externalId) {
         this.externalId = externalId;
     }
 
@@ -605,8 +603,7 @@ public class User {
                                 "compartments"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields =
-                new HashSet<String>(Arrays.asList("id", "externalId", "email", "name"));
+        openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "email", "name"));
     }
 
     /**
@@ -646,7 +643,8 @@ public class User {
                             "Expected the field `id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("id").toString()));
         }
-        if (!jsonObj.get("externalId").isJsonPrimitive()) {
+        if ((jsonObj.get("externalId") != null && !jsonObj.get("externalId").isJsonNull())
+                && !jsonObj.get("externalId").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
