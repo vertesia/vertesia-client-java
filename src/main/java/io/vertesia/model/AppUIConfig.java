@@ -45,7 +45,7 @@ public class AppUIConfig {
     private String src;
 
     /**
-     * The isolation strategy. If not specified it defaults to shadow - shadow - use Shadow DOM to fully isolate the plugin from the host. - css - use CSS processing (like prefixing or other isolation techniques). Ligther but plugins may conflict with the host
+     * The isolation strategy. If not specified it defaults to shadow. - shadow - use Shadow DOM to fully isolate the plugin from the host. - css - inject the plugin&#39;s styles (minus the preflight) into the host document;   lighter but styles may conflict with the host.
      */
     @JsonAdapter(IsolationEnum.Adapter.class)
     public enum IsolationEnum {
@@ -104,6 +104,11 @@ public class AppUIConfig {
     @SerializedName(SERIALIZED_NAME_ISOLATION)
     @jakarta.annotation.Nullable private IsolationEnum isolation;
 
+    public static final String SERIALIZED_NAME_CSS_REBUILD = "css_rebuild";
+
+    @SerializedName(SERIALIZED_NAME_CSS_REBUILD)
+    @jakarta.annotation.Nullable private Boolean cssRebuild;
+
     public static final String SERIALIZED_NAME_NAVIGATION = "navigation";
 
     @SerializedName(SERIALIZED_NAME_NAVIGATION)
@@ -140,7 +145,7 @@ public class AppUIConfig {
     }
 
     /**
-     * The isolation strategy. If not specified it defaults to shadow - shadow - use Shadow DOM to fully isolate the plugin from the host. - css - use CSS processing (like prefixing or other isolation techniques). Ligther but plugins may conflict with the host
+     * The isolation strategy. If not specified it defaults to shadow. - shadow - use Shadow DOM to fully isolate the plugin from the host. - css - inject the plugin&#39;s styles (minus the preflight) into the host document;   lighter but styles may conflict with the host.
      * @return isolation
      */
     @jakarta.annotation.Nullable public IsolationEnum getIsolation() {
@@ -149,6 +154,23 @@ public class AppUIConfig {
 
     public void setIsolation(@jakarta.annotation.Nullable IsolationEnum isolation) {
         this.isolation = isolation;
+    }
+
+    public AppUIConfig cssRebuild(@jakarta.annotation.Nullable Boolean cssRebuild) {
+        this.cssRebuild = cssRebuild;
+        return this;
+    }
+
+    /**
+     * When true the host modifies the app&#39;s css at load time to attempt to fix broken or missing styles. Only takes effect in css isolation mode. Defaults to false.
+     * @return cssRebuild
+     */
+    @jakarta.annotation.Nullable public Boolean getCssRebuild() {
+        return cssRebuild;
+    }
+
+    public void setCssRebuild(@jakarta.annotation.Nullable Boolean cssRebuild) {
+        this.cssRebuild = cssRebuild;
     }
 
     public AppUIConfig navigation(@jakarta.annotation.Nullable List<AppUINavItem> navigation) {
@@ -212,13 +234,14 @@ public class AppUIConfig {
         AppUIConfig appUIConfig = (AppUIConfig) o;
         return Objects.equals(this.src, appUIConfig.src)
                 && Objects.equals(this.isolation, appUIConfig.isolation)
+                && Objects.equals(this.cssRebuild, appUIConfig.cssRebuild)
                 && Objects.equals(this.navigation, appUIConfig.navigation)
                 && Objects.equals(this.availableIn, appUIConfig.availableIn);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(src, isolation, navigation, availableIn);
+        return Objects.hash(src, isolation, cssRebuild, navigation, availableIn);
     }
 
     @Override
@@ -227,6 +250,7 @@ public class AppUIConfig {
         sb.append("class AppUIConfig {\n");
         sb.append("    src: ").append(toIndentedString(src)).append("\n");
         sb.append("    isolation: ").append(toIndentedString(isolation)).append("\n");
+        sb.append("    cssRebuild: ").append(toIndentedString(cssRebuild)).append("\n");
         sb.append("    navigation: ").append(toIndentedString(navigation)).append("\n");
         sb.append("    availableIn: ").append(toIndentedString(availableIn)).append("\n");
         sb.append("}");
@@ -248,7 +272,8 @@ public class AppUIConfig {
         // a set of all properties/fields (JSON key names)
         openapiFields =
                 new HashSet<String>(
-                        Arrays.asList("src", "isolation", "navigation", "available_in"));
+                        Arrays.asList(
+                                "src", "isolation", "css_rebuild", "navigation", "available_in"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("src"));
