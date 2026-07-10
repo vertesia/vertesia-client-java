@@ -446,6 +446,9 @@ public class JSON {
                                                 "bedrock-gpt-oss",
                                                 io.vertesia.model.BedrockGptOssOptions.class);
                                         classByDiscriminatorValue.put(
+                                                "bedrock-mantle-responses",
+                                                io.vertesia.model.BedrockMantleOptions.class);
+                                        classByDiscriminatorValue.put(
                                                 "bedrock-mistral",
                                                 io.vertesia.model.BedrockMistralOptions.class);
                                         classByDiscriminatorValue.put(
@@ -931,6 +934,8 @@ public class JSON {
                 new io.vertesia.model.BedrockConverseOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.BedrockGptOssOptions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.BedrockMantleOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.BedrockMistralOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

@@ -154,6 +154,7 @@ src/main/java/io/vertesia/model/BedrockClaudeOptions.java
 src/main/java/io/vertesia/model/BedrockCohereCommandOptions.java
 src/main/java/io/vertesia/model/BedrockConverseOptions.java
 src/main/java/io/vertesia/model/BedrockGptOssOptions.java
+src/main/java/io/vertesia/model/BedrockMantleOptions.java
 src/main/java/io/vertesia/model/BedrockMistralOptions.java
 src/main/java/io/vertesia/model/BedrockNovaOptions.java
 src/main/java/io/vertesia/model/BedrockPalmyraOptions.java

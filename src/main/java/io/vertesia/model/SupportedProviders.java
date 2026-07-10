@@ -38,6 +38,8 @@ public enum SupportedProviders {
 
     BEDROCK("bedrock"),
 
+    BEDROCK_MANTLE("bedrock_mantle"),
+
     VERTEXAI("vertexai"),
 
     TOGETHERAI("togetherai"),
