@@ -446,8 +446,16 @@ public class JSON {
                                                 "bedrock-gpt-oss",
                                                 io.vertesia.model.BedrockGptOssOptions.class);
                                         classByDiscriminatorValue.put(
+                                                "bedrock-mantle-chat-completions",
+                                                io.vertesia.model
+                                                        .BedrockMantleChatCompletionsOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "bedrock-mantle-claude",
+                                                io.vertesia.model.BedrockMantleClaudeOptions.class);
+                                        classByDiscriminatorValue.put(
                                                 "bedrock-mantle-responses",
-                                                io.vertesia.model.BedrockMantleOptions.class);
+                                                io.vertesia.model.BedrockMantleResponsesOptions
+                                                        .class);
                                         classByDiscriminatorValue.put(
                                                 "bedrock-mistral",
                                                 io.vertesia.model.BedrockMistralOptions.class);
@@ -935,7 +943,12 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.BedrockGptOssOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.BedrockMantleOptions.CustomTypeAdapterFactory());
+                new io.vertesia.model.BedrockMantleChatCompletionsOptions
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.BedrockMantleClaudeOptions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.BedrockMantleResponsesOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.BedrockMistralOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

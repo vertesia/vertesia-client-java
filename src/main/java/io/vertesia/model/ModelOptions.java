@@ -71,8 +71,15 @@ public class ModelOptions extends AbstractOpenApiSchema {
                     gson.getDelegateAdapter(this, TypeToken.get(BedrockGptOssOptions.class));
             final TypeAdapter<TwelvelabsPegasusOptions> adapterTwelvelabsPegasusOptions =
                     gson.getDelegateAdapter(this, TypeToken.get(TwelvelabsPegasusOptions.class));
-            final TypeAdapter<BedrockMantleOptions> adapterBedrockMantleOptions =
-                    gson.getDelegateAdapter(this, TypeToken.get(BedrockMantleOptions.class));
+            final TypeAdapter<BedrockMantleResponsesOptions> adapterBedrockMantleResponsesOptions =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(BedrockMantleResponsesOptions.class));
+            final TypeAdapter<BedrockMantleChatCompletionsOptions>
+                    adapterBedrockMantleChatCompletionsOptions =
+                            gson.getDelegateAdapter(
+                                    this, TypeToken.get(BedrockMantleChatCompletionsOptions.class));
+            final TypeAdapter<BedrockMantleClaudeOptions> adapterBedrockMantleClaudeOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(BedrockMantleClaudeOptions.class));
             final TypeAdapter<OpenAiThinkingOptions> adapterOpenAiThinkingOptions =
                     gson.getDelegateAdapter(this, TypeToken.get(OpenAiThinkingOptions.class));
             final TypeAdapter<OpenAiTextOptions> adapterOpenAiTextOptions =
@@ -217,11 +224,35 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 elementAdapter.write(out, element);
                                 return;
                             }
-                            // check if the actual instance is of the type `BedrockMantleOptions`
-                            if (value.getActualInstance() instanceof BedrockMantleOptions) {
+                            // check if the actual instance is of the type
+                            // `BedrockMantleResponsesOptions`
+                            if (value.getActualInstance()
+                                    instanceof BedrockMantleResponsesOptions) {
                                 JsonElement element =
-                                        adapterBedrockMantleOptions.toJsonTree(
-                                                (BedrockMantleOptions) value.getActualInstance());
+                                        adapterBedrockMantleResponsesOptions.toJsonTree(
+                                                (BedrockMantleResponsesOptions)
+                                                        value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type
+                            // `BedrockMantleChatCompletionsOptions`
+                            if (value.getActualInstance()
+                                    instanceof BedrockMantleChatCompletionsOptions) {
+                                JsonElement element =
+                                        adapterBedrockMantleChatCompletionsOptions.toJsonTree(
+                                                (BedrockMantleChatCompletionsOptions)
+                                                        value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type
+                            // `BedrockMantleClaudeOptions`
+                            if (value.getActualInstance() instanceof BedrockMantleClaudeOptions) {
+                                JsonElement element =
+                                        adapterBedrockMantleClaudeOptions.toJsonTree(
+                                                (BedrockMantleClaudeOptions)
+                                                        value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
@@ -266,7 +297,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 return;
                             }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions");
+                                    "Failed to serialize as the type doesn't match oneOf schemas: BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions");
                         }
 
                         @Override
@@ -591,25 +622,68 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                         "Input data does not match schema 'TwelvelabsPegasusOptions'",
                                         e);
                             }
-                            // deserialize BedrockMantleOptions
+                            // deserialize BedrockMantleResponsesOptions
                             try {
                                 // validate the JSON object to see if any exception is thrown
-                                BedrockMantleOptions.validateJsonElement(jsonElement);
-                                actualAdapter = adapterBedrockMantleOptions;
+                                BedrockMantleResponsesOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterBedrockMantleResponsesOptions;
                                 match++;
                                 log.log(
                                         Level.FINER,
-                                        "Input data matches schema 'BedrockMantleOptions'");
+                                        "Input data matches schema 'BedrockMantleResponsesOptions'");
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
                                         String.format(
                                                 java.util.Locale.ROOT,
-                                                "Deserialization for BedrockMantleOptions failed with `%s`.",
+                                                "Deserialization for BedrockMantleResponsesOptions failed with `%s`.",
                                                 e.getMessage()));
                                 log.log(
                                         Level.FINER,
-                                        "Input data does not match schema 'BedrockMantleOptions'",
+                                        "Input data does not match schema 'BedrockMantleResponsesOptions'",
+                                        e);
+                            }
+                            // deserialize BedrockMantleChatCompletionsOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                BedrockMantleChatCompletionsOptions.validateJsonElement(
+                                        jsonElement);
+                                actualAdapter = adapterBedrockMantleChatCompletionsOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'BedrockMantleChatCompletionsOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for BedrockMantleChatCompletionsOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'BedrockMantleChatCompletionsOptions'",
+                                        e);
+                            }
+                            // deserialize BedrockMantleClaudeOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                BedrockMantleClaudeOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterBedrockMantleClaudeOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'BedrockMantleClaudeOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for BedrockMantleClaudeOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'BedrockMantleClaudeOptions'",
                                         e);
                             }
                             // deserialize OpenAiThinkingOptions
@@ -762,7 +836,10 @@ public class ModelOptions extends AbstractOpenApiSchema {
         schemas.put("BedrockPalmyraOptions", BedrockPalmyraOptions.class);
         schemas.put("BedrockGptOssOptions", BedrockGptOssOptions.class);
         schemas.put("TwelvelabsPegasusOptions", TwelvelabsPegasusOptions.class);
-        schemas.put("BedrockMantleOptions", BedrockMantleOptions.class);
+        schemas.put("BedrockMantleResponsesOptions", BedrockMantleResponsesOptions.class);
+        schemas.put(
+                "BedrockMantleChatCompletionsOptions", BedrockMantleChatCompletionsOptions.class);
+        schemas.put("BedrockMantleClaudeOptions", BedrockMantleClaudeOptions.class);
         schemas.put("OpenAiThinkingOptions", OpenAiThinkingOptions.class);
         schemas.put("OpenAiTextOptions", OpenAiTextOptions.class);
         schemas.put("OpenAiDalleOptions", OpenAiDalleOptions.class);
@@ -778,7 +855,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions
+     * BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -859,7 +936,17 @@ public class ModelOptions extends AbstractOpenApiSchema {
             return;
         }
 
-        if (instance instanceof BedrockMantleOptions) {
+        if (instance instanceof BedrockMantleResponsesOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof BedrockMantleChatCompletionsOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof BedrockMantleClaudeOptions) {
             super.setActualInstance(instance);
             return;
         }
@@ -890,14 +977,14 @@ public class ModelOptions extends AbstractOpenApiSchema {
         }
 
         throw new RuntimeException(
-                "Invalid instance type. Must be BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions");
+                "Invalid instance type. Must be BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions
+     * BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions
      *
-     * @return The actual instance (BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions)
+     * @return The actual instance (BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -1086,15 +1173,41 @@ public class ModelOptions extends AbstractOpenApiSchema {
     }
 
     /**
-     * Get the actual instance of `BedrockMantleOptions`. If the actual instance is not `BedrockMantleOptions`,
+     * Get the actual instance of `BedrockMantleResponsesOptions`. If the actual instance is not `BedrockMantleResponsesOptions`,
      * the ClassCastException will be thrown.
      *
-     * @return The actual instance of `BedrockMantleOptions`
-     * @throws ClassCastException if the instance is not `BedrockMantleOptions`
+     * @return The actual instance of `BedrockMantleResponsesOptions`
+     * @throws ClassCastException if the instance is not `BedrockMantleResponsesOptions`
      */
     @SuppressWarnings("unchecked")
-    public BedrockMantleOptions getBedrockMantleOptions() throws ClassCastException {
-        return (BedrockMantleOptions) super.getActualInstance();
+    public BedrockMantleResponsesOptions getBedrockMantleResponsesOptions()
+            throws ClassCastException {
+        return (BedrockMantleResponsesOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `BedrockMantleChatCompletionsOptions`. If the actual instance is not `BedrockMantleChatCompletionsOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BedrockMantleChatCompletionsOptions`
+     * @throws ClassCastException if the instance is not `BedrockMantleChatCompletionsOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public BedrockMantleChatCompletionsOptions getBedrockMantleChatCompletionsOptions()
+            throws ClassCastException {
+        return (BedrockMantleChatCompletionsOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `BedrockMantleClaudeOptions`. If the actual instance is not `BedrockMantleClaudeOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `BedrockMantleClaudeOptions`
+     * @throws ClassCastException if the instance is not `BedrockMantleClaudeOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public BedrockMantleClaudeOptions getBedrockMantleClaudeOptions() throws ClassCastException {
+        return (BedrockMantleClaudeOptions) super.getActualInstance();
     }
 
     /**
@@ -1347,15 +1460,39 @@ public class ModelOptions extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
-        // validate the json string with BedrockMantleOptions
+        // validate the json string with BedrockMantleResponsesOptions
         try {
-            BedrockMantleOptions.validateJsonElement(jsonElement);
+            BedrockMantleResponsesOptions.validateJsonElement(jsonElement);
             validCount++;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Deserialization for BedrockMantleOptions failed with `%s`.",
+                            "Deserialization for BedrockMantleResponsesOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with BedrockMantleChatCompletionsOptions
+        try {
+            BedrockMantleChatCompletionsOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for BedrockMantleChatCompletionsOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with BedrockMantleClaudeOptions
+        try {
+            BedrockMantleClaudeOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for BedrockMantleClaudeOptions failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
@@ -1423,7 +1560,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
             throw new IOException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for ModelOptions with oneOf schemas: BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            "The JSON string is invalid for ModelOptions with oneOf schemas: BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
