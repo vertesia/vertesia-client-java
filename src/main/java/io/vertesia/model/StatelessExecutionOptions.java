@@ -61,6 +61,11 @@ public class StatelessExecutionOptions {
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
     @jakarta.annotation.Nullable private ModelOptions modelOptions;
 
+    public static final String SERIALIZED_NAME_PROMPT_CACHE_KEY = "prompt_cache_key";
+
+    @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_KEY)
+    @jakarta.annotation.Nullable private String promptCacheKey;
+
     public static final String SERIALIZED_NAME_HTTP_TIMEOUT = "httpTimeout";
 
     @SerializedName(SERIALIZED_NAME_HTTP_TIMEOUT)
@@ -164,6 +169,24 @@ public class StatelessExecutionOptions {
         this.modelOptions = modelOptions;
     }
 
+    public StatelessExecutionOptions promptCacheKey(
+            @jakarta.annotation.Nullable String promptCacheKey) {
+        this.promptCacheKey = promptCacheKey;
+        return this;
+    }
+
+    /**
+     * Stable identity for prompt caching. Providers with cache routing keys receive the value directly; providers with cache breakpoints use its presence to cache the stable prefix before the final dynamic block. Providers with fully implicit caching still require an identical prompt prefix.
+     * @return promptCacheKey
+     */
+    @jakarta.annotation.Nullable public String getPromptCacheKey() {
+        return promptCacheKey;
+    }
+
+    public void setPromptCacheKey(@jakarta.annotation.Nullable String promptCacheKey) {
+        this.promptCacheKey = promptCacheKey;
+    }
+
     public StatelessExecutionOptions httpTimeout(
             @jakarta.annotation.Nullable HttpTimeoutOptions httpTimeout) {
         this.httpTimeout = httpTimeout;
@@ -220,6 +243,7 @@ public class StatelessExecutionOptions {
                         this.includeOriginalResponse,
                         statelessExecutionOptions.includeOriginalResponse)
                 && Objects.equals(this.modelOptions, statelessExecutionOptions.modelOptions)
+                && Objects.equals(this.promptCacheKey, statelessExecutionOptions.promptCacheKey)
                 && Objects.equals(this.httpTimeout, statelessExecutionOptions.httpTimeout)
                 && Objects.equals(this.outputModality, statelessExecutionOptions.outputModality);
     }
@@ -232,6 +256,7 @@ public class StatelessExecutionOptions {
                 resultSchema,
                 includeOriginalResponse,
                 modelOptions,
+                promptCacheKey,
                 httpTimeout,
                 outputModality);
     }
@@ -247,6 +272,7 @@ public class StatelessExecutionOptions {
                 .append(toIndentedString(includeOriginalResponse))
                 .append("\n");
         sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
+        sb.append("    promptCacheKey: ").append(toIndentedString(promptCacheKey)).append("\n");
         sb.append("    httpTimeout: ").append(toIndentedString(httpTimeout)).append("\n");
         sb.append("    outputModality: ").append(toIndentedString(outputModality)).append("\n");
         sb.append("}");
@@ -274,6 +300,7 @@ public class StatelessExecutionOptions {
                                 "result_schema",
                                 "include_original_response",
                                 "model_options",
+                                "prompt_cache_key",
                                 "httpTimeout",
                                 "output_modality"));
 
@@ -329,6 +356,15 @@ public class StatelessExecutionOptions {
         // validate the optional field `model_options`
         if (jsonObj.get("model_options") != null && !jsonObj.get("model_options").isJsonNull()) {
             ModelOptions.validateJsonElement(jsonObj.get("model_options"));
+        }
+        if ((jsonObj.get("prompt_cache_key") != null
+                        && !jsonObj.get("prompt_cache_key").isJsonNull())
+                && !jsonObj.get("prompt_cache_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `prompt_cache_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("prompt_cache_key").toString()));
         }
         // validate the optional field `httpTimeout`
         if (jsonObj.get("httpTimeout") != null && !jsonObj.get("httpTimeout").isJsonNull()) {
