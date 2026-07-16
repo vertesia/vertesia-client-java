@@ -544,6 +544,7 @@ public class InteractionRunsApi {
      * @param environment  (optional)
      * @param model  (optional)
      * @param tags  (optional)
+     * @param excludeTags Tags to exclude. Runs carrying any of these tags are filtered out of the results, counts, and facet buckets. Combined with &#x60;tags&#x60; (which requires all of the listed tags) as an additional &#x60;$nin&#x60; constraint on the same field. (optional)
      * @param query  (optional)
      * @param defaultQueryPath  (optional)
      * @param parent  (optional)
@@ -578,6 +579,7 @@ public class InteractionRunsApi {
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
             @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable List<String> excludeTags,
             @jakarta.annotation.Nullable String query,
             @jakarta.annotation.Nullable String defaultQueryPath,
             @jakarta.annotation.Nullable List<String> parent,
@@ -650,6 +652,11 @@ public class InteractionRunsApi {
         if (tags != null) {
             localVarCollectionQueryParams.addAll(
                     localVarApiClient.parameterToPairs("multi", "tags", tags));
+        }
+
+        if (excludeTags != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "exclude_tags", excludeTags));
         }
 
         if (query != null) {
@@ -749,6 +756,7 @@ public class InteractionRunsApi {
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
             @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable List<String> excludeTags,
             @jakarta.annotation.Nullable String query,
             @jakarta.annotation.Nullable String defaultQueryPath,
             @jakarta.annotation.Nullable List<String> parent,
@@ -773,6 +781,7 @@ public class InteractionRunsApi {
                 environment,
                 model,
                 tags,
+                excludeTags,
                 query,
                 defaultQueryPath,
                 parent,
@@ -800,6 +809,7 @@ public class InteractionRunsApi {
      * @param environment  (optional)
      * @param model  (optional)
      * @param tags  (optional)
+     * @param excludeTags Tags to exclude. Runs carrying any of these tags are filtered out of the results, counts, and facet buckets. Combined with &#x60;tags&#x60; (which requires all of the listed tags) as an additional &#x60;$nin&#x60; constraint on the same field. (optional)
      * @param query  (optional)
      * @param defaultQueryPath  (optional)
      * @param parent  (optional)
@@ -833,6 +843,7 @@ public class InteractionRunsApi {
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
             @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable List<String> excludeTags,
             @jakarta.annotation.Nullable String query,
             @jakarta.annotation.Nullable String defaultQueryPath,
             @jakarta.annotation.Nullable List<String> parent,
@@ -857,6 +868,7 @@ public class InteractionRunsApi {
                         environment,
                         model,
                         tags,
+                        excludeTags,
                         query,
                         defaultQueryPath,
                         parent,
@@ -884,6 +896,7 @@ public class InteractionRunsApi {
      * @param environment  (optional)
      * @param model  (optional)
      * @param tags  (optional)
+     * @param excludeTags Tags to exclude. Runs carrying any of these tags are filtered out of the results, counts, and facet buckets. Combined with &#x60;tags&#x60; (which requires all of the listed tags) as an additional &#x60;$nin&#x60; constraint on the same field. (optional)
      * @param query  (optional)
      * @param defaultQueryPath  (optional)
      * @param parent  (optional)
@@ -917,6 +930,7 @@ public class InteractionRunsApi {
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
             @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable List<String> excludeTags,
             @jakarta.annotation.Nullable String query,
             @jakarta.annotation.Nullable String defaultQueryPath,
             @jakarta.annotation.Nullable List<String> parent,
@@ -941,6 +955,7 @@ public class InteractionRunsApi {
                         environment,
                         model,
                         tags,
+                        excludeTags,
                         query,
                         defaultQueryPath,
                         parent,
@@ -970,6 +985,7 @@ public class InteractionRunsApi {
      * @param environment  (optional)
      * @param model  (optional)
      * @param tags  (optional)
+     * @param excludeTags Tags to exclude. Runs carrying any of these tags are filtered out of the results, counts, and facet buckets. Combined with &#x60;tags&#x60; (which requires all of the listed tags) as an additional &#x60;$nin&#x60; constraint on the same field. (optional)
      * @param query  (optional)
      * @param defaultQueryPath  (optional)
      * @param parent  (optional)
@@ -1004,6 +1020,7 @@ public class InteractionRunsApi {
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
             @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable List<String> excludeTags,
             @jakarta.annotation.Nullable String query,
             @jakarta.annotation.Nullable String defaultQueryPath,
             @jakarta.annotation.Nullable List<String> parent,
@@ -1030,6 +1047,7 @@ public class InteractionRunsApi {
                         environment,
                         model,
                         tags,
+                        excludeTags,
                         query,
                         defaultQueryPath,
                         parent,

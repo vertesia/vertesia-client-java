@@ -77,6 +77,11 @@ public class RunSearchQuery {
     @SerializedName(SERIALIZED_NAME_TAGS)
     @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_EXCLUDE_TAGS = "exclude_tags";
+
+    @SerializedName(SERIALIZED_NAME_EXCLUDE_TAGS)
+    @jakarta.annotation.Nullable private List<String> excludeTags = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
@@ -286,6 +291,31 @@ public class RunSearchQuery {
 
     public void setTags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
+    }
+
+    public RunSearchQuery excludeTags(@jakarta.annotation.Nullable List<String> excludeTags) {
+        this.excludeTags = excludeTags;
+        return this;
+    }
+
+    public RunSearchQuery addExcludeTagsItem(String excludeTagsItem) {
+        if (this.excludeTags == null) {
+            this.excludeTags = new ArrayList<>();
+        }
+        this.excludeTags.add(excludeTagsItem);
+        return this;
+    }
+
+    /**
+     * Tags to exclude. Runs carrying any of these tags are filtered out of the results, counts, and facet buckets. Combined with &#x60;tags&#x60; (which requires all of the listed tags) as an additional &#x60;$nin&#x60; constraint on the same field.
+     * @return excludeTags
+     */
+    @jakarta.annotation.Nullable public List<String> getExcludeTags() {
+        return excludeTags;
+    }
+
+    public void setExcludeTags(@jakarta.annotation.Nullable List<String> excludeTags) {
+        this.excludeTags = excludeTags;
     }
 
     public RunSearchQuery query(@jakarta.annotation.Nullable String query) {
@@ -558,6 +588,7 @@ public class RunSearchQuery {
                 && Objects.equals(this.environment, runSearchQuery.environment)
                 && Objects.equals(this.model, runSearchQuery.model)
                 && Objects.equals(this.tags, runSearchQuery.tags)
+                && Objects.equals(this.excludeTags, runSearchQuery.excludeTags)
                 && Objects.equals(this.query, runSearchQuery.query)
                 && Objects.equals(this.defaultQueryPath, runSearchQuery.defaultQueryPath)
                 && Objects.equals(this.parent, runSearchQuery.parent)
@@ -584,6 +615,7 @@ public class RunSearchQuery {
                 environment,
                 model,
                 tags,
+                excludeTags,
                 query,
                 defaultQueryPath,
                 parent,
@@ -611,6 +643,7 @@ public class RunSearchQuery {
         sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+        sb.append("    excludeTags: ").append(toIndentedString(excludeTags)).append("\n");
         sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("    defaultQueryPath: ").append(toIndentedString(defaultQueryPath)).append("\n");
         sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
@@ -652,6 +685,7 @@ public class RunSearchQuery {
                                 "environment",
                                 "model",
                                 "tags",
+                                "exclude_tags",
                                 "query",
                                 "default_query_path",
                                 "parent",
@@ -733,6 +767,16 @@ public class RunSearchQuery {
                             java.util.Locale.ROOT,
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("exclude_tags") != null
+                && !jsonObj.get("exclude_tags").isJsonNull()
+                && !jsonObj.get("exclude_tags").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `exclude_tags` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("exclude_tags").toString()));
         }
         if ((jsonObj.get("query") != null && !jsonObj.get("query").isJsonNull())
                 && !jsonObj.get("query").isJsonPrimitive()) {
