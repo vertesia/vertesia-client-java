@@ -142,6 +142,8 @@ public class VertexAIGeminiOptions {
      */
     @JsonAdapter(EffortEnum.Adapter.class)
     public enum EffortEnum {
+        MINIMAL("minimal"),
+
         LOW("low"),
 
         MEDIUM("medium"),
