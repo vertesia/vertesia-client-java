@@ -9,7 +9,8 @@ import io.vertesia.model.AccountProjectsResponse;
 import io.vertesia.model.AccountType;
 import io.vertesia.model.ContentObjectStatus;
 import io.vertesia.model.ContentObjectType;
-import io.vertesia.model.DocTableResponse;
+import io.vertesia.model.DataStoreFullSchemaResponse;
+import io.vertesia.model.DataStoreSchemaResponse;
 import org.junit.jupiter.api.Test;
 
 class GeneratedCompatibilityTest {
@@ -76,16 +77,19 @@ class GeneratedCompatibilityTest {
 
     @Test
     void generatedUnionsHandleKnownShapeWithUnknownFields() {
-        DocTableResponse response =
+        DataStoreSchemaResponse response =
                 JSON.deserialize(
                         "{"
-                                + "\"format\":\"csv\","
-                                + "\"data\":\"name,value\\nalpha,1\","
+                                + "\"schema_format\":\"full\","
+                                + "\"version\":\"1.0.0\","
+                                + "\"tables\":[],"
+                                + "\"relationships\":[],"
+                                + "\"updated_at\":\"2026-01-01T00:00:00.000Z\","
                                 + "\"server_added_field\":\"ignored\""
                                 + "}",
-                        DocTableResponse.class);
+                        DataStoreSchemaResponse.class);
 
         assertNotNull(response);
-        assertNotNull(response.getActualInstance());
+        assertTrue(response.getActualInstance() instanceof DataStoreFullSchemaResponse);
     }
 }
