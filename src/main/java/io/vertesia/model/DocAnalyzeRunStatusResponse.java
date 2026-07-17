@@ -50,6 +50,11 @@ public class DocAnalyzeRunStatusResponse {
     @jakarta.annotation.Nonnull
     private WorkflowExecutionStatus status;
 
+    public static final String SERIALIZED_NAME_PHASE = "phase";
+
+    @SerializedName(SERIALIZED_NAME_PHASE)
+    @jakarta.annotation.Nullable private DocumentProcessingPhase phase;
+
     public static final String SERIALIZED_NAME_PROGRESS = "progress";
 
     @SerializedName(SERIALIZED_NAME_PROGRESS)
@@ -116,6 +121,24 @@ public class DocAnalyzeRunStatusResponse {
         this.status = status;
     }
 
+    public DocAnalyzeRunStatusResponse phase(
+            @jakarta.annotation.Nullable DocumentProcessingPhase phase) {
+        this.phase = phase;
+        return this;
+    }
+
+    /**
+     * Get phase
+     * @return phase
+     */
+    @jakarta.annotation.Nullable public DocumentProcessingPhase getPhase() {
+        return phase;
+    }
+
+    public void setPhase(@jakarta.annotation.Nullable DocumentProcessingPhase phase) {
+        this.phase = phase;
+    }
+
     public DocAnalyzeRunStatusResponse progress(
             @jakarta.annotation.Nullable DocAnalyzerProgress progress) {
         this.progress = progress;
@@ -141,7 +164,7 @@ public class DocAnalyzeRunStatusResponse {
     }
 
     /**
-     * The output format being used for processing (markdown or xml)
+     * The output format being used for processing.
      * @return outputFormat
      */
     @jakarta.annotation.Nullable public DocProcessorOutputFormat getOutputFormat() {
@@ -165,13 +188,14 @@ public class DocAnalyzeRunStatusResponse {
         return Objects.equals(this.workflowId, docAnalyzeRunStatusResponse.workflowId)
                 && Objects.equals(this.workflowRunId, docAnalyzeRunStatusResponse.workflowRunId)
                 && Objects.equals(this.status, docAnalyzeRunStatusResponse.status)
+                && Objects.equals(this.phase, docAnalyzeRunStatusResponse.phase)
                 && Objects.equals(this.progress, docAnalyzeRunStatusResponse.progress)
                 && Objects.equals(this.outputFormat, docAnalyzeRunStatusResponse.outputFormat);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(workflowId, workflowRunId, status, progress, outputFormat);
+        return Objects.hash(workflowId, workflowRunId, status, phase, progress, outputFormat);
     }
 
     @Override
@@ -181,6 +205,7 @@ public class DocAnalyzeRunStatusResponse {
         sb.append("    workflowId: ").append(toIndentedString(workflowId)).append("\n");
         sb.append("    workflowRunId: ").append(toIndentedString(workflowRunId)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
         sb.append("    progress: ").append(toIndentedString(progress)).append("\n");
         sb.append("    outputFormat: ").append(toIndentedString(outputFormat)).append("\n");
         sb.append("}");
@@ -206,6 +231,7 @@ public class DocAnalyzeRunStatusResponse {
                                 "workflow_id",
                                 "workflow_run_id",
                                 "status",
+                                "phase",
                                 "progress",
                                 "output_format"));
 
@@ -262,6 +288,10 @@ public class DocAnalyzeRunStatusResponse {
         }
         // validate the required field `status`
         WorkflowExecutionStatus.validateJsonElement(jsonObj.get("status"));
+        // validate the optional field `phase`
+        if (jsonObj.get("phase") != null && !jsonObj.get("phase").isJsonNull()) {
+            DocumentProcessingPhase.validateJsonElement(jsonObj.get("phase"));
+        }
         // validate the optional field `progress`
         if (jsonObj.get("progress") != null && !jsonObj.get("progress").isJsonNull()) {
             DocAnalyzerProgress.validateJsonElement(jsonObj.get("progress"));

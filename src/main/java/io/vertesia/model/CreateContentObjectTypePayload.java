@@ -39,10 +39,20 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateContentObjectTypePayload {
+    public static final String SERIALIZED_NAME_STATUS = "status";
+
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    @jakarta.annotation.Nullable private ContentObjectTypeStatus status;
+
     public static final String SERIALIZED_NAME_IS_CHUNKABLE = "is_chunkable";
 
     @SerializedName(SERIALIZED_NAME_IS_CHUNKABLE)
     @jakarta.annotation.Nullable private Boolean isChunkable;
+
+    public static final String SERIALIZED_NAME_INTAKE = "intake";
+
+    @SerializedName(SERIALIZED_NAME_INTAKE)
+    @jakarta.annotation.Nullable private ContentTypeIntakePolicy intake;
 
     public static final String SERIALIZED_NAME_TABLE_LAYOUT = "table_layout";
 
@@ -77,6 +87,24 @@ public class CreateContentObjectTypePayload {
 
     public CreateContentObjectTypePayload() {}
 
+    public CreateContentObjectTypePayload status(
+            @jakarta.annotation.Nullable ContentObjectTypeStatus status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Get status
+     * @return status
+     */
+    @jakarta.annotation.Nullable public ContentObjectTypeStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(@jakarta.annotation.Nullable ContentObjectTypeStatus status) {
+        this.status = status;
+    }
+
     public CreateContentObjectTypePayload isChunkable(
             @jakarta.annotation.Nullable Boolean isChunkable) {
         this.isChunkable = isChunkable;
@@ -93,6 +121,24 @@ public class CreateContentObjectTypePayload {
 
     public void setIsChunkable(@jakarta.annotation.Nullable Boolean isChunkable) {
         this.isChunkable = isChunkable;
+    }
+
+    public CreateContentObjectTypePayload intake(
+            @jakarta.annotation.Nullable ContentTypeIntakePolicy intake) {
+        this.intake = intake;
+        return this;
+    }
+
+    /**
+     * Get intake
+     * @return intake
+     */
+    @jakarta.annotation.Nullable public ContentTypeIntakePolicy getIntake() {
+        return intake;
+    }
+
+    public void setIntake(@jakarta.annotation.Nullable ContentTypeIntakePolicy intake) {
+        this.intake = intake;
     }
 
     public CreateContentObjectTypePayload tableLayout(
@@ -281,7 +327,9 @@ public class CreateContentObjectTypePayload {
         }
         CreateContentObjectTypePayload createContentObjectTypePayload =
                 (CreateContentObjectTypePayload) o;
-        return Objects.equals(this.isChunkable, createContentObjectTypePayload.isChunkable)
+        return Objects.equals(this.status, createContentObjectTypePayload.status)
+                && Objects.equals(this.isChunkable, createContentObjectTypePayload.isChunkable)
+                && Objects.equals(this.intake, createContentObjectTypePayload.intake)
                 && Objects.equals(this.tableLayout, createContentObjectTypePayload.tableLayout)
                 && Objects.equals(this.objectSchema, createContentObjectTypePayload.objectSchema)
                 && Objects.equals(this.strictMode, createContentObjectTypePayload.strictMode)
@@ -296,7 +344,9 @@ public class CreateContentObjectTypePayload {
     @Override
     public int hashCode() {
         return Objects.hash(
+                status,
                 isChunkable,
+                intake,
                 tableLayout,
                 objectSchema,
                 strictMode,
@@ -310,7 +360,9 @@ public class CreateContentObjectTypePayload {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateContentObjectTypePayload {\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    isChunkable: ").append(toIndentedString(isChunkable)).append("\n");
+        sb.append("    intake: ").append(toIndentedString(intake)).append("\n");
         sb.append("    tableLayout: ").append(toIndentedString(tableLayout)).append("\n");
         sb.append("    objectSchema: ").append(toIndentedString(objectSchema)).append("\n");
         sb.append("    strictMode: ").append(toIndentedString(strictMode)).append("\n");
@@ -340,7 +392,9 @@ public class CreateContentObjectTypePayload {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "status",
                                 "is_chunkable",
+                                "intake",
                                 "table_layout",
                                 "object_schema",
                                 "strict_mode",
@@ -382,6 +436,14 @@ public class CreateContentObjectTypePayload {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the optional field `status`
+        if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+            ContentObjectTypeStatus.validateJsonElement(jsonObj.get("status"));
+        }
+        // validate the optional field `intake`
+        if (jsonObj.get("intake") != null && !jsonObj.get("intake").isJsonNull()) {
+            ContentTypeIntakePolicy.validateJsonElement(jsonObj.get("intake"));
+        }
         if (jsonObj.get("table_layout") != null && !jsonObj.get("table_layout").isJsonNull()) {
             JsonArray jsonArraytableLayout = jsonObj.getAsJsonArray("table_layout");
             if (jsonArraytableLayout != null) {

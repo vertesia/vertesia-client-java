@@ -74,6 +74,11 @@ public class DocumentMetadataContentProcessor {
     @SerializedName(SERIALIZED_NAME_NEEDS_OCR_COUNT)
     @jakarta.annotation.Nullable private BigDecimal needsOcrCount;
 
+    public static final String SERIALIZED_NAME_CONVERSION_FINGERPRINT = "conversion_fingerprint";
+
+    @SerializedName(SERIALIZED_NAME_CONVERSION_FINGERPRINT)
+    @jakarta.annotation.Nullable private String conversionFingerprint;
+
     public DocumentMetadataContentProcessor() {}
 
     public DocumentMetadataContentProcessor type(@jakarta.annotation.Nullable String type) {
@@ -217,6 +222,25 @@ public class DocumentMetadataContentProcessor {
         this.needsOcrCount = needsOcrCount;
     }
 
+    public DocumentMetadataContentProcessor conversionFingerprint(
+            @jakarta.annotation.Nullable String conversionFingerprint) {
+        this.conversionFingerprint = conversionFingerprint;
+        return this;
+    }
+
+    /**
+     * Fingerprint of source+policy used for custom conversion, to skip re-converting unchanged docs.
+     * @return conversionFingerprint
+     */
+    @jakarta.annotation.Nullable public String getConversionFingerprint() {
+        return conversionFingerprint;
+    }
+
+    public void setConversionFingerprint(
+            @jakarta.annotation.Nullable String conversionFingerprint) {
+        this.conversionFingerprint = conversionFingerprint;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -283,6 +307,9 @@ public class DocumentMetadataContentProcessor {
                 && Objects.equals(
                         this.needsOcrCount, documentMetadataContentProcessor.needsOcrCount)
                 && Objects.equals(
+                        this.conversionFingerprint,
+                        documentMetadataContentProcessor.conversionFingerprint)
+                && Objects.equals(
                         this.additionalProperties,
                         documentMetadataContentProcessor.additionalProperties);
     }
@@ -297,6 +324,7 @@ public class DocumentMetadataContentProcessor {
                 imageCount,
                 zoneCount,
                 needsOcrCount,
+                conversionFingerprint,
                 additionalProperties);
     }
 
@@ -313,6 +341,9 @@ public class DocumentMetadataContentProcessor {
         sb.append("    imageCount: ").append(toIndentedString(imageCount)).append("\n");
         sb.append("    zoneCount: ").append(toIndentedString(zoneCount)).append("\n");
         sb.append("    needsOcrCount: ").append(toIndentedString(needsOcrCount)).append("\n");
+        sb.append("    conversionFingerprint: ")
+                .append(toIndentedString(conversionFingerprint))
+                .append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -342,7 +373,8 @@ public class DocumentMetadataContentProcessor {
                                 "table_count",
                                 "image_count",
                                 "zone_count",
-                                "needs_ocr_count"));
+                                "needs_ocr_count",
+                                "conversion_fingerprint"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -393,6 +425,15 @@ public class DocumentMetadataContentProcessor {
                             java.util.Locale.ROOT,
                             "Expected the field `zones_requested` to be an array in the JSON string but got `%s`",
                             jsonObj.get("zones_requested").toString()));
+        }
+        if ((jsonObj.get("conversion_fingerprint") != null
+                        && !jsonObj.get("conversion_fingerprint").isJsonNull())
+                && !jsonObj.get("conversion_fingerprint").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `conversion_fingerprint` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("conversion_fingerprint").toString()));
         }
     }
 

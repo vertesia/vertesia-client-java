@@ -27,7 +27,7 @@ import io.vertesia.model.InCodeProcessDefinition;
 import io.vertesia.model.PartialOmitCompositeAppConfigIdProject;
 import io.vertesia.model.PartialProject;
 import io.vertesia.model.PartialProjectConfiguration;
-import io.vertesia.model.PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode;
+import io.vertesia.model.PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake;
 import io.vertesia.model.Project;
 import io.vertesia.model.ProjectConfiguration;
 import io.vertesia.model.ProjectIntegrationConfigRequest;
@@ -1021,7 +1021,7 @@ public class ProjectsApi {
      * Retrieves a content type contributed by an installed app.
      * @param projectId  (required)
      * @param typeId  (required)
-     * @return PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode
+     * @return PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1033,13 +1033,13 @@ public class ProjectsApi {
      * </table>
      */
     public
-    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake
             getProjectAppType(
                     @jakarta.annotation.Nonnull String projectId,
                     @jakarta.annotation.Nonnull String typeId)
                     throws ApiException {
         ApiResponse<
-                        PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>
+                        PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake>
                 localVarResp = getProjectAppTypeWithHttpInfo(projectId, typeId);
         return localVarResp.getData();
     }
@@ -1049,7 +1049,7 @@ public class ProjectsApi {
      * Retrieves a content type contributed by an installed app.
      * @param projectId  (required)
      * @param typeId  (required)
-     * @return ApiResponse&lt;PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode&gt;
+     * @return ApiResponse&lt;PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1061,7 +1061,7 @@ public class ProjectsApi {
      * </table>
      */
     public ApiResponse<
-                    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>
+                    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake>
             getProjectAppTypeWithHttpInfo(
                     @jakarta.annotation.Nonnull String projectId,
                     @jakarta.annotation.Nonnull String typeId)
@@ -1069,7 +1069,7 @@ public class ProjectsApi {
         okhttp3.Call localVarCall = getProjectAppTypeValidateBeforeCall(projectId, typeId, null);
         Type localVarReturnType =
                 new TypeToken<
-                        PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>() {}.getType();
+                        PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1094,7 +1094,7 @@ public class ProjectsApi {
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String typeId,
             final ApiCallback<
-                            PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>
+                            PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake>
                     _callback)
             throws ApiException {
 
@@ -1102,7 +1102,7 @@ public class ProjectsApi {
                 getProjectAppTypeValidateBeforeCall(projectId, typeId, _callback);
         Type localVarReturnType =
                 new TypeToken<
-                        PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>() {}.getType();
+                        PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2078,7 +2078,7 @@ public class ProjectsApi {
      * Lists content types contributed by installed apps in the project.
      * @param projectId  (required)
      * @param tag  (optional)
-     * @return List&lt;PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode&gt;
+     * @return List&lt;PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -2090,14 +2090,14 @@ public class ProjectsApi {
      * </table>
      */
     public List<
-                    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>
+                    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake>
             listProjectAppTypes(
                     @jakarta.annotation.Nonnull String projectId,
                     @jakarta.annotation.Nullable String tag)
                     throws ApiException {
         ApiResponse<
                         List<
-                                PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>>
+                                PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake>>
                 localVarResp = listProjectAppTypesWithHttpInfo(projectId, tag);
         return localVarResp.getData();
     }
@@ -2107,7 +2107,7 @@ public class ProjectsApi {
      * Lists content types contributed by installed apps in the project.
      * @param projectId  (required)
      * @param tag  (optional)
-     * @return ApiResponse&lt;List&lt;PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode&gt;&gt;
+     * @return ApiResponse&lt;List&lt;PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -2120,7 +2120,7 @@ public class ProjectsApi {
      */
     public ApiResponse<
                     List<
-                            PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>>
+                            PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake>>
             listProjectAppTypesWithHttpInfo(
                     @jakarta.annotation.Nonnull String projectId,
                     @jakarta.annotation.Nullable String tag)
@@ -2129,7 +2129,7 @@ public class ProjectsApi {
         Type localVarReturnType =
                 new TypeToken<
                         List<
-                                PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>>() {}.getType();
+                                PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2155,7 +2155,7 @@ public class ProjectsApi {
             @jakarta.annotation.Nullable String tag,
             final ApiCallback<
                             List<
-                                    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>>
+                                    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake>>
                     _callback)
             throws ApiException {
 
@@ -2164,7 +2164,7 @@ public class ProjectsApi {
         Type localVarReturnType =
                 new TypeToken<
                         List<
-                                PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictMode>>() {}.getType();
+                                PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

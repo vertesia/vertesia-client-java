@@ -56,6 +56,8 @@ public enum KnownAuditAction {
 
     IMAGE_GENERATION("image_generation"),
 
+    DOCUMENT_PROCESSED("document_processed"),
+
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;

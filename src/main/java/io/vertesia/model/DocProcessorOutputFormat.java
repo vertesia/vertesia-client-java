@@ -24,8 +24,6 @@ import java.io.IOException;
  */
 @JsonAdapter(DocProcessorOutputFormat.Adapter.class)
 public enum DocProcessorOutputFormat {
-    XML("xml"),
-
     MARKDOWN("markdown"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");

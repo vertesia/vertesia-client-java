@@ -19,9 +19,6 @@ import io.vertesia.ApiException;
 import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
-import io.vertesia.model.AdaptTablesRequest;
-import io.vertesia.model.AdaptedTable;
-import io.vertesia.model.AnnotatedPdfResponse;
 import io.vertesia.model.Collection;
 import io.vertesia.model.ComplexSearchPayload;
 import io.vertesia.model.ComputeObjectFacetPayload;
@@ -37,9 +34,7 @@ import io.vertesia.model.CreateContentObjectPayload;
 import io.vertesia.model.DeleteContentObjectExportResponse;
 import io.vertesia.model.DeleteContentObjectResult;
 import io.vertesia.model.DocAnalyzeRunStatusResponse;
-import io.vertesia.model.DocAnalyzerResultResponse;
-import io.vertesia.model.DocImage;
-import io.vertesia.model.DocTableResponse;
+import io.vertesia.model.DocumentPrepOptions;
 import io.vertesia.model.Embedding;
 import io.vertesia.model.ExportPropertiesPayload;
 import io.vertesia.model.ExportPropertiesResponse;
@@ -48,15 +43,16 @@ import io.vertesia.model.GetFileUrlPayload;
 import io.vertesia.model.GetFileUrlResponse;
 import io.vertesia.model.GetRenditionResponse;
 import io.vertesia.model.GetUploadUrlPayload;
+import io.vertesia.model.GroundedAssistantResponse;
+import io.vertesia.model.GroundedExtractionRequest;
+import io.vertesia.model.GroundedExtractionResultResponse;
 import io.vertesia.model.ListContentObjectExportsResponse;
 import io.vertesia.model.ListWorkflowRunsResponse;
 import io.vertesia.model.ObjectSearchResponse;
 import io.vertesia.model.PartialCreateContentObjectPayload;
-import io.vertesia.model.PdfToRichtextOptions;
 import io.vertesia.model.SetObjectEmbeddingsResponse;
 import io.vertesia.model.StartContentObjectExportRequest;
 import io.vertesia.model.StartContentObjectExportResponse;
-import io.vertesia.model.WorkflowRunStatus;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -102,188 +98,9 @@ public class ObjectsApi {
     }
 
     /**
-     * Build call for adaptObjectTables
-     * @param objectId  (required)
-     * @param adaptTablesRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Table adaptation workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call adaptObjectTablesCall(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull AdaptTablesRequest adaptTablesRequest,
-            final ApiCallback _callback)
-            throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = adaptTablesRequest;
-
-        // create path and map variables
-        String localVarPath =
-                "/objects/{objectId}/analyze/adapt_tables"
-                        .replace(
-                                "{" + "objectId" + "}",
-                                localVarApiClient.escapeString(objectId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {"application/json"};
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {"application/json"};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "POST",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call adaptObjectTablesValidateBeforeCall(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull AdaptTablesRequest adaptTablesRequest,
-            final ApiCallback _callback)
-            throws ApiException {
-        // verify the required parameter 'objectId' is set
-        if (objectId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'objectId' when calling adaptObjectTables(Async)");
-        }
-
-        // verify the required parameter 'adaptTablesRequest' is set
-        if (adaptTablesRequest == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'adaptTablesRequest' when calling adaptObjectTables(Async)");
-        }
-
-        return adaptObjectTablesCall(objectId, adaptTablesRequest, _callback);
-    }
-
-    /**
-     * Adapt extracted document tables
-     * Starts a table-adaptation workflow to normalize extracted tables into a target schema.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param adaptTablesRequest  (required)
-     * @return WorkflowRunStatus
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Table adaptation workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public WorkflowRunStatus adaptObjectTables(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull AdaptTablesRequest adaptTablesRequest)
-            throws ApiException {
-        ApiResponse<WorkflowRunStatus> localVarResp =
-                adaptObjectTablesWithHttpInfo(objectId, adaptTablesRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Adapt extracted document tables
-     * Starts a table-adaptation workflow to normalize extracted tables into a target schema.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param adaptTablesRequest  (required)
-     * @return ApiResponse&lt;WorkflowRunStatus&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Table adaptation workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<WorkflowRunStatus> adaptObjectTablesWithHttpInfo(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull AdaptTablesRequest adaptTablesRequest)
-            throws ApiException {
-        okhttp3.Call localVarCall =
-                adaptObjectTablesValidateBeforeCall(objectId, adaptTablesRequest, null);
-        Type localVarReturnType = new TypeToken<WorkflowRunStatus>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Adapt extracted document tables (asynchronously)
-     * Starts a table-adaptation workflow to normalize extracted tables into a target schema.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param adaptTablesRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Table adaptation workflow status. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call adaptObjectTablesAsync(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull AdaptTablesRequest adaptTablesRequest,
-            final ApiCallback<WorkflowRunStatus> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall =
-                adaptObjectTablesValidateBeforeCall(objectId, adaptTablesRequest, _callback);
-        Type localVarReturnType = new TypeToken<WorkflowRunStatus>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
      * Build call for analyzeObjectDocument
      * @param objectId  (required)
-     * @param pdfToRichtextOptions  (required)
+     * @param documentPrepOptions  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -291,14 +108,14 @@ public class ObjectsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document analysis workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call analyzeObjectDocumentCall(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions,
+            @jakarta.annotation.Nonnull DocumentPrepOptions documentPrepOptions,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -314,7 +131,7 @@ public class ObjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = pdfToRichtextOptions;
+        Object localVarPostBody = documentPrepOptions;
 
         // create path and map variables
         String localVarPath =
@@ -360,7 +177,7 @@ public class ObjectsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call analyzeObjectDocumentValidateBeforeCall(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions,
+            @jakarta.annotation.Nonnull DocumentPrepOptions documentPrepOptions,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
@@ -369,71 +186,71 @@ public class ObjectsApi {
                     "Missing the required parameter 'objectId' when calling analyzeObjectDocument(Async)");
         }
 
-        // verify the required parameter 'pdfToRichtextOptions' is set
-        if (pdfToRichtextOptions == null) {
+        // verify the required parameter 'documentPrepOptions' is set
+        if (documentPrepOptions == null) {
             throw new ApiException(
-                    "Missing the required parameter 'pdfToRichtextOptions' when calling analyzeObjectDocument(Async)");
+                    "Missing the required parameter 'documentPrepOptions' when calling analyzeObjectDocument(Async)");
         }
 
-        return analyzeObjectDocumentCall(objectId, pdfToRichtextOptions, _callback);
+        return analyzeObjectDocumentCall(objectId, documentPrepOptions, _callback);
     }
 
     /**
-     * Start document analysis
-     * Starts document analysis for a content object and returns the workflow run metadata.  **Required permissions:** &#x60;content:write&#x60;
+     * Start document prep
+     * Starts markdown document prep for a content object and returns the workflow run metadata.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
-     * @param pdfToRichtextOptions  (required)
+     * @param documentPrepOptions  (required)
      * @return DocAnalyzeRunStatusResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document analysis workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
     public DocAnalyzeRunStatusResponse analyzeObjectDocument(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions)
+            @jakarta.annotation.Nonnull DocumentPrepOptions documentPrepOptions)
             throws ApiException {
         ApiResponse<DocAnalyzeRunStatusResponse> localVarResp =
-                analyzeObjectDocumentWithHttpInfo(objectId, pdfToRichtextOptions);
+                analyzeObjectDocumentWithHttpInfo(objectId, documentPrepOptions);
         return localVarResp.getData();
     }
 
     /**
-     * Start document analysis
-     * Starts document analysis for a content object and returns the workflow run metadata.  **Required permissions:** &#x60;content:write&#x60;
+     * Start document prep
+     * Starts markdown document prep for a content object and returns the workflow run metadata.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
-     * @param pdfToRichtextOptions  (required)
+     * @param documentPrepOptions  (required)
      * @return ApiResponse&lt;DocAnalyzeRunStatusResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document analysis workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<DocAnalyzeRunStatusResponse> analyzeObjectDocumentWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions)
+            @jakarta.annotation.Nonnull DocumentPrepOptions documentPrepOptions)
             throws ApiException {
         okhttp3.Call localVarCall =
-                analyzeObjectDocumentValidateBeforeCall(objectId, pdfToRichtextOptions, null);
+                analyzeObjectDocumentValidateBeforeCall(objectId, documentPrepOptions, null);
         Type localVarReturnType = new TypeToken<DocAnalyzeRunStatusResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Start document analysis (asynchronously)
-     * Starts document analysis for a content object and returns the workflow run metadata.  **Required permissions:** &#x60;content:write&#x60;
+     * Start document prep (asynchronously)
+     * Starts markdown document prep for a content object and returns the workflow run metadata.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
-     * @param pdfToRichtextOptions  (required)
+     * @param documentPrepOptions  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -441,19 +258,19 @@ public class ObjectsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document analysis workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call analyzeObjectDocumentAsync(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull PdfToRichtextOptions pdfToRichtextOptions,
+            @jakarta.annotation.Nonnull DocumentPrepOptions documentPrepOptions,
             final ApiCallback<DocAnalyzeRunStatusResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                analyzeObjectDocumentValidateBeforeCall(objectId, pdfToRichtextOptions, _callback);
+                analyzeObjectDocumentValidateBeforeCall(objectId, documentPrepOptions, _callback);
         Type localVarReturnType = new TypeToken<DocAnalyzeRunStatusResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1807,344 +1624,6 @@ public class ObjectsApi {
     }
 
     /**
-     * Build call for getAdaptedObjectTables
-     * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Adapted table results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAdaptedObjectTablesCall(
-            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
-            throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath =
-                "/objects/{objectId}/analyze/adapt_tables"
-                        .replace(
-                                "{" + "objectId" + "}",
-                                localVarApiClient.escapeString(objectId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {"application/json"};
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "GET",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAdaptedObjectTablesValidateBeforeCall(
-            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
-            throws ApiException {
-        // verify the required parameter 'objectId' is set
-        if (objectId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'objectId' when calling getAdaptedObjectTables(Async)");
-        }
-
-        return getAdaptedObjectTablesCall(objectId, _callback);
-    }
-
-    /**
-     * Get adapted document tables
-     * Returns table-adaptation workflow results in raw JSON, flattened JSON, or CSV format.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return Map&lt;String, AdaptedTable&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Adapted table results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Map<String, AdaptedTable> getAdaptedObjectTables(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        ApiResponse<Map<String, AdaptedTable>> localVarResp =
-                getAdaptedObjectTablesWithHttpInfo(objectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get adapted document tables
-     * Returns table-adaptation workflow results in raw JSON, flattened JSON, or CSV format.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ApiResponse&lt;Map&lt;String, AdaptedTable&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Adapted table results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Map<String, AdaptedTable>> getAdaptedObjectTablesWithHttpInfo(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        okhttp3.Call localVarCall = getAdaptedObjectTablesValidateBeforeCall(objectId, null);
-        Type localVarReturnType = new TypeToken<Map<String, AdaptedTable>>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get adapted document tables (asynchronously)
-     * Returns table-adaptation workflow results in raw JSON, flattened JSON, or CSV format.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Adapted table results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAdaptedObjectTablesAsync(
-            @jakarta.annotation.Nonnull String objectId,
-            final ApiCallback<Map<String, AdaptedTable>> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall = getAdaptedObjectTablesValidateBeforeCall(objectId, _callback);
-        Type localVarReturnType = new TypeToken<Map<String, AdaptedTable>>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for getAdaptedObjectTablesByRun
-     * @param objectId  (required)
-     * @param runId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Adapted table results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAdaptedObjectTablesByRunCall(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull String runId,
-            final ApiCallback _callback)
-            throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath =
-                "/objects/{objectId}/analyze/adapt_tables/{runId}"
-                        .replace(
-                                "{" + "objectId" + "}",
-                                localVarApiClient.escapeString(objectId.toString()))
-                        .replace(
-                                "{" + "runId" + "}",
-                                localVarApiClient.escapeString(runId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {"application/json"};
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "GET",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAdaptedObjectTablesByRunValidateBeforeCall(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull String runId,
-            final ApiCallback _callback)
-            throws ApiException {
-        // verify the required parameter 'objectId' is set
-        if (objectId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'objectId' when calling getAdaptedObjectTablesByRun(Async)");
-        }
-
-        // verify the required parameter 'runId' is set
-        if (runId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'runId' when calling getAdaptedObjectTablesByRun(Async)");
-        }
-
-        return getAdaptedObjectTablesByRunCall(objectId, runId, _callback);
-    }
-
-    /**
-     * Get adapted document tables for a workflow run
-     * Returns table-adaptation workflow results for a specific workflow run in raw JSON, flattened JSON, or CSV format.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param runId  (required)
-     * @return Map&lt;String, AdaptedTable&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Adapted table results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public Map<String, AdaptedTable> getAdaptedObjectTablesByRun(
-            @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        ApiResponse<Map<String, AdaptedTable>> localVarResp =
-                getAdaptedObjectTablesByRunWithHttpInfo(objectId, runId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get adapted document tables for a workflow run
-     * Returns table-adaptation workflow results for a specific workflow run in raw JSON, flattened JSON, or CSV format.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param runId  (required)
-     * @return ApiResponse&lt;Map&lt;String, AdaptedTable&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Adapted table results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<Map<String, AdaptedTable>> getAdaptedObjectTablesByRunWithHttpInfo(
-            @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nonnull String runId)
-            throws ApiException {
-        okhttp3.Call localVarCall =
-                getAdaptedObjectTablesByRunValidateBeforeCall(objectId, runId, null);
-        Type localVarReturnType = new TypeToken<Map<String, AdaptedTable>>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get adapted document tables for a workflow run (asynchronously)
-     * Returns table-adaptation workflow results for a specific workflow run in raw JSON, flattened JSON, or CSV format.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param runId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Adapted table results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getAdaptedObjectTablesByRunAsync(
-            @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull String runId,
-            final ApiCallback<Map<String, AdaptedTable>> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall =
-                getAdaptedObjectTablesByRunValidateBeforeCall(objectId, runId, _callback);
-        Type localVarReturnType = new TypeToken<Map<String, AdaptedTable>>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
      * Build call for getContentObjectExportDownloadUrl
      * @param exportId  (required)
      * @param role  (required)
@@ -2818,165 +2297,6 @@ public class ObjectsApi {
     }
 
     /**
-     * Build call for getObjectDocumentAnalysis
-     * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Completed document analysis results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getObjectDocumentAnalysisCall(
-            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
-            throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath =
-                "/objects/{objectId}/analyze/results"
-                        .replace(
-                                "{" + "objectId" + "}",
-                                localVarApiClient.escapeString(objectId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {"application/json"};
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "GET",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getObjectDocumentAnalysisValidateBeforeCall(
-            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
-            throws ApiException {
-        // verify the required parameter 'objectId' is set
-        if (objectId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'objectId' when calling getObjectDocumentAnalysis(Async)");
-        }
-
-        return getObjectDocumentAnalysisCall(objectId, _callback);
-    }
-
-    /**
-     * Get document analysis results
-     * Returns the completed document analysis output, including extracted document text, tables, images, and annotated file URL when available.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return DocAnalyzerResultResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Completed document analysis results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public DocAnalyzerResultResponse getObjectDocumentAnalysis(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        ApiResponse<DocAnalyzerResultResponse> localVarResp =
-                getObjectDocumentAnalysisWithHttpInfo(objectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get document analysis results
-     * Returns the completed document analysis output, including extracted document text, tables, images, and annotated file URL when available.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ApiResponse&lt;DocAnalyzerResultResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Completed document analysis results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<DocAnalyzerResultResponse> getObjectDocumentAnalysisWithHttpInfo(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        okhttp3.Call localVarCall = getObjectDocumentAnalysisValidateBeforeCall(objectId, null);
-        Type localVarReturnType = new TypeToken<DocAnalyzerResultResponse>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get document analysis results (asynchronously)
-     * Returns the completed document analysis output, including extracted document text, tables, images, and annotated file URL when available.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Completed document analysis results. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getObjectDocumentAnalysisAsync(
-            @jakarta.annotation.Nonnull String objectId,
-            final ApiCallback<DocAnalyzerResultResponse> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall =
-                getObjectDocumentAnalysisValidateBeforeCall(objectId, _callback);
-        Type localVarReturnType = new TypeToken<DocAnalyzerResultResponse>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
      * Build call for getObjectDocumentAnalysisStatus
      * @param objectId  (required)
      * @param _callback Callback for upload/download progress
@@ -2986,7 +2306,7 @@ public class ObjectsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document analysis workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -3064,8 +2384,8 @@ public class ObjectsApi {
     }
 
     /**
-     * Get document analysis status
-     * Retrieves the status and progress for the current document analysis workflow.  **Required permissions:** &#x60;content:read&#x60;
+     * Get document prep status
+     * Retrieves status and progress for markdown prep or grounded extraction on this object.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
      * @return DocAnalyzeRunStatusResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3073,7 +2393,7 @@ public class ObjectsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document analysis workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -3086,8 +2406,8 @@ public class ObjectsApi {
     }
 
     /**
-     * Get document analysis status
-     * Retrieves the status and progress for the current document analysis workflow.  **Required permissions:** &#x60;content:read&#x60;
+     * Get document prep status
+     * Retrieves status and progress for markdown prep or grounded extraction on this object.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
      * @return ApiResponse&lt;DocAnalyzeRunStatusResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3095,7 +2415,7 @@ public class ObjectsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document analysis workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -3109,8 +2429,8 @@ public class ObjectsApi {
     }
 
     /**
-     * Get document analysis status (asynchronously)
-     * Retrieves the status and progress for the current document analysis workflow.  **Required permissions:** &#x60;content:read&#x60;
+     * Get document prep status (asynchronously)
+     * Retrieves status and progress for markdown prep or grounded extraction on this object.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3119,7 +2439,7 @@ public class ObjectsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Document analysis workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Document prep workflow status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -3137,7 +2457,7 @@ public class ObjectsApi {
     }
 
     /**
-     * Build call for getObjectDocumentAnnotatedPdf
+     * Build call for getObjectDocumentGroundedExtractionResult
      * @param objectId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3146,12 +2466,12 @@ public class ObjectsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Annotated PDF URL. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Grounded extraction result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getObjectDocumentAnnotatedPdfCall(
+    public okhttp3.Call getObjectDocumentGroundedExtractionResultCall(
             @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3171,7 +2491,7 @@ public class ObjectsApi {
 
         // create path and map variables
         String localVarPath =
-                "/objects/{objectId}/analyze/annotated"
+                "/objects/{objectId}/analyze/grounded/result"
                         .replace(
                                 "{" + "objectId" + "}",
                                 localVarApiClient.escapeString(objectId.toString()));
@@ -3211,65 +2531,67 @@ public class ObjectsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getObjectDocumentAnnotatedPdfValidateBeforeCall(
+    private okhttp3.Call getObjectDocumentGroundedExtractionResultValidateBeforeCall(
             @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
             throw new ApiException(
-                    "Missing the required parameter 'objectId' when calling getObjectDocumentAnnotatedPdf(Async)");
+                    "Missing the required parameter 'objectId' when calling getObjectDocumentGroundedExtractionResult(Async)");
         }
 
-        return getObjectDocumentAnnotatedPdfCall(objectId, _callback);
+        return getObjectDocumentGroundedExtractionResultCall(objectId, _callback);
     }
 
     /**
-     * Get annotated document PDF
-     * Returns a download URL for the annotated PDF produced by document analysis when available.  **Required permissions:** &#x60;content:read&#x60;
+     * Get grounded extraction result
+     * Returns the extracted grounded data, trust verdict, verification breakdown, and artifact URL.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
-     * @return AnnotatedPdfResponse
+     * @return GroundedExtractionResultResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Annotated PDF URL. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Grounded extraction result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AnnotatedPdfResponse getObjectDocumentAnnotatedPdf(
+    public GroundedExtractionResultResponse getObjectDocumentGroundedExtractionResult(
             @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        ApiResponse<AnnotatedPdfResponse> localVarResp =
-                getObjectDocumentAnnotatedPdfWithHttpInfo(objectId);
+        ApiResponse<GroundedExtractionResultResponse> localVarResp =
+                getObjectDocumentGroundedExtractionResultWithHttpInfo(objectId);
         return localVarResp.getData();
     }
 
     /**
-     * Get annotated document PDF
-     * Returns a download URL for the annotated PDF produced by document analysis when available.  **Required permissions:** &#x60;content:read&#x60;
+     * Get grounded extraction result
+     * Returns the extracted grounded data, trust verdict, verification breakdown, and artifact URL.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
-     * @return ApiResponse&lt;AnnotatedPdfResponse&gt;
+     * @return ApiResponse&lt;GroundedExtractionResultResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Annotated PDF URL. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Grounded extraction result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<AnnotatedPdfResponse> getObjectDocumentAnnotatedPdfWithHttpInfo(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        okhttp3.Call localVarCall = getObjectDocumentAnnotatedPdfValidateBeforeCall(objectId, null);
-        Type localVarReturnType = new TypeToken<AnnotatedPdfResponse>() {}.getType();
+    public ApiResponse<GroundedExtractionResultResponse>
+            getObjectDocumentGroundedExtractionResultWithHttpInfo(
+                    @jakarta.annotation.Nonnull String objectId) throws ApiException {
+        okhttp3.Call localVarCall =
+                getObjectDocumentGroundedExtractionResultValidateBeforeCall(objectId, null);
+        Type localVarReturnType = new TypeToken<GroundedExtractionResultResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Get annotated document PDF (asynchronously)
-     * Returns a download URL for the annotated PDF produced by document analysis when available.  **Required permissions:** &#x60;content:read&#x60;
+     * Get grounded extraction result (asynchronously)
+     * Returns the extracted grounded data, trust verdict, verification breakdown, and artifact URL.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3278,175 +2600,19 @@ public class ObjectsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Annotated PDF URL. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Grounded extraction result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getObjectDocumentAnnotatedPdfAsync(
+    public okhttp3.Call getObjectDocumentGroundedExtractionResultAsync(
             @jakarta.annotation.Nonnull String objectId,
-            final ApiCallback<AnnotatedPdfResponse> _callback)
+            final ApiCallback<GroundedExtractionResultResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                getObjectDocumentAnnotatedPdfValidateBeforeCall(objectId, _callback);
-        Type localVarReturnType = new TypeToken<AnnotatedPdfResponse>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for getObjectDocumentXml
-     * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rich-text XML document. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getObjectDocumentXmlCall(
-            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
-            throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath =
-                "/objects/{objectId}/analyze/xml"
-                        .replace(
-                                "{" + "objectId" + "}",
-                                localVarApiClient.escapeString(objectId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {"application/json"};
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "GET",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getObjectDocumentXmlValidateBeforeCall(
-            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
-            throws ApiException {
-        // verify the required parameter 'objectId' is set
-        if (objectId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'objectId' when calling getObjectDocumentXml(Async)");
-        }
-
-        return getObjectDocumentXmlCall(objectId, _callback);
-    }
-
-    /**
-     * Get analyzed document XML
-     * Returns the stored rich-text XML representation for the analyzed document.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return String
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rich-text XML document. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public String getObjectDocumentXml(@jakarta.annotation.Nonnull String objectId)
-            throws ApiException {
-        ApiResponse<String> localVarResp = getObjectDocumentXmlWithHttpInfo(objectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Get analyzed document XML
-     * Returns the stored rich-text XML representation for the analyzed document.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ApiResponse&lt;String&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rich-text XML document. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<String> getObjectDocumentXmlWithHttpInfo(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        okhttp3.Call localVarCall = getObjectDocumentXmlValidateBeforeCall(objectId, null);
-        Type localVarReturnType = new TypeToken<String>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Get analyzed document XML (asynchronously)
-     * Returns the stored rich-text XML representation for the analyzed document.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rich-text XML document. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getObjectDocumentXmlAsync(
-            @jakarta.annotation.Nonnull String objectId, final ApiCallback<String> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall = getObjectDocumentXmlValidateBeforeCall(objectId, _callback);
-        Type localVarReturnType = new TypeToken<String>() {}.getType();
+                getObjectDocumentGroundedExtractionResultValidateBeforeCall(objectId, _callback);
+        Type localVarReturnType = new TypeToken<GroundedExtractionResultResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4152,321 +3318,6 @@ public class ObjectsApi {
 
         okhttp3.Call localVarCall = listObjectCollectionsValidateBeforeCall(objectId, _callback);
         Type localVarReturnType = new TypeToken<List<Collection>>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for listObjectDocumentImages
-     * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Extracted document images. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listObjectDocumentImagesCall(
-            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
-            throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath =
-                "/objects/{objectId}/analyze/images"
-                        .replace(
-                                "{" + "objectId" + "}",
-                                localVarApiClient.escapeString(objectId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {"application/json"};
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "GET",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listObjectDocumentImagesValidateBeforeCall(
-            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
-            throws ApiException {
-        // verify the required parameter 'objectId' is set
-        if (objectId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'objectId' when calling listObjectDocumentImages(Async)");
-        }
-
-        return listObjectDocumentImagesCall(objectId, _callback);
-    }
-
-    /**
-     * List extracted document images
-     * Returns images extracted from the analyzed document with page and description metadata.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return List&lt;DocImage&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Extracted document images. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<DocImage> listObjectDocumentImages(@jakarta.annotation.Nonnull String objectId)
-            throws ApiException {
-        ApiResponse<List<DocImage>> localVarResp = listObjectDocumentImagesWithHttpInfo(objectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List extracted document images
-     * Returns images extracted from the analyzed document with page and description metadata.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ApiResponse&lt;List&lt;DocImage&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Extracted document images. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<DocImage>> listObjectDocumentImagesWithHttpInfo(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        okhttp3.Call localVarCall = listObjectDocumentImagesValidateBeforeCall(objectId, null);
-        Type localVarReturnType = new TypeToken<List<DocImage>>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * List extracted document images (asynchronously)
-     * Returns images extracted from the analyzed document with page and description metadata.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Extracted document images. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listObjectDocumentImagesAsync(
-            @jakarta.annotation.Nonnull String objectId,
-            final ApiCallback<List<DocImage>> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall = listObjectDocumentImagesValidateBeforeCall(objectId, _callback);
-        Type localVarReturnType = new TypeToken<List<DocImage>>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for listObjectDocumentTables
-     * @param objectId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Extracted document tables. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listObjectDocumentTablesCall(
-            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
-            throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath =
-                "/objects/{objectId}/analyze/tables"
-                        .replace(
-                                "{" + "objectId" + "}",
-                                localVarApiClient.escapeString(objectId.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {"application/json"};
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "GET",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call listObjectDocumentTablesValidateBeforeCall(
-            @jakarta.annotation.Nonnull String objectId, final ApiCallback _callback)
-            throws ApiException {
-        // verify the required parameter 'objectId' is set
-        if (objectId == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'objectId' when calling listObjectDocumentTables(Async)");
-        }
-
-        return listObjectDocumentTablesCall(objectId, _callback);
-    }
-
-    /**
-     * List extracted document tables
-     * Returns tables extracted from the analyzed document in JSON or CSV form.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return List&lt;DocTableResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Extracted document tables. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public List<DocTableResponse> listObjectDocumentTables(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        ApiResponse<List<DocTableResponse>> localVarResp =
-                listObjectDocumentTablesWithHttpInfo(objectId);
-        return localVarResp.getData();
-    }
-
-    /**
-     * List extracted document tables
-     * Returns tables extracted from the analyzed document in JSON or CSV form.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @return ApiResponse&lt;List&lt;DocTableResponse&gt;&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Extracted document tables. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<List<DocTableResponse>> listObjectDocumentTablesWithHttpInfo(
-            @jakarta.annotation.Nonnull String objectId) throws ApiException {
-        okhttp3.Call localVarCall = listObjectDocumentTablesValidateBeforeCall(objectId, null);
-        Type localVarReturnType = new TypeToken<List<DocTableResponse>>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * List extracted document tables (asynchronously)
-     * Returns tables extracted from the analyzed document in JSON or CSV form.  **Required permissions:** &#x60;content:read&#x60;
-     * @param objectId  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Extracted document tables. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call listObjectDocumentTablesAsync(
-            @jakarta.annotation.Nonnull String objectId,
-            final ApiCallback<List<DocTableResponse>> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall = listObjectDocumentTablesValidateBeforeCall(objectId, _callback);
-        Type localVarReturnType = new TypeToken<List<DocTableResponse>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5305,6 +4156,374 @@ public class ObjectsApi {
                 startContentObjectsExportValidateBeforeCall(
                         startContentObjectExportRequest, _callback);
         Type localVarReturnType = new TypeToken<StartContentObjectExportResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for startObjectDocumentGroundedExtraction
+     * @param objectId  (required)
+     * @param groundedExtractionRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Grounded extraction workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call startObjectDocumentGroundedExtractionCall(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = groundedExtractionRequest;
+
+        // create path and map variables
+        String localVarPath =
+                "/objects/{objectId}/analyze/grounded"
+                        .replace(
+                                "{" + "objectId" + "}",
+                                localVarApiClient.escapeString(objectId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call startObjectDocumentGroundedExtractionValidateBeforeCall(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'objectId' is set
+        if (objectId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'objectId' when calling startObjectDocumentGroundedExtraction(Async)");
+        }
+
+        // verify the required parameter 'groundedExtractionRequest' is set
+        if (groundedExtractionRequest == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'groundedExtractionRequest' when calling startObjectDocumentGroundedExtraction(Async)");
+        }
+
+        return startObjectDocumentGroundedExtractionCall(
+                objectId, groundedExtractionRequest, _callback);
+    }
+
+    /**
+     * Start grounded extraction
+     * Starts citation-grounded structured extraction for a content object. Poll /analyze/status for progress.  **Required permissions:** &#x60;content:write&#x60;
+     * @param objectId  (required)
+     * @param groundedExtractionRequest  (required)
+     * @return DocAnalyzeRunStatusResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Grounded extraction workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public DocAnalyzeRunStatusResponse startObjectDocumentGroundedExtraction(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest)
+            throws ApiException {
+        ApiResponse<DocAnalyzeRunStatusResponse> localVarResp =
+                startObjectDocumentGroundedExtractionWithHttpInfo(
+                        objectId, groundedExtractionRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Start grounded extraction
+     * Starts citation-grounded structured extraction for a content object. Poll /analyze/status for progress.  **Required permissions:** &#x60;content:write&#x60;
+     * @param objectId  (required)
+     * @param groundedExtractionRequest  (required)
+     * @return ApiResponse&lt;DocAnalyzeRunStatusResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Grounded extraction workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<DocAnalyzeRunStatusResponse>
+            startObjectDocumentGroundedExtractionWithHttpInfo(
+                    @jakarta.annotation.Nonnull String objectId,
+                    @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                startObjectDocumentGroundedExtractionValidateBeforeCall(
+                        objectId, groundedExtractionRequest, null);
+        Type localVarReturnType = new TypeToken<DocAnalyzeRunStatusResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Start grounded extraction (asynchronously)
+     * Starts citation-grounded structured extraction for a content object. Poll /analyze/status for progress.  **Required permissions:** &#x60;content:write&#x60;
+     * @param objectId  (required)
+     * @param groundedExtractionRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Grounded extraction workflow status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call startObjectDocumentGroundedExtractionAsync(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest,
+            final ApiCallback<DocAnalyzeRunStatusResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                startObjectDocumentGroundedExtractionValidateBeforeCall(
+                        objectId, groundedExtractionRequest, _callback);
+        Type localVarReturnType = new TypeToken<DocAnalyzeRunStatusResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for startObjectGroundedExtractionAssistant
+     * @param objectId  (required)
+     * @param groundedExtractionRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The launched assistant conversation. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call startObjectGroundedExtractionAssistantCall(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = groundedExtractionRequest;
+
+        // create path and map variables
+        String localVarPath =
+                "/objects/{objectId}/analyze/grounded/assistant"
+                        .replace(
+                                "{" + "objectId" + "}",
+                                localVarApiClient.escapeString(objectId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call startObjectGroundedExtractionAssistantValidateBeforeCall(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'objectId' is set
+        if (objectId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'objectId' when calling startObjectGroundedExtractionAssistant(Async)");
+        }
+
+        // verify the required parameter 'groundedExtractionRequest' is set
+        if (groundedExtractionRequest == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'groundedExtractionRequest' when calling startObjectGroundedExtractionAssistant(Async)");
+        }
+
+        return startObjectGroundedExtractionAssistantCall(
+                objectId, groundedExtractionRequest, _callback);
+    }
+
+    /**
+     * Start the interactive grounded extraction assistant
+     * Records an agent run, stages the document into the agent space, and launches an interactive assistant conversation that corrects the grounded extraction under operator direction. Returns the agent_run_id used to stream/render the conversation.  **Required permissions:** &#x60;content:write&#x60;
+     * @param objectId  (required)
+     * @param groundedExtractionRequest  (required)
+     * @return GroundedAssistantResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The launched assistant conversation. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public GroundedAssistantResponse startObjectGroundedExtractionAssistant(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest)
+            throws ApiException {
+        ApiResponse<GroundedAssistantResponse> localVarResp =
+                startObjectGroundedExtractionAssistantWithHttpInfo(
+                        objectId, groundedExtractionRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Start the interactive grounded extraction assistant
+     * Records an agent run, stages the document into the agent space, and launches an interactive assistant conversation that corrects the grounded extraction under operator direction. Returns the agent_run_id used to stream/render the conversation.  **Required permissions:** &#x60;content:write&#x60;
+     * @param objectId  (required)
+     * @param groundedExtractionRequest  (required)
+     * @return ApiResponse&lt;GroundedAssistantResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The launched assistant conversation. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<GroundedAssistantResponse>
+            startObjectGroundedExtractionAssistantWithHttpInfo(
+                    @jakarta.annotation.Nonnull String objectId,
+                    @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                startObjectGroundedExtractionAssistantValidateBeforeCall(
+                        objectId, groundedExtractionRequest, null);
+        Type localVarReturnType = new TypeToken<GroundedAssistantResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Start the interactive grounded extraction assistant (asynchronously)
+     * Records an agent run, stages the document into the agent space, and launches an interactive assistant conversation that corrects the grounded extraction under operator direction. Returns the agent_run_id used to stream/render the conversation.  **Required permissions:** &#x60;content:write&#x60;
+     * @param objectId  (required)
+     * @param groundedExtractionRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The launched assistant conversation. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call startObjectGroundedExtractionAssistantAsync(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest,
+            final ApiCallback<GroundedAssistantResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                startObjectGroundedExtractionAssistantValidateBeforeCall(
+                        objectId, groundedExtractionRequest, _callback);
+        Type localVarReturnType = new TypeToken<GroundedAssistantResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

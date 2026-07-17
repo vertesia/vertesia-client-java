@@ -85,10 +85,20 @@ public class ContentObjectTypeItem {
     @jakarta.annotation.Nonnull
     private String updatedAt;
 
+    public static final String SERIALIZED_NAME_STATUS = "status";
+
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    @jakarta.annotation.Nullable private ContentObjectTypeStatus status;
+
     public static final String SERIALIZED_NAME_IS_CHUNKABLE = "is_chunkable";
 
     @SerializedName(SERIALIZED_NAME_IS_CHUNKABLE)
     @jakarta.annotation.Nullable private Boolean isChunkable;
+
+    public static final String SERIALIZED_NAME_INTAKE = "intake";
+
+    @SerializedName(SERIALIZED_NAME_INTAKE)
+    @jakarta.annotation.Nullable private ContentTypeIntakePolicy intake;
 
     public static final String SERIALIZED_NAME_TABLE_LAYOUT = "table_layout";
 
@@ -257,6 +267,24 @@ public class ContentObjectTypeItem {
         this.updatedAt = updatedAt;
     }
 
+    public ContentObjectTypeItem status(
+            @jakarta.annotation.Nullable ContentObjectTypeStatus status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Get status
+     * @return status
+     */
+    @jakarta.annotation.Nullable public ContentObjectTypeStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(@jakarta.annotation.Nullable ContentObjectTypeStatus status) {
+        this.status = status;
+    }
+
     public ContentObjectTypeItem isChunkable(@jakarta.annotation.Nullable Boolean isChunkable) {
         this.isChunkable = isChunkable;
         return this;
@@ -272,6 +300,24 @@ public class ContentObjectTypeItem {
 
     public void setIsChunkable(@jakarta.annotation.Nullable Boolean isChunkable) {
         this.isChunkable = isChunkable;
+    }
+
+    public ContentObjectTypeItem intake(
+            @jakarta.annotation.Nullable ContentTypeIntakePolicy intake) {
+        this.intake = intake;
+        return this;
+    }
+
+    /**
+     * Get intake
+     * @return intake
+     */
+    @jakarta.annotation.Nullable public ContentTypeIntakePolicy getIntake() {
+        return intake;
+    }
+
+    public void setIntake(@jakarta.annotation.Nullable ContentTypeIntakePolicy intake) {
+        this.intake = intake;
     }
 
     public ContentObjectTypeItem tableLayout(
@@ -360,7 +406,9 @@ public class ContentObjectTypeItem {
                 && Objects.equals(this.createdBy, contentObjectTypeItem.createdBy)
                 && Objects.equals(this.createdAt, contentObjectTypeItem.createdAt)
                 && Objects.equals(this.updatedAt, contentObjectTypeItem.updatedAt)
+                && Objects.equals(this.status, contentObjectTypeItem.status)
                 && Objects.equals(this.isChunkable, contentObjectTypeItem.isChunkable)
+                && Objects.equals(this.intake, contentObjectTypeItem.intake)
                 && Objects.equals(this.tableLayout, contentObjectTypeItem.tableLayout)
                 && Objects.equals(this.objectSchema, contentObjectTypeItem.objectSchema)
                 && Objects.equals(this.strictMode, contentObjectTypeItem.strictMode);
@@ -377,7 +425,9 @@ public class ContentObjectTypeItem {
                 createdBy,
                 createdAt,
                 updatedAt,
+                status,
                 isChunkable,
+                intake,
                 tableLayout,
                 objectSchema,
                 strictMode);
@@ -395,7 +445,9 @@ public class ContentObjectTypeItem {
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    isChunkable: ").append(toIndentedString(isChunkable)).append("\n");
+        sb.append("    intake: ").append(toIndentedString(intake)).append("\n");
         sb.append("    tableLayout: ").append(toIndentedString(tableLayout)).append("\n");
         sb.append("    objectSchema: ").append(toIndentedString(objectSchema)).append("\n");
         sb.append("    strictMode: ").append(toIndentedString(strictMode)).append("\n");
@@ -427,7 +479,9 @@ public class ContentObjectTypeItem {
                                 "created_by",
                                 "created_at",
                                 "updated_at",
+                                "status",
                                 "is_chunkable",
+                                "intake",
                                 "table_layout",
                                 "object_schema",
                                 "strict_mode"));
@@ -533,6 +587,14 @@ public class ContentObjectTypeItem {
                             java.util.Locale.ROOT,
                             "Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("updated_at").toString()));
+        }
+        // validate the optional field `status`
+        if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+            ContentObjectTypeStatus.validateJsonElement(jsonObj.get("status"));
+        }
+        // validate the optional field `intake`
+        if (jsonObj.get("intake") != null && !jsonObj.get("intake").isJsonNull()) {
+            ContentTypeIntakePolicy.validateJsonElement(jsonObj.get("intake"));
         }
         if (jsonObj.get("table_layout") != null && !jsonObj.get("table_layout").isJsonNull()) {
             JsonArray jsonArraytableLayout = jsonObj.getAsJsonArray("table_layout");

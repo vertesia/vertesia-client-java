@@ -81,6 +81,16 @@ public class ContentObjectTypeCatalogEntry {
     @SerializedName(SERIALIZED_NAME_STRICT_MODE)
     @jakarta.annotation.Nullable private Boolean strictMode;
 
+    public static final String SERIALIZED_NAME_STATUS = "status";
+
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    @jakarta.annotation.Nullable private ContentObjectTypeStatus status;
+
+    public static final String SERIALIZED_NAME_INTAKE = "intake";
+
+    @SerializedName(SERIALIZED_NAME_INTAKE)
+    @jakarta.annotation.Nullable private ContentTypeIntakePolicy intake;
+
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
@@ -270,6 +280,42 @@ public class ContentObjectTypeCatalogEntry {
         this.strictMode = strictMode;
     }
 
+    public ContentObjectTypeCatalogEntry status(
+            @jakarta.annotation.Nullable ContentObjectTypeStatus status) {
+        this.status = status;
+        return this;
+    }
+
+    /**
+     * Get status
+     * @return status
+     */
+    @jakarta.annotation.Nullable public ContentObjectTypeStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(@jakarta.annotation.Nullable ContentObjectTypeStatus status) {
+        this.status = status;
+    }
+
+    public ContentObjectTypeCatalogEntry intake(
+            @jakarta.annotation.Nullable ContentTypeIntakePolicy intake) {
+        this.intake = intake;
+        return this;
+    }
+
+    /**
+     * Get intake
+     * @return intake
+     */
+    @jakarta.annotation.Nullable public ContentTypeIntakePolicy getIntake() {
+        return intake;
+    }
+
+    public void setIntake(@jakarta.annotation.Nullable ContentTypeIntakePolicy intake) {
+        this.intake = intake;
+    }
+
     public ContentObjectTypeCatalogEntry updatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
@@ -401,6 +447,8 @@ public class ContentObjectTypeCatalogEntry {
                 && Objects.equals(this.tableLayout, contentObjectTypeCatalogEntry.tableLayout)
                 && Objects.equals(this.isChunkable, contentObjectTypeCatalogEntry.isChunkable)
                 && Objects.equals(this.strictMode, contentObjectTypeCatalogEntry.strictMode)
+                && Objects.equals(this.status, contentObjectTypeCatalogEntry.status)
+                && Objects.equals(this.intake, contentObjectTypeCatalogEntry.intake)
                 && Objects.equals(this.updatedBy, contentObjectTypeCatalogEntry.updatedBy)
                 && Objects.equals(this.createdBy, contentObjectTypeCatalogEntry.createdBy)
                 && Objects.equals(this.createdAt, contentObjectTypeCatalogEntry.createdAt)
@@ -421,6 +469,8 @@ public class ContentObjectTypeCatalogEntry {
                 tableLayout,
                 isChunkable,
                 strictMode,
+                status,
+                intake,
                 updatedBy,
                 createdBy,
                 createdAt,
@@ -440,6 +490,8 @@ public class ContentObjectTypeCatalogEntry {
         sb.append("    tableLayout: ").append(toIndentedString(tableLayout)).append("\n");
         sb.append("    isChunkable: ").append(toIndentedString(isChunkable)).append("\n");
         sb.append("    strictMode: ").append(toIndentedString(strictMode)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    intake: ").append(toIndentedString(intake)).append("\n");
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -475,6 +527,8 @@ public class ContentObjectTypeCatalogEntry {
                                 "table_layout",
                                 "is_chunkable",
                                 "strict_mode",
+                                "status",
+                                "intake",
                                 "updated_by",
                                 "created_by",
                                 "created_at",
@@ -564,6 +618,14 @@ public class ContentObjectTypeCatalogEntry {
                 }
                 ;
             }
+        }
+        // validate the optional field `status`
+        if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
+            ContentObjectTypeStatus.validateJsonElement(jsonObj.get("status"));
+        }
+        // validate the optional field `intake`
+        if (jsonObj.get("intake") != null && !jsonObj.get("intake").isJsonNull()) {
+            ContentTypeIntakePolicy.validateJsonElement(jsonObj.get("intake"));
         }
         if ((jsonObj.get("updated_by") != null && !jsonObj.get("updated_by").isJsonNull())
                 && !jsonObj.get("updated_by").isJsonPrimitive()) {

@@ -71,10 +71,35 @@ public class AudioMetadata {
     @SerializedName(SERIALIZED_NAME_ETAG)
     @jakarta.annotation.Nullable private String etag;
 
+    public static final String SERIALIZED_NAME_RENDERED_TEXT_ETAG = "rendered_text_etag";
+
+    @SerializedName(SERIALIZED_NAME_RENDERED_TEXT_ETAG)
+    @jakarta.annotation.Nullable private String renderedTextEtag;
+
     public static final String SERIALIZED_NAME_RENDITIONS = "renditions";
 
     @SerializedName(SERIALIZED_NAME_RENDITIONS)
     @jakarta.annotation.Nullable private List<Rendition> renditions = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_EMBEDDED = "embedded";
+
+    @SerializedName(SERIALIZED_NAME_EMBEDDED)
+    @jakarta.annotation.Nullable private Map<String, Object> embedded = new HashMap<>();
+
+    public static final String SERIALIZED_NAME_TYPE_DETECTION = "type_detection";
+
+    @SerializedName(SERIALIZED_NAME_TYPE_DETECTION)
+    @jakarta.annotation.Nullable private TypeDetectionMetadata typeDetection;
+
+    public static final String SERIALIZED_NAME_LOCATE = "locate";
+
+    @SerializedName(SERIALIZED_NAME_LOCATE)
+    @jakarta.annotation.Nullable private LocateMetadata locate;
+
+    public static final String SERIALIZED_NAME_VISION_EVIDENCE = "vision_evidence";
+
+    @SerializedName(SERIALIZED_NAME_VISION_EVIDENCE)
+    @jakarta.annotation.Nullable private VisionEvidenceMetadata visionEvidence;
 
     public static final String SERIALIZED_NAME_DURATION = "duration";
 
@@ -209,6 +234,23 @@ public class AudioMetadata {
         this.etag = etag;
     }
 
+    public AudioMetadata renderedTextEtag(@jakarta.annotation.Nullable String renderedTextEtag) {
+        this.renderedTextEtag = renderedTextEtag;
+        return this;
+    }
+
+    /**
+     * ETag of text materialized from object properties by intake rendering.
+     * @return renderedTextEtag
+     */
+    @jakarta.annotation.Nullable public String getRenderedTextEtag() {
+        return renderedTextEtag;
+    }
+
+    public void setRenderedTextEtag(@jakarta.annotation.Nullable String renderedTextEtag) {
+        this.renderedTextEtag = renderedTextEtag;
+    }
+
     public AudioMetadata renditions(@jakarta.annotation.Nullable List<Rendition> renditions) {
         this.renditions = renditions;
         return this;
@@ -232,6 +274,85 @@ public class AudioMetadata {
 
     public void setRenditions(@jakarta.annotation.Nullable List<Rendition> renditions) {
         this.renditions = renditions;
+    }
+
+    public AudioMetadata embedded(@jakarta.annotation.Nullable Map<String, Object> embedded) {
+        this.embedded = embedded;
+        return this;
+    }
+
+    public AudioMetadata putEmbeddedItem(String key, Object embeddedItem) {
+        if (this.embedded == null) {
+            this.embedded = new HashMap<>();
+        }
+        this.embedded.put(key, embeddedItem);
+        return this;
+    }
+
+    /**
+     * Embedded/technical metadata harvested from the source file by intake (office docProps, PDF docinfo). Free-form, nature-appropriate keys.
+     * @return embedded
+     */
+    @jakarta.annotation.Nullable public Map<String, Object> getEmbedded() {
+        return embedded;
+    }
+
+    public void setEmbedded(@jakarta.annotation.Nullable Map<String, Object> embedded) {
+        this.embedded = embedded;
+    }
+
+    public AudioMetadata typeDetection(
+            @jakarta.annotation.Nullable TypeDetectionMetadata typeDetection) {
+        this.typeDetection = typeDetection;
+        return this;
+    }
+
+    /**
+     * Type-detection provenance recorded by the intake sniff pipeline.
+     * @return typeDetection
+     */
+    @jakarta.annotation.Nullable public TypeDetectionMetadata getTypeDetection() {
+        return typeDetection;
+    }
+
+    public void setTypeDetection(@jakarta.annotation.Nullable TypeDetectionMetadata typeDetection) {
+        this.typeDetection = typeDetection;
+    }
+
+    public AudioMetadata locate(@jakarta.annotation.Nullable LocateMetadata locate) {
+        this.locate = locate;
+        return this;
+    }
+
+    /**
+     * Locate-pass provenance: which pages the document map found relevant.
+     * @return locate
+     */
+    @jakarta.annotation.Nullable public LocateMetadata getLocate() {
+        return locate;
+    }
+
+    public void setLocate(@jakarta.annotation.Nullable LocateMetadata locate) {
+        this.locate = locate;
+    }
+
+    public AudioMetadata visionEvidence(
+            @jakarta.annotation.Nullable VisionEvidenceMetadata visionEvidence) {
+        this.visionEvidence = visionEvidence;
+        return this;
+    }
+
+    /**
+     * Vision-evidence provenance for the last visual extraction run.
+     * @return visionEvidence
+     */
+    @jakarta.annotation.Nullable public VisionEvidenceMetadata getVisionEvidence() {
+        return visionEvidence;
+    }
+
+    public void setVisionEvidence(
+            @jakarta.annotation.Nullable VisionEvidenceMetadata visionEvidence) {
+        this.visionEvidence = visionEvidence;
     }
 
     public AudioMetadata duration(@jakarta.annotation.Nullable BigDecimal duration) {
@@ -328,7 +449,12 @@ public class AudioMetadata {
                 && Objects.equals(this.location, audioMetadata.location)
                 && Objects.equals(this.generationRuns, audioMetadata.generationRuns)
                 && Objects.equals(this.etag, audioMetadata.etag)
+                && Objects.equals(this.renderedTextEtag, audioMetadata.renderedTextEtag)
                 && Objects.equals(this.renditions, audioMetadata.renditions)
+                && Objects.equals(this.embedded, audioMetadata.embedded)
+                && Objects.equals(this.typeDetection, audioMetadata.typeDetection)
+                && Objects.equals(this.locate, audioMetadata.locate)
+                && Objects.equals(this.visionEvidence, audioMetadata.visionEvidence)
                 && Objects.equals(this.duration, audioMetadata.duration)
                 && Objects.equals(this.transcript, audioMetadata.transcript)
                 && Objects.equals(this.additionalProperties, audioMetadata.additionalProperties);
@@ -343,7 +469,12 @@ public class AudioMetadata {
                 location,
                 generationRuns,
                 etag,
+                renderedTextEtag,
                 renditions,
+                embedded,
+                typeDetection,
+                locate,
+                visionEvidence,
                 duration,
                 transcript,
                 additionalProperties);
@@ -359,7 +490,12 @@ public class AudioMetadata {
         sb.append("    location: ").append(toIndentedString(location)).append("\n");
         sb.append("    generationRuns: ").append(toIndentedString(generationRuns)).append("\n");
         sb.append("    etag: ").append(toIndentedString(etag)).append("\n");
+        sb.append("    renderedTextEtag: ").append(toIndentedString(renderedTextEtag)).append("\n");
         sb.append("    renditions: ").append(toIndentedString(renditions)).append("\n");
+        sb.append("    embedded: ").append(toIndentedString(embedded)).append("\n");
+        sb.append("    typeDetection: ").append(toIndentedString(typeDetection)).append("\n");
+        sb.append("    locate: ").append(toIndentedString(locate)).append("\n");
+        sb.append("    visionEvidence: ").append(toIndentedString(visionEvidence)).append("\n");
         sb.append("    duration: ").append(toIndentedString(duration)).append("\n");
         sb.append("    transcript: ").append(toIndentedString(transcript)).append("\n");
         sb.append("    additionalProperties: ")
@@ -391,7 +527,12 @@ public class AudioMetadata {
                                 "location",
                                 "generation_runs",
                                 "etag",
+                                "rendered_text_etag",
                                 "renditions",
+                                "embedded",
+                                "type_detection",
+                                "locate",
+                                "vision_evidence",
                                 "duration",
                                 "transcript"));
 
@@ -473,6 +614,15 @@ public class AudioMetadata {
                             "Expected the field `etag` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("etag").toString()));
         }
+        if ((jsonObj.get("rendered_text_etag") != null
+                        && !jsonObj.get("rendered_text_etag").isJsonNull())
+                && !jsonObj.get("rendered_text_etag").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `rendered_text_etag` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("rendered_text_etag").toString()));
+        }
         if (jsonObj.get("renditions") != null && !jsonObj.get("renditions").isJsonNull()) {
             JsonArray jsonArrayrenditions = jsonObj.getAsJsonArray("renditions");
             if (jsonArrayrenditions != null) {
@@ -491,6 +641,19 @@ public class AudioMetadata {
                 }
                 ;
             }
+        }
+        // validate the optional field `type_detection`
+        if (jsonObj.get("type_detection") != null && !jsonObj.get("type_detection").isJsonNull()) {
+            TypeDetectionMetadata.validateJsonElement(jsonObj.get("type_detection"));
+        }
+        // validate the optional field `locate`
+        if (jsonObj.get("locate") != null && !jsonObj.get("locate").isJsonNull()) {
+            LocateMetadata.validateJsonElement(jsonObj.get("locate"));
+        }
+        // validate the optional field `vision_evidence`
+        if (jsonObj.get("vision_evidence") != null
+                && !jsonObj.get("vision_evidence").isJsonNull()) {
+            VisionEvidenceMetadata.validateJsonElement(jsonObj.get("vision_evidence"));
         }
         // validate the optional field `transcript`
         if (jsonObj.get("transcript") != null && !jsonObj.get("transcript").isJsonNull()) {

@@ -50,6 +50,12 @@ public class StatelessExecutionOptions {
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
     @jakarta.annotation.Nullable private JSONSchema resultSchema;
 
+    public static final String SERIALIZED_NAME_PROMPT_CACHE_SCHEMA_SUFFIX =
+            "prompt_cache_schema_suffix";
+
+    @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_SCHEMA_SUFFIX)
+    @jakarta.annotation.Nullable private Boolean promptCacheSchemaSuffix;
+
     public static final String SERIALIZED_NAME_INCLUDE_ORIGINAL_RESPONSE =
             "include_original_response";
 
@@ -130,6 +136,25 @@ public class StatelessExecutionOptions {
 
     public void setResultSchema(@jakarta.annotation.Nullable JSONSchema resultSchema) {
         this.resultSchema = resultSchema;
+    }
+
+    public StatelessExecutionOptions promptCacheSchemaSuffix(
+            @jakarta.annotation.Nullable Boolean promptCacheSchemaSuffix) {
+        this.promptCacheSchemaSuffix = promptCacheSchemaSuffix;
+        return this;
+    }
+
+    /**
+     * Provider-specific opt-in to put the result schema after the cached prompt prefix instead of including it in native structured-output configuration. The returned JSON is still validated against result_schema by Llumiverse.
+     * @return promptCacheSchemaSuffix
+     */
+    @jakarta.annotation.Nullable public Boolean getPromptCacheSchemaSuffix() {
+        return promptCacheSchemaSuffix;
+    }
+
+    public void setPromptCacheSchemaSuffix(
+            @jakarta.annotation.Nullable Boolean promptCacheSchemaSuffix) {
+        this.promptCacheSchemaSuffix = promptCacheSchemaSuffix;
     }
 
     public StatelessExecutionOptions includeOriginalResponse(
@@ -240,6 +265,9 @@ public class StatelessExecutionOptions {
                 && Objects.equals(this.format, statelessExecutionOptions.format)
                 && Objects.equals(this.resultSchema, statelessExecutionOptions.resultSchema)
                 && Objects.equals(
+                        this.promptCacheSchemaSuffix,
+                        statelessExecutionOptions.promptCacheSchemaSuffix)
+                && Objects.equals(
                         this.includeOriginalResponse,
                         statelessExecutionOptions.includeOriginalResponse)
                 && Objects.equals(this.modelOptions, statelessExecutionOptions.modelOptions)
@@ -254,6 +282,7 @@ public class StatelessExecutionOptions {
                 model,
                 format,
                 resultSchema,
+                promptCacheSchemaSuffix,
                 includeOriginalResponse,
                 modelOptions,
                 promptCacheKey,
@@ -268,6 +297,9 @@ public class StatelessExecutionOptions {
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
         sb.append("    format: ").append(toIndentedString(format)).append("\n");
         sb.append("    resultSchema: ").append(toIndentedString(resultSchema)).append("\n");
+        sb.append("    promptCacheSchemaSuffix: ")
+                .append(toIndentedString(promptCacheSchemaSuffix))
+                .append("\n");
         sb.append("    includeOriginalResponse: ")
                 .append(toIndentedString(includeOriginalResponse))
                 .append("\n");
@@ -298,6 +330,7 @@ public class StatelessExecutionOptions {
                                 "model",
                                 "format",
                                 "result_schema",
+                                "prompt_cache_schema_suffix",
                                 "include_original_response",
                                 "model_options",
                                 "prompt_cache_key",

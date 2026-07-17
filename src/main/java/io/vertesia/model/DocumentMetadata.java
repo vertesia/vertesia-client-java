@@ -71,10 +71,35 @@ public class DocumentMetadata {
     @SerializedName(SERIALIZED_NAME_ETAG)
     @jakarta.annotation.Nullable private String etag;
 
+    public static final String SERIALIZED_NAME_RENDERED_TEXT_ETAG = "rendered_text_etag";
+
+    @SerializedName(SERIALIZED_NAME_RENDERED_TEXT_ETAG)
+    @jakarta.annotation.Nullable private String renderedTextEtag;
+
     public static final String SERIALIZED_NAME_RENDITIONS = "renditions";
 
     @SerializedName(SERIALIZED_NAME_RENDITIONS)
     @jakarta.annotation.Nullable private List<Rendition> renditions = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_EMBEDDED = "embedded";
+
+    @SerializedName(SERIALIZED_NAME_EMBEDDED)
+    @jakarta.annotation.Nullable private Map<String, Object> embedded = new HashMap<>();
+
+    public static final String SERIALIZED_NAME_TYPE_DETECTION = "type_detection";
+
+    @SerializedName(SERIALIZED_NAME_TYPE_DETECTION)
+    @jakarta.annotation.Nullable private TypeDetectionMetadata typeDetection;
+
+    public static final String SERIALIZED_NAME_LOCATE = "locate";
+
+    @SerializedName(SERIALIZED_NAME_LOCATE)
+    @jakarta.annotation.Nullable private LocateMetadata locate;
+
+    public static final String SERIALIZED_NAME_VISION_EVIDENCE = "vision_evidence";
+
+    @SerializedName(SERIALIZED_NAME_VISION_EVIDENCE)
+    @jakarta.annotation.Nullable private VisionEvidenceMetadata visionEvidence;
 
     public static final String SERIALIZED_NAME_PAGE_COUNT = "page_count";
 
@@ -85,6 +110,11 @@ public class DocumentMetadata {
 
     @SerializedName(SERIALIZED_NAME_CONTENT_PROCESSOR)
     @jakarta.annotation.Nullable private DocumentMetadataContentProcessor contentProcessor;
+
+    public static final String SERIALIZED_NAME_GROUNDED = "grounded";
+
+    @SerializedName(SERIALIZED_NAME_GROUNDED)
+    @jakarta.annotation.Nullable private GroundedMetadata grounded;
 
     public static final String SERIALIZED_NAME_SECTIONS = "sections";
 
@@ -214,6 +244,23 @@ public class DocumentMetadata {
         this.etag = etag;
     }
 
+    public DocumentMetadata renderedTextEtag(@jakarta.annotation.Nullable String renderedTextEtag) {
+        this.renderedTextEtag = renderedTextEtag;
+        return this;
+    }
+
+    /**
+     * ETag of text materialized from object properties by intake rendering.
+     * @return renderedTextEtag
+     */
+    @jakarta.annotation.Nullable public String getRenderedTextEtag() {
+        return renderedTextEtag;
+    }
+
+    public void setRenderedTextEtag(@jakarta.annotation.Nullable String renderedTextEtag) {
+        this.renderedTextEtag = renderedTextEtag;
+    }
+
     public DocumentMetadata renditions(@jakarta.annotation.Nullable List<Rendition> renditions) {
         this.renditions = renditions;
         return this;
@@ -237,6 +284,85 @@ public class DocumentMetadata {
 
     public void setRenditions(@jakarta.annotation.Nullable List<Rendition> renditions) {
         this.renditions = renditions;
+    }
+
+    public DocumentMetadata embedded(@jakarta.annotation.Nullable Map<String, Object> embedded) {
+        this.embedded = embedded;
+        return this;
+    }
+
+    public DocumentMetadata putEmbeddedItem(String key, Object embeddedItem) {
+        if (this.embedded == null) {
+            this.embedded = new HashMap<>();
+        }
+        this.embedded.put(key, embeddedItem);
+        return this;
+    }
+
+    /**
+     * Embedded/technical metadata harvested from the source file by intake (office docProps, PDF docinfo). Free-form, nature-appropriate keys.
+     * @return embedded
+     */
+    @jakarta.annotation.Nullable public Map<String, Object> getEmbedded() {
+        return embedded;
+    }
+
+    public void setEmbedded(@jakarta.annotation.Nullable Map<String, Object> embedded) {
+        this.embedded = embedded;
+    }
+
+    public DocumentMetadata typeDetection(
+            @jakarta.annotation.Nullable TypeDetectionMetadata typeDetection) {
+        this.typeDetection = typeDetection;
+        return this;
+    }
+
+    /**
+     * Type-detection provenance recorded by the intake sniff pipeline.
+     * @return typeDetection
+     */
+    @jakarta.annotation.Nullable public TypeDetectionMetadata getTypeDetection() {
+        return typeDetection;
+    }
+
+    public void setTypeDetection(@jakarta.annotation.Nullable TypeDetectionMetadata typeDetection) {
+        this.typeDetection = typeDetection;
+    }
+
+    public DocumentMetadata locate(@jakarta.annotation.Nullable LocateMetadata locate) {
+        this.locate = locate;
+        return this;
+    }
+
+    /**
+     * Locate-pass provenance: which pages the document map found relevant.
+     * @return locate
+     */
+    @jakarta.annotation.Nullable public LocateMetadata getLocate() {
+        return locate;
+    }
+
+    public void setLocate(@jakarta.annotation.Nullable LocateMetadata locate) {
+        this.locate = locate;
+    }
+
+    public DocumentMetadata visionEvidence(
+            @jakarta.annotation.Nullable VisionEvidenceMetadata visionEvidence) {
+        this.visionEvidence = visionEvidence;
+        return this;
+    }
+
+    /**
+     * Vision-evidence provenance for the last visual extraction run.
+     * @return visionEvidence
+     */
+    @jakarta.annotation.Nullable public VisionEvidenceMetadata getVisionEvidence() {
+        return visionEvidence;
+    }
+
+    public void setVisionEvidence(
+            @jakarta.annotation.Nullable VisionEvidenceMetadata visionEvidence) {
+        this.visionEvidence = visionEvidence;
     }
 
     public DocumentMetadata pageCount(@jakarta.annotation.Nullable BigDecimal pageCount) {
@@ -273,6 +399,23 @@ public class DocumentMetadata {
     public void setContentProcessor(
             @jakarta.annotation.Nullable DocumentMetadataContentProcessor contentProcessor) {
         this.contentProcessor = contentProcessor;
+    }
+
+    public DocumentMetadata grounded(@jakarta.annotation.Nullable GroundedMetadata grounded) {
+        this.grounded = grounded;
+        return this;
+    }
+
+    /**
+     * Grounded-extraction trust signal + key data. Written by the grounded pipeline (verdict, confidence, citation counts, review status, source etag, ...) and queryable for list/filter. Open-ended so more grounded key-data can be stored without a type change.
+     * @return grounded
+     */
+    @jakarta.annotation.Nullable public GroundedMetadata getGrounded() {
+        return grounded;
+    }
+
+    public void setGrounded(@jakarta.annotation.Nullable GroundedMetadata grounded) {
+        this.grounded = grounded;
     }
 
     public DocumentMetadata sections(@jakarta.annotation.Nullable List<TextSection> sections) {
@@ -360,9 +503,15 @@ public class DocumentMetadata {
                 && Objects.equals(this.location, documentMetadata.location)
                 && Objects.equals(this.generationRuns, documentMetadata.generationRuns)
                 && Objects.equals(this.etag, documentMetadata.etag)
+                && Objects.equals(this.renderedTextEtag, documentMetadata.renderedTextEtag)
                 && Objects.equals(this.renditions, documentMetadata.renditions)
+                && Objects.equals(this.embedded, documentMetadata.embedded)
+                && Objects.equals(this.typeDetection, documentMetadata.typeDetection)
+                && Objects.equals(this.locate, documentMetadata.locate)
+                && Objects.equals(this.visionEvidence, documentMetadata.visionEvidence)
                 && Objects.equals(this.pageCount, documentMetadata.pageCount)
                 && Objects.equals(this.contentProcessor, documentMetadata.contentProcessor)
+                && Objects.equals(this.grounded, documentMetadata.grounded)
                 && Objects.equals(this.sections, documentMetadata.sections)
                 && Objects.equals(this.additionalProperties, documentMetadata.additionalProperties);
     }
@@ -376,9 +525,15 @@ public class DocumentMetadata {
                 location,
                 generationRuns,
                 etag,
+                renderedTextEtag,
                 renditions,
+                embedded,
+                typeDetection,
+                locate,
+                visionEvidence,
                 pageCount,
                 contentProcessor,
+                grounded,
                 sections,
                 additionalProperties);
     }
@@ -393,9 +548,15 @@ public class DocumentMetadata {
         sb.append("    location: ").append(toIndentedString(location)).append("\n");
         sb.append("    generationRuns: ").append(toIndentedString(generationRuns)).append("\n");
         sb.append("    etag: ").append(toIndentedString(etag)).append("\n");
+        sb.append("    renderedTextEtag: ").append(toIndentedString(renderedTextEtag)).append("\n");
         sb.append("    renditions: ").append(toIndentedString(renditions)).append("\n");
+        sb.append("    embedded: ").append(toIndentedString(embedded)).append("\n");
+        sb.append("    typeDetection: ").append(toIndentedString(typeDetection)).append("\n");
+        sb.append("    locate: ").append(toIndentedString(locate)).append("\n");
+        sb.append("    visionEvidence: ").append(toIndentedString(visionEvidence)).append("\n");
         sb.append("    pageCount: ").append(toIndentedString(pageCount)).append("\n");
         sb.append("    contentProcessor: ").append(toIndentedString(contentProcessor)).append("\n");
+        sb.append("    grounded: ").append(toIndentedString(grounded)).append("\n");
         sb.append("    sections: ").append(toIndentedString(sections)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
@@ -426,9 +587,15 @@ public class DocumentMetadata {
                                 "location",
                                 "generation_runs",
                                 "etag",
+                                "rendered_text_etag",
                                 "renditions",
+                                "embedded",
+                                "type_detection",
+                                "locate",
+                                "vision_evidence",
                                 "page_count",
                                 "content_processor",
+                                "grounded",
                                 "sections"));
 
         // a set of required properties/fields (JSON key names)
@@ -509,6 +676,15 @@ public class DocumentMetadata {
                             "Expected the field `etag` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("etag").toString()));
         }
+        if ((jsonObj.get("rendered_text_etag") != null
+                        && !jsonObj.get("rendered_text_etag").isJsonNull())
+                && !jsonObj.get("rendered_text_etag").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `rendered_text_etag` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("rendered_text_etag").toString()));
+        }
         if (jsonObj.get("renditions") != null && !jsonObj.get("renditions").isJsonNull()) {
             JsonArray jsonArrayrenditions = jsonObj.getAsJsonArray("renditions");
             if (jsonArrayrenditions != null) {
@@ -527,6 +703,19 @@ public class DocumentMetadata {
                 }
                 ;
             }
+        }
+        // validate the optional field `type_detection`
+        if (jsonObj.get("type_detection") != null && !jsonObj.get("type_detection").isJsonNull()) {
+            TypeDetectionMetadata.validateJsonElement(jsonObj.get("type_detection"));
+        }
+        // validate the optional field `locate`
+        if (jsonObj.get("locate") != null && !jsonObj.get("locate").isJsonNull()) {
+            LocateMetadata.validateJsonElement(jsonObj.get("locate"));
+        }
+        // validate the optional field `vision_evidence`
+        if (jsonObj.get("vision_evidence") != null
+                && !jsonObj.get("vision_evidence").isJsonNull()) {
+            VisionEvidenceMetadata.validateJsonElement(jsonObj.get("vision_evidence"));
         }
         // validate the optional field `content_processor`
         if (jsonObj.get("content_processor") != null

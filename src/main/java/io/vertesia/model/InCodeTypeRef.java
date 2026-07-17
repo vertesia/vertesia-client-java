@@ -106,6 +106,72 @@ public class InCodeTypeRef {
     @jakarta.annotation.Nonnull
     private String name;
 
+    /**
+     * Display hint from the type&#39;s intake policy (&#x60;intake.default_view&#x60;). Enriched by the API on single-object reads so clients can pick the initial view without fetching the type. Absent on list responses and older servers.
+     */
+    @JsonAdapter(DefaultViewEnum.Adapter.class)
+    public enum DefaultViewEnum {
+        AUTO("auto"),
+
+        TEXT("text"),
+
+        PDF("pdf"),
+
+        IMAGE("image"),
+
+        PROPERTIES("properties"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        DefaultViewEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static DefaultViewEnum fromValue(String value) {
+            for (DefaultViewEnum b : DefaultViewEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<DefaultViewEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final DefaultViewEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public DefaultViewEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return DefaultViewEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            DefaultViewEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_DEFAULT_VIEW = "default_view";
+
+    @SerializedName(SERIALIZED_NAME_DEFAULT_VIEW)
+    @jakarta.annotation.Nullable private DefaultViewEnum defaultView;
+
     public InCodeTypeRef() {}
 
     public InCodeTypeRef refType(@jakarta.annotation.Nonnull RefTypeEnum refType) {
@@ -162,6 +228,23 @@ public class InCodeTypeRef {
         this.name = name;
     }
 
+    public InCodeTypeRef defaultView(@jakarta.annotation.Nullable DefaultViewEnum defaultView) {
+        this.defaultView = defaultView;
+        return this;
+    }
+
+    /**
+     * Display hint from the type&#39;s intake policy (&#x60;intake.default_view&#x60;). Enriched by the API on single-object reads so clients can pick the initial view without fetching the type. Absent on list responses and older servers.
+     * @return defaultView
+     */
+    @jakarta.annotation.Nullable public DefaultViewEnum getDefaultView() {
+        return defaultView;
+    }
+
+    public void setDefaultView(@jakarta.annotation.Nullable DefaultViewEnum defaultView) {
+        this.defaultView = defaultView;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -173,12 +256,13 @@ public class InCodeTypeRef {
         InCodeTypeRef inCodeTypeRef = (InCodeTypeRef) o;
         return Objects.equals(this.refType, inCodeTypeRef.refType)
                 && Objects.equals(this.id, inCodeTypeRef.id)
-                && Objects.equals(this.name, inCodeTypeRef.name);
+                && Objects.equals(this.name, inCodeTypeRef.name)
+                && Objects.equals(this.defaultView, inCodeTypeRef.defaultView);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(refType, id, name);
+        return Objects.hash(refType, id, name, defaultView);
     }
 
     @Override
@@ -188,6 +272,7 @@ public class InCodeTypeRef {
         sb.append("    refType: ").append(toIndentedString(refType)).append("\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    defaultView: ").append(toIndentedString(defaultView)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -205,7 +290,8 @@ public class InCodeTypeRef {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("ref_type", "id", "name"));
+        openapiFields =
+                new HashSet<String>(Arrays.asList("ref_type", "id", "name", "default_view"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("ref_type", "id", "name"));
@@ -263,6 +349,18 @@ public class InCodeTypeRef {
                             java.util.Locale.ROOT,
                             "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("name").toString()));
+        }
+        if ((jsonObj.get("default_view") != null && !jsonObj.get("default_view").isJsonNull())
+                && !jsonObj.get("default_view").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `default_view` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("default_view").toString()));
+        }
+        // validate the optional field `default_view`
+        if (jsonObj.get("default_view") != null && !jsonObj.get("default_view").isJsonNull()) {
+            DefaultViewEnum.validateJsonElement(jsonObj.get("default_view"));
         }
     }
 

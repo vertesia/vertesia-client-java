@@ -69,6 +69,17 @@ public class InteractionExecutionConfiguration {
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
     @jakarta.annotation.Nullable private ModelOptions modelOptions;
 
+    public static final String SERIALIZED_NAME_PROMPT_CACHE_KEY = "prompt_cache_key";
+
+    @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_KEY)
+    @jakarta.annotation.Nullable private String promptCacheKey;
+
+    public static final String SERIALIZED_NAME_PROMPT_CACHE_SCHEMA_SUFFIX =
+            "prompt_cache_schema_suffix";
+
+    @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_SCHEMA_SUFFIX)
+    @jakarta.annotation.Nullable private Boolean promptCacheSchemaSuffix;
+
     public static final String SERIALIZED_NAME_HTTP_TIMEOUT = "http_timeout";
 
     @SerializedName(SERIALIZED_NAME_HTTP_TIMEOUT)
@@ -200,6 +211,43 @@ public class InteractionExecutionConfiguration {
         this.modelOptions = modelOptions;
     }
 
+    public InteractionExecutionConfiguration promptCacheKey(
+            @jakarta.annotation.Nullable String promptCacheKey) {
+        this.promptCacheKey = promptCacheKey;
+        return this;
+    }
+
+    /**
+     * Stable provider-side routing key for automatic prompt caching.
+     * @return promptCacheKey
+     */
+    @jakarta.annotation.Nullable public String getPromptCacheKey() {
+        return promptCacheKey;
+    }
+
+    public void setPromptCacheKey(@jakarta.annotation.Nullable String promptCacheKey) {
+        this.promptCacheKey = promptCacheKey;
+    }
+
+    public InteractionExecutionConfiguration promptCacheSchemaSuffix(
+            @jakarta.annotation.Nullable Boolean promptCacheSchemaSuffix) {
+        this.promptCacheSchemaSuffix = promptCacheSchemaSuffix;
+        return this;
+    }
+
+    /**
+     * Put the result schema after the cached prefix; Vertesia still validates the returned JSON against it.
+     * @return promptCacheSchemaSuffix
+     */
+    @jakarta.annotation.Nullable public Boolean getPromptCacheSchemaSuffix() {
+        return promptCacheSchemaSuffix;
+    }
+
+    public void setPromptCacheSchemaSuffix(
+            @jakarta.annotation.Nullable Boolean promptCacheSchemaSuffix) {
+        this.promptCacheSchemaSuffix = promptCacheSchemaSuffix;
+    }
+
     public InteractionExecutionConfiguration httpTimeout(
             @jakarta.annotation.Nullable HttpTimeoutOptions httpTimeout) {
         this.httpTimeout = httpTimeout;
@@ -235,13 +283,27 @@ public class InteractionExecutionConfiguration {
                 && Objects.equals(this.runData, interactionExecutionConfiguration.runData)
                 && Objects.equals(this.configMode, interactionExecutionConfiguration.configMode)
                 && Objects.equals(this.modelOptions, interactionExecutionConfiguration.modelOptions)
+                && Objects.equals(
+                        this.promptCacheKey, interactionExecutionConfiguration.promptCacheKey)
+                && Objects.equals(
+                        this.promptCacheSchemaSuffix,
+                        interactionExecutionConfiguration.promptCacheSchemaSuffix)
                 && Objects.equals(this.httpTimeout, interactionExecutionConfiguration.httpTimeout);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                id, environment, model, doValidate, runData, configMode, modelOptions, httpTimeout);
+                id,
+                environment,
+                model,
+                doValidate,
+                runData,
+                configMode,
+                modelOptions,
+                promptCacheKey,
+                promptCacheSchemaSuffix,
+                httpTimeout);
     }
 
     @Override
@@ -255,6 +317,10 @@ public class InteractionExecutionConfiguration {
         sb.append("    runData: ").append(toIndentedString(runData)).append("\n");
         sb.append("    configMode: ").append(toIndentedString(configMode)).append("\n");
         sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
+        sb.append("    promptCacheKey: ").append(toIndentedString(promptCacheKey)).append("\n");
+        sb.append("    promptCacheSchemaSuffix: ")
+                .append(toIndentedString(promptCacheSchemaSuffix))
+                .append("\n");
         sb.append("    httpTimeout: ").append(toIndentedString(httpTimeout)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -283,6 +349,8 @@ public class InteractionExecutionConfiguration {
                                 "run_data",
                                 "configMode",
                                 "model_options",
+                                "prompt_cache_key",
+                                "prompt_cache_schema_suffix",
                                 "http_timeout"));
 
         // a set of required properties/fields (JSON key names)
@@ -343,6 +411,15 @@ public class InteractionExecutionConfiguration {
         // validate the optional field `model_options`
         if (jsonObj.get("model_options") != null && !jsonObj.get("model_options").isJsonNull()) {
             ModelOptions.validateJsonElement(jsonObj.get("model_options"));
+        }
+        if ((jsonObj.get("prompt_cache_key") != null
+                        && !jsonObj.get("prompt_cache_key").isJsonNull())
+                && !jsonObj.get("prompt_cache_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `prompt_cache_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("prompt_cache_key").toString()));
         }
         // validate the optional field `http_timeout`
         if (jsonObj.get("http_timeout") != null && !jsonObj.get("http_timeout").isJsonNull()) {

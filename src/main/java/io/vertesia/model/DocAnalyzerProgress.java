@@ -35,6 +35,11 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class DocAnalyzerProgress {
+    public static final String SERIALIZED_NAME_PHASE = "phase";
+
+    @SerializedName(SERIALIZED_NAME_PHASE)
+    @jakarta.annotation.Nullable private DocumentProcessingPhase phase;
+
     public static final String SERIALIZED_NAME_PAGES = "pages";
 
     @SerializedName(SERIALIZED_NAME_PAGES)
@@ -76,6 +81,23 @@ public class DocAnalyzerProgress {
     @jakarta.annotation.Nullable private DocProcessorOutputFormat outputFormat;
 
     public DocAnalyzerProgress() {}
+
+    public DocAnalyzerProgress phase(@jakarta.annotation.Nullable DocumentProcessingPhase phase) {
+        this.phase = phase;
+        return this;
+    }
+
+    /**
+     * Get phase
+     * @return phase
+     */
+    @jakarta.annotation.Nullable public DocumentProcessingPhase getPhase() {
+        return phase;
+    }
+
+    public void setPhase(@jakarta.annotation.Nullable DocumentProcessingPhase phase) {
+        this.phase = phase;
+    }
 
     public DocAnalyzerProgress pages(@jakarta.annotation.Nonnull DocAnalyzerProgressStatus pages) {
         this.pages = pages;
@@ -194,7 +216,7 @@ public class DocAnalyzerProgress {
     }
 
     /**
-     * The output format being used for processing (markdown or xml)
+     * The output format being used for processing.
      * @return outputFormat
      */
     @jakarta.annotation.Nullable public DocProcessorOutputFormat getOutputFormat() {
@@ -215,7 +237,8 @@ public class DocAnalyzerProgress {
             return false;
         }
         DocAnalyzerProgress docAnalyzerProgress = (DocAnalyzerProgress) o;
-        return Objects.equals(this.pages, docAnalyzerProgress.pages)
+        return Objects.equals(this.phase, docAnalyzerProgress.phase)
+                && Objects.equals(this.pages, docAnalyzerProgress.pages)
                 && Objects.equals(this.images, docAnalyzerProgress.images)
                 && Objects.equals(this.tables, docAnalyzerProgress.tables)
                 && Objects.equals(this.visuals, docAnalyzerProgress.visuals)
@@ -226,13 +249,15 @@ public class DocAnalyzerProgress {
 
     @Override
     public int hashCode() {
-        return Objects.hash(pages, images, tables, visuals, startedAt, percent, outputFormat);
+        return Objects.hash(
+                phase, pages, images, tables, visuals, startedAt, percent, outputFormat);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class DocAnalyzerProgress {\n");
+        sb.append("    phase: ").append(toIndentedString(phase)).append("\n");
         sb.append("    pages: ").append(toIndentedString(pages)).append("\n");
         sb.append("    images: ").append(toIndentedString(images)).append("\n");
         sb.append("    tables: ").append(toIndentedString(tables)).append("\n");
@@ -260,6 +285,7 @@ public class DocAnalyzerProgress {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "phase",
                                 "pages",
                                 "images",
                                 "tables",
@@ -304,6 +330,10 @@ public class DocAnalyzerProgress {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the optional field `phase`
+        if (jsonObj.get("phase") != null && !jsonObj.get("phase").isJsonNull()) {
+            DocumentProcessingPhase.validateJsonElement(jsonObj.get("phase"));
+        }
         // validate the required field `pages`
         DocAnalyzerProgressStatus.validateJsonElement(jsonObj.get("pages"));
         // validate the required field `images`

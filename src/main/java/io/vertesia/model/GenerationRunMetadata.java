@@ -57,6 +57,11 @@ public class GenerationRunMetadata {
     @SerializedName(SERIALIZED_NAME_TARGET)
     @jakarta.annotation.Nullable private String target;
 
+    public static final String SERIALIZED_NAME_EXTRACTION_FINGERPRINT = "extraction_fingerprint";
+
+    @SerializedName(SERIALIZED_NAME_EXTRACTION_FINGERPRINT)
+    @jakarta.annotation.Nullable private String extractionFingerprint;
+
     public GenerationRunMetadata() {}
 
     public GenerationRunMetadata id(@jakarta.annotation.Nonnull String id) {
@@ -130,6 +135,25 @@ public class GenerationRunMetadata {
         this.target = target;
     }
 
+    public GenerationRunMetadata extractionFingerprint(
+            @jakarta.annotation.Nullable String extractionFingerprint) {
+        this.extractionFingerprint = extractionFingerprint;
+        return this;
+    }
+
+    /**
+     * Fingerprint of the inputs used by property extraction (content etag, type + its object schema, source, instructions, interaction). Lets a later run skip re-extraction when nothing changed.
+     * @return extractionFingerprint
+     */
+    @jakarta.annotation.Nullable public String getExtractionFingerprint() {
+        return extractionFingerprint;
+    }
+
+    public void setExtractionFingerprint(
+            @jakarta.annotation.Nullable String extractionFingerprint) {
+        this.extractionFingerprint = extractionFingerprint;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -142,12 +166,14 @@ public class GenerationRunMetadata {
         return Objects.equals(this.id, generationRunMetadata.id)
                 && Objects.equals(this.date, generationRunMetadata.date)
                 && Objects.equals(this.model, generationRunMetadata.model)
-                && Objects.equals(this.target, generationRunMetadata.target);
+                && Objects.equals(this.target, generationRunMetadata.target)
+                && Objects.equals(
+                        this.extractionFingerprint, generationRunMetadata.extractionFingerprint);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, date, model, target);
+        return Objects.hash(id, date, model, target, extractionFingerprint);
     }
 
     @Override
@@ -158,6 +184,9 @@ public class GenerationRunMetadata {
         sb.append("    date: ").append(toIndentedString(date)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
         sb.append("    target: ").append(toIndentedString(target)).append("\n");
+        sb.append("    extractionFingerprint: ")
+                .append(toIndentedString(extractionFingerprint))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -175,7 +204,9 @@ public class GenerationRunMetadata {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("id", "date", "model", "target"));
+        openapiFields =
+                new HashSet<String>(
+                        Arrays.asList("id", "date", "model", "target", "extraction_fingerprint"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "date", "model"));
@@ -239,6 +270,15 @@ public class GenerationRunMetadata {
                             java.util.Locale.ROOT,
                             "Expected the field `target` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("target").toString()));
+        }
+        if ((jsonObj.get("extraction_fingerprint") != null
+                        && !jsonObj.get("extraction_fingerprint").isJsonNull())
+                && !jsonObj.get("extraction_fingerprint").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `extraction_fingerprint` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("extraction_fingerprint").toString()));
         }
     }
 

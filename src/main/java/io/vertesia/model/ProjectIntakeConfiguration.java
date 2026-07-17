@@ -35,6 +35,26 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProjectIntakeConfiguration {
+    public static final String SERIALIZED_NAME_ENABLED = "enabled";
+
+    @SerializedName(SERIALIZED_NAME_ENABLED)
+    @jakarta.annotation.Nullable private Boolean enabled;
+
+    public static final String SERIALIZED_NAME_SNIFF = "sniff";
+
+    @SerializedName(SERIALIZED_NAME_SNIFF)
+    @jakarta.annotation.Nullable private ProjectIntakeSniffConfiguration sniff;
+
+    public static final String SERIALIZED_NAME_DEFAULT_POLICY = "default_policy";
+
+    @SerializedName(SERIALIZED_NAME_DEFAULT_POLICY)
+    @jakarta.annotation.Nullable private ContentTypeIntakePolicy defaultPolicy;
+
+    public static final String SERIALIZED_NAME_VISION_PROFILES = "vision_profiles";
+
+    @SerializedName(SERIALIZED_NAME_VISION_PROFILES)
+    @jakarta.annotation.Nullable private PartialRecordIntakeVisionDetailPartialIntakeVisionProfileSettings visionProfiles;
+
     public static final String SERIALIZED_NAME_GENERATE_TOC = "generate_toc";
 
     @SerializedName(SERIALIZED_NAME_GENERATE_TOC)
@@ -61,6 +81,81 @@ public class ProjectIntakeConfiguration {
     @jakarta.annotation.Nullable private String defaultContentType;
 
     public ProjectIntakeConfiguration() {}
+
+    public ProjectIntakeConfiguration enabled(@jakarta.annotation.Nullable Boolean enabled) {
+        this.enabled = enabled;
+        return this;
+    }
+
+    /**
+     * Master switch for the standard intake pipeline. When false, StandardIntake exits as a no-op WITHOUT touching object status (objects stay in &#x60;created&#x60;, identifiable as unprocessed). Defaults to true.
+     * @return enabled
+     */
+    @jakarta.annotation.Nullable public Boolean getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(@jakarta.annotation.Nullable Boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public ProjectIntakeConfiguration sniff(
+            @jakarta.annotation.Nullable ProjectIntakeSniffConfiguration sniff) {
+        this.sniff = sniff;
+        return this;
+    }
+
+    /**
+     * Fast pre-conversion type identification for untyped documents. Absent means enabled with platform default thresholds.
+     * @return sniff
+     */
+    @jakarta.annotation.Nullable public ProjectIntakeSniffConfiguration getSniff() {
+        return sniff;
+    }
+
+    public void setSniff(@jakarta.annotation.Nullable ProjectIntakeSniffConfiguration sniff) {
+        this.sniff = sniff;
+    }
+
+    public ProjectIntakeConfiguration defaultPolicy(
+            @jakarta.annotation.Nullable ContentTypeIntakePolicy defaultPolicy) {
+        this.defaultPolicy = defaultPolicy;
+        return this;
+    }
+
+    /**
+     * Project-level intake policy defaults. Same shape as the per-content-type policy; a type&#39;s &#x60;intake&#x60; block wins field-by-field over these defaults, which in turn win over the legacy flat fields below. &#x60;identification&#x60; is type-specific and ignored here.
+     * @return defaultPolicy
+     */
+    @jakarta.annotation.Nullable public ContentTypeIntakePolicy getDefaultPolicy() {
+        return defaultPolicy;
+    }
+
+    public void setDefaultPolicy(
+            @jakarta.annotation.Nullable ContentTypeIntakePolicy defaultPolicy) {
+        this.defaultPolicy = defaultPolicy;
+    }
+
+    public ProjectIntakeConfiguration visionProfiles(
+            @jakarta.annotation.Nullable PartialRecordIntakeVisionDetailPartialIntakeVisionProfileSettings
+                            visionProfiles) {
+        this.visionProfiles = visionProfiles;
+        return this;
+    }
+
+    /**
+     * Project overrides for the platform vision detail profiles used by intake visual extraction (&#x60;low&#x60;/&#x60;standard&#x60;/&#x60;high&#x60;). Partial: omitted profiles or fields inherit the platform defaults. Types reference detail NAMES only; the profile settings live here.
+     * @return visionProfiles
+     */
+    @jakarta.annotation.Nullable public PartialRecordIntakeVisionDetailPartialIntakeVisionProfileSettings getVisionProfiles() {
+        return visionProfiles;
+    }
+
+    public void setVisionProfiles(
+            @jakarta.annotation.Nullable PartialRecordIntakeVisionDetailPartialIntakeVisionProfileSettings
+                            visionProfiles) {
+        this.visionProfiles = visionProfiles;
+    }
 
     public ProjectIntakeConfiguration generateToc(
             @jakarta.annotation.Nullable Boolean generateToc) {
@@ -161,7 +256,11 @@ public class ProjectIntakeConfiguration {
             return false;
         }
         ProjectIntakeConfiguration projectIntakeConfiguration = (ProjectIntakeConfiguration) o;
-        return Objects.equals(this.generateToc, projectIntakeConfiguration.generateToc)
+        return Objects.equals(this.enabled, projectIntakeConfiguration.enabled)
+                && Objects.equals(this.sniff, projectIntakeConfiguration.sniff)
+                && Objects.equals(this.defaultPolicy, projectIntakeConfiguration.defaultPolicy)
+                && Objects.equals(this.visionProfiles, projectIntakeConfiguration.visionProfiles)
+                && Objects.equals(this.generateToc, projectIntakeConfiguration.generateToc)
                 && Objects.equals(
                         this.generateTocMaxSize, projectIntakeConfiguration.generateTocMaxSize)
                 && Objects.equals(
@@ -175,6 +274,10 @@ public class ProjectIntakeConfiguration {
     @Override
     public int hashCode() {
         return Objects.hash(
+                enabled,
+                sniff,
+                defaultPolicy,
+                visionProfiles,
                 generateToc,
                 generateTocMaxSize,
                 generateContentType,
@@ -186,6 +289,10 @@ public class ProjectIntakeConfiguration {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ProjectIntakeConfiguration {\n");
+        sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+        sb.append("    sniff: ").append(toIndentedString(sniff)).append("\n");
+        sb.append("    defaultPolicy: ").append(toIndentedString(defaultPolicy)).append("\n");
+        sb.append("    visionProfiles: ").append(toIndentedString(visionProfiles)).append("\n");
         sb.append("    generateToc: ").append(toIndentedString(generateToc)).append("\n");
         sb.append("    generateTocMaxSize: ")
                 .append(toIndentedString(generateTocMaxSize))
@@ -219,6 +326,10 @@ public class ProjectIntakeConfiguration {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "enabled",
+                                "sniff",
+                                "default_policy",
+                                "vision_profiles",
                                 "generate_toc",
                                 "generate_toc_max_size",
                                 "generate_content_type",
@@ -247,6 +358,20 @@ public class ProjectIntakeConfiguration {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the optional field `sniff`
+        if (jsonObj.get("sniff") != null && !jsonObj.get("sniff").isJsonNull()) {
+            ProjectIntakeSniffConfiguration.validateJsonElement(jsonObj.get("sniff"));
+        }
+        // validate the optional field `default_policy`
+        if (jsonObj.get("default_policy") != null && !jsonObj.get("default_policy").isJsonNull()) {
+            ContentTypeIntakePolicy.validateJsonElement(jsonObj.get("default_policy"));
+        }
+        // validate the optional field `vision_profiles`
+        if (jsonObj.get("vision_profiles") != null
+                && !jsonObj.get("vision_profiles").isJsonNull()) {
+            PartialRecordIntakeVisionDetailPartialIntakeVisionProfileSettings.validateJsonElement(
+                    jsonObj.get("vision_profiles"));
+        }
         if ((jsonObj.get("default_content_type") != null
                         && !jsonObj.get("default_content_type").isJsonNull())
                 && !jsonObj.get("default_content_type").isJsonPrimitive()) {
