@@ -24,11 +24,19 @@ import java.io.IOException;
  */
 @JsonAdapter(ReasoningEffort.Adapter.class)
 public enum ReasoningEffort {
+    NONE("none"),
+
+    MINIMAL("minimal"),
+
     LOW("low"),
 
     MEDIUM("medium"),
 
     HIGH("high"),
+
+    XHIGH("xhigh"),
+
+    MAX("max"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
