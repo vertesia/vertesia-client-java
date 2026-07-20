@@ -20,29 +20,29 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Gets or Sets AppCapabilities
+ * Gets or Sets ViewResultFieldFormat
  */
-@JsonAdapter(AppCapabilities.Adapter.class)
-public enum AppCapabilities {
-    UI("ui"),
+@JsonAdapter(ViewResultFieldFormat.Adapter.class)
+public enum ViewResultFieldFormat {
+    TEXT("text"),
 
-    TOOLS("tools"),
+    DATE("date"),
 
-    INTERACTIONS("interactions"),
+    NUMBER("number"),
 
-    TYPES("types"),
+    BADGE("badge"),
 
-    PROCESSES("processes"),
+    USER("user"),
 
-    VIEWS("views"),
+    CONTENT_TYPE("content_type"),
 
-    TEMPLATES("templates"),
+    LOCATION("location"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
-    AppCapabilities(String value) {
+    ViewResultFieldFormat(String value) {
         this.value = value;
     }
 
@@ -55,8 +55,8 @@ public enum AppCapabilities {
         return String.valueOf(value);
     }
 
-    public static AppCapabilities fromValue(String value) {
-        for (AppCapabilities b : AppCapabilities.values()) {
+    public static ViewResultFieldFormat fromValue(String value) {
+        for (ViewResultFieldFormat b : ViewResultFieldFormat.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
@@ -64,22 +64,22 @@ public enum AppCapabilities {
         return UNKNOWN_DEFAULT_OPEN_API;
     }
 
-    public static class Adapter extends TypeAdapter<AppCapabilities> {
+    public static class Adapter extends TypeAdapter<ViewResultFieldFormat> {
         @Override
-        public void write(final JsonWriter jsonWriter, final AppCapabilities enumeration)
+        public void write(final JsonWriter jsonWriter, final ViewResultFieldFormat enumeration)
                 throws IOException {
             jsonWriter.value(enumeration.getValue());
         }
 
         @Override
-        public AppCapabilities read(final JsonReader jsonReader) throws IOException {
+        public ViewResultFieldFormat read(final JsonReader jsonReader) throws IOException {
             String value = jsonReader.nextString();
-            return AppCapabilities.fromValue(value);
+            return ViewResultFieldFormat.fromValue(value);
         }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         String value = jsonElement.getAsString();
-        AppCapabilities.fromValue(value);
+        ViewResultFieldFormat.fromValue(value);
     }
 }

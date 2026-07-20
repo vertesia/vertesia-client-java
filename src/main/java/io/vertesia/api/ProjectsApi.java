@@ -24,6 +24,7 @@ import io.vertesia.model.CountResult;
 import io.vertesia.model.DeleteByIdResult;
 import io.vertesia.model.ICreateProjectPayload;
 import io.vertesia.model.InCodeProcessDefinition;
+import io.vertesia.model.InCodeViewDefinition;
 import io.vertesia.model.PartialOmitCompositeAppConfigIdProject;
 import io.vertesia.model.PartialProject;
 import io.vertesia.model.PartialProjectConfiguration;
@@ -1108,6 +1109,185 @@ public class ProjectsApi {
     }
 
     /**
+     * Build call for getProjectAppView
+     * @param projectId  (required)
+     * @param viewId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The requested app View definition. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getProjectAppViewCall(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String viewId,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/projects/{projectId}/app-views/{viewId}"
+                        .replace(
+                                "{" + "projectId" + "}",
+                                localVarApiClient.escapeString(projectId.toString()))
+                        .replace(
+                                "{" + "viewId" + "}",
+                                localVarApiClient.escapeString(viewId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getProjectAppViewValidateBeforeCall(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String viewId,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'projectId' is set
+        if (projectId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'projectId' when calling getProjectAppView(Async)");
+        }
+
+        // verify the required parameter 'viewId' is set
+        if (viewId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'viewId' when calling getProjectAppView(Async)");
+        }
+
+        return getProjectAppViewCall(projectId, viewId, _callback);
+    }
+
+    /**
+     * Retrieve a project app View
+     * Retrieves a View Experience definition contributed by an installed app.
+     * @param projectId  (required)
+     * @param viewId  (required)
+     * @return InCodeViewDefinition
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The requested app View definition. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public InCodeViewDefinition getProjectAppView(
+            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nonnull String viewId)
+            throws ApiException {
+        ApiResponse<InCodeViewDefinition> localVarResp =
+                getProjectAppViewWithHttpInfo(projectId, viewId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve a project app View
+     * Retrieves a View Experience definition contributed by an installed app.
+     * @param projectId  (required)
+     * @param viewId  (required)
+     * @return ApiResponse&lt;InCodeViewDefinition&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The requested app View definition. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<InCodeViewDefinition> getProjectAppViewWithHttpInfo(
+            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nonnull String viewId)
+            throws ApiException {
+        okhttp3.Call localVarCall = getProjectAppViewValidateBeforeCall(projectId, viewId, null);
+        Type localVarReturnType = new TypeToken<InCodeViewDefinition>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a project app View (asynchronously)
+     * Retrieves a View Experience definition contributed by an installed app.
+     * @param projectId  (required)
+     * @param viewId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The requested app View definition. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getProjectAppViewAsync(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nonnull String viewId,
+            final ApiCallback<InCodeViewDefinition> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getProjectAppViewValidateBeforeCall(projectId, viewId, _callback);
+        Type localVarReturnType = new TypeToken<InCodeViewDefinition>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for getProjectCompositeApp
      * @param projectId  (required)
      * @param _callback Callback for upload/download progress
@@ -2165,6 +2345,180 @@ public class ProjectsApi {
                 new TypeToken<
                         List<
                                 PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake>>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listProjectAppViews
+     * @param projectId  (required)
+     * @param tag  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installed app View definitions. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listProjectAppViewsCall(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nullable String tag,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/projects/{projectId}/app-views"
+                        .replace(
+                                "{" + "projectId" + "}",
+                                localVarApiClient.escapeString(projectId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (tag != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("tag", tag));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listProjectAppViewsValidateBeforeCall(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nullable String tag,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'projectId' is set
+        if (projectId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'projectId' when calling listProjectAppViews(Async)");
+        }
+
+        return listProjectAppViewsCall(projectId, tag, _callback);
+    }
+
+    /**
+     * List project app Views
+     * Lists View Experience definitions contributed by installed apps in the project.
+     * @param projectId  (required)
+     * @param tag  (optional)
+     * @return List&lt;InCodeViewDefinition&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installed app View definitions. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public List<InCodeViewDefinition> listProjectAppViews(
+            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
+            throws ApiException {
+        ApiResponse<List<InCodeViewDefinition>> localVarResp =
+                listProjectAppViewsWithHttpInfo(projectId, tag);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List project app Views
+     * Lists View Experience definitions contributed by installed apps in the project.
+     * @param projectId  (required)
+     * @param tag  (optional)
+     * @return ApiResponse&lt;List&lt;InCodeViewDefinition&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installed app View definitions. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<List<InCodeViewDefinition>> listProjectAppViewsWithHttpInfo(
+            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
+            throws ApiException {
+        okhttp3.Call localVarCall = listProjectAppViewsValidateBeforeCall(projectId, tag, null);
+        Type localVarReturnType = new TypeToken<List<InCodeViewDefinition>>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List project app Views (asynchronously)
+     * Lists View Experience definitions contributed by installed apps in the project.
+     * @param projectId  (required)
+     * @param tag  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installed app View definitions. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listProjectAppViewsAsync(
+            @jakarta.annotation.Nonnull String projectId,
+            @jakarta.annotation.Nullable String tag,
+            final ApiCallback<List<InCodeViewDefinition>> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listProjectAppViewsValidateBeforeCall(projectId, tag, _callback);
+        Type localVarReturnType = new TypeToken<List<InCodeViewDefinition>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

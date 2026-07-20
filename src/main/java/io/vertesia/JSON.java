@@ -649,6 +649,67 @@ public class JSON {
                                     }
                                 })
                         .registerTypeSelector(
+                                io.vertesia.model.ViewDisplayConfiguration.class,
+                                new TypeSelector<io.vertesia.model.ViewDisplayConfiguration>() {
+                                    @Override
+                                    public Class<
+                                                    ? extends
+                                                            io.vertesia.model
+                                                                    .ViewDisplayConfiguration>
+                                            getClassForElement(JsonElement readElement) {
+                                        Map<String, Class> classByDiscriminatorValue =
+                                                new HashMap<String, Class>();
+                                        classByDiscriminatorValue.put(
+                                                "board", io.vertesia.model.ViewBoardDisplay.class);
+                                        classByDiscriminatorValue.put(
+                                                "cards", io.vertesia.model.ViewCardsDisplay.class);
+                                        classByDiscriminatorValue.put(
+                                                "gallery",
+                                                io.vertesia.model.ViewGalleryDisplay.class);
+                                        classByDiscriminatorValue.put(
+                                                "list", io.vertesia.model.ViewListDisplay.class);
+                                        classByDiscriminatorValue.put(
+                                                "table", io.vertesia.model.ViewTableDisplay.class);
+                                        classByDiscriminatorValue.put(
+                                                "ViewDisplayConfiguration",
+                                                io.vertesia.model.ViewDisplayConfiguration.class);
+                                        return getClassByDiscriminator(
+                                                classByDiscriminatorValue,
+                                                getDiscriminatorValue(readElement, "type"));
+                                    }
+                                })
+                        .registerTypeSelector(
+                                io.vertesia.model.ViewNavigationItem.class,
+                                new TypeSelector<io.vertesia.model.ViewNavigationItem>() {
+                                    @Override
+                                    public Class<? extends io.vertesia.model.ViewNavigationItem>
+                                            getClassForElement(JsonElement readElement) {
+                                        Map<String, Class> classByDiscriminatorValue =
+                                                new HashMap<String, Class>();
+                                        classByDiscriminatorValue.put(
+                                                "collection",
+                                                io.vertesia.model.ViewCollectionNavigation.class);
+                                        classByDiscriminatorValue.put(
+                                                "hierarchy",
+                                                io.vertesia.model.ViewHierarchyNavigation.class);
+                                        classByDiscriminatorValue.put(
+                                                "location",
+                                                io.vertesia.model.ViewLocationNavigation.class);
+                                        classByDiscriminatorValue.put(
+                                                "range",
+                                                io.vertesia.model.ViewRangeNavigation.class);
+                                        classByDiscriminatorValue.put(
+                                                "terms",
+                                                io.vertesia.model.ViewTermsNavigation.class);
+                                        classByDiscriminatorValue.put(
+                                                "ViewNavigationItem",
+                                                io.vertesia.model.ViewNavigationItem.class);
+                                        return getClassByDiscriminator(
+                                                classByDiscriminatorValue,
+                                                getDiscriminatorValue(readElement, "source"));
+                                    }
+                                })
+                        .registerTypeSelector(
                                 io.vertesia.model.WorkflowHistory.class,
                                 new TypeSelector<io.vertesia.model.WorkflowHistory>() {
                                     @Override
@@ -812,6 +873,8 @@ public class JSON {
                 new io.vertesia.model.AgentTokenRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AgentToolDefinition.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AgenticViewSearchConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AggregatedTool.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1183,6 +1246,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.CreateUserGroupPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.CreateViewExperienceRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.CreateWorkflowRulePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.DSLActivityOptions.CustomTypeAdapterFactory());
@@ -1404,6 +1469,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ExaConfigurationInput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ExecuteViewRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ExecuteWorkflowPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ExecutionEnvironment.CustomTypeAdapterFactory());
@@ -1532,6 +1599,8 @@ public class JSON {
                 new io.vertesia.model.InCodePrompt.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.InCodeTypeRef.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.InCodeViewDefinition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.IndexingStatusResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1782,6 +1851,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.PostAgentRunUpdateResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.PreviewViewExperienceRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.PrincipalIdentity.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ProcessContextDefinition.CustomTypeAdapterFactory());
@@ -1825,7 +1896,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ProjectConfigurationEmbeddings.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.ProjectConfigurationIndexing.CustomTypeAdapterFactory());
+                new io.vertesia.model.ProjectIndexingConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ProjectIntakeConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1844,6 +1915,8 @@ public class JSON {
                 new io.vertesia.model.ProjectPluginsUpdatePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ProjectRef.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProjectSearchPropertyMapping.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ProjectTokenRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -2115,6 +2188,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UpdateUserPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.UpdateViewExperienceRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UsedSkill.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.User.CustomTypeAdapterFactory());
@@ -2146,6 +2221,84 @@ public class JSON {
                 new io.vertesia.model.VertexAIGrokOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.VideoMetadata.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewBoardCardConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewBoardColumn.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewBoardDisplay.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewCardsDisplay.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewCollectionNavigation.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewDisplayConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewExecutionDefinition.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewExecutionQueryPlan.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewExecutionResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewExecutionSearchConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewExecutionSearchResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewExecutionWarning.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewExperience.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewExperienceConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewExperienceLayout.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewExperienceScope.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewGalleryDisplay.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewHierarchyLevel.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewHierarchyNavigation.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewHit.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewHitAnnotation.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewKeyTermDefinition.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewListDisplay.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewLocationNavigation.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewNavigationItem.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewNavigationNode.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewNavigationResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewRangeDefinition.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewRangeNavigation.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewResultField.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewResultMedia.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewResultsConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewSearchConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewSearchFieldDefinition.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewSortClause.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewSortOption.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewTableColumn.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewTableDisplay.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ViewTermsNavigation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.VirtualEnvEntry.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

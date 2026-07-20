@@ -81,7 +81,7 @@ public class ProjectConfiguration {
     public static final String SERIALIZED_NAME_INDEXING = "indexing";
 
     @SerializedName(SERIALIZED_NAME_INDEXING)
-    @jakarta.annotation.Nullable private ProjectConfigurationIndexing indexing;
+    @jakarta.annotation.Nullable private ProjectIndexingConfiguration indexing;
 
     public static final String SERIALIZED_NAME_INTAKE = "intake";
 
@@ -252,20 +252,20 @@ public class ProjectConfiguration {
     }
 
     public ProjectConfiguration indexing(
-            @jakarta.annotation.Nullable ProjectConfigurationIndexing indexing) {
+            @jakarta.annotation.Nullable ProjectIndexingConfiguration indexing) {
         this.indexing = indexing;
         return this;
     }
 
     /**
-     * Get indexing
+     * Indexing configuration for this project. Controls whether indexing and querying are enabled at the project level.
      * @return indexing
      */
-    @jakarta.annotation.Nullable public ProjectConfigurationIndexing getIndexing() {
+    @jakarta.annotation.Nullable public ProjectIndexingConfiguration getIndexing() {
         return indexing;
     }
 
-    public void setIndexing(@jakarta.annotation.Nullable ProjectConfigurationIndexing indexing) {
+    public void setIndexing(@jakarta.annotation.Nullable ProjectIndexingConfiguration indexing) {
         this.indexing = indexing;
     }
 
@@ -567,7 +567,7 @@ public class ProjectConfiguration {
         }
         // validate the optional field `indexing`
         if (jsonObj.get("indexing") != null && !jsonObj.get("indexing").isJsonNull()) {
-            ProjectConfigurationIndexing.validateJsonElement(jsonObj.get("indexing"));
+            ProjectIndexingConfiguration.validateJsonElement(jsonObj.get("indexing"));
         }
         // validate the optional field `intake`
         if (jsonObj.get("intake") != null && !jsonObj.get("intake").isJsonNull()) {

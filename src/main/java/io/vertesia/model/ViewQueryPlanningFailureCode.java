@@ -20,29 +20,27 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Gets or Sets AppCapabilities
+ * Gets or Sets ViewQueryPlanningFailureCode
  */
-@JsonAdapter(AppCapabilities.Adapter.class)
-public enum AppCapabilities {
-    UI("ui"),
+@JsonAdapter(ViewQueryPlanningFailureCode.Adapter.class)
+public enum ViewQueryPlanningFailureCode {
+    INTERACTION_FAILED("interaction_failed"),
 
-    TOOLS("tools"),
+    INVALID_OUTPUT("invalid_output"),
 
-    INTERACTIONS("interactions"),
+    INVALID_QUERY("invalid_query"),
 
-    TYPES("types"),
+    LOW_CONFIDENCE("low_confidence"),
 
-    PROCESSES("processes"),
+    TIMEOUT("timeout"),
 
-    VIEWS("views"),
-
-    TEMPLATES("templates"),
+    UNKNOWN("unknown"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
-    AppCapabilities(String value) {
+    ViewQueryPlanningFailureCode(String value) {
         this.value = value;
     }
 
@@ -55,8 +53,8 @@ public enum AppCapabilities {
         return String.valueOf(value);
     }
 
-    public static AppCapabilities fromValue(String value) {
-        for (AppCapabilities b : AppCapabilities.values()) {
+    public static ViewQueryPlanningFailureCode fromValue(String value) {
+        for (ViewQueryPlanningFailureCode b : ViewQueryPlanningFailureCode.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
@@ -64,22 +62,23 @@ public enum AppCapabilities {
         return UNKNOWN_DEFAULT_OPEN_API;
     }
 
-    public static class Adapter extends TypeAdapter<AppCapabilities> {
+    public static class Adapter extends TypeAdapter<ViewQueryPlanningFailureCode> {
         @Override
-        public void write(final JsonWriter jsonWriter, final AppCapabilities enumeration)
+        public void write(
+                final JsonWriter jsonWriter, final ViewQueryPlanningFailureCode enumeration)
                 throws IOException {
             jsonWriter.value(enumeration.getValue());
         }
 
         @Override
-        public AppCapabilities read(final JsonReader jsonReader) throws IOException {
+        public ViewQueryPlanningFailureCode read(final JsonReader jsonReader) throws IOException {
             String value = jsonReader.nextString();
-            return AppCapabilities.fromValue(value);
+            return ViewQueryPlanningFailureCode.fromValue(value);
         }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         String value = jsonElement.getAsString();
-        AppCapabilities.fromValue(value);
+        ViewQueryPlanningFailureCode.fromValue(value);
     }
 }

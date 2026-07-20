@@ -18,35 +18,24 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
+import java.math.BigDecimal;
 
 /**
- * Gets or Sets AppCapabilities
+ * Gets or Sets ViewExperienceSchemaVersion
  */
-@JsonAdapter(AppCapabilities.Adapter.class)
-public enum AppCapabilities {
-    UI("ui"),
+@JsonAdapter(ViewExperienceSchemaVersion.Adapter.class)
+public enum ViewExperienceSchemaVersion {
+    NUMBER_1(new BigDecimal("1")),
 
-    TOOLS("tools"),
+    NUMBER_unknown_default_open_api(new BigDecimal("11184809"));
 
-    INTERACTIONS("interactions"),
+    private BigDecimal value;
 
-    TYPES("types"),
-
-    PROCESSES("processes"),
-
-    VIEWS("views"),
-
-    TEMPLATES("templates"),
-
-    UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
-
-    private String value;
-
-    AppCapabilities(String value) {
+    ViewExperienceSchemaVersion(BigDecimal value) {
         this.value = value;
     }
 
-    public String getValue() {
+    public BigDecimal getValue() {
         return value;
     }
 
@@ -55,31 +44,32 @@ public enum AppCapabilities {
         return String.valueOf(value);
     }
 
-    public static AppCapabilities fromValue(String value) {
-        for (AppCapabilities b : AppCapabilities.values()) {
+    public static ViewExperienceSchemaVersion fromValue(BigDecimal value) {
+        for (ViewExperienceSchemaVersion b : ViewExperienceSchemaVersion.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
         }
-        return UNKNOWN_DEFAULT_OPEN_API;
+        return NUMBER_unknown_default_open_api;
     }
 
-    public static class Adapter extends TypeAdapter<AppCapabilities> {
+    public static class Adapter extends TypeAdapter<ViewExperienceSchemaVersion> {
         @Override
-        public void write(final JsonWriter jsonWriter, final AppCapabilities enumeration)
+        public void write(
+                final JsonWriter jsonWriter, final ViewExperienceSchemaVersion enumeration)
                 throws IOException {
             jsonWriter.value(enumeration.getValue());
         }
 
         @Override
-        public AppCapabilities read(final JsonReader jsonReader) throws IOException {
+        public ViewExperienceSchemaVersion read(final JsonReader jsonReader) throws IOException {
             String value = jsonReader.nextString();
-            return AppCapabilities.fromValue(value);
+            return ViewExperienceSchemaVersion.fromValue(new BigDecimal(value));
         }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         String value = jsonElement.getAsString();
-        AppCapabilities.fromValue(value);
+        ViewExperienceSchemaVersion.fromValue(new BigDecimal(value));
     }
 }

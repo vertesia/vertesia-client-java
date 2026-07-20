@@ -20,29 +20,25 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Gets or Sets AppCapabilities
+ * Gets or Sets ViewSearchFieldType
  */
-@JsonAdapter(AppCapabilities.Adapter.class)
-public enum AppCapabilities {
-    UI("ui"),
+@JsonAdapter(ViewSearchFieldType.Adapter.class)
+public enum ViewSearchFieldType {
+    TEXT("text"),
 
-    TOOLS("tools"),
+    KEYWORD("keyword"),
 
-    INTERACTIONS("interactions"),
+    NUMBER("number"),
 
-    TYPES("types"),
+    DATE("date"),
 
-    PROCESSES("processes"),
-
-    VIEWS("views"),
-
-    TEMPLATES("templates"),
+    BOOLEAN("boolean"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
-    AppCapabilities(String value) {
+    ViewSearchFieldType(String value) {
         this.value = value;
     }
 
@@ -55,8 +51,8 @@ public enum AppCapabilities {
         return String.valueOf(value);
     }
 
-    public static AppCapabilities fromValue(String value) {
-        for (AppCapabilities b : AppCapabilities.values()) {
+    public static ViewSearchFieldType fromValue(String value) {
+        for (ViewSearchFieldType b : ViewSearchFieldType.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
@@ -64,22 +60,22 @@ public enum AppCapabilities {
         return UNKNOWN_DEFAULT_OPEN_API;
     }
 
-    public static class Adapter extends TypeAdapter<AppCapabilities> {
+    public static class Adapter extends TypeAdapter<ViewSearchFieldType> {
         @Override
-        public void write(final JsonWriter jsonWriter, final AppCapabilities enumeration)
+        public void write(final JsonWriter jsonWriter, final ViewSearchFieldType enumeration)
                 throws IOException {
             jsonWriter.value(enumeration.getValue());
         }
 
         @Override
-        public AppCapabilities read(final JsonReader jsonReader) throws IOException {
+        public ViewSearchFieldType read(final JsonReader jsonReader) throws IOException {
             String value = jsonReader.nextString();
-            return AppCapabilities.fromValue(value);
+            return ViewSearchFieldType.fromValue(value);
         }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         String value = jsonElement.getAsString();
-        AppCapabilities.fromValue(value);
+        ViewSearchFieldType.fromValue(value);
     }
 }

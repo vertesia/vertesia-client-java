@@ -20,29 +20,27 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Gets or Sets AppCapabilities
+ * Elasticsearch field types that may be explicitly assigned to content-object properties. Paths are relative to the object&#39;s &#x60;properties&#x60; field.
  */
-@JsonAdapter(AppCapabilities.Adapter.class)
-public enum AppCapabilities {
-    UI("ui"),
+@JsonAdapter(ProjectSearchPropertyType.Adapter.class)
+public enum ProjectSearchPropertyType {
+    KEYWORD("keyword"),
 
-    TOOLS("tools"),
+    TEXT("text"),
 
-    INTERACTIONS("interactions"),
+    BOOLEAN("boolean"),
 
-    TYPES("types"),
+    LONG("long"),
 
-    PROCESSES("processes"),
+    DOUBLE("double"),
 
-    VIEWS("views"),
-
-    TEMPLATES("templates"),
+    DATE("date"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
-    AppCapabilities(String value) {
+    ProjectSearchPropertyType(String value) {
         this.value = value;
     }
 
@@ -55,8 +53,8 @@ public enum AppCapabilities {
         return String.valueOf(value);
     }
 
-    public static AppCapabilities fromValue(String value) {
-        for (AppCapabilities b : AppCapabilities.values()) {
+    public static ProjectSearchPropertyType fromValue(String value) {
+        for (ProjectSearchPropertyType b : ProjectSearchPropertyType.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
@@ -64,22 +62,22 @@ public enum AppCapabilities {
         return UNKNOWN_DEFAULT_OPEN_API;
     }
 
-    public static class Adapter extends TypeAdapter<AppCapabilities> {
+    public static class Adapter extends TypeAdapter<ProjectSearchPropertyType> {
         @Override
-        public void write(final JsonWriter jsonWriter, final AppCapabilities enumeration)
+        public void write(final JsonWriter jsonWriter, final ProjectSearchPropertyType enumeration)
                 throws IOException {
             jsonWriter.value(enumeration.getValue());
         }
 
         @Override
-        public AppCapabilities read(final JsonReader jsonReader) throws IOException {
+        public ProjectSearchPropertyType read(final JsonReader jsonReader) throws IOException {
             String value = jsonReader.nextString();
-            return AppCapabilities.fromValue(value);
+            return ProjectSearchPropertyType.fromValue(value);
         }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         String value = jsonElement.getAsString();
-        AppCapabilities.fromValue(value);
+        ProjectSearchPropertyType.fromValue(value);
     }
 }

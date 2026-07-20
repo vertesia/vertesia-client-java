@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -31,12 +30,12 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * ResourceRef
+ * A View definition contributed by application code through the app package endpoint.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class ResourceRef {
+public class InCodeViewDefinition {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
@@ -49,51 +48,36 @@ public class ResourceRef {
     @jakarta.annotation.Nonnull
     private String name;
 
-    public static final String SERIALIZED_NAME_TYPE = "type";
+    public static final String SERIALIZED_NAME_TITLE = "title";
 
-    @SerializedName(SERIALIZED_NAME_TYPE)
-    @jakarta.annotation.Nonnull
-    private String type;
-
-    public static final String SERIALIZED_NAME_EMAIL = "email";
-
-    @SerializedName(SERIALIZED_NAME_EMAIL)
-    @jakarta.annotation.Nullable private String email;
+    @SerializedName(SERIALIZED_NAME_TITLE)
+    @jakarta.annotation.Nullable private String title;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
     @jakarta.annotation.Nullable private String description;
 
-    public static final String SERIALIZED_NAME_VERSION = "version";
-
-    @SerializedName(SERIALIZED_NAME_VERSION)
-    @jakarta.annotation.Nullable private BigDecimal version;
-
-    public static final String SERIALIZED_NAME_STATUS = "status";
-
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    @jakarta.annotation.Nullable private String status;
-
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
     @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
-    public static final String SERIALIZED_NAME_ENDPOINT = "endpoint";
+    public static final String SERIALIZED_NAME_DEFINITION = "definition";
 
-    @SerializedName(SERIALIZED_NAME_ENDPOINT)
-    @jakarta.annotation.Nullable private String endpoint;
+    @SerializedName(SERIALIZED_NAME_DEFINITION)
+    @jakarta.annotation.Nonnull
+    private ViewExperienceConfiguration definition;
 
-    public ResourceRef() {}
+    public InCodeViewDefinition() {}
 
-    public ResourceRef id(@jakarta.annotation.Nonnull String id) {
+    public InCodeViewDefinition id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
 
     /**
-     * Get id
+     * App-local id. Studio normalizes it to app:&lt;app-name&gt;:&lt;id&gt;.
      * @return id
      */
     @jakarta.annotation.Nonnull
@@ -105,13 +89,13 @@ public class ResourceRef {
         this.id = id;
     }
 
-    public ResourceRef name(@jakarta.annotation.Nonnull String name) {
+    public InCodeViewDefinition name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
 
     /**
-     * Get name
+     * App-local name used for lookup and diagnostics.
      * @return name
      */
     @jakarta.annotation.Nonnull
@@ -123,42 +107,24 @@ public class ResourceRef {
         this.name = name;
     }
 
-    public ResourceRef type(@jakarta.annotation.Nonnull String type) {
-        this.type = type;
+    public InCodeViewDefinition title(@jakarta.annotation.Nullable String title) {
+        this.title = title;
         return this;
     }
 
     /**
-     * Get type
-     * @return type
+     * Get title
+     * @return title
      */
-    @jakarta.annotation.Nonnull
-    public String getType() {
-        return type;
+    @jakarta.annotation.Nullable public String getTitle() {
+        return title;
     }
 
-    public void setType(@jakarta.annotation.Nonnull String type) {
-        this.type = type;
+    public void setTitle(@jakarta.annotation.Nullable String title) {
+        this.title = title;
     }
 
-    public ResourceRef email(@jakarta.annotation.Nullable String email) {
-        this.email = email;
-        return this;
-    }
-
-    /**
-     * Get email
-     * @return email
-     */
-    @jakarta.annotation.Nullable public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(@jakarta.annotation.Nullable String email) {
-        this.email = email;
-    }
-
-    public ResourceRef description(@jakarta.annotation.Nullable String description) {
+    public InCodeViewDefinition description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -175,46 +141,12 @@ public class ResourceRef {
         this.description = description;
     }
 
-    public ResourceRef version(@jakarta.annotation.Nullable BigDecimal version) {
-        this.version = version;
-        return this;
-    }
-
-    /**
-     * Get version
-     * @return version
-     */
-    @jakarta.annotation.Nullable public BigDecimal getVersion() {
-        return version;
-    }
-
-    public void setVersion(@jakarta.annotation.Nullable BigDecimal version) {
-        this.version = version;
-    }
-
-    public ResourceRef status(@jakarta.annotation.Nullable String status) {
-        this.status = status;
-        return this;
-    }
-
-    /**
-     * Get status
-     * @return status
-     */
-    @jakarta.annotation.Nullable public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(@jakarta.annotation.Nullable String status) {
-        this.status = status;
-    }
-
-    public ResourceRef tags(@jakarta.annotation.Nullable List<String> tags) {
+    public InCodeViewDefinition tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
 
-    public ResourceRef addTagsItem(String tagsItem) {
+    public InCodeViewDefinition addTagsItem(String tagsItem) {
         if (this.tags == null) {
             this.tags = new ArrayList<>();
         }
@@ -234,21 +166,23 @@ public class ResourceRef {
         this.tags = tags;
     }
 
-    public ResourceRef endpoint(@jakarta.annotation.Nullable String endpoint) {
-        this.endpoint = endpoint;
+    public InCodeViewDefinition definition(
+            @jakarta.annotation.Nonnull ViewExperienceConfiguration definition) {
+        this.definition = definition;
         return this;
     }
 
     /**
-     * Get endpoint
-     * @return endpoint
+     * Get definition
+     * @return definition
      */
-    @jakarta.annotation.Nullable public String getEndpoint() {
-        return endpoint;
+    @jakarta.annotation.Nonnull
+    public ViewExperienceConfiguration getDefinition() {
+        return definition;
     }
 
-    public void setEndpoint(@jakarta.annotation.Nullable String endpoint) {
-        this.endpoint = endpoint;
+    public void setDefinition(@jakarta.annotation.Nonnull ViewExperienceConfiguration definition) {
+        this.definition = definition;
     }
 
     @Override
@@ -259,36 +193,30 @@ public class ResourceRef {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ResourceRef resourceRef = (ResourceRef) o;
-        return Objects.equals(this.id, resourceRef.id)
-                && Objects.equals(this.name, resourceRef.name)
-                && Objects.equals(this.type, resourceRef.type)
-                && Objects.equals(this.email, resourceRef.email)
-                && Objects.equals(this.description, resourceRef.description)
-                && Objects.equals(this.version, resourceRef.version)
-                && Objects.equals(this.status, resourceRef.status)
-                && Objects.equals(this.tags, resourceRef.tags)
-                && Objects.equals(this.endpoint, resourceRef.endpoint);
+        InCodeViewDefinition inCodeViewDefinition = (InCodeViewDefinition) o;
+        return Objects.equals(this.id, inCodeViewDefinition.id)
+                && Objects.equals(this.name, inCodeViewDefinition.name)
+                && Objects.equals(this.title, inCodeViewDefinition.title)
+                && Objects.equals(this.description, inCodeViewDefinition.description)
+                && Objects.equals(this.tags, inCodeViewDefinition.tags)
+                && Objects.equals(this.definition, inCodeViewDefinition.definition);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, type, email, description, version, status, tags, endpoint);
+        return Objects.hash(id, name, title, description, tags, definition);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ResourceRef {\n");
+        sb.append("class InCodeViewDefinition {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    type: ").append(toIndentedString(type)).append("\n");
-        sb.append("    email: ").append(toIndentedString(email)).append("\n");
+        sb.append("    title: ").append(toIndentedString(title)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
-        sb.append("    version: ").append(toIndentedString(version)).append("\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-        sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
+        sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -308,41 +236,32 @@ public class ResourceRef {
         // a set of all properties/fields (JSON key names)
         openapiFields =
                 new HashSet<String>(
-                        Arrays.asList(
-                                "id",
-                                "name",
-                                "type",
-                                "email",
-                                "description",
-                                "version",
-                                "status",
-                                "tags",
-                                "endpoint"));
+                        Arrays.asList("id", "name", "title", "description", "tags", "definition"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "type"));
+        openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "definition"));
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to ResourceRef
+     * @throws IOException if the JSON Element is invalid with respect to InCodeViewDefinition
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ResourceRef.openapiRequiredFields
+            if (!InCodeViewDefinition.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 java.util.Locale.ROOT,
-                                "The required field(s) %s in ResourceRef is not found in the empty JSON string",
-                                ResourceRef.openapiRequiredFields.toString()));
+                                "The required field(s) %s in InCodeViewDefinition is not found in the empty JSON string",
+                                InCodeViewDefinition.openapiRequiredFields.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ResourceRef.openapiRequiredFields) {
+        for (String requiredField : InCodeViewDefinition.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -367,20 +286,13 @@ public class ResourceRef {
                             "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("name").toString()));
         }
-        if (!jsonObj.get("type").isJsonPrimitive()) {
+        if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+                && !jsonObj.get("title").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `type` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("type").toString()));
-        }
-        if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull())
-                && !jsonObj.get("email").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `email` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("email").toString()));
+                            "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("title").toString()));
         }
         if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
                 && !jsonObj.get("description").isJsonPrimitive()) {
@@ -389,14 +301,6 @@ public class ResourceRef {
                             java.util.Locale.ROOT,
                             "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("description").toString()));
-        }
-        if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
-                && !jsonObj.get("status").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `status` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("status").toString()));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("tags") != null
@@ -408,37 +312,32 @@ public class ResourceRef {
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
         }
-        if ((jsonObj.get("endpoint") != null && !jsonObj.get("endpoint").isJsonNull())
-                && !jsonObj.get("endpoint").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `endpoint` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("endpoint").toString()));
-        }
+        // validate the required field `definition`
+        ViewExperienceConfiguration.validateJsonElement(jsonObj.get("definition"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ResourceRef.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ResourceRef' and its subtypes
+            if (!InCodeViewDefinition.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'InCodeViewDefinition' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ResourceRef> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(ResourceRef.class));
+            final TypeAdapter<InCodeViewDefinition> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(InCodeViewDefinition.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ResourceRef>() {
+                    new TypeAdapter<InCodeViewDefinition>() {
                         @Override
-                        public void write(JsonWriter out, ResourceRef value) throws IOException {
+                        public void write(JsonWriter out, InCodeViewDefinition value)
+                                throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ResourceRef read(JsonReader in) throws IOException {
+                        public InCodeViewDefinition read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -448,18 +347,18 @@ public class ResourceRef {
     }
 
     /**
-     * Create an instance of ResourceRef given an JSON string
+     * Create an instance of InCodeViewDefinition given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ResourceRef
-     * @throws IOException if the JSON string is invalid with respect to ResourceRef
+     * @return An instance of InCodeViewDefinition
+     * @throws IOException if the JSON string is invalid with respect to InCodeViewDefinition
      */
-    public static ResourceRef fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ResourceRef.class);
+    public static InCodeViewDefinition fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, InCodeViewDefinition.class);
     }
 
     /**
-     * Convert an instance of ResourceRef to an JSON string
+     * Convert an instance of InCodeViewDefinition to an JSON string
      *
      * @return JSON string
      */
