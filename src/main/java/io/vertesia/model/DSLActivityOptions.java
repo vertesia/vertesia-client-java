@@ -39,6 +39,11 @@ public class DSLActivityOptions {
     @SerializedName(SERIALIZED_NAME_START_TO_CLOSE_TIMEOUT)
     @jakarta.annotation.Nullable private DurationValue startToCloseTimeout;
 
+    public static final String SERIALIZED_NAME_HEARTBEAT_TIMEOUT = "heartbeatTimeout";
+
+    @SerializedName(SERIALIZED_NAME_HEARTBEAT_TIMEOUT)
+    @jakarta.annotation.Nullable private DurationValue heartbeatTimeout;
+
     public static final String SERIALIZED_NAME_SCHEDULE_TO_START_TIMEOUT = "scheduleToStartTimeout";
 
     @SerializedName(SERIALIZED_NAME_SCHEDULE_TO_START_TIMEOUT)
@@ -73,6 +78,24 @@ public class DSLActivityOptions {
     public void setStartToCloseTimeout(
             @jakarta.annotation.Nullable DurationValue startToCloseTimeout) {
         this.startToCloseTimeout = startToCloseTimeout;
+    }
+
+    public DSLActivityOptions heartbeatTimeout(
+            @jakarta.annotation.Nullable DurationValue heartbeatTimeout) {
+        this.heartbeatTimeout = heartbeatTimeout;
+        return this;
+    }
+
+    /**
+     * Get heartbeatTimeout
+     * @return heartbeatTimeout
+     */
+    @jakarta.annotation.Nullable public DurationValue getHeartbeatTimeout() {
+        return heartbeatTimeout;
+    }
+
+    public void setHeartbeatTimeout(@jakarta.annotation.Nullable DurationValue heartbeatTimeout) {
+        this.heartbeatTimeout = heartbeatTimeout;
     }
 
     public DSLActivityOptions scheduleToStartTimeout(
@@ -140,6 +163,7 @@ public class DSLActivityOptions {
         }
         DSLActivityOptions dsLActivityOptions = (DSLActivityOptions) o;
         return Objects.equals(this.startToCloseTimeout, dsLActivityOptions.startToCloseTimeout)
+                && Objects.equals(this.heartbeatTimeout, dsLActivityOptions.heartbeatTimeout)
                 && Objects.equals(
                         this.scheduleToStartTimeout, dsLActivityOptions.scheduleToStartTimeout)
                 && Objects.equals(
@@ -150,7 +174,11 @@ public class DSLActivityOptions {
     @Override
     public int hashCode() {
         return Objects.hash(
-                startToCloseTimeout, scheduleToStartTimeout, scheduleToCloseTimeout, retry);
+                startToCloseTimeout,
+                heartbeatTimeout,
+                scheduleToStartTimeout,
+                scheduleToCloseTimeout,
+                retry);
     }
 
     @Override
@@ -160,6 +188,7 @@ public class DSLActivityOptions {
         sb.append("    startToCloseTimeout: ")
                 .append(toIndentedString(startToCloseTimeout))
                 .append("\n");
+        sb.append("    heartbeatTimeout: ").append(toIndentedString(heartbeatTimeout)).append("\n");
         sb.append("    scheduleToStartTimeout: ")
                 .append(toIndentedString(scheduleToStartTimeout))
                 .append("\n");
@@ -188,6 +217,7 @@ public class DSLActivityOptions {
                 new HashSet<String>(
                         Arrays.asList(
                                 "startToCloseTimeout",
+                                "heartbeatTimeout",
                                 "scheduleToStartTimeout",
                                 "scheduleToCloseTimeout",
                                 "retry"));
@@ -218,6 +248,11 @@ public class DSLActivityOptions {
         if (jsonObj.get("startToCloseTimeout") != null
                 && !jsonObj.get("startToCloseTimeout").isJsonNull()) {
             DurationValue.validateJsonElement(jsonObj.get("startToCloseTimeout"));
+        }
+        // validate the optional field `heartbeatTimeout`
+        if (jsonObj.get("heartbeatTimeout") != null
+                && !jsonObj.get("heartbeatTimeout").isJsonNull()) {
+            DurationValue.validateJsonElement(jsonObj.get("heartbeatTimeout"));
         }
         // validate the optional field `scheduleToStartTimeout`
         if (jsonObj.get("scheduleToStartTimeout") != null
