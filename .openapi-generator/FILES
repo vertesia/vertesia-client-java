@@ -401,6 +401,7 @@ src/main/java/io/vertesia/model/EmbeddingsTokenUsage.java
 src/main/java/io/vertesia/model/EnableEnvironmentModelPayload.java
 src/main/java/io/vertesia/model/EnvironmentTokenRequest.java
 src/main/java/io/vertesia/model/ErrorResponse.java
+src/main/java/io/vertesia/model/ErrorStringMessageString.java
 src/main/java/io/vertesia/model/EventCategory.java
 src/main/java/io/vertesia/model/EventDeliveryIntentStatus.java
 src/main/java/io/vertesia/model/EventDeliveryIntentSummary.java
