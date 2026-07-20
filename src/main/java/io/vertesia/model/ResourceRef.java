@@ -55,6 +55,11 @@ public class ResourceRef {
     @jakarta.annotation.Nonnull
     private String type;
 
+    public static final String SERIALIZED_NAME_EMAIL = "email";
+
+    @SerializedName(SERIALIZED_NAME_EMAIL)
+    @jakarta.annotation.Nullable private String email;
+
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -134,6 +139,23 @@ public class ResourceRef {
 
     public void setType(@jakarta.annotation.Nonnull String type) {
         this.type = type;
+    }
+
+    public ResourceRef email(@jakarta.annotation.Nullable String email) {
+        this.email = email;
+        return this;
+    }
+
+    /**
+     * Get email
+     * @return email
+     */
+    @jakarta.annotation.Nullable public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(@jakarta.annotation.Nullable String email) {
+        this.email = email;
     }
 
     public ResourceRef description(@jakarta.annotation.Nullable String description) {
@@ -241,6 +263,7 @@ public class ResourceRef {
         return Objects.equals(this.id, resourceRef.id)
                 && Objects.equals(this.name, resourceRef.name)
                 && Objects.equals(this.type, resourceRef.type)
+                && Objects.equals(this.email, resourceRef.email)
                 && Objects.equals(this.description, resourceRef.description)
                 && Objects.equals(this.version, resourceRef.version)
                 && Objects.equals(this.status, resourceRef.status)
@@ -250,7 +273,7 @@ public class ResourceRef {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, type, description, version, status, tags, endpoint);
+        return Objects.hash(id, name, type, email, description, version, status, tags, endpoint);
     }
 
     @Override
@@ -260,6 +283,7 @@ public class ResourceRef {
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    email: ").append(toIndentedString(email)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    version: ").append(toIndentedString(version)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -288,6 +312,7 @@ public class ResourceRef {
                                 "id",
                                 "name",
                                 "type",
+                                "email",
                                 "description",
                                 "version",
                                 "status",
@@ -348,6 +373,14 @@ public class ResourceRef {
                             java.util.Locale.ROOT,
                             "Expected the field `type` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("type").toString()));
+        }
+        if ((jsonObj.get("email") != null && !jsonObj.get("email").isJsonNull())
+                && !jsonObj.get("email").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `email` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("email").toString()));
         }
         if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
                 && !jsonObj.get("description").isJsonPrimitive()) {
