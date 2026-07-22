@@ -42,6 +42,11 @@ public class ExecutionEnvironmentSettings {
     @SerializedName(SERIALIZED_NAME_BUCKET_ACCESS_PRINCIPAL)
     @jakarta.annotation.Nullable private String bucketAccessPrincipal;
 
+    public static final String SERIALIZED_NAME_DEFAULT_HEADERS = "default_headers";
+
+    @SerializedName(SERIALIZED_NAME_DEFAULT_HEADERS)
+    @jakarta.annotation.Nullable private Map<String, String> defaultHeaders;
+
     public ExecutionEnvironmentSettings() {}
 
     public ExecutionEnvironmentSettings bucketAccessPrincipal(
@@ -61,6 +66,33 @@ public class ExecutionEnvironmentSettings {
     public void setBucketAccessPrincipal(
             @jakarta.annotation.Nullable String bucketAccessPrincipal) {
         this.bucketAccessPrincipal = bucketAccessPrincipal;
+    }
+
+    public ExecutionEnvironmentSettings defaultHeaders(
+            @jakarta.annotation.Nullable Map<String, String> defaultHeaders) {
+        this.defaultHeaders = defaultHeaders;
+        return this;
+    }
+
+    public ExecutionEnvironmentSettings putDefaultHeadersItem(
+            String key, String defaultHeadersItem) {
+        if (this.defaultHeaders == null) {
+            this.defaultHeaders = new HashMap<>();
+        }
+        this.defaultHeaders.put(key, defaultHeadersItem);
+        return this;
+    }
+
+    /**
+     * Custom HTTP headers sent by OpenAI-compatible environments.
+     * @return defaultHeaders
+     */
+    @jakarta.annotation.Nullable public Map<String, String> getDefaultHeaders() {
+        return defaultHeaders;
+    }
+
+    public void setDefaultHeaders(@jakarta.annotation.Nullable Map<String, String> defaultHeaders) {
+        this.defaultHeaders = defaultHeaders;
     }
 
     /**
@@ -121,6 +153,7 @@ public class ExecutionEnvironmentSettings {
         return Objects.equals(
                         this.bucketAccessPrincipal,
                         executionEnvironmentSettings.bucketAccessPrincipal)
+                && Objects.equals(this.defaultHeaders, executionEnvironmentSettings.defaultHeaders)
                 && Objects.equals(
                         this.additionalProperties,
                         executionEnvironmentSettings.additionalProperties);
@@ -128,7 +161,7 @@ public class ExecutionEnvironmentSettings {
 
     @Override
     public int hashCode() {
-        return Objects.hash(bucketAccessPrincipal, additionalProperties);
+        return Objects.hash(bucketAccessPrincipal, defaultHeaders, additionalProperties);
     }
 
     @Override
@@ -138,6 +171,7 @@ public class ExecutionEnvironmentSettings {
         sb.append("    bucketAccessPrincipal: ")
                 .append(toIndentedString(bucketAccessPrincipal))
                 .append("\n");
+        sb.append("    defaultHeaders: ").append(toIndentedString(defaultHeaders)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -158,7 +192,8 @@ public class ExecutionEnvironmentSettings {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("bucket_access_principal"));
+        openapiFields =
+                new HashSet<String>(Arrays.asList("bucket_access_principal", "default_headers"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
