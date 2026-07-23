@@ -80,6 +80,9 @@ src/main/java/io/vertesia/model/AgentEventDeliveryTarget.java
 src/main/java/io/vertesia/model/AgentMessageDetails.java
 src/main/java/io/vertesia/model/AgentMessageDetailsFilesInner.java
 src/main/java/io/vertesia/model/AgentMessageType.java
+src/main/java/io/vertesia/model/AgentResourceAction.java
+src/main/java/io/vertesia/model/AgentResourceReference.java
+src/main/java/io/vertesia/model/AgentResourceType.java
 src/main/java/io/vertesia/model/AgentRun.java
 src/main/java/io/vertesia/model/AgentRunArchiveState.java
 src/main/java/io/vertesia/model/AgentRunResponse.java
@@ -841,6 +844,7 @@ src/main/java/io/vertesia/model/ToolCollectionObject.java
 src/main/java/io/vertesia/model/ToolDefinition.java
 src/main/java/io/vertesia/model/ToolReference.java
 src/main/java/io/vertesia/model/ToolResult.java
+src/main/java/io/vertesia/model/ToolResultMeta.java
 src/main/java/io/vertesia/model/ToolSource.java
 src/main/java/io/vertesia/model/ToolUse.java
 src/main/java/io/vertesia/model/ToolValidationResult.java

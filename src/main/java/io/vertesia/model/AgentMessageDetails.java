@@ -280,6 +280,11 @@ public class AgentMessageDetails {
     @SerializedName(SERIALIZED_NAME_PLAN)
     @jakarta.annotation.Nullable private List<PlanTask> plan = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_RESOURCES = "resources";
+
+    @SerializedName(SERIALIZED_NAME_RESOURCES)
+    @jakarta.annotation.Nullable private List<AgentResourceReference> resources = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_STREAMING_ID = "streaming_id";
 
     @SerializedName(SERIALIZED_NAME_STREAMING_ID)
@@ -877,6 +882,32 @@ public class AgentMessageDetails {
         this.plan = plan;
     }
 
+    public AgentMessageDetails resources(
+            @jakarta.annotation.Nullable List<AgentResourceReference> resources) {
+        this.resources = resources;
+        return this;
+    }
+
+    public AgentMessageDetails addResourcesItem(AgentResourceReference resourcesItem) {
+        if (this.resources == null) {
+            this.resources = new ArrayList<>();
+        }
+        this.resources.add(resourcesItem);
+        return this;
+    }
+
+    /**
+     * Deep-linkable references to resources a tool created/updated/deleted (see AgentResourceReference).
+     * @return resources
+     */
+    @jakarta.annotation.Nullable public List<AgentResourceReference> getResources() {
+        return resources;
+    }
+
+    public void setResources(@jakarta.annotation.Nullable List<AgentResourceReference> resources) {
+        this.resources = resources;
+    }
+
     public AgentMessageDetails streamingId(@jakarta.annotation.Nullable String streamingId) {
         this.streamingId = streamingId;
         return this;
@@ -1077,6 +1108,7 @@ public class AgentMessageDetails {
                 && Objects.equals(this.outputFiles, agentMessageDetails.outputFiles)
                 && Objects.equals(this.files, agentMessageDetails.files)
                 && Objects.equals(this.plan, agentMessageDetails.plan)
+                && Objects.equals(this.resources, agentMessageDetails.resources)
                 && Objects.equals(this.streamingId, agentMessageDetails.streamingId)
                 && Objects.equals(this.streamingIdScope, agentMessageDetails.streamingIdScope)
                 && Objects.equals(this.chunkIndex, agentMessageDetails.chunkIndex)
@@ -1124,6 +1156,7 @@ public class AgentMessageDetails {
                 outputFiles,
                 files,
                 plan,
+                resources,
                 streamingId,
                 streamingIdScope,
                 chunkIndex,
@@ -1171,6 +1204,7 @@ public class AgentMessageDetails {
         sb.append("    outputFiles: ").append(toIndentedString(outputFiles)).append("\n");
         sb.append("    files: ").append(toIndentedString(files)).append("\n");
         sb.append("    plan: ").append(toIndentedString(plan)).append("\n");
+        sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
         sb.append("    streamingId: ").append(toIndentedString(streamingId)).append("\n");
         sb.append("    streamingIdScope: ").append(toIndentedString(streamingIdScope)).append("\n");
         sb.append("    chunkIndex: ").append(toIndentedString(chunkIndex)).append("\n");
@@ -1225,6 +1259,7 @@ public class AgentMessageDetails {
                                 "outputFiles",
                                 "files",
                                 "plan",
+                                "resources",
                                 "streaming_id",
                                 "streaming_id_scope",
                                 "chunk_index",
@@ -1427,6 +1462,25 @@ public class AgentMessageDetails {
                 // validate the optional field `plan` (array)
                 for (int i = 0; i < jsonArrayplan.size(); i++) {
                     PlanTask.validateJsonElement(jsonArrayplan.get(i));
+                }
+                ;
+            }
+        }
+        if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonNull()) {
+            JsonArray jsonArrayresources = jsonObj.getAsJsonArray("resources");
+            if (jsonArrayresources != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("resources").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `resources` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("resources").toString()));
+                }
+
+                // validate the optional field `resources` (array)
+                for (int i = 0; i < jsonArrayresources.size(); i++) {
+                    AgentResourceReference.validateJsonElement(jsonArrayresources.get(i));
                 }
                 ;
             }
