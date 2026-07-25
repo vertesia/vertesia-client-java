@@ -33,12 +33,13 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * ContentObjectTypeCatalogEntry
+ * PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class ContentObjectTypeCatalogEntry {
+public
+class PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing {
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
@@ -96,29 +97,12 @@ public class ContentObjectTypeCatalogEntry {
     @SerializedName(SERIALIZED_NAME_EDITING)
     @jakarta.annotation.Nullable private ContentTypeEditingPolicy editing;
 
-    public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing() {}
 
-    @SerializedName(SERIALIZED_NAME_UPDATED_BY)
-    @jakarta.annotation.Nullable private String updatedBy;
-
-    public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
-
-    @SerializedName(SERIALIZED_NAME_CREATED_BY)
-    @jakarta.annotation.Nullable private String createdBy;
-
-    public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-
-    @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @jakarta.annotation.Nullable private String createdAt;
-
-    public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-
-    @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @jakarta.annotation.Nullable private String updatedAt;
-
-    public ContentObjectTypeCatalogEntry() {}
-
-    public ContentObjectTypeCatalogEntry id(@jakarta.annotation.Nonnull String id) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            id(@jakarta.annotation.Nonnull String id) {
         this.id = id;
         return this;
     }
@@ -136,7 +120,9 @@ public class ContentObjectTypeCatalogEntry {
         this.id = id;
     }
 
-    public ContentObjectTypeCatalogEntry name(@jakarta.annotation.Nonnull String name) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -154,8 +140,9 @@ public class ContentObjectTypeCatalogEntry {
         this.name = name;
     }
 
-    public ContentObjectTypeCatalogEntry description(
-            @jakarta.annotation.Nullable String description) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            description(@jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
     }
@@ -172,12 +159,16 @@ public class ContentObjectTypeCatalogEntry {
         this.description = description;
     }
 
-    public ContentObjectTypeCatalogEntry tags(@jakarta.annotation.Nullable List<String> tags) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
 
-    public ContentObjectTypeCatalogEntry addTagsItem(String tagsItem) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            addTagsItem(String tagsItem) {
         if (this.tags == null) {
             this.tags = new ArrayList<>();
         }
@@ -197,13 +188,16 @@ public class ContentObjectTypeCatalogEntry {
         this.tags = tags;
     }
 
-    public ContentObjectTypeCatalogEntry objectSchema(
-            @jakarta.annotation.Nullable Map<String, Object> objectSchema) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            objectSchema(@jakarta.annotation.Nullable Map<String, Object> objectSchema) {
         this.objectSchema = objectSchema;
         return this;
     }
 
-    public ContentObjectTypeCatalogEntry putObjectSchemaItem(String key, Object objectSchemaItem) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            putObjectSchemaItem(String key, Object objectSchemaItem) {
         if (this.objectSchema == null) {
             this.objectSchema = new HashMap<>();
         }
@@ -223,13 +217,16 @@ public class ContentObjectTypeCatalogEntry {
         this.objectSchema = objectSchema;
     }
 
-    public ContentObjectTypeCatalogEntry tableLayout(
-            @jakarta.annotation.Nullable List<ColumnLayout> tableLayout) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            tableLayout(@jakarta.annotation.Nullable List<ColumnLayout> tableLayout) {
         this.tableLayout = tableLayout;
         return this;
     }
 
-    public ContentObjectTypeCatalogEntry addTableLayoutItem(ColumnLayout tableLayoutItem) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            addTableLayoutItem(ColumnLayout tableLayoutItem) {
         if (this.tableLayout == null) {
             this.tableLayout = new ArrayList<>();
         }
@@ -249,8 +246,9 @@ public class ContentObjectTypeCatalogEntry {
         this.tableLayout = tableLayout;
     }
 
-    public ContentObjectTypeCatalogEntry isChunkable(
-            @jakarta.annotation.Nullable Boolean isChunkable) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            isChunkable(@jakarta.annotation.Nullable Boolean isChunkable) {
         this.isChunkable = isChunkable;
         return this;
     }
@@ -267,8 +265,9 @@ public class ContentObjectTypeCatalogEntry {
         this.isChunkable = isChunkable;
     }
 
-    public ContentObjectTypeCatalogEntry strictMode(
-            @jakarta.annotation.Nullable Boolean strictMode) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            strictMode(@jakarta.annotation.Nullable Boolean strictMode) {
         this.strictMode = strictMode;
         return this;
     }
@@ -285,8 +284,9 @@ public class ContentObjectTypeCatalogEntry {
         this.strictMode = strictMode;
     }
 
-    public ContentObjectTypeCatalogEntry status(
-            @jakarta.annotation.Nullable ContentObjectTypeStatus status) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            status(@jakarta.annotation.Nullable ContentObjectTypeStatus status) {
         this.status = status;
         return this;
     }
@@ -303,8 +303,9 @@ public class ContentObjectTypeCatalogEntry {
         this.status = status;
     }
 
-    public ContentObjectTypeCatalogEntry intake(
-            @jakarta.annotation.Nullable ContentTypeIntakePolicy intake) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            intake(@jakarta.annotation.Nullable ContentTypeIntakePolicy intake) {
         this.intake = intake;
         return this;
     }
@@ -321,8 +322,9 @@ public class ContentObjectTypeCatalogEntry {
         this.intake = intake;
     }
 
-    public ContentObjectTypeCatalogEntry editing(
-            @jakarta.annotation.Nullable ContentTypeEditingPolicy editing) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            editing(@jakarta.annotation.Nullable ContentTypeEditingPolicy editing) {
         this.editing = editing;
         return this;
     }
@@ -339,74 +341,6 @@ public class ContentObjectTypeCatalogEntry {
         this.editing = editing;
     }
 
-    public ContentObjectTypeCatalogEntry updatedBy(@jakarta.annotation.Nullable String updatedBy) {
-        this.updatedBy = updatedBy;
-        return this;
-    }
-
-    /**
-     * Get updatedBy
-     * @return updatedBy
-     */
-    @jakarta.annotation.Nullable public String getUpdatedBy() {
-        return updatedBy;
-    }
-
-    public void setUpdatedBy(@jakarta.annotation.Nullable String updatedBy) {
-        this.updatedBy = updatedBy;
-    }
-
-    public ContentObjectTypeCatalogEntry createdBy(@jakarta.annotation.Nullable String createdBy) {
-        this.createdBy = createdBy;
-        return this;
-    }
-
-    /**
-     * Get createdBy
-     * @return createdBy
-     */
-    @jakarta.annotation.Nullable public String getCreatedBy() {
-        return createdBy;
-    }
-
-    public void setCreatedBy(@jakarta.annotation.Nullable String createdBy) {
-        this.createdBy = createdBy;
-    }
-
-    public ContentObjectTypeCatalogEntry createdAt(@jakarta.annotation.Nullable String createdAt) {
-        this.createdAt = createdAt;
-        return this;
-    }
-
-    /**
-     * Get createdAt
-     * @return createdAt
-     */
-    @jakarta.annotation.Nullable public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(@jakarta.annotation.Nullable String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public ContentObjectTypeCatalogEntry updatedAt(@jakarta.annotation.Nullable String updatedAt) {
-        this.updatedAt = updatedAt;
-        return this;
-    }
-
-    /**
-     * Get updatedAt
-     * @return updatedAt
-     */
-    @jakarta.annotation.Nullable public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(@jakarta.annotation.Nullable String updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -420,9 +354,11 @@ public class ContentObjectTypeCatalogEntry {
      *
      * @param key name of the property
      * @param value value of the property
-     * @return the ContentObjectTypeCatalogEntry instance itself
+     * @return the PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing instance itself
      */
-    public ContentObjectTypeCatalogEntry putAdditionalProperty(String key, Object value) {
+    public
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            putAdditionalProperty(String key, Object value) {
         if (this.additionalProperties == null) {
             this.additionalProperties = new HashMap<String, Object>();
         }
@@ -460,26 +396,58 @@ public class ContentObjectTypeCatalogEntry {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ContentObjectTypeCatalogEntry contentObjectTypeCatalogEntry =
-                (ContentObjectTypeCatalogEntry) o;
-        return Objects.equals(this.id, contentObjectTypeCatalogEntry.id)
-                && Objects.equals(this.name, contentObjectTypeCatalogEntry.name)
-                && Objects.equals(this.description, contentObjectTypeCatalogEntry.description)
-                && Objects.equals(this.tags, contentObjectTypeCatalogEntry.tags)
-                && Objects.equals(this.objectSchema, contentObjectTypeCatalogEntry.objectSchema)
-                && Objects.equals(this.tableLayout, contentObjectTypeCatalogEntry.tableLayout)
-                && Objects.equals(this.isChunkable, contentObjectTypeCatalogEntry.isChunkable)
-                && Objects.equals(this.strictMode, contentObjectTypeCatalogEntry.strictMode)
-                && Objects.equals(this.status, contentObjectTypeCatalogEntry.status)
-                && Objects.equals(this.intake, contentObjectTypeCatalogEntry.intake)
-                && Objects.equals(this.editing, contentObjectTypeCatalogEntry.editing)
-                && Objects.equals(this.updatedBy, contentObjectTypeCatalogEntry.updatedBy)
-                && Objects.equals(this.createdBy, contentObjectTypeCatalogEntry.createdBy)
-                && Objects.equals(this.createdAt, contentObjectTypeCatalogEntry.createdAt)
-                && Objects.equals(this.updatedAt, contentObjectTypeCatalogEntry.updatedAt)
+        PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                pickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing =
+                        (PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing)
+                                o;
+        return Objects.equals(
+                        this.id,
+                        pickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                .id)
+                && Objects.equals(
+                        this.name,
+                        pickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                .name)
+                && Objects.equals(
+                        this.description,
+                        pickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                .description)
+                && Objects.equals(
+                        this.tags,
+                        pickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                .tags)
+                && Objects.equals(
+                        this.objectSchema,
+                        pickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                .objectSchema)
+                && Objects.equals(
+                        this.tableLayout,
+                        pickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                .tableLayout)
+                && Objects.equals(
+                        this.isChunkable,
+                        pickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                .isChunkable)
+                && Objects.equals(
+                        this.strictMode,
+                        pickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                .strictMode)
+                && Objects.equals(
+                        this.status,
+                        pickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                .status)
+                && Objects.equals(
+                        this.intake,
+                        pickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                .intake)
+                && Objects.equals(
+                        this.editing,
+                        pickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                .editing)
                 && Objects.equals(
                         this.additionalProperties,
-                        contentObjectTypeCatalogEntry.additionalProperties);
+                        pickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                .additionalProperties);
     }
 
     @Override
@@ -496,17 +464,14 @@ public class ContentObjectTypeCatalogEntry {
                 status,
                 intake,
                 editing,
-                updatedBy,
-                createdBy,
-                createdAt,
-                updatedAt,
                 additionalProperties);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ContentObjectTypeCatalogEntry {\n");
+        sb.append(
+                "class PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -518,10 +483,6 @@ public class ContentObjectTypeCatalogEntry {
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    intake: ").append(toIndentedString(intake)).append("\n");
         sb.append("    editing: ").append(toIndentedString(editing)).append("\n");
-        sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
-        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
-        sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-        sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -555,11 +516,7 @@ public class ContentObjectTypeCatalogEntry {
                                 "strict_mode",
                                 "status",
                                 "intake",
-                                "editing",
-                                "updated_by",
-                                "created_by",
-                                "created_at",
-                                "updated_at"));
+                                "editing"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name"));
@@ -569,22 +526,27 @@ public class ContentObjectTypeCatalogEntry {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to ContentObjectTypeCatalogEntry
+     * @throws IOException if the JSON Element is invalid with respect to PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ContentObjectTypeCatalogEntry.openapiRequiredFields
+            if (!PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                    .openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 java.util.Locale.ROOT,
-                                "The required field(s) %s in ContentObjectTypeCatalogEntry is not found in the empty JSON string",
-                                ContentObjectTypeCatalogEntry.openapiRequiredFields.toString()));
+                                "The required field(s) %s in PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing is not found in the empty JSON string",
+                                PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                        .openapiRequiredFields
+                                        .toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ContentObjectTypeCatalogEntry.openapiRequiredFields) {
+        for (String requiredField :
+                PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                        .openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -658,57 +620,36 @@ public class ContentObjectTypeCatalogEntry {
         if (jsonObj.get("editing") != null && !jsonObj.get("editing").isJsonNull()) {
             ContentTypeEditingPolicy.validateJsonElement(jsonObj.get("editing"));
         }
-        if ((jsonObj.get("updated_by") != null && !jsonObj.get("updated_by").isJsonNull())
-                && !jsonObj.get("updated_by").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `updated_by` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("updated_by").toString()));
-        }
-        if ((jsonObj.get("created_by") != null && !jsonObj.get("created_by").isJsonNull())
-                && !jsonObj.get("created_by").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `created_by` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("created_by").toString()));
-        }
-        if ((jsonObj.get("created_at") != null && !jsonObj.get("created_at").isJsonNull())
-                && !jsonObj.get("created_at").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `created_at` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("created_at").toString()));
-        }
-        if ((jsonObj.get("updated_at") != null && !jsonObj.get("updated_at").isJsonNull())
-                && !jsonObj.get("updated_at").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("updated_at").toString()));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ContentObjectTypeCatalogEntry.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ContentObjectTypeCatalogEntry' and its
-                // subtypes
+            if (!PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                    .class
+                    .isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes
+                // 'PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ContentObjectTypeCatalogEntry> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(ContentObjectTypeCatalogEntry.class));
+            final TypeAdapter<
+                            PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>
+                    thisAdapter =
+                            gson.getDelegateAdapter(
+                                    this,
+                                    TypeToken.get(
+                                            PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                                    .class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ContentObjectTypeCatalogEntry>() {
+                    new TypeAdapter<
+                            PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>() {
                         @Override
-                        public void write(JsonWriter out, ContentObjectTypeCatalogEntry value)
+                        public void write(
+                                JsonWriter out,
+                                PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                        value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             obj.remove("additionalProperties");
@@ -739,14 +680,15 @@ public class ContentObjectTypeCatalogEntry {
                         }
 
                         @Override
-                        public ContentObjectTypeCatalogEntry read(JsonReader in)
-                                throws IOException {
+                        public
+                        PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             JsonObject jsonObj = jsonElement.getAsJsonObject();
                             // store additional fields in the deserialized instance
-                            ContentObjectTypeCatalogEntry instance =
-                                    thisAdapter.fromJsonTree(jsonObj);
+                            PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                    instance = thisAdapter.fromJsonTree(jsonObj);
                             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                                 if (!openapiFields.contains(entry.getKey())) {
                                     if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -785,18 +727,24 @@ public class ContentObjectTypeCatalogEntry {
     }
 
     /**
-     * Create an instance of ContentObjectTypeCatalogEntry given an JSON string
+     * Create an instance of PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ContentObjectTypeCatalogEntry
-     * @throws IOException if the JSON string is invalid with respect to ContentObjectTypeCatalogEntry
+     * @return An instance of PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+     * @throws IOException if the JSON string is invalid with respect to PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
      */
-    public static ContentObjectTypeCatalogEntry fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ContentObjectTypeCatalogEntry.class);
+    public static
+    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+            fromJson(String jsonString) throws IOException {
+        return JSON.getGson()
+                .fromJson(
+                        jsonString,
+                        PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+                                .class);
     }
 
     /**
-     * Convert an instance of ContentObjectTypeCatalogEntry to an JSON string
+     * Convert an instance of PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing to an JSON string
      *
      * @return JSON string
      */

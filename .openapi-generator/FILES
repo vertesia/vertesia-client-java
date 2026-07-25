@@ -74,6 +74,7 @@ src/main/java/io/vertesia/model/AceConditions.java
 src/main/java/io/vertesia/model/ActivityFetchSpec.java
 src/main/java/io/vertesia/model/ActivityTask.java
 src/main/java/io/vertesia/model/AdvanceProcessPayload.java
+src/main/java/io/vertesia/model/AgentArtifactContentResponse.java
 src/main/java/io/vertesia/model/AgentArtifactUrlResponse.java
 src/main/java/io/vertesia/model/AgentDeliveryMatchMode.java
 src/main/java/io/vertesia/model/AgentEventDeliveryTarget.java
@@ -260,6 +261,7 @@ src/main/java/io/vertesia/model/ContentObjectTypeRef.java
 src/main/java/io/vertesia/model/ContentObjectTypeStatus.java
 src/main/java/io/vertesia/model/ContentObjectUserPermissions.java
 src/main/java/io/vertesia/model/ContentSource.java
+src/main/java/io/vertesia/model/ContentTypeEditingPolicy.java
 src/main/java/io/vertesia/model/ContentTypeExtractionGroundingPolicy.java
 src/main/java/io/vertesia/model/ContentTypeExtractionGroundingReviewPolicy.java
 src/main/java/io/vertesia/model/ContentTypeIntakePolicy.java
@@ -514,6 +516,7 @@ src/main/java/io/vertesia/model/IndexingStatusResponse.java
 src/main/java/io/vertesia/model/IndexingStatusResponseIndex.java
 src/main/java/io/vertesia/model/IndexingStatusResponseReindexProgress.java
 src/main/java/io/vertesia/model/InheritedPropertyMetadata.java
+src/main/java/io/vertesia/model/InitialToolCall.java
 src/main/java/io/vertesia/model/IntakePageScope.java
 src/main/java/io/vertesia/model/IntakeVisionDetail.java
 src/main/java/io/vertesia/model/Interaction.java
@@ -647,7 +650,7 @@ src/main/java/io/vertesia/model/PendingActivity.java
 src/main/java/io/vertesia/model/PendingMcpConnection.java
 src/main/java/io/vertesia/model/PendingToolApprovalResults.java
 src/main/java/io/vertesia/model/Permission.java
-src/main/java/io/vertesia/model/PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntake.java
+src/main/java/io/vertesia/model/PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing.java
 src/main/java/io/vertesia/model/Plan.java
 src/main/java/io/vertesia/model/PlanTask.java
 src/main/java/io/vertesia/model/PostAgentRunUpdatePayload.java
@@ -857,6 +860,8 @@ src/main/java/io/vertesia/model/TransitionTrigger.java
 src/main/java/io/vertesia/model/TwelvelabsPegasusOptions.java
 src/main/java/io/vertesia/model/TypeDetectionMetadata.java
 src/main/java/io/vertesia/model/UpdateAccountPayload.java
+src/main/java/io/vertesia/model/UpdateAgentArtifactContentPayload.java
+src/main/java/io/vertesia/model/UpdateAgentArtifactContentResponse.java
 src/main/java/io/vertesia/model/UpdateAppInstallationToolAllowlistPayload.java
 src/main/java/io/vertesia/model/UpdateDashboardPayload.java
 src/main/java/io/vertesia/model/UpdateEventIngestChannelPayload.java

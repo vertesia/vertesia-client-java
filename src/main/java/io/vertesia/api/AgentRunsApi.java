@@ -20,6 +20,7 @@ import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
 import io.vertesia.model.AdvanceProcessPayload;
+import io.vertesia.model.AgentArtifactContentResponse;
 import io.vertesia.model.AgentArtifactUrlResponse;
 import io.vertesia.model.AgentRun;
 import io.vertesia.model.AgentRunUpdatesResponse;
@@ -36,6 +37,8 @@ import io.vertesia.model.RetryProcessNodePayload;
 import io.vertesia.model.SearchAgentRunsResponse;
 import io.vertesia.model.SignalAgentResponse;
 import io.vertesia.model.TerminateAgentRunResponse;
+import io.vertesia.model.UpdateAgentArtifactContentPayload;
+import io.vertesia.model.UpdateAgentArtifactContentResponse;
 import io.vertesia.model.WorkflowRunWithDetails;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
@@ -1328,6 +1331,190 @@ public class AgentRunsApi {
                 getAgentRunArtifactValidateBeforeCall(
                         agentRunId, path, url, disposition, filename, _callback);
         Type localVarReturnType = new TypeToken<AgentArtifactUrlResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getAgentRunArtifactContent
+     * @param agentRunId  (required)
+     * @param path  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Artifact text and concurrency metadata. </td><td>  -  </td></tr>
+     * <tr><td> 413 </td><td> The artifact exceeds the text editing size limit. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getAgentRunArtifactContentCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/agents/{agentRunId}/artifact-content/{path}"
+                        .replace(
+                                "{" + "agentRunId" + "}",
+                                localVarApiClient.escapeString(agentRunId.toString()))
+                        .replace(
+                                "{" + "path" + "}",
+                                localVarApiClient.escapeString(path.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAgentRunArtifactContentValidateBeforeCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'agentRunId' is set
+        if (agentRunId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'agentRunId' when calling getAgentRunArtifactContent(Async)");
+        }
+
+        // verify the required parameter 'path' is set
+        if (path == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'path' when calling getAgentRunArtifactContent(Async)");
+        }
+
+        return getAgentRunArtifactContentCall(agentRunId, path, _callback);
+    }
+
+    /**
+     * Read editable agent artifact content
+     * Reads a text artifact and returns its blob generation token for conditional updates.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param path  (required)
+     * @return AgentArtifactContentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Artifact text and concurrency metadata. </td><td>  -  </td></tr>
+     * <tr><td> 413 </td><td> The artifact exceeds the text editing size limit. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public AgentArtifactContentResponse getAgentRunArtifactContent(
+            @jakarta.annotation.Nonnull String agentRunId, @jakarta.annotation.Nonnull String path)
+            throws ApiException {
+        ApiResponse<AgentArtifactContentResponse> localVarResp =
+                getAgentRunArtifactContentWithHttpInfo(agentRunId, path);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read editable agent artifact content
+     * Reads a text artifact and returns its blob generation token for conditional updates.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param path  (required)
+     * @return ApiResponse&lt;AgentArtifactContentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Artifact text and concurrency metadata. </td><td>  -  </td></tr>
+     * <tr><td> 413 </td><td> The artifact exceeds the text editing size limit. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AgentArtifactContentResponse> getAgentRunArtifactContentWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId, @jakarta.annotation.Nonnull String path)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                getAgentRunArtifactContentValidateBeforeCall(agentRunId, path, null);
+        Type localVarReturnType = new TypeToken<AgentArtifactContentResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read editable agent artifact content (asynchronously)
+     * Reads a text artifact and returns its blob generation token for conditional updates.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param path  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Artifact text and concurrency metadata. </td><td>  -  </td></tr>
+     * <tr><td> 413 </td><td> The artifact exceeds the text editing size limit. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getAgentRunArtifactContentAsync(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path,
+            final ApiCallback<AgentArtifactContentResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getAgentRunArtifactContentValidateBeforeCall(agentRunId, path, _callback);
+        Type localVarReturnType = new TypeToken<AgentArtifactContentResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4728,6 +4915,213 @@ public class AgentRunsApi {
 
         okhttp3.Call localVarCall = terminateAgentRunValidateBeforeCall(agentRunId, _callback);
         Type localVarReturnType = new TypeToken<TerminateAgentRunResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateAgentRunArtifactContent
+     * @param agentRunId  (required)
+     * @param path  (required)
+     * @param updateAgentArtifactContentPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Updated artifact concurrency metadata. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateAgentRunArtifactContentCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path,
+            @jakarta.annotation.Nonnull
+                    UpdateAgentArtifactContentPayload updateAgentArtifactContentPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateAgentArtifactContentPayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/agents/{agentRunId}/artifact-content/{path}"
+                        .replace(
+                                "{" + "agentRunId" + "}",
+                                localVarApiClient.escapeString(agentRunId.toString()))
+                        .replace(
+                                "{" + "path" + "}",
+                                localVarApiClient.escapeString(path.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "PUT",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateAgentRunArtifactContentValidateBeforeCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path,
+            @jakarta.annotation.Nonnull
+                    UpdateAgentArtifactContentPayload updateAgentArtifactContentPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'agentRunId' is set
+        if (agentRunId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'agentRunId' when calling updateAgentRunArtifactContent(Async)");
+        }
+
+        // verify the required parameter 'path' is set
+        if (path == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'path' when calling updateAgentRunArtifactContent(Async)");
+        }
+
+        // verify the required parameter 'updateAgentArtifactContentPayload' is set
+        if (updateAgentArtifactContentPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'updateAgentArtifactContentPayload' when calling updateAgentRunArtifactContent(Async)");
+        }
+
+        return updateAgentRunArtifactContentCall(
+                agentRunId, path, updateAgentArtifactContentPayload, _callback);
+    }
+
+    /**
+     * Update editable agent artifact content
+     * Updates a text artifact only when its blob generation token still matches.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param path  (required)
+     * @param updateAgentArtifactContentPayload  (required)
+     * @return UpdateAgentArtifactContentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Updated artifact concurrency metadata. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public UpdateAgentArtifactContentResponse updateAgentRunArtifactContent(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path,
+            @jakarta.annotation.Nonnull
+                    UpdateAgentArtifactContentPayload updateAgentArtifactContentPayload)
+            throws ApiException {
+        ApiResponse<UpdateAgentArtifactContentResponse> localVarResp =
+                updateAgentRunArtifactContentWithHttpInfo(
+                        agentRunId, path, updateAgentArtifactContentPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update editable agent artifact content
+     * Updates a text artifact only when its blob generation token still matches.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param path  (required)
+     * @param updateAgentArtifactContentPayload  (required)
+     * @return ApiResponse&lt;UpdateAgentArtifactContentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Updated artifact concurrency metadata. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<UpdateAgentArtifactContentResponse>
+            updateAgentRunArtifactContentWithHttpInfo(
+                    @jakarta.annotation.Nonnull String agentRunId,
+                    @jakarta.annotation.Nonnull String path,
+                    @jakarta.annotation.Nonnull
+                            UpdateAgentArtifactContentPayload updateAgentArtifactContentPayload)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                updateAgentRunArtifactContentValidateBeforeCall(
+                        agentRunId, path, updateAgentArtifactContentPayload, null);
+        Type localVarReturnType = new TypeToken<UpdateAgentArtifactContentResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update editable agent artifact content (asynchronously)
+     * Updates a text artifact only when its blob generation token still matches.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param path  (required)
+     * @param updateAgentArtifactContentPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Updated artifact concurrency metadata. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateAgentRunArtifactContentAsync(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull String path,
+            @jakarta.annotation.Nonnull
+                    UpdateAgentArtifactContentPayload updateAgentArtifactContentPayload,
+            final ApiCallback<UpdateAgentArtifactContentResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                updateAgentRunArtifactContentValidateBeforeCall(
+                        agentRunId, path, updateAgentArtifactContentPayload, _callback);
+        Type localVarReturnType = new TypeToken<UpdateAgentArtifactContentResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

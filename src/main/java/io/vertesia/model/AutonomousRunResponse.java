@@ -13,6 +13,7 @@
 package io.vertesia.model;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -71,6 +72,21 @@ public class AutonomousRunResponse {
 
     @SerializedName(SERIALIZED_NAME_TOOL_NAMES)
     @jakarta.annotation.Nullable private List<String> toolNames = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_INITIAL_SKILLS = "initial_skills";
+
+    @SerializedName(SERIALIZED_NAME_INITIAL_SKILLS)
+    @jakarta.annotation.Nullable private List<String> initialSkills = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_INITIAL_TOOL_CALLS = "initial_tool_calls";
+
+    @SerializedName(SERIALIZED_NAME_INITIAL_TOOL_CALLS)
+    @jakarta.annotation.Nullable private List<InitialToolCall> initialToolCalls = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_EXCLUDED_TOOLS = "excluded_tools";
+
+    @SerializedName(SERIALIZED_NAME_EXCLUDED_TOOLS)
+    @jakarta.annotation.Nullable private List<String> excludedTools = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
 
@@ -508,6 +524,85 @@ public class AutonomousRunResponse {
 
     public void setToolNames(@jakarta.annotation.Nullable List<String> toolNames) {
         this.toolNames = toolNames;
+    }
+
+    public AutonomousRunResponse initialSkills(
+            @jakarta.annotation.Nullable List<String> initialSkills) {
+        this.initialSkills = initialSkills;
+        return this;
+    }
+
+    public AutonomousRunResponse addInitialSkillsItem(String initialSkillsItem) {
+        if (this.initialSkills == null) {
+            this.initialSkills = new ArrayList<>();
+        }
+        this.initialSkills.add(initialSkillsItem);
+        return this;
+    }
+
+    /**
+     * Builtin system skills activated before the first model turn.
+     * @return initialSkills
+     */
+    @jakarta.annotation.Nullable public List<String> getInitialSkills() {
+        return initialSkills;
+    }
+
+    public void setInitialSkills(@jakarta.annotation.Nullable List<String> initialSkills) {
+        this.initialSkills = initialSkills;
+    }
+
+    public AutonomousRunResponse initialToolCalls(
+            @jakarta.annotation.Nullable List<InitialToolCall> initialToolCalls) {
+        this.initialToolCalls = initialToolCalls;
+        return this;
+    }
+
+    public AutonomousRunResponse addInitialToolCallsItem(InitialToolCall initialToolCallsItem) {
+        if (this.initialToolCalls == null) {
+            this.initialToolCalls = new ArrayList<>();
+        }
+        this.initialToolCalls.add(initialToolCallsItem);
+        return this;
+    }
+
+    /**
+     * Ordered, bounded hydration/read calls executed before the first model turn.
+     * @return initialToolCalls
+     */
+    @jakarta.annotation.Nullable public List<InitialToolCall> getInitialToolCalls() {
+        return initialToolCalls;
+    }
+
+    public void setInitialToolCalls(
+            @jakarta.annotation.Nullable List<InitialToolCall> initialToolCalls) {
+        this.initialToolCalls = initialToolCalls;
+    }
+
+    public AutonomousRunResponse excludedTools(
+            @jakarta.annotation.Nullable List<String> excludedTools) {
+        this.excludedTools = excludedTools;
+        return this;
+    }
+
+    public AutonomousRunResponse addExcludedToolsItem(String excludedToolsItem) {
+        if (this.excludedTools == null) {
+            this.excludedTools = new ArrayList<>();
+        }
+        this.excludedTools.add(excludedToolsItem);
+        return this;
+    }
+
+    /**
+     * Hard denylist of tool names: never exposed to the model, refused at execution time.
+     * @return excludedTools
+     */
+    @jakarta.annotation.Nullable public List<String> getExcludedTools() {
+        return excludedTools;
+    }
+
+    public void setExcludedTools(@jakarta.annotation.Nullable List<String> excludedTools) {
+        this.excludedTools = excludedTools;
     }
 
     public AutonomousRunResponse collectionId(@jakarta.annotation.Nullable String collectionId) {
@@ -1306,6 +1401,9 @@ public class AutonomousRunResponse {
                 && Objects.equals(this.interactive, autonomousRunResponse.interactive)
                 && Objects.equals(this.toolApprovalMode, autonomousRunResponse.toolApprovalMode)
                 && Objects.equals(this.toolNames, autonomousRunResponse.toolNames)
+                && Objects.equals(this.initialSkills, autonomousRunResponse.initialSkills)
+                && Objects.equals(this.initialToolCalls, autonomousRunResponse.initialToolCalls)
+                && Objects.equals(this.excludedTools, autonomousRunResponse.excludedTools)
                 && Objects.equals(this.collectionId, autonomousRunResponse.collectionId)
                 && Objects.equals(
                         this.disabledMcpCollections, autonomousRunResponse.disabledMcpCollections)
@@ -1360,6 +1458,9 @@ public class AutonomousRunResponse {
                 interactive,
                 toolApprovalMode,
                 toolNames,
+                initialSkills,
+                initialToolCalls,
+                excludedTools,
                 collectionId,
                 disabledMcpCollections,
                 contentType,
@@ -1412,6 +1513,9 @@ public class AutonomousRunResponse {
         sb.append("    interactive: ").append(toIndentedString(interactive)).append("\n");
         sb.append("    toolApprovalMode: ").append(toIndentedString(toolApprovalMode)).append("\n");
         sb.append("    toolNames: ").append(toIndentedString(toolNames)).append("\n");
+        sb.append("    initialSkills: ").append(toIndentedString(initialSkills)).append("\n");
+        sb.append("    initialToolCalls: ").append(toIndentedString(initialToolCalls)).append("\n");
+        sb.append("    excludedTools: ").append(toIndentedString(excludedTools)).append("\n");
         sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
         sb.append("    disabledMcpCollections: ")
                 .append(toIndentedString(disabledMcpCollections))
@@ -1486,6 +1590,9 @@ public class AutonomousRunResponse {
                                 "interactive",
                                 "tool_approval_mode",
                                 "tool_names",
+                                "initial_skills",
+                                "initial_tool_calls",
+                                "excluded_tools",
                                 "collection_id",
                                 "disabled_mcp_collections",
                                 "content_type",
@@ -1599,6 +1706,46 @@ public class AutonomousRunResponse {
                             java.util.Locale.ROOT,
                             "Expected the field `tool_names` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tool_names").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("initial_skills") != null
+                && !jsonObj.get("initial_skills").isJsonNull()
+                && !jsonObj.get("initial_skills").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `initial_skills` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("initial_skills").toString()));
+        }
+        if (jsonObj.get("initial_tool_calls") != null
+                && !jsonObj.get("initial_tool_calls").isJsonNull()) {
+            JsonArray jsonArrayinitialToolCalls = jsonObj.getAsJsonArray("initial_tool_calls");
+            if (jsonArrayinitialToolCalls != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("initial_tool_calls").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `initial_tool_calls` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("initial_tool_calls").toString()));
+                }
+
+                // validate the optional field `initial_tool_calls` (array)
+                for (int i = 0; i < jsonArrayinitialToolCalls.size(); i++) {
+                    InitialToolCall.validateJsonElement(jsonArrayinitialToolCalls.get(i));
+                }
+                ;
+            }
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("excluded_tools") != null
+                && !jsonObj.get("excluded_tools").isJsonNull()
+                && !jsonObj.get("excluded_tools").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `excluded_tools` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("excluded_tools").toString()));
         }
         if ((jsonObj.get("collection_id") != null && !jsonObj.get("collection_id").isJsonNull())
                 && !jsonObj.get("collection_id").isJsonPrimitive()) {

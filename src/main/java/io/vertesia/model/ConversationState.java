@@ -208,6 +208,11 @@ public class ConversationState {
     @SerializedName(SERIALIZED_NAME_SKILL_INSTRUCTIONS_DELIVERED)
     @jakarta.annotation.Nullable private List<String> skillInstructionsDelivered = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_INITIALIZATION_CALL_IDS = "initialization_call_ids";
+
+    @SerializedName(SERIALIZED_NAME_INITIALIZATION_CALL_IDS)
+    @jakarta.annotation.Nullable private List<String> initializationCallIds = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_DISABLED_MCP_COLLECTIONS =
             "disabled_mcp_collections";
 
@@ -932,6 +937,33 @@ public class ConversationState {
         this.skillInstructionsDelivered = skillInstructionsDelivered;
     }
 
+    public ConversationState initializationCallIds(
+            @jakarta.annotation.Nullable List<String> initializationCallIds) {
+        this.initializationCallIds = initializationCallIds;
+        return this;
+    }
+
+    public ConversationState addInitializationCallIdsItem(String initializationCallIdsItem) {
+        if (this.initializationCallIds == null) {
+            this.initializationCallIds = new ArrayList<>();
+        }
+        this.initializationCallIds.add(initializationCallIdsItem);
+        return this;
+    }
+
+    /**
+     * Stable ids of initialization tool calls completed before the first model turn.
+     * @return initializationCallIds
+     */
+    @jakarta.annotation.Nullable public List<String> getInitializationCallIds() {
+        return initializationCallIds;
+    }
+
+    public void setInitializationCallIds(
+            @jakarta.annotation.Nullable List<String> initializationCallIds) {
+        this.initializationCallIds = initializationCallIds;
+    }
+
     public ConversationState disabledMcpCollections(
             @jakarta.annotation.Nullable List<String> disabledMcpCollections) {
         this.disabledMcpCollections = disabledMcpCollections;
@@ -1151,6 +1183,8 @@ public class ConversationState {
                         this.skillInstructionsDelivered,
                         conversationState.skillInstructionsDelivered)
                 && Objects.equals(
+                        this.initializationCallIds, conversationState.initializationCallIds)
+                && Objects.equals(
                         this.disabledMcpCollections, conversationState.disabledMcpCollections)
                 && Objects.equals(
                         this.pendingMcpConnections, conversationState.pendingMcpConnections)
@@ -1198,6 +1232,7 @@ public class ConversationState {
                 latestStreamingId,
                 skillToolMap,
                 skillInstructionsDelivered,
+                initializationCallIds,
                 disabledMcpCollections,
                 pendingMcpConnections,
                 activeActivityGroupId,
@@ -1258,6 +1293,9 @@ public class ConversationState {
         sb.append("    skillToolMap: ").append(toIndentedString(skillToolMap)).append("\n");
         sb.append("    skillInstructionsDelivered: ")
                 .append(toIndentedString(skillInstructionsDelivered))
+                .append("\n");
+        sb.append("    initializationCallIds: ")
+                .append(toIndentedString(initializationCallIds))
                 .append("\n");
         sb.append("    disabledMcpCollections: ")
                 .append(toIndentedString(disabledMcpCollections))
@@ -1326,6 +1364,7 @@ public class ConversationState {
                                 "latest_streaming_id",
                                 "skill_tool_map",
                                 "skill_instructions_delivered",
+                                "initialization_call_ids",
                                 "disabled_mcp_collections",
                                 "pending_mcp_connections",
                                 "active_activity_group_id",
@@ -1610,6 +1649,16 @@ public class ConversationState {
                             java.util.Locale.ROOT,
                             "Expected the field `skill_instructions_delivered` to be an array in the JSON string but got `%s`",
                             jsonObj.get("skill_instructions_delivered").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("initialization_call_ids") != null
+                && !jsonObj.get("initialization_call_ids").isJsonNull()
+                && !jsonObj.get("initialization_call_ids").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `initialization_call_ids` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("initialization_call_ids").toString()));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("disabled_mcp_collections") != null

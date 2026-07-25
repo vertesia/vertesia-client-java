@@ -100,6 +100,11 @@ public class ContentObjectTypeItem {
     @SerializedName(SERIALIZED_NAME_INTAKE)
     @jakarta.annotation.Nullable private ContentTypeIntakePolicy intake;
 
+    public static final String SERIALIZED_NAME_EDITING = "editing";
+
+    @SerializedName(SERIALIZED_NAME_EDITING)
+    @jakarta.annotation.Nullable private ContentTypeEditingPolicy editing;
+
     public static final String SERIALIZED_NAME_TABLE_LAYOUT = "table_layout";
 
     @SerializedName(SERIALIZED_NAME_TABLE_LAYOUT)
@@ -320,6 +325,24 @@ public class ContentObjectTypeItem {
         this.intake = intake;
     }
 
+    public ContentObjectTypeItem editing(
+            @jakarta.annotation.Nullable ContentTypeEditingPolicy editing) {
+        this.editing = editing;
+        return this;
+    }
+
+    /**
+     * Get editing
+     * @return editing
+     */
+    @jakarta.annotation.Nullable public ContentTypeEditingPolicy getEditing() {
+        return editing;
+    }
+
+    public void setEditing(@jakarta.annotation.Nullable ContentTypeEditingPolicy editing) {
+        this.editing = editing;
+    }
+
     public ContentObjectTypeItem tableLayout(
             @jakarta.annotation.Nullable List<ColumnLayout> tableLayout) {
         this.tableLayout = tableLayout;
@@ -409,6 +432,7 @@ public class ContentObjectTypeItem {
                 && Objects.equals(this.status, contentObjectTypeItem.status)
                 && Objects.equals(this.isChunkable, contentObjectTypeItem.isChunkable)
                 && Objects.equals(this.intake, contentObjectTypeItem.intake)
+                && Objects.equals(this.editing, contentObjectTypeItem.editing)
                 && Objects.equals(this.tableLayout, contentObjectTypeItem.tableLayout)
                 && Objects.equals(this.objectSchema, contentObjectTypeItem.objectSchema)
                 && Objects.equals(this.strictMode, contentObjectTypeItem.strictMode);
@@ -428,6 +452,7 @@ public class ContentObjectTypeItem {
                 status,
                 isChunkable,
                 intake,
+                editing,
                 tableLayout,
                 objectSchema,
                 strictMode);
@@ -448,6 +473,7 @@ public class ContentObjectTypeItem {
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    isChunkable: ").append(toIndentedString(isChunkable)).append("\n");
         sb.append("    intake: ").append(toIndentedString(intake)).append("\n");
+        sb.append("    editing: ").append(toIndentedString(editing)).append("\n");
         sb.append("    tableLayout: ").append(toIndentedString(tableLayout)).append("\n");
         sb.append("    objectSchema: ").append(toIndentedString(objectSchema)).append("\n");
         sb.append("    strictMode: ").append(toIndentedString(strictMode)).append("\n");
@@ -482,6 +508,7 @@ public class ContentObjectTypeItem {
                                 "status",
                                 "is_chunkable",
                                 "intake",
+                                "editing",
                                 "table_layout",
                                 "object_schema",
                                 "strict_mode"));
@@ -595,6 +622,10 @@ public class ContentObjectTypeItem {
         // validate the optional field `intake`
         if (jsonObj.get("intake") != null && !jsonObj.get("intake").isJsonNull()) {
             ContentTypeIntakePolicy.validateJsonElement(jsonObj.get("intake"));
+        }
+        // validate the optional field `editing`
+        if (jsonObj.get("editing") != null && !jsonObj.get("editing").isJsonNull()) {
+            ContentTypeEditingPolicy.validateJsonElement(jsonObj.get("editing"));
         }
         if (jsonObj.get("table_layout") != null && !jsonObj.get("table_layout").isJsonNull()) {
             JsonArray jsonArraytableLayout = jsonObj.getAsJsonArray("table_layout");

@@ -177,6 +177,21 @@ public class AsyncConversationExecutionPayload {
     @SerializedName(SERIALIZED_NAME_TOOL_NAMES)
     @jakarta.annotation.Nullable private List<String> toolNames = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_INITIAL_SKILLS = "initial_skills";
+
+    @SerializedName(SERIALIZED_NAME_INITIAL_SKILLS)
+    @jakarta.annotation.Nullable private List<String> initialSkills = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_INITIAL_TOOL_CALLS = "initial_tool_calls";
+
+    @SerializedName(SERIALIZED_NAME_INITIAL_TOOL_CALLS)
+    @jakarta.annotation.Nullable private List<InitialToolCall> initialToolCalls = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_EXCLUDED_TOOLS = "excluded_tools";
+
+    @SerializedName(SERIALIZED_NAME_EXCLUDED_TOOLS)
+    @jakarta.annotation.Nullable private List<String> excludedTools = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_MAX_ITERATIONS = "max_iterations";
 
     @SerializedName(SERIALIZED_NAME_MAX_ITERATIONS)
@@ -604,6 +619,86 @@ public class AsyncConversationExecutionPayload {
 
     public void setToolNames(@jakarta.annotation.Nullable List<String> toolNames) {
         this.toolNames = toolNames;
+    }
+
+    public AsyncConversationExecutionPayload initialSkills(
+            @jakarta.annotation.Nullable List<String> initialSkills) {
+        this.initialSkills = initialSkills;
+        return this;
+    }
+
+    public AsyncConversationExecutionPayload addInitialSkillsItem(String initialSkillsItem) {
+        if (this.initialSkills == null) {
+            this.initialSkills = new ArrayList<>();
+        }
+        this.initialSkills.add(initialSkillsItem);
+        return this;
+    }
+
+    /**
+     * Builtin system skills to activate at conversation start. Their related tools are exposed from the first turn and their instructions are injected into the initial context, replacing the learn_&lt;skill&gt; round-trip.
+     * @return initialSkills
+     */
+    @jakarta.annotation.Nullable public List<String> getInitialSkills() {
+        return initialSkills;
+    }
+
+    public void setInitialSkills(@jakarta.annotation.Nullable List<String> initialSkills) {
+        this.initialSkills = initialSkills;
+    }
+
+    public AsyncConversationExecutionPayload initialToolCalls(
+            @jakarta.annotation.Nullable List<InitialToolCall> initialToolCalls) {
+        this.initialToolCalls = initialToolCalls;
+        return this;
+    }
+
+    public AsyncConversationExecutionPayload addInitialToolCallsItem(
+            InitialToolCall initialToolCallsItem) {
+        if (this.initialToolCalls == null) {
+            this.initialToolCalls = new ArrayList<>();
+        }
+        this.initialToolCalls.add(initialToolCallsItem);
+        return this;
+    }
+
+    /**
+     * Tool calls executed before the first model turn. Results are injected into the initial context. These run sequentially with the caller&#39;s authority before the first model turn. Only a bounded set of read/hydration tools is accepted.
+     * @return initialToolCalls
+     */
+    @jakarta.annotation.Nullable public List<InitialToolCall> getInitialToolCalls() {
+        return initialToolCalls;
+    }
+
+    public void setInitialToolCalls(
+            @jakarta.annotation.Nullable List<InitialToolCall> initialToolCalls) {
+        this.initialToolCalls = initialToolCalls;
+    }
+
+    public AsyncConversationExecutionPayload excludedTools(
+            @jakarta.annotation.Nullable List<String> excludedTools) {
+        this.excludedTools = excludedTools;
+        return this;
+    }
+
+    public AsyncConversationExecutionPayload addExcludedToolsItem(String excludedToolsItem) {
+        if (this.excludedTools == null) {
+            this.excludedTools = new ArrayList<>();
+        }
+        this.excludedTools.add(excludedToolsItem);
+        return this;
+    }
+
+    /**
+     * Hard denylist of tool names for this conversation. Excluded tools are never exposed to the model and are refused at execution time, even when a skill or tool refresh would otherwise unlock them. Takes precedence over tool_names, initial_skills, and skill-based tool activation.
+     * @return excludedTools
+     */
+    @jakarta.annotation.Nullable public List<String> getExcludedTools() {
+        return excludedTools;
+    }
+
+    public void setExcludedTools(@jakarta.annotation.Nullable List<String> excludedTools) {
+        this.excludedTools = excludedTools;
     }
 
     public AsyncConversationExecutionPayload maxIterations(
@@ -1072,6 +1167,12 @@ public class AsyncConversationExecutionPayload {
                 && Objects.equals(this.visibility, asyncConversationExecutionPayload.visibility)
                 && Objects.equals(this.toolNames, asyncConversationExecutionPayload.toolNames)
                 && Objects.equals(
+                        this.initialSkills, asyncConversationExecutionPayload.initialSkills)
+                && Objects.equals(
+                        this.initialToolCalls, asyncConversationExecutionPayload.initialToolCalls)
+                && Objects.equals(
+                        this.excludedTools, asyncConversationExecutionPayload.excludedTools)
+                && Objects.equals(
                         this.maxIterations, asyncConversationExecutionPayload.maxIterations)
                 && Objects.equals(this.interactive, asyncConversationExecutionPayload.interactive)
                 && Objects.equals(this.userChannels, asyncConversationExecutionPayload.userChannels)
@@ -1139,6 +1240,9 @@ public class AsyncConversationExecutionPayload {
                 toolApprovalMode,
                 visibility,
                 toolNames,
+                initialSkills,
+                initialToolCalls,
+                excludedTools,
                 maxIterations,
                 interactive,
                 userChannels,
@@ -1189,6 +1293,9 @@ public class AsyncConversationExecutionPayload {
         sb.append("    toolApprovalMode: ").append(toIndentedString(toolApprovalMode)).append("\n");
         sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
         sb.append("    toolNames: ").append(toIndentedString(toolNames)).append("\n");
+        sb.append("    initialSkills: ").append(toIndentedString(initialSkills)).append("\n");
+        sb.append("    initialToolCalls: ").append(toIndentedString(initialToolCalls)).append("\n");
+        sb.append("    excludedTools: ").append(toIndentedString(excludedTools)).append("\n");
         sb.append("    maxIterations: ").append(toIndentedString(maxIterations)).append("\n");
         sb.append("    interactive: ").append(toIndentedString(interactive)).append("\n");
         sb.append("    userChannels: ").append(toIndentedString(userChannels)).append("\n");
@@ -1260,6 +1367,9 @@ public class AsyncConversationExecutionPayload {
                                 "tool_approval_mode",
                                 "visibility",
                                 "tool_names",
+                                "initial_skills",
+                                "initial_tool_calls",
+                                "excluded_tools",
                                 "max_iterations",
                                 "interactive",
                                 "user_channels",
@@ -1414,6 +1524,46 @@ public class AsyncConversationExecutionPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `tool_names` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tool_names").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("initial_skills") != null
+                && !jsonObj.get("initial_skills").isJsonNull()
+                && !jsonObj.get("initial_skills").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `initial_skills` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("initial_skills").toString()));
+        }
+        if (jsonObj.get("initial_tool_calls") != null
+                && !jsonObj.get("initial_tool_calls").isJsonNull()) {
+            JsonArray jsonArrayinitialToolCalls = jsonObj.getAsJsonArray("initial_tool_calls");
+            if (jsonArrayinitialToolCalls != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("initial_tool_calls").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `initial_tool_calls` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("initial_tool_calls").toString()));
+                }
+
+                // validate the optional field `initial_tool_calls` (array)
+                for (int i = 0; i < jsonArrayinitialToolCalls.size(); i++) {
+                    InitialToolCall.validateJsonElement(jsonArrayinitialToolCalls.get(i));
+                }
+                ;
+            }
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("excluded_tools") != null
+                && !jsonObj.get("excluded_tools").isJsonNull()
+                && !jsonObj.get("excluded_tools").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `excluded_tools` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("excluded_tools").toString()));
         }
         if (jsonObj.get("user_channels") != null && !jsonObj.get("user_channels").isJsonNull()) {
             JsonArray jsonArrayuserChannels = jsonObj.getAsJsonArray("user_channels");
