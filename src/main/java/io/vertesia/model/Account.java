@@ -95,6 +95,11 @@ public class Account {
     @SerializedName(SERIALIZED_NAME_QUOTA_TIER)
     @jakarta.annotation.Nullable private QuotaTier quotaTier;
 
+    public static final String SERIALIZED_NAME_FEATURE_FLAGS = "feature_flags";
+
+    @SerializedName(SERIALIZED_NAME_FEATURE_FLAGS)
+    @jakarta.annotation.Nullable private Map<String, Object> featureFlags = new HashMap<>();
+
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
@@ -306,6 +311,31 @@ public class Account {
         this.quotaTier = quotaTier;
     }
 
+    public Account featureFlags(@jakarta.annotation.Nullable Map<String, Object> featureFlags) {
+        this.featureFlags = featureFlags;
+        return this;
+    }
+
+    public Account putFeatureFlagsItem(String key, Object featureFlagsItem) {
+        if (this.featureFlags == null) {
+            this.featureFlags = new HashMap<>();
+        }
+        this.featureFlags.put(key, featureFlagsItem);
+        return this;
+    }
+
+    /**
+     * Ops-managed per-account feature flags. Untyped by design so operators can add / remove temporary rollout gates without a schema change. Keys are enumerated in the admin UI from a hardcoded registry (studio-server) — flags not in that registry are ignored. Not modifiable through the public account API; admin API only.
+     * @return featureFlags
+     */
+    @jakarta.annotation.Nullable public Map<String, Object> getFeatureFlags() {
+        return featureFlags;
+    }
+
+    public void setFeatureFlags(@jakarta.annotation.Nullable Map<String, Object> featureFlags) {
+        this.featureFlags = featureFlags;
+    }
+
     public Account createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
@@ -442,6 +472,7 @@ public class Account {
                 && Objects.equals(this.accountType, account.accountType)
                 && Objects.equals(this.billing, account.billing)
                 && Objects.equals(this.quotaTier, account.quotaTier)
+                && Objects.equals(this.featureFlags, account.featureFlags)
                 && Objects.equals(this.createdBy, account.createdBy)
                 && Objects.equals(this.updatedBy, account.updatedBy)
                 && Objects.equals(this.createdAt, account.createdAt)
@@ -462,6 +493,7 @@ public class Account {
                 accountType,
                 billing,
                 quotaTier,
+                featureFlags,
                 createdBy,
                 updatedBy,
                 createdAt,
@@ -483,6 +515,7 @@ public class Account {
         sb.append("    accountType: ").append(toIndentedString(accountType)).append("\n");
         sb.append("    billing: ").append(toIndentedString(billing)).append("\n");
         sb.append("    quotaTier: ").append(toIndentedString(quotaTier)).append("\n");
+        sb.append("    featureFlags: ").append(toIndentedString(featureFlags)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -520,6 +553,7 @@ public class Account {
                                 "account_type",
                                 "billing",
                                 "quota_tier",
+                                "feature_flags",
                                 "created_by",
                                 "updated_by",
                                 "created_at",
