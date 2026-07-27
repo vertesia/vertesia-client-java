@@ -117,6 +117,11 @@ public class ContentTypeIntakePolicyExtraction {
     @SerializedName(SERIALIZED_NAME_INTERACTION)
     @jakarta.annotation.Nullable private String interaction;
 
+    public static final String SERIALIZED_NAME_CONFIG = "config";
+
+    @SerializedName(SERIALIZED_NAME_CONFIG)
+    @jakarta.annotation.Nullable private InteractionExecutionConfiguration config;
+
     public static final String SERIALIZED_NAME_SCOPE = "scope";
 
     @SerializedName(SERIALIZED_NAME_SCOPE)
@@ -218,6 +223,24 @@ public class ContentTypeIntakePolicyExtraction {
 
     public void setInteraction(@jakarta.annotation.Nullable String interaction) {
         this.interaction = interaction;
+    }
+
+    public ContentTypeIntakePolicyExtraction config(
+            @jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
+        this.config = config;
+        return this;
+    }
+
+    /**
+     * Model execution config for the standard property-extraction interaction (sys:ExtractInformation). Lets extraction run on a different model/environment than the visual page conversion. When unset, extraction uses the run&#39;s model config or the project default model. (Grounded extraction is configured separately via grounding.config.)
+     * @return config
+     */
+    @jakarta.annotation.Nullable public InteractionExecutionConfiguration getConfig() {
+        return config;
+    }
+
+    public void setConfig(@jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
+        this.config = config;
     }
 
     public ContentTypeIntakePolicyExtraction scope(
@@ -353,6 +376,7 @@ public class ContentTypeIntakePolicyExtraction {
                 && Objects.equals(this.source, contentTypeIntakePolicyExtraction.source)
                 && Objects.equals(this.instructions, contentTypeIntakePolicyExtraction.instructions)
                 && Objects.equals(this.interaction, contentTypeIntakePolicyExtraction.interaction)
+                && Objects.equals(this.config, contentTypeIntakePolicyExtraction.config)
                 && Objects.equals(this.scope, contentTypeIntakePolicyExtraction.scope)
                 && Objects.equals(this.pageRanges, contentTypeIntakePolicyExtraction.pageRanges)
                 && Objects.equals(this.maxPages, contentTypeIntakePolicyExtraction.maxPages)
@@ -368,6 +392,7 @@ public class ContentTypeIntakePolicyExtraction {
                 source,
                 instructions,
                 interaction,
+                config,
                 scope,
                 pageRanges,
                 maxPages,
@@ -384,6 +409,7 @@ public class ContentTypeIntakePolicyExtraction {
         sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("    instructions: ").append(toIndentedString(instructions)).append("\n");
         sb.append("    interaction: ").append(toIndentedString(interaction)).append("\n");
+        sb.append("    config: ").append(toIndentedString(config)).append("\n");
         sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
         sb.append("    pageRanges: ").append(toIndentedString(pageRanges)).append("\n");
         sb.append("    maxPages: ").append(toIndentedString(maxPages)).append("\n");
@@ -414,6 +440,7 @@ public class ContentTypeIntakePolicyExtraction {
                                 "source",
                                 "instructions",
                                 "interaction",
+                                "config",
                                 "scope",
                                 "page_ranges",
                                 "max_pages",
@@ -471,6 +498,10 @@ public class ContentTypeIntakePolicyExtraction {
                             java.util.Locale.ROOT,
                             "Expected the field `interaction` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("interaction").toString()));
+        }
+        // validate the optional field `config`
+        if (jsonObj.get("config") != null && !jsonObj.get("config").isJsonNull()) {
+            InteractionExecutionConfiguration.validateJsonElement(jsonObj.get("config"));
         }
         // validate the optional field `scope`
         if (jsonObj.get("scope") != null && !jsonObj.get("scope").isJsonNull()) {

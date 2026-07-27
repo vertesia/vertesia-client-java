@@ -187,6 +187,16 @@ public class ContentTypeIntakePolicyTextConversion {
     @SerializedName(SERIALIZED_NAME_PAGE_RANGES)
     @jakarta.annotation.Nullable private List<List<BigDecimal>> pageRanges;
 
+    public static final String SERIALIZED_NAME_RENDER_DPI = "render_dpi";
+
+    @SerializedName(SERIALIZED_NAME_RENDER_DPI)
+    @jakarta.annotation.Nullable private BigDecimal renderDpi;
+
+    public static final String SERIALIZED_NAME_CONFIG = "config";
+
+    @SerializedName(SERIALIZED_NAME_CONFIG)
+    @jakarta.annotation.Nullable private InteractionExecutionConfiguration config;
+
     public ContentTypeIntakePolicyTextConversion() {}
 
     public ContentTypeIntakePolicyTextConversion enabled(
@@ -325,6 +335,42 @@ public class ContentTypeIntakePolicyTextConversion {
         this.pageRanges = pageRanges;
     }
 
+    public ContentTypeIntakePolicyTextConversion renderDpi(
+            @jakarta.annotation.Nullable BigDecimal renderDpi) {
+        this.renderDpi = renderDpi;
+        return this;
+    }
+
+    /**
+     * DPI at which each page is rendered to the image the LLM converts. Default 150 — the accuracy/cost sweet spot: higher resolutions balloon input tokens (some providers tile the page) for no quality gain, below ~150 dense tables start to misread. Raise only for very fine print.
+     * @return renderDpi
+     */
+    @jakarta.annotation.Nullable public BigDecimal getRenderDpi() {
+        return renderDpi;
+    }
+
+    public void setRenderDpi(@jakarta.annotation.Nullable BigDecimal renderDpi) {
+        this.renderDpi = renderDpi;
+    }
+
+    public ContentTypeIntakePolicyTextConversion config(
+            @jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
+        this.config = config;
+        return this;
+    }
+
+    /**
+     * Model execution config for the page-conversion interaction (method &#39;llm&#39;/&#39;auto&#39; -&gt; sys:ConvertPageToMarkdown, method &#39;custom&#39; -&gt; the custom interaction). Lets the visual conversion run on a cheaper/faster model (e.g. a flash model) than extraction. When unset, conversion uses the run&#39;s model config or the project default model.
+     * @return config
+     */
+    @jakarta.annotation.Nullable public InteractionExecutionConfiguration getConfig() {
+        return config;
+    }
+
+    public void setConfig(@jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
+        this.config = config;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -343,13 +389,23 @@ public class ContentTypeIntakePolicyTextConversion {
                 && Objects.equals(
                         this.outputFormat, contentTypeIntakePolicyTextConversion.outputFormat)
                 && Objects.equals(this.scope, contentTypeIntakePolicyTextConversion.scope)
-                && Objects.equals(
-                        this.pageRanges, contentTypeIntakePolicyTextConversion.pageRanges);
+                && Objects.equals(this.pageRanges, contentTypeIntakePolicyTextConversion.pageRanges)
+                && Objects.equals(this.renderDpi, contentTypeIntakePolicyTextConversion.renderDpi)
+                && Objects.equals(this.config, contentTypeIntakePolicyTextConversion.config);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(enabled, method, custom, instructions, outputFormat, scope, pageRanges);
+        return Objects.hash(
+                enabled,
+                method,
+                custom,
+                instructions,
+                outputFormat,
+                scope,
+                pageRanges,
+                renderDpi,
+                config);
     }
 
     @Override
@@ -363,6 +419,8 @@ public class ContentTypeIntakePolicyTextConversion {
         sb.append("    outputFormat: ").append(toIndentedString(outputFormat)).append("\n");
         sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
         sb.append("    pageRanges: ").append(toIndentedString(pageRanges)).append("\n");
+        sb.append("    renderDpi: ").append(toIndentedString(renderDpi)).append("\n");
+        sb.append("    config: ").append(toIndentedString(config)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -389,7 +447,9 @@ public class ContentTypeIntakePolicyTextConversion {
                                 "instructions",
                                 "output_format",
                                 "scope",
-                                "page_ranges"));
+                                "page_ranges",
+                                "render_dpi",
+                                "config"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -463,6 +523,10 @@ public class ContentTypeIntakePolicyTextConversion {
                             java.util.Locale.ROOT,
                             "Expected the field `page_ranges` to be an array in the JSON string but got `%s`",
                             jsonObj.get("page_ranges").toString()));
+        }
+        // validate the optional field `config`
+        if (jsonObj.get("config") != null && !jsonObj.get("config").isJsonNull()) {
+            InteractionExecutionConfiguration.validateJsonElement(jsonObj.get("config"));
         }
     }
 
