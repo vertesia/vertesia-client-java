@@ -322,7 +322,7 @@ public class EventSubscriptionsApi {
 
     /**
      * Delete an event subscription
-     * Deletes an event subscription. Existing materialized deliveries are not cancelled.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Deletes an event subscription. Queued deliveries are cancelled, since nothing can start them once the subscription is gone; deliveries already running are left to finish and report normally. Both remain visible for the operational retention window.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param subscriptionId  (required)
      * @return DeleteCountResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -344,7 +344,7 @@ public class EventSubscriptionsApi {
 
     /**
      * Delete an event subscription
-     * Deletes an event subscription. Existing materialized deliveries are not cancelled.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Deletes an event subscription. Queued deliveries are cancelled, since nothing can start them once the subscription is gone; deliveries already running are left to finish and report normally. Both remain visible for the operational retention window.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param subscriptionId  (required)
      * @return ApiResponse&lt;DeleteCountResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -366,7 +366,7 @@ public class EventSubscriptionsApi {
 
     /**
      * Delete an event subscription (asynchronously)
-     * Deletes an event subscription. Existing materialized deliveries are not cancelled.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Deletes an event subscription. Queued deliveries are cancelled, since nothing can start them once the subscription is gone; deliveries already running are left to finish and report normally. Both remain visible for the operational retention window.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param subscriptionId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
