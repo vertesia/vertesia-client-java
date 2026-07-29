@@ -106,6 +106,11 @@ public class UserGroup {
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
     @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_ALLOWED_PROJECTS = "allowed_projects";
+
+    @SerializedName(SERIALIZED_NAME_ALLOWED_PROJECTS)
+    @jakarta.annotation.Nullable private List<String> allowedProjects = new ArrayList<>();
+
     public UserGroup() {}
 
     public UserGroup id(@jakarta.annotation.Nonnull String id) {
@@ -342,6 +347,31 @@ public class UserGroup {
         this.compartments = compartments;
     }
 
+    public UserGroup allowedProjects(@jakarta.annotation.Nullable List<String> allowedProjects) {
+        this.allowedProjects = allowedProjects;
+        return this;
+    }
+
+    public UserGroup addAllowedProjectsItem(String allowedProjectsItem) {
+        if (this.allowedProjects == null) {
+            this.allowedProjects = new ArrayList<>();
+        }
+        this.allowedProjects.add(allowedProjectsItem);
+        return this;
+    }
+
+    /**
+     * Projects this group is allowed to be used in. When empty or absent the group is org-wide (usable in any project). When set, the group may only be used to grant permissions in the listed projects.
+     * @return allowedProjects
+     */
+    @jakarta.annotation.Nullable public List<String> getAllowedProjects() {
+        return allowedProjects;
+    }
+
+    public void setAllowedProjects(@jakarta.annotation.Nullable List<String> allowedProjects) {
+        this.allowedProjects = allowedProjects;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -408,6 +438,7 @@ public class UserGroup {
                 && Objects.equals(this.properties, userGroup.properties)
                 && Objects.equals(this.clearance, userGroup.clearance)
                 && Objects.equals(this.compartments, userGroup.compartments)
+                && Objects.equals(this.allowedProjects, userGroup.allowedProjects)
                 && Objects.equals(this.additionalProperties, userGroup.additionalProperties);
     }
 
@@ -426,6 +457,7 @@ public class UserGroup {
                 properties,
                 clearance,
                 compartments,
+                allowedProjects,
                 additionalProperties);
     }
 
@@ -445,6 +477,7 @@ public class UserGroup {
         sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
         sb.append("    clearance: ").append(toIndentedString(clearance)).append("\n");
         sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
+        sb.append("    allowedProjects: ").append(toIndentedString(allowedProjects)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -479,7 +512,8 @@ public class UserGroup {
                                 "updated_by",
                                 "properties",
                                 "clearance",
-                                "compartments"));
+                                "compartments",
+                                "allowed_projects"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -582,6 +616,16 @@ public class UserGroup {
                             java.util.Locale.ROOT,
                             "Expected the field `compartments` to be an array in the JSON string but got `%s`",
                             jsonObj.get("compartments").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("allowed_projects") != null
+                && !jsonObj.get("allowed_projects").isJsonNull()
+                && !jsonObj.get("allowed_projects").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `allowed_projects` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("allowed_projects").toString()));
         }
     }
 

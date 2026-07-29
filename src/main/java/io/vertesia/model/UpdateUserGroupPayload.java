@@ -70,6 +70,11 @@ public class UpdateUserGroupPayload {
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
     @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_ALLOWED_PROJECTS = "allowed_projects";
+
+    @SerializedName(SERIALIZED_NAME_ALLOWED_PROJECTS)
+    @jakarta.annotation.Nullable private List<String> allowedProjects = new ArrayList<>();
+
     public UpdateUserGroupPayload() {}
 
     public UpdateUserGroupPayload name(@jakarta.annotation.Nonnull String name) {
@@ -201,6 +206,32 @@ public class UpdateUserGroupPayload {
         this.compartments = compartments;
     }
 
+    public UpdateUserGroupPayload allowedProjects(
+            @jakarta.annotation.Nullable List<String> allowedProjects) {
+        this.allowedProjects = allowedProjects;
+        return this;
+    }
+
+    public UpdateUserGroupPayload addAllowedProjectsItem(String allowedProjectsItem) {
+        if (this.allowedProjects == null) {
+            this.allowedProjects = new ArrayList<>();
+        }
+        this.allowedProjects.add(allowedProjectsItem);
+        return this;
+    }
+
+    /**
+     * Get allowedProjects
+     * @return allowedProjects
+     */
+    @jakarta.annotation.Nullable public List<String> getAllowedProjects() {
+        return allowedProjects;
+    }
+
+    public void setAllowedProjects(@jakarta.annotation.Nullable List<String> allowedProjects) {
+        this.allowedProjects = allowedProjects;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -215,12 +246,14 @@ public class UpdateUserGroupPayload {
                 && Objects.equals(this.tags, updateUserGroupPayload.tags)
                 && Objects.equals(this.properties, updateUserGroupPayload.properties)
                 && Objects.equals(this.clearance, updateUserGroupPayload.clearance)
-                && Objects.equals(this.compartments, updateUserGroupPayload.compartments);
+                && Objects.equals(this.compartments, updateUserGroupPayload.compartments)
+                && Objects.equals(this.allowedProjects, updateUserGroupPayload.allowedProjects);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, tags, properties, clearance, compartments);
+        return Objects.hash(
+                name, description, tags, properties, clearance, compartments, allowedProjects);
     }
 
     @Override
@@ -233,6 +266,7 @@ public class UpdateUserGroupPayload {
         sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
         sb.append("    clearance: ").append(toIndentedString(clearance)).append("\n");
         sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
+        sb.append("    allowedProjects: ").append(toIndentedString(allowedProjects)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -258,7 +292,8 @@ public class UpdateUserGroupPayload {
                                 "tags",
                                 "properties",
                                 "clearance",
-                                "compartments"));
+                                "compartments",
+                                "allowed_projects"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -328,6 +363,16 @@ public class UpdateUserGroupPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `compartments` to be an array in the JSON string but got `%s`",
                             jsonObj.get("compartments").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("allowed_projects") != null
+                && !jsonObj.get("allowed_projects").isJsonNull()
+                && !jsonObj.get("allowed_projects").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `allowed_projects` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("allowed_projects").toString()));
         }
     }
 

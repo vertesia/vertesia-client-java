@@ -331,7 +331,7 @@ public class UserGroupsApi {
 
     /**
      * Create a user group
-     * Creates a new user group in the current account.  **Required permissions:** &#x60;account:admin&#x60;
+     * Creates a new user group in the current account. Pass &#x60;allowed_projects&#x60; to restrict the group to specific projects (empty/absent &#x3D; org-wide).  **Required permissions:** &#x60;account:admin&#x60;
      * @param createUserGroupPayload  (required)
      * @return UserGroup
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -353,7 +353,7 @@ public class UserGroupsApi {
 
     /**
      * Create a user group
-     * Creates a new user group in the current account.  **Required permissions:** &#x60;account:admin&#x60;
+     * Creates a new user group in the current account. Pass &#x60;allowed_projects&#x60; to restrict the group to specific projects (empty/absent &#x3D; org-wide).  **Required permissions:** &#x60;account:admin&#x60;
      * @param createUserGroupPayload  (required)
      * @return ApiResponse&lt;UserGroup&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -376,7 +376,7 @@ public class UserGroupsApi {
 
     /**
      * Create a user group (asynchronously)
-     * Creates a new user group in the current account.  **Required permissions:** &#x60;account:admin&#x60;
+     * Creates a new user group in the current account. Pass &#x60;allowed_projects&#x60; to restrict the group to specific projects (empty/absent &#x3D; org-wide).  **Required permissions:** &#x60;account:admin&#x60;
      * @param createUserGroupPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -788,7 +788,7 @@ public class UserGroupsApi {
 
     /**
      * List user groups
-     * Lists user groups in the current account.  **Required permissions:** &#x60;account:read&#x60;
+     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** &#x60;account:read&#x60;
      * @return List&lt;UserGroup&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -807,7 +807,7 @@ public class UserGroupsApi {
 
     /**
      * List user groups
-     * Lists user groups in the current account.  **Required permissions:** &#x60;account:read&#x60;
+     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** &#x60;account:read&#x60;
      * @return ApiResponse&lt;List&lt;UserGroup&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -827,7 +827,7 @@ public class UserGroupsApi {
 
     /**
      * List user groups (asynchronously)
-     * Lists user groups in the current account.  **Required permissions:** &#x60;account:read&#x60;
+     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** &#x60;account:read&#x60;
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

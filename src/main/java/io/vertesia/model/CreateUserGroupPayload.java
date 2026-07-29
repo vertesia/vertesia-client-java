@@ -52,6 +52,11 @@ public class CreateUserGroupPayload {
     @SerializedName(SERIALIZED_NAME_TAGS)
     @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_ALLOWED_PROJECTS = "allowed_projects";
+
+    @SerializedName(SERIALIZED_NAME_ALLOWED_PROJECTS)
+    @jakarta.annotation.Nullable private List<String> allowedProjects = new ArrayList<>();
+
     public CreateUserGroupPayload() {}
 
     public CreateUserGroupPayload name(@jakarta.annotation.Nonnull String name) {
@@ -114,6 +119,32 @@ public class CreateUserGroupPayload {
         this.tags = tags;
     }
 
+    public CreateUserGroupPayload allowedProjects(
+            @jakarta.annotation.Nullable List<String> allowedProjects) {
+        this.allowedProjects = allowedProjects;
+        return this;
+    }
+
+    public CreateUserGroupPayload addAllowedProjectsItem(String allowedProjectsItem) {
+        if (this.allowedProjects == null) {
+            this.allowedProjects = new ArrayList<>();
+        }
+        this.allowedProjects.add(allowedProjectsItem);
+        return this;
+    }
+
+    /**
+     * Restrict the new group to the given projects (empty/absent &#x3D; org-wide).
+     * @return allowedProjects
+     */
+    @jakarta.annotation.Nullable public List<String> getAllowedProjects() {
+        return allowedProjects;
+    }
+
+    public void setAllowedProjects(@jakarta.annotation.Nullable List<String> allowedProjects) {
+        this.allowedProjects = allowedProjects;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -125,12 +156,13 @@ public class CreateUserGroupPayload {
         CreateUserGroupPayload createUserGroupPayload = (CreateUserGroupPayload) o;
         return Objects.equals(this.name, createUserGroupPayload.name)
                 && Objects.equals(this.description, createUserGroupPayload.description)
-                && Objects.equals(this.tags, createUserGroupPayload.tags);
+                && Objects.equals(this.tags, createUserGroupPayload.tags)
+                && Objects.equals(this.allowedProjects, createUserGroupPayload.allowedProjects);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, tags);
+        return Objects.hash(name, description, tags, allowedProjects);
     }
 
     @Override
@@ -140,6 +172,7 @@ public class CreateUserGroupPayload {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+        sb.append("    allowedProjects: ").append(toIndentedString(allowedProjects)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -157,7 +190,9 @@ public class CreateUserGroupPayload {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("name", "description", "tags"));
+        openapiFields =
+                new HashSet<String>(
+                        Arrays.asList("name", "description", "tags", "allowed_projects"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("name"));
@@ -217,6 +252,16 @@ public class CreateUserGroupPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("allowed_projects") != null
+                && !jsonObj.get("allowed_projects").isJsonNull()
+                && !jsonObj.get("allowed_projects").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `allowed_projects` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("allowed_projects").toString()));
         }
     }
 
