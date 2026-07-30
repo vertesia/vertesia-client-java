@@ -22,7 +22,7 @@ additionalProperties:
   modelPackage: io.vertesia.model
   groupId: io.vertesia
   artifactId: vertesia-client
-  artifactVersion: 1.4.0
+  artifactVersion: 1.4.1
   developerName: Vertesia
   developerEmail: contact@vertesia.com
   developerOrganization: Vertesia
