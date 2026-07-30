@@ -717,9 +717,13 @@ src/main/java/io/vertesia/model/ProcessHistoryResponseNodeHistoryRef.java
 src/main/java/io/vertesia/model/ProcessNodeReturnsDefinition.java
 src/main/java/io/vertesia/model/ProcessNodeRunType.java
 src/main/java/io/vertesia/model/ProcessNodeType.java
+src/main/java/io/vertesia/model/ProcessResourcesDefinition.java
 src/main/java/io/vertesia/model/ProcessRunConfig.java
 src/main/java/io/vertesia/model/ProcessRunConfigProcessWorkstreamMonitor.java
 src/main/java/io/vertesia/model/ProcessRunType.java
+src/main/java/io/vertesia/model/ProcessScriptInlineSource.java
+src/main/java/io/vertesia/model/ProcessScriptLanguage.java
+src/main/java/io/vertesia/model/ProcessScriptResource.java
 src/main/java/io/vertesia/model/ProcessState.java
 src/main/java/io/vertesia/model/ProgrammaticRunResponse.java
 src/main/java/io/vertesia/model/Project.java

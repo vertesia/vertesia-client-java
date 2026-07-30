@@ -26,9 +26,11 @@ import io.vertesia.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -162,6 +164,16 @@ public class NodeHistoryEntry {
 
     @SerializedName(SERIALIZED_NAME_CHILD_WORKFLOW_RUN_ID)
     @jakarta.annotation.Nullable private String childWorkflowRunId;
+
+    public static final String SERIALIZED_NAME_ARTIFACTS = "artifacts";
+
+    @SerializedName(SERIALIZED_NAME_ARTIFACTS)
+    @jakarta.annotation.Nullable private List<String> artifacts = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_LOG_REF = "log_ref";
+
+    @SerializedName(SERIALIZED_NAME_LOG_REF)
+    @jakarta.annotation.Nullable private String logRef;
 
     public NodeHistoryEntry() {}
 
@@ -382,6 +394,48 @@ public class NodeHistoryEntry {
         this.childWorkflowRunId = childWorkflowRunId;
     }
 
+    public NodeHistoryEntry artifacts(@jakarta.annotation.Nullable List<String> artifacts) {
+        this.artifacts = artifacts;
+        return this;
+    }
+
+    public NodeHistoryEntry addArtifactsItem(String artifactsItem) {
+        if (this.artifacts == null) {
+            this.artifacts = new ArrayList<>();
+        }
+        this.artifacts.add(artifactsItem);
+        return this;
+    }
+
+    /**
+     * Get artifacts
+     * @return artifacts
+     */
+    @jakarta.annotation.Nullable public List<String> getArtifacts() {
+        return artifacts;
+    }
+
+    public void setArtifacts(@jakarta.annotation.Nullable List<String> artifacts) {
+        this.artifacts = artifacts;
+    }
+
+    public NodeHistoryEntry logRef(@jakarta.annotation.Nullable String logRef) {
+        this.logRef = logRef;
+        return this;
+    }
+
+    /**
+     * Get logRef
+     * @return logRef
+     */
+    @jakarta.annotation.Nullable public String getLogRef() {
+        return logRef;
+    }
+
+    public void setLogRef(@jakarta.annotation.Nullable String logRef) {
+        this.logRef = logRef;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -402,7 +456,9 @@ public class NodeHistoryEntry {
                 && Objects.equals(this.sequence, nodeHistoryEntry.sequence)
                 && Objects.equals(this.childRunId, nodeHistoryEntry.childRunId)
                 && Objects.equals(this.childWorkflowId, nodeHistoryEntry.childWorkflowId)
-                && Objects.equals(this.childWorkflowRunId, nodeHistoryEntry.childWorkflowRunId);
+                && Objects.equals(this.childWorkflowRunId, nodeHistoryEntry.childWorkflowRunId)
+                && Objects.equals(this.artifacts, nodeHistoryEntry.artifacts)
+                && Objects.equals(this.logRef, nodeHistoryEntry.logRef);
     }
 
     @Override
@@ -419,7 +475,9 @@ public class NodeHistoryEntry {
                 sequence,
                 childRunId,
                 childWorkflowId,
-                childWorkflowRunId);
+                childWorkflowRunId,
+                artifacts,
+                logRef);
     }
 
     @Override
@@ -440,6 +498,8 @@ public class NodeHistoryEntry {
         sb.append("    childWorkflowRunId: ")
                 .append(toIndentedString(childWorkflowRunId))
                 .append("\n");
+        sb.append("    artifacts: ").append(toIndentedString(artifacts)).append("\n");
+        sb.append("    logRef: ").append(toIndentedString(logRef)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -471,7 +531,9 @@ public class NodeHistoryEntry {
                                 "sequence",
                                 "child_run_id",
                                 "child_workflow_id",
-                                "child_workflow_run_id"));
+                                "child_workflow_run_id",
+                                "artifacts",
+                                "log_ref"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("node", "entered_at", "status"));
@@ -564,6 +626,24 @@ public class NodeHistoryEntry {
                             java.util.Locale.ROOT,
                             "Expected the field `child_workflow_run_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("child_workflow_run_id").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("artifacts") != null
+                && !jsonObj.get("artifacts").isJsonNull()
+                && !jsonObj.get("artifacts").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `artifacts` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("artifacts").toString()));
+        }
+        if ((jsonObj.get("log_ref") != null && !jsonObj.get("log_ref").isJsonNull())
+                && !jsonObj.get("log_ref").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `log_ref` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("log_ref").toString()));
         }
     }
 

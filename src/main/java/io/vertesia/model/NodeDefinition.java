@@ -51,6 +51,16 @@ public class NodeDefinition {
     @SerializedName(SERIALIZED_NAME_TOOL)
     @jakarta.annotation.Nullable private String tool;
 
+    public static final String SERIALIZED_NAME_SCRIPT = "script";
+
+    @SerializedName(SERIALIZED_NAME_SCRIPT)
+    @jakarta.annotation.Nullable private String script;
+
+    public static final String SERIALIZED_NAME_TIMEOUT = "timeout";
+
+    @SerializedName(SERIALIZED_NAME_TIMEOUT)
+    @jakarta.annotation.Nullable private BigDecimal timeout;
+
     public static final String SERIALIZED_NAME_INTERACTION = "interaction";
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
@@ -236,6 +246,40 @@ public class NodeDefinition {
 
     public void setTool(@jakarta.annotation.Nullable String tool) {
         this.tool = tool;
+    }
+
+    public NodeDefinition script(@jakarta.annotation.Nullable String script) {
+        this.script = script;
+        return this;
+    }
+
+    /**
+     * Named entry in process resources.scripts for script nodes.
+     * @return script
+     */
+    @jakarta.annotation.Nullable public String getScript() {
+        return script;
+    }
+
+    public void setScript(@jakarta.annotation.Nullable String script) {
+        this.script = script;
+    }
+
+    public NodeDefinition timeout(@jakarta.annotation.Nullable BigDecimal timeout) {
+        this.timeout = timeout;
+        return this;
+    }
+
+    /**
+     * Script execution timeout in seconds. Defaults to 300 and is capped at 600.
+     * @return timeout
+     */
+    @jakarta.annotation.Nullable public BigDecimal getTimeout() {
+        return timeout;
+    }
+
+    public void setTimeout(@jakarta.annotation.Nullable BigDecimal timeout) {
+        this.timeout = timeout;
     }
 
     public NodeDefinition interaction(@jakarta.annotation.Nullable String interaction) {
@@ -823,6 +867,8 @@ public class NodeDefinition {
         NodeDefinition nodeDefinition = (NodeDefinition) o;
         return Objects.equals(this.type, nodeDefinition.type)
                 && Objects.equals(this.tool, nodeDefinition.tool)
+                && Objects.equals(this.script, nodeDefinition.script)
+                && Objects.equals(this.timeout, nodeDefinition.timeout)
                 && Objects.equals(this.interaction, nodeDefinition.interaction)
                 && Objects.equals(this.process, nodeDefinition.process)
                 && Objects.equals(this.processDefinition, nodeDefinition.processDefinition)
@@ -860,6 +906,8 @@ public class NodeDefinition {
         return Objects.hash(
                 type,
                 tool,
+                script,
+                timeout,
                 interaction,
                 process,
                 processDefinition,
@@ -898,6 +946,8 @@ public class NodeDefinition {
         sb.append("class NodeDefinition {\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    tool: ").append(toIndentedString(tool)).append("\n");
+        sb.append("    script: ").append(toIndentedString(script)).append("\n");
+        sb.append("    timeout: ").append(toIndentedString(timeout)).append("\n");
         sb.append("    interaction: ").append(toIndentedString(interaction)).append("\n");
         sb.append("    process: ").append(toIndentedString(process)).append("\n");
         sb.append("    processDefinition: ")
@@ -952,6 +1002,8 @@ public class NodeDefinition {
                         Arrays.asList(
                                 "type",
                                 "tool",
+                                "script",
+                                "timeout",
                                 "interaction",
                                 "process",
                                 "process_definition",
@@ -1026,6 +1078,14 @@ public class NodeDefinition {
                             java.util.Locale.ROOT,
                             "Expected the field `tool` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("tool").toString()));
+        }
+        if ((jsonObj.get("script") != null && !jsonObj.get("script").isJsonNull())
+                && !jsonObj.get("script").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `script` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("script").toString()));
         }
         if ((jsonObj.get("interaction") != null && !jsonObj.get("interaction").isJsonNull())
                 && !jsonObj.get("interaction").isJsonPrimitive()) {

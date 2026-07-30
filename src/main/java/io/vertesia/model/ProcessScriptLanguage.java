@@ -20,35 +20,21 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Gets or Sets ProcessNodeType
+ * Gets or Sets ProcessScriptLanguage
  */
-@JsonAdapter(ProcessNodeType.Adapter.class)
-public enum ProcessNodeType {
-    TOOL("tool"),
+@JsonAdapter(ProcessScriptLanguage.Adapter.class)
+public enum ProcessScriptLanguage {
+    PYTHON("python"),
 
-    INTERACTION("interaction"),
+    JAVASCRIPT("javascript"),
 
-    AGENT("agent"),
-
-    SCRIPT("script"),
-
-    PROCESS("process"),
-
-    HUMAN_TASK("human_task"),
-
-    FOREACH("foreach"),
-
-    BRANCH("branch"),
-
-    CONDITION("condition"),
-
-    FINAL("final"),
+    TYPESCRIPT("typescript"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
-    ProcessNodeType(String value) {
+    ProcessScriptLanguage(String value) {
         this.value = value;
     }
 
@@ -61,8 +47,8 @@ public enum ProcessNodeType {
         return String.valueOf(value);
     }
 
-    public static ProcessNodeType fromValue(String value) {
-        for (ProcessNodeType b : ProcessNodeType.values()) {
+    public static ProcessScriptLanguage fromValue(String value) {
+        for (ProcessScriptLanguage b : ProcessScriptLanguage.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
@@ -70,22 +56,22 @@ public enum ProcessNodeType {
         return UNKNOWN_DEFAULT_OPEN_API;
     }
 
-    public static class Adapter extends TypeAdapter<ProcessNodeType> {
+    public static class Adapter extends TypeAdapter<ProcessScriptLanguage> {
         @Override
-        public void write(final JsonWriter jsonWriter, final ProcessNodeType enumeration)
+        public void write(final JsonWriter jsonWriter, final ProcessScriptLanguage enumeration)
                 throws IOException {
             jsonWriter.value(enumeration.getValue());
         }
 
         @Override
-        public ProcessNodeType read(final JsonReader jsonReader) throws IOException {
+        public ProcessScriptLanguage read(final JsonReader jsonReader) throws IOException {
             String value = jsonReader.nextString();
-            return ProcessNodeType.fromValue(value);
+            return ProcessScriptLanguage.fromValue(value);
         }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         String value = jsonElement.getAsString();
-        ProcessNodeType.fromValue(value);
+        ProcessScriptLanguage.fromValue(value);
     }
 }

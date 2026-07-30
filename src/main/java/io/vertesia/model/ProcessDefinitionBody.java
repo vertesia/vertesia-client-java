@@ -64,6 +64,11 @@ public class ProcessDefinitionBody {
     @SerializedName(SERIALIZED_NAME_MODEL)
     @jakarta.annotation.Nullable private String model;
 
+    public static final String SERIALIZED_NAME_RESOURCES = "resources";
+
+    @SerializedName(SERIALIZED_NAME_RESOURCES)
+    @jakarta.annotation.Nullable private ProcessResourcesDefinition resources;
+
     public static final String SERIALIZED_NAME_CONTEXT = "context";
 
     @SerializedName(SERIALIZED_NAME_CONTEXT)
@@ -173,6 +178,24 @@ public class ProcessDefinitionBody {
         this.model = model;
     }
 
+    public ProcessDefinitionBody resources(
+            @jakarta.annotation.Nullable ProcessResourcesDefinition resources) {
+        this.resources = resources;
+        return this;
+    }
+
+    /**
+     * Get resources
+     * @return resources
+     */
+    @jakarta.annotation.Nullable public ProcessResourcesDefinition getResources() {
+        return resources;
+    }
+
+    public void setResources(@jakarta.annotation.Nullable ProcessResourcesDefinition resources) {
+        this.resources = resources;
+    }
+
     public ProcessDefinitionBody context(
             @jakarta.annotation.Nonnull ProcessContextDefinition context) {
         this.context = context;
@@ -259,6 +282,7 @@ public class ProcessDefinitionBody {
                 && Objects.equals(this.description, processDefinitionBody.description)
                 && Objects.equals(this.initial, processDefinitionBody.initial)
                 && Objects.equals(this.model, processDefinitionBody.model)
+                && Objects.equals(this.resources, processDefinitionBody.resources)
                 && Objects.equals(this.context, processDefinitionBody.context)
                 && Objects.equals(this.nodes, processDefinitionBody.nodes)
                 && Objects.equals(this.metadata, processDefinitionBody.metadata);
@@ -267,7 +291,15 @@ public class ProcessDefinitionBody {
     @Override
     public int hashCode() {
         return Objects.hash(
-                formatVersion, process, description, initial, model, context, nodes, metadata);
+                formatVersion,
+                process,
+                description,
+                initial,
+                model,
+                resources,
+                context,
+                nodes,
+                metadata);
     }
 
     @Override
@@ -279,6 +311,7 @@ public class ProcessDefinitionBody {
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    initial: ").append(toIndentedString(initial)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
+        sb.append("    resources: ").append(toIndentedString(resources)).append("\n");
         sb.append("    context: ").append(toIndentedString(context)).append("\n");
         sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
         sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
@@ -307,6 +340,7 @@ public class ProcessDefinitionBody {
                                 "description",
                                 "initial",
                                 "model",
+                                "resources",
                                 "context",
                                 "nodes",
                                 "metadata"));
@@ -378,6 +412,10 @@ public class ProcessDefinitionBody {
                             java.util.Locale.ROOT,
                             "Expected the field `model` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("model").toString()));
+        }
+        // validate the optional field `resources`
+        if (jsonObj.get("resources") != null && !jsonObj.get("resources").isJsonNull()) {
+            ProcessResourcesDefinition.validateJsonElement(jsonObj.get("resources"));
         }
         // validate the required field `context`
         ProcessContextDefinition.validateJsonElement(jsonObj.get("context"));
