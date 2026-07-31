@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Conversation state passed between workflow activities. Contains all context needed to continue a multi-turn agent conversation.
+ * Conversation state passed between workflow activities: the activity-safe, per-turn dynamic subset of a multi-turn agent conversation. Rides every conversation activity payload, so it deliberately excludes anything large or fetchable — the conversation history and tool definitions live in artifact storage (referenced via &#x60;tool_reference&#x60; / the conversation storage id), and catalog/activation data lives in the workflow-memory  {@link  ConversationCatalogState }  (persisted as catalog.json).
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -151,21 +151,10 @@ public class ConversationState {
     @SerializedName(SERIALIZED_NAME_PINNED_TOOL_NAMES)
     @jakarta.annotation.Nullable private List<String> pinnedToolNames = new ArrayList<>();
 
-    public static final String SERIALIZED_NAME_TOOL_ACTIVATION_METADATA =
-            "tool_activation_metadata";
-
-    @SerializedName(SERIALIZED_NAME_TOOL_ACTIVATION_METADATA)
-    @jakarta.annotation.Nullable private Map<String, ToolActivationMetadata> toolActivationMetadata;
-
     public static final String SERIALIZED_NAME_USED_SKILLS = "used_skills";
 
     @SerializedName(SERIALIZED_NAME_USED_SKILLS)
     @jakarta.annotation.Nullable private List<UsedSkill> usedSkills = new ArrayList<>();
-
-    public static final String SERIALIZED_NAME_AVAILABLE_SKILLS = "available_skills";
-
-    @SerializedName(SERIALIZED_NAME_AVAILABLE_SKILLS)
-    @jakarta.annotation.Nullable private List<AvailableSkill> availableSkills = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_STREAMING_ENABLED = "streaming_enabled";
 
@@ -201,11 +190,6 @@ public class ConversationState {
 
     @SerializedName(SERIALIZED_NAME_LATEST_STREAMING_ID)
     @jakarta.annotation.Nullable private String latestStreamingId;
-
-    public static final String SERIALIZED_NAME_SKILL_TOOL_MAP = "skill_tool_map";
-
-    @SerializedName(SERIALIZED_NAME_SKILL_TOOL_MAP)
-    @jakarta.annotation.Nullable private Map<String, List<String>> skillToolMap;
 
     public static final String SERIALIZED_NAME_SKILL_INSTRUCTIONS_DELIVERED =
             "skill_instructions_delivered";
@@ -696,34 +680,6 @@ public class ConversationState {
         this.pinnedToolNames = pinnedToolNames;
     }
 
-    public ConversationState toolActivationMetadata(
-            @jakarta.annotation.Nullable Map<String, ToolActivationMetadata> toolActivationMetadata) {
-        this.toolActivationMetadata = toolActivationMetadata;
-        return this;
-    }
-
-    public ConversationState putToolActivationMetadataItem(
-            String key, ToolActivationMetadata toolActivationMetadataItem) {
-        if (this.toolActivationMetadata == null) {
-            this.toolActivationMetadata = new HashMap<>();
-        }
-        this.toolActivationMetadata.put(key, toolActivationMetadataItem);
-        return this;
-    }
-
-    /**
-     * Activation and usage metadata for tools seen during the conversation. Used to keep the active tool set bounded without losing recovery context.
-     * @return toolActivationMetadata
-     */
-    @jakarta.annotation.Nullable public Map<String, ToolActivationMetadata> getToolActivationMetadata() {
-        return toolActivationMetadata;
-    }
-
-    public void setToolActivationMetadata(
-            @jakarta.annotation.Nullable Map<String, ToolActivationMetadata> toolActivationMetadata) {
-        this.toolActivationMetadata = toolActivationMetadata;
-    }
-
     public ConversationState usedSkills(@jakarta.annotation.Nullable List<UsedSkill> usedSkills) {
         this.usedSkills = usedSkills;
         return this;
@@ -747,33 +703,6 @@ public class ConversationState {
 
     public void setUsedSkills(@jakarta.annotation.Nullable List<UsedSkill> usedSkills) {
         this.usedSkills = usedSkills;
-    }
-
-    public ConversationState availableSkills(
-            @jakarta.annotation.Nullable List<AvailableSkill> availableSkills) {
-        this.availableSkills = availableSkills;
-        return this;
-    }
-
-    public ConversationState addAvailableSkillsItem(AvailableSkill availableSkillsItem) {
-        if (this.availableSkills == null) {
-            this.availableSkills = new ArrayList<>();
-        }
-        this.availableSkills.add(availableSkillsItem);
-        return this;
-    }
-
-    /**
-     * All available skills from registered tool collections (for upfront hydration in sandbox)
-     * @return availableSkills
-     */
-    @jakarta.annotation.Nullable public List<AvailableSkill> getAvailableSkills() {
-        return availableSkills;
-    }
-
-    public void setAvailableSkills(
-            @jakarta.annotation.Nullable List<AvailableSkill> availableSkills) {
-        this.availableSkills = availableSkills;
     }
 
     public ConversationState streamingEnabled(
@@ -920,33 +849,6 @@ public class ConversationState {
         this.latestStreamingId = latestStreamingId;
     }
 
-    public ConversationState skillToolMap(
-            @jakarta.annotation.Nullable Map<String, List<String>> skillToolMap) {
-        this.skillToolMap = skillToolMap;
-        return this;
-    }
-
-    public ConversationState putSkillToolMapItem(String key, List<String> skillToolMapItem) {
-        if (this.skillToolMap == null) {
-            this.skillToolMap = new HashMap<>();
-        }
-        this.skillToolMap.put(key, skillToolMapItem);
-        return this;
-    }
-
-    /**
-     * Mapping of skill names to their related tools. When a skill is called, its related tools are added to unlocked_tools.
-     * @return skillToolMap
-     */
-    @jakarta.annotation.Nullable public Map<String, List<String>> getSkillToolMap() {
-        return skillToolMap;
-    }
-
-    public void setSkillToolMap(
-            @jakarta.annotation.Nullable Map<String, List<String>> skillToolMap) {
-        this.skillToolMap = skillToolMap;
-    }
-
     public ConversationState skillInstructionsDelivered(
             @jakarta.annotation.Nullable List<String> skillInstructionsDelivered) {
         this.skillInstructionsDelivered = skillInstructionsDelivered;
@@ -963,7 +865,7 @@ public class ConversationState {
     }
 
     /**
-     * Names of skills whose full instructions are already present in the live conversation history (i.e. were delivered by a prior &#x60;learn_&lt;skill&gt;&#x60; call). Used to make skill re-activation idempotent: a repeat call returns a short \&quot;already active\&quot; acknowledgement instead of re-dumping the instructions.  Unlike &#x60;unlocked_tools&#x60;/&#x60;skill_tool_map&#x60; (which must survive a checkpoint so tools stay unlocked), this list is reset when a checkpoint compacts the conversation, because the summary no longer carries the skill instructions and the next call must re-deliver them.
+     * Names of skills whose full instructions are already present in the live conversation history (i.e. were delivered by a prior &#x60;learn_&lt;skill&gt;&#x60; call). Used to make skill re-activation idempotent: a repeat call returns a short \&quot;already active\&quot; acknowledgement instead of re-dumping the instructions.  Unlike &#x60;unlocked_tools&#x60; (which must survive a checkpoint so tools stay unlocked), this list is reset when a checkpoint compacts the conversation, because the summary no longer carries the skill instructions and the next call must re-deliver them.
      * @return skillInstructionsDelivered
      */
     @jakarta.annotation.Nullable public List<String> getSkillInstructionsDelivered() {
@@ -1223,10 +1125,7 @@ public class ConversationState {
                 && Objects.equals(this.toolReference, conversationState.toolReference)
                 && Objects.equals(this.activeToolNames, conversationState.activeToolNames)
                 && Objects.equals(this.pinnedToolNames, conversationState.pinnedToolNames)
-                && Objects.equals(
-                        this.toolActivationMetadata, conversationState.toolActivationMetadata)
                 && Objects.equals(this.usedSkills, conversationState.usedSkills)
-                && Objects.equals(this.availableSkills, conversationState.availableSkills)
                 && Objects.equals(this.streamingEnabled, conversationState.streamingEnabled)
                 && Objects.equals(this.userChannels, conversationState.userChannels)
                 && Objects.equals(this.resolvedInteraction, conversationState.resolvedInteraction)
@@ -1234,7 +1133,6 @@ public class ConversationState {
                 && Objects.equals(this.unlockedTools, conversationState.unlockedTools)
                 && Objects.equals(this.latestActivityId, conversationState.latestActivityId)
                 && Objects.equals(this.latestStreamingId, conversationState.latestStreamingId)
-                && Objects.equals(this.skillToolMap, conversationState.skillToolMap)
                 && Objects.equals(
                         this.skillInstructionsDelivered,
                         conversationState.skillInstructionsDelivered)
@@ -1278,9 +1176,7 @@ public class ConversationState {
                 toolReference,
                 activeToolNames,
                 pinnedToolNames,
-                toolActivationMetadata,
                 usedSkills,
-                availableSkills,
                 streamingEnabled,
                 userChannels,
                 resolvedInteraction,
@@ -1288,7 +1184,6 @@ public class ConversationState {
                 unlockedTools,
                 latestActivityId,
                 latestStreamingId,
-                skillToolMap,
                 skillInstructionsDelivered,
                 initializationCallIds,
                 disabledMcpCollections,
@@ -1334,11 +1229,7 @@ public class ConversationState {
         sb.append("    toolReference: ").append(toIndentedString(toolReference)).append("\n");
         sb.append("    activeToolNames: ").append(toIndentedString(activeToolNames)).append("\n");
         sb.append("    pinnedToolNames: ").append(toIndentedString(pinnedToolNames)).append("\n");
-        sb.append("    toolActivationMetadata: ")
-                .append(toIndentedString(toolActivationMetadata))
-                .append("\n");
         sb.append("    usedSkills: ").append(toIndentedString(usedSkills)).append("\n");
-        sb.append("    availableSkills: ").append(toIndentedString(availableSkills)).append("\n");
         sb.append("    streamingEnabled: ").append(toIndentedString(streamingEnabled)).append("\n");
         sb.append("    userChannels: ").append(toIndentedString(userChannels)).append("\n");
         sb.append("    resolvedInteraction: ")
@@ -1350,7 +1241,6 @@ public class ConversationState {
         sb.append("    latestStreamingId: ")
                 .append(toIndentedString(latestStreamingId))
                 .append("\n");
-        sb.append("    skillToolMap: ").append(toIndentedString(skillToolMap)).append("\n");
         sb.append("    skillInstructionsDelivered: ")
                 .append(toIndentedString(skillInstructionsDelivered))
                 .append("\n");
@@ -1414,9 +1304,7 @@ public class ConversationState {
                                 "tool_reference",
                                 "active_tool_names",
                                 "pinned_tool_names",
-                                "tool_activation_metadata",
                                 "used_skills",
-                                "available_skills",
                                 "streaming_enabled",
                                 "user_channels",
                                 "resolvedInteraction",
@@ -1424,7 +1312,6 @@ public class ConversationState {
                                 "unlocked_tools",
                                 "latest_activity_id",
                                 "latest_streaming_id",
-                                "skill_tool_map",
                                 "skill_instructions_delivered",
                                 "initialization_call_ids",
                                 "disabled_mcp_collections",
@@ -1621,26 +1508,6 @@ public class ConversationState {
                 // validate the optional field `used_skills` (array)
                 for (int i = 0; i < jsonArrayusedSkills.size(); i++) {
                     UsedSkill.validateJsonElement(jsonArrayusedSkills.get(i));
-                }
-                ;
-            }
-        }
-        if (jsonObj.get("available_skills") != null
-                && !jsonObj.get("available_skills").isJsonNull()) {
-            JsonArray jsonArrayavailableSkills = jsonObj.getAsJsonArray("available_skills");
-            if (jsonArrayavailableSkills != null) {
-                // ensure the json data is an array
-                if (!jsonObj.get("available_skills").isJsonArray()) {
-                    throw new IllegalArgumentException(
-                            String.format(
-                                    java.util.Locale.ROOT,
-                                    "Expected the field `available_skills` to be an array in the JSON string but got `%s`",
-                                    jsonObj.get("available_skills").toString()));
-                }
-
-                // validate the optional field `available_skills` (array)
-                for (int i = 0; i < jsonArrayavailableSkills.size(); i++) {
-                    AvailableSkill.validateJsonElement(jsonArrayavailableSkills.get(i));
                 }
                 ;
             }

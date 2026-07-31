@@ -194,7 +194,6 @@ src/main/java/io/vertesia/model/AuditTrailEvent.java
 src/main/java/io/vertesia/model/AuditTrailResponse.java
 src/main/java/io/vertesia/model/AuthTokenResponse.java
 src/main/java/io/vertesia/model/AutonomousRunResponse.java
-src/main/java/io/vertesia/model/AvailableSkill.java
 src/main/java/io/vertesia/model/AwsConfiguration.java
 src/main/java/io/vertesia/model/BatchQueryPayload.java
 src/main/java/io/vertesia/model/BatchQueryPayloadQueriesInner.java
@@ -896,7 +895,6 @@ src/main/java/io/vertesia/model/TextSection.java
 src/main/java/io/vertesia/model/ThinkingLevel.java
 src/main/java/io/vertesia/model/TimeResolution.java
 src/main/java/io/vertesia/model/TimerTask.java
-src/main/java/io/vertesia/model/ToolActivationMetadata.java
 src/main/java/io/vertesia/model/ToolApprovalGrant.java
 src/main/java/io/vertesia/model/ToolCollectionAuthType.java
 src/main/java/io/vertesia/model/ToolCollectionObject.java
