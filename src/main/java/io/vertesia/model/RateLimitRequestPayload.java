@@ -52,8 +52,14 @@ public class RateLimitRequestPayload {
 
     public static final String SERIALIZED_NAME_WORKFLOW_RUN_ID = "workflow_run_id";
 
+    @Deprecated
     @SerializedName(SERIALIZED_NAME_WORKFLOW_RUN_ID)
     @jakarta.annotation.Nullable private String workflowRunId;
+
+    public static final String SERIALIZED_NAME_RATE_LIMIT_ID = "rate_limit_id";
+
+    @SerializedName(SERIALIZED_NAME_RATE_LIMIT_ID)
+    @jakarta.annotation.Nullable private String rateLimitId;
 
     public static final String SERIALIZED_NAME_MODALITIES = "modalities";
 
@@ -115,6 +121,7 @@ public class RateLimitRequestPayload {
         this.modelId = modelId;
     }
 
+    @Deprecated
     public RateLimitRequestPayload workflowRunId(
             @jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
@@ -122,15 +129,35 @@ public class RateLimitRequestPayload {
     }
 
     /**
-     * Get workflowRunId
+     * Deprecated: Use rate_limit_id for admission/completion correlation.
      * @return workflowRunId
+     * @deprecated
      */
+    @Deprecated
     @jakarta.annotation.Nullable public String getWorkflowRunId() {
         return workflowRunId;
     }
 
+    @Deprecated
     public void setWorkflowRunId(@jakarta.annotation.Nullable String workflowRunId) {
         this.workflowRunId = workflowRunId;
+    }
+
+    public RateLimitRequestPayload rateLimitId(@jakarta.annotation.Nullable String rateLimitId) {
+        this.rateLimitId = rateLimitId;
+        return this;
+    }
+
+    /**
+     * Stable per-execution admission identifier. Preferred over the legacy workflow_run_id.
+     * @return rateLimitId
+     */
+    @jakarta.annotation.Nullable public String getRateLimitId() {
+        return rateLimitId;
+    }
+
+    public void setRateLimitId(@jakarta.annotation.Nullable String rateLimitId) {
+        this.rateLimitId = rateLimitId;
     }
 
     public RateLimitRequestPayload modalities(
@@ -164,12 +191,14 @@ public class RateLimitRequestPayload {
                 && Objects.equals(this.environmentId, rateLimitRequestPayload.environmentId)
                 && Objects.equals(this.modelId, rateLimitRequestPayload.modelId)
                 && Objects.equals(this.workflowRunId, rateLimitRequestPayload.workflowRunId)
+                && Objects.equals(this.rateLimitId, rateLimitRequestPayload.rateLimitId)
                 && Objects.equals(this.modalities, rateLimitRequestPayload.modalities);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(interaction, environmentId, modelId, workflowRunId, modalities);
+        return Objects.hash(
+                interaction, environmentId, modelId, workflowRunId, rateLimitId, modalities);
     }
 
     @Override
@@ -180,6 +209,7 @@ public class RateLimitRequestPayload {
         sb.append("    environmentId: ").append(toIndentedString(environmentId)).append("\n");
         sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
         sb.append("    workflowRunId: ").append(toIndentedString(workflowRunId)).append("\n");
+        sb.append("    rateLimitId: ").append(toIndentedString(rateLimitId)).append("\n");
         sb.append("    modalities: ").append(toIndentedString(modalities)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -205,6 +235,7 @@ public class RateLimitRequestPayload {
                                 "environment_id",
                                 "model_id",
                                 "workflow_run_id",
+                                "rate_limit_id",
                                 "modalities"));
 
         // a set of required properties/fields (JSON key names)
@@ -271,6 +302,14 @@ public class RateLimitRequestPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `workflow_run_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("workflow_run_id").toString()));
+        }
+        if ((jsonObj.get("rate_limit_id") != null && !jsonObj.get("rate_limit_id").isJsonNull())
+                && !jsonObj.get("rate_limit_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `rate_limit_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("rate_limit_id").toString()));
         }
         // validate the optional field `modalities`
         if (jsonObj.get("modalities") != null && !jsonObj.get("modalities").isJsonNull()) {

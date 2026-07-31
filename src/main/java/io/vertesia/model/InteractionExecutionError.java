@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
@@ -56,6 +57,11 @@ public class InteractionExecutionError {
 
     @SerializedName(SERIALIZED_NAME_RETRYABLE)
     @jakarta.annotation.Nullable private Boolean retryable;
+
+    public static final String SERIALIZED_NAME_RETRY_AFTER_MS = "retry_after_ms";
+
+    @SerializedName(SERIALIZED_NAME_RETRY_AFTER_MS)
+    @jakarta.annotation.Nullable private BigDecimal retryAfterMs;
 
     public InteractionExecutionError() {}
 
@@ -129,6 +135,24 @@ public class InteractionExecutionError {
         this.retryable = retryable;
     }
 
+    public InteractionExecutionError retryAfterMs(
+            @jakarta.annotation.Nullable BigDecimal retryAfterMs) {
+        this.retryAfterMs = retryAfterMs;
+        return this;
+    }
+
+    /**
+     * Provider-supplied retry delay preserved across synchronous and async workflow execution.
+     * @return retryAfterMs
+     */
+    @jakarta.annotation.Nullable public BigDecimal getRetryAfterMs() {
+        return retryAfterMs;
+    }
+
+    public void setRetryAfterMs(@jakarta.annotation.Nullable BigDecimal retryAfterMs) {
+        this.retryAfterMs = retryAfterMs;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -141,7 +165,8 @@ public class InteractionExecutionError {
         return Objects.equals(this.code, interactionExecutionError.code)
                 && Objects.equals(this.message, interactionExecutionError.message)
                 && Objects.equals(this.data, interactionExecutionError.data)
-                && Objects.equals(this.retryable, interactionExecutionError.retryable);
+                && Objects.equals(this.retryable, interactionExecutionError.retryable)
+                && Objects.equals(this.retryAfterMs, interactionExecutionError.retryAfterMs);
     }
 
     private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -155,7 +180,7 @@ public class InteractionExecutionError {
 
     @Override
     public int hashCode() {
-        return Objects.hash(code, message, data, retryable);
+        return Objects.hash(code, message, data, retryable, retryAfterMs);
     }
 
     private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -173,6 +198,7 @@ public class InteractionExecutionError {
         sb.append("    message: ").append(toIndentedString(message)).append("\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    retryable: ").append(toIndentedString(retryable)).append("\n");
+        sb.append("    retryAfterMs: ").append(toIndentedString(retryAfterMs)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -190,7 +216,9 @@ public class InteractionExecutionError {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("code", "message", "data", "retryable"));
+        openapiFields =
+                new HashSet<String>(
+                        Arrays.asList("code", "message", "data", "retryable", "retry_after_ms"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("code", "message"));

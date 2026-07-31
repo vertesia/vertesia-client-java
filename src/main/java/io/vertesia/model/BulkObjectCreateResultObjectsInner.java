@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
@@ -39,6 +40,11 @@ public class BulkObjectCreateResultObjectsInner {
     @SerializedName(SERIALIZED_NAME_ID)
     @jakarta.annotation.Nonnull
     private String id;
+
+    public static final String SERIALIZED_NAME_INDEX = "index";
+
+    @SerializedName(SERIALIZED_NAME_INDEX)
+    @jakarta.annotation.Nullable private BigDecimal index;
 
     public static final String SERIALIZED_NAME_EXTERNAL_ID = "external_id";
 
@@ -63,6 +69,23 @@ public class BulkObjectCreateResultObjectsInner {
 
     public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
+    }
+
+    public BulkObjectCreateResultObjectsInner index(@jakarta.annotation.Nullable BigDecimal index) {
+        this.index = index;
+        return this;
+    }
+
+    /**
+     * Get index
+     * @return index
+     */
+    @jakarta.annotation.Nullable public BigDecimal getIndex() {
+        return index;
+    }
+
+    public void setIndex(@jakarta.annotation.Nullable BigDecimal index) {
+        this.index = index;
     }
 
     public BulkObjectCreateResultObjectsInner externalId(
@@ -94,12 +117,13 @@ public class BulkObjectCreateResultObjectsInner {
         BulkObjectCreateResultObjectsInner bulkObjectCreateResultObjectsInner =
                 (BulkObjectCreateResultObjectsInner) o;
         return Objects.equals(this.id, bulkObjectCreateResultObjectsInner.id)
+                && Objects.equals(this.index, bulkObjectCreateResultObjectsInner.index)
                 && Objects.equals(this.externalId, bulkObjectCreateResultObjectsInner.externalId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, externalId);
+        return Objects.hash(id, index, externalId);
     }
 
     @Override
@@ -107,6 +131,7 @@ public class BulkObjectCreateResultObjectsInner {
         StringBuilder sb = new StringBuilder();
         sb.append("class BulkObjectCreateResultObjectsInner {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    index: ").append(toIndentedString(index)).append("\n");
         sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -125,7 +150,7 @@ public class BulkObjectCreateResultObjectsInner {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("id", "external_id"));
+        openapiFields = new HashSet<String>(Arrays.asList("id", "index", "external_id"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("id"));

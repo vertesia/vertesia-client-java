@@ -23,9 +23,14 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.time.OffsetDateTime;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -115,6 +120,21 @@ public class ApiKey {
 
     @SerializedName(SERIALIZED_NAME_EXPIRES_AT)
     @jakarta.annotation.Nullable private OffsetDateTime expiresAt;
+
+    public static final String SERIALIZED_NAME_PROPERTIES = "properties";
+
+    @SerializedName(SERIALIZED_NAME_PROPERTIES)
+    @jakarta.annotation.Nullable private Map<String, Object> properties = new HashMap<>();
+
+    public static final String SERIALIZED_NAME_CLEARANCE = "clearance";
+
+    @SerializedName(SERIALIZED_NAME_CLEARANCE)
+    @jakarta.annotation.Nullable private BigDecimal clearance;
+
+    public static final String SERIALIZED_NAME_COMPARTMENTS = "compartments";
+
+    @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
+    @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
     public ApiKey() {}
 
@@ -367,6 +387,118 @@ public class ApiKey {
         this.expiresAt = expiresAt;
     }
 
+    public ApiKey properties(@jakarta.annotation.Nullable Map<String, Object> properties) {
+        this.properties = properties;
+        return this;
+    }
+
+    public ApiKey putPropertiesItem(String key, Object propertiesItem) {
+        if (this.properties == null) {
+            this.properties = new HashMap<>();
+        }
+        this.properties.put(key, propertiesItem);
+        return this;
+    }
+
+    /**
+     * Custom properties for dynamic permission matching (PrincipalSet / $principal. conditions)
+     * @return properties
+     */
+    @jakarta.annotation.Nullable public Map<String, Object> getProperties() {
+        return properties;
+    }
+
+    public void setProperties(@jakarta.annotation.Nullable Map<String, Object> properties) {
+        this.properties = properties;
+    }
+
+    public ApiKey clearance(@jakarta.annotation.Nullable BigDecimal clearance) {
+        this.clearance = clearance;
+        return this;
+    }
+
+    /**
+     * BLP clearance level — determines max document sensitivity the key can access
+     * @return clearance
+     */
+    @jakarta.annotation.Nullable public BigDecimal getClearance() {
+        return clearance;
+    }
+
+    public void setClearance(@jakarta.annotation.Nullable BigDecimal clearance) {
+        this.clearance = clearance;
+    }
+
+    public ApiKey compartments(@jakarta.annotation.Nullable List<String> compartments) {
+        this.compartments = compartments;
+        return this;
+    }
+
+    public ApiKey addCompartmentsItem(String compartmentsItem) {
+        if (this.compartments == null) {
+            this.compartments = new ArrayList<>();
+        }
+        this.compartments.add(compartmentsItem);
+        return this;
+    }
+
+    /**
+     * Compartments the key belongs to — restricts access to documents in matching compartments
+     * @return compartments
+     */
+    @jakarta.annotation.Nullable public List<String> getCompartments() {
+        return compartments;
+    }
+
+    public void setCompartments(@jakarta.annotation.Nullable List<String> compartments) {
+        this.compartments = compartments;
+    }
+
+    /**
+     * A container for additional, undeclared properties.
+     * This is a holder for any undeclared properties as specified with
+     * the 'additionalProperties' keyword in the OAS document.
+     */
+    private Map<String, Object> additionalProperties;
+
+    /**
+     * Set the additional (undeclared) property with the specified name and value.
+     * If the property does not already exist, create it otherwise replace it.
+     *
+     * @param key name of the property
+     * @param value value of the property
+     * @return the ApiKey instance itself
+     */
+    public ApiKey putAdditionalProperty(String key, Object value) {
+        if (this.additionalProperties == null) {
+            this.additionalProperties = new HashMap<String, Object>();
+        }
+        this.additionalProperties.put(key, value);
+        return this;
+    }
+
+    /**
+     * Return the additional (undeclared) property.
+     *
+     * @return a map of objects
+     */
+    public Map<String, Object> getAdditionalProperties() {
+        return additionalProperties;
+    }
+
+    /**
+     * Return the additional (undeclared) property with the specified name.
+     *
+     * @param key name of the property
+     * @return an object
+     */
+    public Object getAdditionalProperty(String key) {
+        if (this.additionalProperties == null) {
+            return null;
+        }
+        return this.additionalProperties.get(key);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -389,7 +521,11 @@ public class ApiKey {
                 && Objects.equals(this.updatedBy, apiKey.updatedBy)
                 && Objects.equals(this.createdAt, apiKey.createdAt)
                 && Objects.equals(this.updatedAt, apiKey.updatedAt)
-                && Objects.equals(this.expiresAt, apiKey.expiresAt);
+                && Objects.equals(this.expiresAt, apiKey.expiresAt)
+                && Objects.equals(this.properties, apiKey.properties)
+                && Objects.equals(this.clearance, apiKey.clearance)
+                && Objects.equals(this.compartments, apiKey.compartments)
+                && Objects.equals(this.additionalProperties, apiKey.additionalProperties);
     }
 
     @Override
@@ -408,7 +544,11 @@ public class ApiKey {
                 updatedBy,
                 createdAt,
                 updatedAt,
-                expiresAt);
+                expiresAt,
+                properties,
+                clearance,
+                compartments,
+                additionalProperties);
     }
 
     @Override
@@ -429,6 +569,12 @@ public class ApiKey {
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("    expiresAt: ").append(toIndentedString(expiresAt)).append("\n");
+        sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
+        sb.append("    clearance: ").append(toIndentedString(clearance)).append("\n");
+        sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
+        sb.append("    additionalProperties: ")
+                .append(toIndentedString(additionalProperties))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -462,7 +608,10 @@ public class ApiKey {
                                 "updated_by",
                                 "created_at",
                                 "updated_at",
-                                "expires_at"));
+                                "expires_at",
+                                "properties",
+                                "clearance",
+                                "compartments"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -560,6 +709,16 @@ public class ApiKey {
                             "Expected the field `updated_by` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("updated_by").toString()));
         }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("compartments") != null
+                && !jsonObj.get("compartments").isJsonNull()
+                && !jsonObj.get("compartments").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `compartments` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("compartments").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
@@ -578,6 +737,30 @@ public class ApiKey {
                         @Override
                         public void write(JsonWriter out, ApiKey value) throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+                            obj.remove("additionalProperties");
+                            // serialize additional properties
+                            if (value.getAdditionalProperties() != null) {
+                                for (Map.Entry<String, Object> entry :
+                                        value.getAdditionalProperties().entrySet()) {
+                                    if (entry.getValue() instanceof String)
+                                        obj.addProperty(entry.getKey(), (String) entry.getValue());
+                                    else if (entry.getValue() instanceof Number)
+                                        obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                                    else if (entry.getValue() instanceof Boolean)
+                                        obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                                    else if (entry.getValue() instanceof Character)
+                                        obj.addProperty(
+                                                entry.getKey(), (Character) entry.getValue());
+                                    else {
+                                        JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                                        if (jsonElement.isJsonArray()) {
+                                            obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                                        } else {
+                                            obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                                        }
+                                    }
+                                }
+                            }
                             elementAdapter.write(out, obj);
                         }
 
@@ -585,7 +768,41 @@ public class ApiKey {
                         public ApiKey read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = jsonElement.getAsJsonObject();
+                            // store additional fields in the deserialized instance
+                            ApiKey instance = thisAdapter.fromJsonTree(jsonObj);
+                            for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+                                if (!openapiFields.contains(entry.getKey())) {
+                                    if (entry.getValue().isJsonPrimitive()) { // primitive type
+                                        if (entry.getValue().getAsJsonPrimitive().isString())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(), entry.getValue().getAsString());
+                                        else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(), entry.getValue().getAsNumber());
+                                        else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(),
+                                                    entry.getValue().getAsBoolean());
+                                        else
+                                            throw new IllegalArgumentException(
+                                                    String.format(
+                                                            java.util.Locale.ROOT,
+                                                            "The field `%s` has unknown primitive type. Value: %s",
+                                                            entry.getKey(),
+                                                            entry.getValue().toString()));
+                                    } else if (entry.getValue().isJsonArray()) {
+                                        instance.putAdditionalProperty(
+                                                entry.getKey(),
+                                                gson.fromJson(entry.getValue(), List.class));
+                                    } else { // JSON object
+                                        instance.putAdditionalProperty(
+                                                entry.getKey(),
+                                                gson.fromJson(entry.getValue(), HashMap.class));
+                                    }
+                                }
+                            }
+                            return instance;
                         }
                     }.nullSafe();
         }
