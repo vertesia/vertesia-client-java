@@ -24,6 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -160,6 +161,16 @@ public class ConversationState {
 
     @SerializedName(SERIALIZED_NAME_STREAMING_ENABLED)
     @jakarta.annotation.Nullable private Boolean streamingEnabled;
+
+    public static final String SERIALIZED_NAME_CHECKPOINT_THRESHOLD = "checkpoint_threshold";
+
+    @SerializedName(SERIALIZED_NAME_CHECKPOINT_THRESHOLD)
+    @jakarta.annotation.Nullable private BigDecimal checkpointThreshold;
+
+    public static final String SERIALIZED_NAME_CHECKPOINT_TOKENS = "checkpoint_tokens";
+
+    @SerializedName(SERIALIZED_NAME_CHECKPOINT_TOKENS)
+    @jakarta.annotation.Nullable private BigDecimal checkpointTokens;
 
     public static final String SERIALIZED_NAME_USER_CHANNELS = "user_channels";
 
@@ -723,6 +734,43 @@ public class ConversationState {
         this.streamingEnabled = streamingEnabled;
     }
 
+    public ConversationState checkpointThreshold(
+            @jakarta.annotation.Nullable BigDecimal checkpointThreshold) {
+        this.checkpointThreshold = checkpointThreshold;
+        return this;
+    }
+
+    /**
+     * Project-configured checkpoint threshold as a fraction of the model&#39;s context window (cached from project.configuration.agent_checkpoint_threshold at conversation start).
+     * @return checkpointThreshold
+     */
+    @jakarta.annotation.Nullable public BigDecimal getCheckpointThreshold() {
+        return checkpointThreshold;
+    }
+
+    public void setCheckpointThreshold(
+            @jakarta.annotation.Nullable BigDecimal checkpointThreshold) {
+        this.checkpointThreshold = checkpointThreshold;
+    }
+
+    public ConversationState checkpointTokens(
+            @jakarta.annotation.Nullable BigDecimal checkpointTokens) {
+        this.checkpointTokens = checkpointTokens;
+        return this;
+    }
+
+    /**
+     * Project-configured checkpoint hard cap in tokens (cached from project.configuration.agent_checkpoint_tokens at conversation start). The workflow resolves the effective threshold from these, the per-run checkpoint_tokens override, and the model-based default.
+     * @return checkpointTokens
+     */
+    @jakarta.annotation.Nullable public BigDecimal getCheckpointTokens() {
+        return checkpointTokens;
+    }
+
+    public void setCheckpointTokens(@jakarta.annotation.Nullable BigDecimal checkpointTokens) {
+        this.checkpointTokens = checkpointTokens;
+    }
+
     public ConversationState userChannels(
             @jakarta.annotation.Nullable List<UserChannel> userChannels) {
         this.userChannels = userChannels;
@@ -1127,6 +1175,8 @@ public class ConversationState {
                 && Objects.equals(this.pinnedToolNames, conversationState.pinnedToolNames)
                 && Objects.equals(this.usedSkills, conversationState.usedSkills)
                 && Objects.equals(this.streamingEnabled, conversationState.streamingEnabled)
+                && Objects.equals(this.checkpointThreshold, conversationState.checkpointThreshold)
+                && Objects.equals(this.checkpointTokens, conversationState.checkpointTokens)
                 && Objects.equals(this.userChannels, conversationState.userChannels)
                 && Objects.equals(this.resolvedInteraction, conversationState.resolvedInteraction)
                 && Objects.equals(this.endConversation, conversationState.endConversation)
@@ -1178,6 +1228,8 @@ public class ConversationState {
                 pinnedToolNames,
                 usedSkills,
                 streamingEnabled,
+                checkpointThreshold,
+                checkpointTokens,
                 userChannels,
                 resolvedInteraction,
                 endConversation,
@@ -1231,6 +1283,10 @@ public class ConversationState {
         sb.append("    pinnedToolNames: ").append(toIndentedString(pinnedToolNames)).append("\n");
         sb.append("    usedSkills: ").append(toIndentedString(usedSkills)).append("\n");
         sb.append("    streamingEnabled: ").append(toIndentedString(streamingEnabled)).append("\n");
+        sb.append("    checkpointThreshold: ")
+                .append(toIndentedString(checkpointThreshold))
+                .append("\n");
+        sb.append("    checkpointTokens: ").append(toIndentedString(checkpointTokens)).append("\n");
         sb.append("    userChannels: ").append(toIndentedString(userChannels)).append("\n");
         sb.append("    resolvedInteraction: ")
                 .append(toIndentedString(resolvedInteraction))
@@ -1306,6 +1362,8 @@ public class ConversationState {
                                 "pinned_tool_names",
                                 "used_skills",
                                 "streaming_enabled",
+                                "checkpoint_threshold",
+                                "checkpoint_tokens",
                                 "user_channels",
                                 "resolvedInteraction",
                                 "end_conversation",

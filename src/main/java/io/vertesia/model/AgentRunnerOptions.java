@@ -82,6 +82,11 @@ public class AgentRunnerOptions {
     @SerializedName(SERIALIZED_NAME_REQUEST_TEMPLATE)
     @jakarta.annotation.Nullable private String requestTemplate;
 
+    public static final String SERIALIZED_NAME_CHECKPOINT = "checkpoint";
+
+    @SerializedName(SERIALIZED_NAME_CHECKPOINT)
+    @jakarta.annotation.Nullable private AgentCheckpointConfiguration checkpoint;
+
     public AgentRunnerOptions() {}
 
     public AgentRunnerOptions isAgent(@jakarta.annotation.Nullable Boolean isAgent) {
@@ -248,6 +253,25 @@ public class AgentRunnerOptions {
         this.requestTemplate = requestTemplate;
     }
 
+    public AgentRunnerOptions checkpoint(
+            @jakarta.annotation.Nullable AgentCheckpointConfiguration checkpoint) {
+        this.checkpoint = checkpoint;
+        return this;
+    }
+
+    /**
+     * Per-agent context checkpoint configuration. Field-wise it overrides the project&#39;s &#x60;configuration.agent.checkpoint&#x60;; a per-run &#x60;checkpoint_tokens&#x60; override still wins over both.
+     * @return checkpoint
+     */
+    @jakarta.annotation.Nullable public AgentCheckpointConfiguration getCheckpoint() {
+        return checkpoint;
+    }
+
+    public void setCheckpoint(
+            @jakarta.annotation.Nullable AgentCheckpointConfiguration checkpoint) {
+        this.checkpoint = checkpoint;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -265,7 +289,8 @@ public class AgentRunnerOptions {
                 && Objects.equals(this.toolNames, agentRunnerOptions.toolNames)
                 && Objects.equals(this.searchScope, agentRunnerOptions.searchScope)
                 && Objects.equals(this.collectionId, agentRunnerOptions.collectionId)
-                && Objects.equals(this.requestTemplate, agentRunnerOptions.requestTemplate);
+                && Objects.equals(this.requestTemplate, agentRunnerOptions.requestTemplate)
+                && Objects.equals(this.checkpoint, agentRunnerOptions.checkpoint);
     }
 
     @Override
@@ -279,7 +304,8 @@ public class AgentRunnerOptions {
                 toolNames,
                 searchScope,
                 collectionId,
-                requestTemplate);
+                requestTemplate,
+                checkpoint);
     }
 
     @Override
@@ -295,6 +321,7 @@ public class AgentRunnerOptions {
         sb.append("    searchScope: ").append(toIndentedString(searchScope)).append("\n");
         sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
         sb.append("    requestTemplate: ").append(toIndentedString(requestTemplate)).append("\n");
+        sb.append("    checkpoint: ").append(toIndentedString(checkpoint)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -323,7 +350,8 @@ public class AgentRunnerOptions {
                                 "tool_names",
                                 "search_scope",
                                 "collection_id",
-                                "request_template"));
+                                "request_template",
+                                "checkpoint"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -382,6 +410,10 @@ public class AgentRunnerOptions {
                             java.util.Locale.ROOT,
                             "Expected the field `request_template` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("request_template").toString()));
+        }
+        // validate the optional field `checkpoint`
+        if (jsonObj.get("checkpoint") != null && !jsonObj.get("checkpoint").isJsonNull()) {
+            AgentCheckpointConfiguration.validateJsonElement(jsonObj.get("checkpoint"));
         }
     }
 

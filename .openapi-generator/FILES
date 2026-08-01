@@ -76,11 +76,13 @@ src/main/java/io/vertesia/model/ActivityTask.java
 src/main/java/io/vertesia/model/AdvanceProcessPayload.java
 src/main/java/io/vertesia/model/AgentArtifactContentResponse.java
 src/main/java/io/vertesia/model/AgentArtifactUrlResponse.java
+src/main/java/io/vertesia/model/AgentCheckpointConfiguration.java
 src/main/java/io/vertesia/model/AgentDeliveryMatchMode.java
 src/main/java/io/vertesia/model/AgentEventDeliveryTarget.java
 src/main/java/io/vertesia/model/AgentMessageDetails.java
 src/main/java/io/vertesia/model/AgentMessageDetailsFilesInner.java
 src/main/java/io/vertesia/model/AgentMessageType.java
+src/main/java/io/vertesia/model/AgentProjectConfiguration.java
 src/main/java/io/vertesia/model/AgentResourceAction.java
 src/main/java/io/vertesia/model/AgentResourceReference.java
 src/main/java/io/vertesia/model/AgentResourceType.java

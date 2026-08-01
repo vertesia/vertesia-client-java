@@ -77,6 +77,11 @@ public class PartialProjectConfiguration {
     @SerializedName(SERIALIZED_NAME_AGENT_STREAMING_ENABLED)
     @jakarta.annotation.Nullable private Boolean agentStreamingEnabled;
 
+    public static final String SERIALIZED_NAME_AGENT = "agent";
+
+    @SerializedName(SERIALIZED_NAME_AGENT)
+    @jakarta.annotation.Nullable private AgentProjectConfiguration agent;
+
     public static final String SERIALIZED_NAME_INDEXING = "indexing";
 
     @SerializedName(SERIALIZED_NAME_INDEXING)
@@ -251,6 +256,24 @@ public class PartialProjectConfiguration {
         this.agentStreamingEnabled = agentStreamingEnabled;
     }
 
+    public PartialProjectConfiguration agent(
+            @jakarta.annotation.Nullable AgentProjectConfiguration agent) {
+        this.agent = agent;
+        return this;
+    }
+
+    /**
+     * Agent runtime configuration for this project.
+     * @return agent
+     */
+    @jakarta.annotation.Nullable public AgentProjectConfiguration getAgent() {
+        return agent;
+    }
+
+    public void setAgent(@jakarta.annotation.Nullable AgentProjectConfiguration agent) {
+        this.agent = agent;
+    }
+
     public PartialProjectConfiguration indexing(
             @jakarta.annotation.Nullable ProjectIndexingConfiguration indexing) {
         this.indexing = indexing;
@@ -409,6 +432,7 @@ public class PartialProjectConfiguration {
                 && Objects.equals(
                         this.agentStreamingEnabled,
                         partialProjectConfiguration.agentStreamingEnabled)
+                && Objects.equals(this.agent, partialProjectConfiguration.agent)
                 && Objects.equals(this.indexing, partialProjectConfiguration.indexing)
                 && Objects.equals(this.intake, partialProjectConfiguration.intake)
                 && Objects.equals(this.mainLanguage, partialProjectConfiguration.mainLanguage)
@@ -431,6 +455,7 @@ public class PartialProjectConfiguration {
                 datacenter,
                 storageBucket,
                 agentStreamingEnabled,
+                agent,
                 indexing,
                 intake,
                 mainLanguage,
@@ -457,6 +482,7 @@ public class PartialProjectConfiguration {
         sb.append("    agentStreamingEnabled: ")
                 .append(toIndentedString(agentStreamingEnabled))
                 .append("\n");
+        sb.append("    agent: ").append(toIndentedString(agent)).append("\n");
         sb.append("    indexing: ").append(toIndentedString(indexing)).append("\n");
         sb.append("    intake: ").append(toIndentedString(intake)).append("\n");
         sb.append("    mainLanguage: ").append(toIndentedString(mainLanguage)).append("\n");
@@ -495,6 +521,7 @@ public class PartialProjectConfiguration {
                                 "datacenter",
                                 "storage_bucket",
                                 "agent_streaming_enabled",
+                                "agent",
                                 "indexing",
                                 "intake",
                                 "main_language",
@@ -559,6 +586,10 @@ public class PartialProjectConfiguration {
                             java.util.Locale.ROOT,
                             "Expected the field `storage_bucket` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("storage_bucket").toString()));
+        }
+        // validate the optional field `agent`
+        if (jsonObj.get("agent") != null && !jsonObj.get("agent").isJsonNull()) {
+            AgentProjectConfiguration.validateJsonElement(jsonObj.get("agent"));
         }
         // validate the optional field `indexing`
         if (jsonObj.get("indexing") != null && !jsonObj.get("indexing").isJsonNull()) {

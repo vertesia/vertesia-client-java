@@ -234,6 +234,11 @@ public class AsyncConversationExecutionPayload {
     @SerializedName(SERIALIZED_NAME_CHECKPOINT_TOKENS)
     @jakarta.annotation.Nullable private BigDecimal checkpointTokens;
 
+    public static final String SERIALIZED_NAME_CHECKPOINT = "checkpoint";
+
+    @SerializedName(SERIALIZED_NAME_CHECKPOINT)
+    @jakarta.annotation.Nullable private AgentCheckpointConfiguration checkpoint;
+
     public static final String SERIALIZED_NAME_STRIP_OPTIONS = "strip_options";
 
     @SerializedName(SERIALIZED_NAME_STRIP_OPTIONS)
@@ -854,7 +859,7 @@ public class AsyncConversationExecutionPayload {
     }
 
     /**
-     * The token threshold in thousands (K) for creating checkpoints. If total tokens exceed this value, a checkpoint will be created. If not specified, the default is computed from the selected model context window (75%).
+     * The token threshold in thousands (K) for creating checkpoints. If total tokens exceed this value, a checkpoint will be created. When set it wins over every other checkpoint setting, including the structured &#x60;checkpoint&#x60; override below. If not specified, the default is computed from the selected model context window (80%, capped at 500k).
      * @return checkpointTokens
      */
     @jakarta.annotation.Nullable public BigDecimal getCheckpointTokens() {
@@ -863,6 +868,25 @@ public class AsyncConversationExecutionPayload {
 
     public void setCheckpointTokens(@jakarta.annotation.Nullable BigDecimal checkpointTokens) {
         this.checkpointTokens = checkpointTokens;
+    }
+
+    public AsyncConversationExecutionPayload checkpoint(
+            @jakarta.annotation.Nullable AgentCheckpointConfiguration checkpoint) {
+        this.checkpoint = checkpoint;
+        return this;
+    }
+
+    /**
+     * Structured per-run checkpoint override. Field-wise it takes precedence over the interaction&#39;s &#x60;agent_runner_options.checkpoint&#x60; and the project&#39;s &#x60;configuration.agent.checkpoint&#x60;. The legacy absolute &#x60;checkpoint_tokens&#x60; above still wins over everything when set.
+     * @return checkpoint
+     */
+    @jakarta.annotation.Nullable public AgentCheckpointConfiguration getCheckpoint() {
+        return checkpoint;
+    }
+
+    public void setCheckpoint(
+            @jakarta.annotation.Nullable AgentCheckpointConfiguration checkpoint) {
+        this.checkpoint = checkpoint;
     }
 
     public AsyncConversationExecutionPayload stripOptions(
@@ -1186,6 +1210,7 @@ public class AsyncConversationExecutionPayload {
                         asyncConversationExecutionPayload.disabledMcpCollections)
                 && Objects.equals(
                         this.checkpointTokens, asyncConversationExecutionPayload.checkpointTokens)
+                && Objects.equals(this.checkpoint, asyncConversationExecutionPayload.checkpoint)
                 && Objects.equals(this.stripOptions, asyncConversationExecutionPayload.stripOptions)
                 && Objects.equals(this.taskId, asyncConversationExecutionPayload.taskId)
                 && Objects.equals(this.launchId, asyncConversationExecutionPayload.launchId)
@@ -1251,6 +1276,7 @@ public class AsyncConversationExecutionPayload {
                 collectionId,
                 disabledMcpCollections,
                 checkpointTokens,
+                checkpoint,
                 stripOptions,
                 taskId,
                 launchId,
@@ -1308,6 +1334,7 @@ public class AsyncConversationExecutionPayload {
                 .append(toIndentedString(disabledMcpCollections))
                 .append("\n");
         sb.append("    checkpointTokens: ").append(toIndentedString(checkpointTokens)).append("\n");
+        sb.append("    checkpoint: ").append(toIndentedString(checkpoint)).append("\n");
         sb.append("    stripOptions: ").append(toIndentedString(stripOptions)).append("\n");
         sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
         sb.append("    launchId: ").append(toIndentedString(launchId)).append("\n");
@@ -1378,6 +1405,7 @@ public class AsyncConversationExecutionPayload {
                                 "collection_id",
                                 "disabled_mcp_collections",
                                 "checkpoint_tokens",
+                                "checkpoint",
                                 "strip_options",
                                 "task_id",
                                 "launch_id",
@@ -1605,6 +1633,10 @@ public class AsyncConversationExecutionPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `disabled_mcp_collections` to be an array in the JSON string but got `%s`",
                             jsonObj.get("disabled_mcp_collections").toString()));
+        }
+        // validate the optional field `checkpoint`
+        if (jsonObj.get("checkpoint") != null && !jsonObj.get("checkpoint").isJsonNull()) {
+            AgentCheckpointConfiguration.validateJsonElement(jsonObj.get("checkpoint"));
         }
         // validate the optional field `strip_options`
         if (jsonObj.get("strip_options") != null && !jsonObj.get("strip_options").isJsonNull()) {

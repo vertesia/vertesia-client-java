@@ -158,6 +158,11 @@ public class CreateAgentRunPayload {
     @SerializedName(SERIALIZED_NAME_CHECKPOINT_TOKENS)
     @jakarta.annotation.Nullable private BigDecimal checkpointTokens;
 
+    public static final String SERIALIZED_NAME_CHECKPOINT = "checkpoint";
+
+    @SerializedName(SERIALIZED_NAME_CHECKPOINT)
+    @jakarta.annotation.Nullable private AgentCheckpointConfiguration checkpoint;
+
     public static final String SERIALIZED_NAME_MAX_ITERATIONS = "max_iterations";
 
     @SerializedName(SERIALIZED_NAME_MAX_ITERATIONS)
@@ -660,7 +665,7 @@ public class CreateAgentRunPayload {
     }
 
     /**
-     * Token budget for checkpointing
+     * Token budget for checkpointing, in thousands (K). Wins over every other checkpoint setting.
      * @return checkpointTokens
      */
     @jakarta.annotation.Nullable public BigDecimal getCheckpointTokens() {
@@ -669,6 +674,25 @@ public class CreateAgentRunPayload {
 
     public void setCheckpointTokens(@jakarta.annotation.Nullable BigDecimal checkpointTokens) {
         this.checkpointTokens = checkpointTokens;
+    }
+
+    public CreateAgentRunPayload checkpoint(
+            @jakarta.annotation.Nullable AgentCheckpointConfiguration checkpoint) {
+        this.checkpoint = checkpoint;
+        return this;
+    }
+
+    /**
+     * Structured checkpoint override for this run. Field-wise it takes precedence over the interaction&#39;s &#x60;agent_runner_options.checkpoint&#x60; and the project&#39;s &#x60;configuration.agent.checkpoint&#x60;; the legacy &#x60;checkpoint_tokens&#x60; above still wins over everything when set.
+     * @return checkpoint
+     */
+    @jakarta.annotation.Nullable public AgentCheckpointConfiguration getCheckpoint() {
+        return checkpoint;
+    }
+
+    public void setCheckpoint(
+            @jakarta.annotation.Nullable AgentCheckpointConfiguration checkpoint) {
+        this.checkpoint = checkpoint;
     }
 
     public CreateAgentRunPayload maxIterations(
@@ -827,6 +851,7 @@ public class CreateAgentRunPayload {
                 && Objects.equals(this.searchScope, createAgentRunPayload.searchScope)
                 && Objects.equals(this.userChannels, createAgentRunPayload.userChannels)
                 && Objects.equals(this.checkpointTokens, createAgentRunPayload.checkpointTokens)
+                && Objects.equals(this.checkpoint, createAgentRunPayload.checkpoint)
                 && Objects.equals(this.maxIterations, createAgentRunPayload.maxIterations)
                 && Objects.equals(this.notifyEndpoints, createAgentRunPayload.notifyEndpoints)
                 && Objects.equals(this.debugMode, createAgentRunPayload.debugMode)
@@ -861,6 +886,7 @@ public class CreateAgentRunPayload {
                 searchScope,
                 userChannels,
                 checkpointTokens,
+                checkpoint,
                 maxIterations,
                 notifyEndpoints,
                 debugMode,
@@ -897,6 +923,7 @@ public class CreateAgentRunPayload {
         sb.append("    searchScope: ").append(toIndentedString(searchScope)).append("\n");
         sb.append("    userChannels: ").append(toIndentedString(userChannels)).append("\n");
         sb.append("    checkpointTokens: ").append(toIndentedString(checkpointTokens)).append("\n");
+        sb.append("    checkpoint: ").append(toIndentedString(checkpoint)).append("\n");
         sb.append("    maxIterations: ").append(toIndentedString(maxIterations)).append("\n");
         sb.append("    notifyEndpoints: ").append(toIndentedString(notifyEndpoints)).append("\n");
         sb.append("    debugMode: ").append(toIndentedString(debugMode)).append("\n");
@@ -947,6 +974,7 @@ public class CreateAgentRunPayload {
                                 "search_scope",
                                 "user_channels",
                                 "checkpoint_tokens",
+                                "checkpoint",
                                 "max_iterations",
                                 "notify_endpoints",
                                 "debug_mode",
@@ -1140,6 +1168,10 @@ public class CreateAgentRunPayload {
                 }
                 ;
             }
+        }
+        // validate the optional field `checkpoint`
+        if (jsonObj.get("checkpoint") != null && !jsonObj.get("checkpoint").isJsonNull()) {
+            AgentCheckpointConfiguration.validateJsonElement(jsonObj.get("checkpoint"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("notify_endpoints") != null
