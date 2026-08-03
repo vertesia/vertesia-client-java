@@ -44,8 +44,7 @@ public class AccountOnboarding {
     public static final String SERIALIZED_NAME_COMPLETED_AT = "completed_at";
 
     @SerializedName(SERIALIZED_NAME_COMPLETED_AT)
-    @jakarta.annotation.Nonnull
-    private OffsetDateTime completedAt;
+    @jakarta.annotation.Nullable private OffsetDateTime completedAt;
 
     public AccountOnboarding() {}
 
@@ -67,7 +66,7 @@ public class AccountOnboarding {
         this.completed = completed;
     }
 
-    public AccountOnboarding completedAt(@jakarta.annotation.Nonnull OffsetDateTime completedAt) {
+    public AccountOnboarding completedAt(@jakarta.annotation.Nullable OffsetDateTime completedAt) {
         this.completedAt = completedAt;
         return this;
     }
@@ -76,12 +75,11 @@ public class AccountOnboarding {
      * Get completedAt
      * @return completedAt
      */
-    @jakarta.annotation.Nonnull
-    public OffsetDateTime getCompletedAt() {
+    @jakarta.annotation.Nullable public OffsetDateTime getCompletedAt() {
         return completedAt;
     }
 
-    public void setCompletedAt(@jakarta.annotation.Nonnull OffsetDateTime completedAt) {
+    public void setCompletedAt(@jakarta.annotation.Nullable OffsetDateTime completedAt) {
         this.completedAt = completedAt;
     }
 
@@ -129,7 +127,7 @@ public class AccountOnboarding {
         openapiFields = new HashSet<String>(Arrays.asList("completed", "completed_at"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("completed", "completed_at"));
+        openapiRequiredFields = new HashSet<String>(Arrays.asList("completed"));
     }
 
     /**

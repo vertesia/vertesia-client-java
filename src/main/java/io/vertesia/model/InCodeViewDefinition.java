@@ -77,7 +77,7 @@ public class InCodeViewDefinition {
     }
 
     /**
-     * App-local id. Studio normalizes it to app:&lt;app-name&gt;:&lt;id&gt;.
+     * App-local id. The platform normalizes it to app:&lt;app-name&gt;:&lt;id&gt;.
      * @return id
      */
     @jakarta.annotation.Nonnull

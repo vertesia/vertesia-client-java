@@ -37,8 +37,10 @@ import io.vertesia.model.InteractionEndpointQuery;
 import io.vertesia.model.InteractionExecutionPayload;
 import io.vertesia.model.InteractionExecutionResult;
 import io.vertesia.model.InteractionForkPayload;
+import io.vertesia.model.InteractionName;
 import io.vertesia.model.InteractionPublishPayload;
 import io.vertesia.model.InteractionRef;
+import io.vertesia.model.InteractionRefWithSchema;
 import io.vertesia.model.InteractionTags;
 import io.vertesia.model.InteractionUpdatePayload;
 import io.vertesia.model.InteractionsExportPayload;
@@ -1380,7 +1382,7 @@ public class InteractionsApi {
      * Export interactions
      * Exports interactions by name, tags, and selected versions, including prompt input schemas.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param interactionsExportPayload  (required)
-     * @return List&lt;Interaction&gt;
+     * @return List&lt;InteractionRefWithSchema&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1391,10 +1393,10 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<Interaction> exportInteractions(
+    public List<InteractionRefWithSchema> exportInteractions(
             @jakarta.annotation.Nonnull InteractionsExportPayload interactionsExportPayload)
             throws ApiException {
-        ApiResponse<List<Interaction>> localVarResp =
+        ApiResponse<List<InteractionRefWithSchema>> localVarResp =
                 exportInteractionsWithHttpInfo(interactionsExportPayload);
         return localVarResp.getData();
     }
@@ -1403,7 +1405,7 @@ public class InteractionsApi {
      * Export interactions
      * Exports interactions by name, tags, and selected versions, including prompt input schemas.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param interactionsExportPayload  (required)
-     * @return ApiResponse&lt;List&lt;Interaction&gt;&gt;
+     * @return ApiResponse&lt;List&lt;InteractionRefWithSchema&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1414,12 +1416,12 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<List<Interaction>> exportInteractionsWithHttpInfo(
+    public ApiResponse<List<InteractionRefWithSchema>> exportInteractionsWithHttpInfo(
             @jakarta.annotation.Nonnull InteractionsExportPayload interactionsExportPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 exportInteractionsValidateBeforeCall(interactionsExportPayload, null);
-        Type localVarReturnType = new TypeToken<List<Interaction>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<InteractionRefWithSchema>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1441,12 +1443,12 @@ public class InteractionsApi {
      */
     public okhttp3.Call exportInteractionsAsync(
             @jakarta.annotation.Nonnull InteractionsExportPayload interactionsExportPayload,
-            final ApiCallback<List<Interaction>> _callback)
+            final ApiCallback<List<InteractionRefWithSchema>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 exportInteractionsValidateBeforeCall(interactionsExportPayload, _callback);
-        Type localVarReturnType = new TypeToken<List<Interaction>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<InteractionRefWithSchema>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1916,7 +1918,7 @@ public class InteractionsApi {
      * Uses a system interaction to generate synthetic input data for the selected interaction.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param interactionId  (required)
      * @param generateTestDataPayload  (required)
-     * @return List&lt;Map&lt;String, Object&gt;&gt;
+     * @return List&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1927,11 +1929,11 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<Map<String, Object>> generateInteractionTestData(
+    public List<Object> generateInteractionTestData(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload)
             throws ApiException {
-        ApiResponse<List<Map<String, Object>>> localVarResp =
+        ApiResponse<List<Object>> localVarResp =
                 generateInteractionTestDataWithHttpInfo(interactionId, generateTestDataPayload);
         return localVarResp.getData();
     }
@@ -1941,7 +1943,7 @@ public class InteractionsApi {
      * Uses a system interaction to generate synthetic input data for the selected interaction.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param interactionId  (required)
      * @param generateTestDataPayload  (required)
-     * @return ApiResponse&lt;List&lt;Map&lt;String, Object&gt;&gt;&gt;
+     * @return ApiResponse&lt;List&lt;Object&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1952,14 +1954,14 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<List<Map<String, Object>>> generateInteractionTestDataWithHttpInfo(
+    public ApiResponse<List<Object>> generateInteractionTestDataWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 generateInteractionTestDataValidateBeforeCall(
                         interactionId, generateTestDataPayload, null);
-        Type localVarReturnType = new TypeToken<List<Map<String, Object>>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<Object>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1983,13 +1985,13 @@ public class InteractionsApi {
     public okhttp3.Call generateInteractionTestDataAsync(
             @jakarta.annotation.Nonnull String interactionId,
             @jakarta.annotation.Nonnull GenerateTestDataPayload generateTestDataPayload,
-            final ApiCallback<List<Map<String, Object>>> _callback)
+            final ApiCallback<List<Object>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 generateInteractionTestDataValidateBeforeCall(
                         interactionId, generateTestDataPayload, _callback);
-        Type localVarReturnType = new TypeToken<List<Map<String, Object>>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<Object>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2886,7 +2888,7 @@ public class InteractionsApi {
      * List interaction forks
      * Lists draft interactions forked from the selected interaction.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param interactionId  (required)
-     * @return List&lt;Interaction&gt;
+     * @return List&lt;InteractionRef&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -2897,9 +2899,9 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<Interaction> listInteractionForks(@jakarta.annotation.Nonnull String interactionId)
-            throws ApiException {
-        ApiResponse<List<Interaction>> localVarResp =
+    public List<InteractionRef> listInteractionForks(
+            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
+        ApiResponse<List<InteractionRef>> localVarResp =
                 listInteractionForksWithHttpInfo(interactionId);
         return localVarResp.getData();
     }
@@ -2908,7 +2910,7 @@ public class InteractionsApi {
      * List interaction forks
      * Lists draft interactions forked from the selected interaction.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param interactionId  (required)
-     * @return ApiResponse&lt;List&lt;Interaction&gt;&gt;
+     * @return ApiResponse&lt;List&lt;InteractionRef&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -2919,10 +2921,10 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<List<Interaction>> listInteractionForksWithHttpInfo(
+    public ApiResponse<List<InteractionRef>> listInteractionForksWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         okhttp3.Call localVarCall = listInteractionForksValidateBeforeCall(interactionId, null);
-        Type localVarReturnType = new TypeToken<List<Interaction>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<InteractionRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2944,12 +2946,12 @@ public class InteractionsApi {
      */
     public okhttp3.Call listInteractionForksAsync(
             @jakarta.annotation.Nonnull String interactionId,
-            final ApiCallback<List<Interaction>> _callback)
+            final ApiCallback<List<InteractionRef>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listInteractionForksValidateBeforeCall(interactionId, _callback);
-        Type localVarReturnType = new TypeToken<List<Interaction>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<InteractionRef>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2963,7 +2965,7 @@ public class InteractionsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft interactions with names. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Draft interaction ids and names. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -3030,39 +3032,40 @@ public class InteractionsApi {
     /**
      * List interaction names
      * Lists draft interaction names in the current project.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @return List&lt;Interaction&gt;
+     * @return List&lt;InteractionName&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft interactions with names. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Draft interaction ids and names. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<Interaction> listInteractionNames() throws ApiException {
-        ApiResponse<List<Interaction>> localVarResp = listInteractionNamesWithHttpInfo();
+    public List<InteractionName> listInteractionNames() throws ApiException {
+        ApiResponse<List<InteractionName>> localVarResp = listInteractionNamesWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * List interaction names
      * Lists draft interaction names in the current project.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @return ApiResponse&lt;List&lt;Interaction&gt;&gt;
+     * @return ApiResponse&lt;List&lt;InteractionName&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft interactions with names. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Draft interaction ids and names. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<List<Interaction>> listInteractionNamesWithHttpInfo() throws ApiException {
+    public ApiResponse<List<InteractionName>> listInteractionNamesWithHttpInfo()
+            throws ApiException {
         okhttp3.Call localVarCall = listInteractionNamesValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<List<Interaction>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<InteractionName>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -3076,16 +3079,16 @@ public class InteractionsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Draft interactions with names. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Draft interaction ids and names. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listInteractionNamesAsync(final ApiCallback<List<Interaction>> _callback)
-            throws ApiException {
+    public okhttp3.Call listInteractionNamesAsync(
+            final ApiCallback<List<InteractionName>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = listInteractionNamesValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<List<Interaction>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<InteractionName>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3571,7 +3574,7 @@ public class InteractionsApi {
      * List interaction versions
      * Lists published versions for an interaction, sorted by most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param interactionId  (required)
-     * @return List&lt;Interaction&gt;
+     * @return List&lt;InteractionRef&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -3582,9 +3585,9 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<Interaction> listInteractionVersions(
+    public List<InteractionRef> listInteractionVersions(
             @jakarta.annotation.Nonnull String interactionId) throws ApiException {
-        ApiResponse<List<Interaction>> localVarResp =
+        ApiResponse<List<InteractionRef>> localVarResp =
                 listInteractionVersionsWithHttpInfo(interactionId);
         return localVarResp.getData();
     }
@@ -3593,7 +3596,7 @@ public class InteractionsApi {
      * List interaction versions
      * Lists published versions for an interaction, sorted by most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param interactionId  (required)
-     * @return ApiResponse&lt;List&lt;Interaction&gt;&gt;
+     * @return ApiResponse&lt;List&lt;InteractionRef&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -3604,10 +3607,10 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<List<Interaction>> listInteractionVersionsWithHttpInfo(
+    public ApiResponse<List<InteractionRef>> listInteractionVersionsWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         okhttp3.Call localVarCall = listInteractionVersionsValidateBeforeCall(interactionId, null);
-        Type localVarReturnType = new TypeToken<List<Interaction>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<InteractionRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -3629,12 +3632,12 @@ public class InteractionsApi {
      */
     public okhttp3.Call listInteractionVersionsAsync(
             @jakarta.annotation.Nonnull String interactionId,
-            final ApiCallback<List<Interaction>> _callback)
+            final ApiCallback<List<InteractionRef>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listInteractionVersionsValidateBeforeCall(interactionId, _callback);
-        Type localVarReturnType = new TypeToken<List<Interaction>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<InteractionRef>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3730,7 +3733,7 @@ public class InteractionsApi {
      * List interaction versions by name
      * Lists published versions for an interaction endpoint name.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param name  (required)
-     * @return List&lt;Interaction&gt;
+     * @return List&lt;InteractionRef&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -3741,9 +3744,9 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<Interaction> listInteractionVersionsByName(@jakarta.annotation.Nonnull String name)
-            throws ApiException {
-        ApiResponse<List<Interaction>> localVarResp =
+    public List<InteractionRef> listInteractionVersionsByName(
+            @jakarta.annotation.Nonnull String name) throws ApiException {
+        ApiResponse<List<InteractionRef>> localVarResp =
                 listInteractionVersionsByNameWithHttpInfo(name);
         return localVarResp.getData();
     }
@@ -3752,7 +3755,7 @@ public class InteractionsApi {
      * List interaction versions by name
      * Lists published versions for an interaction endpoint name.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param name  (required)
-     * @return ApiResponse&lt;List&lt;Interaction&gt;&gt;
+     * @return ApiResponse&lt;List&lt;InteractionRef&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -3763,10 +3766,10 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<List<Interaction>> listInteractionVersionsByNameWithHttpInfo(
+    public ApiResponse<List<InteractionRef>> listInteractionVersionsByNameWithHttpInfo(
             @jakarta.annotation.Nonnull String name) throws ApiException {
         okhttp3.Call localVarCall = listInteractionVersionsByNameValidateBeforeCall(name, null);
-        Type localVarReturnType = new TypeToken<List<Interaction>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<InteractionRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -3787,12 +3790,13 @@ public class InteractionsApi {
      * </table>
      */
     public okhttp3.Call listInteractionVersionsByNameAsync(
-            @jakarta.annotation.Nonnull String name, final ApiCallback<List<Interaction>> _callback)
+            @jakarta.annotation.Nonnull String name,
+            final ApiCallback<List<InteractionRef>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listInteractionVersionsByNameValidateBeforeCall(name, _callback);
-        Type localVarReturnType = new TypeToken<List<Interaction>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<InteractionRef>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

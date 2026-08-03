@@ -35,6 +35,7 @@ import io.vertesia.model.ContentObjectItemApiResponse;
 import io.vertesia.model.CreateCollectionPayload;
 import io.vertesia.model.DeleteCountResult;
 import io.vertesia.model.ObjectSearchResponse;
+import io.vertesia.model.UpdateCollectionPayload;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -1959,7 +1960,7 @@ public class CollectionsApi {
     /**
      * Build call for updateCollection
      * @param collectionId  (required)
-     * @param createCollectionPayload  (required)
+     * @param updateCollectionPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1974,7 +1975,7 @@ public class CollectionsApi {
      */
     public okhttp3.Call updateCollectionCall(
             @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
+            @jakarta.annotation.Nonnull UpdateCollectionPayload updateCollectionPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1990,7 +1991,7 @@ public class CollectionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createCollectionPayload;
+        Object localVarPostBody = updateCollectionPayload;
 
         // create path and map variables
         String localVarPath =
@@ -2036,7 +2037,7 @@ public class CollectionsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateCollectionValidateBeforeCall(
             @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
+            @jakarta.annotation.Nonnull UpdateCollectionPayload updateCollectionPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'collectionId' is set
@@ -2045,20 +2046,20 @@ public class CollectionsApi {
                     "Missing the required parameter 'collectionId' when calling updateCollection(Async)");
         }
 
-        // verify the required parameter 'createCollectionPayload' is set
-        if (createCollectionPayload == null) {
+        // verify the required parameter 'updateCollectionPayload' is set
+        if (updateCollectionPayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createCollectionPayload' when calling updateCollection(Async)");
+                    "Missing the required parameter 'updateCollectionPayload' when calling updateCollection(Async)");
         }
 
-        return updateCollectionCall(collectionId, createCollectionPayload, _callback);
+        return updateCollectionCall(collectionId, updateCollectionPayload, _callback);
     }
 
     /**
      * Update a collection
      * Updates a collection, including shared properties and content type settings.  **Required permissions:** &#x60;content:write&#x60;
      * @param collectionId  (required)
-     * @param createCollectionPayload  (required)
+     * @param updateCollectionPayload  (required)
      * @return Collection
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2072,10 +2073,10 @@ public class CollectionsApi {
      */
     public Collection updateCollection(
             @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload)
+            @jakarta.annotation.Nonnull UpdateCollectionPayload updateCollectionPayload)
             throws ApiException {
         ApiResponse<Collection> localVarResp =
-                updateCollectionWithHttpInfo(collectionId, createCollectionPayload);
+                updateCollectionWithHttpInfo(collectionId, updateCollectionPayload);
         return localVarResp.getData();
     }
 
@@ -2083,7 +2084,7 @@ public class CollectionsApi {
      * Update a collection
      * Updates a collection, including shared properties and content type settings.  **Required permissions:** &#x60;content:write&#x60;
      * @param collectionId  (required)
-     * @param createCollectionPayload  (required)
+     * @param updateCollectionPayload  (required)
      * @return ApiResponse&lt;Collection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2097,10 +2098,10 @@ public class CollectionsApi {
      */
     public ApiResponse<Collection> updateCollectionWithHttpInfo(
             @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload)
+            @jakarta.annotation.Nonnull UpdateCollectionPayload updateCollectionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
-                updateCollectionValidateBeforeCall(collectionId, createCollectionPayload, null);
+                updateCollectionValidateBeforeCall(collectionId, updateCollectionPayload, null);
         Type localVarReturnType = new TypeToken<Collection>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2109,7 +2110,7 @@ public class CollectionsApi {
      * Update a collection (asynchronously)
      * Updates a collection, including shared properties and content type settings.  **Required permissions:** &#x60;content:write&#x60;
      * @param collectionId  (required)
-     * @param createCollectionPayload  (required)
+     * @param updateCollectionPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2124,13 +2125,13 @@ public class CollectionsApi {
      */
     public okhttp3.Call updateCollectionAsync(
             @jakarta.annotation.Nonnull String collectionId,
-            @jakarta.annotation.Nonnull CreateCollectionPayload createCollectionPayload,
+            @jakarta.annotation.Nonnull UpdateCollectionPayload updateCollectionPayload,
             final ApiCallback<Collection> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 updateCollectionValidateBeforeCall(
-                        collectionId, createCollectionPayload, _callback);
+                        collectionId, updateCollectionPayload, _callback);
         Type localVarReturnType = new TypeToken<Collection>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

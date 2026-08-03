@@ -37,11 +37,17 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class RenderingTemplateDefinitionRef {
-    public static final String SERIALIZED_NAME_PATH = "path";
+    public static final String SERIALIZED_NAME_ASSETS = "assets";
 
-    @SerializedName(SERIALIZED_NAME_PATH)
+    @SerializedName(SERIALIZED_NAME_ASSETS)
     @jakarta.annotation.Nonnull
-    private String path;
+    private List<String> assets = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+
+    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+    @jakarta.annotation.Nonnull
+    private String description;
 
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -55,16 +61,11 @@ public class RenderingTemplateDefinitionRef {
     @jakarta.annotation.Nonnull
     private String name;
 
-    public static final String SERIALIZED_NAME_TITLE = "title";
+    public static final String SERIALIZED_NAME_PATH = "path";
 
-    @SerializedName(SERIALIZED_NAME_TITLE)
-    @jakarta.annotation.Nullable private String title;
-
-    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-
-    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+    @SerializedName(SERIALIZED_NAME_PATH)
     @jakarta.annotation.Nonnull
-    private String description;
+    private String path;
 
     /**
      * Template type
@@ -127,35 +128,61 @@ public class RenderingTemplateDefinitionRef {
     @jakarta.annotation.Nonnull
     private TypeEnum type;
 
+    public static final String SERIALIZED_NAME_TITLE = "title";
+
+    @SerializedName(SERIALIZED_NAME_TITLE)
+    @jakarta.annotation.Nullable private String title;
+
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
     @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
-    public static final String SERIALIZED_NAME_ASSETS = "assets";
-
-    @SerializedName(SERIALIZED_NAME_ASSETS)
-    @jakarta.annotation.Nonnull
-    private List<String> assets = new ArrayList<>();
-
     public RenderingTemplateDefinitionRef() {}
 
-    public RenderingTemplateDefinitionRef path(@jakarta.annotation.Nonnull String path) {
-        this.path = path;
+    public RenderingTemplateDefinitionRef assets(@jakarta.annotation.Nonnull List<String> assets) {
+        this.assets = assets;
+        return this;
+    }
+
+    public RenderingTemplateDefinitionRef addAssetsItem(String assetsItem) {
+        if (this.assets == null) {
+            this.assets = new ArrayList<>();
+        }
+        this.assets.add(assetsItem);
         return this;
     }
 
     /**
-     * Absolute API path to fetch the full template definition
-     * @return path
+     * Absolute paths to asset files
+     * @return assets
      */
     @jakarta.annotation.Nonnull
-    public String getPath() {
-        return path;
+    public List<String> getAssets() {
+        return assets;
     }
 
-    public void setPath(@jakarta.annotation.Nonnull String path) {
-        this.path = path;
+    public void setAssets(@jakarta.annotation.Nonnull List<String> assets) {
+        this.assets = assets;
+    }
+
+    public RenderingTemplateDefinitionRef description(
+            @jakarta.annotation.Nonnull String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Short description
+     * @return description
+     */
+    @jakarta.annotation.Nonnull
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(@jakarta.annotation.Nonnull String description) {
+        this.description = description;
     }
 
     public RenderingTemplateDefinitionRef id(@jakarta.annotation.Nonnull String id) {
@@ -194,40 +221,22 @@ public class RenderingTemplateDefinitionRef {
         this.name = name;
     }
 
-    public RenderingTemplateDefinitionRef title(@jakarta.annotation.Nullable String title) {
-        this.title = title;
+    public RenderingTemplateDefinitionRef path(@jakarta.annotation.Nonnull String path) {
+        this.path = path;
         return this;
     }
 
     /**
-     * Display title
-     * @return title
-     */
-    @jakarta.annotation.Nullable public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(@jakarta.annotation.Nullable String title) {
-        this.title = title;
-    }
-
-    public RenderingTemplateDefinitionRef description(
-            @jakarta.annotation.Nonnull String description) {
-        this.description = description;
-        return this;
-    }
-
-    /**
-     * Short description
-     * @return description
+     * Absolute API path to fetch the full template definition
+     * @return path
      */
     @jakarta.annotation.Nonnull
-    public String getDescription() {
-        return description;
+    public String getPath() {
+        return path;
     }
 
-    public void setDescription(@jakarta.annotation.Nonnull String description) {
-        this.description = description;
+    public void setPath(@jakarta.annotation.Nonnull String path) {
+        this.path = path;
     }
 
     public RenderingTemplateDefinitionRef type(@jakarta.annotation.Nonnull TypeEnum type) {
@@ -246,6 +255,23 @@ public class RenderingTemplateDefinitionRef {
 
     public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
+    }
+
+    public RenderingTemplateDefinitionRef title(@jakarta.annotation.Nullable String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Display title
+     * @return title
+     */
+    @jakarta.annotation.Nullable public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(@jakarta.annotation.Nullable String title) {
+        this.title = title;
     }
 
     public RenderingTemplateDefinitionRef tags(@jakarta.annotation.Nullable List<String> tags) {
@@ -273,32 +299,6 @@ public class RenderingTemplateDefinitionRef {
         this.tags = tags;
     }
 
-    public RenderingTemplateDefinitionRef assets(@jakarta.annotation.Nonnull List<String> assets) {
-        this.assets = assets;
-        return this;
-    }
-
-    public RenderingTemplateDefinitionRef addAssetsItem(String assetsItem) {
-        if (this.assets == null) {
-            this.assets = new ArrayList<>();
-        }
-        this.assets.add(assetsItem);
-        return this;
-    }
-
-    /**
-     * Absolute paths to asset files
-     * @return assets
-     */
-    @jakarta.annotation.Nonnull
-    public List<String> getAssets() {
-        return assets;
-    }
-
-    public void setAssets(@jakarta.annotation.Nonnull List<String> assets) {
-        this.assets = assets;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -309,33 +309,33 @@ public class RenderingTemplateDefinitionRef {
         }
         RenderingTemplateDefinitionRef renderingTemplateDefinitionRef =
                 (RenderingTemplateDefinitionRef) o;
-        return Objects.equals(this.path, renderingTemplateDefinitionRef.path)
+        return Objects.equals(this.assets, renderingTemplateDefinitionRef.assets)
+                && Objects.equals(this.description, renderingTemplateDefinitionRef.description)
                 && Objects.equals(this.id, renderingTemplateDefinitionRef.id)
                 && Objects.equals(this.name, renderingTemplateDefinitionRef.name)
-                && Objects.equals(this.title, renderingTemplateDefinitionRef.title)
-                && Objects.equals(this.description, renderingTemplateDefinitionRef.description)
+                && Objects.equals(this.path, renderingTemplateDefinitionRef.path)
                 && Objects.equals(this.type, renderingTemplateDefinitionRef.type)
-                && Objects.equals(this.tags, renderingTemplateDefinitionRef.tags)
-                && Objects.equals(this.assets, renderingTemplateDefinitionRef.assets);
+                && Objects.equals(this.title, renderingTemplateDefinitionRef.title)
+                && Objects.equals(this.tags, renderingTemplateDefinitionRef.tags);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(path, id, name, title, description, type, tags, assets);
+        return Objects.hash(assets, description, id, name, path, type, title, tags);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class RenderingTemplateDefinitionRef {\n");
-        sb.append("    path: ").append(toIndentedString(path)).append("\n");
+        sb.append("    assets: ").append(toIndentedString(assets)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    title: ").append(toIndentedString(title)).append("\n");
-        sb.append("    description: ").append(toIndentedString(description)).append("\n");
+        sb.append("    path: ").append(toIndentedString(path)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    title: ").append(toIndentedString(title)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-        sb.append("    assets: ").append(toIndentedString(assets)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -356,19 +356,19 @@ public class RenderingTemplateDefinitionRef {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "path",
+                                "assets",
+                                "description",
                                 "id",
                                 "name",
-                                "title",
-                                "description",
+                                "path",
                                 "type",
-                                "tags",
-                                "assets"));
+                                "title",
+                                "tags"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
                 new HashSet<String>(
-                        Arrays.asList("path", "id", "name", "description", "type", "assets"));
+                        Arrays.asList("assets", "description", "id", "name", "path", "type"));
     }
 
     /**
@@ -401,12 +401,23 @@ public class RenderingTemplateDefinitionRef {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("path").isJsonPrimitive()) {
+        // ensure the required json array is present
+        if (jsonObj.get("assets") == null) {
+            throw new IllegalArgumentException(
+                    "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+        } else if (!jsonObj.get("assets").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `path` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("path").toString()));
+                            "Expected the field `assets` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("assets").toString()));
+        }
+        if (!jsonObj.get("description").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("description").toString()));
         }
         if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -422,20 +433,12 @@ public class RenderingTemplateDefinitionRef {
                             "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("name").toString()));
         }
-        if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
-                && !jsonObj.get("title").isJsonPrimitive()) {
+        if (!jsonObj.get("path").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("title").toString()));
-        }
-        if (!jsonObj.get("description").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("description").toString()));
+                            "Expected the field `path` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("path").toString()));
         }
         if (!jsonObj.get("type").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -446,6 +449,14 @@ public class RenderingTemplateDefinitionRef {
         }
         // validate the required field `type`
         TypeEnum.validateJsonElement(jsonObj.get("type"));
+        if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+                && !jsonObj.get("title").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("title").toString()));
+        }
         // ensure the optional json data is an array if present
         if (jsonObj.get("tags") != null
                 && !jsonObj.get("tags").isJsonNull()
@@ -455,17 +466,6 @@ public class RenderingTemplateDefinitionRef {
                             java.util.Locale.ROOT,
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
-        }
-        // ensure the required json array is present
-        if (jsonObj.get("assets") == null) {
-            throw new IllegalArgumentException(
-                    "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
-        } else if (!jsonObj.get("assets").isJsonArray()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `assets` to be an array in the JSON string but got `%s`",
-                            jsonObj.get("assets").toString()));
         }
     }
 

@@ -49,7 +49,7 @@ public class ContentTypeExtractionGroundingPolicy {
     public static final String SERIALIZED_NAME_MAX_PAGES = "max_pages";
 
     @SerializedName(SERIALIZED_NAME_MAX_PAGES)
-    @jakarta.annotation.Nullable private BigDecimal maxPages;
+    @jakarta.annotation.Nullable private Integer maxPages;
 
     public static final String SERIALIZED_NAME_FORCE_OCR = "force_ocr";
 
@@ -134,7 +134,7 @@ public class ContentTypeExtractionGroundingPolicy {
     public static final String SERIALIZED_NAME_WINDOW_PAGES = "window_pages";
 
     @SerializedName(SERIALIZED_NAME_WINDOW_PAGES)
-    @jakarta.annotation.Nullable private BigDecimal windowPages;
+    @jakarta.annotation.Nullable private Integer windowPages;
 
     public static final String SERIALIZED_NAME_UPDATE_PROPERTIES = "update_properties";
 
@@ -210,20 +210,22 @@ public class ContentTypeExtractionGroundingPolicy {
     }
 
     public ContentTypeExtractionGroundingPolicy maxPages(
-            @jakarta.annotation.Nullable BigDecimal maxPages) {
+            @jakarta.annotation.Nullable Integer maxPages) {
         this.maxPages = maxPages;
         return this;
     }
 
     /**
      * Maximum pages to process.
+     * minimum: 1
+     * maximum: 2147483647
      * @return maxPages
      */
-    @jakarta.annotation.Nullable public BigDecimal getMaxPages() {
+    @jakarta.annotation.Nullable public Integer getMaxPages() {
         return maxPages;
     }
 
-    public void setMaxPages(@jakarta.annotation.Nullable BigDecimal maxPages) {
+    public void setMaxPages(@jakarta.annotation.Nullable Integer maxPages) {
         this.maxPages = maxPages;
     }
 
@@ -289,6 +291,7 @@ public class ContentTypeExtractionGroundingPolicy {
 
     /**
      * A1 locate-grid cell size in PDF points for vision pages. Smaller &#x3D; finer grid (more cells, tighter boxes) but can trip weaker models into over-reading; tune per the model in &#x60;config&#x60;. Default 15.
+     * minimum: 1
      * @return gridCellPt
      */
     @jakarta.annotation.Nullable public BigDecimal getGridCellPt() {
@@ -318,20 +321,22 @@ public class ContentTypeExtractionGroundingPolicy {
     }
 
     public ContentTypeExtractionGroundingPolicy windowPages(
-            @jakarta.annotation.Nullable BigDecimal windowPages) {
+            @jakarta.annotation.Nullable Integer windowPages) {
         this.windowPages = windowPages;
         return this;
     }
 
     /**
      * Maximum pages per grounded extraction call before windowing.
+     * minimum: 1
+     * maximum: 2147483647
      * @return windowPages
      */
-    @jakarta.annotation.Nullable public BigDecimal getWindowPages() {
+    @jakarta.annotation.Nullable public Integer getWindowPages() {
         return windowPages;
     }
 
-    public void setWindowPages(@jakarta.annotation.Nullable BigDecimal windowPages) {
+    public void setWindowPages(@jakarta.annotation.Nullable Integer windowPages) {
         this.windowPages = windowPages;
     }
 
@@ -398,6 +403,8 @@ public class ContentTypeExtractionGroundingPolicy {
 
     /**
      * Hardness score at or above which hard_config is used. Default 0.5.
+     * minimum: 0
+     * maximum: 1
      * @return hardnessThreshold
      */
     @jakarta.annotation.Nullable public BigDecimal getHardnessThreshold() {
@@ -416,6 +423,8 @@ public class ContentTypeExtractionGroundingPolicy {
 
     /**
      * Minimum citations-per-leaf-value ratio; completions below it retry with escalation. Default 0.3.
+     * minimum: 0
+     * maximum: 1
      * @return minCitationDensity
      */
     @jakarta.annotation.Nullable public BigDecimal getMinCitationDensity() {

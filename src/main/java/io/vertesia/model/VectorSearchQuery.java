@@ -60,7 +60,7 @@ public class VectorSearchQuery {
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @jakarta.annotation.Nullable private PartialRecordSupportedEmbeddingTypesBoolean config;
+    @jakarta.annotation.Nullable private EmbeddingTypeEnabledMap config;
 
     public VectorSearchQuery() {}
 
@@ -140,8 +140,7 @@ public class VectorSearchQuery {
         this.image = image;
     }
 
-    public VectorSearchQuery config(
-            @jakarta.annotation.Nullable PartialRecordSupportedEmbeddingTypesBoolean config) {
+    public VectorSearchQuery config(@jakarta.annotation.Nullable EmbeddingTypeEnabledMap config) {
         this.config = config;
         return this;
     }
@@ -150,12 +149,11 @@ public class VectorSearchQuery {
      * Get config
      * @return config
      */
-    @jakarta.annotation.Nullable public PartialRecordSupportedEmbeddingTypesBoolean getConfig() {
+    @jakarta.annotation.Nullable public EmbeddingTypeEnabledMap getConfig() {
         return config;
     }
 
-    public void setConfig(
-            @jakarta.annotation.Nullable PartialRecordSupportedEmbeddingTypesBoolean config) {
+    public void setConfig(@jakarta.annotation.Nullable EmbeddingTypeEnabledMap config) {
         this.config = config;
     }
 
@@ -267,7 +265,7 @@ public class VectorSearchQuery {
         }
         // validate the optional field `config`
         if (jsonObj.get("config") != null && !jsonObj.get("config").isJsonNull()) {
-            PartialRecordSupportedEmbeddingTypesBoolean.validateJsonElement(jsonObj.get("config"));
+            EmbeddingTypeEnabledMap.validateJsonElement(jsonObj.get("config"));
         }
     }
 

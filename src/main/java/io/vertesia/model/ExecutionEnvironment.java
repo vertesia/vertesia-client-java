@@ -693,6 +693,10 @@ public class ExecutionEnvironment {
                             "Expected the field `apikey_hint` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("apikey_hint").toString()));
         }
+        // validate the optional field `settings`
+        if (jsonObj.get("settings") != null && !jsonObj.get("settings").isJsonNull()) {
+            ExecutionEnvironmentSettings.validateJsonElement(jsonObj.get("settings"));
+        }
         if (!jsonObj.get("account").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(

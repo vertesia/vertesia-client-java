@@ -27,7 +27,7 @@ import io.vertesia.model.InviteUserRequestPayload;
 import io.vertesia.model.InviteUserResponsePayload;
 import io.vertesia.model.OnboardingProgress;
 import io.vertesia.model.StripeBillingStatusResponse;
-import io.vertesia.model.TransientTokenUserInviteTokenDataArray;
+import io.vertesia.model.TransientTokenUserInviteTokenData;
 import io.vertesia.model.UpdateAccountPayload;
 import io.vertesia.model.User;
 import java.lang.reflect.Type;
@@ -1037,7 +1037,7 @@ public class AccountsApi {
     /**
      * List account invites
      * Lists pending invites across the current account.  **Required permissions:** &#x60;account:admin&#x60;
-     * @return TransientTokenUserInviteTokenDataArray
+     * @return List&lt;TransientTokenUserInviteTokenData&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1048,8 +1048,8 @@ public class AccountsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public TransientTokenUserInviteTokenDataArray listAccountInvites() throws ApiException {
-        ApiResponse<TransientTokenUserInviteTokenDataArray> localVarResp =
+    public List<TransientTokenUserInviteTokenData> listAccountInvites() throws ApiException {
+        ApiResponse<List<TransientTokenUserInviteTokenData>> localVarResp =
                 listAccountInvitesWithHttpInfo();
         return localVarResp.getData();
     }
@@ -1057,7 +1057,7 @@ public class AccountsApi {
     /**
      * List account invites
      * Lists pending invites across the current account.  **Required permissions:** &#x60;account:admin&#x60;
-     * @return ApiResponse&lt;TransientTokenUserInviteTokenDataArray&gt;
+     * @return ApiResponse&lt;List&lt;TransientTokenUserInviteTokenData&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1068,11 +1068,11 @@ public class AccountsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<TransientTokenUserInviteTokenDataArray> listAccountInvitesWithHttpInfo()
+    public ApiResponse<List<TransientTokenUserInviteTokenData>> listAccountInvitesWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listAccountInvitesValidateBeforeCall(null);
         Type localVarReturnType =
-                new TypeToken<TransientTokenUserInviteTokenDataArray>() {}.getType();
+                new TypeToken<List<TransientTokenUserInviteTokenData>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1092,12 +1092,12 @@ public class AccountsApi {
      * </table>
      */
     public okhttp3.Call listAccountInvitesAsync(
-            final ApiCallback<TransientTokenUserInviteTokenDataArray> _callback)
+            final ApiCallback<List<TransientTokenUserInviteTokenData>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listAccountInvitesValidateBeforeCall(_callback);
         Type localVarReturnType =
-                new TypeToken<TransientTokenUserInviteTokenDataArray>() {}.getType();
+                new TypeToken<List<TransientTokenUserInviteTokenData>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1451,7 +1451,7 @@ public class AccountsApi {
     /**
      * List project invites
      * Lists pending invites for the current project.  **Required permissions:** &#x60;project:admin&#x60;
-     * @return TransientTokenUserInviteTokenDataArray
+     * @return List&lt;TransientTokenUserInviteTokenData&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1462,8 +1462,8 @@ public class AccountsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public TransientTokenUserInviteTokenDataArray listProjectInvites() throws ApiException {
-        ApiResponse<TransientTokenUserInviteTokenDataArray> localVarResp =
+    public List<TransientTokenUserInviteTokenData> listProjectInvites() throws ApiException {
+        ApiResponse<List<TransientTokenUserInviteTokenData>> localVarResp =
                 listProjectInvitesWithHttpInfo();
         return localVarResp.getData();
     }
@@ -1471,7 +1471,7 @@ public class AccountsApi {
     /**
      * List project invites
      * Lists pending invites for the current project.  **Required permissions:** &#x60;project:admin&#x60;
-     * @return ApiResponse&lt;TransientTokenUserInviteTokenDataArray&gt;
+     * @return ApiResponse&lt;List&lt;TransientTokenUserInviteTokenData&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1482,11 +1482,11 @@ public class AccountsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<TransientTokenUserInviteTokenDataArray> listProjectInvitesWithHttpInfo()
+    public ApiResponse<List<TransientTokenUserInviteTokenData>> listProjectInvitesWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listProjectInvitesValidateBeforeCall(null);
         Type localVarReturnType =
-                new TypeToken<TransientTokenUserInviteTokenDataArray>() {}.getType();
+                new TypeToken<List<TransientTokenUserInviteTokenData>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1506,12 +1506,12 @@ public class AccountsApi {
      * </table>
      */
     public okhttp3.Call listProjectInvitesAsync(
-            final ApiCallback<TransientTokenUserInviteTokenDataArray> _callback)
+            final ApiCallback<List<TransientTokenUserInviteTokenData>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listProjectInvitesValidateBeforeCall(_callback);
         Type localVarReturnType =
-                new TypeToken<TransientTokenUserInviteTokenDataArray>() {}.getType();
+                new TypeToken<List<TransientTokenUserInviteTokenData>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1592,7 +1592,7 @@ public class AccountsApi {
     /**
      * List pending invites for the current user
      * Lists pending account or project invites that apply to the current user.  **Required permissions:** &#x60;account:member&#x60;
-     * @return TransientTokenUserInviteTokenDataArray
+     * @return List&lt;TransientTokenUserInviteTokenData&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1603,8 +1603,8 @@ public class AccountsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public TransientTokenUserInviteTokenDataArray listUserInvites() throws ApiException {
-        ApiResponse<TransientTokenUserInviteTokenDataArray> localVarResp =
+    public List<TransientTokenUserInviteTokenData> listUserInvites() throws ApiException {
+        ApiResponse<List<TransientTokenUserInviteTokenData>> localVarResp =
                 listUserInvitesWithHttpInfo();
         return localVarResp.getData();
     }
@@ -1612,7 +1612,7 @@ public class AccountsApi {
     /**
      * List pending invites for the current user
      * Lists pending account or project invites that apply to the current user.  **Required permissions:** &#x60;account:member&#x60;
-     * @return ApiResponse&lt;TransientTokenUserInviteTokenDataArray&gt;
+     * @return ApiResponse&lt;List&lt;TransientTokenUserInviteTokenData&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1623,11 +1623,11 @@ public class AccountsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<TransientTokenUserInviteTokenDataArray> listUserInvitesWithHttpInfo()
+    public ApiResponse<List<TransientTokenUserInviteTokenData>> listUserInvitesWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listUserInvitesValidateBeforeCall(null);
         Type localVarReturnType =
-                new TypeToken<TransientTokenUserInviteTokenDataArray>() {}.getType();
+                new TypeToken<List<TransientTokenUserInviteTokenData>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1647,12 +1647,12 @@ public class AccountsApi {
      * </table>
      */
     public okhttp3.Call listUserInvitesAsync(
-            final ApiCallback<TransientTokenUserInviteTokenDataArray> _callback)
+            final ApiCallback<List<TransientTokenUserInviteTokenData>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listUserInvitesValidateBeforeCall(_callback);
         Type localVarReturnType =
-                new TypeToken<TransientTokenUserInviteTokenDataArray>() {}.getType();
+                new TypeToken<List<TransientTokenUserInviteTokenData>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

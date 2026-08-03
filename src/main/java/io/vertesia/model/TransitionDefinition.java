@@ -24,9 +24,7 @@ import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -45,7 +43,7 @@ public class TransitionDefinition {
     public static final String SERIALIZED_NAME_GUARD = "guard";
 
     @SerializedName(SERIALIZED_NAME_GUARD)
-    @jakarta.annotation.Nullable private Map<String, Object> guard = new HashMap<>();
+    @jakarta.annotation.Nullable private Object guard;
 
     public static final String SERIALIZED_NAME_TRIGGER = "trigger";
 
@@ -60,7 +58,7 @@ public class TransitionDefinition {
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @jakarta.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
+    @jakarta.annotation.Nullable private Object metadata;
 
     public TransitionDefinition() {}
 
@@ -82,16 +80,8 @@ public class TransitionDefinition {
         this.to = to;
     }
 
-    public TransitionDefinition guard(@jakarta.annotation.Nullable Map<String, Object> guard) {
+    public TransitionDefinition guard(@jakarta.annotation.Nullable Object guard) {
         this.guard = guard;
-        return this;
-    }
-
-    public TransitionDefinition putGuardItem(String key, Object guardItem) {
-        if (this.guard == null) {
-            this.guard = new HashMap<>();
-        }
-        this.guard.put(key, guardItem);
         return this;
     }
 
@@ -99,11 +89,11 @@ public class TransitionDefinition {
      * Get guard
      * @return guard
      */
-    @jakarta.annotation.Nullable public Map<String, Object> getGuard() {
+    @jakarta.annotation.Nullable public Object getGuard() {
         return guard;
     }
 
-    public void setGuard(@jakarta.annotation.Nullable Map<String, Object> guard) {
+    public void setGuard(@jakarta.annotation.Nullable Object guard) {
         this.guard = guard;
     }
 
@@ -141,17 +131,8 @@ public class TransitionDefinition {
         this.label = label;
     }
 
-    public TransitionDefinition metadata(
-            @jakarta.annotation.Nullable Map<String, Object> metadata) {
+    public TransitionDefinition metadata(@jakarta.annotation.Nullable Object metadata) {
         this.metadata = metadata;
-        return this;
-    }
-
-    public TransitionDefinition putMetadataItem(String key, Object metadataItem) {
-        if (this.metadata == null) {
-            this.metadata = new HashMap<>();
-        }
-        this.metadata.put(key, metadataItem);
         return this;
     }
 
@@ -159,11 +140,11 @@ public class TransitionDefinition {
      * Get metadata
      * @return metadata
      */
-    @jakarta.annotation.Nullable public Map<String, Object> getMetadata() {
+    @jakarta.annotation.Nullable public Object getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
+    public void setMetadata(@jakarta.annotation.Nullable Object metadata) {
         this.metadata = metadata;
     }
 

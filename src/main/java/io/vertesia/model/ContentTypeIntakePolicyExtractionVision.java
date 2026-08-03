@@ -50,7 +50,7 @@ public class ContentTypeIntakePolicyExtractionVision {
     public static final String SERIALIZED_NAME_MAX_IMAGE_TOKENS = "max_image_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_IMAGE_TOKENS)
-    @jakarta.annotation.Nullable private BigDecimal maxImageTokens;
+    @jakarta.annotation.Nullable private Integer maxImageTokens;
 
     public static final String SERIALIZED_NAME_MAX_PAYLOAD_MB = "max_payload_mb";
 
@@ -60,7 +60,7 @@ public class ContentTypeIntakePolicyExtractionVision {
     public static final String SERIALIZED_NAME_MAX_PAGES_PER_CALL = "max_pages_per_call";
 
     @SerializedName(SERIALIZED_NAME_MAX_PAGES_PER_CALL)
-    @jakarta.annotation.Nullable private BigDecimal maxPagesPerCall;
+    @jakarta.annotation.Nullable private Integer maxPagesPerCall;
 
     public ContentTypeIntakePolicyExtractionVision() {}
 
@@ -111,20 +111,22 @@ public class ContentTypeIntakePolicyExtractionVision {
     }
 
     public ContentTypeIntakePolicyExtractionVision maxImageTokens(
-            @jakarta.annotation.Nullable BigDecimal maxImageTokens) {
+            @jakarta.annotation.Nullable Integer maxImageTokens) {
         this.maxImageTokens = maxImageTokens;
         return this;
     }
 
     /**
      * PRIMARY budget: estimated image tokens per extraction call. Default 16000.
+     * minimum: 1
+     * maximum: 2147483647
      * @return maxImageTokens
      */
-    @jakarta.annotation.Nullable public BigDecimal getMaxImageTokens() {
+    @jakarta.annotation.Nullable public Integer getMaxImageTokens() {
         return maxImageTokens;
     }
 
-    public void setMaxImageTokens(@jakarta.annotation.Nullable BigDecimal maxImageTokens) {
+    public void setMaxImageTokens(@jakarta.annotation.Nullable Integer maxImageTokens) {
         this.maxImageTokens = maxImageTokens;
     }
 
@@ -136,6 +138,7 @@ public class ContentTypeIntakePolicyExtractionVision {
 
     /**
      * Transport guard in megabytes. Default 16.
+     * minimum: 1
      * @return maxPayloadMb
      */
     @jakarta.annotation.Nullable public BigDecimal getMaxPayloadMb() {
@@ -147,20 +150,22 @@ public class ContentTypeIntakePolicyExtractionVision {
     }
 
     public ContentTypeIntakePolicyExtractionVision maxPagesPerCall(
-            @jakarta.annotation.Nullable BigDecimal maxPagesPerCall) {
+            @jakarta.annotation.Nullable Integer maxPagesPerCall) {
         this.maxPagesPerCall = maxPagesPerCall;
         return this;
     }
 
     /**
      * Cap on page images per extraction call. Default 8.
+     * minimum: 1
+     * maximum: 2147483647
      * @return maxPagesPerCall
      */
-    @jakarta.annotation.Nullable public BigDecimal getMaxPagesPerCall() {
+    @jakarta.annotation.Nullable public Integer getMaxPagesPerCall() {
         return maxPagesPerCall;
     }
 
-    public void setMaxPagesPerCall(@jakarta.annotation.Nullable BigDecimal maxPagesPerCall) {
+    public void setMaxPagesPerCall(@jakarta.annotation.Nullable Integer maxPagesPerCall) {
         this.maxPagesPerCall = maxPagesPerCall;
     }
 

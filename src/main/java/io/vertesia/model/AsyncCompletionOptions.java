@@ -147,7 +147,7 @@ public class AsyncCompletionOptions {
     }
 
     /**
-     * Temporal task token for async activity completion (base64url encoded). When provided, Studio will complete the activity after execution finishes, allowing the worker to release the activity slot immediately.
+     * Temporal task token for async activity completion (base64url encoded). When provided, the platform completes the activity after execution finishes, allowing the worker to release the activity slot immediately.
      * @return taskToken
      */
     @jakarta.annotation.Nullable public String getTaskToken() {
@@ -182,7 +182,7 @@ public class AsyncCompletionOptions {
     }
 
     /**
-     * Current conversation state to merge with execution result. Studio will store the conversation and complete the activity with merged state. Required when task_token is provided.
+     * Current conversation state to merge with execution result. The platform stores the conversation and completes the activity with merged state. Required when task_token is provided.
      * @return currentState
      */
     @jakarta.annotation.Nullable public ConversationState getCurrentState() {
@@ -200,7 +200,7 @@ public class AsyncCompletionOptions {
     }
 
     /**
-     * Interval in milliseconds for sending heartbeats to Temporal during streaming. When provided, Studio will send periodic heartbeats to keep the activity alive. Recommended: 10000 (10 seconds). Activity heartbeat timeout should be ~3x this value.
+     * Interval in milliseconds for sending heartbeats to Temporal during streaming. When provided, the platform sends periodic heartbeats to keep the activity alive. Recommended: 10000 (10 seconds). Activity heartbeat timeout should be ~3x this value.
      * @return heartbeatIntervalMs
      */
     @jakarta.annotation.Nullable public BigDecimal getHeartbeatIntervalMs() {
@@ -219,7 +219,7 @@ public class AsyncCompletionOptions {
     }
 
     /**
-     * Telemetry context for sending LlmCallEvent after streaming completes. Studio will use this to send token usage telemetry since the activity exits before the response is available in async completion mode.
+     * Telemetry context for sending LlmCallEvent after streaming completes. The platform uses this to send token usage telemetry since the activity exits before the response is available in async completion mode.
      * @return telemetry
      */
     @jakarta.annotation.Nullable public StreamingTelemetryContext getTelemetry() {
@@ -237,7 +237,7 @@ public class AsyncCompletionOptions {
     }
 
     /**
-     * Storage options for inference result. When provided, Studio will store the result to the specified path after inference completes (before completing the Temporal activity).
+     * Storage options for inference result. When provided, the platform stores the result at the specified path after inference completes (before completing the Temporal activity).
      * @return resultStorage
      */
     @jakarta.annotation.Nullable public ResultStorageOptions getResultStorage() {

@@ -80,7 +80,7 @@ public class PromptSearchQuery {
     }
 
     /**
-     * Get name
+     * Case-insensitive substring match on the prompt name.
      * @return name
      */
     @jakarta.annotation.Nullable public String getName() {
@@ -105,7 +105,7 @@ public class PromptSearchQuery {
     }
 
     /**
-     * Get status
+     * Accepted and ignored. &#x60;GET /prompts&#x60; and &#x60;POST /prompts/facets&#x60; list drafts only, and always have.
      * @return status
      */
     @jakarta.annotation.Nullable public List<String> getStatus() {
@@ -122,7 +122,7 @@ public class PromptSearchQuery {
     }
 
     /**
-     * Get limit
+     * Maximum number of prompts to return. Defaults to 100.
      * @return limit
      */
     @jakarta.annotation.Nullable public BigDecimal getLimit() {
@@ -139,7 +139,7 @@ public class PromptSearchQuery {
     }
 
     /**
-     * Get offset
+     * Number of prompts to skip.
      * @return offset
      */
     @jakarta.annotation.Nullable public BigDecimal getOffset() {
@@ -156,7 +156,7 @@ public class PromptSearchQuery {
     }
 
     /**
-     * Get role
+     * Exact match on the prompt role.
      * @return role
      */
     @jakarta.annotation.Nullable public String getRole() {
@@ -181,7 +181,7 @@ public class PromptSearchQuery {
     }
 
     /**
-     * Get tags
+     * Match prompts carrying any of these tags.
      * @return tags
      */
     @jakarta.annotation.Nullable public List<String> getTags() {
@@ -199,7 +199,7 @@ public class PromptSearchQuery {
     }
 
     /**
-     * Get matchInteractions
+     * Accepted and ignored. It used to attach the interactions referencing each prompt, in a shape no response component ever declared; nothing consumed it.
      * @return matchInteractions
      */
     @jakarta.annotation.Nullable public Boolean getMatchInteractions() {

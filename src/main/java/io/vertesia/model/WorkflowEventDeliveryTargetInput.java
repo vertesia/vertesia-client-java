@@ -122,6 +122,11 @@ public class WorkflowEventDeliveryTargetInput {
     @SerializedName(SERIALIZED_NAME_INPUT_TYPE)
     @jakarta.annotation.Nullable private WorkflowRuleInputType inputType;
 
+    public static final String SERIALIZED_NAME_MIGRATED_RULE_NAME = "migrated_rule_name";
+
+    @SerializedName(SERIALIZED_NAME_MIGRATED_RULE_NAME)
+    @jakarta.annotation.Nullable private String migratedRuleName;
+
     public WorkflowEventDeliveryTargetInput() {}
 
     public WorkflowEventDeliveryTargetInput type(@jakarta.annotation.Nonnull TypeEnum type) {
@@ -240,6 +245,24 @@ public class WorkflowEventDeliveryTargetInput {
         this.inputType = inputType;
     }
 
+    public WorkflowEventDeliveryTargetInput migratedRuleName(
+            @jakarta.annotation.Nullable String migratedRuleName) {
+        this.migratedRuleName = migratedRuleName;
+        return this;
+    }
+
+    /**
+     * Server-managed: ignored on write, echoed back from a read.
+     * @return migratedRuleName
+     */
+    @jakarta.annotation.Nullable public String getMigratedRuleName() {
+        return migratedRuleName;
+    }
+
+    public void setMigratedRuleName(@jakarta.annotation.Nullable String migratedRuleName) {
+        this.migratedRuleName = migratedRuleName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -256,12 +279,15 @@ public class WorkflowEventDeliveryTargetInput {
                         this.workflowClass, workflowEventDeliveryTargetInput.workflowClass)
                 && Objects.equals(this.taskQueue, workflowEventDeliveryTargetInput.taskQueue)
                 && Objects.equals(this.vars, workflowEventDeliveryTargetInput.vars)
-                && Objects.equals(this.inputType, workflowEventDeliveryTargetInput.inputType);
+                && Objects.equals(this.inputType, workflowEventDeliveryTargetInput.inputType)
+                && Objects.equals(
+                        this.migratedRuleName, workflowEventDeliveryTargetInput.migratedRuleName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, endpoint, workflowClass, taskQueue, vars, inputType);
+        return Objects.hash(
+                type, endpoint, workflowClass, taskQueue, vars, inputType, migratedRuleName);
     }
 
     @Override
@@ -274,6 +300,7 @@ public class WorkflowEventDeliveryTargetInput {
         sb.append("    taskQueue: ").append(toIndentedString(taskQueue)).append("\n");
         sb.append("    vars: ").append(toIndentedString(vars)).append("\n");
         sb.append("    inputType: ").append(toIndentedString(inputType)).append("\n");
+        sb.append("    migratedRuleName: ").append(toIndentedString(migratedRuleName)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -299,7 +326,8 @@ public class WorkflowEventDeliveryTargetInput {
                                 "workflow_class",
                                 "task_queue",
                                 "vars",
-                                "input_type"));
+                                "input_type",
+                                "migrated_rule_name"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "endpoint"));
@@ -370,6 +398,15 @@ public class WorkflowEventDeliveryTargetInput {
         // validate the optional field `input_type`
         if (jsonObj.get("input_type") != null && !jsonObj.get("input_type").isJsonNull()) {
             WorkflowRuleInputType.validateJsonElement(jsonObj.get("input_type"));
+        }
+        if ((jsonObj.get("migrated_rule_name") != null
+                        && !jsonObj.get("migrated_rule_name").isJsonNull())
+                && !jsonObj.get("migrated_rule_name").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `migrated_rule_name` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("migrated_rule_name").toString()));
         }
     }
 

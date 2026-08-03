@@ -26,9 +26,7 @@ import io.vertesia.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -102,7 +100,7 @@ public class ViewExecutionQueryPlan {
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @jakarta.annotation.Nullable private Map<String, Object> query = new HashMap<>();
+    @jakarta.annotation.Nullable private Object query;
 
     public static final String SERIALIZED_NAME_CONFIDENCE = "confidence";
 
@@ -139,16 +137,8 @@ public class ViewExecutionQueryPlan {
         this.status = status;
     }
 
-    public ViewExecutionQueryPlan query(@jakarta.annotation.Nullable Map<String, Object> query) {
+    public ViewExecutionQueryPlan query(@jakarta.annotation.Nullable Object query) {
         this.query = query;
-        return this;
-    }
-
-    public ViewExecutionQueryPlan putQueryItem(String key, Object queryItem) {
-        if (this.query == null) {
-            this.query = new HashMap<>();
-        }
-        this.query.put(key, queryItem);
         return this;
     }
 
@@ -156,11 +146,11 @@ public class ViewExecutionQueryPlan {
      * An author-provided Elasticsearch query subtree validated by the View runtime.
      * @return query
      */
-    @jakarta.annotation.Nullable public Map<String, Object> getQuery() {
+    @jakarta.annotation.Nullable public Object getQuery() {
         return query;
     }
 
-    public void setQuery(@jakarta.annotation.Nullable Map<String, Object> query) {
+    public void setQuery(@jakarta.annotation.Nullable Object query) {
         this.query = query;
     }
 

@@ -143,7 +143,7 @@ public class ViewExecutionResult {
     }
 
     /**
-     * The runtime-safe rendering definition resolved by Zeno for this execution.
+     * The runtime-safe rendering definition resolved by the platform for this execution.
      * @return definition
      */
     @jakarta.annotation.Nonnull

@@ -26,10 +26,8 @@ import io.vertesia.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -127,7 +125,7 @@ public class EventSubscriptionFilter {
     public static final String SERIALIZED_NAME_CONDITION = "condition";
 
     @SerializedName(SERIALIZED_NAME_CONDITION)
-    @jakarta.annotation.Nullable private Map<String, Object> condition = new HashMap<>();
+    @jakarta.annotation.Nullable private Object condition;
 
     public static final String SERIALIZED_NAME_SEMANTIC_CONDITION = "semantic_condition";
 
@@ -242,17 +240,8 @@ public class EventSubscriptionFilter {
         this.resourceType = resourceType;
     }
 
-    public EventSubscriptionFilter condition(
-            @jakarta.annotation.Nullable Map<String, Object> condition) {
+    public EventSubscriptionFilter condition(@jakarta.annotation.Nullable Object condition) {
         this.condition = condition;
-        return this;
-    }
-
-    public EventSubscriptionFilter putConditionItem(String key, Object conditionItem) {
-        if (this.condition == null) {
-            this.condition = new HashMap<>();
-        }
-        this.condition.put(key, conditionItem);
         return this;
     }
 
@@ -260,11 +249,11 @@ public class EventSubscriptionFilter {
      * Get condition
      * @return condition
      */
-    @jakarta.annotation.Nullable public Map<String, Object> getCondition() {
+    @jakarta.annotation.Nullable public Object getCondition() {
         return condition;
     }
 
-    public void setCondition(@jakarta.annotation.Nullable Map<String, Object> condition) {
+    public void setCondition(@jakarta.annotation.Nullable Object condition) {
         this.condition = condition;
     }
 

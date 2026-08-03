@@ -19,9 +19,9 @@ import io.vertesia.ApiException;
 import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
-import io.vertesia.model.DSLWorkflowDefinition;
 import io.vertesia.model.DSLWorkflowDefinitionResponse;
 import io.vertesia.model.DeleteCountResult;
+import io.vertesia.model.WorkflowDefinitionPayload;
 import io.vertesia.model.WorkflowDefinitionRef;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -68,7 +68,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Build call for createWorkflowDefinition
-     * @param dsLWorkflowDefinition  (required)
+     * @param workflowDefinitionPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -82,7 +82,7 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public okhttp3.Call createWorkflowDefinitionCall(
-            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
+            @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -98,7 +98,7 @@ public class WorkflowDefinitionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = dsLWorkflowDefinition;
+        Object localVarPostBody = workflowDefinitionPayload;
 
         // create path and map variables
         String localVarPath = "/workflows/definitions";
@@ -139,22 +139,22 @@ public class WorkflowDefinitionsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createWorkflowDefinitionValidateBeforeCall(
-            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
+            @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload,
             final ApiCallback _callback)
             throws ApiException {
-        // verify the required parameter 'dsLWorkflowDefinition' is set
-        if (dsLWorkflowDefinition == null) {
+        // verify the required parameter 'workflowDefinitionPayload' is set
+        if (workflowDefinitionPayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'dsLWorkflowDefinition' when calling createWorkflowDefinition(Async)");
+                    "Missing the required parameter 'workflowDefinitionPayload' when calling createWorkflowDefinition(Async)");
         }
 
-        return createWorkflowDefinitionCall(dsLWorkflowDefinition, _callback);
+        return createWorkflowDefinitionCall(workflowDefinitionPayload, _callback);
     }
 
     /**
      * Create a workflow definition
      * Creates a new DSL workflow definition or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param dsLWorkflowDefinition  (required)
+     * @param workflowDefinitionPayload  (required)
      * @return DSLWorkflowDefinitionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -167,17 +167,17 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public DSLWorkflowDefinitionResponse createWorkflowDefinition(
-            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition)
+            @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload)
             throws ApiException {
         ApiResponse<DSLWorkflowDefinitionResponse> localVarResp =
-                createWorkflowDefinitionWithHttpInfo(dsLWorkflowDefinition);
+                createWorkflowDefinitionWithHttpInfo(workflowDefinitionPayload);
         return localVarResp.getData();
     }
 
     /**
      * Create a workflow definition
      * Creates a new DSL workflow definition or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param dsLWorkflowDefinition  (required)
+     * @param workflowDefinitionPayload  (required)
      * @return ApiResponse&lt;DSLWorkflowDefinitionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -190,10 +190,10 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public ApiResponse<DSLWorkflowDefinitionResponse> createWorkflowDefinitionWithHttpInfo(
-            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition)
+            @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
-                createWorkflowDefinitionValidateBeforeCall(dsLWorkflowDefinition, null);
+                createWorkflowDefinitionValidateBeforeCall(workflowDefinitionPayload, null);
         Type localVarReturnType = new TypeToken<DSLWorkflowDefinitionResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -201,7 +201,7 @@ public class WorkflowDefinitionsApi {
     /**
      * Create a workflow definition (asynchronously)
      * Creates a new DSL workflow definition or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param dsLWorkflowDefinition  (required)
+     * @param workflowDefinitionPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -215,12 +215,12 @@ public class WorkflowDefinitionsApi {
      * </table>
      */
     public okhttp3.Call createWorkflowDefinitionAsync(
-            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
+            @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload,
             final ApiCallback<DSLWorkflowDefinitionResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                createWorkflowDefinitionValidateBeforeCall(dsLWorkflowDefinition, _callback);
+                createWorkflowDefinitionValidateBeforeCall(workflowDefinitionPayload, _callback);
         Type localVarReturnType = new TypeToken<DSLWorkflowDefinitionResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -685,7 +685,7 @@ public class WorkflowDefinitionsApi {
     /**
      * Build call for updateWorkflowDefinition
      * @param workflowId  (required)
-     * @param dsLWorkflowDefinition  (required)
+     * @param workflowDefinitionPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -700,7 +700,7 @@ public class WorkflowDefinitionsApi {
      */
     public okhttp3.Call updateWorkflowDefinitionCall(
             @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
+            @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -716,7 +716,7 @@ public class WorkflowDefinitionsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = dsLWorkflowDefinition;
+        Object localVarPostBody = workflowDefinitionPayload;
 
         // create path and map variables
         String localVarPath =
@@ -762,7 +762,7 @@ public class WorkflowDefinitionsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateWorkflowDefinitionValidateBeforeCall(
             @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
+            @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'workflowId' is set
@@ -771,20 +771,20 @@ public class WorkflowDefinitionsApi {
                     "Missing the required parameter 'workflowId' when calling updateWorkflowDefinition(Async)");
         }
 
-        // verify the required parameter 'dsLWorkflowDefinition' is set
-        if (dsLWorkflowDefinition == null) {
+        // verify the required parameter 'workflowDefinitionPayload' is set
+        if (workflowDefinitionPayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'dsLWorkflowDefinition' when calling updateWorkflowDefinition(Async)");
+                    "Missing the required parameter 'workflowDefinitionPayload' when calling updateWorkflowDefinition(Async)");
         }
 
-        return updateWorkflowDefinitionCall(workflowId, dsLWorkflowDefinition, _callback);
+        return updateWorkflowDefinitionCall(workflowId, workflowDefinitionPayload, _callback);
     }
 
     /**
      * Update a workflow definition
      * Updates an existing DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
-     * @param dsLWorkflowDefinition  (required)
+     * @param workflowDefinitionPayload  (required)
      * @return DSLWorkflowDefinitionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -798,10 +798,10 @@ public class WorkflowDefinitionsApi {
      */
     public DSLWorkflowDefinitionResponse updateWorkflowDefinition(
             @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition)
+            @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload)
             throws ApiException {
         ApiResponse<DSLWorkflowDefinitionResponse> localVarResp =
-                updateWorkflowDefinitionWithHttpInfo(workflowId, dsLWorkflowDefinition);
+                updateWorkflowDefinitionWithHttpInfo(workflowId, workflowDefinitionPayload);
         return localVarResp.getData();
     }
 
@@ -809,7 +809,7 @@ public class WorkflowDefinitionsApi {
      * Update a workflow definition
      * Updates an existing DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
-     * @param dsLWorkflowDefinition  (required)
+     * @param workflowDefinitionPayload  (required)
      * @return ApiResponse&lt;DSLWorkflowDefinitionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -823,10 +823,11 @@ public class WorkflowDefinitionsApi {
      */
     public ApiResponse<DSLWorkflowDefinitionResponse> updateWorkflowDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition)
+            @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
-                updateWorkflowDefinitionValidateBeforeCall(workflowId, dsLWorkflowDefinition, null);
+                updateWorkflowDefinitionValidateBeforeCall(
+                        workflowId, workflowDefinitionPayload, null);
         Type localVarReturnType = new TypeToken<DSLWorkflowDefinitionResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -835,7 +836,7 @@ public class WorkflowDefinitionsApi {
      * Update a workflow definition (asynchronously)
      * Updates an existing DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
-     * @param dsLWorkflowDefinition  (required)
+     * @param workflowDefinitionPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -850,13 +851,13 @@ public class WorkflowDefinitionsApi {
      */
     public okhttp3.Call updateWorkflowDefinitionAsync(
             @jakarta.annotation.Nonnull String workflowId,
-            @jakarta.annotation.Nonnull DSLWorkflowDefinition dsLWorkflowDefinition,
+            @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload,
             final ApiCallback<DSLWorkflowDefinitionResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 updateWorkflowDefinitionValidateBeforeCall(
-                        workflowId, dsLWorkflowDefinition, _callback);
+                        workflowId, workflowDefinitionPayload, _callback);
         Type localVarReturnType = new TypeToken<DSLWorkflowDefinitionResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

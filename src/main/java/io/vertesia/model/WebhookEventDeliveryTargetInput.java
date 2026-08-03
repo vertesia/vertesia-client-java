@@ -108,6 +108,16 @@ public class WebhookEventDeliveryTargetInput {
     @jakarta.annotation.Nonnull
     private String url;
 
+    public static final String SERIALIZED_NAME_HAS_SECRET = "has_secret";
+
+    @SerializedName(SERIALIZED_NAME_HAS_SECRET)
+    @jakarta.annotation.Nullable private Boolean hasSecret;
+
+    public static final String SERIALIZED_NAME_SECRET_LABEL = "secret_label";
+
+    @SerializedName(SERIALIZED_NAME_SECRET_LABEL)
+    @jakarta.annotation.Nullable private String secretLabel;
+
     public static final String SERIALIZED_NAME_SIGNING_MODE = "signing_mode";
 
     @SerializedName(SERIALIZED_NAME_SIGNING_MODE)
@@ -197,6 +207,42 @@ public class WebhookEventDeliveryTargetInput {
 
     public void setUrl(@jakarta.annotation.Nonnull String url) {
         this.url = url;
+    }
+
+    public WebhookEventDeliveryTargetInput hasSecret(
+            @jakarta.annotation.Nullable Boolean hasSecret) {
+        this.hasSecret = hasSecret;
+        return this;
+    }
+
+    /**
+     * Server-managed: ignored on write, echoed back from a read.
+     * @return hasSecret
+     */
+    @jakarta.annotation.Nullable public Boolean getHasSecret() {
+        return hasSecret;
+    }
+
+    public void setHasSecret(@jakarta.annotation.Nullable Boolean hasSecret) {
+        this.hasSecret = hasSecret;
+    }
+
+    public WebhookEventDeliveryTargetInput secretLabel(
+            @jakarta.annotation.Nullable String secretLabel) {
+        this.secretLabel = secretLabel;
+        return this;
+    }
+
+    /**
+     * Server-managed: ignored on write, echoed back from a read.
+     * @return secretLabel
+     */
+    @jakarta.annotation.Nullable public String getSecretLabel() {
+        return secretLabel;
+    }
+
+    public void setSecretLabel(@jakarta.annotation.Nullable String secretLabel) {
+        this.secretLabel = secretLabel;
     }
 
     public WebhookEventDeliveryTargetInput signingMode(
@@ -356,6 +402,8 @@ public class WebhookEventDeliveryTargetInput {
                         webhookEventDeliveryTargetInput.rotateSigningSecret)
                 && Objects.equals(this.type, webhookEventDeliveryTargetInput.type)
                 && Objects.equals(this.url, webhookEventDeliveryTargetInput.url)
+                && Objects.equals(this.hasSecret, webhookEventDeliveryTargetInput.hasSecret)
+                && Objects.equals(this.secretLabel, webhookEventDeliveryTargetInput.secretLabel)
                 && Objects.equals(this.signingMode, webhookEventDeliveryTargetInput.signingMode)
                 && Objects.equals(this.payloadMode, webhookEventDeliveryTargetInput.payloadMode)
                 && Objects.equals(this.headers, webhookEventDeliveryTargetInput.headers)
@@ -372,6 +420,8 @@ public class WebhookEventDeliveryTargetInput {
                 rotateSigningSecret,
                 type,
                 url,
+                hasSecret,
+                secretLabel,
                 signingMode,
                 payloadMode,
                 headers,
@@ -390,6 +440,8 @@ public class WebhookEventDeliveryTargetInput {
                 .append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    url: ").append(toIndentedString(url)).append("\n");
+        sb.append("    hasSecret: ").append(toIndentedString(hasSecret)).append("\n");
+        sb.append("    secretLabel: ").append(toIndentedString(secretLabel)).append("\n");
         sb.append("    signingMode: ").append(toIndentedString(signingMode)).append("\n");
         sb.append("    payloadMode: ").append(toIndentedString(payloadMode)).append("\n");
         sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
@@ -420,6 +472,8 @@ public class WebhookEventDeliveryTargetInput {
                                 "rotate_signing_secret",
                                 "type",
                                 "url",
+                                "has_secret",
+                                "secret_label",
                                 "signing_mode",
                                 "payload_mode",
                                 "headers",
@@ -477,6 +531,14 @@ public class WebhookEventDeliveryTargetInput {
                             java.util.Locale.ROOT,
                             "Expected the field `url` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("url").toString()));
+        }
+        if ((jsonObj.get("secret_label") != null && !jsonObj.get("secret_label").isJsonNull())
+                && !jsonObj.get("secret_label").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `secret_label` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("secret_label").toString()));
         }
         // validate the optional field `signing_mode`
         if (jsonObj.get("signing_mode") != null && !jsonObj.get("signing_mode").isJsonNull()) {

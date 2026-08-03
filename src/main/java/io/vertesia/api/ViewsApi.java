@@ -721,8 +721,8 @@ public class ViewsApi {
 
     /**
      * Build call for listViews
-     * @param limit  (optional)
-     * @param offset  (optional)
+     * @param limit Page size. Clamped to 1..100; anything unparseable falls back to 50. (optional)
+     * @param offset Number of Views to skip. Negative values are clamped to 0. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -812,8 +812,8 @@ public class ViewsApi {
     /**
      * List View Experiences
      * Lists View Experiences in the current project, most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param limit  (optional)
-     * @param offset  (optional)
+     * @param limit Page size. Clamped to 1..100; anything unparseable falls back to 50. (optional)
+     * @param offset Number of Views to skip. Negative values are clamped to 0. (optional)
      * @return List&lt;ViewExperience&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -836,8 +836,8 @@ public class ViewsApi {
     /**
      * List View Experiences
      * Lists View Experiences in the current project, most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param limit  (optional)
-     * @param offset  (optional)
+     * @param limit Page size. Clamped to 1..100; anything unparseable falls back to 50. (optional)
+     * @param offset Number of Views to skip. Negative values are clamped to 0. (optional)
      * @return ApiResponse&lt;List&lt;ViewExperience&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -861,8 +861,8 @@ public class ViewsApi {
     /**
      * List View Experiences (asynchronously)
      * Lists View Experiences in the current project, most recently updated first.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param limit  (optional)
-     * @param offset  (optional)
+     * @param limit Page size. Clamped to 1..100; anything unparseable falls back to 50. (optional)
+     * @param offset Number of Views to skip. Negative values are clamped to 0. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

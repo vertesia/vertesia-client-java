@@ -23,6 +23,7 @@ import io.vertesia.model.DriftAnalysisStatusResponse;
 import io.vertesia.model.EmbeddingsStatusResponse;
 import io.vertesia.model.GenericCommandResponse;
 import io.vertesia.model.IndexingStatusResponse;
+import io.vertesia.model.MigrationListResponse;
 import io.vertesia.model.ProjectConfigurationEmbeddingEnablePayload;
 import io.vertesia.model.ReindexAgentRunsPayload;
 import io.vertesia.model.ReindexAgentRunsResponse;
@@ -1497,7 +1498,7 @@ public class CommandsApi {
     /**
      * List content migrations
      * Lists the available synchronous content migrations that can be executed by an authenticated admin API key.
-     * @return Object
+     * @return MigrationListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1508,15 +1509,15 @@ public class CommandsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public Object listZenoMigrations() throws ApiException {
-        ApiResponse<Object> localVarResp = listZenoMigrationsWithHttpInfo();
+    public MigrationListResponse listZenoMigrations() throws ApiException {
+        ApiResponse<MigrationListResponse> localVarResp = listZenoMigrationsWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * List content migrations
      * Lists the available synchronous content migrations that can be executed by an authenticated admin API key.
-     * @return ApiResponse&lt;Object&gt;
+     * @return ApiResponse&lt;MigrationListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1527,9 +1528,9 @@ public class CommandsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<Object> listZenoMigrationsWithHttpInfo() throws ApiException {
+    public ApiResponse<MigrationListResponse> listZenoMigrationsWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listZenoMigrationsValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<Object>() {}.getType();
+        Type localVarReturnType = new TypeToken<MigrationListResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1548,11 +1549,11 @@ public class CommandsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listZenoMigrationsAsync(final ApiCallback<Object> _callback)
+    public okhttp3.Call listZenoMigrationsAsync(final ApiCallback<MigrationListResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = listZenoMigrationsValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<Object>() {}.getType();
+        Type localVarReturnType = new TypeToken<MigrationListResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1717,7 +1718,7 @@ public class CommandsApi {
 
     /**
      * Build call for reindexAgentRuns
-     * @param reindexAgentRunsPayload  (required)
+     * @param reindexAgentRunsPayload  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1731,7 +1732,7 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call reindexAgentRunsCall(
-            @jakarta.annotation.Nonnull ReindexAgentRunsPayload reindexAgentRunsPayload,
+            @jakarta.annotation.Nullable ReindexAgentRunsPayload reindexAgentRunsPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1788,22 +1789,16 @@ public class CommandsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call reindexAgentRunsValidateBeforeCall(
-            @jakarta.annotation.Nonnull ReindexAgentRunsPayload reindexAgentRunsPayload,
+            @jakarta.annotation.Nullable ReindexAgentRunsPayload reindexAgentRunsPayload,
             final ApiCallback _callback)
             throws ApiException {
-        // verify the required parameter 'reindexAgentRunsPayload' is set
-        if (reindexAgentRunsPayload == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'reindexAgentRunsPayload' when calling reindexAgentRuns(Async)");
-        }
-
         return reindexAgentRunsCall(reindexAgentRunsPayload, _callback);
     }
 
     /**
      * Reindex agent runs
      * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default this recreates the stable agent-runs index before indexing.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param reindexAgentRunsPayload  (required)
+     * @param reindexAgentRunsPayload  (optional)
      * @return ReindexAgentRunsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1816,7 +1811,7 @@ public class CommandsApi {
      * </table>
      */
     public ReindexAgentRunsResponse reindexAgentRuns(
-            @jakarta.annotation.Nonnull ReindexAgentRunsPayload reindexAgentRunsPayload)
+            @jakarta.annotation.Nullable ReindexAgentRunsPayload reindexAgentRunsPayload)
             throws ApiException {
         ApiResponse<ReindexAgentRunsResponse> localVarResp =
                 reindexAgentRunsWithHttpInfo(reindexAgentRunsPayload);
@@ -1826,7 +1821,7 @@ public class CommandsApi {
     /**
      * Reindex agent runs
      * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default this recreates the stable agent-runs index before indexing.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param reindexAgentRunsPayload  (required)
+     * @param reindexAgentRunsPayload  (optional)
      * @return ApiResponse&lt;ReindexAgentRunsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1839,7 +1834,7 @@ public class CommandsApi {
      * </table>
      */
     public ApiResponse<ReindexAgentRunsResponse> reindexAgentRunsWithHttpInfo(
-            @jakarta.annotation.Nonnull ReindexAgentRunsPayload reindexAgentRunsPayload)
+            @jakarta.annotation.Nullable ReindexAgentRunsPayload reindexAgentRunsPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 reindexAgentRunsValidateBeforeCall(reindexAgentRunsPayload, null);
@@ -1850,7 +1845,7 @@ public class CommandsApi {
     /**
      * Reindex agent runs (asynchronously)
      * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default this recreates the stable agent-runs index before indexing.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param reindexAgentRunsPayload  (required)
+     * @param reindexAgentRunsPayload  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1864,7 +1859,7 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call reindexAgentRunsAsync(
-            @jakarta.annotation.Nonnull ReindexAgentRunsPayload reindexAgentRunsPayload,
+            @jakarta.annotation.Nullable ReindexAgentRunsPayload reindexAgentRunsPayload,
             final ApiCallback<ReindexAgentRunsResponse> _callback)
             throws ApiException {
 
@@ -1975,7 +1970,7 @@ public class CommandsApi {
 
     /**
      * Run a content migration
-     * Executes a named synchronous migration. This endpoint requires an authenticated admin API key.
+     * Executes a named synchronous migration. This endpoint requires an authenticated admin API key. &#x60;params&#x60; is passed through to the migration and its shape is the migration&#39;s own.
      * @param name  (required)
      * @param runMigrationPayload  (required)
      * @return RunMigrationResponse
@@ -2000,7 +1995,7 @@ public class CommandsApi {
 
     /**
      * Run a content migration
-     * Executes a named synchronous migration. This endpoint requires an authenticated admin API key.
+     * Executes a named synchronous migration. This endpoint requires an authenticated admin API key. &#x60;params&#x60; is passed through to the migration and its shape is the migration&#39;s own.
      * @param name  (required)
      * @param runMigrationPayload  (required)
      * @return ApiResponse&lt;RunMigrationResponse&gt;
@@ -2026,7 +2021,7 @@ public class CommandsApi {
 
     /**
      * Run a content migration (asynchronously)
-     * Executes a named synchronous migration. This endpoint requires an authenticated admin API key.
+     * Executes a named synchronous migration. This endpoint requires an authenticated admin API key. &#x60;params&#x60; is passed through to the migration and its shape is the migration&#39;s own.
      * @param name  (required)
      * @param runMigrationPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2195,7 +2190,7 @@ public class CommandsApi {
 
     /**
      * Build call for startProjectReindex
-     * @param startProjectReindexPayload  (required)
+     * @param startProjectReindexPayload  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2209,7 +2204,7 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call startProjectReindexCall(
-            @jakarta.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload,
+            @jakarta.annotation.Nullable StartProjectReindexPayload startProjectReindexPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2266,22 +2261,16 @@ public class CommandsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call startProjectReindexValidateBeforeCall(
-            @jakarta.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload,
+            @jakarta.annotation.Nullable StartProjectReindexPayload startProjectReindexPayload,
             final ApiCallback _callback)
             throws ApiException {
-        // verify the required parameter 'startProjectReindexPayload' is set
-        if (startProjectReindexPayload == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'startProjectReindexPayload' when calling startProjectReindex(Async)");
-        }
-
         return startProjectReindexCall(startProjectReindexPayload, _callback);
     }
 
     /**
      * Start a full reindex
      * Starts a full project reindex workflow that rebuilds the Elasticsearch index from content objects.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param startProjectReindexPayload  (required)
+     * @param startProjectReindexPayload  (optional)
      * @return GenericCommandResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2294,7 +2283,7 @@ public class CommandsApi {
      * </table>
      */
     public GenericCommandResponse startProjectReindex(
-            @jakarta.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload)
+            @jakarta.annotation.Nullable StartProjectReindexPayload startProjectReindexPayload)
             throws ApiException {
         ApiResponse<GenericCommandResponse> localVarResp =
                 startProjectReindexWithHttpInfo(startProjectReindexPayload);
@@ -2304,7 +2293,7 @@ public class CommandsApi {
     /**
      * Start a full reindex
      * Starts a full project reindex workflow that rebuilds the Elasticsearch index from content objects.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param startProjectReindexPayload  (required)
+     * @param startProjectReindexPayload  (optional)
      * @return ApiResponse&lt;GenericCommandResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2317,7 +2306,7 @@ public class CommandsApi {
      * </table>
      */
     public ApiResponse<GenericCommandResponse> startProjectReindexWithHttpInfo(
-            @jakarta.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload)
+            @jakarta.annotation.Nullable StartProjectReindexPayload startProjectReindexPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 startProjectReindexValidateBeforeCall(startProjectReindexPayload, null);
@@ -2328,7 +2317,7 @@ public class CommandsApi {
     /**
      * Start a full reindex (asynchronously)
      * Starts a full project reindex workflow that rebuilds the Elasticsearch index from content objects.  **Required permissions:** &#x60;content:admin&#x60;
-     * @param startProjectReindexPayload  (required)
+     * @param startProjectReindexPayload  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2342,7 +2331,7 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call startProjectReindexAsync(
-            @jakarta.annotation.Nonnull StartProjectReindexPayload startProjectReindexPayload,
+            @jakarta.annotation.Nullable StartProjectReindexPayload startProjectReindexPayload,
             final ApiCallback<GenericCommandResponse> _callback)
             throws ApiException {
 

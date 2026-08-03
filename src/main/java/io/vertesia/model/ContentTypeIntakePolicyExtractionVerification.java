@@ -64,7 +64,7 @@ public class ContentTypeIntakePolicyExtractionVerification {
     public static final String SERIALIZED_NAME_MAX_RETRIES = "max_retries";
 
     @SerializedName(SERIALIZED_NAME_MAX_RETRIES)
-    @jakarta.annotation.Nullable private BigDecimal maxRetries;
+    @jakarta.annotation.Nullable private Integer maxRetries;
 
     /**
      * Gets or Sets onFail
@@ -208,6 +208,8 @@ public class ContentTypeIntakePolicyExtractionVerification {
 
     /**
      * Get threshold
+     * minimum: 0
+     * maximum: 1
      * @return threshold
      */
     @jakarta.annotation.Nullable public BigDecimal getThreshold() {
@@ -219,20 +221,22 @@ public class ContentTypeIntakePolicyExtractionVerification {
     }
 
     public ContentTypeIntakePolicyExtractionVerification maxRetries(
-            @jakarta.annotation.Nullable BigDecimal maxRetries) {
+            @jakarta.annotation.Nullable Integer maxRetries) {
         this.maxRetries = maxRetries;
         return this;
     }
 
     /**
      * Get maxRetries
+     * minimum: 0
+     * maximum: 2147483647
      * @return maxRetries
      */
-    @jakarta.annotation.Nullable public BigDecimal getMaxRetries() {
+    @jakarta.annotation.Nullable public Integer getMaxRetries() {
         return maxRetries;
     }
 
-    public void setMaxRetries(@jakarta.annotation.Nullable BigDecimal maxRetries) {
+    public void setMaxRetries(@jakarta.annotation.Nullable Integer maxRetries) {
         this.maxRetries = maxRetries;
     }
 

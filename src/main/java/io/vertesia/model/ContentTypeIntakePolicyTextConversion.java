@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -185,12 +184,12 @@ public class ContentTypeIntakePolicyTextConversion {
     public static final String SERIALIZED_NAME_PAGE_RANGES = "page_ranges";
 
     @SerializedName(SERIALIZED_NAME_PAGE_RANGES)
-    @jakarta.annotation.Nullable private List<List<BigDecimal>> pageRanges;
+    @jakarta.annotation.Nullable private List<List<Integer>> pageRanges;
 
     public static final String SERIALIZED_NAME_RENDER_DPI = "render_dpi";
 
     @SerializedName(SERIALIZED_NAME_RENDER_DPI)
-    @jakarta.annotation.Nullable private BigDecimal renderDpi;
+    @jakarta.annotation.Nullable private Integer renderDpi;
 
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
@@ -309,13 +308,12 @@ public class ContentTypeIntakePolicyTextConversion {
     }
 
     public ContentTypeIntakePolicyTextConversion pageRanges(
-            @jakarta.annotation.Nullable List<List<BigDecimal>> pageRanges) {
+            @jakarta.annotation.Nullable List<List<Integer>> pageRanges) {
         this.pageRanges = pageRanges;
         return this;
     }
 
-    public ContentTypeIntakePolicyTextConversion addPageRangesItem(
-            List<BigDecimal> pageRangesItem) {
+    public ContentTypeIntakePolicyTextConversion addPageRangesItem(List<Integer> pageRangesItem) {
         if (this.pageRanges == null) {
             this.pageRanges = new ArrayList<>();
         }
@@ -327,29 +325,31 @@ public class ContentTypeIntakePolicyTextConversion {
      * Static page ranges to convert (wins over &#x60;scope&#x60; when set).
      * @return pageRanges
      */
-    @jakarta.annotation.Nullable public List<List<BigDecimal>> getPageRanges() {
+    @jakarta.annotation.Nullable public List<List<Integer>> getPageRanges() {
         return pageRanges;
     }
 
-    public void setPageRanges(@jakarta.annotation.Nullable List<List<BigDecimal>> pageRanges) {
+    public void setPageRanges(@jakarta.annotation.Nullable List<List<Integer>> pageRanges) {
         this.pageRanges = pageRanges;
     }
 
     public ContentTypeIntakePolicyTextConversion renderDpi(
-            @jakarta.annotation.Nullable BigDecimal renderDpi) {
+            @jakarta.annotation.Nullable Integer renderDpi) {
         this.renderDpi = renderDpi;
         return this;
     }
 
     /**
      * DPI at which each page is rendered to the image the LLM converts. Default 150 — the accuracy/cost sweet spot: higher resolutions balloon input tokens (some providers tile the page) for no quality gain, below ~150 dense tables start to misread. Raise only for very fine print.
+     * minimum: 72
+     * maximum: 2147483647
      * @return renderDpi
      */
-    @jakarta.annotation.Nullable public BigDecimal getRenderDpi() {
+    @jakarta.annotation.Nullable public Integer getRenderDpi() {
         return renderDpi;
     }
 
-    public void setRenderDpi(@jakarta.annotation.Nullable BigDecimal renderDpi) {
+    public void setRenderDpi(@jakarta.annotation.Nullable Integer renderDpi) {
         this.renderDpi = renderDpi;
     }
 

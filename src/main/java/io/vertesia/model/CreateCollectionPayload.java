@@ -41,18 +41,6 @@ import org.openapitools.jackson.nullable.JsonNullable;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CreateCollectionPayload {
-    public static final String SERIALIZED_NAME_NAME = "name";
-
-    @SerializedName(SERIALIZED_NAME_NAME)
-    @jakarta.annotation.Nonnull
-    private String name;
-
-    public static final String SERIALIZED_NAME_DYNAMIC = "dynamic";
-
-    @SerializedName(SERIALIZED_NAME_DYNAMIC)
-    @jakarta.annotation.Nonnull
-    private Boolean dynamic;
-
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -118,43 +106,19 @@ public class CreateCollectionPayload {
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
     @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_NAME = "name";
+
+    @SerializedName(SERIALIZED_NAME_NAME)
+    @jakarta.annotation.Nonnull
+    private String name;
+
+    public static final String SERIALIZED_NAME_DYNAMIC = "dynamic";
+
+    @SerializedName(SERIALIZED_NAME_DYNAMIC)
+    @jakarta.annotation.Nonnull
+    private Boolean dynamic;
+
     public CreateCollectionPayload() {}
-
-    public CreateCollectionPayload name(@jakarta.annotation.Nonnull String name) {
-        this.name = name;
-        return this;
-    }
-
-    /**
-     * Get name
-     * @return name
-     */
-    @jakarta.annotation.Nonnull
-    public String getName() {
-        return name;
-    }
-
-    public void setName(@jakarta.annotation.Nonnull String name) {
-        this.name = name;
-    }
-
-    public CreateCollectionPayload dynamic(@jakarta.annotation.Nonnull Boolean dynamic) {
-        this.dynamic = dynamic;
-        return this;
-    }
-
-    /**
-     * Get dynamic
-     * @return dynamic
-     */
-    @jakarta.annotation.Nonnull
-    public Boolean getDynamic() {
-        return dynamic;
-    }
-
-    public void setDynamic(@jakarta.annotation.Nonnull Boolean dynamic) {
-        this.dynamic = dynamic;
-    }
 
     public CreateCollectionPayload description(@jakarta.annotation.Nullable String description) {
         this.description = description;
@@ -439,6 +403,42 @@ public class CreateCollectionPayload {
         this.compartments = compartments;
     }
 
+    public CreateCollectionPayload name(@jakarta.annotation.Nonnull String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Get name
+     * @return name
+     */
+    @jakarta.annotation.Nonnull
+    public String getName() {
+        return name;
+    }
+
+    public void setName(@jakarta.annotation.Nonnull String name) {
+        this.name = name;
+    }
+
+    public CreateCollectionPayload dynamic(@jakarta.annotation.Nonnull Boolean dynamic) {
+        this.dynamic = dynamic;
+        return this;
+    }
+
+    /**
+     * Get dynamic
+     * @return dynamic
+     */
+    @jakarta.annotation.Nonnull
+    public Boolean getDynamic() {
+        return dynamic;
+    }
+
+    public void setDynamic(@jakarta.annotation.Nonnull Boolean dynamic) {
+        this.dynamic = dynamic;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -448,9 +448,7 @@ public class CreateCollectionPayload {
             return false;
         }
         CreateCollectionPayload createCollectionPayload = (CreateCollectionPayload) o;
-        return Objects.equals(this.name, createCollectionPayload.name)
-                && Objects.equals(this.dynamic, createCollectionPayload.dynamic)
-                && Objects.equals(this.description, createCollectionPayload.description)
+        return Objects.equals(this.description, createCollectionPayload.description)
                 && Objects.equals(this.skipHeadSync, createCollectionPayload.skipHeadSync)
                 && Objects.equals(this.tags, createCollectionPayload.tags)
                 && Objects.equals(this.type, createCollectionPayload.type)
@@ -462,7 +460,9 @@ public class CreateCollectionPayload {
                 && Objects.equals(this.updatedBy, createCollectionPayload.updatedBy)
                 && Objects.equals(this.sharedProperties, createCollectionPayload.sharedProperties)
                 && Objects.equals(this.sensitivity, createCollectionPayload.sensitivity)
-                && Objects.equals(this.compartments, createCollectionPayload.compartments);
+                && Objects.equals(this.compartments, createCollectionPayload.compartments)
+                && Objects.equals(this.name, createCollectionPayload.name)
+                && Objects.equals(this.dynamic, createCollectionPayload.dynamic);
     }
 
     private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -477,8 +477,6 @@ public class CreateCollectionPayload {
     @Override
     public int hashCode() {
         return Objects.hash(
-                name,
-                dynamic,
                 description,
                 skipHeadSync,
                 tags,
@@ -491,7 +489,9 @@ public class CreateCollectionPayload {
                 updatedBy,
                 sharedProperties,
                 sensitivity,
-                compartments);
+                compartments,
+                name,
+                dynamic);
     }
 
     private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -505,8 +505,6 @@ public class CreateCollectionPayload {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateCollectionPayload {\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
-        sb.append("    dynamic: ").append(toIndentedString(dynamic)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    skipHeadSync: ").append(toIndentedString(skipHeadSync)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -520,6 +518,8 @@ public class CreateCollectionPayload {
         sb.append("    sharedProperties: ").append(toIndentedString(sharedProperties)).append("\n");
         sb.append("    sensitivity: ").append(toIndentedString(sensitivity)).append("\n");
         sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    dynamic: ").append(toIndentedString(dynamic)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -540,8 +540,6 @@ public class CreateCollectionPayload {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "name",
-                                "dynamic",
                                 "description",
                                 "skip_head_sync",
                                 "tags",
@@ -554,7 +552,9 @@ public class CreateCollectionPayload {
                                 "updated_by",
                                 "shared_properties",
                                 "sensitivity",
-                                "compartments"));
+                                "compartments",
+                                "name",
+                                "dynamic"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "dynamic"));
@@ -590,13 +590,6 @@ public class CreateCollectionPayload {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("name").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("name").toString()));
-        }
         if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
                 && !jsonObj.get("description").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -687,6 +680,13 @@ public class CreateCollectionPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `compartments` to be an array in the JSON string but got `%s`",
                             jsonObj.get("compartments").toString()));
+        }
+        if (!jsonObj.get("name").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("name").toString()));
         }
     }
 

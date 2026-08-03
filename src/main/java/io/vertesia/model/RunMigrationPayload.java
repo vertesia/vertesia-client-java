@@ -24,7 +24,9 @@ import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -38,6 +40,11 @@ public class RunMigrationPayload {
 
     @SerializedName(SERIALIZED_NAME_FORCE)
     @jakarta.annotation.Nullable private Boolean force;
+
+    public static final String SERIALIZED_NAME_PARAMS = "params";
+
+    @SerializedName(SERIALIZED_NAME_PARAMS)
+    @jakarta.annotation.Nullable private Map<String, Object> params = new HashMap<>();
 
     public RunMigrationPayload() {}
 
@@ -58,6 +65,31 @@ public class RunMigrationPayload {
         this.force = force;
     }
 
+    public RunMigrationPayload params(@jakarta.annotation.Nullable Map<String, Object> params) {
+        this.params = params;
+        return this;
+    }
+
+    public RunMigrationPayload putParamsItem(String key, Object paramsItem) {
+        if (this.params == null) {
+            this.params = new HashMap<>();
+        }
+        this.params.put(key, paramsItem);
+        return this;
+    }
+
+    /**
+     * Get params
+     * @return params
+     */
+    @jakarta.annotation.Nullable public Map<String, Object> getParams() {
+        return params;
+    }
+
+    public void setParams(@jakarta.annotation.Nullable Map<String, Object> params) {
+        this.params = params;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -67,12 +99,13 @@ public class RunMigrationPayload {
             return false;
         }
         RunMigrationPayload runMigrationPayload = (RunMigrationPayload) o;
-        return Objects.equals(this.force, runMigrationPayload.force);
+        return Objects.equals(this.force, runMigrationPayload.force)
+                && Objects.equals(this.params, runMigrationPayload.params);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(force);
+        return Objects.hash(force, params);
     }
 
     @Override
@@ -80,6 +113,7 @@ public class RunMigrationPayload {
         StringBuilder sb = new StringBuilder();
         sb.append("class RunMigrationPayload {\n");
         sb.append("    force: ").append(toIndentedString(force)).append("\n");
+        sb.append("    params: ").append(toIndentedString(params)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -97,7 +131,7 @@ public class RunMigrationPayload {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("force"));
+        openapiFields = new HashSet<String>(Arrays.asList("force", "params"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);

@@ -56,18 +56,6 @@ public class DSLWorkflowSpecWithSteps {
     @SerializedName(SERIALIZED_NAME_TAGS)
     @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
 
-    public static final String SERIALIZED_NAME_STEPS = "steps";
-
-    @SerializedName(SERIALIZED_NAME_STEPS)
-    @jakarta.annotation.Nonnull
-    private List<DSLWorkflowStep> steps = new ArrayList<>();
-
-    public static final String SERIALIZED_NAME_ACTIVITIES = "activities";
-
-    @Deprecated
-    @SerializedName(SERIALIZED_NAME_ACTIVITIES)
-    @jakarta.annotation.Nullable private List<DSLActivitySpec> activities = new ArrayList<>();
-
     public static final String SERIALIZED_NAME_VARS = "vars";
 
     @SerializedName(SERIALIZED_NAME_VARS)
@@ -88,6 +76,18 @@ public class DSLWorkflowSpecWithSteps {
 
     @SerializedName(SERIALIZED_NAME_DEBUG_MODE)
     @jakarta.annotation.Nullable private Boolean debugMode;
+
+    public static final String SERIALIZED_NAME_STEPS = "steps";
+
+    @SerializedName(SERIALIZED_NAME_STEPS)
+    @jakarta.annotation.Nonnull
+    private List<DSLWorkflowStep> steps = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_ACTIVITIES = "activities";
+
+    @Deprecated
+    @SerializedName(SERIALIZED_NAME_ACTIVITIES)
+    @jakarta.annotation.Nullable private List<DSLActivitySpec> activities = new ArrayList<>();
 
     /**
      * Gets or Sets specFormat
@@ -210,62 +210,6 @@ public class DSLWorkflowSpecWithSteps {
         this.tags = tags;
     }
 
-    public DSLWorkflowSpecWithSteps steps(@jakarta.annotation.Nonnull List<DSLWorkflowStep> steps) {
-        this.steps = steps;
-        return this;
-    }
-
-    public DSLWorkflowSpecWithSteps addStepsItem(DSLWorkflowStep stepsItem) {
-        if (this.steps == null) {
-            this.steps = new ArrayList<>();
-        }
-        this.steps.add(stepsItem);
-        return this;
-    }
-
-    /**
-     * Get steps
-     * @return steps
-     */
-    @jakarta.annotation.Nonnull
-    public List<DSLWorkflowStep> getSteps() {
-        return steps;
-    }
-
-    public void setSteps(@jakarta.annotation.Nonnull List<DSLWorkflowStep> steps) {
-        this.steps = steps;
-    }
-
-    @Deprecated
-    public DSLWorkflowSpecWithSteps activities(
-            @jakarta.annotation.Nullable List<DSLActivitySpec> activities) {
-        this.activities = activities;
-        return this;
-    }
-
-    public DSLWorkflowSpecWithSteps addActivitiesItem(DSLActivitySpec activitiesItem) {
-        if (this.activities == null) {
-            this.activities = new ArrayList<>();
-        }
-        this.activities.add(activitiesItem);
-        return this;
-    }
-
-    /**
-     * Deprecated: use steps instead
-     * @return activities
-     * @deprecated
-     */
-    @Deprecated
-    @jakarta.annotation.Nullable public List<DSLActivitySpec> getActivities() {
-        return activities;
-    }
-
-    @Deprecated
-    public void setActivities(@jakarta.annotation.Nullable List<DSLActivitySpec> activities) {
-        this.activities = activities;
-    }
-
     public DSLWorkflowSpecWithSteps vars(@jakarta.annotation.Nonnull Map<String, Object> vars) {
         this.vars = vars;
         return this;
@@ -344,6 +288,62 @@ public class DSLWorkflowSpecWithSteps {
         this.debugMode = debugMode;
     }
 
+    public DSLWorkflowSpecWithSteps steps(@jakarta.annotation.Nonnull List<DSLWorkflowStep> steps) {
+        this.steps = steps;
+        return this;
+    }
+
+    public DSLWorkflowSpecWithSteps addStepsItem(DSLWorkflowStep stepsItem) {
+        if (this.steps == null) {
+            this.steps = new ArrayList<>();
+        }
+        this.steps.add(stepsItem);
+        return this;
+    }
+
+    /**
+     * Get steps
+     * @return steps
+     */
+    @jakarta.annotation.Nonnull
+    public List<DSLWorkflowStep> getSteps() {
+        return steps;
+    }
+
+    public void setSteps(@jakarta.annotation.Nonnull List<DSLWorkflowStep> steps) {
+        this.steps = steps;
+    }
+
+    @Deprecated
+    public DSLWorkflowSpecWithSteps activities(
+            @jakarta.annotation.Nullable List<DSLActivitySpec> activities) {
+        this.activities = activities;
+        return this;
+    }
+
+    public DSLWorkflowSpecWithSteps addActivitiesItem(DSLActivitySpec activitiesItem) {
+        if (this.activities == null) {
+            this.activities = new ArrayList<>();
+        }
+        this.activities.add(activitiesItem);
+        return this;
+    }
+
+    /**
+     * Deprecated: use steps instead
+     * @return activities
+     * @deprecated
+     */
+    @Deprecated
+    @jakarta.annotation.Nullable public List<DSLActivitySpec> getActivities() {
+        return activities;
+    }
+
+    @Deprecated
+    public void setActivities(@jakarta.annotation.Nullable List<DSLActivitySpec> activities) {
+        this.activities = activities;
+    }
+
     public DSLWorkflowSpecWithSteps specFormat(
             @jakarta.annotation.Nonnull SpecFormatEnum specFormat) {
         this.specFormat = specFormat;
@@ -375,12 +375,12 @@ public class DSLWorkflowSpecWithSteps {
         return Objects.equals(this.name, dsLWorkflowSpecWithSteps.name)
                 && Objects.equals(this.description, dsLWorkflowSpecWithSteps.description)
                 && Objects.equals(this.tags, dsLWorkflowSpecWithSteps.tags)
-                && Objects.equals(this.steps, dsLWorkflowSpecWithSteps.steps)
-                && Objects.equals(this.activities, dsLWorkflowSpecWithSteps.activities)
                 && Objects.equals(this.vars, dsLWorkflowSpecWithSteps.vars)
                 && Objects.equals(this.options, dsLWorkflowSpecWithSteps.options)
                 && Objects.equals(this.result, dsLWorkflowSpecWithSteps.result)
                 && Objects.equals(this.debugMode, dsLWorkflowSpecWithSteps.debugMode)
+                && Objects.equals(this.steps, dsLWorkflowSpecWithSteps.steps)
+                && Objects.equals(this.activities, dsLWorkflowSpecWithSteps.activities)
                 && Objects.equals(this.specFormat, dsLWorkflowSpecWithSteps.specFormat);
     }
 
@@ -390,12 +390,12 @@ public class DSLWorkflowSpecWithSteps {
                 name,
                 description,
                 tags,
-                steps,
-                activities,
                 vars,
                 options,
                 result,
                 debugMode,
+                steps,
+                activities,
                 specFormat);
     }
 
@@ -406,12 +406,12 @@ public class DSLWorkflowSpecWithSteps {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-        sb.append("    steps: ").append(toIndentedString(steps)).append("\n");
-        sb.append("    activities: ").append(toIndentedString(activities)).append("\n");
         sb.append("    vars: ").append(toIndentedString(vars)).append("\n");
         sb.append("    options: ").append(toIndentedString(options)).append("\n");
         sb.append("    result: ").append(toIndentedString(result)).append("\n");
         sb.append("    debugMode: ").append(toIndentedString(debugMode)).append("\n");
+        sb.append("    steps: ").append(toIndentedString(steps)).append("\n");
+        sb.append("    activities: ").append(toIndentedString(activities)).append("\n");
         sb.append("    specFormat: ").append(toIndentedString(specFormat)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -436,17 +436,17 @@ public class DSLWorkflowSpecWithSteps {
                                 "name",
                                 "description",
                                 "tags",
-                                "steps",
-                                "activities",
                                 "vars",
                                 "options",
                                 "result",
                                 "debug_mode",
+                                "steps",
+                                "activities",
                                 "spec_format"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
-                new HashSet<String>(Arrays.asList("name", "steps", "vars", "spec_format"));
+                new HashSet<String>(Arrays.asList("name", "vars", "steps", "spec_format"));
     }
 
     /**
@@ -504,6 +504,18 @@ public class DSLWorkflowSpecWithSteps {
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
         }
+        // validate the optional field `options`
+        if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
+            DSLActivityOptions.validateJsonElement(jsonObj.get("options"));
+        }
+        if ((jsonObj.get("result") != null && !jsonObj.get("result").isJsonNull())
+                && !jsonObj.get("result").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `result` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("result").toString()));
+        }
         if (jsonObj.get("steps") != null) {
             if (!jsonObj.get("steps").isJsonArray()) {
                 throw new IllegalArgumentException(
@@ -536,18 +548,6 @@ public class DSLWorkflowSpecWithSteps {
                 }
                 ;
             }
-        }
-        // validate the optional field `options`
-        if (jsonObj.get("options") != null && !jsonObj.get("options").isJsonNull()) {
-            DSLActivityOptions.validateJsonElement(jsonObj.get("options"));
-        }
-        if ((jsonObj.get("result") != null && !jsonObj.get("result").isJsonNull())
-                && !jsonObj.get("result").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `result` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("result").toString()));
         }
         if (!jsonObj.get("spec_format").isJsonPrimitive()) {
             throw new IllegalArgumentException(

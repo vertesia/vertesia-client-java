@@ -50,12 +50,12 @@ public class ExecutionRunRef {
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
-    @jakarta.annotation.Nullable private InteractionExecutionResultParent parent;
+    @jakarta.annotation.Nullable private ExecutionRunParent parent;
 
     public static final String SERIALIZED_NAME_EVALUATION = "evaluation";
 
     @SerializedName(SERIALIZED_NAME_EVALUATION)
-    @jakarta.annotation.Nullable private InteractionExecutionResultEvaluation evaluation;
+    @jakarta.annotation.Nullable private ExecutionRunEvaluation evaluation;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
@@ -204,8 +204,7 @@ public class ExecutionRunRef {
         this.id = id;
     }
 
-    public ExecutionRunRef parent(
-            @jakarta.annotation.Nullable InteractionExecutionResultParent parent) {
+    public ExecutionRunRef parent(@jakarta.annotation.Nullable ExecutionRunParent parent) {
         this.parent = parent;
         return this;
     }
@@ -214,16 +213,16 @@ public class ExecutionRunRef {
      * Get parent
      * @return parent
      */
-    @jakarta.annotation.Nullable public InteractionExecutionResultParent getParent() {
+    @jakarta.annotation.Nullable public ExecutionRunParent getParent() {
         return parent;
     }
 
-    public void setParent(@jakarta.annotation.Nullable InteractionExecutionResultParent parent) {
+    public void setParent(@jakarta.annotation.Nullable ExecutionRunParent parent) {
         this.parent = parent;
     }
 
     public ExecutionRunRef evaluation(
-            @jakarta.annotation.Nullable InteractionExecutionResultEvaluation evaluation) {
+            @jakarta.annotation.Nullable ExecutionRunEvaluation evaluation) {
         this.evaluation = evaluation;
         return this;
     }
@@ -232,12 +231,11 @@ public class ExecutionRunRef {
      * Get evaluation
      * @return evaluation
      */
-    @jakarta.annotation.Nullable public InteractionExecutionResultEvaluation getEvaluation() {
+    @jakarta.annotation.Nullable public ExecutionRunEvaluation getEvaluation() {
         return evaluation;
     }
 
-    public void setEvaluation(
-            @jakarta.annotation.Nullable InteractionExecutionResultEvaluation evaluation) {
+    public void setEvaluation(@jakarta.annotation.Nullable ExecutionRunEvaluation evaluation) {
         this.evaluation = evaluation;
     }
 
@@ -925,11 +923,11 @@ public class ExecutionRunRef {
         }
         // validate the optional field `parent`
         if (jsonObj.get("parent") != null && !jsonObj.get("parent").isJsonNull()) {
-            InteractionExecutionResultParent.validateJsonElement(jsonObj.get("parent"));
+            ExecutionRunParent.validateJsonElement(jsonObj.get("parent"));
         }
         // validate the optional field `evaluation`
         if (jsonObj.get("evaluation") != null && !jsonObj.get("evaluation").isJsonNull()) {
-            InteractionExecutionResultEvaluation.validateJsonElement(jsonObj.get("evaluation"));
+            ExecutionRunEvaluation.validateJsonElement(jsonObj.get("evaluation"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("tags") != null

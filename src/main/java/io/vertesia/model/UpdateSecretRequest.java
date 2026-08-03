@@ -42,7 +42,7 @@ public class UpdateSecretRequest {
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @jakarta.annotation.Nullable private PartialWebsiteCredentialMetadata metadata;
+    @jakarta.annotation.Nullable private WebsiteCredentialMetadataUpdate metadata;
 
     public static final String SERIALIZED_NAME_SECRET = "secret";
 
@@ -89,7 +89,7 @@ public class UpdateSecretRequest {
     }
 
     public UpdateSecretRequest metadata(
-            @jakarta.annotation.Nullable PartialWebsiteCredentialMetadata metadata) {
+            @jakarta.annotation.Nullable WebsiteCredentialMetadataUpdate metadata) {
         this.metadata = metadata;
         return this;
     }
@@ -98,12 +98,11 @@ public class UpdateSecretRequest {
      * Get metadata
      * @return metadata
      */
-    @jakarta.annotation.Nullable public PartialWebsiteCredentialMetadata getMetadata() {
+    @jakarta.annotation.Nullable public WebsiteCredentialMetadataUpdate getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(
-            @jakarta.annotation.Nullable PartialWebsiteCredentialMetadata metadata) {
+    public void setMetadata(@jakarta.annotation.Nullable WebsiteCredentialMetadataUpdate metadata) {
         this.metadata = metadata;
     }
 
@@ -287,7 +286,7 @@ public class UpdateSecretRequest {
         }
         // validate the optional field `metadata`
         if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
-            PartialWebsiteCredentialMetadata.validateJsonElement(jsonObj.get("metadata"));
+            WebsiteCredentialMetadataUpdate.validateJsonElement(jsonObj.get("metadata"));
         }
         // validate the optional field `secret`
         if (jsonObj.get("secret") != null && !jsonObj.get("secret").isJsonNull()) {

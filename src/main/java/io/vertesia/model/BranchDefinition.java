@@ -24,9 +24,7 @@ import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -45,7 +43,7 @@ public class BranchDefinition {
     public static final String SERIALIZED_NAME_WHEN = "when";
 
     @SerializedName(SERIALIZED_NAME_WHEN)
-    @jakarta.annotation.Nullable private Map<String, Object> when = new HashMap<>();
+    @jakarta.annotation.Nullable private Object when;
 
     public static final String SERIALIZED_NAME_DEFAULT = "default";
 
@@ -55,7 +53,7 @@ public class BranchDefinition {
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @jakarta.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
+    @jakarta.annotation.Nullable private Object metadata;
 
     public BranchDefinition() {}
 
@@ -77,16 +75,8 @@ public class BranchDefinition {
         this.to = to;
     }
 
-    public BranchDefinition when(@jakarta.annotation.Nullable Map<String, Object> when) {
+    public BranchDefinition when(@jakarta.annotation.Nullable Object when) {
         this.when = when;
-        return this;
-    }
-
-    public BranchDefinition putWhenItem(String key, Object whenItem) {
-        if (this.when == null) {
-            this.when = new HashMap<>();
-        }
-        this.when.put(key, whenItem);
         return this;
     }
 
@@ -94,11 +84,11 @@ public class BranchDefinition {
      * Get when
      * @return when
      */
-    @jakarta.annotation.Nullable public Map<String, Object> getWhen() {
+    @jakarta.annotation.Nullable public Object getWhen() {
         return when;
     }
 
-    public void setWhen(@jakarta.annotation.Nullable Map<String, Object> when) {
+    public void setWhen(@jakarta.annotation.Nullable Object when) {
         this.when = when;
     }
 
@@ -119,16 +109,8 @@ public class BranchDefinition {
         this._default = _default;
     }
 
-    public BranchDefinition metadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
+    public BranchDefinition metadata(@jakarta.annotation.Nullable Object metadata) {
         this.metadata = metadata;
-        return this;
-    }
-
-    public BranchDefinition putMetadataItem(String key, Object metadataItem) {
-        if (this.metadata == null) {
-            this.metadata = new HashMap<>();
-        }
-        this.metadata.put(key, metadataItem);
         return this;
     }
 
@@ -136,11 +118,11 @@ public class BranchDefinition {
      * Get metadata
      * @return metadata
      */
-    @jakarta.annotation.Nullable public Map<String, Object> getMetadata() {
+    @jakarta.annotation.Nullable public Object getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
+    public void setMetadata(@jakarta.annotation.Nullable Object metadata) {
         this.metadata = metadata;
     }
 

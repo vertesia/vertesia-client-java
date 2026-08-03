@@ -60,7 +60,7 @@ public class AsyncInteractionExecutionPayload {
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
-    @jakarta.annotation.Nullable private InteractionUpdatePayloadResultSchema resultSchema;
+    @jakarta.annotation.Nullable private AsyncConversationExecutionPayloadResultSchema resultSchema;
 
     public static final String SERIALIZED_NAME_DO_VALIDATE = "do_validate";
 
@@ -223,7 +223,7 @@ public class AsyncInteractionExecutionPayload {
     }
 
     public AsyncInteractionExecutionPayload resultSchema(
-            @jakarta.annotation.Nullable InteractionUpdatePayloadResultSchema resultSchema) {
+            @jakarta.annotation.Nullable AsyncConversationExecutionPayloadResultSchema resultSchema) {
         this.resultSchema = resultSchema;
         return this;
     }
@@ -232,12 +232,12 @@ public class AsyncInteractionExecutionPayload {
      * Get resultSchema
      * @return resultSchema
      */
-    @jakarta.annotation.Nullable public InteractionUpdatePayloadResultSchema getResultSchema() {
+    @jakarta.annotation.Nullable public AsyncConversationExecutionPayloadResultSchema getResultSchema() {
         return resultSchema;
     }
 
     public void setResultSchema(
-            @jakarta.annotation.Nullable InteractionUpdatePayloadResultSchema resultSchema) {
+            @jakarta.annotation.Nullable AsyncConversationExecutionPayloadResultSchema resultSchema) {
         this.resultSchema = resultSchema;
     }
 
@@ -664,7 +664,8 @@ public class AsyncInteractionExecutionPayload {
         }
         // validate the optional field `result_schema`
         if (jsonObj.get("result_schema") != null && !jsonObj.get("result_schema").isJsonNull()) {
-            InteractionUpdatePayloadResultSchema.validateJsonElement(jsonObj.get("result_schema"));
+            AsyncConversationExecutionPayloadResultSchema.validateJsonElement(
+                    jsonObj.get("result_schema"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("tags") != null

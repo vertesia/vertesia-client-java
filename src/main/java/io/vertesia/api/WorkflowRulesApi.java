@@ -21,6 +21,7 @@ import io.vertesia.Configuration;
 import io.vertesia.Pair;
 import io.vertesia.model.CreateWorkflowRulePayload;
 import io.vertesia.model.DeleteCountResult;
+import io.vertesia.model.UpdateWorkflowRulePayload;
 import io.vertesia.model.WorkflowRule;
 import io.vertesia.model.WorkflowRuleItem;
 import java.lang.reflect.Type;
@@ -678,7 +679,7 @@ public class WorkflowRulesApi {
     /**
      * Build call for updateWorkflowRule
      * @param ruleId  (required)
-     * @param createWorkflowRulePayload  (required)
+     * @param updateWorkflowRulePayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -693,7 +694,7 @@ public class WorkflowRulesApi {
      */
     public okhttp3.Call updateWorkflowRuleCall(
             @jakarta.annotation.Nonnull String ruleId,
-            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
+            @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -709,7 +710,7 @@ public class WorkflowRulesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createWorkflowRulePayload;
+        Object localVarPostBody = updateWorkflowRulePayload;
 
         // create path and map variables
         String localVarPath =
@@ -755,7 +756,7 @@ public class WorkflowRulesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateWorkflowRuleValidateBeforeCall(
             @jakarta.annotation.Nonnull String ruleId,
-            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
+            @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ruleId' is set
@@ -764,20 +765,20 @@ public class WorkflowRulesApi {
                     "Missing the required parameter 'ruleId' when calling updateWorkflowRule(Async)");
         }
 
-        // verify the required parameter 'createWorkflowRulePayload' is set
-        if (createWorkflowRulePayload == null) {
+        // verify the required parameter 'updateWorkflowRulePayload' is set
+        if (updateWorkflowRulePayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createWorkflowRulePayload' when calling updateWorkflowRule(Async)");
+                    "Missing the required parameter 'updateWorkflowRulePayload' when calling updateWorkflowRule(Async)");
         }
 
-        return updateWorkflowRuleCall(ruleId, createWorkflowRulePayload, _callback);
+        return updateWorkflowRuleCall(ruleId, updateWorkflowRulePayload, _callback);
     }
 
     /**
      * Update a workflow rule
      * Updates an existing workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
-     * @param createWorkflowRulePayload  (required)
+     * @param updateWorkflowRulePayload  (required)
      * @return WorkflowRule
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -791,10 +792,10 @@ public class WorkflowRulesApi {
      */
     public WorkflowRule updateWorkflowRule(
             @jakarta.annotation.Nonnull String ruleId,
-            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload)
+            @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload)
             throws ApiException {
         ApiResponse<WorkflowRule> localVarResp =
-                updateWorkflowRuleWithHttpInfo(ruleId, createWorkflowRulePayload);
+                updateWorkflowRuleWithHttpInfo(ruleId, updateWorkflowRulePayload);
         return localVarResp.getData();
     }
 
@@ -802,7 +803,7 @@ public class WorkflowRulesApi {
      * Update a workflow rule
      * Updates an existing workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
-     * @param createWorkflowRulePayload  (required)
+     * @param updateWorkflowRulePayload  (required)
      * @return ApiResponse&lt;WorkflowRule&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -816,10 +817,10 @@ public class WorkflowRulesApi {
      */
     public ApiResponse<WorkflowRule> updateWorkflowRuleWithHttpInfo(
             @jakarta.annotation.Nonnull String ruleId,
-            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload)
+            @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
-                updateWorkflowRuleValidateBeforeCall(ruleId, createWorkflowRulePayload, null);
+                updateWorkflowRuleValidateBeforeCall(ruleId, updateWorkflowRulePayload, null);
         Type localVarReturnType = new TypeToken<WorkflowRule>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -828,7 +829,7 @@ public class WorkflowRulesApi {
      * Update a workflow rule (asynchronously)
      * Updates an existing workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
-     * @param createWorkflowRulePayload  (required)
+     * @param updateWorkflowRulePayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -843,12 +844,12 @@ public class WorkflowRulesApi {
      */
     public okhttp3.Call updateWorkflowRuleAsync(
             @jakarta.annotation.Nonnull String ruleId,
-            @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
+            @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload,
             final ApiCallback<WorkflowRule> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                updateWorkflowRuleValidateBeforeCall(ruleId, createWorkflowRulePayload, _callback);
+                updateWorkflowRuleValidateBeforeCall(ruleId, updateWorkflowRulePayload, _callback);
         Type localVarReturnType = new TypeToken<WorkflowRule>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

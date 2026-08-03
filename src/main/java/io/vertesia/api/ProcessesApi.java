@@ -712,6 +712,7 @@ public class ProcessesApi {
 
     /**
      * Build call for listProcessDefinitions
+     * @param status  (optional)
      * @param process  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
@@ -729,6 +730,7 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call listProcessDefinitionsCall(
+            @jakarta.annotation.Nullable String status,
             @jakarta.annotation.Nullable String process,
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
@@ -758,6 +760,10 @@ public class ProcessesApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (status != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
+        }
 
         if (process != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("process", process));
@@ -806,18 +812,20 @@ public class ProcessesApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listProcessDefinitionsValidateBeforeCall(
+            @jakarta.annotation.Nullable String status,
             @jakarta.annotation.Nullable String process,
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
             @jakarta.annotation.Nullable Boolean allVersions,
             final ApiCallback _callback)
             throws ApiException {
-        return listProcessDefinitionsCall(process, limit, offset, allVersions, _callback);
+        return listProcessDefinitionsCall(status, process, limit, offset, allVersions, _callback);
     }
 
     /**
      * List process definitions
      * Lists process definitions in the current project with optional status, process id, pagination, and revision filters. By default only the latest head revision for each process is returned; set &#x60;all_versions&#x3D;true&#x60; to include every revision document.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param status  (optional)
      * @param process  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
@@ -834,19 +842,21 @@ public class ProcessesApi {
      * </table>
      */
     public List<ProcessDefinition> listProcessDefinitions(
+            @jakarta.annotation.Nullable String status,
             @jakarta.annotation.Nullable String process,
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
             @jakarta.annotation.Nullable Boolean allVersions)
             throws ApiException {
         ApiResponse<List<ProcessDefinition>> localVarResp =
-                listProcessDefinitionsWithHttpInfo(process, limit, offset, allVersions);
+                listProcessDefinitionsWithHttpInfo(status, process, limit, offset, allVersions);
         return localVarResp.getData();
     }
 
     /**
      * List process definitions
      * Lists process definitions in the current project with optional status, process id, pagination, and revision filters. By default only the latest head revision for each process is returned; set &#x60;all_versions&#x3D;true&#x60; to include every revision document.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param status  (optional)
      * @param process  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
@@ -863,13 +873,15 @@ public class ProcessesApi {
      * </table>
      */
     public ApiResponse<List<ProcessDefinition>> listProcessDefinitionsWithHttpInfo(
+            @jakarta.annotation.Nullable String status,
             @jakarta.annotation.Nullable String process,
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
             @jakarta.annotation.Nullable Boolean allVersions)
             throws ApiException {
         okhttp3.Call localVarCall =
-                listProcessDefinitionsValidateBeforeCall(process, limit, offset, allVersions, null);
+                listProcessDefinitionsValidateBeforeCall(
+                        status, process, limit, offset, allVersions, null);
         Type localVarReturnType = new TypeToken<List<ProcessDefinition>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -877,6 +889,7 @@ public class ProcessesApi {
     /**
      * List process definitions (asynchronously)
      * Lists process definitions in the current project with optional status, process id, pagination, and revision filters. By default only the latest head revision for each process is returned; set &#x60;all_versions&#x3D;true&#x60; to include every revision document.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param status  (optional)
      * @param process  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
@@ -894,6 +907,7 @@ public class ProcessesApi {
      * </table>
      */
     public okhttp3.Call listProcessDefinitionsAsync(
+            @jakarta.annotation.Nullable String status,
             @jakarta.annotation.Nullable String process,
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
@@ -903,7 +917,7 @@ public class ProcessesApi {
 
         okhttp3.Call localVarCall =
                 listProcessDefinitionsValidateBeforeCall(
-                        process, limit, offset, allVersions, _callback);
+                        status, process, limit, offset, allVersions, _callback);
         Type localVarReturnType = new TypeToken<List<ProcessDefinition>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

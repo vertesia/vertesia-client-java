@@ -105,7 +105,7 @@ public class ContentTypeIntakePolicyLocate {
     public static final String SERIALIZED_NAME_MIN_PAGES = "min_pages";
 
     @SerializedName(SERIALIZED_NAME_MIN_PAGES)
-    @jakarta.annotation.Nullable private BigDecimal minPages;
+    @jakarta.annotation.Nullable private Integer minPages;
 
     public ContentTypeIntakePolicyLocate() {}
 
@@ -145,21 +145,22 @@ public class ContentTypeIntakePolicyLocate {
         this.detail = detail;
     }
 
-    public ContentTypeIntakePolicyLocate minPages(
-            @jakarta.annotation.Nullable BigDecimal minPages) {
+    public ContentTypeIntakePolicyLocate minPages(@jakarta.annotation.Nullable Integer minPages) {
         this.minPages = minPages;
         return this;
     }
 
     /**
      * Only run when the page count is at least this. Default 8.
+     * minimum: 0
+     * maximum: 2147483647
      * @return minPages
      */
-    @jakarta.annotation.Nullable public BigDecimal getMinPages() {
+    @jakarta.annotation.Nullable public Integer getMinPages() {
         return minPages;
     }
 
-    public void setMinPages(@jakarta.annotation.Nullable BigDecimal minPages) {
+    public void setMinPages(@jakarta.annotation.Nullable Integer minPages) {
         this.minPages = minPages;
     }
 

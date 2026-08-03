@@ -25,10 +25,8 @@ import io.vertesia.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -62,7 +60,7 @@ public class ViewExperienceScope {
     public static final String SERIALIZED_NAME_FIXED_FILTER = "fixed_filter";
 
     @SerializedName(SERIALIZED_NAME_FIXED_FILTER)
-    @jakarta.annotation.Nullable private Map<String, Object> fixedFilter = new HashMap<>();
+    @jakarta.annotation.Nullable private Object fixedFilter;
 
     public static final String SERIALIZED_NAME_HEAD_ONLY = "head_only";
 
@@ -166,17 +164,8 @@ public class ViewExperienceScope {
         this.includeCollectionDescendants = includeCollectionDescendants;
     }
 
-    public ViewExperienceScope fixedFilter(
-            @jakarta.annotation.Nullable Map<String, Object> fixedFilter) {
+    public ViewExperienceScope fixedFilter(@jakarta.annotation.Nullable Object fixedFilter) {
         this.fixedFilter = fixedFilter;
-        return this;
-    }
-
-    public ViewExperienceScope putFixedFilterItem(String key, Object fixedFilterItem) {
-        if (this.fixedFilter == null) {
-            this.fixedFilter = new HashMap<>();
-        }
-        this.fixedFilter.put(key, fixedFilterItem);
         return this;
     }
 
@@ -184,11 +173,11 @@ public class ViewExperienceScope {
      * An author-provided Elasticsearch query subtree validated by the View runtime.
      * @return fixedFilter
      */
-    @jakarta.annotation.Nullable public Map<String, Object> getFixedFilter() {
+    @jakarta.annotation.Nullable public Object getFixedFilter() {
         return fixedFilter;
     }
 
-    public void setFixedFilter(@jakarta.annotation.Nullable Map<String, Object> fixedFilter) {
+    public void setFixedFilter(@jakarta.annotation.Nullable Object fixedFilter) {
         this.fixedFilter = fixedFilter;
     }
 

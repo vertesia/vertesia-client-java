@@ -482,6 +482,10 @@ public class ExecutionEnvironmentCreatePayload {
                             "Expected the field `apiKey` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("apiKey").toString()));
         }
+        // validate the optional field `settings`
+        if (jsonObj.get("settings") != null && !jsonObj.get("settings").isJsonNull()) {
+            ExecutionEnvironmentSettings.validateJsonElement(jsonObj.get("settings"));
+        }
         // ensure the optional json data is an array if present
         if (jsonObj.get("allowed_projects") != null
                 && !jsonObj.get("allowed_projects").isJsonNull()

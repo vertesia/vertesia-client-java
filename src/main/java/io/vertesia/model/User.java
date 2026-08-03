@@ -25,6 +25,7 @@ import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -177,6 +178,18 @@ public class User {
 
     @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
     @jakarta.annotation.Nullable private List<String> annotations = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+
+    @SerializedName(SERIALIZED_NAME_CREATED_AT)
+    @jakarta.annotation.Nonnull
+    private OffsetDateTime createdAt;
+
+    public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+
+    @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+    @jakarta.annotation.Nonnull
+    private OffsetDateTime updatedAt;
 
     public User() {}
 
@@ -479,6 +492,42 @@ public class User {
         this.annotations = annotations;
     }
 
+    public User createdAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
+        this.createdAt = createdAt;
+        return this;
+    }
+
+    /**
+     * ISO 8601 creation timestamp.
+     * @return createdAt
+     */
+    @jakarta.annotation.Nonnull
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public User updatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+        return this;
+    }
+
+    /**
+     * ISO 8601 timestamp of the last update.
+     * @return updatedAt
+     */
+    @jakarta.annotation.Nonnull
+    public OffsetDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -549,6 +598,8 @@ public class User {
                 && Objects.equals(this.clearance, user.clearance)
                 && Objects.equals(this.compartments, user.compartments)
                 && Objects.equals(this.annotations, user.annotations)
+                && Objects.equals(this.createdAt, user.createdAt)
+                && Objects.equals(this.updatedAt, user.updatedAt)
                 && Objects.equals(this.additionalProperties, user.additionalProperties);
     }
 
@@ -571,6 +622,8 @@ public class User {
                 clearance,
                 compartments,
                 annotations,
+                createdAt,
+                updatedAt,
                 additionalProperties);
     }
 
@@ -596,6 +649,8 @@ public class User {
         sb.append("    clearance: ").append(toIndentedString(clearance)).append("\n");
         sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
         sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
+        sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+        sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -634,10 +689,14 @@ public class User {
                                 "properties",
                                 "clearance",
                                 "compartments",
-                                "annotations"));
+                                "annotations",
+                                "created_at",
+                                "updated_at"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "email", "name"));
+        openapiRequiredFields =
+                new HashSet<String>(
+                        Arrays.asList("id", "email", "name", "created_at", "updated_at"));
     }
 
     /**

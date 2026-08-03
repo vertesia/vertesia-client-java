@@ -106,6 +106,8 @@ public class ContentTypeExtractionGroundingReviewPolicy {
 
     /**
      * Hardness score at or above which review runs. Defaults to hardness_threshold.
+     * minimum: 0
+     * maximum: 1
      * @return threshold
      */
     @jakarta.annotation.Nullable public BigDecimal getThreshold() {
@@ -124,6 +126,8 @@ public class ContentTypeExtractionGroundingReviewPolicy {
 
     /**
      * Review also runs when any page&#39;s citation coverage falls below this floor (evidence of missed content). Default 0.2.
+     * minimum: 0
+     * maximum: 1
      * @return coverageThreshold
      */
     @jakarta.annotation.Nullable public BigDecimal getCoverageThreshold() {

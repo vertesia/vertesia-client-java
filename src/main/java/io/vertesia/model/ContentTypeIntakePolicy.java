@@ -126,7 +126,7 @@ public class ContentTypeIntakePolicy {
     public static final String SERIALIZED_NAME_EMBEDDINGS = "embeddings";
 
     @SerializedName(SERIALIZED_NAME_EMBEDDINGS)
-    @jakarta.annotation.Nullable private PartialRecordSupportedEmbeddingTypesBoolean embeddings;
+    @jakarta.annotation.Nullable private EmbeddingTypeEnabledMap embeddings;
 
     public static final String SERIALIZED_NAME_GENERATE_TOC = "generate_toc";
 
@@ -312,7 +312,7 @@ public class ContentTypeIntakePolicy {
     }
 
     public ContentTypeIntakePolicy embeddings(
-            @jakarta.annotation.Nullable PartialRecordSupportedEmbeddingTypesBoolean embeddings) {
+            @jakarta.annotation.Nullable EmbeddingTypeEnabledMap embeddings) {
         this.embeddings = embeddings;
         return this;
     }
@@ -321,12 +321,11 @@ public class ContentTypeIntakePolicy {
      * Per-type embedding switches. Unspecified values inherit the project policy.
      * @return embeddings
      */
-    @jakarta.annotation.Nullable public PartialRecordSupportedEmbeddingTypesBoolean getEmbeddings() {
+    @jakarta.annotation.Nullable public EmbeddingTypeEnabledMap getEmbeddings() {
         return embeddings;
     }
 
-    public void setEmbeddings(
-            @jakarta.annotation.Nullable PartialRecordSupportedEmbeddingTypesBoolean embeddings) {
+    public void setEmbeddings(@jakarta.annotation.Nullable EmbeddingTypeEnabledMap embeddings) {
         this.embeddings = embeddings;
     }
 
@@ -559,8 +558,7 @@ public class ContentTypeIntakePolicy {
         }
         // validate the optional field `embeddings`
         if (jsonObj.get("embeddings") != null && !jsonObj.get("embeddings").isJsonNull()) {
-            PartialRecordSupportedEmbeddingTypesBoolean.validateJsonElement(
-                    jsonObj.get("embeddings"));
+            EmbeddingTypeEnabledMap.validateJsonElement(jsonObj.get("embeddings"));
         }
         if ((jsonObj.get("default_view") != null && !jsonObj.get("default_view").isJsonNull())
                 && !jsonObj.get("default_view").isJsonPrimitive()) {

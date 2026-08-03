@@ -104,7 +104,7 @@ public class AlterTableOperationOneOf3 {
 
     @SerializedName(SERIALIZED_NAME_UPDATES)
     @jakarta.annotation.Nonnull
-    private PartialOmitDataColumnName updates;
+    private DataColumnUpdate updates;
 
     public AlterTableOperationOneOf3() {}
 
@@ -144,8 +144,7 @@ public class AlterTableOperationOneOf3 {
         this.column = column;
     }
 
-    public AlterTableOperationOneOf3 updates(
-            @jakarta.annotation.Nonnull PartialOmitDataColumnName updates) {
+    public AlterTableOperationOneOf3 updates(@jakarta.annotation.Nonnull DataColumnUpdate updates) {
         this.updates = updates;
         return this;
     }
@@ -155,11 +154,11 @@ public class AlterTableOperationOneOf3 {
      * @return updates
      */
     @jakarta.annotation.Nonnull
-    public PartialOmitDataColumnName getUpdates() {
+    public DataColumnUpdate getUpdates() {
         return updates;
     }
 
-    public void setUpdates(@jakarta.annotation.Nonnull PartialOmitDataColumnName updates) {
+    public void setUpdates(@jakarta.annotation.Nonnull DataColumnUpdate updates) {
         this.updates = updates;
     }
 
@@ -259,7 +258,7 @@ public class AlterTableOperationOneOf3 {
                             jsonObj.get("column").toString()));
         }
         // validate the required field `updates`
-        PartialOmitDataColumnName.validateJsonElement(jsonObj.get("updates"));
+        DataColumnUpdate.validateJsonElement(jsonObj.get("updates"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

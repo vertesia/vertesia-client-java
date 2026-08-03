@@ -53,7 +53,7 @@ public class CreateContentObjectPayload {
     public static final String SERIALIZED_NAME_EMBEDDINGS = "embeddings";
 
     @SerializedName(SERIALIZED_NAME_EMBEDDINGS)
-    @jakarta.annotation.Nullable private PartialRecordSupportedEmbeddingTypesEmbedding embeddings;
+    @jakarta.annotation.Nullable private ContentEmbeddingMap embeddings;
 
     public static final String SERIALIZED_NAME_PARTS = "parts";
 
@@ -232,7 +232,7 @@ public class CreateContentObjectPayload {
     }
 
     public CreateContentObjectPayload embeddings(
-            @jakarta.annotation.Nullable PartialRecordSupportedEmbeddingTypesEmbedding embeddings) {
+            @jakarta.annotation.Nullable ContentEmbeddingMap embeddings) {
         this.embeddings = embeddings;
         return this;
     }
@@ -241,12 +241,11 @@ public class CreateContentObjectPayload {
      * Get embeddings
      * @return embeddings
      */
-    @jakarta.annotation.Nullable public PartialRecordSupportedEmbeddingTypesEmbedding getEmbeddings() {
+    @jakarta.annotation.Nullable public ContentEmbeddingMap getEmbeddings() {
         return embeddings;
     }
 
-    public void setEmbeddings(
-            @jakarta.annotation.Nullable PartialRecordSupportedEmbeddingTypesEmbedding embeddings) {
+    public void setEmbeddings(@jakarta.annotation.Nullable ContentEmbeddingMap embeddings) {
         this.embeddings = embeddings;
     }
 
@@ -1059,8 +1058,7 @@ public class CreateContentObjectPayload {
         }
         // validate the optional field `embeddings`
         if (jsonObj.get("embeddings") != null && !jsonObj.get("embeddings").isJsonNull()) {
-            PartialRecordSupportedEmbeddingTypesEmbedding.validateJsonElement(
-                    jsonObj.get("embeddings"));
+            ContentEmbeddingMap.validateJsonElement(jsonObj.get("embeddings"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("parts") != null

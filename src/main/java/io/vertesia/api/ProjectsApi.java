@@ -20,15 +20,13 @@ import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
 import io.vertesia.model.CompositeAppConfig;
+import io.vertesia.model.CompositeAppConfigPayload;
 import io.vertesia.model.CountResult;
 import io.vertesia.model.DeleteByIdResult;
 import io.vertesia.model.ICreateProjectPayload;
 import io.vertesia.model.InCodeProcessDefinition;
+import io.vertesia.model.InCodeTypeDefinition;
 import io.vertesia.model.InCodeViewDefinition;
-import io.vertesia.model.PartialOmitCompositeAppConfigIdProject;
-import io.vertesia.model.PartialProject;
-import io.vertesia.model.PartialProjectConfiguration;
-import io.vertesia.model.PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing;
 import io.vertesia.model.Project;
 import io.vertesia.model.ProjectConfiguration;
 import io.vertesia.model.ProjectIntegrationConfigRequest;
@@ -39,6 +37,8 @@ import io.vertesia.model.ProjectRef;
 import io.vertesia.model.ProjectToolInfo;
 import io.vertesia.model.RenderingTemplateDefinition;
 import io.vertesia.model.RenderingTemplateDefinitionRef;
+import io.vertesia.model.UpdateProjectConfigurationPayload;
+import io.vertesia.model.UpdateProjectPayload;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1022,7 +1022,7 @@ public class ProjectsApi {
      * Retrieves a content type contributed by an installed app.
      * @param projectId  (required)
      * @param typeId  (required)
-     * @return PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
+     * @return InCodeTypeDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1033,15 +1033,11 @@ public class ProjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public
-    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
-            getProjectAppType(
-                    @jakarta.annotation.Nonnull String projectId,
-                    @jakarta.annotation.Nonnull String typeId)
-                    throws ApiException {
-        ApiResponse<
-                        PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>
-                localVarResp = getProjectAppTypeWithHttpInfo(projectId, typeId);
+    public InCodeTypeDefinition getProjectAppType(
+            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nonnull String typeId)
+            throws ApiException {
+        ApiResponse<InCodeTypeDefinition> localVarResp =
+                getProjectAppTypeWithHttpInfo(projectId, typeId);
         return localVarResp.getData();
     }
 
@@ -1050,7 +1046,7 @@ public class ProjectsApi {
      * Retrieves a content type contributed by an installed app.
      * @param projectId  (required)
      * @param typeId  (required)
-     * @return ApiResponse&lt;PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing&gt;
+     * @return ApiResponse&lt;InCodeTypeDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1061,16 +1057,11 @@ public class ProjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<
-                    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>
-            getProjectAppTypeWithHttpInfo(
-                    @jakarta.annotation.Nonnull String projectId,
-                    @jakarta.annotation.Nonnull String typeId)
-                    throws ApiException {
+    public ApiResponse<InCodeTypeDefinition> getProjectAppTypeWithHttpInfo(
+            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nonnull String typeId)
+            throws ApiException {
         okhttp3.Call localVarCall = getProjectAppTypeValidateBeforeCall(projectId, typeId, null);
-        Type localVarReturnType =
-                new TypeToken<
-                        PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>() {}.getType();
+        Type localVarReturnType = new TypeToken<InCodeTypeDefinition>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1094,16 +1085,12 @@ public class ProjectsApi {
     public okhttp3.Call getProjectAppTypeAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nonnull String typeId,
-            final ApiCallback<
-                            PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>
-                    _callback)
+            final ApiCallback<InCodeTypeDefinition> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 getProjectAppTypeValidateBeforeCall(projectId, typeId, _callback);
-        Type localVarReturnType =
-                new TypeToken<
-                        PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>() {}.getType();
+        Type localVarReturnType = new TypeToken<InCodeTypeDefinition>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2258,7 +2245,7 @@ public class ProjectsApi {
      * Lists content types contributed by installed apps in the project.
      * @param projectId  (required)
      * @param tag  (optional)
-     * @return List&lt;PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing&gt;
+     * @return List&lt;InCodeTypeDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -2269,16 +2256,11 @@ public class ProjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<
-                    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>
-            listProjectAppTypes(
-                    @jakarta.annotation.Nonnull String projectId,
-                    @jakarta.annotation.Nullable String tag)
-                    throws ApiException {
-        ApiResponse<
-                        List<
-                                PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>>
-                localVarResp = listProjectAppTypesWithHttpInfo(projectId, tag);
+    public List<InCodeTypeDefinition> listProjectAppTypes(
+            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
+            throws ApiException {
+        ApiResponse<List<InCodeTypeDefinition>> localVarResp =
+                listProjectAppTypesWithHttpInfo(projectId, tag);
         return localVarResp.getData();
     }
 
@@ -2287,7 +2269,7 @@ public class ProjectsApi {
      * Lists content types contributed by installed apps in the project.
      * @param projectId  (required)
      * @param tag  (optional)
-     * @return ApiResponse&lt;List&lt;PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing&gt;&gt;
+     * @return ApiResponse&lt;List&lt;InCodeTypeDefinition&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -2298,18 +2280,11 @@ public class ProjectsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<
-                    List<
-                            PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>>
-            listProjectAppTypesWithHttpInfo(
-                    @jakarta.annotation.Nonnull String projectId,
-                    @jakarta.annotation.Nullable String tag)
-                    throws ApiException {
+    public ApiResponse<List<InCodeTypeDefinition>> listProjectAppTypesWithHttpInfo(
+            @jakarta.annotation.Nonnull String projectId, @jakarta.annotation.Nullable String tag)
+            throws ApiException {
         okhttp3.Call localVarCall = listProjectAppTypesValidateBeforeCall(projectId, tag, null);
-        Type localVarReturnType =
-                new TypeToken<
-                        List<
-                                PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<InCodeTypeDefinition>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2333,18 +2308,12 @@ public class ProjectsApi {
     public okhttp3.Call listProjectAppTypesAsync(
             @jakarta.annotation.Nonnull String projectId,
             @jakarta.annotation.Nullable String tag,
-            final ApiCallback<
-                            List<
-                                    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>>
-                    _callback)
+            final ApiCallback<List<InCodeTypeDefinition>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listProjectAppTypesValidateBeforeCall(projectId, tag, _callback);
-        Type localVarReturnType =
-                new TypeToken<
-                        List<
-                                PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<InCodeTypeDefinition>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3148,7 +3117,7 @@ public class ProjectsApi {
     /**
      * Build call for updateProject
      * @param projectId  (required)
-     * @param partialProject  (required)
+     * @param updateProjectPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3163,7 +3132,7 @@ public class ProjectsApi {
      */
     public okhttp3.Call updateProjectCall(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialProject partialProject,
+            @jakarta.annotation.Nonnull UpdateProjectPayload updateProjectPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3179,7 +3148,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = partialProject;
+        Object localVarPostBody = updateProjectPayload;
 
         // create path and map variables
         String localVarPath =
@@ -3225,7 +3194,7 @@ public class ProjectsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProjectValidateBeforeCall(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialProject partialProject,
+            @jakarta.annotation.Nonnull UpdateProjectPayload updateProjectPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -3234,20 +3203,20 @@ public class ProjectsApi {
                     "Missing the required parameter 'projectId' when calling updateProject(Async)");
         }
 
-        // verify the required parameter 'partialProject' is set
-        if (partialProject == null) {
+        // verify the required parameter 'updateProjectPayload' is set
+        if (updateProjectPayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'partialProject' when calling updateProject(Async)");
+                    "Missing the required parameter 'updateProjectPayload' when calling updateProject(Async)");
         }
 
-        return updateProjectCall(projectId, partialProject, _callback);
+        return updateProjectCall(projectId, updateProjectPayload, _callback);
     }
 
     /**
      * Update a project
      * Updates project metadata.  **Required permissions:** &#x60;project:settings_write&#x60;
      * @param projectId  (required)
-     * @param partialProject  (required)
+     * @param updateProjectPayload  (required)
      * @return Project
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3261,9 +3230,10 @@ public class ProjectsApi {
      */
     public Project updateProject(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialProject partialProject)
+            @jakarta.annotation.Nonnull UpdateProjectPayload updateProjectPayload)
             throws ApiException {
-        ApiResponse<Project> localVarResp = updateProjectWithHttpInfo(projectId, partialProject);
+        ApiResponse<Project> localVarResp =
+                updateProjectWithHttpInfo(projectId, updateProjectPayload);
         return localVarResp.getData();
     }
 
@@ -3271,7 +3241,7 @@ public class ProjectsApi {
      * Update a project
      * Updates project metadata.  **Required permissions:** &#x60;project:settings_write&#x60;
      * @param projectId  (required)
-     * @param partialProject  (required)
+     * @param updateProjectPayload  (required)
      * @return ApiResponse&lt;Project&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3285,10 +3255,10 @@ public class ProjectsApi {
      */
     public ApiResponse<Project> updateProjectWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialProject partialProject)
+            @jakarta.annotation.Nonnull UpdateProjectPayload updateProjectPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
-                updateProjectValidateBeforeCall(projectId, partialProject, null);
+                updateProjectValidateBeforeCall(projectId, updateProjectPayload, null);
         Type localVarReturnType = new TypeToken<Project>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3297,7 +3267,7 @@ public class ProjectsApi {
      * Update a project (asynchronously)
      * Updates project metadata.  **Required permissions:** &#x60;project:settings_write&#x60;
      * @param projectId  (required)
-     * @param partialProject  (required)
+     * @param updateProjectPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3312,12 +3282,12 @@ public class ProjectsApi {
      */
     public okhttp3.Call updateProjectAsync(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialProject partialProject,
+            @jakarta.annotation.Nonnull UpdateProjectPayload updateProjectPayload,
             final ApiCallback<Project> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                updateProjectValidateBeforeCall(projectId, partialProject, _callback);
+                updateProjectValidateBeforeCall(projectId, updateProjectPayload, _callback);
         Type localVarReturnType = new TypeToken<Project>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3326,7 +3296,7 @@ public class ProjectsApi {
     /**
      * Build call for updateProjectCompositeApp
      * @param projectId  (required)
-     * @param body  (required)
+     * @param compositeAppConfigPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3341,7 +3311,7 @@ public class ProjectsApi {
      */
     public okhttp3.Call updateProjectCompositeAppCall(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body,
+            @jakarta.annotation.Nonnull CompositeAppConfigPayload compositeAppConfigPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3357,7 +3327,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = compositeAppConfigPayload;
 
         // create path and map variables
         String localVarPath =
@@ -3403,7 +3373,7 @@ public class ProjectsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProjectCompositeAppValidateBeforeCall(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body,
+            @jakarta.annotation.Nonnull CompositeAppConfigPayload compositeAppConfigPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -3412,20 +3382,20 @@ public class ProjectsApi {
                     "Missing the required parameter 'projectId' when calling updateProjectCompositeApp(Async)");
         }
 
-        // verify the required parameter 'body' is set
-        if (body == null) {
+        // verify the required parameter 'compositeAppConfigPayload' is set
+        if (compositeAppConfigPayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'body' when calling updateProjectCompositeApp(Async)");
+                    "Missing the required parameter 'compositeAppConfigPayload' when calling updateProjectCompositeApp(Async)");
         }
 
-        return updateProjectCompositeAppCall(projectId, body, _callback);
+        return updateProjectCompositeAppCall(projectId, compositeAppConfigPayload, _callback);
     }
 
     /**
      * Update composite app configuration
      * Creates or updates the composite app configuration for the project.  **Required permissions:** &#x60;account:admin&#x60;
      * @param projectId  (required)
-     * @param body  (required)
+     * @param compositeAppConfigPayload  (required)
      * @return CompositeAppConfig
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3439,10 +3409,10 @@ public class ProjectsApi {
      */
     public CompositeAppConfig updateProjectCompositeApp(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body)
+            @jakarta.annotation.Nonnull CompositeAppConfigPayload compositeAppConfigPayload)
             throws ApiException {
         ApiResponse<CompositeAppConfig> localVarResp =
-                updateProjectCompositeAppWithHttpInfo(projectId, body);
+                updateProjectCompositeAppWithHttpInfo(projectId, compositeAppConfigPayload);
         return localVarResp.getData();
     }
 
@@ -3450,7 +3420,7 @@ public class ProjectsApi {
      * Update composite app configuration
      * Creates or updates the composite app configuration for the project.  **Required permissions:** &#x60;account:admin&#x60;
      * @param projectId  (required)
-     * @param body  (required)
+     * @param compositeAppConfigPayload  (required)
      * @return ApiResponse&lt;CompositeAppConfig&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3464,10 +3434,11 @@ public class ProjectsApi {
      */
     public ApiResponse<CompositeAppConfig> updateProjectCompositeAppWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body)
+            @jakarta.annotation.Nonnull CompositeAppConfigPayload compositeAppConfigPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
-                updateProjectCompositeAppValidateBeforeCall(projectId, body, null);
+                updateProjectCompositeAppValidateBeforeCall(
+                        projectId, compositeAppConfigPayload, null);
         Type localVarReturnType = new TypeToken<CompositeAppConfig>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3476,7 +3447,7 @@ public class ProjectsApi {
      * Update composite app configuration (asynchronously)
      * Creates or updates the composite app configuration for the project.  **Required permissions:** &#x60;account:admin&#x60;
      * @param projectId  (required)
-     * @param body  (required)
+     * @param compositeAppConfigPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3491,12 +3462,13 @@ public class ProjectsApi {
      */
     public okhttp3.Call updateProjectCompositeAppAsync(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialOmitCompositeAppConfigIdProject body,
+            @jakarta.annotation.Nonnull CompositeAppConfigPayload compositeAppConfigPayload,
             final ApiCallback<CompositeAppConfig> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                updateProjectCompositeAppValidateBeforeCall(projectId, body, _callback);
+                updateProjectCompositeAppValidateBeforeCall(
+                        projectId, compositeAppConfigPayload, _callback);
         Type localVarReturnType = new TypeToken<CompositeAppConfig>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3505,7 +3477,7 @@ public class ProjectsApi {
     /**
      * Build call for updateProjectConfiguration
      * @param projectId  (required)
-     * @param partialProjectConfiguration  (required)
+     * @param updateProjectConfigurationPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3520,7 +3492,8 @@ public class ProjectsApi {
      */
     public okhttp3.Call updateProjectConfigurationCall(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration,
+            @jakarta.annotation.Nonnull
+                    UpdateProjectConfigurationPayload updateProjectConfigurationPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3536,7 +3509,7 @@ public class ProjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = partialProjectConfiguration;
+        Object localVarPostBody = updateProjectConfigurationPayload;
 
         // create path and map variables
         String localVarPath =
@@ -3582,7 +3555,8 @@ public class ProjectsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateProjectConfigurationValidateBeforeCall(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration,
+            @jakarta.annotation.Nonnull
+                    UpdateProjectConfigurationPayload updateProjectConfigurationPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'projectId' is set
@@ -3591,20 +3565,21 @@ public class ProjectsApi {
                     "Missing the required parameter 'projectId' when calling updateProjectConfiguration(Async)");
         }
 
-        // verify the required parameter 'partialProjectConfiguration' is set
-        if (partialProjectConfiguration == null) {
+        // verify the required parameter 'updateProjectConfigurationPayload' is set
+        if (updateProjectConfigurationPayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'partialProjectConfiguration' when calling updateProjectConfiguration(Async)");
+                    "Missing the required parameter 'updateProjectConfigurationPayload' when calling updateProjectConfiguration(Async)");
         }
 
-        return updateProjectConfigurationCall(projectId, partialProjectConfiguration, _callback);
+        return updateProjectConfigurationCall(
+                projectId, updateProjectConfigurationPayload, _callback);
     }
 
     /**
      * Update project configuration
      * Updates project configuration fields.  **Required permissions:** &#x60;project:settings_write&#x60;
      * @param projectId  (required)
-     * @param partialProjectConfiguration  (required)
+     * @param updateProjectConfigurationPayload  (required)
      * @return ProjectConfiguration
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3618,10 +3593,12 @@ public class ProjectsApi {
      */
     public ProjectConfiguration updateProjectConfiguration(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration)
+            @jakarta.annotation.Nonnull
+                    UpdateProjectConfigurationPayload updateProjectConfigurationPayload)
             throws ApiException {
         ApiResponse<ProjectConfiguration> localVarResp =
-                updateProjectConfigurationWithHttpInfo(projectId, partialProjectConfiguration);
+                updateProjectConfigurationWithHttpInfo(
+                        projectId, updateProjectConfigurationPayload);
         return localVarResp.getData();
     }
 
@@ -3629,7 +3606,7 @@ public class ProjectsApi {
      * Update project configuration
      * Updates project configuration fields.  **Required permissions:** &#x60;project:settings_write&#x60;
      * @param projectId  (required)
-     * @param partialProjectConfiguration  (required)
+     * @param updateProjectConfigurationPayload  (required)
      * @return ApiResponse&lt;ProjectConfiguration&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3643,11 +3620,12 @@ public class ProjectsApi {
      */
     public ApiResponse<ProjectConfiguration> updateProjectConfigurationWithHttpInfo(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration)
+            @jakarta.annotation.Nonnull
+                    UpdateProjectConfigurationPayload updateProjectConfigurationPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateProjectConfigurationValidateBeforeCall(
-                        projectId, partialProjectConfiguration, null);
+                        projectId, updateProjectConfigurationPayload, null);
         Type localVarReturnType = new TypeToken<ProjectConfiguration>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3656,7 +3634,7 @@ public class ProjectsApi {
      * Update project configuration (asynchronously)
      * Updates project configuration fields.  **Required permissions:** &#x60;project:settings_write&#x60;
      * @param projectId  (required)
-     * @param partialProjectConfiguration  (required)
+     * @param updateProjectConfigurationPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3671,13 +3649,14 @@ public class ProjectsApi {
      */
     public okhttp3.Call updateProjectConfigurationAsync(
             @jakarta.annotation.Nonnull String projectId,
-            @jakarta.annotation.Nonnull PartialProjectConfiguration partialProjectConfiguration,
+            @jakarta.annotation.Nonnull
+                    UpdateProjectConfigurationPayload updateProjectConfigurationPayload,
             final ApiCallback<ProjectConfiguration> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 updateProjectConfigurationValidateBeforeCall(
-                        projectId, partialProjectConfiguration, _callback);
+                        projectId, updateProjectConfigurationPayload, _callback);
         Type localVarReturnType = new TypeToken<ProjectConfiguration>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

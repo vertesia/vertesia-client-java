@@ -2039,7 +2039,7 @@ public class WorkflowRunsApi {
                     localVarApiClient.parameterToPair("skipHistory", skipHistory));
         }
 
-        final String[] localVarAccepts = {"application/json"};
+        final String[] localVarAccepts = {"text/event-stream", "application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
             localVarHeaderParams.put("Accept", localVarAccept);

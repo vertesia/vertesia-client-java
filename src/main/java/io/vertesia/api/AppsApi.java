@@ -41,6 +41,7 @@ import io.vertesia.model.AppVersionRecord;
 import io.vertesia.model.CountResult;
 import io.vertesia.model.DeleteAppVersionResponse;
 import io.vertesia.model.ProjectRef;
+import io.vertesia.model.PromoteAppVersionResponse;
 import io.vertesia.model.StartAppBuildRequest;
 import io.vertesia.model.StartAppBuildResponse;
 import io.vertesia.model.StartAppScaffoldRequest;
@@ -49,7 +50,7 @@ import io.vertesia.model.UpdateAppInstallationToolAllowlistPayload;
 import io.vertesia.model.UpsertAppVersionRequest;
 import io.vertesia.model.ValidateUrlRequest;
 import io.vertesia.model.ValidateUrlResponse;
-import io.vertesia.model.VersionAppVersionRecordAppAppManifest;
+import java.io.File;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1400,7 +1401,7 @@ public class AppsApi {
     /**
      * Build call for getAppInstallationPackage
      * @param installId  (required)
-     * @param scope  (optional)
+     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1415,7 +1416,7 @@ public class AppsApi {
      */
     public okhttp3.Call getAppInstallationPackageCall(
             @jakarta.annotation.Nonnull String installId,
-            @jakarta.annotation.Nullable String scope,
+            @jakarta.annotation.Nullable List<String> scope,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1447,7 +1448,8 @@ public class AppsApi {
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
         if (scope != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("scope", scope));
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "scope", scope));
         }
 
         final String[] localVarAccepts = {"application/json"};
@@ -1481,7 +1483,7 @@ public class AppsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAppInstallationPackageValidateBeforeCall(
             @jakarta.annotation.Nonnull String installId,
-            @jakarta.annotation.Nullable String scope,
+            @jakarta.annotation.Nullable List<String> scope,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'installId' is set
@@ -1497,7 +1499,7 @@ public class AppsApi {
      * Get an app installation package
      * Returns package capabilities exposed by an installed app, including UI, tools, types, processes, dashboards, templates, widgets, settings, and activities.  **Required permissions:** &#x60;account:member&#x60;
      * @param installId  (required)
-     * @param scope  (optional)
+     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
      * @return AppPackage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1510,7 +1512,8 @@ public class AppsApi {
      * </table>
      */
     public AppPackage getAppInstallationPackage(
-            @jakarta.annotation.Nonnull String installId, @jakarta.annotation.Nullable String scope)
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nullable List<String> scope)
             throws ApiException {
         ApiResponse<AppPackage> localVarResp =
                 getAppInstallationPackageWithHttpInfo(installId, scope);
@@ -1521,7 +1524,7 @@ public class AppsApi {
      * Get an app installation package
      * Returns package capabilities exposed by an installed app, including UI, tools, types, processes, dashboards, templates, widgets, settings, and activities.  **Required permissions:** &#x60;account:member&#x60;
      * @param installId  (required)
-     * @param scope  (optional)
+     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
      * @return ApiResponse&lt;AppPackage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1534,7 +1537,8 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppPackage> getAppInstallationPackageWithHttpInfo(
-            @jakarta.annotation.Nonnull String installId, @jakarta.annotation.Nullable String scope)
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nullable List<String> scope)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getAppInstallationPackageValidateBeforeCall(installId, scope, null);
@@ -1546,7 +1550,7 @@ public class AppsApi {
      * Get an app installation package (asynchronously)
      * Returns package capabilities exposed by an installed app, including UI, tools, types, processes, dashboards, templates, widgets, settings, and activities.  **Required permissions:** &#x60;account:member&#x60;
      * @param installId  (required)
-     * @param scope  (optional)
+     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1561,7 +1565,7 @@ public class AppsApi {
      */
     public okhttp3.Call getAppInstallationPackageAsync(
             @jakarta.annotation.Nonnull String installId,
-            @jakarta.annotation.Nullable String scope,
+            @jakarta.annotation.Nullable List<String> scope,
             final ApiCallback<AppPackage> _callback)
             throws ApiException {
 
@@ -1575,6 +1579,7 @@ public class AppsApi {
     /**
      * Build call for getAppPackage
      * @param id  (required)
+     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1588,7 +1593,9 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getAppPackageCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable List<String> scope,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1615,6 +1622,11 @@ public class AppsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (scope != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "scope", scope));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -1646,7 +1658,9 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAppPackageValidateBeforeCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable List<String> scope,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -1654,13 +1668,14 @@ public class AppsApi {
                     "Missing the required parameter 'id' when calling getAppPackage(Async)");
         }
 
-        return getAppPackageCall(id, _callback);
+        return getAppPackageCall(id, scope, _callback);
     }
 
     /**
      * Get an app package by scope
      * Returns the promoted package an app exposes, filtered by scope(s). App-owned (in-code) artifacts are package-resolved — there is no per-id route — so this is how a client reads the full definition (type schema, interaction prompt, process definition, dashboard spec) to visualize it.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
+     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
      * @return AppPackage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1672,8 +1687,10 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AppPackage getAppPackage(@jakarta.annotation.Nonnull String id) throws ApiException {
-        ApiResponse<AppPackage> localVarResp = getAppPackageWithHttpInfo(id);
+    public AppPackage getAppPackage(
+            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable List<String> scope)
+            throws ApiException {
+        ApiResponse<AppPackage> localVarResp = getAppPackageWithHttpInfo(id, scope);
         return localVarResp.getData();
     }
 
@@ -1681,6 +1698,7 @@ public class AppsApi {
      * Get an app package by scope
      * Returns the promoted package an app exposes, filtered by scope(s). App-owned (in-code) artifacts are package-resolved — there is no per-id route — so this is how a client reads the full definition (type schema, interaction prompt, process definition, dashboard spec) to visualize it.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
+     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
      * @return ApiResponse&lt;AppPackage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1692,9 +1710,10 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<AppPackage> getAppPackageWithHttpInfo(@jakarta.annotation.Nonnull String id)
+    public ApiResponse<AppPackage> getAppPackageWithHttpInfo(
+            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable List<String> scope)
             throws ApiException {
-        okhttp3.Call localVarCall = getAppPackageValidateBeforeCall(id, null);
+        okhttp3.Call localVarCall = getAppPackageValidateBeforeCall(id, scope, null);
         Type localVarReturnType = new TypeToken<AppPackage>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1703,6 +1722,7 @@ public class AppsApi {
      * Get an app package by scope (asynchronously)
      * Returns the promoted package an app exposes, filtered by scope(s). App-owned (in-code) artifacts are package-resolved — there is no per-id route — so this is how a client reads the full definition (type schema, interaction prompt, process definition, dashboard spec) to visualize it.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
+     * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1716,10 +1736,12 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getAppPackageAsync(
-            @jakarta.annotation.Nonnull String id, final ApiCallback<AppPackage> _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable List<String> scope,
+            final ApiCallback<AppPackage> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = getAppPackageValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall = getAppPackageValidateBeforeCall(id, scope, _callback);
         Type localVarReturnType = new TypeToken<AppPackage>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1968,7 +1990,7 @@ public class AppsApi {
      * Read a file from the app git repository
      * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
-     * @return String
+     * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1979,8 +2001,8 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public String getAppRepoFile(@jakarta.annotation.Nonnull String id) throws ApiException {
-        ApiResponse<String> localVarResp = getAppRepoFileWithHttpInfo(id);
+    public File getAppRepoFile(@jakarta.annotation.Nonnull String id) throws ApiException {
+        ApiResponse<File> localVarResp = getAppRepoFileWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -1988,7 +2010,7 @@ public class AppsApi {
      * Read a file from the app git repository
      * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
-     * @return ApiResponse&lt;String&gt;
+     * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1999,10 +2021,10 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<String> getAppRepoFileWithHttpInfo(@jakarta.annotation.Nonnull String id)
+    public ApiResponse<File> getAppRepoFileWithHttpInfo(@jakarta.annotation.Nonnull String id)
             throws ApiException {
         okhttp3.Call localVarCall = getAppRepoFileValidateBeforeCall(id, null);
-        Type localVarReturnType = new TypeToken<String>() {}.getType();
+        Type localVarReturnType = new TypeToken<File>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2023,11 +2045,11 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getAppRepoFileAsync(
-            @jakarta.annotation.Nonnull String id, final ApiCallback<String> _callback)
+            @jakarta.annotation.Nonnull String id, final ApiCallback<File> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getAppRepoFileValidateBeforeCall(id, _callback);
-        Type localVarReturnType = new TypeToken<String>() {}.getType();
+        Type localVarReturnType = new TypeToken<File>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -3438,8 +3460,8 @@ public class AppsApi {
 
     /**
      * Build call for listAppInstallationProjects
-     * @param name  (optional)
-     * @param id  (optional)
+     * @param name App manifest name. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
+     * @param id App manifest id. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3529,8 +3551,8 @@ public class AppsApi {
     /**
      * List projects for an app installation
      * Lists projects where the given app is installed and accessible to the current principal.
-     * @param name  (optional)
-     * @param id  (optional)
+     * @param name App manifest name. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
+     * @param id App manifest id. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
      * @return List&lt;ProjectRef&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3553,8 +3575,8 @@ public class AppsApi {
     /**
      * List projects for an app installation
      * Lists projects where the given app is installed and accessible to the current principal.
-     * @param name  (optional)
-     * @param id  (optional)
+     * @param name App manifest name. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
+     * @param id App manifest id. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
      * @return ApiResponse&lt;List&lt;ProjectRef&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3577,8 +3599,8 @@ public class AppsApi {
     /**
      * List projects for an app installation (asynchronously)
      * Lists projects where the given app is installed and accessible to the current principal.
-     * @param name  (optional)
-     * @param id  (optional)
+     * @param name App manifest name. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
+     * @param id App manifest id. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3903,8 +3925,8 @@ public class AppsApi {
 
     /**
      * Build call for listAppInstallations
-     * @param kind  (optional)
-     * @param availableIn  (optional)
+     * @param kind Which contributions the listing is for. Defaults to &#x60;all&#x60;. (optional)
+     * @param availableIn Restrict to installations whose manifest declares this surface. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3995,8 +4017,8 @@ public class AppsApi {
     /**
      * List app installations
      * Lists app installations in the current project that are visible to the current principal.
-     * @param kind  (optional)
-     * @param availableIn  (optional)
+     * @param kind Which contributions the listing is for. Defaults to &#x60;all&#x60;. (optional)
+     * @param availableIn Restrict to installations whose manifest declares this surface. (optional)
      * @return List&lt;AppInstallationWithManifest&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4020,8 +4042,8 @@ public class AppsApi {
     /**
      * List app installations
      * Lists app installations in the current project that are visible to the current principal.
-     * @param kind  (optional)
-     * @param availableIn  (optional)
+     * @param kind Which contributions the listing is for. Defaults to &#x60;all&#x60;. (optional)
+     * @param availableIn Restrict to installations whose manifest declares this surface. (optional)
      * @return ApiResponse&lt;List&lt;AppInstallationWithManifest&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4045,8 +4067,8 @@ public class AppsApi {
     /**
      * List app installations (asynchronously)
      * Lists app installations in the current project that are visible to the current principal.
-     * @param kind  (optional)
-     * @param availableIn  (optional)
+     * @param kind Which contributions the listing is for. Defaults to &#x60;all&#x60;. (optional)
+     * @param availableIn Restrict to installations whose manifest declares this surface. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4433,7 +4455,7 @@ public class AppsApi {
      * Promote an app version
      * **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
-     * @return VersionAppVersionRecordAppAppManifest
+     * @return PromoteAppVersionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -4444,10 +4466,9 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public VersionAppVersionRecordAppAppManifest promoteAppVersion(
-            @jakarta.annotation.Nonnull String id) throws ApiException {
-        ApiResponse<VersionAppVersionRecordAppAppManifest> localVarResp =
-                promoteAppVersionWithHttpInfo(id);
+    public PromoteAppVersionResponse promoteAppVersion(@jakarta.annotation.Nonnull String id)
+            throws ApiException {
+        ApiResponse<PromoteAppVersionResponse> localVarResp = promoteAppVersionWithHttpInfo(id);
         return localVarResp.getData();
     }
 
@@ -4455,7 +4476,7 @@ public class AppsApi {
      * Promote an app version
      * **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
-     * @return ApiResponse&lt;VersionAppVersionRecordAppAppManifest&gt;
+     * @return ApiResponse&lt;PromoteAppVersionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -4466,11 +4487,10 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<VersionAppVersionRecordAppAppManifest> promoteAppVersionWithHttpInfo(
+    public ApiResponse<PromoteAppVersionResponse> promoteAppVersionWithHttpInfo(
             @jakarta.annotation.Nonnull String id) throws ApiException {
         okhttp3.Call localVarCall = promoteAppVersionValidateBeforeCall(id, null);
-        Type localVarReturnType =
-                new TypeToken<VersionAppVersionRecordAppAppManifest>() {}.getType();
+        Type localVarReturnType = new TypeToken<PromoteAppVersionResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -4492,12 +4512,11 @@ public class AppsApi {
      */
     public okhttp3.Call promoteAppVersionAsync(
             @jakarta.annotation.Nonnull String id,
-            final ApiCallback<VersionAppVersionRecordAppAppManifest> _callback)
+            final ApiCallback<PromoteAppVersionResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = promoteAppVersionValidateBeforeCall(id, _callback);
-        Type localVarReturnType =
-                new TypeToken<VersionAppVersionRecordAppAppManifest>() {}.getType();
+        Type localVarReturnType = new TypeToken<PromoteAppVersionResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

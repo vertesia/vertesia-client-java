@@ -84,7 +84,7 @@ public class ProcessDefinitionBody {
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @jakarta.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
+    @jakarta.annotation.Nullable private Object metadata;
 
     public ProcessDefinitionBody() {}
 
@@ -242,17 +242,8 @@ public class ProcessDefinitionBody {
         this.nodes = nodes;
     }
 
-    public ProcessDefinitionBody metadata(
-            @jakarta.annotation.Nullable Map<String, Object> metadata) {
+    public ProcessDefinitionBody metadata(@jakarta.annotation.Nullable Object metadata) {
         this.metadata = metadata;
-        return this;
-    }
-
-    public ProcessDefinitionBody putMetadataItem(String key, Object metadataItem) {
-        if (this.metadata == null) {
-            this.metadata = new HashMap<>();
-        }
-        this.metadata.put(key, metadataItem);
         return this;
     }
 
@@ -260,11 +251,11 @@ public class ProcessDefinitionBody {
      * Get metadata
      * @return metadata
      */
-    @jakarta.annotation.Nullable public Map<String, Object> getMetadata() {
+    @jakarta.annotation.Nullable public Object getMetadata() {
         return metadata;
     }
 
-    public void setMetadata(@jakarta.annotation.Nullable Map<String, Object> metadata) {
+    public void setMetadata(@jakarta.annotation.Nullable Object metadata) {
         this.metadata = metadata;
     }
 

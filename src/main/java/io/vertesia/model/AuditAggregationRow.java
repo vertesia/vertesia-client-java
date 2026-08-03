@@ -41,7 +41,7 @@ public class AuditAggregationRow {
 
     @SerializedName(SERIALIZED_NAME_DIMENSIONS)
     @jakarta.annotation.Nonnull
-    private PartialRecordAuditAggregationDimensionStringNull dimensions;
+    private AuditAggregationDimensionMap dimensions;
 
     public static final String SERIALIZED_NAME_METRICS = "metrics";
 
@@ -52,8 +52,7 @@ public class AuditAggregationRow {
     public AuditAggregationRow() {}
 
     public AuditAggregationRow dimensions(
-            @jakarta.annotation.Nonnull
-                    PartialRecordAuditAggregationDimensionStringNull dimensions) {
+            @jakarta.annotation.Nonnull AuditAggregationDimensionMap dimensions) {
         this.dimensions = dimensions;
         return this;
     }
@@ -63,13 +62,11 @@ public class AuditAggregationRow {
      * @return dimensions
      */
     @jakarta.annotation.Nonnull
-    public PartialRecordAuditAggregationDimensionStringNull getDimensions() {
+    public AuditAggregationDimensionMap getDimensions() {
         return dimensions;
     }
 
-    public void setDimensions(
-            @jakarta.annotation.Nonnull
-                    PartialRecordAuditAggregationDimensionStringNull dimensions) {
+    public void setDimensions(@jakarta.annotation.Nonnull AuditAggregationDimensionMap dimensions) {
         this.dimensions = dimensions;
     }
 
@@ -178,8 +175,7 @@ public class AuditAggregationRow {
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the required field `dimensions`
-        PartialRecordAuditAggregationDimensionStringNull.validateJsonElement(
-                jsonObj.get("dimensions"));
+        AuditAggregationDimensionMap.validateJsonElement(jsonObj.get("dimensions"));
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

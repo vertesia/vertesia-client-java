@@ -23,8 +23,9 @@ import io.vertesia.model.ApiKey;
 import io.vertesia.model.ApiKeyReadResponse;
 import io.vertesia.model.ApiKeyWithValue;
 import io.vertesia.model.AuthTokenResponse;
-import io.vertesia.model.CreateOrUpdateApiKeyPayload;
+import io.vertesia.model.CreateApiKeyPayload;
 import io.vertesia.model.DeleteOperationResult;
+import io.vertesia.model.UpdateApiKeyPayload;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -70,7 +71,7 @@ public class ApiKeysApi {
 
     /**
      * Build call for createApiKey
-     * @param createOrUpdateApiKeyPayload  (required)
+     * @param createApiKeyPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -84,7 +85,7 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call createApiKeyCall(
-            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
+            @jakarta.annotation.Nonnull CreateApiKeyPayload createApiKeyPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -100,7 +101,7 @@ public class ApiKeysApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createOrUpdateApiKeyPayload;
+        Object localVarPostBody = createApiKeyPayload;
 
         // create path and map variables
         String localVarPath = "/apikeys";
@@ -141,22 +142,22 @@ public class ApiKeysApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createApiKeyValidateBeforeCall(
-            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
+            @jakarta.annotation.Nonnull CreateApiKeyPayload createApiKeyPayload,
             final ApiCallback _callback)
             throws ApiException {
-        // verify the required parameter 'createOrUpdateApiKeyPayload' is set
-        if (createOrUpdateApiKeyPayload == null) {
+        // verify the required parameter 'createApiKeyPayload' is set
+        if (createApiKeyPayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createOrUpdateApiKeyPayload' when calling createApiKey(Async)");
+                    "Missing the required parameter 'createApiKeyPayload' when calling createApiKey(Async)");
         }
 
-        return createApiKeyCall(createOrUpdateApiKeyPayload, _callback);
+        return createApiKeyCall(createApiKeyPayload, _callback);
     }
 
     /**
      * Create an API key
      * Creates a new API key and returns the raw key value once at creation time.  **Required permissions:** &#x60;api_key:create&#x60;
-     * @param createOrUpdateApiKeyPayload  (required)
+     * @param createApiKeyPayload  (required)
      * @return ApiKeyWithValue
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -169,17 +170,16 @@ public class ApiKeysApi {
      * </table>
      */
     public ApiKeyWithValue createApiKey(
-            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload)
+            @jakarta.annotation.Nonnull CreateApiKeyPayload createApiKeyPayload)
             throws ApiException {
-        ApiResponse<ApiKeyWithValue> localVarResp =
-                createApiKeyWithHttpInfo(createOrUpdateApiKeyPayload);
+        ApiResponse<ApiKeyWithValue> localVarResp = createApiKeyWithHttpInfo(createApiKeyPayload);
         return localVarResp.getData();
     }
 
     /**
      * Create an API key
      * Creates a new API key and returns the raw key value once at creation time.  **Required permissions:** &#x60;api_key:create&#x60;
-     * @param createOrUpdateApiKeyPayload  (required)
+     * @param createApiKeyPayload  (required)
      * @return ApiResponse&lt;ApiKeyWithValue&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -192,10 +192,9 @@ public class ApiKeysApi {
      * </table>
      */
     public ApiResponse<ApiKeyWithValue> createApiKeyWithHttpInfo(
-            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload)
+            @jakarta.annotation.Nonnull CreateApiKeyPayload createApiKeyPayload)
             throws ApiException {
-        okhttp3.Call localVarCall =
-                createApiKeyValidateBeforeCall(createOrUpdateApiKeyPayload, null);
+        okhttp3.Call localVarCall = createApiKeyValidateBeforeCall(createApiKeyPayload, null);
         Type localVarReturnType = new TypeToken<ApiKeyWithValue>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -203,7 +202,7 @@ public class ApiKeysApi {
     /**
      * Create an API key (asynchronously)
      * Creates a new API key and returns the raw key value once at creation time.  **Required permissions:** &#x60;api_key:create&#x60;
-     * @param createOrUpdateApiKeyPayload  (required)
+     * @param createApiKeyPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -217,12 +216,11 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call createApiKeyAsync(
-            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
+            @jakarta.annotation.Nonnull CreateApiKeyPayload createApiKeyPayload,
             final ApiCallback<ApiKeyWithValue> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall =
-                createApiKeyValidateBeforeCall(createOrUpdateApiKeyPayload, _callback);
+        okhttp3.Call localVarCall = createApiKeyValidateBeforeCall(createApiKeyPayload, _callback);
         Type localVarReturnType = new TypeToken<ApiKeyWithValue>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -868,7 +866,7 @@ public class ApiKeysApi {
     /**
      * Build call for updateApiKey
      * @param keyId  (required)
-     * @param createOrUpdateApiKeyPayload  (required)
+     * @param updateApiKeyPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -883,7 +881,7 @@ public class ApiKeysApi {
      */
     public okhttp3.Call updateApiKeyCall(
             @jakarta.annotation.Nonnull String keyId,
-            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
+            @jakarta.annotation.Nonnull UpdateApiKeyPayload updateApiKeyPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -899,7 +897,7 @@ public class ApiKeysApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createOrUpdateApiKeyPayload;
+        Object localVarPostBody = updateApiKeyPayload;
 
         // create path and map variables
         String localVarPath =
@@ -945,7 +943,7 @@ public class ApiKeysApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateApiKeyValidateBeforeCall(
             @jakarta.annotation.Nonnull String keyId,
-            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
+            @jakarta.annotation.Nonnull UpdateApiKeyPayload updateApiKeyPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'keyId' is set
@@ -954,20 +952,20 @@ public class ApiKeysApi {
                     "Missing the required parameter 'keyId' when calling updateApiKey(Async)");
         }
 
-        // verify the required parameter 'createOrUpdateApiKeyPayload' is set
-        if (createOrUpdateApiKeyPayload == null) {
+        // verify the required parameter 'updateApiKeyPayload' is set
+        if (updateApiKeyPayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createOrUpdateApiKeyPayload' when calling updateApiKey(Async)");
+                    "Missing the required parameter 'updateApiKeyPayload' when calling updateApiKey(Async)");
         }
 
-        return updateApiKeyCall(keyId, createOrUpdateApiKeyPayload, _callback);
+        return updateApiKeyCall(keyId, updateApiKeyPayload, _callback);
     }
 
     /**
      * Update an API key
-     * Updates API key metadata such as name, role, project, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
+     * Updates API key metadata: name, role, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
      * @param keyId  (required)
-     * @param createOrUpdateApiKeyPayload  (required)
+     * @param updateApiKeyPayload  (required)
      * @return ApiKey
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -981,18 +979,17 @@ public class ApiKeysApi {
      */
     public ApiKey updateApiKey(
             @jakarta.annotation.Nonnull String keyId,
-            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload)
+            @jakarta.annotation.Nonnull UpdateApiKeyPayload updateApiKeyPayload)
             throws ApiException {
-        ApiResponse<ApiKey> localVarResp =
-                updateApiKeyWithHttpInfo(keyId, createOrUpdateApiKeyPayload);
+        ApiResponse<ApiKey> localVarResp = updateApiKeyWithHttpInfo(keyId, updateApiKeyPayload);
         return localVarResp.getData();
     }
 
     /**
      * Update an API key
-     * Updates API key metadata such as name, role, project, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
+     * Updates API key metadata: name, role, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
      * @param keyId  (required)
-     * @param createOrUpdateApiKeyPayload  (required)
+     * @param updateApiKeyPayload  (required)
      * @return ApiResponse&lt;ApiKey&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1006,19 +1003,19 @@ public class ApiKeysApi {
      */
     public ApiResponse<ApiKey> updateApiKeyWithHttpInfo(
             @jakarta.annotation.Nonnull String keyId,
-            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload)
+            @jakarta.annotation.Nonnull UpdateApiKeyPayload updateApiKeyPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
-                updateApiKeyValidateBeforeCall(keyId, createOrUpdateApiKeyPayload, null);
+                updateApiKeyValidateBeforeCall(keyId, updateApiKeyPayload, null);
         Type localVarReturnType = new TypeToken<ApiKey>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Update an API key (asynchronously)
-     * Updates API key metadata such as name, role, project, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
+     * Updates API key metadata: name, role, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
      * @param keyId  (required)
-     * @param createOrUpdateApiKeyPayload  (required)
+     * @param updateApiKeyPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1033,12 +1030,12 @@ public class ApiKeysApi {
      */
     public okhttp3.Call updateApiKeyAsync(
             @jakarta.annotation.Nonnull String keyId,
-            @jakarta.annotation.Nonnull CreateOrUpdateApiKeyPayload createOrUpdateApiKeyPayload,
+            @jakarta.annotation.Nonnull UpdateApiKeyPayload updateApiKeyPayload,
             final ApiCallback<ApiKey> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                updateApiKeyValidateBeforeCall(keyId, createOrUpdateApiKeyPayload, _callback);
+                updateApiKeyValidateBeforeCall(keyId, updateApiKeyPayload, _callback);
         Type localVarReturnType = new TypeToken<ApiKey>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

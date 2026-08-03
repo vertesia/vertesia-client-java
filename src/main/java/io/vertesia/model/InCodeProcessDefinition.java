@@ -77,7 +77,7 @@ public class InCodeProcessDefinition {
     }
 
     /**
-     * Process identifier exposed by an app package. App-local ids are normalized by Studio to &#x60;app:&lt;app-name&gt;:&lt;id&gt;&#x60; when returned to callers.
+     * Process identifier exposed by an app package. App-local ids are normalized by the platform to &#x60;app:&lt;app-name&gt;:&lt;id&gt;&#x60; when returned to callers.
      * @return id
      */
     @jakarta.annotation.Nonnull

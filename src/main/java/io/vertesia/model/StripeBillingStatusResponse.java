@@ -14,288 +14,24 @@ package io.vertesia.model;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- * StripeBillingStatusResponse
- */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class StripeBillingStatusResponse {
-    /**
-     * Gets or Sets status
-     */
-    @JsonAdapter(StatusEnum.Adapter.class)
-    public enum StatusEnum {
-        ENABLED("enabled"),
-
-        DISABLED("disabled"),
-
-        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
-
-        private String value;
-
-        StatusEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static StatusEnum fromValue(String value) {
-            for (StatusEnum b : StatusEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            return UNKNOWN_DEFAULT_OPEN_API;
-        }
-
-        public static class Adapter extends TypeAdapter<StatusEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final StatusEnum enumeration)
-                    throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public StatusEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return StatusEnum.fromValue(value);
-            }
-        }
-
-        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            StatusEnum.fromValue(value);
-        }
-    }
-
-    public static final String SERIALIZED_NAME_STATUS = "status";
-
-    @SerializedName(SERIALIZED_NAME_STATUS)
-    @jakarta.annotation.Nonnull
-    private StatusEnum status;
-
-    public static final String SERIALIZED_NAME_BILLING_METHOD = "billing_method";
-
-    @SerializedName(SERIALIZED_NAME_BILLING_METHOD)
-    @jakarta.annotation.Nullable private BillingMethod billingMethod;
-
-    public static final String SERIALIZED_NAME_PORTAL_URL = "portal_url";
-
-    @SerializedName(SERIALIZED_NAME_PORTAL_URL)
-    @jakarta.annotation.Nullable private String portalUrl;
-
-    public static final String SERIALIZED_NAME_REASON = "reason";
-
-    @SerializedName(SERIALIZED_NAME_REASON)
-    @jakarta.annotation.Nullable private String reason;
-
-    public StripeBillingStatusResponse() {}
-
-    public StripeBillingStatusResponse status(@jakarta.annotation.Nonnull StatusEnum status) {
-        this.status = status;
-        return this;
-    }
-
-    /**
-     * Get status
-     * @return status
-     */
-    @jakarta.annotation.Nonnull
-    public StatusEnum getStatus() {
-        return status;
-    }
-
-    public void setStatus(@jakarta.annotation.Nonnull StatusEnum status) {
-        this.status = status;
-    }
-
-    public StripeBillingStatusResponse billingMethod(
-            @jakarta.annotation.Nullable BillingMethod billingMethod) {
-        this.billingMethod = billingMethod;
-        return this;
-    }
-
-    /**
-     * Get billingMethod
-     * @return billingMethod
-     */
-    @jakarta.annotation.Nullable public BillingMethod getBillingMethod() {
-        return billingMethod;
-    }
-
-    public void setBillingMethod(@jakarta.annotation.Nullable BillingMethod billingMethod) {
-        this.billingMethod = billingMethod;
-    }
-
-    public StripeBillingStatusResponse portalUrl(@jakarta.annotation.Nullable String portalUrl) {
-        this.portalUrl = portalUrl;
-        return this;
-    }
-
-    /**
-     * Get portalUrl
-     * @return portalUrl
-     */
-    @jakarta.annotation.Nullable public String getPortalUrl() {
-        return portalUrl;
-    }
-
-    public void setPortalUrl(@jakarta.annotation.Nullable String portalUrl) {
-        this.portalUrl = portalUrl;
-    }
-
-    public StripeBillingStatusResponse reason(@jakarta.annotation.Nullable String reason) {
-        this.reason = reason;
-        return this;
-    }
-
-    /**
-     * Get reason
-     * @return reason
-     */
-    @jakarta.annotation.Nullable public String getReason() {
-        return reason;
-    }
-
-    public void setReason(@jakarta.annotation.Nullable String reason) {
-        this.reason = reason;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        StripeBillingStatusResponse stripeBillingStatusResponse = (StripeBillingStatusResponse) o;
-        return Objects.equals(this.status, stripeBillingStatusResponse.status)
-                && Objects.equals(this.billingMethod, stripeBillingStatusResponse.billingMethod)
-                && Objects.equals(this.portalUrl, stripeBillingStatusResponse.portalUrl)
-                && Objects.equals(this.reason, stripeBillingStatusResponse.reason);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(status, billingMethod, portalUrl, reason);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class StripeBillingStatusResponse {\n");
-        sb.append("    status: ").append(toIndentedString(status)).append("\n");
-        sb.append("    billingMethod: ").append(toIndentedString(billingMethod)).append("\n");
-        sb.append("    portalUrl: ").append(toIndentedString(portalUrl)).append("\n");
-        sb.append("    reason: ").append(toIndentedString(reason)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        return o == null ? "null" : o.toString().replace("\n", "\n    ");
-    }
-
-    public static HashSet<String> openapiFields;
-    public static HashSet<String> openapiRequiredFields;
-
-    static {
-        // a set of all properties/fields (JSON key names)
-        openapiFields =
-                new HashSet<String>(
-                        Arrays.asList("status", "billing_method", "portal_url", "reason"));
-
-        // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("status", "billing_method"));
-    }
-
-    /**
-     * Validates the JSON Element and throws an exception if issues found
-     *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to StripeBillingStatusResponse
-     */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
-            if (!StripeBillingStatusResponse.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
-                throw new IllegalArgumentException(
-                        String.format(
-                                java.util.Locale.ROOT,
-                                "The required field(s) %s in StripeBillingStatusResponse is not found in the empty JSON string",
-                                StripeBillingStatusResponse.openapiRequiredFields.toString()));
-            }
-        }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : StripeBillingStatusResponse.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                java.util.Locale.ROOT,
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField,
-                                jsonElement.toString()));
-            }
-        }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("status").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `status` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("status").toString()));
-        }
-        // validate the required field `status`
-        StatusEnum.validateJsonElement(jsonObj.get("status"));
-        if (jsonObj.get("billing_method") != null && !jsonObj.get("billing_method").isJsonNull()) {
-            // validate the required field `billing_method`
-            BillingMethod.validateJsonElement(jsonObj.get("billing_method"));
-        }
-        if ((jsonObj.get("portal_url") != null && !jsonObj.get("portal_url").isJsonNull())
-                && !jsonObj.get("portal_url").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `portal_url` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("portal_url").toString()));
-        }
-        if ((jsonObj.get("reason") != null && !jsonObj.get("reason").isJsonNull())
-                && !jsonObj.get("reason").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `reason` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("reason").toString()));
-        }
-    }
+public class StripeBillingStatusResponse extends AbstractOpenApiSchema {
+    private static final Logger log = Logger.getLogger(StripeBillingStatusResponse.class.getName());
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
@@ -306,25 +42,234 @@ public class StripeBillingStatusResponse {
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<StripeBillingStatusResponse> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(StripeBillingStatusResponse.class));
+            final TypeAdapter<StripeBillingEnabled> adapterStripeBillingEnabled =
+                    gson.getDelegateAdapter(this, TypeToken.get(StripeBillingEnabled.class));
+            final TypeAdapter<StripeBillingDisabled> adapterStripeBillingDisabled =
+                    gson.getDelegateAdapter(this, TypeToken.get(StripeBillingDisabled.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<StripeBillingStatusResponse>() {
                         @Override
                         public void write(JsonWriter out, StripeBillingStatusResponse value)
                                 throws IOException {
-                            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-                            elementAdapter.write(out, obj);
+                            if (value == null || value.getActualInstance() == null) {
+                                elementAdapter.write(out, null);
+                                return;
+                            }
+
+                            // check if the actual instance is of the type `StripeBillingEnabled`
+                            if (value.getActualInstance() instanceof StripeBillingEnabled) {
+                                JsonElement element =
+                                        adapterStripeBillingEnabled.toJsonTree(
+                                                (StripeBillingEnabled) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `StripeBillingDisabled`
+                            if (value.getActualInstance() instanceof StripeBillingDisabled) {
+                                JsonElement element =
+                                        adapterStripeBillingDisabled.toJsonTree(
+                                                (StripeBillingDisabled) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            throw new IOException(
+                                    "Failed to serialize as the type doesn't match oneOf schemas: StripeBillingDisabled, StripeBillingEnabled");
                         }
 
                         @Override
                         public StripeBillingStatusResponse read(JsonReader in) throws IOException {
+                            Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+
+                            int match = 0;
+                            ArrayList<String> errorMessages = new ArrayList<>();
+                            TypeAdapter actualAdapter = elementAdapter;
+
+                            // deserialize StripeBillingEnabled
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                StripeBillingEnabled.validateJsonElement(jsonElement);
+                                actualAdapter = adapterStripeBillingEnabled;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'StripeBillingEnabled'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for StripeBillingEnabled failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'StripeBillingEnabled'",
+                                        e);
+                            }
+                            // deserialize StripeBillingDisabled
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                StripeBillingDisabled.validateJsonElement(jsonElement);
+                                actualAdapter = adapterStripeBillingDisabled;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'StripeBillingDisabled'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for StripeBillingDisabled failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'StripeBillingDisabled'",
+                                        e);
+                            }
+
+                            if (match == 1) {
+                                StripeBillingStatusResponse ret = new StripeBillingStatusResponse();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
+                            }
+
+                            throw new IOException(
+                                    String.format(
+                                            java.util.Locale.ROOT,
+                                            "Failed deserialization for StripeBillingStatusResponse: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                                            match,
+                                            errorMessages,
+                                            jsonElement.toString()));
                         }
                     }.nullSafe();
+        }
+    }
+
+    // store a list of schema names defined in oneOf
+    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
+
+    public StripeBillingStatusResponse() {
+        super("oneOf", Boolean.FALSE);
+    }
+
+    public StripeBillingStatusResponse(Object o) {
+        super("oneOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("StripeBillingEnabled", StripeBillingEnabled.class);
+        schemas.put("StripeBillingDisabled", StripeBillingDisabled.class);
+    }
+
+    @Override
+    public Map<String, Class<?>> getSchemas() {
+        return StripeBillingStatusResponse.schemas;
+    }
+
+    /**
+     * Set the instance that matches the oneOf child schema, check
+     * the instance parameter is valid against the oneOf child schemas:
+     * StripeBillingDisabled, StripeBillingEnabled
+     *
+     * It could be an instance of the 'oneOf' schemas.
+     */
+    @Override
+    public void setActualInstance(Object instance) {
+        if (instance instanceof StripeBillingEnabled) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof StripeBillingDisabled) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException(
+                "Invalid instance type. Must be StripeBillingDisabled, StripeBillingEnabled");
+    }
+
+    /**
+     * Get the actual instance, which can be the following:
+     * StripeBillingDisabled, StripeBillingEnabled
+     *
+     * @return The actual instance (StripeBillingDisabled, StripeBillingEnabled)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `StripeBillingEnabled`. If the actual instance is not `StripeBillingEnabled`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `StripeBillingEnabled`
+     * @throws ClassCastException if the instance is not `StripeBillingEnabled`
+     */
+    @SuppressWarnings("unchecked")
+    public StripeBillingEnabled getStripeBillingEnabled() throws ClassCastException {
+        return (StripeBillingEnabled) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `StripeBillingDisabled`. If the actual instance is not `StripeBillingDisabled`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `StripeBillingDisabled`
+     * @throws ClassCastException if the instance is not `StripeBillingDisabled`
+     */
+    @SuppressWarnings("unchecked")
+    public StripeBillingDisabled getStripeBillingDisabled() throws ClassCastException {
+        return (StripeBillingDisabled) super.getActualInstance();
+    }
+
+    /**
+     * Validates the JSON Element and throws an exception if issues found
+     *
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to StripeBillingStatusResponse
+     */
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        // validate oneOf schemas one by one
+        int validCount = 0;
+        ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with StripeBillingEnabled
+        try {
+            StripeBillingEnabled.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for StripeBillingEnabled failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with StripeBillingDisabled
+        try {
+            StripeBillingDisabled.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for StripeBillingDisabled failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        if (validCount != 1) {
+            throw new IOException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "The JSON string is invalid for StripeBillingStatusResponse with oneOf schemas: StripeBillingDisabled, StripeBillingEnabled. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            validCount,
+                            errorMessages,
+                            jsonElement.toString()));
         }
     }
 

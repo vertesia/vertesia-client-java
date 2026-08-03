@@ -24,7 +24,6 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -130,12 +129,12 @@ public class ContentTypeIntakePolicyExtraction {
     public static final String SERIALIZED_NAME_PAGE_RANGES = "page_ranges";
 
     @SerializedName(SERIALIZED_NAME_PAGE_RANGES)
-    @jakarta.annotation.Nullable private List<List<BigDecimal>> pageRanges;
+    @jakarta.annotation.Nullable private List<List<Integer>> pageRanges;
 
     public static final String SERIALIZED_NAME_MAX_PAGES = "max_pages";
 
     @SerializedName(SERIALIZED_NAME_MAX_PAGES)
-    @jakarta.annotation.Nullable private BigDecimal maxPages;
+    @jakarta.annotation.Nullable private Integer maxPages;
 
     public static final String SERIALIZED_NAME_VISION = "vision";
 
@@ -262,12 +261,12 @@ public class ContentTypeIntakePolicyExtraction {
     }
 
     public ContentTypeIntakePolicyExtraction pageRanges(
-            @jakarta.annotation.Nullable List<List<BigDecimal>> pageRanges) {
+            @jakarta.annotation.Nullable List<List<Integer>> pageRanges) {
         this.pageRanges = pageRanges;
         return this;
     }
 
-    public ContentTypeIntakePolicyExtraction addPageRangesItem(List<BigDecimal> pageRangesItem) {
+    public ContentTypeIntakePolicyExtraction addPageRangesItem(List<Integer> pageRangesItem) {
         if (this.pageRanges == null) {
             this.pageRanges = new ArrayList<>();
         }
@@ -279,29 +278,31 @@ public class ContentTypeIntakePolicyExtraction {
      * Static page ranges extraction sees (wins over &#x60;scope&#x60; when set).
      * @return pageRanges
      */
-    @jakarta.annotation.Nullable public List<List<BigDecimal>> getPageRanges() {
+    @jakarta.annotation.Nullable public List<List<Integer>> getPageRanges() {
         return pageRanges;
     }
 
-    public void setPageRanges(@jakarta.annotation.Nullable List<List<BigDecimal>> pageRanges) {
+    public void setPageRanges(@jakarta.annotation.Nullable List<List<Integer>> pageRanges) {
         this.pageRanges = pageRanges;
     }
 
     public ContentTypeIntakePolicyExtraction maxPages(
-            @jakarta.annotation.Nullable BigDecimal maxPages) {
+            @jakarta.annotation.Nullable Integer maxPages) {
         this.maxPages = maxPages;
         return this;
     }
 
     /**
      * Cap on pages sent to extraction. Default 20.
+     * minimum: 1
+     * maximum: 2147483647
      * @return maxPages
      */
-    @jakarta.annotation.Nullable public BigDecimal getMaxPages() {
+    @jakarta.annotation.Nullable public Integer getMaxPages() {
         return maxPages;
     }
 
-    public void setMaxPages(@jakarta.annotation.Nullable BigDecimal maxPages) {
+    public void setMaxPages(@jakarta.annotation.Nullable Integer maxPages) {
         this.maxPages = maxPages;
     }
 

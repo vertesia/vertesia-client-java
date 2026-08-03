@@ -1272,7 +1272,7 @@ public class EnvironmentsApi {
     /**
      * Build call for listEnvironmentModels
      * @param envId  (required)
-     * @param text  (required)
+     * @param text  (optional)
      * @param type  (optional)
      * @param tags  (optional)
      * @param owner  (optional)
@@ -1290,7 +1290,7 @@ public class EnvironmentsApi {
      */
     public okhttp3.Call listEnvironmentModelsCall(
             @jakarta.annotation.Nonnull String envId,
-            @jakarta.annotation.Nonnull String text,
+            @jakarta.annotation.Nullable String text,
             @jakarta.annotation.Nullable String type,
             @jakarta.annotation.Nullable List<String> tags,
             @jakarta.annotation.Nullable String owner,
@@ -1372,7 +1372,7 @@ public class EnvironmentsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listEnvironmentModelsValidateBeforeCall(
             @jakarta.annotation.Nonnull String envId,
-            @jakarta.annotation.Nonnull String text,
+            @jakarta.annotation.Nullable String text,
             @jakarta.annotation.Nullable String type,
             @jakarta.annotation.Nullable List<String> tags,
             @jakarta.annotation.Nullable String owner,
@@ -1384,12 +1384,6 @@ public class EnvironmentsApi {
                     "Missing the required parameter 'envId' when calling listEnvironmentModels(Async)");
         }
 
-        // verify the required parameter 'text' is set
-        if (text == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'text' when calling listEnvironmentModels(Async)");
-        }
-
         return listEnvironmentModelsCall(envId, text, type, tags, owner, _callback);
     }
 
@@ -1397,7 +1391,7 @@ public class EnvironmentsApi {
      * List environment models
      * Lists models available from the environment provider, optionally filtered by text, type, or tags.  **Required permissions:** &#x60;account:member&#x60;
      * @param envId  (required)
-     * @param text  (required)
+     * @param text  (optional)
      * @param type  (optional)
      * @param tags  (optional)
      * @param owner  (optional)
@@ -1414,7 +1408,7 @@ public class EnvironmentsApi {
      */
     public List<AIModel> listEnvironmentModels(
             @jakarta.annotation.Nonnull String envId,
-            @jakarta.annotation.Nonnull String text,
+            @jakarta.annotation.Nullable String text,
             @jakarta.annotation.Nullable String type,
             @jakarta.annotation.Nullable List<String> tags,
             @jakarta.annotation.Nullable String owner)
@@ -1428,7 +1422,7 @@ public class EnvironmentsApi {
      * List environment models
      * Lists models available from the environment provider, optionally filtered by text, type, or tags.  **Required permissions:** &#x60;account:member&#x60;
      * @param envId  (required)
-     * @param text  (required)
+     * @param text  (optional)
      * @param type  (optional)
      * @param tags  (optional)
      * @param owner  (optional)
@@ -1445,7 +1439,7 @@ public class EnvironmentsApi {
      */
     public ApiResponse<List<AIModel>> listEnvironmentModelsWithHttpInfo(
             @jakarta.annotation.Nonnull String envId,
-            @jakarta.annotation.Nonnull String text,
+            @jakarta.annotation.Nullable String text,
             @jakarta.annotation.Nullable String type,
             @jakarta.annotation.Nullable List<String> tags,
             @jakarta.annotation.Nullable String owner)
@@ -1460,7 +1454,7 @@ public class EnvironmentsApi {
      * List environment models (asynchronously)
      * Lists models available from the environment provider, optionally filtered by text, type, or tags.  **Required permissions:** &#x60;account:member&#x60;
      * @param envId  (required)
-     * @param text  (required)
+     * @param text  (optional)
      * @param type  (optional)
      * @param tags  (optional)
      * @param owner  (optional)
@@ -1478,7 +1472,7 @@ public class EnvironmentsApi {
      */
     public okhttp3.Call listEnvironmentModelsAsync(
             @jakarta.annotation.Nonnull String envId,
-            @jakarta.annotation.Nonnull String text,
+            @jakarta.annotation.Nullable String text,
             @jakarta.annotation.Nullable String type,
             @jakarta.annotation.Nullable List<String> tags,
             @jakarta.annotation.Nullable String owner,

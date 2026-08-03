@@ -51,7 +51,7 @@ public class RunCreatePayload {
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
-    @jakarta.annotation.Nullable private InteractionUpdatePayloadResultSchema resultSchema;
+    @jakarta.annotation.Nullable private AsyncConversationExecutionPayloadResultSchema resultSchema;
 
     public static final String SERIALIZED_NAME_STREAM = "stream";
 
@@ -137,7 +137,7 @@ public class RunCreatePayload {
     }
 
     public RunCreatePayload resultSchema(
-            @jakarta.annotation.Nullable InteractionUpdatePayloadResultSchema resultSchema) {
+            @jakarta.annotation.Nullable AsyncConversationExecutionPayloadResultSchema resultSchema) {
         this.resultSchema = resultSchema;
         return this;
     }
@@ -146,12 +146,12 @@ public class RunCreatePayload {
      * Get resultSchema
      * @return resultSchema
      */
-    @jakarta.annotation.Nullable public InteractionUpdatePayloadResultSchema getResultSchema() {
+    @jakarta.annotation.Nullable public AsyncConversationExecutionPayloadResultSchema getResultSchema() {
         return resultSchema;
     }
 
     public void setResultSchema(
-            @jakarta.annotation.Nullable InteractionUpdatePayloadResultSchema resultSchema) {
+            @jakarta.annotation.Nullable AsyncConversationExecutionPayloadResultSchema resultSchema) {
         this.resultSchema = resultSchema;
     }
 
@@ -482,7 +482,8 @@ public class RunCreatePayload {
         }
         // validate the optional field `result_schema`
         if (jsonObj.get("result_schema") != null && !jsonObj.get("result_schema").isJsonNull()) {
-            InteractionUpdatePayloadResultSchema.validateJsonElement(jsonObj.get("result_schema"));
+            AsyncConversationExecutionPayloadResultSchema.validateJsonElement(
+                    jsonObj.get("result_schema"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("tags") != null

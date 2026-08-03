@@ -24,6 +24,7 @@ import io.vertesia.model.ContentObjectTypeCatalogEntry;
 import io.vertesia.model.ContentObjectTypeItem;
 import io.vertesia.model.CreateContentObjectTypePayload;
 import io.vertesia.model.DeleteCountResult;
+import io.vertesia.model.UpdateContentObjectTypePayload;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -823,7 +824,7 @@ public class ContentObjectTypesApi {
      * @param schema  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
-     * @return List&lt;ContentObjectTypeItem&gt;
+     * @return List&lt;ContentObjectTypeCatalogEntry&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -834,14 +835,14 @@ public class ContentObjectTypesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<ContentObjectTypeItem> listApplicationContentObjectTypes(
+    public List<ContentObjectTypeCatalogEntry> listApplicationContentObjectTypes(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable Boolean layout,
             @jakarta.annotation.Nullable Boolean schema,
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
-        ApiResponse<List<ContentObjectTypeItem>> localVarResp =
+        ApiResponse<List<ContentObjectTypeCatalogEntry>> localVarResp =
                 listApplicationContentObjectTypesWithHttpInfo(tag, layout, schema, limit, offset);
         return localVarResp.getData();
     }
@@ -854,7 +855,7 @@ public class ContentObjectTypesApi {
      * @param schema  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
-     * @return ApiResponse&lt;List&lt;ContentObjectTypeItem&gt;&gt;
+     * @return ApiResponse&lt;List&lt;ContentObjectTypeCatalogEntry&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -865,17 +866,18 @@ public class ContentObjectTypesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<List<ContentObjectTypeItem>> listApplicationContentObjectTypesWithHttpInfo(
-            @jakarta.annotation.Nullable String tag,
-            @jakarta.annotation.Nullable Boolean layout,
-            @jakarta.annotation.Nullable Boolean schema,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset)
-            throws ApiException {
+    public ApiResponse<List<ContentObjectTypeCatalogEntry>>
+            listApplicationContentObjectTypesWithHttpInfo(
+                    @jakarta.annotation.Nullable String tag,
+                    @jakarta.annotation.Nullable Boolean layout,
+                    @jakarta.annotation.Nullable Boolean schema,
+                    @jakarta.annotation.Nullable BigDecimal limit,
+                    @jakarta.annotation.Nullable BigDecimal offset)
+                    throws ApiException {
         okhttp3.Call localVarCall =
                 listApplicationContentObjectTypesValidateBeforeCall(
                         tag, layout, schema, limit, offset, null);
-        Type localVarReturnType = new TypeToken<List<ContentObjectTypeItem>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<ContentObjectTypeCatalogEntry>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -905,13 +907,13 @@ public class ContentObjectTypesApi {
             @jakarta.annotation.Nullable Boolean schema,
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
-            final ApiCallback<List<ContentObjectTypeItem>> _callback)
+            final ApiCallback<List<ContentObjectTypeCatalogEntry>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listApplicationContentObjectTypesValidateBeforeCall(
                         tag, layout, schema, limit, offset, _callback);
-        Type localVarReturnType = new TypeToken<List<ContentObjectTypeItem>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<ContentObjectTypeCatalogEntry>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1035,7 +1037,7 @@ public class ContentObjectTypesApi {
      * @param schema  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
-     * @return List&lt;ContentObjectTypeItem&gt;
+     * @return List&lt;ContentObjectTypeCatalogEntry&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1046,14 +1048,14 @@ public class ContentObjectTypesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<ContentObjectTypeItem> listContentObjectTypeCatalog(
+    public List<ContentObjectTypeCatalogEntry> listContentObjectTypeCatalog(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable Boolean layout,
             @jakarta.annotation.Nullable Boolean schema,
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
-        ApiResponse<List<ContentObjectTypeItem>> localVarResp =
+        ApiResponse<List<ContentObjectTypeCatalogEntry>> localVarResp =
                 listContentObjectTypeCatalogWithHttpInfo(tag, layout, schema, limit, offset);
         return localVarResp.getData();
     }
@@ -1066,7 +1068,7 @@ public class ContentObjectTypesApi {
      * @param schema  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
-     * @return ApiResponse&lt;List&lt;ContentObjectTypeItem&gt;&gt;
+     * @return ApiResponse&lt;List&lt;ContentObjectTypeCatalogEntry&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1077,17 +1079,18 @@ public class ContentObjectTypesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<List<ContentObjectTypeItem>> listContentObjectTypeCatalogWithHttpInfo(
-            @jakarta.annotation.Nullable String tag,
-            @jakarta.annotation.Nullable Boolean layout,
-            @jakarta.annotation.Nullable Boolean schema,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset)
-            throws ApiException {
+    public ApiResponse<List<ContentObjectTypeCatalogEntry>>
+            listContentObjectTypeCatalogWithHttpInfo(
+                    @jakarta.annotation.Nullable String tag,
+                    @jakarta.annotation.Nullable Boolean layout,
+                    @jakarta.annotation.Nullable Boolean schema,
+                    @jakarta.annotation.Nullable BigDecimal limit,
+                    @jakarta.annotation.Nullable BigDecimal offset)
+                    throws ApiException {
         okhttp3.Call localVarCall =
                 listContentObjectTypeCatalogValidateBeforeCall(
                         tag, layout, schema, limit, offset, null);
-        Type localVarReturnType = new TypeToken<List<ContentObjectTypeItem>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<ContentObjectTypeCatalogEntry>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1117,13 +1120,13 @@ public class ContentObjectTypesApi {
             @jakarta.annotation.Nullable Boolean schema,
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
-            final ApiCallback<List<ContentObjectTypeItem>> _callback)
+            final ApiCallback<List<ContentObjectTypeCatalogEntry>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listContentObjectTypeCatalogValidateBeforeCall(
                         tag, layout, schema, limit, offset, _callback);
-        Type localVarReturnType = new TypeToken<List<ContentObjectTypeItem>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<ContentObjectTypeCatalogEntry>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1685,7 +1688,7 @@ public class ContentObjectTypesApi {
      * @param schema  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
-     * @return List&lt;ContentObjectTypeItem&gt;
+     * @return List&lt;ContentObjectTypeCatalogEntry&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1696,14 +1699,14 @@ public class ContentObjectTypesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<ContentObjectTypeItem> listSystemContentObjectTypes(
+    public List<ContentObjectTypeCatalogEntry> listSystemContentObjectTypes(
             @jakarta.annotation.Nullable String tag,
             @jakarta.annotation.Nullable Boolean layout,
             @jakarta.annotation.Nullable Boolean schema,
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset)
             throws ApiException {
-        ApiResponse<List<ContentObjectTypeItem>> localVarResp =
+        ApiResponse<List<ContentObjectTypeCatalogEntry>> localVarResp =
                 listSystemContentObjectTypesWithHttpInfo(tag, layout, schema, limit, offset);
         return localVarResp.getData();
     }
@@ -1716,7 +1719,7 @@ public class ContentObjectTypesApi {
      * @param schema  (optional)
      * @param limit  (optional)
      * @param offset  (optional)
-     * @return ApiResponse&lt;List&lt;ContentObjectTypeItem&gt;&gt;
+     * @return ApiResponse&lt;List&lt;ContentObjectTypeCatalogEntry&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -1727,17 +1730,18 @@ public class ContentObjectTypesApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<List<ContentObjectTypeItem>> listSystemContentObjectTypesWithHttpInfo(
-            @jakarta.annotation.Nullable String tag,
-            @jakarta.annotation.Nullable Boolean layout,
-            @jakarta.annotation.Nullable Boolean schema,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset)
-            throws ApiException {
+    public ApiResponse<List<ContentObjectTypeCatalogEntry>>
+            listSystemContentObjectTypesWithHttpInfo(
+                    @jakarta.annotation.Nullable String tag,
+                    @jakarta.annotation.Nullable Boolean layout,
+                    @jakarta.annotation.Nullable Boolean schema,
+                    @jakarta.annotation.Nullable BigDecimal limit,
+                    @jakarta.annotation.Nullable BigDecimal offset)
+                    throws ApiException {
         okhttp3.Call localVarCall =
                 listSystemContentObjectTypesValidateBeforeCall(
                         tag, layout, schema, limit, offset, null);
-        Type localVarReturnType = new TypeToken<List<ContentObjectTypeItem>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<ContentObjectTypeCatalogEntry>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1767,13 +1771,13 @@ public class ContentObjectTypesApi {
             @jakarta.annotation.Nullable Boolean schema,
             @jakarta.annotation.Nullable BigDecimal limit,
             @jakarta.annotation.Nullable BigDecimal offset,
-            final ApiCallback<List<ContentObjectTypeItem>> _callback)
+            final ApiCallback<List<ContentObjectTypeCatalogEntry>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listSystemContentObjectTypesValidateBeforeCall(
                         tag, layout, schema, limit, offset, _callback);
-        Type localVarReturnType = new TypeToken<List<ContentObjectTypeItem>>() {}.getType();
+        Type localVarReturnType = new TypeToken<List<ContentObjectTypeCatalogEntry>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1942,7 +1946,7 @@ public class ContentObjectTypesApi {
     /**
      * Build call for updateContentObjectType
      * @param typeId  (required)
-     * @param createContentObjectTypePayload  (required)
+     * @param updateContentObjectTypePayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1958,7 +1962,7 @@ public class ContentObjectTypesApi {
     public okhttp3.Call updateContentObjectTypeCall(
             @jakarta.annotation.Nonnull String typeId,
             @jakarta.annotation.Nonnull
-                    CreateContentObjectTypePayload createContentObjectTypePayload,
+                    UpdateContentObjectTypePayload updateContentObjectTypePayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1974,7 +1978,7 @@ public class ContentObjectTypesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createContentObjectTypePayload;
+        Object localVarPostBody = updateContentObjectTypePayload;
 
         // create path and map variables
         String localVarPath =
@@ -2021,7 +2025,7 @@ public class ContentObjectTypesApi {
     private okhttp3.Call updateContentObjectTypeValidateBeforeCall(
             @jakarta.annotation.Nonnull String typeId,
             @jakarta.annotation.Nonnull
-                    CreateContentObjectTypePayload createContentObjectTypePayload,
+                    UpdateContentObjectTypePayload updateContentObjectTypePayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'typeId' is set
@@ -2030,20 +2034,20 @@ public class ContentObjectTypesApi {
                     "Missing the required parameter 'typeId' when calling updateContentObjectType(Async)");
         }
 
-        // verify the required parameter 'createContentObjectTypePayload' is set
-        if (createContentObjectTypePayload == null) {
+        // verify the required parameter 'updateContentObjectTypePayload' is set
+        if (updateContentObjectTypePayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createContentObjectTypePayload' when calling updateContentObjectType(Async)");
+                    "Missing the required parameter 'updateContentObjectTypePayload' when calling updateContentObjectType(Async)");
         }
 
-        return updateContentObjectTypeCall(typeId, createContentObjectTypePayload, _callback);
+        return updateContentObjectTypeCall(typeId, updateContentObjectTypePayload, _callback);
     }
 
     /**
      * Update a content object type
      * Updates a content object type and validates its JSON Schema before saving.  **Required permissions:** &#x60;content:admin&#x60;
      * @param typeId  (required)
-     * @param createContentObjectTypePayload  (required)
+     * @param updateContentObjectTypePayload  (required)
      * @return ContentObjectType
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2058,10 +2062,10 @@ public class ContentObjectTypesApi {
     public ContentObjectType updateContentObjectType(
             @jakarta.annotation.Nonnull String typeId,
             @jakarta.annotation.Nonnull
-                    CreateContentObjectTypePayload createContentObjectTypePayload)
+                    UpdateContentObjectTypePayload updateContentObjectTypePayload)
             throws ApiException {
         ApiResponse<ContentObjectType> localVarResp =
-                updateContentObjectTypeWithHttpInfo(typeId, createContentObjectTypePayload);
+                updateContentObjectTypeWithHttpInfo(typeId, updateContentObjectTypePayload);
         return localVarResp.getData();
     }
 
@@ -2069,7 +2073,7 @@ public class ContentObjectTypesApi {
      * Update a content object type
      * Updates a content object type and validates its JSON Schema before saving.  **Required permissions:** &#x60;content:admin&#x60;
      * @param typeId  (required)
-     * @param createContentObjectTypePayload  (required)
+     * @param updateContentObjectTypePayload  (required)
      * @return ApiResponse&lt;ContentObjectType&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2084,11 +2088,11 @@ public class ContentObjectTypesApi {
     public ApiResponse<ContentObjectType> updateContentObjectTypeWithHttpInfo(
             @jakarta.annotation.Nonnull String typeId,
             @jakarta.annotation.Nonnull
-                    CreateContentObjectTypePayload createContentObjectTypePayload)
+                    UpdateContentObjectTypePayload updateContentObjectTypePayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 updateContentObjectTypeValidateBeforeCall(
-                        typeId, createContentObjectTypePayload, null);
+                        typeId, updateContentObjectTypePayload, null);
         Type localVarReturnType = new TypeToken<ContentObjectType>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2097,7 +2101,7 @@ public class ContentObjectTypesApi {
      * Update a content object type (asynchronously)
      * Updates a content object type and validates its JSON Schema before saving.  **Required permissions:** &#x60;content:admin&#x60;
      * @param typeId  (required)
-     * @param createContentObjectTypePayload  (required)
+     * @param updateContentObjectTypePayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2113,13 +2117,13 @@ public class ContentObjectTypesApi {
     public okhttp3.Call updateContentObjectTypeAsync(
             @jakarta.annotation.Nonnull String typeId,
             @jakarta.annotation.Nonnull
-                    CreateContentObjectTypePayload createContentObjectTypePayload,
+                    UpdateContentObjectTypePayload updateContentObjectTypePayload,
             final ApiCallback<ContentObjectType> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 updateContentObjectTypeValidateBeforeCall(
-                        typeId, createContentObjectTypePayload, _callback);
+                        typeId, updateContentObjectTypePayload, _callback);
         Type localVarReturnType = new TypeToken<ContentObjectType>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

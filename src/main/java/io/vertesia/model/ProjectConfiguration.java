@@ -29,6 +29,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * ProjectConfiguration
@@ -353,7 +354,7 @@ public class ProjectConfiguration {
     }
 
     /**
-     * Object ID of a content object containing a custom LaTeX template (.latex file) to use as the branded PDF template. When set, \&quot;Export as Branded PDF\&quot; uses this template instead of the built-in Vertesia default template.
+     * Object ID of a content object containing a custom LaTeX template (.latex file) to use as the branded PDF template. When set, \&quot;Export as Branded PDF\&quot; uses this template instead of the built-in Vertesia default template. &#x60;null&#x60; clears it.
      * @return pdfTemplateObjectId
      */
     @jakarta.annotation.Nullable public String getPdfTemplateObjectId() {
@@ -439,6 +440,15 @@ public class ProjectConfiguration {
                         this.additionalProperties, projectConfiguration.additionalProperties);
     }
 
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(
@@ -457,6 +467,13 @@ public class ProjectConfiguration {
                 browserUse,
                 pdfTemplateObjectId,
                 additionalProperties);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override

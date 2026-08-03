@@ -53,7 +53,7 @@ public class ProjectIntakeConfiguration {
     public static final String SERIALIZED_NAME_VISION_PROFILES = "vision_profiles";
 
     @SerializedName(SERIALIZED_NAME_VISION_PROFILES)
-    @jakarta.annotation.Nullable private PartialRecordIntakeVisionDetailPartialIntakeVisionProfileSettings visionProfiles;
+    @jakarta.annotation.Nullable private IntakeVisionProfileSettingsMap visionProfiles;
 
     public static final String SERIALIZED_NAME_GENERATE_TOC = "generate_toc";
 
@@ -137,8 +137,7 @@ public class ProjectIntakeConfiguration {
     }
 
     public ProjectIntakeConfiguration visionProfiles(
-            @jakarta.annotation.Nullable PartialRecordIntakeVisionDetailPartialIntakeVisionProfileSettings
-                            visionProfiles) {
+            @jakarta.annotation.Nullable IntakeVisionProfileSettingsMap visionProfiles) {
         this.visionProfiles = visionProfiles;
         return this;
     }
@@ -147,13 +146,12 @@ public class ProjectIntakeConfiguration {
      * Project overrides for the platform vision detail profiles used by intake visual extraction (&#x60;low&#x60;/&#x60;standard&#x60;/&#x60;high&#x60;). Partial: omitted profiles or fields inherit the platform defaults. Types reference detail NAMES only; the profile settings live here.
      * @return visionProfiles
      */
-    @jakarta.annotation.Nullable public PartialRecordIntakeVisionDetailPartialIntakeVisionProfileSettings getVisionProfiles() {
+    @jakarta.annotation.Nullable public IntakeVisionProfileSettingsMap getVisionProfiles() {
         return visionProfiles;
     }
 
     public void setVisionProfiles(
-            @jakarta.annotation.Nullable PartialRecordIntakeVisionDetailPartialIntakeVisionProfileSettings
-                            visionProfiles) {
+            @jakarta.annotation.Nullable IntakeVisionProfileSettingsMap visionProfiles) {
         this.visionProfiles = visionProfiles;
     }
 
@@ -369,8 +367,7 @@ public class ProjectIntakeConfiguration {
         // validate the optional field `vision_profiles`
         if (jsonObj.get("vision_profiles") != null
                 && !jsonObj.get("vision_profiles").isJsonNull()) {
-            PartialRecordIntakeVisionDetailPartialIntakeVisionProfileSettings.validateJsonElement(
-                    jsonObj.get("vision_profiles"));
+            IntakeVisionProfileSettingsMap.validateJsonElement(jsonObj.get("vision_profiles"));
         }
         if ((jsonObj.get("default_content_type") != null
                         && !jsonObj.get("default_content_type").isJsonNull())

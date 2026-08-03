@@ -49,10 +49,10 @@ import io.vertesia.model.GroundedExtractionResultResponse;
 import io.vertesia.model.ListContentObjectExportsResponse;
 import io.vertesia.model.ListWorkflowRunsResponse;
 import io.vertesia.model.ObjectSearchResponse;
-import io.vertesia.model.PartialCreateContentObjectPayload;
 import io.vertesia.model.SetObjectEmbeddingsResponse;
 import io.vertesia.model.StartContentObjectExportRequest;
 import io.vertesia.model.StartContentObjectExportResponse;
+import io.vertesia.model.UpdateContentObjectPayload;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -4163,7 +4163,7 @@ public class ObjectsApi {
     /**
      * Build call for startObjectDocumentGroundedExtraction
      * @param objectId  (required)
-     * @param groundedExtractionRequest  (required)
+     * @param groundedExtractionRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4178,7 +4178,7 @@ public class ObjectsApi {
      */
     public okhttp3.Call startObjectDocumentGroundedExtractionCall(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest,
+            @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4240,19 +4240,13 @@ public class ObjectsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call startObjectDocumentGroundedExtractionValidateBeforeCall(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest,
+            @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
             throw new ApiException(
                     "Missing the required parameter 'objectId' when calling startObjectDocumentGroundedExtraction(Async)");
-        }
-
-        // verify the required parameter 'groundedExtractionRequest' is set
-        if (groundedExtractionRequest == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'groundedExtractionRequest' when calling startObjectDocumentGroundedExtraction(Async)");
         }
 
         return startObjectDocumentGroundedExtractionCall(
@@ -4263,7 +4257,7 @@ public class ObjectsApi {
      * Start grounded extraction
      * Starts citation-grounded structured extraction for a content object. Poll /analyze/status for progress.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
-     * @param groundedExtractionRequest  (required)
+     * @param groundedExtractionRequest  (optional)
      * @return DocAnalyzeRunStatusResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4277,7 +4271,7 @@ public class ObjectsApi {
      */
     public DocAnalyzeRunStatusResponse startObjectDocumentGroundedExtraction(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest)
+            @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest)
             throws ApiException {
         ApiResponse<DocAnalyzeRunStatusResponse> localVarResp =
                 startObjectDocumentGroundedExtractionWithHttpInfo(
@@ -4289,7 +4283,7 @@ public class ObjectsApi {
      * Start grounded extraction
      * Starts citation-grounded structured extraction for a content object. Poll /analyze/status for progress.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
-     * @param groundedExtractionRequest  (required)
+     * @param groundedExtractionRequest  (optional)
      * @return ApiResponse&lt;DocAnalyzeRunStatusResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4304,7 +4298,7 @@ public class ObjectsApi {
     public ApiResponse<DocAnalyzeRunStatusResponse>
             startObjectDocumentGroundedExtractionWithHttpInfo(
                     @jakarta.annotation.Nonnull String objectId,
-                    @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest)
+                    @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest)
                     throws ApiException {
         okhttp3.Call localVarCall =
                 startObjectDocumentGroundedExtractionValidateBeforeCall(
@@ -4317,7 +4311,7 @@ public class ObjectsApi {
      * Start grounded extraction (asynchronously)
      * Starts citation-grounded structured extraction for a content object. Poll /analyze/status for progress.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
-     * @param groundedExtractionRequest  (required)
+     * @param groundedExtractionRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4332,7 +4326,7 @@ public class ObjectsApi {
      */
     public okhttp3.Call startObjectDocumentGroundedExtractionAsync(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest,
+            @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest,
             final ApiCallback<DocAnalyzeRunStatusResponse> _callback)
             throws ApiException {
 
@@ -4347,7 +4341,7 @@ public class ObjectsApi {
     /**
      * Build call for startObjectGroundedExtractionAssistant
      * @param objectId  (required)
-     * @param groundedExtractionRequest  (required)
+     * @param groundedExtractionRequest  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4362,7 +4356,7 @@ public class ObjectsApi {
      */
     public okhttp3.Call startObjectGroundedExtractionAssistantCall(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest,
+            @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -4424,19 +4418,13 @@ public class ObjectsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call startObjectGroundedExtractionAssistantValidateBeforeCall(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest,
+            @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'objectId' is set
         if (objectId == null) {
             throw new ApiException(
                     "Missing the required parameter 'objectId' when calling startObjectGroundedExtractionAssistant(Async)");
-        }
-
-        // verify the required parameter 'groundedExtractionRequest' is set
-        if (groundedExtractionRequest == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'groundedExtractionRequest' when calling startObjectGroundedExtractionAssistant(Async)");
         }
 
         return startObjectGroundedExtractionAssistantCall(
@@ -4447,7 +4435,7 @@ public class ObjectsApi {
      * Start the interactive grounded extraction assistant
      * Records an agent run, stages the document into the agent space, and launches an interactive assistant conversation that corrects the grounded extraction under operator direction. Returns the agent_run_id used to stream/render the conversation.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
-     * @param groundedExtractionRequest  (required)
+     * @param groundedExtractionRequest  (optional)
      * @return GroundedAssistantResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4461,7 +4449,7 @@ public class ObjectsApi {
      */
     public GroundedAssistantResponse startObjectGroundedExtractionAssistant(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest)
+            @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest)
             throws ApiException {
         ApiResponse<GroundedAssistantResponse> localVarResp =
                 startObjectGroundedExtractionAssistantWithHttpInfo(
@@ -4473,7 +4461,7 @@ public class ObjectsApi {
      * Start the interactive grounded extraction assistant
      * Records an agent run, stages the document into the agent space, and launches an interactive assistant conversation that corrects the grounded extraction under operator direction. Returns the agent_run_id used to stream/render the conversation.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
-     * @param groundedExtractionRequest  (required)
+     * @param groundedExtractionRequest  (optional)
      * @return ApiResponse&lt;GroundedAssistantResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4488,7 +4476,7 @@ public class ObjectsApi {
     public ApiResponse<GroundedAssistantResponse>
             startObjectGroundedExtractionAssistantWithHttpInfo(
                     @jakarta.annotation.Nonnull String objectId,
-                    @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest)
+                    @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest)
                     throws ApiException {
         okhttp3.Call localVarCall =
                 startObjectGroundedExtractionAssistantValidateBeforeCall(
@@ -4501,7 +4489,7 @@ public class ObjectsApi {
      * Start the interactive grounded extraction assistant (asynchronously)
      * Records an agent run, stages the document into the agent space, and launches an interactive assistant conversation that corrects the grounded extraction under operator direction. Returns the agent_run_id used to stream/render the conversation.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
-     * @param groundedExtractionRequest  (required)
+     * @param groundedExtractionRequest  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4516,7 +4504,7 @@ public class ObjectsApi {
      */
     public okhttp3.Call startObjectGroundedExtractionAssistantAsync(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull GroundedExtractionRequest groundedExtractionRequest,
+            @jakarta.annotation.Nullable GroundedExtractionRequest groundedExtractionRequest,
             final ApiCallback<GroundedAssistantResponse> _callback)
             throws ApiException {
 
@@ -4531,7 +4519,7 @@ public class ObjectsApi {
     /**
      * Build call for updateObject
      * @param objectId  (required)
-     * @param partialCreateContentObjectPayload  (required)
+     * @param updateContentObjectPayload  (required)
      * @param createRevision  (optional)
      * @param revisionLabel  (optional)
      * @param processingPriority  (optional)
@@ -4539,7 +4527,7 @@ public class ObjectsApi {
      * @param xCreateRevision  (optional)
      * @param xRevisionLabel  (optional)
      * @param xProcessingPriority  (optional)
-     * @param xSuppressWorkflows  (optional)
+     * @param xSuppressWorkflows Deprecated: Events are now always emitted. This suppresses the Temporal-backed delivery targets (workflow, agent, and process) — webhook deliveries still fire. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4554,8 +4542,7 @@ public class ObjectsApi {
      */
     public okhttp3.Call updateObjectCall(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull
-                    PartialCreateContentObjectPayload partialCreateContentObjectPayload,
+            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload,
             @jakarta.annotation.Nullable Boolean createRevision,
             @jakarta.annotation.Nullable String revisionLabel,
             @jakarta.annotation.Nullable String processingPriority,
@@ -4579,7 +4566,7 @@ public class ObjectsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = partialCreateContentObjectPayload;
+        Object localVarPostBody = updateContentObjectPayload;
 
         // create path and map variables
         String localVarPath =
@@ -4666,8 +4653,7 @@ public class ObjectsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateObjectValidateBeforeCall(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull
-                    PartialCreateContentObjectPayload partialCreateContentObjectPayload,
+            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload,
             @jakarta.annotation.Nullable Boolean createRevision,
             @jakarta.annotation.Nullable String revisionLabel,
             @jakarta.annotation.Nullable String processingPriority,
@@ -4684,15 +4670,15 @@ public class ObjectsApi {
                     "Missing the required parameter 'objectId' when calling updateObject(Async)");
         }
 
-        // verify the required parameter 'partialCreateContentObjectPayload' is set
-        if (partialCreateContentObjectPayload == null) {
+        // verify the required parameter 'updateContentObjectPayload' is set
+        if (updateContentObjectPayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'partialCreateContentObjectPayload' when calling updateObject(Async)");
+                    "Missing the required parameter 'updateContentObjectPayload' when calling updateObject(Async)");
         }
 
         return updateObjectCall(
                 objectId,
-                partialCreateContentObjectPayload,
+                updateContentObjectPayload,
                 createRevision,
                 revisionLabel,
                 processingPriority,
@@ -4708,7 +4694,7 @@ public class ObjectsApi {
      * Update a content object
      * Updates a content object, optionally creating a new revision and triggering downstream indexing and processing workflows.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
-     * @param partialCreateContentObjectPayload  (required)
+     * @param updateContentObjectPayload  (required)
      * @param createRevision  (optional)
      * @param revisionLabel  (optional)
      * @param processingPriority  (optional)
@@ -4716,7 +4702,7 @@ public class ObjectsApi {
      * @param xCreateRevision  (optional)
      * @param xRevisionLabel  (optional)
      * @param xProcessingPriority  (optional)
-     * @param xSuppressWorkflows  (optional)
+     * @param xSuppressWorkflows Deprecated: Events are now always emitted. This suppresses the Temporal-backed delivery targets (workflow, agent, and process) — webhook deliveries still fire. (optional)
      * @return ContentObjectApiResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4730,8 +4716,7 @@ public class ObjectsApi {
      */
     public ContentObjectApiResponse updateObject(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull
-                    PartialCreateContentObjectPayload partialCreateContentObjectPayload,
+            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload,
             @jakarta.annotation.Nullable Boolean createRevision,
             @jakarta.annotation.Nullable String revisionLabel,
             @jakarta.annotation.Nullable String processingPriority,
@@ -4744,7 +4729,7 @@ public class ObjectsApi {
         ApiResponse<ContentObjectApiResponse> localVarResp =
                 updateObjectWithHttpInfo(
                         objectId,
-                        partialCreateContentObjectPayload,
+                        updateContentObjectPayload,
                         createRevision,
                         revisionLabel,
                         processingPriority,
@@ -4760,7 +4745,7 @@ public class ObjectsApi {
      * Update a content object
      * Updates a content object, optionally creating a new revision and triggering downstream indexing and processing workflows.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
-     * @param partialCreateContentObjectPayload  (required)
+     * @param updateContentObjectPayload  (required)
      * @param createRevision  (optional)
      * @param revisionLabel  (optional)
      * @param processingPriority  (optional)
@@ -4768,7 +4753,7 @@ public class ObjectsApi {
      * @param xCreateRevision  (optional)
      * @param xRevisionLabel  (optional)
      * @param xProcessingPriority  (optional)
-     * @param xSuppressWorkflows  (optional)
+     * @param xSuppressWorkflows Deprecated: Events are now always emitted. This suppresses the Temporal-backed delivery targets (workflow, agent, and process) — webhook deliveries still fire. (optional)
      * @return ApiResponse&lt;ContentObjectApiResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4782,8 +4767,7 @@ public class ObjectsApi {
      */
     public ApiResponse<ContentObjectApiResponse> updateObjectWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull
-                    PartialCreateContentObjectPayload partialCreateContentObjectPayload,
+            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload,
             @jakarta.annotation.Nullable Boolean createRevision,
             @jakarta.annotation.Nullable String revisionLabel,
             @jakarta.annotation.Nullable String processingPriority,
@@ -4796,7 +4780,7 @@ public class ObjectsApi {
         okhttp3.Call localVarCall =
                 updateObjectValidateBeforeCall(
                         objectId,
-                        partialCreateContentObjectPayload,
+                        updateContentObjectPayload,
                         createRevision,
                         revisionLabel,
                         processingPriority,
@@ -4814,7 +4798,7 @@ public class ObjectsApi {
      * Update a content object (asynchronously)
      * Updates a content object, optionally creating a new revision and triggering downstream indexing and processing workflows.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
-     * @param partialCreateContentObjectPayload  (required)
+     * @param updateContentObjectPayload  (required)
      * @param createRevision  (optional)
      * @param revisionLabel  (optional)
      * @param processingPriority  (optional)
@@ -4822,7 +4806,7 @@ public class ObjectsApi {
      * @param xCreateRevision  (optional)
      * @param xRevisionLabel  (optional)
      * @param xProcessingPriority  (optional)
-     * @param xSuppressWorkflows  (optional)
+     * @param xSuppressWorkflows Deprecated: Events are now always emitted. This suppresses the Temporal-backed delivery targets (workflow, agent, and process) — webhook deliveries still fire. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4837,8 +4821,7 @@ public class ObjectsApi {
      */
     public okhttp3.Call updateObjectAsync(
             @jakarta.annotation.Nonnull String objectId,
-            @jakarta.annotation.Nonnull
-                    PartialCreateContentObjectPayload partialCreateContentObjectPayload,
+            @jakarta.annotation.Nonnull UpdateContentObjectPayload updateContentObjectPayload,
             @jakarta.annotation.Nullable Boolean createRevision,
             @jakarta.annotation.Nullable String revisionLabel,
             @jakarta.annotation.Nullable String processingPriority,
@@ -4853,7 +4836,7 @@ public class ObjectsApi {
         okhttp3.Call localVarCall =
                 updateObjectValidateBeforeCall(
                         objectId,
-                        partialCreateContentObjectPayload,
+                        updateContentObjectPayload,
                         createRevision,
                         revisionLabel,
                         processingPriority,

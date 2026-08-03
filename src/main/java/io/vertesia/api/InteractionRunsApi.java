@@ -21,11 +21,11 @@ import io.vertesia.Configuration;
 import io.vertesia.Pair;
 import io.vertesia.model.DeleteByIdResult;
 import io.vertesia.model.ExecutionRunRef;
-import io.vertesia.model.PartialExecutionRunRef;
+import io.vertesia.model.InteractionExecutionResult;
 import io.vertesia.model.RunCreatePayload;
 import io.vertesia.model.RunSearchPayload;
+import io.vertesia.model.UpdateExecutionRunPayload;
 import java.lang.reflect.Type;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -157,7 +157,7 @@ public class InteractionRunsApi {
      * Create a run
      * Executes an interaction and creates a run record that tracks the input, output, status, token usage, timing, and execution source. The request can provide input data, execution configuration, result schema, tags, validation behavior, and conversation state.  **Required permissions:** &#x60;interaction:execute&#x60;
      * @param runCreatePayload  (required)
-     * @return ExecutionRunRef
+     * @return InteractionExecutionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -168,9 +168,10 @@ public class InteractionRunsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ExecutionRunRef createRun(@jakarta.annotation.Nonnull RunCreatePayload runCreatePayload)
-            throws ApiException {
-        ApiResponse<ExecutionRunRef> localVarResp = createRunWithHttpInfo(runCreatePayload);
+    public InteractionExecutionResult createRun(
+            @jakarta.annotation.Nonnull RunCreatePayload runCreatePayload) throws ApiException {
+        ApiResponse<InteractionExecutionResult> localVarResp =
+                createRunWithHttpInfo(runCreatePayload);
         return localVarResp.getData();
     }
 
@@ -178,7 +179,7 @@ public class InteractionRunsApi {
      * Create a run
      * Executes an interaction and creates a run record that tracks the input, output, status, token usage, timing, and execution source. The request can provide input data, execution configuration, result schema, tags, validation behavior, and conversation state.  **Required permissions:** &#x60;interaction:execute&#x60;
      * @param runCreatePayload  (required)
-     * @return ApiResponse&lt;ExecutionRunRef&gt;
+     * @return ApiResponse&lt;InteractionExecutionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -189,10 +190,10 @@ public class InteractionRunsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<ExecutionRunRef> createRunWithHttpInfo(
+    public ApiResponse<InteractionExecutionResult> createRunWithHttpInfo(
             @jakarta.annotation.Nonnull RunCreatePayload runCreatePayload) throws ApiException {
         okhttp3.Call localVarCall = createRunValidateBeforeCall(runCreatePayload, null);
-        Type localVarReturnType = new TypeToken<ExecutionRunRef>() {}.getType();
+        Type localVarReturnType = new TypeToken<InteractionExecutionResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -214,11 +215,11 @@ public class InteractionRunsApi {
      */
     public okhttp3.Call createRunAsync(
             @jakarta.annotation.Nonnull RunCreatePayload runCreatePayload,
-            final ApiCallback<ExecutionRunRef> _callback)
+            final ApiCallback<InteractionExecutionResult> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = createRunValidateBeforeCall(runCreatePayload, _callback);
-        Type localVarReturnType = new TypeToken<ExecutionRunRef>() {}.getType();
+        Type localVarReturnType = new TypeToken<InteractionExecutionResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -536,28 +537,17 @@ public class InteractionRunsApi {
 
     /**
      * Build call for listRuns
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param interaction  (optional)
-     * @param environment  (optional)
-     * @param model  (optional)
-     * @param tags  (optional)
-     * @param excludeTags Tags to exclude. Runs carrying any of these tags are filtered out of the results, counts, and facet buckets. Combined with &#x60;tags&#x60; (which requires all of the listed tags) as an additional &#x60;$nin&#x60; constraint on the same field. (optional)
-     * @param query  (optional)
-     * @param defaultQueryPath  (optional)
-     * @param parent  (optional)
-     * @param isRoot  (optional)
-     * @param _object  (optional)
-     * @param start  (optional)
-     * @param end  (optional)
-     * @param finishReason  (optional)
-     * @param createdBy  (optional)
-     * @param workflowRunIds  (optional)
-     * @param workflowIds  (optional)
-     * @param runIds  (optional)
-     * @param isAgent  (optional)
+     * @param limit Maximum number of runs to return. (optional)
+     * @param offset Number of runs to skip. (optional)
+     * @param interaction Interaction ids, or in-code interaction names, to filter by. (optional)
+     * @param model Model ids to filter by. (optional)
+     * @param environment Environment ids to filter by. (optional)
+     * @param status Run statuses to filter by. (optional)
+     * @param tag Run tags to filter by. (optional)
+     * @param parent Parent run ids to filter by. Mutually exclusive with &#x60;is_root&#x3D;true&#x60;. (optional)
+     * @param isRoot Return only runs that have no parent. Mutually exclusive with &#x60;parent&#x60;. (optional)
+     * @param workflowRunIds Temporal workflow run ids. (optional)
+     * @param workflowIds Temporal workflow ids. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -571,28 +561,17 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call listRunsCall(
-            @jakarta.annotation.Nullable String name,
-            @jakarta.annotation.Nullable String status,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset,
-            @jakarta.annotation.Nullable String interaction,
-            @jakarta.annotation.Nullable String environment,
-            @jakarta.annotation.Nullable String model,
-            @jakarta.annotation.Nullable List<String> tags,
-            @jakarta.annotation.Nullable List<String> excludeTags,
-            @jakarta.annotation.Nullable String query,
-            @jakarta.annotation.Nullable String defaultQueryPath,
+            @jakarta.annotation.Nullable Integer limit,
+            @jakarta.annotation.Nullable Integer offset,
+            @jakarta.annotation.Nullable List<String> interaction,
+            @jakarta.annotation.Nullable List<String> model,
+            @jakarta.annotation.Nullable List<String> environment,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable List<String> tag,
             @jakarta.annotation.Nullable List<String> parent,
             @jakarta.annotation.Nullable Boolean isRoot,
-            @jakarta.annotation.Nullable String _object,
-            @jakarta.annotation.Nullable String start,
-            @jakarta.annotation.Nullable String end,
-            @jakarta.annotation.Nullable String finishReason,
-            @jakarta.annotation.Nullable String createdBy,
             @jakarta.annotation.Nullable List<String> workflowRunIds,
             @jakarta.annotation.Nullable List<String> workflowIds,
-            @jakarta.annotation.Nullable List<String> runIds,
-            @jakarta.annotation.Nullable Boolean isAgent,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -619,14 +598,6 @@ public class InteractionRunsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (name != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("name", name));
-        }
-
-        if (status != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("status", status));
-        }
-
         if (limit != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
@@ -636,36 +607,28 @@ public class InteractionRunsApi {
         }
 
         if (interaction != null) {
-            localVarQueryParams.addAll(
-                    localVarApiClient.parameterToPair("interaction", interaction));
-        }
-
-        if (environment != null) {
-            localVarQueryParams.addAll(
-                    localVarApiClient.parameterToPair("environment", environment));
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "interaction", interaction));
         }
 
         if (model != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("model", model));
-        }
-
-        if (tags != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs("multi", "tags", tags));
+                    localVarApiClient.parameterToPairs("multi", "model", model));
         }
 
-        if (excludeTags != null) {
+        if (environment != null) {
             localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs("multi", "exclude_tags", excludeTags));
+                    localVarApiClient.parameterToPairs("multi", "environment", environment));
         }
 
-        if (query != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
+        if (status != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "status", status));
         }
 
-        if (defaultQueryPath != null) {
-            localVarQueryParams.addAll(
-                    localVarApiClient.parameterToPair("default_query_path", defaultQueryPath));
+        if (tag != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "tag", tag));
         }
 
         if (parent != null) {
@@ -677,27 +640,6 @@ public class InteractionRunsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_root", isRoot));
         }
 
-        if (_object != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("object", _object));
-        }
-
-        if (start != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("start", start));
-        }
-
-        if (end != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("end", end));
-        }
-
-        if (finishReason != null) {
-            localVarQueryParams.addAll(
-                    localVarApiClient.parameterToPair("finish_reason", finishReason));
-        }
-
-        if (createdBy != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("created_by", createdBy));
-        }
-
         if (workflowRunIds != null) {
             localVarCollectionQueryParams.addAll(
                     localVarApiClient.parameterToPairs(
@@ -707,15 +649,6 @@ public class InteractionRunsApi {
         if (workflowIds != null) {
             localVarCollectionQueryParams.addAll(
                     localVarApiClient.parameterToPairs("multi", "workflow_ids", workflowIds));
-        }
-
-        if (runIds != null) {
-            localVarCollectionQueryParams.addAll(
-                    localVarApiClient.parameterToPairs("multi", "run_ids", runIds));
-        }
-
-        if (isAgent != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("is_agent", isAgent));
         }
 
         final String[] localVarAccepts = {"application/json"};
@@ -748,81 +681,48 @@ public class InteractionRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listRunsValidateBeforeCall(
-            @jakarta.annotation.Nullable String name,
-            @jakarta.annotation.Nullable String status,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset,
-            @jakarta.annotation.Nullable String interaction,
-            @jakarta.annotation.Nullable String environment,
-            @jakarta.annotation.Nullable String model,
-            @jakarta.annotation.Nullable List<String> tags,
-            @jakarta.annotation.Nullable List<String> excludeTags,
-            @jakarta.annotation.Nullable String query,
-            @jakarta.annotation.Nullable String defaultQueryPath,
+            @jakarta.annotation.Nullable Integer limit,
+            @jakarta.annotation.Nullable Integer offset,
+            @jakarta.annotation.Nullable List<String> interaction,
+            @jakarta.annotation.Nullable List<String> model,
+            @jakarta.annotation.Nullable List<String> environment,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable List<String> tag,
             @jakarta.annotation.Nullable List<String> parent,
             @jakarta.annotation.Nullable Boolean isRoot,
-            @jakarta.annotation.Nullable String _object,
-            @jakarta.annotation.Nullable String start,
-            @jakarta.annotation.Nullable String end,
-            @jakarta.annotation.Nullable String finishReason,
-            @jakarta.annotation.Nullable String createdBy,
             @jakarta.annotation.Nullable List<String> workflowRunIds,
             @jakarta.annotation.Nullable List<String> workflowIds,
-            @jakarta.annotation.Nullable List<String> runIds,
-            @jakarta.annotation.Nullable Boolean isAgent,
             final ApiCallback _callback)
             throws ApiException {
         return listRunsCall(
-                name,
-                status,
                 limit,
                 offset,
                 interaction,
-                environment,
                 model,
-                tags,
-                excludeTags,
-                query,
-                defaultQueryPath,
+                environment,
+                status,
+                tag,
                 parent,
                 isRoot,
-                _object,
-                start,
-                end,
-                finishReason,
-                createdBy,
                 workflowRunIds,
                 workflowIds,
-                runIds,
-                isAgent,
                 _callback);
     }
 
     /**
      * List runs
-     * Lists execution runs in the current project, sorted by most recently updated first. Supports pagination and query-string filters such as interaction, status, model, environment, tag, parent, finish reason, creator, and date range.  **Required permissions:** &#x60;run:read&#x60;
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param interaction  (optional)
-     * @param environment  (optional)
-     * @param model  (optional)
-     * @param tags  (optional)
-     * @param excludeTags Tags to exclude. Runs carrying any of these tags are filtered out of the results, counts, and facet buckets. Combined with &#x60;tags&#x60; (which requires all of the listed tags) as an additional &#x60;$nin&#x60; constraint on the same field. (optional)
-     * @param query  (optional)
-     * @param defaultQueryPath  (optional)
-     * @param parent  (optional)
-     * @param isRoot  (optional)
-     * @param _object  (optional)
-     * @param start  (optional)
-     * @param end  (optional)
-     * @param finishReason  (optional)
-     * @param createdBy  (optional)
-     * @param workflowRunIds  (optional)
-     * @param workflowIds  (optional)
-     * @param runIds  (optional)
-     * @param isAgent  (optional)
+     * Lists execution runs in the current project, sorted by most recently updated first. Supports pagination and query-string filters such as interaction, status, model, environment, tag, parent, and workflow.  **Required permissions:** &#x60;run:read&#x60;
+     * @param limit Maximum number of runs to return. (optional)
+     * @param offset Number of runs to skip. (optional)
+     * @param interaction Interaction ids, or in-code interaction names, to filter by. (optional)
+     * @param model Model ids to filter by. (optional)
+     * @param environment Environment ids to filter by. (optional)
+     * @param status Run statuses to filter by. (optional)
+     * @param tag Run tags to filter by. (optional)
+     * @param parent Parent run ids to filter by. Mutually exclusive with &#x60;is_root&#x3D;true&#x60;. (optional)
+     * @param isRoot Return only runs that have no parent. Mutually exclusive with &#x60;parent&#x60;. (optional)
+     * @param workflowRunIds Temporal workflow run ids. (optional)
+     * @param workflowIds Temporal workflow ids. (optional)
      * @return List&lt;ExecutionRunRef&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -835,81 +735,48 @@ public class InteractionRunsApi {
      * </table>
      */
     public List<ExecutionRunRef> listRuns(
-            @jakarta.annotation.Nullable String name,
-            @jakarta.annotation.Nullable String status,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset,
-            @jakarta.annotation.Nullable String interaction,
-            @jakarta.annotation.Nullable String environment,
-            @jakarta.annotation.Nullable String model,
-            @jakarta.annotation.Nullable List<String> tags,
-            @jakarta.annotation.Nullable List<String> excludeTags,
-            @jakarta.annotation.Nullable String query,
-            @jakarta.annotation.Nullable String defaultQueryPath,
+            @jakarta.annotation.Nullable Integer limit,
+            @jakarta.annotation.Nullable Integer offset,
+            @jakarta.annotation.Nullable List<String> interaction,
+            @jakarta.annotation.Nullable List<String> model,
+            @jakarta.annotation.Nullable List<String> environment,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable List<String> tag,
             @jakarta.annotation.Nullable List<String> parent,
             @jakarta.annotation.Nullable Boolean isRoot,
-            @jakarta.annotation.Nullable String _object,
-            @jakarta.annotation.Nullable String start,
-            @jakarta.annotation.Nullable String end,
-            @jakarta.annotation.Nullable String finishReason,
-            @jakarta.annotation.Nullable String createdBy,
             @jakarta.annotation.Nullable List<String> workflowRunIds,
-            @jakarta.annotation.Nullable List<String> workflowIds,
-            @jakarta.annotation.Nullable List<String> runIds,
-            @jakarta.annotation.Nullable Boolean isAgent)
+            @jakarta.annotation.Nullable List<String> workflowIds)
             throws ApiException {
         ApiResponse<List<ExecutionRunRef>> localVarResp =
                 listRunsWithHttpInfo(
-                        name,
-                        status,
                         limit,
                         offset,
                         interaction,
-                        environment,
                         model,
-                        tags,
-                        excludeTags,
-                        query,
-                        defaultQueryPath,
+                        environment,
+                        status,
+                        tag,
                         parent,
                         isRoot,
-                        _object,
-                        start,
-                        end,
-                        finishReason,
-                        createdBy,
                         workflowRunIds,
-                        workflowIds,
-                        runIds,
-                        isAgent);
+                        workflowIds);
         return localVarResp.getData();
     }
 
     /**
      * List runs
-     * Lists execution runs in the current project, sorted by most recently updated first. Supports pagination and query-string filters such as interaction, status, model, environment, tag, parent, finish reason, creator, and date range.  **Required permissions:** &#x60;run:read&#x60;
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param interaction  (optional)
-     * @param environment  (optional)
-     * @param model  (optional)
-     * @param tags  (optional)
-     * @param excludeTags Tags to exclude. Runs carrying any of these tags are filtered out of the results, counts, and facet buckets. Combined with &#x60;tags&#x60; (which requires all of the listed tags) as an additional &#x60;$nin&#x60; constraint on the same field. (optional)
-     * @param query  (optional)
-     * @param defaultQueryPath  (optional)
-     * @param parent  (optional)
-     * @param isRoot  (optional)
-     * @param _object  (optional)
-     * @param start  (optional)
-     * @param end  (optional)
-     * @param finishReason  (optional)
-     * @param createdBy  (optional)
-     * @param workflowRunIds  (optional)
-     * @param workflowIds  (optional)
-     * @param runIds  (optional)
-     * @param isAgent  (optional)
+     * Lists execution runs in the current project, sorted by most recently updated first. Supports pagination and query-string filters such as interaction, status, model, environment, tag, parent, and workflow.  **Required permissions:** &#x60;run:read&#x60;
+     * @param limit Maximum number of runs to return. (optional)
+     * @param offset Number of runs to skip. (optional)
+     * @param interaction Interaction ids, or in-code interaction names, to filter by. (optional)
+     * @param model Model ids to filter by. (optional)
+     * @param environment Environment ids to filter by. (optional)
+     * @param status Run statuses to filter by. (optional)
+     * @param tag Run tags to filter by. (optional)
+     * @param parent Parent run ids to filter by. Mutually exclusive with &#x60;is_root&#x3D;true&#x60;. (optional)
+     * @param isRoot Return only runs that have no parent. Mutually exclusive with &#x60;parent&#x60;. (optional)
+     * @param workflowRunIds Temporal workflow run ids. (optional)
+     * @param workflowIds Temporal workflow ids. (optional)
      * @return ApiResponse&lt;List&lt;ExecutionRunRef&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -922,53 +789,31 @@ public class InteractionRunsApi {
      * </table>
      */
     public ApiResponse<List<ExecutionRunRef>> listRunsWithHttpInfo(
-            @jakarta.annotation.Nullable String name,
-            @jakarta.annotation.Nullable String status,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset,
-            @jakarta.annotation.Nullable String interaction,
-            @jakarta.annotation.Nullable String environment,
-            @jakarta.annotation.Nullable String model,
-            @jakarta.annotation.Nullable List<String> tags,
-            @jakarta.annotation.Nullable List<String> excludeTags,
-            @jakarta.annotation.Nullable String query,
-            @jakarta.annotation.Nullable String defaultQueryPath,
+            @jakarta.annotation.Nullable Integer limit,
+            @jakarta.annotation.Nullable Integer offset,
+            @jakarta.annotation.Nullable List<String> interaction,
+            @jakarta.annotation.Nullable List<String> model,
+            @jakarta.annotation.Nullable List<String> environment,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable List<String> tag,
             @jakarta.annotation.Nullable List<String> parent,
             @jakarta.annotation.Nullable Boolean isRoot,
-            @jakarta.annotation.Nullable String _object,
-            @jakarta.annotation.Nullable String start,
-            @jakarta.annotation.Nullable String end,
-            @jakarta.annotation.Nullable String finishReason,
-            @jakarta.annotation.Nullable String createdBy,
             @jakarta.annotation.Nullable List<String> workflowRunIds,
-            @jakarta.annotation.Nullable List<String> workflowIds,
-            @jakarta.annotation.Nullable List<String> runIds,
-            @jakarta.annotation.Nullable Boolean isAgent)
+            @jakarta.annotation.Nullable List<String> workflowIds)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listRunsValidateBeforeCall(
-                        name,
-                        status,
                         limit,
                         offset,
                         interaction,
-                        environment,
                         model,
-                        tags,
-                        excludeTags,
-                        query,
-                        defaultQueryPath,
+                        environment,
+                        status,
+                        tag,
                         parent,
                         isRoot,
-                        _object,
-                        start,
-                        end,
-                        finishReason,
-                        createdBy,
                         workflowRunIds,
                         workflowIds,
-                        runIds,
-                        isAgent,
                         null);
         Type localVarReturnType = new TypeToken<List<ExecutionRunRef>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -976,29 +821,18 @@ public class InteractionRunsApi {
 
     /**
      * List runs (asynchronously)
-     * Lists execution runs in the current project, sorted by most recently updated first. Supports pagination and query-string filters such as interaction, status, model, environment, tag, parent, finish reason, creator, and date range.  **Required permissions:** &#x60;run:read&#x60;
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param interaction  (optional)
-     * @param environment  (optional)
-     * @param model  (optional)
-     * @param tags  (optional)
-     * @param excludeTags Tags to exclude. Runs carrying any of these tags are filtered out of the results, counts, and facet buckets. Combined with &#x60;tags&#x60; (which requires all of the listed tags) as an additional &#x60;$nin&#x60; constraint on the same field. (optional)
-     * @param query  (optional)
-     * @param defaultQueryPath  (optional)
-     * @param parent  (optional)
-     * @param isRoot  (optional)
-     * @param _object  (optional)
-     * @param start  (optional)
-     * @param end  (optional)
-     * @param finishReason  (optional)
-     * @param createdBy  (optional)
-     * @param workflowRunIds  (optional)
-     * @param workflowIds  (optional)
-     * @param runIds  (optional)
-     * @param isAgent  (optional)
+     * Lists execution runs in the current project, sorted by most recently updated first. Supports pagination and query-string filters such as interaction, status, model, environment, tag, parent, and workflow.  **Required permissions:** &#x60;run:read&#x60;
+     * @param limit Maximum number of runs to return. (optional)
+     * @param offset Number of runs to skip. (optional)
+     * @param interaction Interaction ids, or in-code interaction names, to filter by. (optional)
+     * @param model Model ids to filter by. (optional)
+     * @param environment Environment ids to filter by. (optional)
+     * @param status Run statuses to filter by. (optional)
+     * @param tag Run tags to filter by. (optional)
+     * @param parent Parent run ids to filter by. Mutually exclusive with &#x60;is_root&#x3D;true&#x60;. (optional)
+     * @param isRoot Return only runs that have no parent. Mutually exclusive with &#x60;parent&#x60;. (optional)
+     * @param workflowRunIds Temporal workflow run ids. (optional)
+     * @param workflowIds Temporal workflow ids. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1012,55 +846,33 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call listRunsAsync(
-            @jakarta.annotation.Nullable String name,
-            @jakarta.annotation.Nullable String status,
-            @jakarta.annotation.Nullable BigDecimal limit,
-            @jakarta.annotation.Nullable BigDecimal offset,
-            @jakarta.annotation.Nullable String interaction,
-            @jakarta.annotation.Nullable String environment,
-            @jakarta.annotation.Nullable String model,
-            @jakarta.annotation.Nullable List<String> tags,
-            @jakarta.annotation.Nullable List<String> excludeTags,
-            @jakarta.annotation.Nullable String query,
-            @jakarta.annotation.Nullable String defaultQueryPath,
+            @jakarta.annotation.Nullable Integer limit,
+            @jakarta.annotation.Nullable Integer offset,
+            @jakarta.annotation.Nullable List<String> interaction,
+            @jakarta.annotation.Nullable List<String> model,
+            @jakarta.annotation.Nullable List<String> environment,
+            @jakarta.annotation.Nullable List<String> status,
+            @jakarta.annotation.Nullable List<String> tag,
             @jakarta.annotation.Nullable List<String> parent,
             @jakarta.annotation.Nullable Boolean isRoot,
-            @jakarta.annotation.Nullable String _object,
-            @jakarta.annotation.Nullable String start,
-            @jakarta.annotation.Nullable String end,
-            @jakarta.annotation.Nullable String finishReason,
-            @jakarta.annotation.Nullable String createdBy,
             @jakarta.annotation.Nullable List<String> workflowRunIds,
             @jakarta.annotation.Nullable List<String> workflowIds,
-            @jakarta.annotation.Nullable List<String> runIds,
-            @jakarta.annotation.Nullable Boolean isAgent,
             final ApiCallback<List<ExecutionRunRef>> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 listRunsValidateBeforeCall(
-                        name,
-                        status,
                         limit,
                         offset,
                         interaction,
-                        environment,
                         model,
-                        tags,
-                        excludeTags,
-                        query,
-                        defaultQueryPath,
+                        environment,
+                        status,
+                        tag,
                         parent,
                         isRoot,
-                        _object,
-                        start,
-                        end,
-                        finishReason,
-                        createdBy,
                         workflowRunIds,
                         workflowIds,
-                        runIds,
-                        isAgent,
                         _callback);
         Type localVarReturnType = new TypeToken<List<ExecutionRunRef>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -1380,7 +1192,7 @@ public class InteractionRunsApi {
     /**
      * Build call for updateRun
      * @param runId  (required)
-     * @param partialExecutionRunRef  (required)
+     * @param updateExecutionRunPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1395,7 +1207,7 @@ public class InteractionRunsApi {
      */
     public okhttp3.Call updateRunCall(
             @jakarta.annotation.Nonnull String runId,
-            @jakarta.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef,
+            @jakarta.annotation.Nonnull UpdateExecutionRunPayload updateExecutionRunPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1411,7 +1223,7 @@ public class InteractionRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = partialExecutionRunRef;
+        Object localVarPostBody = updateExecutionRunPayload;
 
         // create path and map variables
         String localVarPath =
@@ -1457,7 +1269,7 @@ public class InteractionRunsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateRunValidateBeforeCall(
             @jakarta.annotation.Nonnull String runId,
-            @jakarta.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef,
+            @jakarta.annotation.Nonnull UpdateExecutionRunPayload updateExecutionRunPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'runId' is set
@@ -1466,20 +1278,20 @@ public class InteractionRunsApi {
                     "Missing the required parameter 'runId' when calling updateRun(Async)");
         }
 
-        // verify the required parameter 'partialExecutionRunRef' is set
-        if (partialExecutionRunRef == null) {
+        // verify the required parameter 'updateExecutionRunPayload' is set
+        if (updateExecutionRunPayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'partialExecutionRunRef' when calling updateRun(Async)");
+                    "Missing the required parameter 'updateExecutionRunPayload' when calling updateRun(Async)");
         }
 
-        return updateRunCall(runId, partialExecutionRunRef, _callback);
+        return updateRunCall(runId, updateExecutionRunPayload, _callback);
     }
 
     /**
      * Update a run
      * Updates mutable fields on an execution run. Use this for run metadata or status updates rather than starting or resuming execution.  **Required permissions:** &#x60;run:write&#x60;
      * @param runId  (required)
-     * @param partialExecutionRunRef  (required)
+     * @param updateExecutionRunPayload  (required)
      * @return ExecutionRunRef
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1493,10 +1305,10 @@ public class InteractionRunsApi {
      */
     public ExecutionRunRef updateRun(
             @jakarta.annotation.Nonnull String runId,
-            @jakarta.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef)
+            @jakarta.annotation.Nonnull UpdateExecutionRunPayload updateExecutionRunPayload)
             throws ApiException {
         ApiResponse<ExecutionRunRef> localVarResp =
-                updateRunWithHttpInfo(runId, partialExecutionRunRef);
+                updateRunWithHttpInfo(runId, updateExecutionRunPayload);
         return localVarResp.getData();
     }
 
@@ -1504,7 +1316,7 @@ public class InteractionRunsApi {
      * Update a run
      * Updates mutable fields on an execution run. Use this for run metadata or status updates rather than starting or resuming execution.  **Required permissions:** &#x60;run:write&#x60;
      * @param runId  (required)
-     * @param partialExecutionRunRef  (required)
+     * @param updateExecutionRunPayload  (required)
      * @return ApiResponse&lt;ExecutionRunRef&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1518,10 +1330,10 @@ public class InteractionRunsApi {
      */
     public ApiResponse<ExecutionRunRef> updateRunWithHttpInfo(
             @jakarta.annotation.Nonnull String runId,
-            @jakarta.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef)
+            @jakarta.annotation.Nonnull UpdateExecutionRunPayload updateExecutionRunPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
-                updateRunValidateBeforeCall(runId, partialExecutionRunRef, null);
+                updateRunValidateBeforeCall(runId, updateExecutionRunPayload, null);
         Type localVarReturnType = new TypeToken<ExecutionRunRef>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1530,7 +1342,7 @@ public class InteractionRunsApi {
      * Update a run (asynchronously)
      * Updates mutable fields on an execution run. Use this for run metadata or status updates rather than starting or resuming execution.  **Required permissions:** &#x60;run:write&#x60;
      * @param runId  (required)
-     * @param partialExecutionRunRef  (required)
+     * @param updateExecutionRunPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1545,12 +1357,12 @@ public class InteractionRunsApi {
      */
     public okhttp3.Call updateRunAsync(
             @jakarta.annotation.Nonnull String runId,
-            @jakarta.annotation.Nonnull PartialExecutionRunRef partialExecutionRunRef,
+            @jakarta.annotation.Nonnull UpdateExecutionRunPayload updateExecutionRunPayload,
             final ApiCallback<ExecutionRunRef> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                updateRunValidateBeforeCall(runId, partialExecutionRunRef, _callback);
+                updateRunValidateBeforeCall(runId, updateExecutionRunPayload, _callback);
         Type localVarReturnType = new TypeToken<ExecutionRunRef>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

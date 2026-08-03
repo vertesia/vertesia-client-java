@@ -137,22 +137,10 @@ public class CreateWorkflowRulePayload {
     @SerializedName(SERIALIZED_NAME_EVENT_SUBSCRIPTION_MIGRATION_ERROR)
     @jakarta.annotation.Nullable private String eventSubscriptionMigrationError;
 
-    public static final String SERIALIZED_NAME_ENDPOINT = "endpoint";
-
-    @SerializedName(SERIALIZED_NAME_ENDPOINT)
-    @jakarta.annotation.Nonnull
-    private String endpoint;
-
     public static final String SERIALIZED_NAME_INPUT_TYPE = "input_type";
 
     @SerializedName(SERIALIZED_NAME_INPUT_TYPE)
     @jakarta.annotation.Nullable private WorkflowRuleInputType inputType;
-
-    public static final String SERIALIZED_NAME_NAME = "name";
-
-    @SerializedName(SERIALIZED_NAME_NAME)
-    @jakarta.annotation.Nonnull
-    private String name;
 
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
@@ -173,6 +161,18 @@ public class CreateWorkflowRulePayload {
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
     @jakarta.annotation.Nullable private String createdBy;
+
+    public static final String SERIALIZED_NAME_ENDPOINT = "endpoint";
+
+    @SerializedName(SERIALIZED_NAME_ENDPOINT)
+    @jakarta.annotation.Nonnull
+    private String endpoint;
+
+    public static final String SERIALIZED_NAME_NAME = "name";
+
+    @SerializedName(SERIALIZED_NAME_NAME)
+    @jakarta.annotation.Nonnull
+    private String name;
 
     public CreateWorkflowRulePayload() {}
 
@@ -317,24 +317,6 @@ public class CreateWorkflowRulePayload {
         this.eventSubscriptionMigrationError = eventSubscriptionMigrationError;
     }
 
-    public CreateWorkflowRulePayload endpoint(@jakarta.annotation.Nonnull String endpoint) {
-        this.endpoint = endpoint;
-        return this;
-    }
-
-    /**
-     * Get endpoint
-     * @return endpoint
-     */
-    @jakarta.annotation.Nonnull
-    public String getEndpoint() {
-        return endpoint;
-    }
-
-    public void setEndpoint(@jakarta.annotation.Nonnull String endpoint) {
-        this.endpoint = endpoint;
-    }
-
     public CreateWorkflowRulePayload inputType(
             @jakarta.annotation.Nullable WorkflowRuleInputType inputType) {
         this.inputType = inputType;
@@ -351,24 +333,6 @@ public class CreateWorkflowRulePayload {
 
     public void setInputType(@jakarta.annotation.Nullable WorkflowRuleInputType inputType) {
         this.inputType = inputType;
-    }
-
-    public CreateWorkflowRulePayload name(@jakarta.annotation.Nonnull String name) {
-        this.name = name;
-        return this;
-    }
-
-    /**
-     * Human-readable name or title
-     * @return name
-     */
-    @jakarta.annotation.Nonnull
-    public String getName() {
-        return name;
-    }
-
-    public void setName(@jakarta.annotation.Nonnull String name) {
-        this.name = name;
     }
 
     public CreateWorkflowRulePayload description(@jakarta.annotation.Nullable String description) {
@@ -447,6 +411,42 @@ public class CreateWorkflowRulePayload {
         this.createdBy = createdBy;
     }
 
+    public CreateWorkflowRulePayload endpoint(@jakarta.annotation.Nonnull String endpoint) {
+        this.endpoint = endpoint;
+        return this;
+    }
+
+    /**
+     * Get endpoint
+     * @return endpoint
+     */
+    @jakarta.annotation.Nonnull
+    public String getEndpoint() {
+        return endpoint;
+    }
+
+    public void setEndpoint(@jakarta.annotation.Nonnull String endpoint) {
+        this.endpoint = endpoint;
+    }
+
+    public CreateWorkflowRulePayload name(@jakarta.annotation.Nonnull String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Human-readable name or title
+     * @return name
+     */
+    @jakarta.annotation.Nonnull
+    public String getName() {
+        return name;
+    }
+
+    public void setName(@jakarta.annotation.Nonnull String name) {
+        this.name = name;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -512,13 +512,13 @@ public class CreateWorkflowRulePayload {
                 && Objects.equals(
                         this.eventSubscriptionMigrationError,
                         createWorkflowRulePayload.eventSubscriptionMigrationError)
-                && Objects.equals(this.endpoint, createWorkflowRulePayload.endpoint)
                 && Objects.equals(this.inputType, createWorkflowRulePayload.inputType)
-                && Objects.equals(this.name, createWorkflowRulePayload.name)
                 && Objects.equals(this.description, createWorkflowRulePayload.description)
                 && Objects.equals(this.tags, createWorkflowRulePayload.tags)
                 && Objects.equals(this.updatedBy, createWorkflowRulePayload.updatedBy)
                 && Objects.equals(this.createdBy, createWorkflowRulePayload.createdBy)
+                && Objects.equals(this.endpoint, createWorkflowRulePayload.endpoint)
+                && Objects.equals(this.name, createWorkflowRulePayload.name)
                 && Objects.equals(
                         this.additionalProperties, createWorkflowRulePayload.additionalProperties);
     }
@@ -533,13 +533,13 @@ public class CreateWorkflowRulePayload {
                 taskQueue,
                 eventSubscriptionMigrationStatus,
                 eventSubscriptionMigrationError,
-                endpoint,
                 inputType,
-                name,
                 description,
                 tags,
                 updatedBy,
                 createdBy,
+                endpoint,
+                name,
                 additionalProperties);
     }
 
@@ -558,13 +558,13 @@ public class CreateWorkflowRulePayload {
         sb.append("    eventSubscriptionMigrationError: ")
                 .append(toIndentedString(eventSubscriptionMigrationError))
                 .append("\n");
-        sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
         sb.append("    inputType: ").append(toIndentedString(inputType)).append("\n");
-        sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+        sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -595,13 +595,13 @@ public class CreateWorkflowRulePayload {
                                 "task_queue",
                                 "event_subscription_migration_status",
                                 "event_subscription_migration_error",
-                                "endpoint",
                                 "input_type",
-                                "name",
                                 "description",
                                 "tags",
                                 "updated_by",
-                                "created_by"));
+                                "created_by",
+                                "endpoint",
+                                "name"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("endpoint", "name"));
@@ -669,23 +669,9 @@ public class CreateWorkflowRulePayload {
                             "Expected the field `event_subscription_migration_error` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("event_subscription_migration_error").toString()));
         }
-        if (!jsonObj.get("endpoint").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `endpoint` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("endpoint").toString()));
-        }
         // validate the optional field `input_type`
         if (jsonObj.get("input_type") != null && !jsonObj.get("input_type").isJsonNull()) {
             WorkflowRuleInputType.validateJsonElement(jsonObj.get("input_type"));
-        }
-        if (!jsonObj.get("name").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("name").toString()));
         }
         if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
                 && !jsonObj.get("description").isJsonPrimitive()) {
@@ -720,6 +706,20 @@ public class CreateWorkflowRulePayload {
                             java.util.Locale.ROOT,
                             "Expected the field `created_by` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("created_by").toString()));
+        }
+        if (!jsonObj.get("endpoint").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `endpoint` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("endpoint").toString()));
+        }
+        if (!jsonObj.get("name").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("name").toString()));
         }
     }
 

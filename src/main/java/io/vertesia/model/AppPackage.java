@@ -62,9 +62,7 @@ public class AppPackage {
     public static final String SERIALIZED_NAME_TYPES = "types";
 
     @SerializedName(SERIALIZED_NAME_TYPES)
-    @jakarta.annotation.Nullable private List<
-                    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>
-            types = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<InCodeTypeDefinition> types = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_PROCESSES = "processes";
 
@@ -197,17 +195,12 @@ public class AppPackage {
         this.interactions = interactions;
     }
 
-    public AppPackage types(
-            @jakarta.annotation.Nullable List<
-                                    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>
-                            types) {
+    public AppPackage types(@jakarta.annotation.Nullable List<InCodeTypeDefinition> types) {
         this.types = types;
         return this;
     }
 
-    public AppPackage addTypesItem(
-            PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
-                    typesItem) {
+    public AppPackage addTypesItem(InCodeTypeDefinition typesItem) {
         if (this.types == null) {
             this.types = new ArrayList<>();
         }
@@ -219,16 +212,11 @@ public class AppPackage {
      * A list of types.
      * @return types
      */
-    @jakarta.annotation.Nullable public List<
-                    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>
-            getTypes() {
+    @jakarta.annotation.Nullable public List<InCodeTypeDefinition> getTypes() {
         return types;
     }
 
-    public void setTypes(
-            @jakarta.annotation.Nullable List<
-                                    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing>
-                            types) {
+    public void setTypes(@jakarta.annotation.Nullable List<InCodeTypeDefinition> types) {
         this.types = types;
     }
 
@@ -592,8 +580,7 @@ public class AppPackage {
 
                 // validate the optional field `types` (array)
                 for (int i = 0; i < jsonArraytypes.size(); i++) {
-                    PickContentObjectTypeItemIdNameDescriptionTagsObjectSchemaTableLayoutIsChunkableStrictModeStatusIntakeEditing
-                            .validateJsonElement(jsonArraytypes.get(i));
+                    InCodeTypeDefinition.validateJsonElement(jsonArraytypes.get(i));
                 }
                 ;
             }

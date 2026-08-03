@@ -425,7 +425,7 @@ public class ApiKeyReadResponse {
     }
 
     /**
-     * BLP clearance level — determines max document sensitivity the key can access
+     * BLP clearance level — the maximum document sensitivity the key can access
      * @return clearance
      */
     @jakarta.annotation.Nullable public BigDecimal getClearance() {
@@ -450,7 +450,7 @@ public class ApiKeyReadResponse {
     }
 
     /**
-     * Compartments the key belongs to — restricts access to documents in matching compartments
+     * Compartments the key belongs to — restricts access to matching documents
      * @return compartments
      */
     @jakarta.annotation.Nullable public List<String> getCompartments() {

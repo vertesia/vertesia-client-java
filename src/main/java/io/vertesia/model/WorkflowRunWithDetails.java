@@ -44,7 +44,7 @@ public class WorkflowRunWithDetails {
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @jakarta.annotation.Nullable private WorkflowRunWithDetailsStatus status;
+    @jakarta.annotation.Nullable private WorkflowRunStatus status;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
@@ -158,8 +158,7 @@ public class WorkflowRunWithDetails {
 
     public WorkflowRunWithDetails() {}
 
-    public WorkflowRunWithDetails status(
-            @jakarta.annotation.Nullable WorkflowRunWithDetailsStatus status) {
+    public WorkflowRunWithDetails status(@jakarta.annotation.Nullable WorkflowRunStatus status) {
         this.status = status;
         return this;
     }
@@ -168,11 +167,11 @@ public class WorkflowRunWithDetails {
      * Get status
      * @return status
      */
-    @jakarta.annotation.Nullable public WorkflowRunWithDetailsStatus getStatus() {
+    @jakarta.annotation.Nullable public WorkflowRunStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@jakarta.annotation.Nullable WorkflowRunWithDetailsStatus status) {
+    public void setStatus(@jakarta.annotation.Nullable WorkflowRunStatus status) {
         this.status = status;
     }
 
@@ -778,7 +777,7 @@ public class WorkflowRunWithDetails {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the optional field `status`
         if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
-            WorkflowRunWithDetailsStatus.validateJsonElement(jsonObj.get("status"));
+            WorkflowRunStatus.validateJsonElement(jsonObj.get("status"));
         }
         if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull())
                 && !jsonObj.get("type").isJsonPrimitive()) {

@@ -20,8 +20,8 @@ import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
 import io.vertesia.model.CreateSecretRequest;
+import io.vertesia.model.DeleteSecretResponse;
 import io.vertesia.model.ListSecretsResponse;
-import io.vertesia.model.OkBoolean;
 import io.vertesia.model.SecretRecord;
 import io.vertesia.model.UpdateSecretRequest;
 import io.vertesia.model.WebsiteCredentialFillRequest;
@@ -351,7 +351,7 @@ public class SecretsApi {
      * @param secretId  (required)
      * @param projectId Project scope for top-level secret APIs. Must match the authenticated project context. (optional)
      * @param kind  (optional)
-     * @return OkBoolean
+     * @return DeleteSecretResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -362,12 +362,13 @@ public class SecretsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public OkBoolean deleteSecret(
+    public DeleteSecretResponse deleteSecret(
             @jakarta.annotation.Nonnull String secretId,
             @jakarta.annotation.Nullable String projectId,
             @jakarta.annotation.Nullable String kind)
             throws ApiException {
-        ApiResponse<OkBoolean> localVarResp = deleteSecretWithHttpInfo(secretId, projectId, kind);
+        ApiResponse<DeleteSecretResponse> localVarResp =
+                deleteSecretWithHttpInfo(secretId, projectId, kind);
         return localVarResp.getData();
     }
 
@@ -377,7 +378,7 @@ public class SecretsApi {
      * @param secretId  (required)
      * @param projectId Project scope for top-level secret APIs. Must match the authenticated project context. (optional)
      * @param kind  (optional)
-     * @return ApiResponse&lt;OkBoolean&gt;
+     * @return ApiResponse&lt;DeleteSecretResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -388,13 +389,13 @@ public class SecretsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<OkBoolean> deleteSecretWithHttpInfo(
+    public ApiResponse<DeleteSecretResponse> deleteSecretWithHttpInfo(
             @jakarta.annotation.Nonnull String secretId,
             @jakarta.annotation.Nullable String projectId,
             @jakarta.annotation.Nullable String kind)
             throws ApiException {
         okhttp3.Call localVarCall = deleteSecretValidateBeforeCall(secretId, projectId, kind, null);
-        Type localVarReturnType = new TypeToken<OkBoolean>() {}.getType();
+        Type localVarReturnType = new TypeToken<DeleteSecretResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -420,12 +421,12 @@ public class SecretsApi {
             @jakarta.annotation.Nonnull String secretId,
             @jakarta.annotation.Nullable String projectId,
             @jakarta.annotation.Nullable String kind,
-            final ApiCallback<OkBoolean> _callback)
+            final ApiCallback<DeleteSecretResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 deleteSecretValidateBeforeCall(secretId, projectId, kind, _callback);
-        Type localVarReturnType = new TypeToken<OkBoolean>() {}.getType();
+        Type localVarReturnType = new TypeToken<DeleteSecretResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

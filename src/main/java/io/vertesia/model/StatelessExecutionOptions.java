@@ -40,11 +40,6 @@ public class StatelessExecutionOptions {
     @jakarta.annotation.Nonnull
     private String model;
 
-    public static final String SERIALIZED_NAME_FORMAT = "format";
-
-    @SerializedName(SERIALIZED_NAME_FORMAT)
-    @jakarta.annotation.Nullable private PromptFormatter format;
-
     public static final String SERIALIZED_NAME_RESULT_SCHEMA = "result_schema";
 
     @SerializedName(SERIALIZED_NAME_RESULT_SCHEMA)
@@ -101,23 +96,6 @@ public class StatelessExecutionOptions {
 
     public void setModel(@jakarta.annotation.Nonnull String model) {
         this.model = model;
-    }
-
-    public StatelessExecutionOptions format(@jakarta.annotation.Nullable PromptFormatter format) {
-        this.format = format;
-        return this;
-    }
-
-    /**
-     * A custom formatter to use for format the final model prompt from the input prompt segments. If no one is specified the driver will choose a formatter compatible with the target model
-     * @return format
-     */
-    @jakarta.annotation.Nullable public PromptFormatter getFormat() {
-        return format;
-    }
-
-    public void setFormat(@jakarta.annotation.Nullable PromptFormatter format) {
-        this.format = format;
     }
 
     public StatelessExecutionOptions resultSchema(
@@ -262,7 +240,6 @@ public class StatelessExecutionOptions {
         }
         StatelessExecutionOptions statelessExecutionOptions = (StatelessExecutionOptions) o;
         return Objects.equals(this.model, statelessExecutionOptions.model)
-                && Objects.equals(this.format, statelessExecutionOptions.format)
                 && Objects.equals(this.resultSchema, statelessExecutionOptions.resultSchema)
                 && Objects.equals(
                         this.promptCacheSchemaSuffix,
@@ -280,7 +257,6 @@ public class StatelessExecutionOptions {
     public int hashCode() {
         return Objects.hash(
                 model,
-                format,
                 resultSchema,
                 promptCacheSchemaSuffix,
                 includeOriginalResponse,
@@ -295,7 +271,6 @@ public class StatelessExecutionOptions {
         StringBuilder sb = new StringBuilder();
         sb.append("class StatelessExecutionOptions {\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
-        sb.append("    format: ").append(toIndentedString(format)).append("\n");
         sb.append("    resultSchema: ").append(toIndentedString(resultSchema)).append("\n");
         sb.append("    promptCacheSchemaSuffix: ")
                 .append(toIndentedString(promptCacheSchemaSuffix))
@@ -328,7 +303,6 @@ public class StatelessExecutionOptions {
                 new HashSet<String>(
                         Arrays.asList(
                                 "model",
-                                "format",
                                 "result_schema",
                                 "prompt_cache_schema_suffix",
                                 "include_original_response",
@@ -377,10 +351,6 @@ public class StatelessExecutionOptions {
                             java.util.Locale.ROOT,
                             "Expected the field `model` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("model").toString()));
-        }
-        // validate the optional field `format`
-        if (jsonObj.get("format") != null && !jsonObj.get("format").isJsonNull()) {
-            PromptFormatter.validateJsonElement(jsonObj.get("format"));
         }
         // validate the optional field `result_schema`
         if (jsonObj.get("result_schema") != null && !jsonObj.get("result_schema").isJsonNull()) {

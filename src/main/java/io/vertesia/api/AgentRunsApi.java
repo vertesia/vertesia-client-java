@@ -25,14 +25,14 @@ import io.vertesia.model.AgentArtifactUrlResponse;
 import io.vertesia.model.AgentRun;
 import io.vertesia.model.AgentRunUpdatesResponse;
 import io.vertesia.model.AnswerProcessTaskPayload;
-import io.vertesia.model.CreateAgentRunPayload;
+import io.vertesia.model.CreateRunPayload;
 import io.vertesia.model.ListAgentRunsResponse;
 import io.vertesia.model.ListWorkflowRunsResponse;
-import io.vertesia.model.NdRestartCountNumber;
 import io.vertesia.model.PostAgentRunUpdatePayload;
 import io.vertesia.model.PostAgentRunUpdateResponse;
 import io.vertesia.model.ProcessContextResponse;
 import io.vertesia.model.ProcessHistoryResponse;
+import io.vertesia.model.RestartAgentRunPayload;
 import io.vertesia.model.RetryProcessNodePayload;
 import io.vertesia.model.SearchAgentRunsResponse;
 import io.vertesia.model.SignalAgentResponse;
@@ -446,7 +446,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for createAgentRun
-     * @param createAgentRunPayload  (required)
+     * @param createRunPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -460,7 +460,7 @@ public class AgentRunsApi {
      * </table>
      */
     public okhttp3.Call createAgentRunCall(
-            @jakarta.annotation.Nonnull CreateAgentRunPayload createAgentRunPayload,
+            @jakarta.annotation.Nonnull CreateRunPayload createRunPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -476,7 +476,7 @@ public class AgentRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = createAgentRunPayload;
+        Object localVarPostBody = createRunPayload;
 
         // create path and map variables
         String localVarPath = "/agents";
@@ -517,22 +517,22 @@ public class AgentRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createAgentRunValidateBeforeCall(
-            @jakarta.annotation.Nonnull CreateAgentRunPayload createAgentRunPayload,
+            @jakarta.annotation.Nonnull CreateRunPayload createRunPayload,
             final ApiCallback _callback)
             throws ApiException {
-        // verify the required parameter 'createAgentRunPayload' is set
-        if (createAgentRunPayload == null) {
+        // verify the required parameter 'createRunPayload' is set
+        if (createRunPayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'createAgentRunPayload' when calling createAgentRun(Async)");
+                    "Missing the required parameter 'createRunPayload' when calling createAgentRun(Async)");
         }
 
-        return createAgentRunCall(createAgentRunPayload, _callback);
+        return createAgentRunCall(createRunPayload, _callback);
     }
 
     /**
      * Create an agent run
      * Creates a stable agent run record and starts the backing workflow. When the request body matches the process-run payload shape, the same endpoint creates a process run that shares the durable agent-run identity, streaming, artifacts, and observability APIs.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param createAgentRunPayload  (required)
+     * @param createRunPayload  (required)
      * @return AgentRun
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -544,17 +544,16 @@ public class AgentRunsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AgentRun createAgentRun(
-            @jakarta.annotation.Nonnull CreateAgentRunPayload createAgentRunPayload)
+    public AgentRun createAgentRun(@jakarta.annotation.Nonnull CreateRunPayload createRunPayload)
             throws ApiException {
-        ApiResponse<AgentRun> localVarResp = createAgentRunWithHttpInfo(createAgentRunPayload);
+        ApiResponse<AgentRun> localVarResp = createAgentRunWithHttpInfo(createRunPayload);
         return localVarResp.getData();
     }
 
     /**
      * Create an agent run
      * Creates a stable agent run record and starts the backing workflow. When the request body matches the process-run payload shape, the same endpoint creates a process run that shares the durable agent-run identity, streaming, artifacts, and observability APIs.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param createAgentRunPayload  (required)
+     * @param createRunPayload  (required)
      * @return ApiResponse&lt;AgentRun&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -567,9 +566,8 @@ public class AgentRunsApi {
      * </table>
      */
     public ApiResponse<AgentRun> createAgentRunWithHttpInfo(
-            @jakarta.annotation.Nonnull CreateAgentRunPayload createAgentRunPayload)
-            throws ApiException {
-        okhttp3.Call localVarCall = createAgentRunValidateBeforeCall(createAgentRunPayload, null);
+            @jakarta.annotation.Nonnull CreateRunPayload createRunPayload) throws ApiException {
+        okhttp3.Call localVarCall = createAgentRunValidateBeforeCall(createRunPayload, null);
         Type localVarReturnType = new TypeToken<AgentRun>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -577,7 +575,7 @@ public class AgentRunsApi {
     /**
      * Create an agent run (asynchronously)
      * Creates a stable agent run record and starts the backing workflow. When the request body matches the process-run payload shape, the same endpoint creates a process run that shares the durable agent-run identity, streaming, artifacts, and observability APIs.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param createAgentRunPayload  (required)
+     * @param createRunPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -591,12 +589,11 @@ public class AgentRunsApi {
      * </table>
      */
     public okhttp3.Call createAgentRunAsync(
-            @jakarta.annotation.Nonnull CreateAgentRunPayload createAgentRunPayload,
+            @jakarta.annotation.Nonnull CreateRunPayload createRunPayload,
             final ApiCallback<AgentRun> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall =
-                createAgentRunValidateBeforeCall(createAgentRunPayload, _callback);
+        okhttp3.Call localVarCall = createAgentRunValidateBeforeCall(createRunPayload, _callback);
         Type localVarReturnType = new TypeToken<AgentRun>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3492,7 +3489,7 @@ public class AgentRunsApi {
     /**
      * Build call for restartAgentRun
      * @param agentRunId  (required)
-     * @param ndRestartCountNumber  (required)
+     * @param restartAgentRunPayload  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3507,7 +3504,7 @@ public class AgentRunsApi {
      */
     public okhttp3.Call restartAgentRunCall(
             @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull NdRestartCountNumber ndRestartCountNumber,
+            @jakarta.annotation.Nullable RestartAgentRunPayload restartAgentRunPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -3523,7 +3520,7 @@ public class AgentRunsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = ndRestartCountNumber;
+        Object localVarPostBody = restartAgentRunPayload;
 
         // create path and map variables
         String localVarPath =
@@ -3569,7 +3566,7 @@ public class AgentRunsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call restartAgentRunValidateBeforeCall(
             @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull NdRestartCountNumber ndRestartCountNumber,
+            @jakarta.annotation.Nullable RestartAgentRunPayload restartAgentRunPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'agentRunId' is set
@@ -3578,20 +3575,14 @@ public class AgentRunsApi {
                     "Missing the required parameter 'agentRunId' when calling restartAgentRun(Async)");
         }
 
-        // verify the required parameter 'ndRestartCountNumber' is set
-        if (ndRestartCountNumber == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'ndRestartCountNumber' when calling restartAgentRun(Async)");
-        }
-
-        return restartAgentRunCall(agentRunId, ndRestartCountNumber, _callback);
+        return restartAgentRunCall(agentRunId, restartAgentRunPayload, _callback);
     }
 
     /**
      * Restart an agent run
      * Restarts a stopped, failed, or completed agent run by launching a new workflow that loads the previous conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
-     * @param ndRestartCountNumber  (required)
+     * @param restartAgentRunPayload  (optional)
      * @return AgentRun
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3605,10 +3596,10 @@ public class AgentRunsApi {
      */
     public AgentRun restartAgentRun(
             @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull NdRestartCountNumber ndRestartCountNumber)
+            @jakarta.annotation.Nullable RestartAgentRunPayload restartAgentRunPayload)
             throws ApiException {
         ApiResponse<AgentRun> localVarResp =
-                restartAgentRunWithHttpInfo(agentRunId, ndRestartCountNumber);
+                restartAgentRunWithHttpInfo(agentRunId, restartAgentRunPayload);
         return localVarResp.getData();
     }
 
@@ -3616,7 +3607,7 @@ public class AgentRunsApi {
      * Restart an agent run
      * Restarts a stopped, failed, or completed agent run by launching a new workflow that loads the previous conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
-     * @param ndRestartCountNumber  (required)
+     * @param restartAgentRunPayload  (optional)
      * @return ApiResponse&lt;AgentRun&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3630,10 +3621,10 @@ public class AgentRunsApi {
      */
     public ApiResponse<AgentRun> restartAgentRunWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull NdRestartCountNumber ndRestartCountNumber)
+            @jakarta.annotation.Nullable RestartAgentRunPayload restartAgentRunPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
-                restartAgentRunValidateBeforeCall(agentRunId, ndRestartCountNumber, null);
+                restartAgentRunValidateBeforeCall(agentRunId, restartAgentRunPayload, null);
         Type localVarReturnType = new TypeToken<AgentRun>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3642,7 +3633,7 @@ public class AgentRunsApi {
      * Restart an agent run (asynchronously)
      * Restarts a stopped, failed, or completed agent run by launching a new workflow that loads the previous conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
-     * @param ndRestartCountNumber  (required)
+     * @param restartAgentRunPayload  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3657,12 +3648,12 @@ public class AgentRunsApi {
      */
     public okhttp3.Call restartAgentRunAsync(
             @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull NdRestartCountNumber ndRestartCountNumber,
+            @jakarta.annotation.Nullable RestartAgentRunPayload restartAgentRunPayload,
             final ApiCallback<AgentRun> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                restartAgentRunValidateBeforeCall(agentRunId, ndRestartCountNumber, _callback);
+                restartAgentRunValidateBeforeCall(agentRunId, restartAgentRunPayload, _callback);
         Type localVarReturnType = new TypeToken<AgentRun>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

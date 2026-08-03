@@ -552,7 +552,7 @@ public class PromptTemplatesApi {
     /**
      * Build call for forkPrompt
      * @param ptId  (required)
-     * @param promptTemplateForkPayload  (required)
+     * @param promptTemplateForkPayload  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -567,7 +567,7 @@ public class PromptTemplatesApi {
      */
     public okhttp3.Call forkPromptCall(
             @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload,
+            @jakarta.annotation.Nullable PromptTemplateForkPayload promptTemplateForkPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -629,19 +629,13 @@ public class PromptTemplatesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call forkPromptValidateBeforeCall(
             @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload,
+            @jakarta.annotation.Nullable PromptTemplateForkPayload promptTemplateForkPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ptId' is set
         if (ptId == null) {
             throw new ApiException(
                     "Missing the required parameter 'ptId' when calling forkPrompt(Async)");
-        }
-
-        // verify the required parameter 'promptTemplateForkPayload' is set
-        if (promptTemplateForkPayload == null) {
-            throw new ApiException(
-                    "Missing the required parameter 'promptTemplateForkPayload' when calling forkPrompt(Async)");
         }
 
         return forkPromptCall(ptId, promptTemplateForkPayload, _callback);
@@ -651,7 +645,7 @@ public class PromptTemplatesApi {
      * Fork a prompt
      * Creates a draft copy of a prompt template, optionally in another accessible project.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param ptId  (required)
-     * @param promptTemplateForkPayload  (required)
+     * @param promptTemplateForkPayload  (optional)
      * @return PromptTemplate
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -665,7 +659,7 @@ public class PromptTemplatesApi {
      */
     public PromptTemplate forkPrompt(
             @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload)
+            @jakarta.annotation.Nullable PromptTemplateForkPayload promptTemplateForkPayload)
             throws ApiException {
         ApiResponse<PromptTemplate> localVarResp =
                 forkPromptWithHttpInfo(ptId, promptTemplateForkPayload);
@@ -676,7 +670,7 @@ public class PromptTemplatesApi {
      * Fork a prompt
      * Creates a draft copy of a prompt template, optionally in another accessible project.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param ptId  (required)
-     * @param promptTemplateForkPayload  (required)
+     * @param promptTemplateForkPayload  (optional)
      * @return ApiResponse&lt;PromptTemplate&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -690,7 +684,7 @@ public class PromptTemplatesApi {
      */
     public ApiResponse<PromptTemplate> forkPromptWithHttpInfo(
             @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload)
+            @jakarta.annotation.Nullable PromptTemplateForkPayload promptTemplateForkPayload)
             throws ApiException {
         okhttp3.Call localVarCall =
                 forkPromptValidateBeforeCall(ptId, promptTemplateForkPayload, null);
@@ -702,7 +696,7 @@ public class PromptTemplatesApi {
      * Fork a prompt (asynchronously)
      * Creates a draft copy of a prompt template, optionally in another accessible project.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param ptId  (required)
-     * @param promptTemplateForkPayload  (required)
+     * @param promptTemplateForkPayload  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -717,7 +711,7 @@ public class PromptTemplatesApi {
      */
     public okhttp3.Call forkPromptAsync(
             @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull PromptTemplateForkPayload promptTemplateForkPayload,
+            @jakarta.annotation.Nullable PromptTemplateForkPayload promptTemplateForkPayload,
             final ApiCallback<PromptTemplate> _callback)
             throws ApiException {
 
@@ -1357,13 +1351,13 @@ public class PromptTemplatesApi {
 
     /**
      * Build call for listPrompts
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param role  (optional)
-     * @param tags  (optional)
-     * @param matchInteractions  (optional)
+     * @param name Case-insensitive substring match on the prompt name. (optional)
+     * @param status Accepted and ignored. &#x60;GET /prompts&#x60; and &#x60;POST /prompts/facets&#x60; list drafts only, and always have. (optional)
+     * @param limit Maximum number of prompts to return. Defaults to 100. (optional)
+     * @param offset Number of prompts to skip. (optional)
+     * @param role Exact match on the prompt role. (optional)
+     * @param tags Match prompts carrying any of these tags. (optional)
+     * @param matchInteractions Accepted and ignored. It used to attach the interactions referencing each prompt, in a shape no response component ever declared; nothing consumed it. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1487,13 +1481,13 @@ public class PromptTemplatesApi {
     /**
      * List prompts
      * Lists draft prompt templates in the current project with optional filtering by name, role, tags, and interaction references.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param role  (optional)
-     * @param tags  (optional)
-     * @param matchInteractions  (optional)
+     * @param name Case-insensitive substring match on the prompt name. (optional)
+     * @param status Accepted and ignored. &#x60;GET /prompts&#x60; and &#x60;POST /prompts/facets&#x60; list drafts only, and always have. (optional)
+     * @param limit Maximum number of prompts to return. Defaults to 100. (optional)
+     * @param offset Number of prompts to skip. (optional)
+     * @param role Exact match on the prompt role. (optional)
+     * @param tags Match prompts carrying any of these tags. (optional)
+     * @param matchInteractions Accepted and ignored. It used to attach the interactions referencing each prompt, in a shape no response component ever declared; nothing consumed it. (optional)
      * @return List&lt;PromptTemplateRef&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1522,13 +1516,13 @@ public class PromptTemplatesApi {
     /**
      * List prompts
      * Lists draft prompt templates in the current project with optional filtering by name, role, tags, and interaction references.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param role  (optional)
-     * @param tags  (optional)
-     * @param matchInteractions  (optional)
+     * @param name Case-insensitive substring match on the prompt name. (optional)
+     * @param status Accepted and ignored. &#x60;GET /prompts&#x60; and &#x60;POST /prompts/facets&#x60; list drafts only, and always have. (optional)
+     * @param limit Maximum number of prompts to return. Defaults to 100. (optional)
+     * @param offset Number of prompts to skip. (optional)
+     * @param role Exact match on the prompt role. (optional)
+     * @param tags Match prompts carrying any of these tags. (optional)
+     * @param matchInteractions Accepted and ignored. It used to attach the interactions referencing each prompt, in a shape no response component ever declared; nothing consumed it. (optional)
      * @return ApiResponse&lt;List&lt;PromptTemplateRef&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1559,13 +1553,13 @@ public class PromptTemplatesApi {
     /**
      * List prompts (asynchronously)
      * Lists draft prompt templates in the current project with optional filtering by name, role, tags, and interaction references.  **Required permissions:** &#x60;interaction:read&#x60;
-     * @param name  (optional)
-     * @param status  (optional)
-     * @param limit  (optional)
-     * @param offset  (optional)
-     * @param role  (optional)
-     * @param tags  (optional)
-     * @param matchInteractions  (optional)
+     * @param name Case-insensitive substring match on the prompt name. (optional)
+     * @param status Accepted and ignored. &#x60;GET /prompts&#x60; and &#x60;POST /prompts/facets&#x60; list drafts only, and always have. (optional)
+     * @param limit Maximum number of prompts to return. Defaults to 100. (optional)
+     * @param offset Number of prompts to skip. (optional)
+     * @param role Exact match on the prompt role. (optional)
+     * @param tags Match prompts carrying any of these tags. (optional)
+     * @param matchInteractions Accepted and ignored. It used to attach the interactions referencing each prompt, in a shape no response component ever declared; nothing consumed it. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1600,7 +1594,7 @@ public class PromptTemplatesApi {
     /**
      * Build call for renderPrompt
      * @param ptId  (required)
-     * @param requestBody  (required)
+     * @param body  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1615,7 +1609,7 @@ public class PromptTemplatesApi {
      */
     public okhttp3.Call renderPromptCall(
             @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull Map<String, Object> requestBody,
+            @jakarta.annotation.Nonnull Object body,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1631,7 +1625,7 @@ public class PromptTemplatesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = requestBody;
+        Object localVarPostBody = body;
 
         // create path and map variables
         String localVarPath =
@@ -1677,7 +1671,7 @@ public class PromptTemplatesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call renderPromptValidateBeforeCall(
             @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull Map<String, Object> requestBody,
+            @jakarta.annotation.Nonnull Object body,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ptId' is set
@@ -1686,20 +1680,20 @@ public class PromptTemplatesApi {
                     "Missing the required parameter 'ptId' when calling renderPrompt(Async)");
         }
 
-        // verify the required parameter 'requestBody' is set
-        if (requestBody == null) {
+        // verify the required parameter 'body' is set
+        if (body == null) {
             throw new ApiException(
-                    "Missing the required parameter 'requestBody' when calling renderPrompt(Async)");
+                    "Missing the required parameter 'body' when calling renderPrompt(Async)");
         }
 
-        return renderPromptCall(ptId, requestBody, _callback);
+        return renderPromptCall(ptId, body, _callback);
     }
 
     /**
      * Render a prompt
      * Renders a prompt template with the supplied variables without modifying the prompt.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param ptId  (required)
-     * @param requestBody  (required)
+     * @param body  (required)
      * @return RenderPromptResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1712,11 +1706,9 @@ public class PromptTemplatesApi {
      * </table>
      */
     public RenderPromptResponse renderPrompt(
-            @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull Map<String, Object> requestBody)
+            @jakarta.annotation.Nonnull String ptId, @jakarta.annotation.Nonnull Object body)
             throws ApiException {
-        ApiResponse<RenderPromptResponse> localVarResp =
-                renderPromptWithHttpInfo(ptId, requestBody);
+        ApiResponse<RenderPromptResponse> localVarResp = renderPromptWithHttpInfo(ptId, body);
         return localVarResp.getData();
     }
 
@@ -1724,7 +1716,7 @@ public class PromptTemplatesApi {
      * Render a prompt
      * Renders a prompt template with the supplied variables without modifying the prompt.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param ptId  (required)
-     * @param requestBody  (required)
+     * @param body  (required)
      * @return ApiResponse&lt;RenderPromptResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1737,10 +1729,9 @@ public class PromptTemplatesApi {
      * </table>
      */
     public ApiResponse<RenderPromptResponse> renderPromptWithHttpInfo(
-            @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull Map<String, Object> requestBody)
+            @jakarta.annotation.Nonnull String ptId, @jakarta.annotation.Nonnull Object body)
             throws ApiException {
-        okhttp3.Call localVarCall = renderPromptValidateBeforeCall(ptId, requestBody, null);
+        okhttp3.Call localVarCall = renderPromptValidateBeforeCall(ptId, body, null);
         Type localVarReturnType = new TypeToken<RenderPromptResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1749,7 +1740,7 @@ public class PromptTemplatesApi {
      * Render a prompt (asynchronously)
      * Renders a prompt template with the supplied variables without modifying the prompt.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param ptId  (required)
-     * @param requestBody  (required)
+     * @param body  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1764,11 +1755,11 @@ public class PromptTemplatesApi {
      */
     public okhttp3.Call renderPromptAsync(
             @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull Map<String, Object> requestBody,
+            @jakarta.annotation.Nonnull Object body,
             final ApiCallback<RenderPromptResponse> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = renderPromptValidateBeforeCall(ptId, requestBody, _callback);
+        okhttp3.Call localVarCall = renderPromptValidateBeforeCall(ptId, body, _callback);
         Type localVarReturnType = new TypeToken<RenderPromptResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

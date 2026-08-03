@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -116,13 +117,13 @@ public class Account {
 
     @SerializedName(SERIALIZED_NAME_CREATED_AT)
     @jakarta.annotation.Nonnull
-    private String createdAt;
+    private OffsetDateTime createdAt;
 
     public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
     @jakarta.annotation.Nonnull
-    private String updatedAt;
+    private OffsetDateTime updatedAt;
 
     public Account() {}
 
@@ -372,7 +373,7 @@ public class Account {
         this.updatedBy = updatedBy;
     }
 
-    public Account createdAt(@jakarta.annotation.Nonnull String createdAt) {
+    public Account createdAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
         return this;
     }
@@ -382,15 +383,15 @@ public class Account {
      * @return createdAt
      */
     @jakarta.annotation.Nonnull
-    public String getCreatedAt() {
+    public OffsetDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
+    public void setCreatedAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Account updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
+    public Account updatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
         return this;
     }
@@ -400,11 +401,11 @@ public class Account {
      * @return updatedAt
      */
     @jakarta.annotation.Nonnull
-    public String getUpdatedAt() {
+    public OffsetDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
+    public void setUpdatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 
@@ -678,20 +679,6 @@ public class Account {
                             java.util.Locale.ROOT,
                             "Expected the field `updated_by` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("updated_by").toString()));
-        }
-        if (!jsonObj.get("created_at").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `created_at` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("created_at").toString()));
-        }
-        if (!jsonObj.get("updated_at").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("updated_at").toString()));
         }
     }
 
