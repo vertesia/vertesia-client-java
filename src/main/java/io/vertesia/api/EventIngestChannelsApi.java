@@ -789,7 +789,7 @@ public class EventIngestChannelsApi {
 
     /**
      * Update an event ingest channel
-     * Updates a channel. Set rotate_token to true to rotate the ingest token: the new token is returned once in the response.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Updates a channel. Set rotate_token to true to rotate the ingest token: the new token is returned once in the response. Create or rotate the signing secret separately from rotating the ingest token.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param channelId  (required)
      * @param updateEventIngestChannelPayload  (required)
      * @return EventIngestChannelMutationResponse
@@ -815,7 +815,7 @@ public class EventIngestChannelsApi {
 
     /**
      * Update an event ingest channel
-     * Updates a channel. Set rotate_token to true to rotate the ingest token: the new token is returned once in the response.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Updates a channel. Set rotate_token to true to rotate the ingest token: the new token is returned once in the response. Create or rotate the signing secret separately from rotating the ingest token.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param channelId  (required)
      * @param updateEventIngestChannelPayload  (required)
      * @return ApiResponse&lt;EventIngestChannelMutationResponse&gt;
@@ -843,7 +843,7 @@ public class EventIngestChannelsApi {
 
     /**
      * Update an event ingest channel (asynchronously)
-     * Updates a channel. Set rotate_token to true to rotate the ingest token: the new token is returned once in the response.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Updates a channel. Set rotate_token to true to rotate the ingest token: the new token is returned once in the response. Create or rotate the signing secret separately from rotating the ingest token.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param channelId  (required)
      * @param updateEventIngestChannelPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
