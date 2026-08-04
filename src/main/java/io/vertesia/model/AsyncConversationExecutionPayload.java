@@ -48,6 +48,11 @@ public class AsyncConversationExecutionPayload {
     @jakarta.annotation.Nonnull
     private String interaction;
 
+    public static final String SERIALIZED_NAME_APP_VERSION = "app_version";
+
+    @SerializedName(SERIALIZED_NAME_APP_VERSION)
+    @jakarta.annotation.Nullable private String appVersion;
+
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
@@ -321,6 +326,24 @@ public class AsyncConversationExecutionPayload {
 
     public void setInteraction(@jakarta.annotation.Nonnull String interaction) {
         this.interaction = interaction;
+    }
+
+    public AsyncConversationExecutionPayload appVersion(
+            @jakarta.annotation.Nullable String appVersion) {
+        this.appVersion = appVersion;
+        return this;
+    }
+
+    /**
+     * Immutable app-version target inherited by this conversation execution. The workflow applies it to app-owned resource resolution; callers normally set the x-vertesia-app-version header instead of populating this field directly.
+     * @return appVersion
+     */
+    @jakarta.annotation.Nullable public String getAppVersion() {
+        return appVersion;
+    }
+
+    public void setAppVersion(@jakarta.annotation.Nullable String appVersion) {
+        this.appVersion = appVersion;
     }
 
     public AsyncConversationExecutionPayload data(@jakarta.annotation.Nullable Object data) {
@@ -1172,6 +1195,7 @@ public class AsyncConversationExecutionPayload {
         AsyncConversationExecutionPayload asyncConversationExecutionPayload =
                 (AsyncConversationExecutionPayload) o;
         return Objects.equals(this.interaction, asyncConversationExecutionPayload.interaction)
+                && Objects.equals(this.appVersion, asyncConversationExecutionPayload.appVersion)
                 && Objects.equals(this.data, asyncConversationExecutionPayload.data)
                 && Objects.equals(this.config, asyncConversationExecutionPayload.config)
                 && Objects.equals(this.resultSchema, asyncConversationExecutionPayload.resultSchema)
@@ -1250,6 +1274,7 @@ public class AsyncConversationExecutionPayload {
     public int hashCode() {
         return Objects.hash(
                 interaction,
+                appVersion,
                 data,
                 config,
                 resultSchema,
@@ -1304,6 +1329,7 @@ public class AsyncConversationExecutionPayload {
         StringBuilder sb = new StringBuilder();
         sb.append("class AsyncConversationExecutionPayload {\n");
         sb.append("    interaction: ").append(toIndentedString(interaction)).append("\n");
+        sb.append("    appVersion: ").append(toIndentedString(appVersion)).append("\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    config: ").append(toIndentedString(config)).append("\n");
         sb.append("    resultSchema: ").append(toIndentedString(resultSchema)).append("\n");
@@ -1379,6 +1405,7 @@ public class AsyncConversationExecutionPayload {
                 new HashSet<String>(
                         Arrays.asList(
                                 "interaction",
+                                "app_version",
                                 "data",
                                 "config",
                                 "result_schema",
@@ -1460,6 +1487,14 @@ public class AsyncConversationExecutionPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `interaction` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("interaction").toString()));
+        }
+        if ((jsonObj.get("app_version") != null && !jsonObj.get("app_version").isJsonNull())
+                && !jsonObj.get("app_version").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `app_version` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("app_version").toString()));
         }
         // validate the optional field `config`
         if (jsonObj.get("config") != null && !jsonObj.get("config").isJsonNull()) {
