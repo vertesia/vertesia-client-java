@@ -125,6 +125,7 @@ src/main/java/io/vertesia/model/AppBuildProgressStatus.java
 src/main/java/io/vertesia/model/AppBuildTrigger.java
 src/main/java/io/vertesia/model/AppCapabilities.java
 src/main/java/io/vertesia/model/AppDashboardDefinition.java
+src/main/java/io/vertesia/model/AppDeleteSummary.java
 src/main/java/io/vertesia/model/AppDevelopmentTask.java
 src/main/java/io/vertesia/model/AppDevelopmentTaskDetails.java
 src/main/java/io/vertesia/model/AppDevelopmentTaskList.java
@@ -616,11 +617,14 @@ src/main/java/io/vertesia/model/ListWorkflowRunsResponse.java
 src/main/java/io/vertesia/model/LlmCallType.java
 src/main/java/io/vertesia/model/LoadBalancingEnvConfig.java
 src/main/java/io/vertesia/model/LoadBalancingEnvEntryConfig.java
+src/main/java/io/vertesia/model/MCPApiKeyConfig.java
 src/main/java/io/vertesia/model/MCPOAuthConfig.java
 src/main/java/io/vertesia/model/MCPToolAnnotations.java
 src/main/java/io/vertesia/model/MCPToolCollectionObject.java
 src/main/java/io/vertesia/model/MagicPdfConfiguration.java
 src/main/java/io/vertesia/model/MarkdownRenditionFormat.java
+src/main/java/io/vertesia/model/McpApiKeyCredential.java
+src/main/java/io/vertesia/model/McpApiKeyStatus.java
 src/main/java/io/vertesia/model/McpOAuthConnectResponse.java
 src/main/java/io/vertesia/model/McpOAuthDisconnectResponse.java
 src/main/java/io/vertesia/model/McpOAuthTokenRequest.java
@@ -824,6 +828,7 @@ src/main/java/io/vertesia/model/SerperConfiguration.java
 src/main/java/io/vertesia/model/SerperConfigurationInput.java
 src/main/java/io/vertesia/model/ServiceAccountTokenRequest.java
 src/main/java/io/vertesia/model/SetFileMetadataPayload.java
+src/main/java/io/vertesia/model/SetMcpApiKeyRequest.java
 src/main/java/io/vertesia/model/SetObjectEmbeddingsResponse.java
 src/main/java/io/vertesia/model/SignalAgentResponse.java
 src/main/java/io/vertesia/model/SignalEventProperties.java

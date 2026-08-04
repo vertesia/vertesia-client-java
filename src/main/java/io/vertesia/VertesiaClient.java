@@ -59,7 +59,7 @@ import okhttp3.Response;
 public class VertesiaClient {
     public static final String DEFAULT_SITE = "api.vertesia.io";
     public static final String DEFAULT_TOKEN_URL = "https://sts.vertesia.io";
-    public static final String DEFAULT_API_VERSION = "20260319";
+    public static final String DEFAULT_API_VERSION = "20260803";
     private static final long TOKEN_REFRESH_WINDOW_SECONDS = 60L;
     private static final MediaType JSON_MEDIA_TYPE = MediaType.parse("application/json");
 
