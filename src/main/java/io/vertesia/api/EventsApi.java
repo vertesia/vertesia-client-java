@@ -19,6 +19,8 @@ import io.vertesia.ApiException;
 import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
+import io.vertesia.model.CancelEventDeliveryIntentsPayload;
+import io.vertesia.model.CancelEventDeliveryIntentsResponse;
 import io.vertesia.model.EventDeliveryQueueSummaryPayload;
 import io.vertesia.model.EventDeliveryQueueSummaryResponse;
 import io.vertesia.model.ListEventDeliveriesPayload;
@@ -65,6 +67,173 @@ public class EventsApi {
 
     public void setCustomBaseUrl(String customBaseUrl) {
         this.localCustomBaseUrl = customBaseUrl;
+    }
+
+    /**
+     * Build call for cancelEventDeliveryIntents
+     * @param cancelEventDeliveryIntentsPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Queued event delivery cancellation result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call cancelEventDeliveryIntentsCall(
+            @jakarta.annotation.Nonnull
+                    CancelEventDeliveryIntentsPayload cancelEventDeliveryIntentsPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = cancelEventDeliveryIntentsPayload;
+
+        // create path and map variables
+        String localVarPath = "/events/deliveries/cancel";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cancelEventDeliveryIntentsValidateBeforeCall(
+            @jakarta.annotation.Nonnull
+                    CancelEventDeliveryIntentsPayload cancelEventDeliveryIntentsPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'cancelEventDeliveryIntentsPayload' is set
+        if (cancelEventDeliveryIntentsPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'cancelEventDeliveryIntentsPayload' when calling cancelEventDeliveryIntents(Async)");
+        }
+
+        return cancelEventDeliveryIntentsCall(cancelEventDeliveryIntentsPayload, _callback);
+    }
+
+    /**
+     * Cancel queued event delivery intents
+     * Cancels matching pending and retrying delivery intents for the current project and deployment environment through a server-side watermark. Active deliveries and later events are not changed.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param cancelEventDeliveryIntentsPayload  (required)
+     * @return CancelEventDeliveryIntentsResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Queued event delivery cancellation result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public CancelEventDeliveryIntentsResponse cancelEventDeliveryIntents(
+            @jakarta.annotation.Nonnull
+                    CancelEventDeliveryIntentsPayload cancelEventDeliveryIntentsPayload)
+            throws ApiException {
+        ApiResponse<CancelEventDeliveryIntentsResponse> localVarResp =
+                cancelEventDeliveryIntentsWithHttpInfo(cancelEventDeliveryIntentsPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Cancel queued event delivery intents
+     * Cancels matching pending and retrying delivery intents for the current project and deployment environment through a server-side watermark. Active deliveries and later events are not changed.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param cancelEventDeliveryIntentsPayload  (required)
+     * @return ApiResponse&lt;CancelEventDeliveryIntentsResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Queued event delivery cancellation result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<CancelEventDeliveryIntentsResponse> cancelEventDeliveryIntentsWithHttpInfo(
+            @jakarta.annotation.Nonnull
+                    CancelEventDeliveryIntentsPayload cancelEventDeliveryIntentsPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                cancelEventDeliveryIntentsValidateBeforeCall(
+                        cancelEventDeliveryIntentsPayload, null);
+        Type localVarReturnType = new TypeToken<CancelEventDeliveryIntentsResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Cancel queued event delivery intents (asynchronously)
+     * Cancels matching pending and retrying delivery intents for the current project and deployment environment through a server-side watermark. Active deliveries and later events are not changed.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param cancelEventDeliveryIntentsPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Queued event delivery cancellation result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call cancelEventDeliveryIntentsAsync(
+            @jakarta.annotation.Nonnull
+                    CancelEventDeliveryIntentsPayload cancelEventDeliveryIntentsPayload,
+            final ApiCallback<CancelEventDeliveryIntentsResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                cancelEventDeliveryIntentsValidateBeforeCall(
+                        cancelEventDeliveryIntentsPayload, _callback);
+        Type localVarReturnType = new TypeToken<CancelEventDeliveryIntentsResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
     /**

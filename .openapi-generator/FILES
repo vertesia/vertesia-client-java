@@ -234,6 +234,8 @@ src/main/java/io/vertesia/model/BulkUploadUrlsPayload.java
 src/main/java/io/vertesia/model/BulkUploadUrlsPayloadFilesInner.java
 src/main/java/io/vertesia/model/BulkUploadUrlsResponse.java
 src/main/java/io/vertesia/model/CachePolicy.java
+src/main/java/io/vertesia/model/CancelEventDeliveryIntentsPayload.java
+src/main/java/io/vertesia/model/CancelEventDeliveryIntentsResponse.java
 src/main/java/io/vertesia/model/CatalogInteractionRef.java
 src/main/java/io/vertesia/model/ChildWorkflowTask.java
 src/main/java/io/vertesia/model/Collection.java
