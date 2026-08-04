@@ -1594,7 +1594,7 @@ public class PromptTemplatesApi {
     /**
      * Build call for renderPrompt
      * @param ptId  (required)
-     * @param body  (required)
+     * @param requestBody  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1609,7 +1609,7 @@ public class PromptTemplatesApi {
      */
     public okhttp3.Call renderPromptCall(
             @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull Object body,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1625,7 +1625,7 @@ public class PromptTemplatesApi {
             basePath = null;
         }
 
-        Object localVarPostBody = body;
+        Object localVarPostBody = requestBody;
 
         // create path and map variables
         String localVarPath =
@@ -1671,7 +1671,7 @@ public class PromptTemplatesApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call renderPromptValidateBeforeCall(
             @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull Object body,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'ptId' is set
@@ -1680,20 +1680,20 @@ public class PromptTemplatesApi {
                     "Missing the required parameter 'ptId' when calling renderPrompt(Async)");
         }
 
-        // verify the required parameter 'body' is set
-        if (body == null) {
+        // verify the required parameter 'requestBody' is set
+        if (requestBody == null) {
             throw new ApiException(
-                    "Missing the required parameter 'body' when calling renderPrompt(Async)");
+                    "Missing the required parameter 'requestBody' when calling renderPrompt(Async)");
         }
 
-        return renderPromptCall(ptId, body, _callback);
+        return renderPromptCall(ptId, requestBody, _callback);
     }
 
     /**
      * Render a prompt
      * Renders a prompt template with the supplied variables without modifying the prompt.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param ptId  (required)
-     * @param body  (required)
+     * @param requestBody  (required)
      * @return RenderPromptResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1706,9 +1706,11 @@ public class PromptTemplatesApi {
      * </table>
      */
     public RenderPromptResponse renderPrompt(
-            @jakarta.annotation.Nonnull String ptId, @jakarta.annotation.Nonnull Object body)
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody)
             throws ApiException {
-        ApiResponse<RenderPromptResponse> localVarResp = renderPromptWithHttpInfo(ptId, body);
+        ApiResponse<RenderPromptResponse> localVarResp =
+                renderPromptWithHttpInfo(ptId, requestBody);
         return localVarResp.getData();
     }
 
@@ -1716,7 +1718,7 @@ public class PromptTemplatesApi {
      * Render a prompt
      * Renders a prompt template with the supplied variables without modifying the prompt.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param ptId  (required)
-     * @param body  (required)
+     * @param requestBody  (required)
      * @return ApiResponse&lt;RenderPromptResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1729,9 +1731,10 @@ public class PromptTemplatesApi {
      * </table>
      */
     public ApiResponse<RenderPromptResponse> renderPromptWithHttpInfo(
-            @jakarta.annotation.Nonnull String ptId, @jakarta.annotation.Nonnull Object body)
+            @jakarta.annotation.Nonnull String ptId,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody)
             throws ApiException {
-        okhttp3.Call localVarCall = renderPromptValidateBeforeCall(ptId, body, null);
+        okhttp3.Call localVarCall = renderPromptValidateBeforeCall(ptId, requestBody, null);
         Type localVarReturnType = new TypeToken<RenderPromptResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1740,7 +1743,7 @@ public class PromptTemplatesApi {
      * Render a prompt (asynchronously)
      * Renders a prompt template with the supplied variables without modifying the prompt.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param ptId  (required)
-     * @param body  (required)
+     * @param requestBody  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1755,11 +1758,11 @@ public class PromptTemplatesApi {
      */
     public okhttp3.Call renderPromptAsync(
             @jakarta.annotation.Nonnull String ptId,
-            @jakarta.annotation.Nonnull Object body,
+            @jakarta.annotation.Nonnull Map<String, Object> requestBody,
             final ApiCallback<RenderPromptResponse> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = renderPromptValidateBeforeCall(ptId, body, _callback);
+        okhttp3.Call localVarCall = renderPromptValidateBeforeCall(ptId, requestBody, _callback);
         Type localVarReturnType = new TypeToken<RenderPromptResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

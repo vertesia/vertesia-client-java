@@ -39,29 +39,6 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromptTemplateCreatePayload {
-    public static final String SERIALIZED_NAME_ROLE = "role";
-
-    @SerializedName(SERIALIZED_NAME_ROLE)
-    @jakarta.annotation.Nonnull
-    private PromptRole role;
-
-    public static final String SERIALIZED_NAME_CONTENT = "content";
-
-    @SerializedName(SERIALIZED_NAME_CONTENT)
-    @jakarta.annotation.Nonnull
-    private String content;
-
-    public static final String SERIALIZED_NAME_CONTENT_TYPE = "content_type";
-
-    @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
-    @jakarta.annotation.Nonnull
-    private TemplateType contentType;
-
-    public static final String SERIALIZED_NAME_INPUT_SCHEMA = "inputSchema";
-
-    @SerializedName(SERIALIZED_NAME_INPUT_SCHEMA)
-    @jakarta.annotation.Nullable private JSONSchema inputSchema;
-
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -98,80 +75,30 @@ public class PromptTemplateCreatePayload {
     @SerializedName(SERIALIZED_NAME_LAST_PUBLISHED_AT)
     @jakarta.annotation.Nullable private OffsetDateTime lastPublishedAt;
 
+    public static final String SERIALIZED_NAME_ROLE = "role";
+
+    @SerializedName(SERIALIZED_NAME_ROLE)
+    @jakarta.annotation.Nonnull
+    private PromptRole role;
+
+    public static final String SERIALIZED_NAME_CONTENT = "content";
+
+    @SerializedName(SERIALIZED_NAME_CONTENT)
+    @jakarta.annotation.Nonnull
+    private String content;
+
+    public static final String SERIALIZED_NAME_CONTENT_TYPE = "content_type";
+
+    @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
+    @jakarta.annotation.Nonnull
+    private TemplateType contentType;
+
+    public static final String SERIALIZED_NAME_INPUT_SCHEMA = "inputSchema";
+
+    @SerializedName(SERIALIZED_NAME_INPUT_SCHEMA)
+    @jakarta.annotation.Nullable private JSONSchema inputSchema;
+
     public PromptTemplateCreatePayload() {}
-
-    public PromptTemplateCreatePayload role(@jakarta.annotation.Nonnull PromptRole role) {
-        this.role = role;
-        return this;
-    }
-
-    /**
-     * Get role
-     * @return role
-     */
-    @jakarta.annotation.Nonnull
-    public PromptRole getRole() {
-        return role;
-    }
-
-    public void setRole(@jakarta.annotation.Nonnull PromptRole role) {
-        this.role = role;
-    }
-
-    public PromptTemplateCreatePayload content(@jakarta.annotation.Nonnull String content) {
-        this.content = content;
-        return this;
-    }
-
-    /**
-     * Get content
-     * @return content
-     */
-    @jakarta.annotation.Nonnull
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(@jakarta.annotation.Nonnull String content) {
-        this.content = content;
-    }
-
-    public PromptTemplateCreatePayload contentType(
-            @jakarta.annotation.Nonnull TemplateType contentType) {
-        this.contentType = contentType;
-        return this;
-    }
-
-    /**
-     * Get contentType
-     * @return contentType
-     */
-    @jakarta.annotation.Nonnull
-    public TemplateType getContentType() {
-        return contentType;
-    }
-
-    public void setContentType(@jakarta.annotation.Nonnull TemplateType contentType) {
-        this.contentType = contentType;
-    }
-
-    public PromptTemplateCreatePayload inputSchema(
-            @jakarta.annotation.Nullable JSONSchema inputSchema) {
-        this.inputSchema = inputSchema;
-        return this;
-    }
-
-    /**
-     * Get inputSchema
-     * @return inputSchema
-     */
-    @jakarta.annotation.Nullable public JSONSchema getInputSchema() {
-        return inputSchema;
-    }
-
-    public void setInputSchema(@jakarta.annotation.Nullable JSONSchema inputSchema) {
-        this.inputSchema = inputSchema;
-    }
 
     public PromptTemplateCreatePayload name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
@@ -312,6 +239,79 @@ public class PromptTemplateCreatePayload {
         this.lastPublishedAt = lastPublishedAt;
     }
 
+    public PromptTemplateCreatePayload role(@jakarta.annotation.Nonnull PromptRole role) {
+        this.role = role;
+        return this;
+    }
+
+    /**
+     * Get role
+     * @return role
+     */
+    @jakarta.annotation.Nonnull
+    public PromptRole getRole() {
+        return role;
+    }
+
+    public void setRole(@jakarta.annotation.Nonnull PromptRole role) {
+        this.role = role;
+    }
+
+    public PromptTemplateCreatePayload content(@jakarta.annotation.Nonnull String content) {
+        this.content = content;
+        return this;
+    }
+
+    /**
+     * Get content
+     * @return content
+     */
+    @jakarta.annotation.Nonnull
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(@jakarta.annotation.Nonnull String content) {
+        this.content = content;
+    }
+
+    public PromptTemplateCreatePayload contentType(
+            @jakarta.annotation.Nonnull TemplateType contentType) {
+        this.contentType = contentType;
+        return this;
+    }
+
+    /**
+     * Get contentType
+     * @return contentType
+     */
+    @jakarta.annotation.Nonnull
+    public TemplateType getContentType() {
+        return contentType;
+    }
+
+    public void setContentType(@jakarta.annotation.Nonnull TemplateType contentType) {
+        this.contentType = contentType;
+    }
+
+    public PromptTemplateCreatePayload inputSchema(
+            @jakarta.annotation.Nullable JSONSchema inputSchema) {
+        this.inputSchema = inputSchema;
+        return this;
+    }
+
+    /**
+     * Get inputSchema
+     * @return inputSchema
+     */
+    @jakarta.annotation.Nullable public JSONSchema getInputSchema() {
+        return inputSchema;
+    }
+
+    public void setInputSchema(@jakarta.annotation.Nullable JSONSchema inputSchema) {
+        this.inputSchema = inputSchema;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -321,44 +321,39 @@ public class PromptTemplateCreatePayload {
             return false;
         }
         PromptTemplateCreatePayload promptTemplateCreatePayload = (PromptTemplateCreatePayload) o;
-        return Objects.equals(this.role, promptTemplateCreatePayload.role)
-                && Objects.equals(this.content, promptTemplateCreatePayload.content)
-                && Objects.equals(this.contentType, promptTemplateCreatePayload.contentType)
-                && Objects.equals(this.inputSchema, promptTemplateCreatePayload.inputSchema)
-                && Objects.equals(this.name, promptTemplateCreatePayload.name)
+        return Objects.equals(this.name, promptTemplateCreatePayload.name)
                 && Objects.equals(this.parent, promptTemplateCreatePayload.parent)
                 && Objects.equals(this.description, promptTemplateCreatePayload.description)
                 && Objects.equals(this.testData, promptTemplateCreatePayload.testData)
                 && Objects.equals(this.script, promptTemplateCreatePayload.script)
                 && Objects.equals(this.tags, promptTemplateCreatePayload.tags)
-                && Objects.equals(
-                        this.lastPublishedAt, promptTemplateCreatePayload.lastPublishedAt);
+                && Objects.equals(this.lastPublishedAt, promptTemplateCreatePayload.lastPublishedAt)
+                && Objects.equals(this.role, promptTemplateCreatePayload.role)
+                && Objects.equals(this.content, promptTemplateCreatePayload.content)
+                && Objects.equals(this.contentType, promptTemplateCreatePayload.contentType)
+                && Objects.equals(this.inputSchema, promptTemplateCreatePayload.inputSchema);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                role,
-                content,
-                contentType,
-                inputSchema,
                 name,
                 parent,
                 description,
                 testData,
                 script,
                 tags,
-                lastPublishedAt);
+                lastPublishedAt,
+                role,
+                content,
+                contentType,
+                inputSchema);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PromptTemplateCreatePayload {\n");
-        sb.append("    role: ").append(toIndentedString(role)).append("\n");
-        sb.append("    content: ").append(toIndentedString(content)).append("\n");
-        sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
-        sb.append("    inputSchema: ").append(toIndentedString(inputSchema)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -366,6 +361,10 @@ public class PromptTemplateCreatePayload {
         sb.append("    script: ").append(toIndentedString(script)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
         sb.append("    lastPublishedAt: ").append(toIndentedString(lastPublishedAt)).append("\n");
+        sb.append("    role: ").append(toIndentedString(role)).append("\n");
+        sb.append("    content: ").append(toIndentedString(content)).append("\n");
+        sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
+        sb.append("    inputSchema: ").append(toIndentedString(inputSchema)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -386,21 +385,21 @@ public class PromptTemplateCreatePayload {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "role",
-                                "content",
-                                "content_type",
-                                "inputSchema",
                                 "name",
                                 "parent",
                                 "description",
                                 "test_data",
                                 "script",
                                 "tags",
-                                "last_published_at"));
+                                "last_published_at",
+                                "role",
+                                "content",
+                                "content_type",
+                                "inputSchema"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
-                new HashSet<String>(Arrays.asList("role", "content", "content_type", "name"));
+                new HashSet<String>(Arrays.asList("name", "role", "content", "content_type"));
     }
 
     /**
@@ -433,21 +432,6 @@ public class PromptTemplateCreatePayload {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `role`
-        PromptRole.validateJsonElement(jsonObj.get("role"));
-        if (!jsonObj.get("content").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `content` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("content").toString()));
-        }
-        // validate the required field `content_type`
-        TemplateType.validateJsonElement(jsonObj.get("content_type"));
-        // validate the optional field `inputSchema`
-        if (jsonObj.get("inputSchema") != null && !jsonObj.get("inputSchema").isJsonNull()) {
-            JSONSchema.validateJsonElement(jsonObj.get("inputSchema"));
-        }
         if (!jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -488,6 +472,21 @@ public class PromptTemplateCreatePayload {
                             java.util.Locale.ROOT,
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
+        }
+        // validate the required field `role`
+        PromptRole.validateJsonElement(jsonObj.get("role"));
+        if (!jsonObj.get("content").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `content` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("content").toString()));
+        }
+        // validate the required field `content_type`
+        TemplateType.validateJsonElement(jsonObj.get("content_type"));
+        // validate the optional field `inputSchema`
+        if (jsonObj.get("inputSchema") != null && !jsonObj.get("inputSchema").isJsonNull()) {
+            JSONSchema.validateJsonElement(jsonObj.get("inputSchema"));
         }
     }
 
