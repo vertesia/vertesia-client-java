@@ -101,6 +101,11 @@ public class ConversationFile {
     @SerializedName(SERIALIZED_NAME_COMPLETED_AT)
     @jakarta.annotation.Nullable private BigDecimal completedAt;
 
+    public static final String SERIALIZED_NAME_CONSUMED_AT = "consumed_at";
+
+    @SerializedName(SERIALIZED_NAME_CONSUMED_AT)
+    @jakarta.annotation.Nullable private BigDecimal consumedAt;
+
     public ConversationFile() {}
 
     public ConversationFile id(@jakarta.annotation.Nonnull String id) {
@@ -313,6 +318,23 @@ public class ConversationFile {
         this.completedAt = completedAt;
     }
 
+    public ConversationFile consumedAt(@jakarta.annotation.Nullable BigDecimal consumedAt) {
+        this.consumedAt = consumedAt;
+        return this;
+    }
+
+    /**
+     * Timestamp when this file was delivered to the agent as part of a user message. Once set, the file is no longer re-attached to later messages — it remains accessible to tools via its artifact_path/md_path.
+     * @return consumedAt
+     */
+    @jakarta.annotation.Nullable public BigDecimal getConsumedAt() {
+        return consumedAt;
+    }
+
+    public void setConsumedAt(@jakarta.annotation.Nullable BigDecimal consumedAt) {
+        this.consumedAt = consumedAt;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -333,7 +355,8 @@ public class ConversationFile {
                 && Objects.equals(this.textExtracted, conversationFile.textExtracted)
                 && Objects.equals(this.error, conversationFile.error)
                 && Objects.equals(this.startedAt, conversationFile.startedAt)
-                && Objects.equals(this.completedAt, conversationFile.completedAt);
+                && Objects.equals(this.completedAt, conversationFile.completedAt)
+                && Objects.equals(this.consumedAt, conversationFile.consumedAt);
     }
 
     @Override
@@ -350,7 +373,8 @@ public class ConversationFile {
                 textExtracted,
                 error,
                 startedAt,
-                completedAt);
+                completedAt,
+                consumedAt);
     }
 
     @Override
@@ -369,6 +393,7 @@ public class ConversationFile {
         sb.append("    error: ").append(toIndentedString(error)).append("\n");
         sb.append("    startedAt: ").append(toIndentedString(startedAt)).append("\n");
         sb.append("    completedAt: ").append(toIndentedString(completedAt)).append("\n");
+        sb.append("    consumedAt: ").append(toIndentedString(consumedAt)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -400,7 +425,8 @@ public class ConversationFile {
                                 "text_extracted",
                                 "error",
                                 "started_at",
-                                "completed_at"));
+                                "completed_at",
+                                "consumed_at"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
