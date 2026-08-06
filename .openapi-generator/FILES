@@ -600,6 +600,7 @@ src/main/java/io/vertesia/model/InviteAcceptanceResponse.java
 src/main/java/io/vertesia/model/InviteDeclineResponse.java
 src/main/java/io/vertesia/model/InviteUserRequestPayload.java
 src/main/java/io/vertesia/model/InviteUserResponsePayload.java
+src/main/java/io/vertesia/model/IssueTokenForbiddenResponse.java
 src/main/java/io/vertesia/model/IssueTokenRequest.java
 src/main/java/io/vertesia/model/IssueTokenResponse.java
 src/main/java/io/vertesia/model/IssueTokenUnavailableResponse.java

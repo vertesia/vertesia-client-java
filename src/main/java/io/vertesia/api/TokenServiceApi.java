@@ -75,6 +75,7 @@ public class TokenServiceApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The issued token and expiry metadata. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> The authenticated identity cannot use the requested scope or environment. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 503 </td><td> Token signing is temporarily unavailable. Retryable; honor the Retry-After header. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
@@ -155,6 +156,7 @@ public class TokenServiceApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The issued token and expiry metadata. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> The authenticated identity cannot use the requested scope or environment. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 503 </td><td> Token signing is temporarily unavailable. Retryable; honor the Retry-After header. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
@@ -177,6 +179,7 @@ public class TokenServiceApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The issued token and expiry metadata. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> The authenticated identity cannot use the requested scope or environment. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 503 </td><td> Token signing is temporarily unavailable. Retryable; honor the Retry-After header. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
@@ -201,6 +204,7 @@ public class TokenServiceApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The issued token and expiry metadata. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> The authenticated identity cannot use the requested scope or environment. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 503 </td><td> Token signing is temporarily unavailable. Retryable; honor the Retry-After header. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
