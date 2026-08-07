@@ -132,6 +132,11 @@ public class TextFallbackOptions {
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
     @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_INCLUDE_THOUGHTS = "include_thoughts";
+
+    @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
+    @jakarta.annotation.Nullable private Boolean includeThoughts;
+
     public TextFallbackOptions() {}
 
     public TextFallbackOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
@@ -282,6 +287,24 @@ public class TextFallbackOptions {
         this.stopSequence = stopSequence;
     }
 
+    public TextFallbackOptions includeThoughts(
+            @jakarta.annotation.Nullable Boolean includeThoughts) {
+        this.includeThoughts = includeThoughts;
+        return this;
+    }
+
+    /**
+     * Get includeThoughts
+     * @return includeThoughts
+     */
+    @jakarta.annotation.Nullable public Boolean getIncludeThoughts() {
+        return includeThoughts;
+    }
+
+    public void setIncludeThoughts(@jakarta.annotation.Nullable Boolean includeThoughts) {
+        this.includeThoughts = includeThoughts;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -298,7 +321,8 @@ public class TextFallbackOptions {
                 && Objects.equals(this.topK, textFallbackOptions.topK)
                 && Objects.equals(this.presencePenalty, textFallbackOptions.presencePenalty)
                 && Objects.equals(this.frequencyPenalty, textFallbackOptions.frequencyPenalty)
-                && Objects.equals(this.stopSequence, textFallbackOptions.stopSequence);
+                && Objects.equals(this.stopSequence, textFallbackOptions.stopSequence)
+                && Objects.equals(this.includeThoughts, textFallbackOptions.includeThoughts);
     }
 
     @Override
@@ -311,7 +335,8 @@ public class TextFallbackOptions {
                 topK,
                 presencePenalty,
                 frequencyPenalty,
-                stopSequence);
+                stopSequence,
+                includeThoughts);
     }
 
     @Override
@@ -326,6 +351,7 @@ public class TextFallbackOptions {
         sb.append("    presencePenalty: ").append(toIndentedString(presencePenalty)).append("\n");
         sb.append("    frequencyPenalty: ").append(toIndentedString(frequencyPenalty)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
+        sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -353,7 +379,8 @@ public class TextFallbackOptions {
                                 "top_k",
                                 "presence_penalty",
                                 "frequency_penalty",
-                                "stop_sequence"));
+                                "stop_sequence",
+                                "include_thoughts"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));

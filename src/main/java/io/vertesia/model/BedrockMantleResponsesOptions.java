@@ -366,6 +366,11 @@ public class BedrockMantleResponsesOptions {
     @SerializedName(SERIALIZED_NAME_IMAGE_DETAIL)
     @jakarta.annotation.Nullable private ImageDetailEnum imageDetail;
 
+    public static final String SERIALIZED_NAME_INCLUDE_THOUGHTS = "include_thoughts";
+
+    @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
+    @jakarta.annotation.Nullable private Boolean includeThoughts;
+
     public BedrockMantleResponsesOptions() {}
 
     public BedrockMantleResponsesOptions optionId(
@@ -512,6 +517,24 @@ public class BedrockMantleResponsesOptions {
         this.imageDetail = imageDetail;
     }
 
+    public BedrockMantleResponsesOptions includeThoughts(
+            @jakarta.annotation.Nullable Boolean includeThoughts) {
+        this.includeThoughts = includeThoughts;
+        return this;
+    }
+
+    /**
+     * Get includeThoughts
+     * @return includeThoughts
+     */
+    @jakarta.annotation.Nullable public Boolean getIncludeThoughts() {
+        return includeThoughts;
+    }
+
+    public void setIncludeThoughts(@jakarta.annotation.Nullable Boolean includeThoughts) {
+        this.includeThoughts = includeThoughts;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -530,7 +553,9 @@ public class BedrockMantleResponsesOptions {
                 && Objects.equals(
                         this.reasoningEffort, bedrockMantleResponsesOptions.reasoningEffort)
                 && Objects.equals(this.verbosity, bedrockMantleResponsesOptions.verbosity)
-                && Objects.equals(this.imageDetail, bedrockMantleResponsesOptions.imageDetail);
+                && Objects.equals(this.imageDetail, bedrockMantleResponsesOptions.imageDetail)
+                && Objects.equals(
+                        this.includeThoughts, bedrockMantleResponsesOptions.includeThoughts);
     }
 
     @Override
@@ -543,7 +568,8 @@ public class BedrockMantleResponsesOptions {
                 effort,
                 reasoningEffort,
                 verbosity,
-                imageDetail);
+                imageDetail,
+                includeThoughts);
     }
 
     @Override
@@ -558,6 +584,7 @@ public class BedrockMantleResponsesOptions {
         sb.append("    reasoningEffort: ").append(toIndentedString(reasoningEffort)).append("\n");
         sb.append("    verbosity: ").append(toIndentedString(verbosity)).append("\n");
         sb.append("    imageDetail: ").append(toIndentedString(imageDetail)).append("\n");
+        sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -585,7 +612,8 @@ public class BedrockMantleResponsesOptions {
                                 "effort",
                                 "reasoning_effort",
                                 "verbosity",
-                                "image_detail"));
+                                "image_detail",
+                                "include_thoughts"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));

@@ -117,6 +117,11 @@ public class BedrockAI21Options {
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
     @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_INCLUDE_THOUGHTS = "include_thoughts";
+
+    @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
+    @jakarta.annotation.Nullable private Boolean includeThoughts;
+
     public BedrockAI21Options() {}
 
     public BedrockAI21Options optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
@@ -213,6 +218,24 @@ public class BedrockAI21Options {
         this.stopSequence = stopSequence;
     }
 
+    public BedrockAI21Options includeThoughts(
+            @jakarta.annotation.Nullable Boolean includeThoughts) {
+        this.includeThoughts = includeThoughts;
+        return this;
+    }
+
+    /**
+     * Get includeThoughts
+     * @return includeThoughts
+     */
+    @jakarta.annotation.Nullable public Boolean getIncludeThoughts() {
+        return includeThoughts;
+    }
+
+    public void setIncludeThoughts(@jakarta.annotation.Nullable Boolean includeThoughts) {
+        this.includeThoughts = includeThoughts;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -226,12 +249,13 @@ public class BedrockAI21Options {
                 && Objects.equals(this.maxTokens, bedrockAI21Options.maxTokens)
                 && Objects.equals(this.temperature, bedrockAI21Options.temperature)
                 && Objects.equals(this.topP, bedrockAI21Options.topP)
-                && Objects.equals(this.stopSequence, bedrockAI21Options.stopSequence);
+                && Objects.equals(this.stopSequence, bedrockAI21Options.stopSequence)
+                && Objects.equals(this.includeThoughts, bedrockAI21Options.includeThoughts);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(optionId, maxTokens, temperature, topP, stopSequence);
+        return Objects.hash(optionId, maxTokens, temperature, topP, stopSequence, includeThoughts);
     }
 
     @Override
@@ -243,6 +267,7 @@ public class BedrockAI21Options {
         sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
         sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
+        sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -267,7 +292,8 @@ public class BedrockAI21Options {
                                 "max_tokens",
                                 "temperature",
                                 "top_p",
-                                "stop_sequence"));
+                                "stop_sequence",
+                                "include_thoughts"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));

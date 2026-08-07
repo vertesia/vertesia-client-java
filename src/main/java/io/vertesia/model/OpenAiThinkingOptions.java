@@ -179,6 +179,11 @@ public class OpenAiThinkingOptions {
     @SerializedName(SERIALIZED_NAME_IMAGE_DETAIL)
     @jakarta.annotation.Nullable private ImageDetailEnum imageDetail;
 
+    public static final String SERIALIZED_NAME_INCLUDE_THOUGHTS = "include_thoughts";
+
+    @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
+    @jakarta.annotation.Nullable private Boolean includeThoughts;
+
     public OpenAiThinkingOptions() {}
 
     public OpenAiThinkingOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
@@ -295,6 +300,24 @@ public class OpenAiThinkingOptions {
         this.imageDetail = imageDetail;
     }
 
+    public OpenAiThinkingOptions includeThoughts(
+            @jakarta.annotation.Nullable Boolean includeThoughts) {
+        this.includeThoughts = includeThoughts;
+        return this;
+    }
+
+    /**
+     * Get includeThoughts
+     * @return includeThoughts
+     */
+    @jakarta.annotation.Nullable public Boolean getIncludeThoughts() {
+        return includeThoughts;
+    }
+
+    public void setIncludeThoughts(@jakarta.annotation.Nullable Boolean includeThoughts) {
+        this.includeThoughts = includeThoughts;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -309,13 +332,20 @@ public class OpenAiThinkingOptions {
                 && Objects.equals(this.stopSequence, openAiThinkingOptions.stopSequence)
                 && Objects.equals(this.effort, openAiThinkingOptions.effort)
                 && Objects.equals(this.reasoningEffort, openAiThinkingOptions.reasoningEffort)
-                && Objects.equals(this.imageDetail, openAiThinkingOptions.imageDetail);
+                && Objects.equals(this.imageDetail, openAiThinkingOptions.imageDetail)
+                && Objects.equals(this.includeThoughts, openAiThinkingOptions.includeThoughts);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                optionId, maxTokens, stopSequence, effort, reasoningEffort, imageDetail);
+                optionId,
+                maxTokens,
+                stopSequence,
+                effort,
+                reasoningEffort,
+                imageDetail,
+                includeThoughts);
     }
 
     @Override
@@ -328,6 +358,7 @@ public class OpenAiThinkingOptions {
         sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
         sb.append("    reasoningEffort: ").append(toIndentedString(reasoningEffort)).append("\n");
         sb.append("    imageDetail: ").append(toIndentedString(imageDetail)).append("\n");
+        sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -353,7 +384,8 @@ public class OpenAiThinkingOptions {
                                 "stop_sequence",
                                 "effort",
                                 "reasoning_effort",
-                                "image_detail"));
+                                "image_detail",
+                                "include_thoughts"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));

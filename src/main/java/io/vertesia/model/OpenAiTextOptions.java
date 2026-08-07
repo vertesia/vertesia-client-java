@@ -102,6 +102,16 @@ public class OpenAiTextOptions {
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
     @jakarta.annotation.Nullable private BigDecimal maxTokens;
 
+    public static final String SERIALIZED_NAME_EFFORT = "effort";
+
+    @SerializedName(SERIALIZED_NAME_EFFORT)
+    @jakarta.annotation.Nullable private ReasoningEffort effort;
+
+    public static final String SERIALIZED_NAME_REASONING_EFFORT = "reasoning_effort";
+
+    @SerializedName(SERIALIZED_NAME_REASONING_EFFORT)
+    @jakarta.annotation.Nullable private ReasoningEffort reasoningEffort;
+
     public static final String SERIALIZED_NAME_TEMPERATURE = "temperature";
 
     @SerializedName(SERIALIZED_NAME_TEMPERATURE)
@@ -189,6 +199,11 @@ public class OpenAiTextOptions {
     @SerializedName(SERIALIZED_NAME_IMAGE_DETAIL)
     @jakarta.annotation.Nullable private ImageDetailEnum imageDetail;
 
+    public static final String SERIALIZED_NAME_INCLUDE_THOUGHTS = "include_thoughts";
+
+    @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
+    @jakarta.annotation.Nullable private Boolean includeThoughts;
+
     public OpenAiTextOptions() {}
 
     public OpenAiTextOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
@@ -224,6 +239,41 @@ public class OpenAiTextOptions {
 
     public void setMaxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
+    }
+
+    public OpenAiTextOptions effort(@jakarta.annotation.Nullable ReasoningEffort effort) {
+        this.effort = effort;
+        return this;
+    }
+
+    /**
+     * Get effort
+     * @return effort
+     */
+    @jakarta.annotation.Nullable public ReasoningEffort getEffort() {
+        return effort;
+    }
+
+    public void setEffort(@jakarta.annotation.Nullable ReasoningEffort effort) {
+        this.effort = effort;
+    }
+
+    public OpenAiTextOptions reasoningEffort(
+            @jakarta.annotation.Nullable ReasoningEffort reasoningEffort) {
+        this.reasoningEffort = reasoningEffort;
+        return this;
+    }
+
+    /**
+     * Get reasoningEffort
+     * @return reasoningEffort
+     */
+    @jakarta.annotation.Nullable public ReasoningEffort getReasoningEffort() {
+        return reasoningEffort;
+    }
+
+    public void setReasoningEffort(@jakarta.annotation.Nullable ReasoningEffort reasoningEffort) {
+        this.reasoningEffort = reasoningEffort;
     }
 
     public OpenAiTextOptions temperature(@jakarta.annotation.Nullable BigDecimal temperature) {
@@ -338,6 +388,23 @@ public class OpenAiTextOptions {
         this.imageDetail = imageDetail;
     }
 
+    public OpenAiTextOptions includeThoughts(@jakarta.annotation.Nullable Boolean includeThoughts) {
+        this.includeThoughts = includeThoughts;
+        return this;
+    }
+
+    /**
+     * Get includeThoughts
+     * @return includeThoughts
+     */
+    @jakarta.annotation.Nullable public Boolean getIncludeThoughts() {
+        return includeThoughts;
+    }
+
+    public void setIncludeThoughts(@jakarta.annotation.Nullable Boolean includeThoughts) {
+        this.includeThoughts = includeThoughts;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -349,12 +416,15 @@ public class OpenAiTextOptions {
         OpenAiTextOptions openAiTextOptions = (OpenAiTextOptions) o;
         return Objects.equals(this.optionId, openAiTextOptions.optionId)
                 && Objects.equals(this.maxTokens, openAiTextOptions.maxTokens)
+                && Objects.equals(this.effort, openAiTextOptions.effort)
+                && Objects.equals(this.reasoningEffort, openAiTextOptions.reasoningEffort)
                 && Objects.equals(this.temperature, openAiTextOptions.temperature)
                 && Objects.equals(this.topP, openAiTextOptions.topP)
                 && Objects.equals(this.presencePenalty, openAiTextOptions.presencePenalty)
                 && Objects.equals(this.frequencyPenalty, openAiTextOptions.frequencyPenalty)
                 && Objects.equals(this.stopSequence, openAiTextOptions.stopSequence)
-                && Objects.equals(this.imageDetail, openAiTextOptions.imageDetail);
+                && Objects.equals(this.imageDetail, openAiTextOptions.imageDetail)
+                && Objects.equals(this.includeThoughts, openAiTextOptions.includeThoughts);
     }
 
     @Override
@@ -362,12 +432,15 @@ public class OpenAiTextOptions {
         return Objects.hash(
                 optionId,
                 maxTokens,
+                effort,
+                reasoningEffort,
                 temperature,
                 topP,
                 presencePenalty,
                 frequencyPenalty,
                 stopSequence,
-                imageDetail);
+                imageDetail,
+                includeThoughts);
     }
 
     @Override
@@ -376,12 +449,15 @@ public class OpenAiTextOptions {
         sb.append("class OpenAiTextOptions {\n");
         sb.append("    optionId: ").append(toIndentedString(optionId)).append("\n");
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
+        sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
+        sb.append("    reasoningEffort: ").append(toIndentedString(reasoningEffort)).append("\n");
         sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
         sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
         sb.append("    presencePenalty: ").append(toIndentedString(presencePenalty)).append("\n");
         sb.append("    frequencyPenalty: ").append(toIndentedString(frequencyPenalty)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
         sb.append("    imageDetail: ").append(toIndentedString(imageDetail)).append("\n");
+        sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -404,12 +480,15 @@ public class OpenAiTextOptions {
                         Arrays.asList(
                                 "_option_id",
                                 "max_tokens",
+                                "effort",
+                                "reasoning_effort",
                                 "temperature",
                                 "top_p",
                                 "presence_penalty",
                                 "frequency_penalty",
                                 "stop_sequence",
-                                "image_detail"));
+                                "image_detail",
+                                "include_thoughts"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));
@@ -454,6 +533,15 @@ public class OpenAiTextOptions {
         }
         // validate the required field `_option_id`
         OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        // validate the optional field `effort`
+        if (jsonObj.get("effort") != null && !jsonObj.get("effort").isJsonNull()) {
+            ReasoningEffort.validateJsonElement(jsonObj.get("effort"));
+        }
+        // validate the optional field `reasoning_effort`
+        if (jsonObj.get("reasoning_effort") != null
+                && !jsonObj.get("reasoning_effort").isJsonNull()) {
+            ReasoningEffort.validateJsonElement(jsonObj.get("reasoning_effort"));
+        }
         // ensure the optional json data is an array if present
         if (jsonObj.get("stop_sequence") != null
                 && !jsonObj.get("stop_sequence").isJsonNull()

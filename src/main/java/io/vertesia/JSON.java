@@ -179,6 +179,8 @@ public class JSON {
                                         classByDiscriminatorValue.put(
                                                 "text", io.vertesia.model.TextResult.class);
                                         classByDiscriminatorValue.put(
+                                                "thoughts", io.vertesia.model.ThoughtsResult.class);
+                                        classByDiscriminatorValue.put(
                                                 "CompletionResult",
                                                 io.vertesia.model.CompletionResult.class);
                                         return getClassByDiscriminator(
@@ -2325,6 +2327,8 @@ public class JSON {
                 new io.vertesia.model.TextFallbackOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.TextResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ThoughtsResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.TimerTask.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

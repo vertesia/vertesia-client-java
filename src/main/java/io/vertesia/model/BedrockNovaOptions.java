@@ -117,6 +117,11 @@ public class BedrockNovaOptions {
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
     @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_INCLUDE_THOUGHTS = "include_thoughts";
+
+    @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
+    @jakarta.annotation.Nullable private Boolean includeThoughts;
+
     public BedrockNovaOptions() {}
 
     public BedrockNovaOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
@@ -213,6 +218,24 @@ public class BedrockNovaOptions {
         this.stopSequence = stopSequence;
     }
 
+    public BedrockNovaOptions includeThoughts(
+            @jakarta.annotation.Nullable Boolean includeThoughts) {
+        this.includeThoughts = includeThoughts;
+        return this;
+    }
+
+    /**
+     * Get includeThoughts
+     * @return includeThoughts
+     */
+    @jakarta.annotation.Nullable public Boolean getIncludeThoughts() {
+        return includeThoughts;
+    }
+
+    public void setIncludeThoughts(@jakarta.annotation.Nullable Boolean includeThoughts) {
+        this.includeThoughts = includeThoughts;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -226,12 +249,13 @@ public class BedrockNovaOptions {
                 && Objects.equals(this.maxTokens, bedrockNovaOptions.maxTokens)
                 && Objects.equals(this.temperature, bedrockNovaOptions.temperature)
                 && Objects.equals(this.topP, bedrockNovaOptions.topP)
-                && Objects.equals(this.stopSequence, bedrockNovaOptions.stopSequence);
+                && Objects.equals(this.stopSequence, bedrockNovaOptions.stopSequence)
+                && Objects.equals(this.includeThoughts, bedrockNovaOptions.includeThoughts);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(optionId, maxTokens, temperature, topP, stopSequence);
+        return Objects.hash(optionId, maxTokens, temperature, topP, stopSequence, includeThoughts);
     }
 
     @Override
@@ -243,6 +267,7 @@ public class BedrockNovaOptions {
         sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
         sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
+        sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -267,7 +292,8 @@ public class BedrockNovaOptions {
                                 "max_tokens",
                                 "temperature",
                                 "top_p",
-                                "stop_sequence"));
+                                "stop_sequence",
+                                "include_thoughts"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));

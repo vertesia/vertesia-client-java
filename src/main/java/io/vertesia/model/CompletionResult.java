@@ -43,6 +43,8 @@ public class CompletionResult extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<TextResult> adapterTextResult =
                     gson.getDelegateAdapter(this, TypeToken.get(TextResult.class));
+            final TypeAdapter<ThoughtsResult> adapterThoughtsResult =
+                    gson.getDelegateAdapter(this, TypeToken.get(ThoughtsResult.class));
             final TypeAdapter<JsonResult> adapterJsonResult =
                     gson.getDelegateAdapter(this, TypeToken.get(JsonResult.class));
             final TypeAdapter<ImageResult> adapterImageResult =
@@ -66,6 +68,14 @@ public class CompletionResult extends AbstractOpenApiSchema {
                                 elementAdapter.write(out, element);
                                 return;
                             }
+                            // check if the actual instance is of the type `ThoughtsResult`
+                            if (value.getActualInstance() instanceof ThoughtsResult) {
+                                JsonElement element =
+                                        adapterThoughtsResult.toJsonTree(
+                                                (ThoughtsResult) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
                             // check if the actual instance is of the type `JsonResult`
                             if (value.getActualInstance() instanceof JsonResult) {
                                 JsonElement element =
@@ -83,7 +93,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
                                 return;
                             }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: ImageResult, JsonResult, TextResult");
+                                    "Failed to serialize as the type doesn't match oneOf schemas: ImageResult, JsonResult, TextResult, ThoughtsResult");
                         }
 
                         @Override
@@ -112,6 +122,25 @@ public class CompletionResult extends AbstractOpenApiSchema {
                                 log.log(
                                         Level.FINER,
                                         "Input data does not match schema 'TextResult'",
+                                        e);
+                            }
+                            // deserialize ThoughtsResult
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                ThoughtsResult.validateJsonElement(jsonElement);
+                                actualAdapter = adapterThoughtsResult;
+                                match++;
+                                log.log(Level.FINER, "Input data matches schema 'ThoughtsResult'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for ThoughtsResult failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'ThoughtsResult'",
                                         e);
                             }
                             // deserialize JsonResult
@@ -185,6 +214,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
 
     static {
         schemas.put("TextResult", TextResult.class);
+        schemas.put("ThoughtsResult", ThoughtsResult.class);
         schemas.put("JsonResult", JsonResult.class);
         schemas.put("ImageResult", ImageResult.class);
     }
@@ -197,13 +227,18 @@ public class CompletionResult extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * ImageResult, JsonResult, TextResult
+     * ImageResult, JsonResult, TextResult, ThoughtsResult
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
         if (instance instanceof TextResult) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof ThoughtsResult) {
             super.setActualInstance(instance);
             return;
         }
@@ -219,14 +254,14 @@ public class CompletionResult extends AbstractOpenApiSchema {
         }
 
         throw new RuntimeException(
-                "Invalid instance type. Must be ImageResult, JsonResult, TextResult");
+                "Invalid instance type. Must be ImageResult, JsonResult, TextResult, ThoughtsResult");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * ImageResult, JsonResult, TextResult
+     * ImageResult, JsonResult, TextResult, ThoughtsResult
      *
-     * @return The actual instance (ImageResult, JsonResult, TextResult)
+     * @return The actual instance (ImageResult, JsonResult, TextResult, ThoughtsResult)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -244,6 +279,18 @@ public class CompletionResult extends AbstractOpenApiSchema {
     @SuppressWarnings("unchecked")
     public TextResult getTextResult() throws ClassCastException {
         return (TextResult) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `ThoughtsResult`. If the actual instance is not `ThoughtsResult`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `ThoughtsResult`
+     * @throws ClassCastException if the instance is not `ThoughtsResult`
+     */
+    @SuppressWarnings("unchecked")
+    public ThoughtsResult getThoughtsResult() throws ClassCastException {
+        return (ThoughtsResult) super.getActualInstance();
     }
 
     /**
@@ -292,6 +339,18 @@ public class CompletionResult extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with ThoughtsResult
+        try {
+            ThoughtsResult.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for ThoughtsResult failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with JsonResult
         try {
             JsonResult.validateJsonElement(jsonElement);
@@ -320,7 +379,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
             throw new IOException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for CompletionResult with oneOf schemas: ImageResult, JsonResult, TextResult. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            "The JSON string is invalid for CompletionResult with oneOf schemas: ImageResult, JsonResult, TextResult, ThoughtsResult. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
                             validCount,
                             errorMessages,
                             jsonElement.toString()));

@@ -887,6 +887,7 @@ src/main/java/io/vertesia/model/TextArtifactReference.java
 src/main/java/io/vertesia/model/TextFallbackOptions.java
 src/main/java/io/vertesia/model/TextResult.java
 src/main/java/io/vertesia/model/ThinkingLevel.java
+src/main/java/io/vertesia/model/ThoughtsResult.java
 src/main/java/io/vertesia/model/TimeResolution.java
 src/main/java/io/vertesia/model/TimerTask.java
 src/main/java/io/vertesia/model/ToolApprovalGrant.java
