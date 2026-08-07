@@ -129,6 +129,9 @@ src/main/java/io/vertesia/model/AppDeleteSummary.java
 src/main/java/io/vertesia/model/AppDevelopmentTask.java
 src/main/java/io/vertesia/model/AppDevelopmentTaskDetails.java
 src/main/java/io/vertesia/model/AppDevelopmentTaskList.java
+src/main/java/io/vertesia/model/AppEventDeliveryTarget.java
+src/main/java/io/vertesia/model/AppEventDeliveryTargetInput.java
+src/main/java/io/vertesia/model/AppEventSubscriptionDefinition.java
 src/main/java/io/vertesia/model/AppGitSourceConfig.java
 src/main/java/io/vertesia/model/AppInspectionCapabilityReport.java
 src/main/java/io/vertesia/model/AppInspectionIssue.java
@@ -145,6 +148,8 @@ src/main/java/io/vertesia/model/AppManifestPreviewScreenshot.java
 src/main/java/io/vertesia/model/AppManifestSource.java
 src/main/java/io/vertesia/model/AppManifestSourceGit.java
 src/main/java/io/vertesia/model/AppPackage.java
+src/main/java/io/vertesia/model/AppPackageEventHook.java
+src/main/java/io/vertesia/model/AppPackageHooks.java
 src/main/java/io/vertesia/model/AppPackageScope.java
 src/main/java/io/vertesia/model/AppRepoBranch.java
 src/main/java/io/vertesia/model/AppRepoCommit.java
