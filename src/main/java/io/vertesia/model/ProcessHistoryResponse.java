@@ -13,6 +13,7 @@
 package io.vertesia.model;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -23,6 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -48,6 +50,12 @@ public class ProcessHistoryResponse {
     @SerializedName(SERIALIZED_NAME_CURRENT_NODE)
     @jakarta.annotation.Nonnull
     private String currentNode;
+
+    public static final String SERIALIZED_NAME_NODE_HISTORY = "node_history";
+
+    @SerializedName(SERIALIZED_NAME_NODE_HISTORY)
+    @jakarta.annotation.Nonnull
+    private List<NodeHistoryEntry> nodeHistory = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_NODE_HISTORY_REF = "node_history_ref";
 
@@ -90,6 +98,33 @@ public class ProcessHistoryResponse {
 
     public void setCurrentNode(@jakarta.annotation.Nonnull String currentNode) {
         this.currentNode = currentNode;
+    }
+
+    public ProcessHistoryResponse nodeHistory(
+            @jakarta.annotation.Nonnull List<NodeHistoryEntry> nodeHistory) {
+        this.nodeHistory = nodeHistory;
+        return this;
+    }
+
+    public ProcessHistoryResponse addNodeHistoryItem(NodeHistoryEntry nodeHistoryItem) {
+        if (this.nodeHistory == null) {
+            this.nodeHistory = new ArrayList<>();
+        }
+        this.nodeHistory.add(nodeHistoryItem);
+        return this;
+    }
+
+    /**
+     * Get nodeHistory
+     * @return nodeHistory
+     */
+    @jakarta.annotation.Nonnull
+    public List<NodeHistoryEntry> getNodeHistory() {
+        return nodeHistory;
+    }
+
+    public void setNodeHistory(@jakarta.annotation.Nonnull List<NodeHistoryEntry> nodeHistory) {
+        this.nodeHistory = nodeHistory;
     }
 
     public ProcessHistoryResponse nodeHistoryRef(
@@ -167,6 +202,7 @@ public class ProcessHistoryResponse {
         ProcessHistoryResponse processHistoryResponse = (ProcessHistoryResponse) o;
         return Objects.equals(this.runId, processHistoryResponse.runId)
                 && Objects.equals(this.currentNode, processHistoryResponse.currentNode)
+                && Objects.equals(this.nodeHistory, processHistoryResponse.nodeHistory)
                 && Objects.equals(this.nodeHistoryRef, processHistoryResponse.nodeHistoryRef)
                 && Objects.equals(
                         this.additionalProperties, processHistoryResponse.additionalProperties);
@@ -174,7 +210,7 @@ public class ProcessHistoryResponse {
 
     @Override
     public int hashCode() {
-        return Objects.hash(runId, currentNode, nodeHistoryRef, additionalProperties);
+        return Objects.hash(runId, currentNode, nodeHistory, nodeHistoryRef, additionalProperties);
     }
 
     @Override
@@ -183,6 +219,7 @@ public class ProcessHistoryResponse {
         sb.append("class ProcessHistoryResponse {\n");
         sb.append("    runId: ").append(toIndentedString(runId)).append("\n");
         sb.append("    currentNode: ").append(toIndentedString(currentNode)).append("\n");
+        sb.append("    nodeHistory: ").append(toIndentedString(nodeHistory)).append("\n");
         sb.append("    nodeHistoryRef: ").append(toIndentedString(nodeHistoryRef)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
@@ -205,10 +242,13 @@ public class ProcessHistoryResponse {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields =
-                new HashSet<String>(Arrays.asList("run_id", "current_node", "node_history_ref"));
+                new HashSet<String>(
+                        Arrays.asList(
+                                "run_id", "current_node", "node_history", "node_history_ref"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("run_id", "current_node"));
+        openapiRequiredFields =
+                new HashSet<String>(Arrays.asList("run_id", "current_node", "node_history"));
     }
 
     /**
@@ -254,6 +294,20 @@ public class ProcessHistoryResponse {
                             java.util.Locale.ROOT,
                             "Expected the field `current_node` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("current_node").toString()));
+        }
+        if (jsonObj.get("node_history") != null) {
+            if (!jsonObj.get("node_history").isJsonArray()) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                java.util.Locale.ROOT,
+                                "Expected the field `node_history` to be an array in the JSON string but got `%s`",
+                                jsonObj.get("node_history").toString()));
+            }
+            JsonArray jsonArraynodeHistory = jsonObj.getAsJsonArray("node_history");
+            // validate the required field `node_history` (array)
+            for (int i = 0; i < jsonArraynodeHistory.size(); i++) {
+                NodeHistoryEntry.validateJsonElement(jsonArraynodeHistory.get(i));
+            }
         }
         // validate the optional field `node_history_ref`
         if (jsonObj.get("node_history_ref") != null

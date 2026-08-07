@@ -27,8 +27,10 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import org.openapitools.jackson.nullable.JsonNullable;
 
@@ -138,6 +140,11 @@ public class WorkflowRun {
 
     @SerializedName(SERIALIZED_NAME_INTERACTIVE)
     @jakarta.annotation.Nullable private Boolean interactive;
+
+    public static final String SERIALIZED_NAME_MEMO = "memo";
+
+    @SerializedName(SERIALIZED_NAME_MEMO)
+    @jakarta.annotation.Nullable private Map<String, Object> memo;
 
     public WorkflowRun() {}
 
@@ -494,6 +501,31 @@ public class WorkflowRun {
         this.interactive = interactive;
     }
 
+    public WorkflowRun memo(@jakarta.annotation.Nullable Map<String, Object> memo) {
+        this.memo = memo;
+        return this;
+    }
+
+    public WorkflowRun putMemoItem(String key, Object memoItem) {
+        if (this.memo == null) {
+            this.memo = new HashMap<>();
+        }
+        this.memo.put(key, memoItem);
+        return this;
+    }
+
+    /**
+     * Get memo
+     * @return memo
+     */
+    @jakarta.annotation.Nullable public Map<String, Object> getMemo() {
+        return memo;
+    }
+
+    public void setMemo(@jakarta.annotation.Nullable Map<String, Object> memo) {
+        this.memo = memo;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -522,7 +554,8 @@ public class WorkflowRun {
                 && Objects.equals(this.visibility, workflowRun.visibility)
                 && Objects.equals(this.topic, workflowRun.topic)
                 && Objects.equals(this.activityState, workflowRun.activityState)
-                && Objects.equals(this.interactive, workflowRun.interactive);
+                && Objects.equals(this.interactive, workflowRun.interactive)
+                && Objects.equals(this.memo, workflowRun.memo);
     }
 
     private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -556,7 +589,8 @@ public class WorkflowRun {
                 visibility,
                 topic,
                 activityState,
-                interactive);
+                interactive,
+                memo);
     }
 
     private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -596,6 +630,7 @@ public class WorkflowRun {
         sb.append("    topic: ").append(toIndentedString(topic)).append("\n");
         sb.append("    activityState: ").append(toIndentedString(activityState)).append("\n");
         sb.append("    interactive: ").append(toIndentedString(interactive)).append("\n");
+        sb.append("    memo: ").append(toIndentedString(memo)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -635,7 +670,8 @@ public class WorkflowRun {
                                 "visibility",
                                 "topic",
                                 "activity_state",
-                                "interactive"));
+                                "interactive",
+                                "memo"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("started_at", "closed_at"));

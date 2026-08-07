@@ -744,6 +744,7 @@ src/main/java/io/vertesia/model/ProjectSearchPropertyType.java
 src/main/java/io/vertesia/model/ProjectSearchTier.java
 src/main/java/io/vertesia/model/ProjectTokenRequest.java
 src/main/java/io/vertesia/model/ProjectToolInfo.java
+src/main/java/io/vertesia/model/ProjectedContentObjectApiResponse.java
 src/main/java/io/vertesia/model/PromoteAppVersionResponse.java
 src/main/java/io/vertesia/model/PromoteDashboardVersionPayload.java
 src/main/java/io/vertesia/model/PromptImprovementResponse.java

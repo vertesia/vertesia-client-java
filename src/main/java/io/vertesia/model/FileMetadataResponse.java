@@ -65,6 +65,11 @@ public class FileMetadataResponse {
     @SerializedName(SERIALIZED_NAME_ETAG)
     @jakarta.annotation.Nullable private String etag;
 
+    public static final String SERIALIZED_NAME_GENERATION = "generation";
+
+    @SerializedName(SERIALIZED_NAME_GENERATION)
+    @jakarta.annotation.Nullable private String generation;
+
     public static final String SERIALIZED_NAME_CUSTOM_METADATA = "customMetadata";
 
     @SerializedName(SERIALIZED_NAME_CUSTOM_METADATA)
@@ -161,6 +166,23 @@ public class FileMetadataResponse {
         this.etag = etag;
     }
 
+    public FileMetadataResponse generation(@jakarta.annotation.Nullable String generation) {
+        this.generation = generation;
+        return this;
+    }
+
+    /**
+     * Get generation
+     * @return generation
+     */
+    @jakarta.annotation.Nullable public String getGeneration() {
+        return generation;
+    }
+
+    public void setGeneration(@jakarta.annotation.Nullable String generation) {
+        this.generation = generation;
+    }
+
     public FileMetadataResponse customMetadata(
             @jakarta.annotation.Nullable Map<String, String> customMetadata) {
         this.customMetadata = customMetadata;
@@ -201,12 +223,14 @@ public class FileMetadataResponse {
                 && Objects.equals(this.contentType, fileMetadataResponse.contentType)
                 && Objects.equals(this.contentDisposition, fileMetadataResponse.contentDisposition)
                 && Objects.equals(this.etag, fileMetadataResponse.etag)
+                && Objects.equals(this.generation, fileMetadataResponse.generation)
                 && Objects.equals(this.customMetadata, fileMetadataResponse.customMetadata);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, size, contentType, contentDisposition, etag, customMetadata);
+        return Objects.hash(
+                name, size, contentType, contentDisposition, etag, generation, customMetadata);
     }
 
     @Override
@@ -220,6 +244,7 @@ public class FileMetadataResponse {
                 .append(toIndentedString(contentDisposition))
                 .append("\n");
         sb.append("    etag: ").append(toIndentedString(etag)).append("\n");
+        sb.append("    generation: ").append(toIndentedString(generation)).append("\n");
         sb.append("    customMetadata: ").append(toIndentedString(customMetadata)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -246,6 +271,7 @@ public class FileMetadataResponse {
                                 "contentType",
                                 "contentDisposition",
                                 "etag",
+                                "generation",
                                 "customMetadata"));
 
         // a set of required properties/fields (JSON key names)
@@ -312,6 +338,14 @@ public class FileMetadataResponse {
                             java.util.Locale.ROOT,
                             "Expected the field `etag` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("etag").toString()));
+        }
+        if ((jsonObj.get("generation") != null && !jsonObj.get("generation").isJsonNull())
+                && !jsonObj.get("generation").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `generation` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("generation").toString()));
         }
     }
 

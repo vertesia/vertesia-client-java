@@ -23,6 +23,7 @@ import io.vertesia.model.AdvanceProcessPayload;
 import io.vertesia.model.AgentArtifactContentResponse;
 import io.vertesia.model.AgentArtifactUrlResponse;
 import io.vertesia.model.AgentRun;
+import io.vertesia.model.AgentRunResponse;
 import io.vertesia.model.AgentRunUpdatesResponse;
 import io.vertesia.model.AnswerProcessTaskPayload;
 import io.vertesia.model.CreateRunPayload;
@@ -454,7 +455,7 @@ public class AgentRunsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created and started agent run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created and started agent or process run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -533,20 +534,20 @@ public class AgentRunsApi {
      * Create an agent run
      * Creates a stable agent run record and starts the backing workflow. When the request body matches the process-run payload shape, the same endpoint creates a process run that shares the durable agent-run identity, streaming, artifacts, and observability APIs.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param createRunPayload  (required)
-     * @return AgentRun
+     * @return AgentRunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created and started agent run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created and started agent or process run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AgentRun createAgentRun(@jakarta.annotation.Nonnull CreateRunPayload createRunPayload)
-            throws ApiException {
-        ApiResponse<AgentRun> localVarResp = createAgentRunWithHttpInfo(createRunPayload);
+    public AgentRunResponse createAgentRun(
+            @jakarta.annotation.Nonnull CreateRunPayload createRunPayload) throws ApiException {
+        ApiResponse<AgentRunResponse> localVarResp = createAgentRunWithHttpInfo(createRunPayload);
         return localVarResp.getData();
     }
 
@@ -554,21 +555,21 @@ public class AgentRunsApi {
      * Create an agent run
      * Creates a stable agent run record and starts the backing workflow. When the request body matches the process-run payload shape, the same endpoint creates a process run that shares the durable agent-run identity, streaming, artifacts, and observability APIs.  **Required permissions:** &#x60;workflow:run&#x60;
      * @param createRunPayload  (required)
-     * @return ApiResponse&lt;AgentRun&gt;
+     * @return ApiResponse&lt;AgentRunResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created and started agent run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created and started agent or process run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<AgentRun> createAgentRunWithHttpInfo(
+    public ApiResponse<AgentRunResponse> createAgentRunWithHttpInfo(
             @jakarta.annotation.Nonnull CreateRunPayload createRunPayload) throws ApiException {
         okhttp3.Call localVarCall = createAgentRunValidateBeforeCall(createRunPayload, null);
-        Type localVarReturnType = new TypeToken<AgentRun>() {}.getType();
+        Type localVarReturnType = new TypeToken<AgentRunResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -583,18 +584,18 @@ public class AgentRunsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The created and started agent run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The created and started agent or process run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call createAgentRunAsync(
             @jakarta.annotation.Nonnull CreateRunPayload createRunPayload,
-            final ApiCallback<AgentRun> _callback)
+            final ApiCallback<AgentRunResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = createAgentRunValidateBeforeCall(createRunPayload, _callback);
-        Type localVarReturnType = new TypeToken<AgentRun>() {}.getType();
+        Type localVarReturnType = new TypeToken<AgentRunResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -963,7 +964,7 @@ public class AgentRunsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested agent run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested agent or process run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1044,19 +1045,20 @@ public class AgentRunsApi {
      * Retrieve an agent run
      * Retrieves a single agent run by stable agent run ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
-     * @return AgentRun
+     * @return AgentRunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested agent run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested agent or process run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AgentRun getAgentRun(@jakarta.annotation.Nonnull String agentRunId) throws ApiException {
-        ApiResponse<AgentRun> localVarResp = getAgentRunWithHttpInfo(agentRunId);
+    public AgentRunResponse getAgentRun(@jakarta.annotation.Nonnull String agentRunId)
+            throws ApiException {
+        ApiResponse<AgentRunResponse> localVarResp = getAgentRunWithHttpInfo(agentRunId);
         return localVarResp.getData();
     }
 
@@ -1064,21 +1066,21 @@ public class AgentRunsApi {
      * Retrieve an agent run
      * Retrieves a single agent run by stable agent run ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
-     * @return ApiResponse&lt;AgentRun&gt;
+     * @return ApiResponse&lt;AgentRunResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested agent run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested agent or process run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<AgentRun> getAgentRunWithHttpInfo(
+    public ApiResponse<AgentRunResponse> getAgentRunWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId) throws ApiException {
         okhttp3.Call localVarCall = getAgentRunValidateBeforeCall(agentRunId, null);
-        Type localVarReturnType = new TypeToken<AgentRun>() {}.getType();
+        Type localVarReturnType = new TypeToken<AgentRunResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1093,17 +1095,18 @@ public class AgentRunsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested agent run. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested agent or process run. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call getAgentRunAsync(
-            @jakarta.annotation.Nonnull String agentRunId, final ApiCallback<AgentRun> _callback)
+            @jakarta.annotation.Nonnull String agentRunId,
+            final ApiCallback<AgentRunResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getAgentRunValidateBeforeCall(agentRunId, _callback);
-        Type localVarReturnType = new TypeToken<AgentRun>() {}.getType();
+        Type localVarReturnType = new TypeToken<AgentRunResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

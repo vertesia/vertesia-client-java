@@ -49,6 +49,7 @@ import io.vertesia.model.GroundedExtractionResultResponse;
 import io.vertesia.model.ListContentObjectExportsResponse;
 import io.vertesia.model.ListWorkflowRunsResponse;
 import io.vertesia.model.ObjectSearchResponse;
+import io.vertesia.model.ProjectedContentObjectApiResponse;
 import io.vertesia.model.SetObjectEmbeddingsResponse;
 import io.vertesia.model.StartContentObjectExportRequest;
 import io.vertesia.model.StartContentObjectExportResponse;
@@ -1993,7 +1994,7 @@ public class ObjectsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested content object or projection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -2074,20 +2075,21 @@ public class ObjectsApi {
      * Retrieve a content object
      * Retrieves a content object by ID, including computed user permissions for the current principal.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
-     * @return ContentObjectApiResponse
+     * @return ProjectedContentObjectApiResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested content object or projection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ContentObjectApiResponse getObject(@jakarta.annotation.Nonnull String objectId)
+    public ProjectedContentObjectApiResponse getObject(@jakarta.annotation.Nonnull String objectId)
             throws ApiException {
-        ApiResponse<ContentObjectApiResponse> localVarResp = getObjectWithHttpInfo(objectId);
+        ApiResponse<ProjectedContentObjectApiResponse> localVarResp =
+                getObjectWithHttpInfo(objectId);
         return localVarResp.getData();
     }
 
@@ -2095,21 +2097,21 @@ public class ObjectsApi {
      * Retrieve a content object
      * Retrieves a content object by ID, including computed user permissions for the current principal.  **Required permissions:** &#x60;content:read&#x60;
      * @param objectId  (required)
-     * @return ApiResponse&lt;ContentObjectApiResponse&gt;
+     * @return ApiResponse&lt;ProjectedContentObjectApiResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested content object or projection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<ContentObjectApiResponse> getObjectWithHttpInfo(
+    public ApiResponse<ProjectedContentObjectApiResponse> getObjectWithHttpInfo(
             @jakarta.annotation.Nonnull String objectId) throws ApiException {
         okhttp3.Call localVarCall = getObjectValidateBeforeCall(objectId, null);
-        Type localVarReturnType = new TypeToken<ContentObjectApiResponse>() {}.getType();
+        Type localVarReturnType = new TypeToken<ProjectedContentObjectApiResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2124,18 +2126,18 @@ public class ObjectsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested content object. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> The requested content object or projection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call getObjectAsync(
             @jakarta.annotation.Nonnull String objectId,
-            final ApiCallback<ContentObjectApiResponse> _callback)
+            final ApiCallback<ProjectedContentObjectApiResponse> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall = getObjectValidateBeforeCall(objectId, _callback);
-        Type localVarReturnType = new TypeToken<ContentObjectApiResponse>() {}.getType();
+        Type localVarReturnType = new TypeToken<ProjectedContentObjectApiResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

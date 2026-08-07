@@ -156,6 +156,11 @@ public class WorkflowRunWithDetails {
     @SerializedName(SERIALIZED_NAME_PENDING_ACTIVITIES)
     @jakarta.annotation.Nullable private List<PendingActivity> pendingActivities = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_CHILDREN = "children";
+
+    @SerializedName(SERIALIZED_NAME_CHILDREN)
+    @jakarta.annotation.Nullable private List<WorkflowRun> children = new ArrayList<>();
+
     public WorkflowRunWithDetails() {}
 
     public WorkflowRunWithDetails status(@jakarta.annotation.Nullable WorkflowRunStatus status) {
@@ -583,6 +588,32 @@ public class WorkflowRunWithDetails {
         this.pendingActivities = pendingActivities;
     }
 
+    public WorkflowRunWithDetails children(
+            @jakarta.annotation.Nullable List<WorkflowRun> children) {
+        this.children = children;
+        return this;
+    }
+
+    public WorkflowRunWithDetails addChildrenItem(WorkflowRun childrenItem) {
+        if (this.children == null) {
+            this.children = new ArrayList<>();
+        }
+        this.children.add(childrenItem);
+        return this;
+    }
+
+    /**
+     * Get children
+     * @return children
+     */
+    @jakarta.annotation.Nullable public List<WorkflowRun> getChildren() {
+        return children;
+    }
+
+    public void setChildren(@jakarta.annotation.Nullable List<WorkflowRun> children) {
+        this.children = children;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -615,7 +646,8 @@ public class WorkflowRunWithDetails {
                 && Objects.equals(this.interactive, workflowRunWithDetails.interactive)
                 && Objects.equals(this.history, workflowRunWithDetails.history)
                 && Objects.equals(this.memo, workflowRunWithDetails.memo)
-                && Objects.equals(this.pendingActivities, workflowRunWithDetails.pendingActivities);
+                && Objects.equals(this.pendingActivities, workflowRunWithDetails.pendingActivities)
+                && Objects.equals(this.children, workflowRunWithDetails.children);
     }
 
     private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
@@ -652,7 +684,8 @@ public class WorkflowRunWithDetails {
                 interactive,
                 history,
                 memo,
-                pendingActivities);
+                pendingActivities,
+                children);
     }
 
     private static <T> int hashCodeNullable(JsonNullable<T> a) {
@@ -697,6 +730,7 @@ public class WorkflowRunWithDetails {
         sb.append("    pendingActivities: ")
                 .append(toIndentedString(pendingActivities))
                 .append("\n");
+        sb.append("    children: ").append(toIndentedString(children)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -739,7 +773,8 @@ public class WorkflowRunWithDetails {
                                 "interactive",
                                 "history",
                                 "memo",
-                                "pendingActivities"));
+                                "pendingActivities",
+                                "children"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("started_at", "closed_at"));
@@ -900,6 +935,25 @@ public class WorkflowRunWithDetails {
                 // validate the optional field `pendingActivities` (array)
                 for (int i = 0; i < jsonArraypendingActivities.size(); i++) {
                     PendingActivity.validateJsonElement(jsonArraypendingActivities.get(i));
+                }
+                ;
+            }
+        }
+        if (jsonObj.get("children") != null && !jsonObj.get("children").isJsonNull()) {
+            JsonArray jsonArraychildren = jsonObj.getAsJsonArray("children");
+            if (jsonArraychildren != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("children").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `children` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("children").toString()));
+                }
+
+                // validate the optional field `children` (array)
+                for (int i = 0; i < jsonArraychildren.size(); i++) {
+                    WorkflowRun.validateJsonElement(jsonArraychildren.get(i));
                 }
                 ;
             }

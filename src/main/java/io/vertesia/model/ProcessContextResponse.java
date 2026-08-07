@@ -24,7 +24,9 @@ import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -45,6 +47,12 @@ public class ProcessContextResponse {
     @SerializedName(SERIALIZED_NAME_CURRENT_NODE)
     @jakarta.annotation.Nonnull
     private String currentNode;
+
+    public static final String SERIALIZED_NAME_CONTEXT = "context";
+
+    @SerializedName(SERIALIZED_NAME_CONTEXT)
+    @jakarta.annotation.Nonnull
+    private Map<String, Object> context = new HashMap<>();
 
     public ProcessContextResponse() {}
 
@@ -84,6 +92,32 @@ public class ProcessContextResponse {
         this.currentNode = currentNode;
     }
 
+    public ProcessContextResponse context(@jakarta.annotation.Nonnull Map<String, Object> context) {
+        this.context = context;
+        return this;
+    }
+
+    public ProcessContextResponse putContextItem(String key, Object contextItem) {
+        if (this.context == null) {
+            this.context = new HashMap<>();
+        }
+        this.context.put(key, contextItem);
+        return this;
+    }
+
+    /**
+     * Get context
+     * @return context
+     */
+    @jakarta.annotation.Nonnull
+    public Map<String, Object> getContext() {
+        return context;
+    }
+
+    public void setContext(@jakarta.annotation.Nonnull Map<String, Object> context) {
+        this.context = context;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -94,12 +128,13 @@ public class ProcessContextResponse {
         }
         ProcessContextResponse processContextResponse = (ProcessContextResponse) o;
         return Objects.equals(this.runId, processContextResponse.runId)
-                && Objects.equals(this.currentNode, processContextResponse.currentNode);
+                && Objects.equals(this.currentNode, processContextResponse.currentNode)
+                && Objects.equals(this.context, processContextResponse.context);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(runId, currentNode);
+        return Objects.hash(runId, currentNode, context);
     }
 
     @Override
@@ -108,6 +143,7 @@ public class ProcessContextResponse {
         sb.append("class ProcessContextResponse {\n");
         sb.append("    runId: ").append(toIndentedString(runId)).append("\n");
         sb.append("    currentNode: ").append(toIndentedString(currentNode)).append("\n");
+        sb.append("    context: ").append(toIndentedString(context)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -125,10 +161,11 @@ public class ProcessContextResponse {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("run_id", "current_node"));
+        openapiFields = new HashSet<String>(Arrays.asList("run_id", "current_node", "context"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("run_id", "current_node"));
+        openapiRequiredFields =
+                new HashSet<String>(Arrays.asList("run_id", "current_node", "context"));
     }
 
     /**
