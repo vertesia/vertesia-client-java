@@ -210,6 +210,16 @@ public class AutonomousRunResponse {
     @jakarta.annotation.Nonnull
     private RunKindEnum runKind;
 
+    public static final String SERIALIZED_NAME_PARENT_RUN_ID = "parent_run_id";
+
+    @SerializedName(SERIALIZED_NAME_PARENT_RUN_ID)
+    @jakarta.annotation.Nullable private String parentRunId;
+
+    public static final String SERIALIZED_NAME_WORKSTREAM_ID = "workstream_id";
+
+    @SerializedName(SERIALIZED_NAME_WORKSTREAM_ID)
+    @jakarta.annotation.Nullable private String workstreamId;
+
     /**
      * Gets or Sets runType
      */
@@ -869,6 +879,40 @@ public class AutonomousRunResponse {
         this.runKind = runKind;
     }
 
+    public AutonomousRunResponse parentRunId(@jakarta.annotation.Nullable String parentRunId) {
+        this.parentRunId = parentRunId;
+        return this;
+    }
+
+    /**
+     * Process run this agent belongs to — set when a process agent node recorded this run. Its conversation lives on the parent run under &#x60;workstream_id&#x60;.
+     * @return parentRunId
+     */
+    @jakarta.annotation.Nullable public String getParentRunId() {
+        return parentRunId;
+    }
+
+    public void setParentRunId(@jakarta.annotation.Nullable String parentRunId) {
+        this.parentRunId = parentRunId;
+    }
+
+    public AutonomousRunResponse workstreamId(@jakarta.annotation.Nullable String workstreamId) {
+        this.workstreamId = workstreamId;
+        return this;
+    }
+
+    /**
+     * Workstream this run occupies inside its parent run (the process node id).
+     * @return workstreamId
+     */
+    @jakarta.annotation.Nullable public String getWorkstreamId() {
+        return workstreamId;
+    }
+
+    public void setWorkstreamId(@jakarta.annotation.Nullable String workstreamId) {
+        this.workstreamId = workstreamId;
+    }
+
     public AutonomousRunResponse runType(@jakarta.annotation.Nonnull RunTypeEnum runType) {
         this.runType = runType;
         return this;
@@ -1418,6 +1462,8 @@ public class AutonomousRunResponse {
                 && Objects.equals(this.type, autonomousRunResponse.type)
                 && Objects.equals(this.id, autonomousRunResponse.id)
                 && Objects.equals(this.runKind, autonomousRunResponse.runKind)
+                && Objects.equals(this.parentRunId, autonomousRunResponse.parentRunId)
+                && Objects.equals(this.workstreamId, autonomousRunResponse.workstreamId)
                 && Objects.equals(this.runType, autonomousRunResponse.runType)
                 && Objects.equals(this.account, autonomousRunResponse.account)
                 && Objects.equals(this.project, autonomousRunResponse.project)
@@ -1474,6 +1520,8 @@ public class AutonomousRunResponse {
                 type,
                 id,
                 runKind,
+                parentRunId,
+                workstreamId,
                 runType,
                 account,
                 project,
@@ -1531,6 +1579,8 @@ public class AutonomousRunResponse {
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    runKind: ").append(toIndentedString(runKind)).append("\n");
+        sb.append("    parentRunId: ").append(toIndentedString(parentRunId)).append("\n");
+        sb.append("    workstreamId: ").append(toIndentedString(workstreamId)).append("\n");
         sb.append("    runType: ").append(toIndentedString(runType)).append("\n");
         sb.append("    account: ").append(toIndentedString(account)).append("\n");
         sb.append("    project: ").append(toIndentedString(project)).append("\n");
@@ -1606,6 +1656,8 @@ public class AutonomousRunResponse {
                                 "type",
                                 "id",
                                 "run_kind",
+                                "parent_run_id",
+                                "workstream_id",
                                 "run_type",
                                 "account",
                                 "project",
@@ -1829,6 +1881,22 @@ public class AutonomousRunResponse {
         }
         // validate the required field `run_kind`
         RunKindEnum.validateJsonElement(jsonObj.get("run_kind"));
+        if ((jsonObj.get("parent_run_id") != null && !jsonObj.get("parent_run_id").isJsonNull())
+                && !jsonObj.get("parent_run_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `parent_run_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("parent_run_id").toString()));
+        }
+        if ((jsonObj.get("workstream_id") != null && !jsonObj.get("workstream_id").isJsonNull())
+                && !jsonObj.get("workstream_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `workstream_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("workstream_id").toString()));
+        }
         if (!jsonObj.get("run_type").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
