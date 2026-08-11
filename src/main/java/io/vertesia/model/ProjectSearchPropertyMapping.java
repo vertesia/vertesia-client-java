@@ -119,7 +119,7 @@ public class ProjectSearchPropertyMapping {
     }
 
     /**
-     * Skip malformed values instead of rejecting the whole document. Valid only for long, double, and date mappings.
+     * Skip malformed values instead of rejecting the whole document. Valid only for long, double, date, and geo_point mappings.
      * @return ignoreMalformed
      */
     @jakarta.annotation.Nullable public Boolean getIgnoreMalformed() {

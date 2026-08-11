@@ -36,6 +36,8 @@ public enum ProjectSearchPropertyType {
 
     DATE("date"),
 
+    GEO_POINT("geo_point"),
+
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
