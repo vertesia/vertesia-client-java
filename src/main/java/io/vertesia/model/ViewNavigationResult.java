@@ -55,6 +55,11 @@ public class ViewNavigationResult {
     @jakarta.annotation.Nonnull
     private List<ViewNavigationNode> nodes = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_QUERY = "query";
+
+    @SerializedName(SERIALIZED_NAME_QUERY)
+    @jakarta.annotation.Nullable private String query;
+
     public static final String SERIALIZED_NAME_BREADCRUMBS = "breadcrumbs";
 
     @SerializedName(SERIALIZED_NAME_BREADCRUMBS)
@@ -137,6 +142,23 @@ public class ViewNavigationResult {
         this.nodes = nodes;
     }
 
+    public ViewNavigationResult query(@jakarta.annotation.Nullable String query) {
+        this.query = query;
+        return this;
+    }
+
+    /**
+     * Applied server-side node filter, when the navigation source supports it.
+     * @return query
+     */
+    @jakarta.annotation.Nullable public String getQuery() {
+        return query;
+    }
+
+    public void setQuery(@jakarta.annotation.Nullable String query) {
+        this.query = query;
+    }
+
     public ViewNavigationResult breadcrumbs(
             @jakarta.annotation.Nullable List<ViewNavigationNode> breadcrumbs) {
         this.breadcrumbs = breadcrumbs;
@@ -152,7 +174,7 @@ public class ViewNavigationResult {
     }
 
     /**
-     * Selected hierarchy path from its root through the current value.
+     * Selected drill-down path from its root through the current value.
      * @return breadcrumbs
      */
     @jakarta.annotation.Nullable public List<ViewNavigationNode> getBreadcrumbs() {
@@ -192,13 +214,14 @@ public class ViewNavigationResult {
         return Objects.equals(this.id, viewNavigationResult.id)
                 && Objects.equals(this.selected, viewNavigationResult.selected)
                 && Objects.equals(this.nodes, viewNavigationResult.nodes)
+                && Objects.equals(this.query, viewNavigationResult.query)
                 && Objects.equals(this.breadcrumbs, viewNavigationResult.breadcrumbs)
                 && Objects.equals(this.truncated, viewNavigationResult.truncated);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, selected, nodes, breadcrumbs, truncated);
+        return Objects.hash(id, selected, nodes, query, breadcrumbs, truncated);
     }
 
     @Override
@@ -208,6 +231,7 @@ public class ViewNavigationResult {
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    selected: ").append(toIndentedString(selected)).append("\n");
         sb.append("    nodes: ").append(toIndentedString(nodes)).append("\n");
+        sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("    breadcrumbs: ").append(toIndentedString(breadcrumbs)).append("\n");
         sb.append("    truncated: ").append(toIndentedString(truncated)).append("\n");
         sb.append("}");
@@ -229,7 +253,8 @@ public class ViewNavigationResult {
         // a set of all properties/fields (JSON key names)
         openapiFields =
                 new HashSet<String>(
-                        Arrays.asList("id", "selected", "nodes", "breadcrumbs", "truncated"));
+                        Arrays.asList(
+                                "id", "selected", "nodes", "query", "breadcrumbs", "truncated"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "selected", "nodes"));
@@ -296,6 +321,14 @@ public class ViewNavigationResult {
             for (int i = 0; i < jsonArraynodes.size(); i++) {
                 ViewNavigationNode.validateJsonElement(jsonArraynodes.get(i));
             }
+        }
+        if ((jsonObj.get("query") != null && !jsonObj.get("query").isJsonNull())
+                && !jsonObj.get("query").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `query` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("query").toString()));
         }
         if (jsonObj.get("breadcrumbs") != null && !jsonObj.get("breadcrumbs").isJsonNull()) {
             JsonArray jsonArraybreadcrumbs = jsonObj.getAsJsonArray("breadcrumbs");

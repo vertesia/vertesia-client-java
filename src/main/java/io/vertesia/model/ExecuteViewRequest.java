@@ -53,6 +53,11 @@ public class ExecuteViewRequest {
     @SerializedName(SERIALIZED_NAME_NAVIGATION)
     @jakarta.annotation.Nullable private Map<String, List<String>> navigation = new HashMap<>();
 
+    public static final String SERIALIZED_NAME_NAVIGATION_QUERIES = "navigation_queries";
+
+    @SerializedName(SERIALIZED_NAME_NAVIGATION_QUERIES)
+    @jakarta.annotation.Nullable private Map<String, String> navigationQueries;
+
     public static final String SERIALIZED_NAME_DISPLAY = "display";
 
     @SerializedName(SERIALIZED_NAME_DISPLAY)
@@ -144,6 +149,33 @@ public class ExecuteViewRequest {
         this.navigation = navigation;
     }
 
+    public ExecuteViewRequest navigationQueries(
+            @jakarta.annotation.Nullable Map<String, String> navigationQueries) {
+        this.navigationQueries = navigationQueries;
+        return this;
+    }
+
+    public ExecuteViewRequest putNavigationQueriesItem(String key, String navigationQueriesItem) {
+        if (this.navigationQueries == null) {
+            this.navigationQueries = new HashMap<>();
+        }
+        this.navigationQueries.put(key, navigationQueriesItem);
+        return this;
+    }
+
+    /**
+     * Server-side text filters for large navigation sources, keyed by navigation id.
+     * @return navigationQueries
+     */
+    @jakarta.annotation.Nullable public Map<String, String> getNavigationQueries() {
+        return navigationQueries;
+    }
+
+    public void setNavigationQueries(
+            @jakarta.annotation.Nullable Map<String, String> navigationQueries) {
+        this.navigationQueries = navigationQueries;
+    }
+
     public ExecuteViewRequest display(@jakarta.annotation.Nullable String display) {
         this.display = display;
         return this;
@@ -224,6 +256,7 @@ public class ExecuteViewRequest {
         return Objects.equals(this.query, executeViewRequest.query)
                 && Objects.equals(this.keyTerms, executeViewRequest.keyTerms)
                 && Objects.equals(this.navigation, executeViewRequest.navigation)
+                && Objects.equals(this.navigationQueries, executeViewRequest.navigationQueries)
                 && Objects.equals(this.display, executeViewRequest.display)
                 && Objects.equals(this.sort, executeViewRequest.sort)
                 && Objects.equals(this.offset, executeViewRequest.offset)
@@ -232,7 +265,8 @@ public class ExecuteViewRequest {
 
     @Override
     public int hashCode() {
-        return Objects.hash(query, keyTerms, navigation, display, sort, offset, limit);
+        return Objects.hash(
+                query, keyTerms, navigation, navigationQueries, display, sort, offset, limit);
     }
 
     @Override
@@ -242,6 +276,9 @@ public class ExecuteViewRequest {
         sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("    keyTerms: ").append(toIndentedString(keyTerms)).append("\n");
         sb.append("    navigation: ").append(toIndentedString(navigation)).append("\n");
+        sb.append("    navigationQueries: ")
+                .append(toIndentedString(navigationQueries))
+                .append("\n");
         sb.append("    display: ").append(toIndentedString(display)).append("\n");
         sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
         sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
@@ -269,6 +306,7 @@ public class ExecuteViewRequest {
                                 "query",
                                 "key_terms",
                                 "navigation",
+                                "navigation_queries",
                                 "display",
                                 "sort",
                                 "offset",

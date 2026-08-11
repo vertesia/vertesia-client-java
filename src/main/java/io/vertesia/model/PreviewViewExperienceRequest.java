@@ -53,6 +53,11 @@ public class PreviewViewExperienceRequest {
     @SerializedName(SERIALIZED_NAME_NAVIGATION)
     @jakarta.annotation.Nullable private Map<String, List<String>> navigation = new HashMap<>();
 
+    public static final String SERIALIZED_NAME_NAVIGATION_QUERIES = "navigation_queries";
+
+    @SerializedName(SERIALIZED_NAME_NAVIGATION_QUERIES)
+    @jakarta.annotation.Nullable private Map<String, String> navigationQueries;
+
     public static final String SERIALIZED_NAME_DISPLAY = "display";
 
     @SerializedName(SERIALIZED_NAME_DISPLAY)
@@ -148,6 +153,34 @@ public class PreviewViewExperienceRequest {
 
     public void setNavigation(@jakarta.annotation.Nullable Map<String, List<String>> navigation) {
         this.navigation = navigation;
+    }
+
+    public PreviewViewExperienceRequest navigationQueries(
+            @jakarta.annotation.Nullable Map<String, String> navigationQueries) {
+        this.navigationQueries = navigationQueries;
+        return this;
+    }
+
+    public PreviewViewExperienceRequest putNavigationQueriesItem(
+            String key, String navigationQueriesItem) {
+        if (this.navigationQueries == null) {
+            this.navigationQueries = new HashMap<>();
+        }
+        this.navigationQueries.put(key, navigationQueriesItem);
+        return this;
+    }
+
+    /**
+     * Server-side text filters for large navigation sources, keyed by navigation id.
+     * @return navigationQueries
+     */
+    @jakarta.annotation.Nullable public Map<String, String> getNavigationQueries() {
+        return navigationQueries;
+    }
+
+    public void setNavigationQueries(
+            @jakarta.annotation.Nullable Map<String, String> navigationQueries) {
+        this.navigationQueries = navigationQueries;
     }
 
     public PreviewViewExperienceRequest display(@jakarta.annotation.Nullable String display) {
@@ -251,6 +284,8 @@ public class PreviewViewExperienceRequest {
         return Objects.equals(this.query, previewViewExperienceRequest.query)
                 && Objects.equals(this.keyTerms, previewViewExperienceRequest.keyTerms)
                 && Objects.equals(this.navigation, previewViewExperienceRequest.navigation)
+                && Objects.equals(
+                        this.navigationQueries, previewViewExperienceRequest.navigationQueries)
                 && Objects.equals(this.display, previewViewExperienceRequest.display)
                 && Objects.equals(this.sort, previewViewExperienceRequest.sort)
                 && Objects.equals(this.offset, previewViewExperienceRequest.offset)
@@ -261,7 +296,15 @@ public class PreviewViewExperienceRequest {
     @Override
     public int hashCode() {
         return Objects.hash(
-                query, keyTerms, navigation, display, sort, offset, limit, _configuration);
+                query,
+                keyTerms,
+                navigation,
+                navigationQueries,
+                display,
+                sort,
+                offset,
+                limit,
+                _configuration);
     }
 
     @Override
@@ -271,6 +314,9 @@ public class PreviewViewExperienceRequest {
         sb.append("    query: ").append(toIndentedString(query)).append("\n");
         sb.append("    keyTerms: ").append(toIndentedString(keyTerms)).append("\n");
         sb.append("    navigation: ").append(toIndentedString(navigation)).append("\n");
+        sb.append("    navigationQueries: ")
+                .append(toIndentedString(navigationQueries))
+                .append("\n");
         sb.append("    display: ").append(toIndentedString(display)).append("\n");
         sb.append("    sort: ").append(toIndentedString(sort)).append("\n");
         sb.append("    offset: ").append(toIndentedString(offset)).append("\n");
@@ -299,6 +345,7 @@ public class PreviewViewExperienceRequest {
                                 "query",
                                 "key_terms",
                                 "navigation",
+                                "navigation_queries",
                                 "display",
                                 "sort",
                                 "offset",

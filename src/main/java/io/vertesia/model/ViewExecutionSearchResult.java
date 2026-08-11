@@ -60,6 +60,11 @@ public class ViewExecutionSearchResult {
     @SerializedName(SERIALIZED_NAME_PLAN)
     @jakarta.annotation.Nullable private ViewExecutionQueryPlan plan;
 
+    public static final String SERIALIZED_NAME_RERANK = "rerank";
+
+    @SerializedName(SERIALIZED_NAME_RERANK)
+    @jakarta.annotation.Nullable private ViewExecutionRerankResult rerank;
+
     /**
      * Gets or Sets requestedMode
      */
@@ -133,6 +138,8 @@ public class ViewExecutionSearchResult {
         DETERMINISTIC("deterministic"),
 
         QUERY("query"),
+
+        QUERY_AND_VIEW("query_and_view"),
 
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
@@ -278,6 +285,24 @@ public class ViewExecutionSearchResult {
         this.plan = plan;
     }
 
+    public ViewExecutionSearchResult rerank(
+            @jakarta.annotation.Nullable ViewExecutionRerankResult rerank) {
+        this.rerank = rerank;
+        return this;
+    }
+
+    /**
+     * Get rerank
+     * @return rerank
+     */
+    @jakarta.annotation.Nullable public ViewExecutionRerankResult getRerank() {
+        return rerank;
+    }
+
+    public void setRerank(@jakarta.annotation.Nullable ViewExecutionRerankResult rerank) {
+        this.rerank = rerank;
+    }
+
     public ViewExecutionSearchResult requestedMode(
             @jakarta.annotation.Nonnull RequestedModeEnum requestedMode) {
         this.requestedMode = requestedMode;
@@ -374,6 +399,7 @@ public class ViewExecutionSearchResult {
                 && Objects.equals(this.interpretation, viewExecutionSearchResult.interpretation)
                 && Objects.equals(this.keyTerms, viewExecutionSearchResult.keyTerms)
                 && Objects.equals(this.plan, viewExecutionSearchResult.plan)
+                && Objects.equals(this.rerank, viewExecutionSearchResult.rerank)
                 && Objects.equals(this.requestedMode, viewExecutionSearchResult.requestedMode)
                 && Objects.equals(this.appliedMode, viewExecutionSearchResult.appliedMode)
                 && Objects.equals(this.fallbackReason, viewExecutionSearchResult.fallbackReason)
@@ -387,6 +413,7 @@ public class ViewExecutionSearchResult {
                 interpretation,
                 keyTerms,
                 plan,
+                rerank,
                 requestedMode,
                 appliedMode,
                 fallbackReason,
@@ -401,6 +428,7 @@ public class ViewExecutionSearchResult {
         sb.append("    interpretation: ").append(toIndentedString(interpretation)).append("\n");
         sb.append("    keyTerms: ").append(toIndentedString(keyTerms)).append("\n");
         sb.append("    plan: ").append(toIndentedString(plan)).append("\n");
+        sb.append("    rerank: ").append(toIndentedString(rerank)).append("\n");
         sb.append("    requestedMode: ").append(toIndentedString(requestedMode)).append("\n");
         sb.append("    appliedMode: ").append(toIndentedString(appliedMode)).append("\n");
         sb.append("    fallbackReason: ").append(toIndentedString(fallbackReason)).append("\n");
@@ -429,6 +457,7 @@ public class ViewExecutionSearchResult {
                                 "interpretation",
                                 "key_terms",
                                 "plan",
+                                "rerank",
                                 "requested_mode",
                                 "applied_mode",
                                 "fallback_reason",
@@ -488,6 +517,10 @@ public class ViewExecutionSearchResult {
         // validate the optional field `plan`
         if (jsonObj.get("plan") != null && !jsonObj.get("plan").isJsonNull()) {
             ViewExecutionQueryPlan.validateJsonElement(jsonObj.get("plan"));
+        }
+        // validate the optional field `rerank`
+        if (jsonObj.get("rerank") != null && !jsonObj.get("rerank").isJsonNull()) {
+            ViewExecutionRerankResult.validateJsonElement(jsonObj.get("rerank"));
         }
         if (!jsonObj.get("requested_mode").isJsonPrimitive()) {
             throw new IllegalArgumentException(

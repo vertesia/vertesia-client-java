@@ -486,7 +486,7 @@ public class ViewsApi {
 
     /**
      * Execute a View Experience
-     * Executes a stored or app-contributed View by ID. Configuration, scope, and security filters are resolved server-side. Agentic query planning additionally requires interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
+     * Executes a stored, built-in system, or app-contributed View by ID. Configuration, scope, and security filters are resolved server-side. Agentic query planning, optional presentation planning, and optional result reranking additionally require interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
      * @param viewId  (required)
      * @param executeViewRequest  (required)
      * @return ViewExecutionResult
@@ -511,7 +511,7 @@ public class ViewsApi {
 
     /**
      * Execute a View Experience
-     * Executes a stored or app-contributed View by ID. Configuration, scope, and security filters are resolved server-side. Agentic query planning additionally requires interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
+     * Executes a stored, built-in system, or app-contributed View by ID. Configuration, scope, and security filters are resolved server-side. Agentic query planning, optional presentation planning, and optional result reranking additionally require interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
      * @param viewId  (required)
      * @param executeViewRequest  (required)
      * @return ApiResponse&lt;ViewExecutionResult&gt;
@@ -536,7 +536,7 @@ public class ViewsApi {
 
     /**
      * Execute a View Experience (asynchronously)
-     * Executes a stored or app-contributed View by ID. Configuration, scope, and security filters are resolved server-side. Agentic query planning additionally requires interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
+     * Executes a stored, built-in system, or app-contributed View by ID. Configuration, scope, and security filters are resolved server-side. Agentic query planning, optional presentation planning, and optional result reranking additionally require interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
      * @param viewId  (required)
      * @param executeViewRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -974,7 +974,7 @@ public class ViewsApi {
 
     /**
      * Preview an unsaved View Experience
-     * Validates an inline (unsaved) View configuration and executes it against content without persisting it, returning normalized results, navigation counts, and any agentic query plan. Agentic query planning additionally requires interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
+     * Validates an inline (unsaved) View configuration and executes it against content without persisting it, returning normalized results, navigation counts, and any agentic query, presentation, and reranking diagnostics. Agentic stages additionally require interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
      * @param previewViewExperienceRequest  (required)
      * @return ViewExecutionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -997,7 +997,7 @@ public class ViewsApi {
 
     /**
      * Preview an unsaved View Experience
-     * Validates an inline (unsaved) View configuration and executes it against content without persisting it, returning normalized results, navigation counts, and any agentic query plan. Agentic query planning additionally requires interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
+     * Validates an inline (unsaved) View configuration and executes it against content without persisting it, returning normalized results, navigation counts, and any agentic query, presentation, and reranking diagnostics. Agentic stages additionally require interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
      * @param previewViewExperienceRequest  (required)
      * @return ApiResponse&lt;ViewExecutionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1021,7 +1021,7 @@ public class ViewsApi {
 
     /**
      * Preview an unsaved View Experience (asynchronously)
-     * Validates an inline (unsaved) View configuration and executes it against content without persisting it, returning normalized results, navigation counts, and any agentic query plan. Agentic query planning additionally requires interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
+     * Validates an inline (unsaved) View configuration and executes it against content without persisting it, returning normalized results, navigation counts, and any agentic query, presentation, and reranking diagnostics. Agentic stages additionally require interaction execute permission.  **Required permissions:** &#x60;content:read&#x60;
      * @param previewViewExperienceRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

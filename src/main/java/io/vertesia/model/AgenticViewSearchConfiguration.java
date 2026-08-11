@@ -17,7 +17,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -51,63 +50,10 @@ public class AgenticViewSearchConfiguration {
     @SerializedName(SERIALIZED_NAME_INSTRUCTIONS)
     @jakarta.annotation.Nullable private String instructions;
 
-    /**
-     * Gets or Sets mode
-     */
-    @JsonAdapter(ModeEnum.Adapter.class)
-    public enum ModeEnum {
-        QUERY("query"),
-
-        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
-
-        private String value;
-
-        ModeEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static ModeEnum fromValue(String value) {
-            for (ModeEnum b : ModeEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            return UNKNOWN_DEFAULT_OPEN_API;
-        }
-
-        public static class Adapter extends TypeAdapter<ModeEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final ModeEnum enumeration)
-                    throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public ModeEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return ModeEnum.fromValue(value);
-            }
-        }
-
-        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            ModeEnum.fromValue(value);
-        }
-    }
-
     public static final String SERIALIZED_NAME_MODE = "mode";
 
     @SerializedName(SERIALIZED_NAME_MODE)
-    @jakarta.annotation.Nullable private ModeEnum mode;
+    @jakarta.annotation.Nullable private ViewAgenticSearchMode mode;
 
     public static final String SERIALIZED_NAME_TIMEOUT_MS = "timeout_ms";
 
@@ -118,6 +64,11 @@ public class AgenticViewSearchConfiguration {
 
     @SerializedName(SERIALIZED_NAME_MINIMUM_CONFIDENCE)
     @jakarta.annotation.Nullable private BigDecimal minimumConfidence;
+
+    public static final String SERIALIZED_NAME_RERANK = "rerank";
+
+    @SerializedName(SERIALIZED_NAME_RERANK)
+    @jakarta.annotation.Nullable private AgenticViewRerankConfiguration rerank;
 
     public AgenticViewSearchConfiguration() {}
 
@@ -175,20 +126,21 @@ public class AgenticViewSearchConfiguration {
         this.instructions = instructions;
     }
 
-    public AgenticViewSearchConfiguration mode(@jakarta.annotation.Nullable ModeEnum mode) {
+    public AgenticViewSearchConfiguration mode(
+            @jakarta.annotation.Nullable ViewAgenticSearchMode mode) {
         this.mode = mode;
         return this;
     }
 
     /**
-     * Get mode
+     * Generate only Elasticsearch DSL, or generate DSL plus a safe ephemeral result presentation.
      * @return mode
      */
-    @jakarta.annotation.Nullable public ModeEnum getMode() {
+    @jakarta.annotation.Nullable public ViewAgenticSearchMode getMode() {
         return mode;
     }
 
-    public void setMode(@jakarta.annotation.Nullable ModeEnum mode) {
+    public void setMode(@jakarta.annotation.Nullable ViewAgenticSearchMode mode) {
         this.mode = mode;
     }
 
@@ -228,6 +180,24 @@ public class AgenticViewSearchConfiguration {
         this.minimumConfidence = minimumConfidence;
     }
 
+    public AgenticViewSearchConfiguration rerank(
+            @jakarta.annotation.Nullable AgenticViewRerankConfiguration rerank) {
+        this.rerank = rerank;
+        return this;
+    }
+
+    /**
+     * Optional second stage that reorders an authorized candidate page using the same model configuration.
+     * @return rerank
+     */
+    @jakarta.annotation.Nullable public AgenticViewRerankConfiguration getRerank() {
+        return rerank;
+    }
+
+    public void setRerank(@jakarta.annotation.Nullable AgenticViewRerankConfiguration rerank) {
+        this.rerank = rerank;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -244,12 +214,14 @@ public class AgenticViewSearchConfiguration {
                 && Objects.equals(this.mode, agenticViewSearchConfiguration.mode)
                 && Objects.equals(this.timeoutMs, agenticViewSearchConfiguration.timeoutMs)
                 && Objects.equals(
-                        this.minimumConfidence, agenticViewSearchConfiguration.minimumConfidence);
+                        this.minimumConfidence, agenticViewSearchConfiguration.minimumConfidence)
+                && Objects.equals(this.rerank, agenticViewSearchConfiguration.rerank);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(interaction, config, instructions, mode, timeoutMs, minimumConfidence);
+        return Objects.hash(
+                interaction, config, instructions, mode, timeoutMs, minimumConfidence, rerank);
     }
 
     @Override
@@ -264,6 +236,7 @@ public class AgenticViewSearchConfiguration {
         sb.append("    minimumConfidence: ")
                 .append(toIndentedString(minimumConfidence))
                 .append("\n");
+        sb.append("    rerank: ").append(toIndentedString(rerank)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -289,7 +262,8 @@ public class AgenticViewSearchConfiguration {
                                 "instructions",
                                 "mode",
                                 "timeout_ms",
-                                "minimum_confidence"));
+                                "minimum_confidence",
+                                "rerank"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -333,17 +307,13 @@ public class AgenticViewSearchConfiguration {
                             "Expected the field `instructions` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("instructions").toString()));
         }
-        if ((jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull())
-                && !jsonObj.get("mode").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `mode` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("mode").toString()));
-        }
         // validate the optional field `mode`
         if (jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull()) {
-            ModeEnum.validateJsonElement(jsonObj.get("mode"));
+            ViewAgenticSearchMode.validateJsonElement(jsonObj.get("mode"));
+        }
+        // validate the optional field `rerank`
+        if (jsonObj.get("rerank") != null && !jsonObj.get("rerank").isJsonNull()) {
+            AgenticViewRerankConfiguration.validateJsonElement(jsonObj.get("rerank"));
         }
     }
 

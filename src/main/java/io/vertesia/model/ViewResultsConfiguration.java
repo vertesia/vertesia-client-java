@@ -64,6 +64,21 @@ public class ViewResultsConfiguration {
     @SerializedName(SERIALIZED_NAME_SORT_OPTIONS)
     @jakarta.annotation.Nullable private List<ViewSortOption> sortOptions = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_SELECTION = "selection";
+
+    @SerializedName(SERIALIZED_NAME_SELECTION)
+    @jakarta.annotation.Nullable private ViewSelectionConfiguration selection;
+
+    public static final String SERIALIZED_NAME_ACTIONS = "actions";
+
+    @SerializedName(SERIALIZED_NAME_ACTIONS)
+    @jakarta.annotation.Nullable private ViewActionsConfiguration actions;
+
+    public static final String SERIALIZED_NAME_DROP = "drop";
+
+    @SerializedName(SERIALIZED_NAME_DROP)
+    @jakarta.annotation.Nullable private ViewDropConfiguration drop;
+
     public ViewResultsConfiguration() {}
 
     public ViewResultsConfiguration defaultDisplay(
@@ -173,6 +188,59 @@ public class ViewResultsConfiguration {
         this.sortOptions = sortOptions;
     }
 
+    public ViewResultsConfiguration selection(
+            @jakarta.annotation.Nullable ViewSelectionConfiguration selection) {
+        this.selection = selection;
+        return this;
+    }
+
+    /**
+     * Get selection
+     * @return selection
+     */
+    @jakarta.annotation.Nullable public ViewSelectionConfiguration getSelection() {
+        return selection;
+    }
+
+    public void setSelection(@jakarta.annotation.Nullable ViewSelectionConfiguration selection) {
+        this.selection = selection;
+    }
+
+    public ViewResultsConfiguration actions(
+            @jakarta.annotation.Nullable ViewActionsConfiguration actions) {
+        this.actions = actions;
+        return this;
+    }
+
+    /**
+     * Get actions
+     * @return actions
+     */
+    @jakarta.annotation.Nullable public ViewActionsConfiguration getActions() {
+        return actions;
+    }
+
+    public void setActions(@jakarta.annotation.Nullable ViewActionsConfiguration actions) {
+        this.actions = actions;
+    }
+
+    public ViewResultsConfiguration drop(@jakarta.annotation.Nullable ViewDropConfiguration drop) {
+        this.drop = drop;
+        return this;
+    }
+
+    /**
+     * Get drop
+     * @return drop
+     */
+    @jakarta.annotation.Nullable public ViewDropConfiguration getDrop() {
+        return drop;
+    }
+
+    public void setDrop(@jakarta.annotation.Nullable ViewDropConfiguration drop) {
+        this.drop = drop;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -187,12 +255,23 @@ public class ViewResultsConfiguration {
                         this.allowDisplaySwitch, viewResultsConfiguration.allowDisplaySwitch)
                 && Objects.equals(this.displays, viewResultsConfiguration.displays)
                 && Objects.equals(this.defaultSort, viewResultsConfiguration.defaultSort)
-                && Objects.equals(this.sortOptions, viewResultsConfiguration.sortOptions);
+                && Objects.equals(this.sortOptions, viewResultsConfiguration.sortOptions)
+                && Objects.equals(this.selection, viewResultsConfiguration.selection)
+                && Objects.equals(this.actions, viewResultsConfiguration.actions)
+                && Objects.equals(this.drop, viewResultsConfiguration.drop);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(defaultDisplay, allowDisplaySwitch, displays, defaultSort, sortOptions);
+        return Objects.hash(
+                defaultDisplay,
+                allowDisplaySwitch,
+                displays,
+                defaultSort,
+                sortOptions,
+                selection,
+                actions,
+                drop);
     }
 
     @Override
@@ -206,6 +285,9 @@ public class ViewResultsConfiguration {
         sb.append("    displays: ").append(toIndentedString(displays)).append("\n");
         sb.append("    defaultSort: ").append(toIndentedString(defaultSort)).append("\n");
         sb.append("    sortOptions: ").append(toIndentedString(sortOptions)).append("\n");
+        sb.append("    selection: ").append(toIndentedString(selection)).append("\n");
+        sb.append("    actions: ").append(toIndentedString(actions)).append("\n");
+        sb.append("    drop: ").append(toIndentedString(drop)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -230,7 +312,10 @@ public class ViewResultsConfiguration {
                                 "allow_display_switch",
                                 "displays",
                                 "default_sort",
-                                "sort_options"));
+                                "sort_options",
+                                "selection",
+                                "actions",
+                                "drop"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("default_display", "displays"));
@@ -313,6 +398,18 @@ public class ViewResultsConfiguration {
                 }
                 ;
             }
+        }
+        // validate the optional field `selection`
+        if (jsonObj.get("selection") != null && !jsonObj.get("selection").isJsonNull()) {
+            ViewSelectionConfiguration.validateJsonElement(jsonObj.get("selection"));
+        }
+        // validate the optional field `actions`
+        if (jsonObj.get("actions") != null && !jsonObj.get("actions").isJsonNull()) {
+            ViewActionsConfiguration.validateJsonElement(jsonObj.get("actions"));
+        }
+        // validate the optional field `drop`
+        if (jsonObj.get("drop") != null && !jsonObj.get("drop").isJsonNull()) {
+            ViewDropConfiguration.validateJsonElement(jsonObj.get("drop"));
         }
     }
 
