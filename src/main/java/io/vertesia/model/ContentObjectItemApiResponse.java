@@ -13,6 +13,7 @@
 package io.vertesia.model;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -31,6 +32,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * ContentObjectItemApiResponse
@@ -158,6 +160,62 @@ public class ContentObjectItemApiResponse {
 
     @SerializedName(SERIALIZED_NAME_USER_PERMISSIONS)
     @jakarta.annotation.Nullable private ContentObjectUserPermissions userPermissions;
+
+    public static final String SERIALIZED_NAME_SEARCH_TYPE_RESULT = "searchTypeResult";
+
+    @SerializedName(SERIALIZED_NAME_SEARCH_TYPE_RESULT)
+    @jakarta.annotation.Nullable private List<ContentObjectApiResponseSearchTypeResultInner> searchTypeResult =
+            new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_TEXT = "text";
+
+    @SerializedName(SERIALIZED_NAME_TEXT)
+    @jakarta.annotation.Nullable private String text;
+
+    public static final String SERIALIZED_NAME_TEXT_ETAG = "text_etag";
+
+    @SerializedName(SERIALIZED_NAME_TEXT_ETAG)
+    @jakarta.annotation.Nullable private String textEtag;
+
+    public static final String SERIALIZED_NAME_EMBEDDINGS = "embeddings";
+
+    @SerializedName(SERIALIZED_NAME_EMBEDDINGS)
+    @jakarta.annotation.Nullable private Map<String, Embedding> embeddings = new HashMap<>();
+
+    public static final String SERIALIZED_NAME_PARTS = "parts";
+
+    @SerializedName(SERIALIZED_NAME_PARTS)
+    @jakarta.annotation.Nullable private List<String> parts = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_PARTS_ETAG = "parts_etag";
+
+    @SerializedName(SERIALIZED_NAME_PARTS_ETAG)
+    @jakarta.annotation.Nullable private String partsEtag;
+
+    public static final String SERIALIZED_NAME_TRANSCRIPT = "transcript";
+
+    @SerializedName(SERIALIZED_NAME_TRANSCRIPT)
+    @jakarta.annotation.Nullable private Map<String, Object> transcript = new HashMap<>();
+
+    public static final String SERIALIZED_NAME_SECURITY = "security";
+
+    @SerializedName(SERIALIZED_NAME_SECURITY)
+    @jakarta.annotation.Nullable private Map<String, List<String>> security = new HashMap<>();
+
+    public static final String SERIALIZED_NAME_SENSITIVITY = "sensitivity";
+
+    @SerializedName(SERIALIZED_NAME_SENSITIVITY)
+    @jakarta.annotation.Nullable private BigDecimal sensitivity;
+
+    public static final String SERIALIZED_NAME_COMPARTMENTS = "compartments";
+
+    @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
+    @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_INHERITED_PROPERTIES = "inherited_properties";
+
+    @SerializedName(SERIALIZED_NAME_INHERITED_PROPERTIES)
+    @jakarta.annotation.Nullable private List<InheritedPropertyMetadata> inheritedProperties = new ArrayList<>();
 
     public ContentObjectItemApiResponse() {}
 
@@ -579,6 +637,260 @@ public class ContentObjectItemApiResponse {
         this.userPermissions = userPermissions;
     }
 
+    public ContentObjectItemApiResponse searchTypeResult(
+            @jakarta.annotation.Nullable List<ContentObjectApiResponseSearchTypeResultInner> searchTypeResult) {
+        this.searchTypeResult = searchTypeResult;
+        return this;
+    }
+
+    public ContentObjectItemApiResponse addSearchTypeResultItem(
+            ContentObjectApiResponseSearchTypeResultInner searchTypeResultItem) {
+        if (this.searchTypeResult == null) {
+            this.searchTypeResult = new ArrayList<>();
+        }
+        this.searchTypeResult.add(searchTypeResultItem);
+        return this;
+    }
+
+    /**
+     * Get searchTypeResult
+     * @return searchTypeResult
+     */
+    @jakarta.annotation.Nullable public List<ContentObjectApiResponseSearchTypeResultInner> getSearchTypeResult() {
+        return searchTypeResult;
+    }
+
+    public void setSearchTypeResult(
+            @jakarta.annotation.Nullable List<ContentObjectApiResponseSearchTypeResultInner> searchTypeResult) {
+        this.searchTypeResult = searchTypeResult;
+    }
+
+    public ContentObjectItemApiResponse text(@jakarta.annotation.Nullable String text) {
+        this.text = text;
+        return this;
+    }
+
+    /**
+     * Get text
+     * @return text
+     */
+    @jakarta.annotation.Nullable public String getText() {
+        return text;
+    }
+
+    public void setText(@jakarta.annotation.Nullable String text) {
+        this.text = text;
+    }
+
+    public ContentObjectItemApiResponse textEtag(@jakarta.annotation.Nullable String textEtag) {
+        this.textEtag = textEtag;
+        return this;
+    }
+
+    /**
+     * Get textEtag
+     * @return textEtag
+     */
+    @jakarta.annotation.Nullable public String getTextEtag() {
+        return textEtag;
+    }
+
+    public void setTextEtag(@jakarta.annotation.Nullable String textEtag) {
+        this.textEtag = textEtag;
+    }
+
+    public ContentObjectItemApiResponse embeddings(
+            @jakarta.annotation.Nullable Map<String, Embedding> embeddings) {
+        this.embeddings = embeddings;
+        return this;
+    }
+
+    public ContentObjectItemApiResponse putEmbeddingsItem(String key, Embedding embeddingsItem) {
+        if (this.embeddings == null) {
+            this.embeddings = new HashMap<>();
+        }
+        this.embeddings.put(key, embeddingsItem);
+        return this;
+    }
+
+    /**
+     * Get embeddings
+     * @return embeddings
+     */
+    @jakarta.annotation.Nullable public Map<String, Embedding> getEmbeddings() {
+        return embeddings;
+    }
+
+    public void setEmbeddings(@jakarta.annotation.Nullable Map<String, Embedding> embeddings) {
+        this.embeddings = embeddings;
+    }
+
+    public ContentObjectItemApiResponse parts(@jakarta.annotation.Nullable List<String> parts) {
+        this.parts = parts;
+        return this;
+    }
+
+    public ContentObjectItemApiResponse addPartsItem(String partsItem) {
+        if (this.parts == null) {
+            this.parts = new ArrayList<>();
+        }
+        this.parts.add(partsItem);
+        return this;
+    }
+
+    /**
+     * Get parts
+     * @return parts
+     */
+    @jakarta.annotation.Nullable public List<String> getParts() {
+        return parts;
+    }
+
+    public void setParts(@jakarta.annotation.Nullable List<String> parts) {
+        this.parts = parts;
+    }
+
+    public ContentObjectItemApiResponse partsEtag(@jakarta.annotation.Nullable String partsEtag) {
+        this.partsEtag = partsEtag;
+        return this;
+    }
+
+    /**
+     * Get partsEtag
+     * @return partsEtag
+     */
+    @jakarta.annotation.Nullable public String getPartsEtag() {
+        return partsEtag;
+    }
+
+    public void setPartsEtag(@jakarta.annotation.Nullable String partsEtag) {
+        this.partsEtag = partsEtag;
+    }
+
+    public ContentObjectItemApiResponse transcript(
+            @jakarta.annotation.Nullable Map<String, Object> transcript) {
+        this.transcript = transcript;
+        return this;
+    }
+
+    public ContentObjectItemApiResponse putTranscriptItem(String key, Object transcriptItem) {
+        if (this.transcript == null) {
+            this.transcript = new HashMap<>();
+        }
+        this.transcript.put(key, transcriptItem);
+        return this;
+    }
+
+    /**
+     * Get transcript
+     * @return transcript
+     */
+    @jakarta.annotation.Nullable public Map<String, Object> getTranscript() {
+        return transcript;
+    }
+
+    public void setTranscript(@jakarta.annotation.Nullable Map<String, Object> transcript) {
+        this.transcript = transcript;
+    }
+
+    public ContentObjectItemApiResponse security(
+            @jakarta.annotation.Nullable Map<String, List<String>> security) {
+        this.security = security;
+        return this;
+    }
+
+    public ContentObjectItemApiResponse putSecurityItem(String key, List<String> securityItem) {
+        if (this.security == null) {
+            this.security = new HashMap<>();
+        }
+        this.security.put(key, securityItem);
+        return this;
+    }
+
+    /**
+     * Get security
+     * @return security
+     */
+    @jakarta.annotation.Nullable public Map<String, List<String>> getSecurity() {
+        return security;
+    }
+
+    public void setSecurity(@jakarta.annotation.Nullable Map<String, List<String>> security) {
+        this.security = security;
+    }
+
+    public ContentObjectItemApiResponse sensitivity(
+            @jakarta.annotation.Nullable BigDecimal sensitivity) {
+        this.sensitivity = sensitivity;
+        return this;
+    }
+
+    /**
+     * Get sensitivity
+     * @return sensitivity
+     */
+    @jakarta.annotation.Nullable public BigDecimal getSensitivity() {
+        return sensitivity;
+    }
+
+    public void setSensitivity(@jakarta.annotation.Nullable BigDecimal sensitivity) {
+        this.sensitivity = sensitivity;
+    }
+
+    public ContentObjectItemApiResponse compartments(
+            @jakarta.annotation.Nullable List<String> compartments) {
+        this.compartments = compartments;
+        return this;
+    }
+
+    public ContentObjectItemApiResponse addCompartmentsItem(String compartmentsItem) {
+        if (this.compartments == null) {
+            this.compartments = new ArrayList<>();
+        }
+        this.compartments.add(compartmentsItem);
+        return this;
+    }
+
+    /**
+     * Get compartments
+     * @return compartments
+     */
+    @jakarta.annotation.Nullable public List<String> getCompartments() {
+        return compartments;
+    }
+
+    public void setCompartments(@jakarta.annotation.Nullable List<String> compartments) {
+        this.compartments = compartments;
+    }
+
+    public ContentObjectItemApiResponse inheritedProperties(
+            @jakarta.annotation.Nullable List<InheritedPropertyMetadata> inheritedProperties) {
+        this.inheritedProperties = inheritedProperties;
+        return this;
+    }
+
+    public ContentObjectItemApiResponse addInheritedPropertiesItem(
+            InheritedPropertyMetadata inheritedPropertiesItem) {
+        if (this.inheritedProperties == null) {
+            this.inheritedProperties = new ArrayList<>();
+        }
+        this.inheritedProperties.add(inheritedPropertiesItem);
+        return this;
+    }
+
+    /**
+     * Get inheritedProperties
+     * @return inheritedProperties
+     */
+    @jakarta.annotation.Nullable public List<InheritedPropertyMetadata> getInheritedProperties() {
+        return inheritedProperties;
+    }
+
+    public void setInheritedProperties(
+            @jakarta.annotation.Nullable List<InheritedPropertyMetadata> inheritedProperties) {
+        this.inheritedProperties = inheritedProperties;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -658,8 +970,30 @@ public class ContentObjectItemApiResponse {
                 && Objects.equals(
                         this.userPermissions, contentObjectItemApiResponse.userPermissions)
                 && Objects.equals(
+                        this.searchTypeResult, contentObjectItemApiResponse.searchTypeResult)
+                && Objects.equals(this.text, contentObjectItemApiResponse.text)
+                && Objects.equals(this.textEtag, contentObjectItemApiResponse.textEtag)
+                && Objects.equals(this.embeddings, contentObjectItemApiResponse.embeddings)
+                && Objects.equals(this.parts, contentObjectItemApiResponse.parts)
+                && Objects.equals(this.partsEtag, contentObjectItemApiResponse.partsEtag)
+                && Objects.equals(this.transcript, contentObjectItemApiResponse.transcript)
+                && Objects.equals(this.security, contentObjectItemApiResponse.security)
+                && Objects.equals(this.sensitivity, contentObjectItemApiResponse.sensitivity)
+                && Objects.equals(this.compartments, contentObjectItemApiResponse.compartments)
+                && Objects.equals(
+                        this.inheritedProperties, contentObjectItemApiResponse.inheritedProperties)
+                && Objects.equals(
                         this.additionalProperties,
                         contentObjectItemApiResponse.additionalProperties);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
     }
 
     @Override
@@ -687,7 +1021,25 @@ public class ContentObjectItemApiResponse {
                 isLocked,
                 score,
                 userPermissions,
+                searchTypeResult,
+                text,
+                textEtag,
+                embeddings,
+                parts,
+                partsEtag,
+                transcript,
+                security,
+                sensitivity,
+                compartments,
+                inheritedProperties,
                 additionalProperties);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -716,6 +1068,19 @@ public class ContentObjectItemApiResponse {
         sb.append("    isLocked: ").append(toIndentedString(isLocked)).append("\n");
         sb.append("    score: ").append(toIndentedString(score)).append("\n");
         sb.append("    userPermissions: ").append(toIndentedString(userPermissions)).append("\n");
+        sb.append("    searchTypeResult: ").append(toIndentedString(searchTypeResult)).append("\n");
+        sb.append("    text: ").append(toIndentedString(text)).append("\n");
+        sb.append("    textEtag: ").append(toIndentedString(textEtag)).append("\n");
+        sb.append("    embeddings: ").append(toIndentedString(embeddings)).append("\n");
+        sb.append("    parts: ").append(toIndentedString(parts)).append("\n");
+        sb.append("    partsEtag: ").append(toIndentedString(partsEtag)).append("\n");
+        sb.append("    transcript: ").append(toIndentedString(transcript)).append("\n");
+        sb.append("    security: ").append(toIndentedString(security)).append("\n");
+        sb.append("    sensitivity: ").append(toIndentedString(sensitivity)).append("\n");
+        sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
+        sb.append("    inheritedProperties: ")
+                .append(toIndentedString(inheritedProperties))
+                .append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -760,7 +1125,18 @@ public class ContentObjectItemApiResponse {
                                 "is_deleted",
                                 "is_locked",
                                 "score",
-                                "user_permissions"));
+                                "user_permissions",
+                                "searchTypeResult",
+                                "text",
+                                "text_etag",
+                                "embeddings",
+                                "parts",
+                                "parts_etag",
+                                "transcript",
+                                "security",
+                                "sensitivity",
+                                "compartments",
+                                "inherited_properties"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -911,6 +1287,92 @@ public class ContentObjectItemApiResponse {
         if (jsonObj.get("user_permissions") != null
                 && !jsonObj.get("user_permissions").isJsonNull()) {
             ContentObjectUserPermissions.validateJsonElement(jsonObj.get("user_permissions"));
+        }
+        if (jsonObj.get("searchTypeResult") != null
+                && !jsonObj.get("searchTypeResult").isJsonNull()) {
+            JsonArray jsonArraysearchTypeResult = jsonObj.getAsJsonArray("searchTypeResult");
+            if (jsonArraysearchTypeResult != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("searchTypeResult").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `searchTypeResult` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("searchTypeResult").toString()));
+                }
+
+                // validate the optional field `searchTypeResult` (array)
+                for (int i = 0; i < jsonArraysearchTypeResult.size(); i++) {
+                    ContentObjectApiResponseSearchTypeResultInner.validateJsonElement(
+                            jsonArraysearchTypeResult.get(i));
+                }
+                ;
+            }
+        }
+        if ((jsonObj.get("text") != null && !jsonObj.get("text").isJsonNull())
+                && !jsonObj.get("text").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `text` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("text").toString()));
+        }
+        if ((jsonObj.get("text_etag") != null && !jsonObj.get("text_etag").isJsonNull())
+                && !jsonObj.get("text_etag").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `text_etag` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("text_etag").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("parts") != null
+                && !jsonObj.get("parts").isJsonNull()
+                && !jsonObj.get("parts").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `parts` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("parts").toString()));
+        }
+        if ((jsonObj.get("parts_etag") != null && !jsonObj.get("parts_etag").isJsonNull())
+                && !jsonObj.get("parts_etag").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `parts_etag` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("parts_etag").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("compartments") != null
+                && !jsonObj.get("compartments").isJsonNull()
+                && !jsonObj.get("compartments").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `compartments` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("compartments").toString()));
+        }
+        if (jsonObj.get("inherited_properties") != null
+                && !jsonObj.get("inherited_properties").isJsonNull()) {
+            JsonArray jsonArrayinheritedProperties = jsonObj.getAsJsonArray("inherited_properties");
+            if (jsonArrayinheritedProperties != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("inherited_properties").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `inherited_properties` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("inherited_properties").toString()));
+                }
+
+                // validate the optional field `inherited_properties` (array)
+                for (int i = 0; i < jsonArrayinheritedProperties.size(); i++) {
+                    InheritedPropertyMetadata.validateJsonElement(
+                            jsonArrayinheritedProperties.get(i));
+                }
+                ;
+            }
         }
     }
 

@@ -4591,6 +4591,7 @@ public class AppsApi {
 
     /**
      * Build call for listApps
+     * @param scope Restrict the listing to apps that belong to the current project — those installed into it or that have built versions in it. Defaults to &#x60;account&#x60;, which lists every app visible to the account, including the public catalog. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4603,7 +4604,9 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAppsCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listAppsCall(
+            @jakarta.annotation.Nullable String scope, final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -4627,6 +4630,10 @@ public class AppsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (scope != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("scope", scope));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -4657,14 +4664,16 @@ public class AppsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listAppsValidateBeforeCall(final ApiCallback _callback)
+    private okhttp3.Call listAppsValidateBeforeCall(
+            @jakarta.annotation.Nullable String scope, final ApiCallback _callback)
             throws ApiException {
-        return listAppsCall(_callback);
+        return listAppsCall(scope, _callback);
     }
 
     /**
      * List apps
-     * Lists apps visible to the current account.
+     * Lists apps visible to the current account. Pass &#x60;scope&#x3D;project&#x60; to narrow the listing to apps that belong to the current project.
+     * @param scope Restrict the listing to apps that belong to the current project — those installed into it or that have built versions in it. Defaults to &#x60;account&#x60;, which lists every app visible to the account, including the public catalog. (optional)
      * @return List&lt;AppManifest&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4676,14 +4685,16 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<AppManifest> listApps() throws ApiException {
-        ApiResponse<List<AppManifest>> localVarResp = listAppsWithHttpInfo();
+    public List<AppManifest> listApps(@jakarta.annotation.Nullable String scope)
+            throws ApiException {
+        ApiResponse<List<AppManifest>> localVarResp = listAppsWithHttpInfo(scope);
         return localVarResp.getData();
     }
 
     /**
      * List apps
-     * Lists apps visible to the current account.
+     * Lists apps visible to the current account. Pass &#x60;scope&#x3D;project&#x60; to narrow the listing to apps that belong to the current project.
+     * @param scope Restrict the listing to apps that belong to the current project — those installed into it or that have built versions in it. Defaults to &#x60;account&#x60;, which lists every app visible to the account, including the public catalog. (optional)
      * @return ApiResponse&lt;List&lt;AppManifest&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4695,15 +4706,17 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<List<AppManifest>> listAppsWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = listAppsValidateBeforeCall(null);
+    public ApiResponse<List<AppManifest>> listAppsWithHttpInfo(
+            @jakarta.annotation.Nullable String scope) throws ApiException {
+        okhttp3.Call localVarCall = listAppsValidateBeforeCall(scope, null);
         Type localVarReturnType = new TypeToken<List<AppManifest>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List apps (asynchronously)
-     * Lists apps visible to the current account.
+     * Lists apps visible to the current account. Pass &#x60;scope&#x3D;project&#x60; to narrow the listing to apps that belong to the current project.
+     * @param scope Restrict the listing to apps that belong to the current project — those installed into it or that have built versions in it. Defaults to &#x60;account&#x60;, which lists every app visible to the account, including the public catalog. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4716,10 +4729,12 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listAppsAsync(final ApiCallback<List<AppManifest>> _callback)
+    public okhttp3.Call listAppsAsync(
+            @jakarta.annotation.Nullable String scope,
+            final ApiCallback<List<AppManifest>> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = listAppsValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall = listAppsValidateBeforeCall(scope, _callback);
         Type localVarReturnType = new TypeToken<List<AppManifest>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

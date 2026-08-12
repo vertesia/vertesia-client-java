@@ -32,6 +32,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * ContentObjectApiResponse
@@ -159,6 +160,12 @@ public class ContentObjectApiResponse {
 
     @SerializedName(SERIALIZED_NAME_USER_PERMISSIONS)
     @jakarta.annotation.Nullable private ContentObjectUserPermissions userPermissions;
+
+    public static final String SERIALIZED_NAME_SEARCH_TYPE_RESULT = "searchTypeResult";
+
+    @SerializedName(SERIALIZED_NAME_SEARCH_TYPE_RESULT)
+    @jakarta.annotation.Nullable private List<ContentObjectApiResponseSearchTypeResultInner> searchTypeResult =
+            new ArrayList<>();
 
     public static final String SERIALIZED_NAME_TEXT = "text";
 
@@ -626,6 +633,34 @@ public class ContentObjectApiResponse {
         this.userPermissions = userPermissions;
     }
 
+    public ContentObjectApiResponse searchTypeResult(
+            @jakarta.annotation.Nullable List<ContentObjectApiResponseSearchTypeResultInner> searchTypeResult) {
+        this.searchTypeResult = searchTypeResult;
+        return this;
+    }
+
+    public ContentObjectApiResponse addSearchTypeResultItem(
+            ContentObjectApiResponseSearchTypeResultInner searchTypeResultItem) {
+        if (this.searchTypeResult == null) {
+            this.searchTypeResult = new ArrayList<>();
+        }
+        this.searchTypeResult.add(searchTypeResultItem);
+        return this;
+    }
+
+    /**
+     * Get searchTypeResult
+     * @return searchTypeResult
+     */
+    @jakarta.annotation.Nullable public List<ContentObjectApiResponseSearchTypeResultInner> getSearchTypeResult() {
+        return searchTypeResult;
+    }
+
+    public void setSearchTypeResult(
+            @jakarta.annotation.Nullable List<ContentObjectApiResponseSearchTypeResultInner> searchTypeResult) {
+        this.searchTypeResult = searchTypeResult;
+    }
+
     public ContentObjectApiResponse text(@jakarta.annotation.Nullable String text) {
         this.text = text;
         return this;
@@ -928,6 +963,7 @@ public class ContentObjectApiResponse {
                 && Objects.equals(this.isLocked, contentObjectApiResponse.isLocked)
                 && Objects.equals(this.score, contentObjectApiResponse.score)
                 && Objects.equals(this.userPermissions, contentObjectApiResponse.userPermissions)
+                && Objects.equals(this.searchTypeResult, contentObjectApiResponse.searchTypeResult)
                 && Objects.equals(this.text, contentObjectApiResponse.text)
                 && Objects.equals(this.textEtag, contentObjectApiResponse.textEtag)
                 && Objects.equals(this.embeddings, contentObjectApiResponse.embeddings)
@@ -941,6 +977,15 @@ public class ContentObjectApiResponse {
                         this.inheritedProperties, contentObjectApiResponse.inheritedProperties)
                 && Objects.equals(
                         this.additionalProperties, contentObjectApiResponse.additionalProperties);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
     }
 
     @Override
@@ -968,6 +1013,7 @@ public class ContentObjectApiResponse {
                 isLocked,
                 score,
                 userPermissions,
+                searchTypeResult,
                 text,
                 textEtag,
                 embeddings,
@@ -979,6 +1025,13 @@ public class ContentObjectApiResponse {
                 compartments,
                 inheritedProperties,
                 additionalProperties);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -1007,6 +1060,7 @@ public class ContentObjectApiResponse {
         sb.append("    isLocked: ").append(toIndentedString(isLocked)).append("\n");
         sb.append("    score: ").append(toIndentedString(score)).append("\n");
         sb.append("    userPermissions: ").append(toIndentedString(userPermissions)).append("\n");
+        sb.append("    searchTypeResult: ").append(toIndentedString(searchTypeResult)).append("\n");
         sb.append("    text: ").append(toIndentedString(text)).append("\n");
         sb.append("    textEtag: ").append(toIndentedString(textEtag)).append("\n");
         sb.append("    embeddings: ").append(toIndentedString(embeddings)).append("\n");
@@ -1064,6 +1118,7 @@ public class ContentObjectApiResponse {
                                 "is_locked",
                                 "score",
                                 "user_permissions",
+                                "searchTypeResult",
                                 "text",
                                 "text_etag",
                                 "embeddings",
@@ -1224,6 +1279,27 @@ public class ContentObjectApiResponse {
         if (jsonObj.get("user_permissions") != null
                 && !jsonObj.get("user_permissions").isJsonNull()) {
             ContentObjectUserPermissions.validateJsonElement(jsonObj.get("user_permissions"));
+        }
+        if (jsonObj.get("searchTypeResult") != null
+                && !jsonObj.get("searchTypeResult").isJsonNull()) {
+            JsonArray jsonArraysearchTypeResult = jsonObj.getAsJsonArray("searchTypeResult");
+            if (jsonArraysearchTypeResult != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("searchTypeResult").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `searchTypeResult` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("searchTypeResult").toString()));
+                }
+
+                // validate the optional field `searchTypeResult` (array)
+                for (int i = 0; i < jsonArraysearchTypeResult.size(); i++) {
+                    ContentObjectApiResponseSearchTypeResultInner.validateJsonElement(
+                            jsonArraysearchTypeResult.get(i));
+                }
+                ;
+            }
         }
         if ((jsonObj.get("text") != null && !jsonObj.get("text").isJsonNull())
                 && !jsonObj.get("text").isJsonPrimitive()) {

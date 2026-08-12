@@ -13,6 +13,7 @@
 package io.vertesia.model;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -183,6 +184,16 @@ public class ExecutionRunRef {
 
     @SerializedName(SERIALIZED_NAME_INTERACTION)
     @jakarta.annotation.Nullable private InteractionRef interaction;
+
+    public static final String SERIALIZED_NAME_RESULT = "result";
+
+    @SerializedName(SERIALIZED_NAME_RESULT)
+    @jakarta.annotation.Nullable private List<CompletionResult> result = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
+
+    @SerializedName(SERIALIZED_NAME_PARAMETERS)
+    @jakarta.annotation.Nullable private Object parameters = null;
 
     public ExecutionRunRef() {}
 
@@ -655,6 +666,48 @@ public class ExecutionRunRef {
         this.interaction = interaction;
     }
 
+    public ExecutionRunRef result(@jakarta.annotation.Nullable List<CompletionResult> result) {
+        this.result = result;
+        return this;
+    }
+
+    public ExecutionRunRef addResultItem(CompletionResult resultItem) {
+        if (this.result == null) {
+            this.result = new ArrayList<>();
+        }
+        this.result.add(resultItem);
+        return this;
+    }
+
+    /**
+     * Get result
+     * @return result
+     */
+    @jakarta.annotation.Nullable public List<CompletionResult> getResult() {
+        return result;
+    }
+
+    public void setResult(@jakarta.annotation.Nullable List<CompletionResult> result) {
+        this.result = result;
+    }
+
+    public ExecutionRunRef parameters(@jakarta.annotation.Nullable Object parameters) {
+        this.parameters = parameters;
+        return this;
+    }
+
+    /**
+     * Get parameters
+     * @return parameters
+     */
+    @jakarta.annotation.Nullable public Object getParameters() {
+        return parameters;
+    }
+
+    public void setParameters(@jakarta.annotation.Nullable Object parameters) {
+        this.parameters = parameters;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -735,6 +788,8 @@ public class ExecutionRunRef {
                 && Objects.equals(this.updatedBy, executionRunRef.updatedBy)
                 && Objects.equals(this.workflow, executionRunRef.workflow)
                 && Objects.equals(this.interaction, executionRunRef.interaction)
+                && Objects.equals(this.result, executionRunRef.result)
+                && Objects.equals(this.parameters, executionRunRef.parameters)
                 && Objects.equals(this.additionalProperties, executionRunRef.additionalProperties);
     }
 
@@ -776,6 +831,8 @@ public class ExecutionRunRef {
                 updatedBy,
                 workflow,
                 interaction,
+                result,
+                parameters,
                 additionalProperties);
     }
 
@@ -816,6 +873,8 @@ public class ExecutionRunRef {
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
         sb.append("    workflow: ").append(toIndentedString(workflow)).append("\n");
         sb.append("    interaction: ").append(toIndentedString(interaction)).append("\n");
+        sb.append("    result: ").append(toIndentedString(result)).append("\n");
+        sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -864,7 +923,9 @@ public class ExecutionRunRef {
                                 "created_by",
                                 "updated_by",
                                 "workflow",
-                                "interaction"));
+                                "interaction",
+                                "result",
+                                "parameters"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -1005,6 +1066,25 @@ public class ExecutionRunRef {
         // validate the optional field `interaction`
         if (jsonObj.get("interaction") != null && !jsonObj.get("interaction").isJsonNull()) {
             InteractionRef.validateJsonElement(jsonObj.get("interaction"));
+        }
+        if (jsonObj.get("result") != null && !jsonObj.get("result").isJsonNull()) {
+            JsonArray jsonArrayresult = jsonObj.getAsJsonArray("result");
+            if (jsonArrayresult != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("result").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `result` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("result").toString()));
+                }
+
+                // validate the optional field `result` (array)
+                for (int i = 0; i < jsonArrayresult.size(); i++) {
+                    CompletionResult.validateJsonElement(jsonArrayresult.get(i));
+                }
+                ;
+            }
         }
     }
 

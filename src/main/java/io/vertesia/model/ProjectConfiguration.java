@@ -38,6 +38,16 @@ import org.openapitools.jackson.nullable.JsonNullable;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProjectConfiguration {
+    public static final String SERIALIZED_NAME_DEFAULT_ENVIRONMENT = "default_environment";
+
+    @SerializedName(SERIALIZED_NAME_DEFAULT_ENVIRONMENT)
+    @jakarta.annotation.Nullable private String defaultEnvironment;
+
+    public static final String SERIALIZED_NAME_DEFAULT_MODEL = "default_model";
+
+    @SerializedName(SERIALIZED_NAME_DEFAULT_MODEL)
+    @jakarta.annotation.Nullable private String defaultModel;
+
     public static final String SERIALIZED_NAME_HUMAN_CONTEXT = "human_context";
 
     @SerializedName(SERIALIZED_NAME_HUMAN_CONTEXT)
@@ -110,6 +120,41 @@ public class ProjectConfiguration {
     @jakarta.annotation.Nullable private String pdfTemplateObjectId;
 
     public ProjectConfiguration() {}
+
+    public ProjectConfiguration defaultEnvironment(
+            @jakarta.annotation.Nullable String defaultEnvironment) {
+        this.defaultEnvironment = defaultEnvironment;
+        return this;
+    }
+
+    /**
+     * Get defaultEnvironment
+     * @return defaultEnvironment
+     */
+    @jakarta.annotation.Nullable public String getDefaultEnvironment() {
+        return defaultEnvironment;
+    }
+
+    public void setDefaultEnvironment(@jakarta.annotation.Nullable String defaultEnvironment) {
+        this.defaultEnvironment = defaultEnvironment;
+    }
+
+    public ProjectConfiguration defaultModel(@jakarta.annotation.Nullable String defaultModel) {
+        this.defaultModel = defaultModel;
+        return this;
+    }
+
+    /**
+     * Get defaultModel
+     * @return defaultModel
+     */
+    @jakarta.annotation.Nullable public String getDefaultModel() {
+        return defaultModel;
+    }
+
+    public void setDefaultModel(@jakarta.annotation.Nullable String defaultModel) {
+        this.defaultModel = defaultModel;
+    }
 
     public ProjectConfiguration humanContext(@jakarta.annotation.Nullable String humanContext) {
         this.humanContext = humanContext;
@@ -419,7 +464,9 @@ public class ProjectConfiguration {
             return false;
         }
         ProjectConfiguration projectConfiguration = (ProjectConfiguration) o;
-        return Objects.equals(this.humanContext, projectConfiguration.humanContext)
+        return Objects.equals(this.defaultEnvironment, projectConfiguration.defaultEnvironment)
+                && Objects.equals(this.defaultModel, projectConfiguration.defaultModel)
+                && Objects.equals(this.humanContext, projectConfiguration.humanContext)
                 && Objects.equals(this.defaults, projectConfiguration.defaults)
                 && Objects.equals(this.defaultVisibility, projectConfiguration.defaultVisibility)
                 && Objects.equals(
@@ -452,6 +499,8 @@ public class ProjectConfiguration {
     @Override
     public int hashCode() {
         return Objects.hash(
+                defaultEnvironment,
+                defaultModel,
                 humanContext,
                 defaults,
                 defaultVisibility,
@@ -480,6 +529,10 @@ public class ProjectConfiguration {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ProjectConfiguration {\n");
+        sb.append("    defaultEnvironment: ")
+                .append(toIndentedString(defaultEnvironment))
+                .append("\n");
+        sb.append("    defaultModel: ").append(toIndentedString(defaultModel)).append("\n");
         sb.append("    humanContext: ").append(toIndentedString(humanContext)).append("\n");
         sb.append("    defaults: ").append(toIndentedString(defaults)).append("\n");
         sb.append("    defaultVisibility: ")
@@ -525,6 +578,8 @@ public class ProjectConfiguration {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "default_environment",
+                                "default_model",
                                 "human_context",
                                 "defaults",
                                 "default_visibility",
@@ -574,6 +629,23 @@ public class ProjectConfiguration {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if ((jsonObj.get("default_environment") != null
+                        && !jsonObj.get("default_environment").isJsonNull())
+                && !jsonObj.get("default_environment").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `default_environment` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("default_environment").toString()));
+        }
+        if ((jsonObj.get("default_model") != null && !jsonObj.get("default_model").isJsonNull())
+                && !jsonObj.get("default_model").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `default_model` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("default_model").toString()));
+        }
         if ((jsonObj.get("human_context") != null && !jsonObj.get("human_context").isJsonNull())
                 && !jsonObj.get("human_context").isJsonPrimitive()) {
             throw new IllegalArgumentException(

@@ -289,6 +289,7 @@ src/main/java/io/vertesia/model/ComputedFacetResponse.java
 src/main/java/io/vertesia/model/ConfigModes.java
 src/main/java/io/vertesia/model/ContentEmbeddingMap.java
 src/main/java/io/vertesia/model/ContentObjectApiResponse.java
+src/main/java/io/vertesia/model/ContentObjectApiResponseSearchTypeResultInner.java
 src/main/java/io/vertesia/model/ContentObjectApiResponseTokens.java
 src/main/java/io/vertesia/model/ContentObjectApiRevision.java
 src/main/java/io/vertesia/model/ContentObjectExportArtifact.java
