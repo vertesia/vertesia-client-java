@@ -122,6 +122,11 @@ public class BedrockCohereCommandOptions {
     @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
     @jakarta.annotation.Nullable private Boolean includeThoughts;
 
+    public static final String SERIALIZED_NAME_SERVICE_TIER = "service_tier";
+
+    @SerializedName(SERIALIZED_NAME_SERVICE_TIER)
+    @jakarta.annotation.Nullable private String serviceTier;
+
     public BedrockCohereCommandOptions() {}
 
     public BedrockCohereCommandOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
@@ -239,6 +244,24 @@ public class BedrockCohereCommandOptions {
         this.includeThoughts = includeThoughts;
     }
 
+    public BedrockCohereCommandOptions serviceTier(
+            @jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+        return this;
+    }
+
+    /**
+     * Provider-defined processing tier. Unknown non-empty values are preserved for forward compatibility.
+     * @return serviceTier
+     */
+    @jakarta.annotation.Nullable public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -253,13 +276,14 @@ public class BedrockCohereCommandOptions {
                 && Objects.equals(this.temperature, bedrockCohereCommandOptions.temperature)
                 && Objects.equals(this.topP, bedrockCohereCommandOptions.topP)
                 && Objects.equals(this.stopSequence, bedrockCohereCommandOptions.stopSequence)
-                && Objects.equals(
-                        this.includeThoughts, bedrockCohereCommandOptions.includeThoughts);
+                && Objects.equals(this.includeThoughts, bedrockCohereCommandOptions.includeThoughts)
+                && Objects.equals(this.serviceTier, bedrockCohereCommandOptions.serviceTier);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(optionId, maxTokens, temperature, topP, stopSequence, includeThoughts);
+        return Objects.hash(
+                optionId, maxTokens, temperature, topP, stopSequence, includeThoughts, serviceTier);
     }
 
     @Override
@@ -272,6 +296,7 @@ public class BedrockCohereCommandOptions {
         sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
+        sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -297,7 +322,8 @@ public class BedrockCohereCommandOptions {
                                 "temperature",
                                 "top_p",
                                 "stop_sequence",
-                                "include_thoughts"));
+                                "include_thoughts",
+                                "service_tier"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));
@@ -351,6 +377,14 @@ public class BedrockCohereCommandOptions {
                             java.util.Locale.ROOT,
                             "Expected the field `stop_sequence` to be an array in the JSON string but got `%s`",
                             jsonObj.get("stop_sequence").toString()));
+        }
+        if ((jsonObj.get("service_tier") != null && !jsonObj.get("service_tier").isJsonNull())
+                && !jsonObj.get("service_tier").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `service_tier` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("service_tier").toString()));
         }
     }
 

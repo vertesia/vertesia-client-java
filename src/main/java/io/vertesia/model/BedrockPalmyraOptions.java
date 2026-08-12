@@ -137,6 +137,11 @@ public class BedrockPalmyraOptions {
     @SerializedName(SERIALIZED_NAME_PRESENCE_PENALTY)
     @jakarta.annotation.Nullable private BigDecimal presencePenalty;
 
+    public static final String SERIALIZED_NAME_SERVICE_TIER = "service_tier";
+
+    @SerializedName(SERIALIZED_NAME_SERVICE_TIER)
+    @jakarta.annotation.Nullable private String serviceTier;
+
     public BedrockPalmyraOptions() {}
 
     public BedrockPalmyraOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
@@ -304,6 +309,23 @@ public class BedrockPalmyraOptions {
         this.presencePenalty = presencePenalty;
     }
 
+    public BedrockPalmyraOptions serviceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+        return this;
+    }
+
+    /**
+     * Provider-defined processing tier. Unknown non-empty values are preserved for forward compatibility.
+     * @return serviceTier
+     */
+    @jakarta.annotation.Nullable public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -321,7 +343,8 @@ public class BedrockPalmyraOptions {
                 && Objects.equals(this.minTokens, bedrockPalmyraOptions.minTokens)
                 && Objects.equals(this.seed, bedrockPalmyraOptions.seed)
                 && Objects.equals(this.frequencyPenalty, bedrockPalmyraOptions.frequencyPenalty)
-                && Objects.equals(this.presencePenalty, bedrockPalmyraOptions.presencePenalty);
+                && Objects.equals(this.presencePenalty, bedrockPalmyraOptions.presencePenalty)
+                && Objects.equals(this.serviceTier, bedrockPalmyraOptions.serviceTier);
     }
 
     @Override
@@ -335,7 +358,8 @@ public class BedrockPalmyraOptions {
                 minTokens,
                 seed,
                 frequencyPenalty,
-                presencePenalty);
+                presencePenalty,
+                serviceTier);
     }
 
     @Override
@@ -351,6 +375,7 @@ public class BedrockPalmyraOptions {
         sb.append("    seed: ").append(toIndentedString(seed)).append("\n");
         sb.append("    frequencyPenalty: ").append(toIndentedString(frequencyPenalty)).append("\n");
         sb.append("    presencePenalty: ").append(toIndentedString(presencePenalty)).append("\n");
+        sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -379,7 +404,8 @@ public class BedrockPalmyraOptions {
                                 "min_tokens",
                                 "seed",
                                 "frequency_penalty",
-                                "presence_penalty"));
+                                "presence_penalty",
+                                "service_tier"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));
@@ -433,6 +459,14 @@ public class BedrockPalmyraOptions {
                             java.util.Locale.ROOT,
                             "Expected the field `stop_sequence` to be an array in the JSON string but got `%s`",
                             jsonObj.get("stop_sequence").toString()));
+        }
+        if ((jsonObj.get("service_tier") != null && !jsonObj.get("service_tier").isJsonNull())
+                && !jsonObj.get("service_tier").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `service_tier` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("service_tier").toString()));
         }
     }
 

@@ -105,6 +105,11 @@ public class TwelvelabsPegasusOptions {
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
     @jakarta.annotation.Nullable private BigDecimal maxTokens;
 
+    public static final String SERIALIZED_NAME_SERVICE_TIER = "service_tier";
+
+    @SerializedName(SERIALIZED_NAME_SERVICE_TIER)
+    @jakarta.annotation.Nullable private String serviceTier;
+
     public TwelvelabsPegasusOptions() {}
 
     public TwelvelabsPegasusOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
@@ -160,6 +165,23 @@ public class TwelvelabsPegasusOptions {
         this.maxTokens = maxTokens;
     }
 
+    public TwelvelabsPegasusOptions serviceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+        return this;
+    }
+
+    /**
+     * Provider-defined processing tier. Unknown non-empty values are preserved for forward compatibility.
+     * @return serviceTier
+     */
+    @jakarta.annotation.Nullable public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -171,12 +193,13 @@ public class TwelvelabsPegasusOptions {
         TwelvelabsPegasusOptions twelvelabsPegasusOptions = (TwelvelabsPegasusOptions) o;
         return Objects.equals(this.optionId, twelvelabsPegasusOptions.optionId)
                 && Objects.equals(this.temperature, twelvelabsPegasusOptions.temperature)
-                && Objects.equals(this.maxTokens, twelvelabsPegasusOptions.maxTokens);
+                && Objects.equals(this.maxTokens, twelvelabsPegasusOptions.maxTokens)
+                && Objects.equals(this.serviceTier, twelvelabsPegasusOptions.serviceTier);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(optionId, temperature, maxTokens);
+        return Objects.hash(optionId, temperature, maxTokens, serviceTier);
     }
 
     @Override
@@ -186,6 +209,7 @@ public class TwelvelabsPegasusOptions {
         sb.append("    optionId: ").append(toIndentedString(optionId)).append("\n");
         sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
+        sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -204,7 +228,8 @@ public class TwelvelabsPegasusOptions {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields =
-                new HashSet<String>(Arrays.asList("_option_id", "temperature", "max_tokens"));
+                new HashSet<String>(
+                        Arrays.asList("_option_id", "temperature", "max_tokens", "service_tier"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));
@@ -249,6 +274,14 @@ public class TwelvelabsPegasusOptions {
         }
         // validate the required field `_option_id`
         OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        if ((jsonObj.get("service_tier") != null && !jsonObj.get("service_tier").isJsonNull())
+                && !jsonObj.get("service_tier").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `service_tier` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("service_tier").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {

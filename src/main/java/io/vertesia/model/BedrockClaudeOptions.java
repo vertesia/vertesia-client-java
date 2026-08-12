@@ -263,6 +263,11 @@ public class BedrockClaudeOptions {
     @SerializedName(SERIALIZED_NAME_CACHE_TTL)
     @jakarta.annotation.Nullable private CacheTtlEnum cacheTtl;
 
+    public static final String SERIALIZED_NAME_SERVICE_TIER = "service_tier";
+
+    @SerializedName(SERIALIZED_NAME_SERVICE_TIER)
+    @jakarta.annotation.Nullable private String serviceTier;
+
     public BedrockClaudeOptions() {}
 
     public BedrockClaudeOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
@@ -465,6 +470,23 @@ public class BedrockClaudeOptions {
         this.cacheTtl = cacheTtl;
     }
 
+    public BedrockClaudeOptions serviceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+        return this;
+    }
+
+    /**
+     * Provider-defined processing tier. Unknown non-empty values are preserved for forward compatibility.
+     * @return serviceTier
+     */
+    @jakarta.annotation.Nullable public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -485,7 +507,8 @@ public class BedrockClaudeOptions {
                 && Objects.equals(this.includeThoughts, bedrockClaudeOptions.includeThoughts)
                 && Objects.equals(this.effort, bedrockClaudeOptions.effort)
                 && Objects.equals(this.cacheEnabled, bedrockClaudeOptions.cacheEnabled)
-                && Objects.equals(this.cacheTtl, bedrockClaudeOptions.cacheTtl);
+                && Objects.equals(this.cacheTtl, bedrockClaudeOptions.cacheTtl)
+                && Objects.equals(this.serviceTier, bedrockClaudeOptions.serviceTier);
     }
 
     @Override
@@ -501,7 +524,8 @@ public class BedrockClaudeOptions {
                 includeThoughts,
                 effort,
                 cacheEnabled,
-                cacheTtl);
+                cacheTtl,
+                serviceTier);
     }
 
     @Override
@@ -521,6 +545,7 @@ public class BedrockClaudeOptions {
         sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
         sb.append("    cacheEnabled: ").append(toIndentedString(cacheEnabled)).append("\n");
         sb.append("    cacheTtl: ").append(toIndentedString(cacheTtl)).append("\n");
+        sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -551,7 +576,8 @@ public class BedrockClaudeOptions {
                                 "include_thoughts",
                                 "effort",
                                 "cache_enabled",
-                                "cache_ttl"));
+                                "cache_ttl",
+                                "service_tier"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));
@@ -629,6 +655,14 @@ public class BedrockClaudeOptions {
         // validate the optional field `cache_ttl`
         if (jsonObj.get("cache_ttl") != null && !jsonObj.get("cache_ttl").isJsonNull()) {
             CacheTtlEnum.validateJsonElement(jsonObj.get("cache_ttl"));
+        }
+        if ((jsonObj.get("service_tier") != null && !jsonObj.get("service_tier").isJsonNull())
+                && !jsonObj.get("service_tier").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `service_tier` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("service_tier").toString()));
         }
     }
 

@@ -204,6 +204,11 @@ public class OpenAiTextOptions {
     @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
     @jakarta.annotation.Nullable private Boolean includeThoughts;
 
+    public static final String SERIALIZED_NAME_SERVICE_TIER = "service_tier";
+
+    @SerializedName(SERIALIZED_NAME_SERVICE_TIER)
+    @jakarta.annotation.Nullable private String serviceTier;
+
     public OpenAiTextOptions() {}
 
     public OpenAiTextOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
@@ -405,6 +410,23 @@ public class OpenAiTextOptions {
         this.includeThoughts = includeThoughts;
     }
 
+    public OpenAiTextOptions serviceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+        return this;
+    }
+
+    /**
+     * Provider-defined processing tier. Unknown non-empty values are preserved for forward compatibility.
+     * @return serviceTier
+     */
+    @jakarta.annotation.Nullable public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -424,7 +446,8 @@ public class OpenAiTextOptions {
                 && Objects.equals(this.frequencyPenalty, openAiTextOptions.frequencyPenalty)
                 && Objects.equals(this.stopSequence, openAiTextOptions.stopSequence)
                 && Objects.equals(this.imageDetail, openAiTextOptions.imageDetail)
-                && Objects.equals(this.includeThoughts, openAiTextOptions.includeThoughts);
+                && Objects.equals(this.includeThoughts, openAiTextOptions.includeThoughts)
+                && Objects.equals(this.serviceTier, openAiTextOptions.serviceTier);
     }
 
     @Override
@@ -440,7 +463,8 @@ public class OpenAiTextOptions {
                 frequencyPenalty,
                 stopSequence,
                 imageDetail,
-                includeThoughts);
+                includeThoughts,
+                serviceTier);
     }
 
     @Override
@@ -458,6 +482,7 @@ public class OpenAiTextOptions {
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
         sb.append("    imageDetail: ").append(toIndentedString(imageDetail)).append("\n");
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
+        sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -488,7 +513,8 @@ public class OpenAiTextOptions {
                                 "frequency_penalty",
                                 "stop_sequence",
                                 "image_detail",
-                                "include_thoughts"));
+                                "include_thoughts",
+                                "service_tier"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));
@@ -563,6 +589,14 @@ public class OpenAiTextOptions {
         // validate the optional field `image_detail`
         if (jsonObj.get("image_detail") != null && !jsonObj.get("image_detail").isJsonNull()) {
             ImageDetailEnum.validateJsonElement(jsonObj.get("image_detail"));
+        }
+        if ((jsonObj.get("service_tier") != null && !jsonObj.get("service_tier").isJsonNull())
+                && !jsonObj.get("service_tier").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `service_tier` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("service_tier").toString()));
         }
     }
 

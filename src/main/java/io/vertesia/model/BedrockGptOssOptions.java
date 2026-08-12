@@ -189,6 +189,11 @@ public class BedrockGptOssOptions {
     @SerializedName(SERIALIZED_NAME_PRESENCE_PENALTY)
     @jakarta.annotation.Nullable private BigDecimal presencePenalty;
 
+    public static final String SERIALIZED_NAME_SERVICE_TIER = "service_tier";
+
+    @SerializedName(SERIALIZED_NAME_SERVICE_TIER)
+    @jakarta.annotation.Nullable private String serviceTier;
+
     public BedrockGptOssOptions() {}
 
     public BedrockGptOssOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
@@ -341,6 +346,23 @@ public class BedrockGptOssOptions {
         this.presencePenalty = presencePenalty;
     }
 
+    public BedrockGptOssOptions serviceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+        return this;
+    }
+
+    /**
+     * Provider-defined processing tier. Unknown non-empty values are preserved for forward compatibility.
+     * @return serviceTier
+     */
+    @jakarta.annotation.Nullable public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -357,7 +379,8 @@ public class BedrockGptOssOptions {
                 && Objects.equals(this.stopSequence, bedrockGptOssOptions.stopSequence)
                 && Objects.equals(this.reasoningEffort, bedrockGptOssOptions.reasoningEffort)
                 && Objects.equals(this.frequencyPenalty, bedrockGptOssOptions.frequencyPenalty)
-                && Objects.equals(this.presencePenalty, bedrockGptOssOptions.presencePenalty);
+                && Objects.equals(this.presencePenalty, bedrockGptOssOptions.presencePenalty)
+                && Objects.equals(this.serviceTier, bedrockGptOssOptions.serviceTier);
     }
 
     @Override
@@ -370,7 +393,8 @@ public class BedrockGptOssOptions {
                 stopSequence,
                 reasoningEffort,
                 frequencyPenalty,
-                presencePenalty);
+                presencePenalty,
+                serviceTier);
     }
 
     @Override
@@ -385,6 +409,7 @@ public class BedrockGptOssOptions {
         sb.append("    reasoningEffort: ").append(toIndentedString(reasoningEffort)).append("\n");
         sb.append("    frequencyPenalty: ").append(toIndentedString(frequencyPenalty)).append("\n");
         sb.append("    presencePenalty: ").append(toIndentedString(presencePenalty)).append("\n");
+        sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -412,7 +437,8 @@ public class BedrockGptOssOptions {
                                 "stop_sequence",
                                 "reasoning_effort",
                                 "frequency_penalty",
-                                "presence_penalty"));
+                                "presence_penalty",
+                                "service_tier"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));
@@ -480,6 +506,14 @@ public class BedrockGptOssOptions {
         if (jsonObj.get("reasoning_effort") != null
                 && !jsonObj.get("reasoning_effort").isJsonNull()) {
             ReasoningEffortEnum.validateJsonElement(jsonObj.get("reasoning_effort"));
+        }
+        if ((jsonObj.get("service_tier") != null && !jsonObj.get("service_tier").isJsonNull())
+                && !jsonObj.get("service_tier").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `service_tier` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("service_tier").toString()));
         }
     }
 

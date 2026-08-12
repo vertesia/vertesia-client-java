@@ -216,8 +216,14 @@ public class VertexAIGeminiOptions {
     @SerializedName(SERIALIZED_NAME_THINKING_LEVEL)
     @jakarta.annotation.Nullable private ThinkingLevel thinkingLevel;
 
+    public static final String SERIALIZED_NAME_SERVICE_TIER = "service_tier";
+
+    @SerializedName(SERIALIZED_NAME_SERVICE_TIER)
+    @jakarta.annotation.Nullable private String serviceTier;
+
     public static final String SERIALIZED_NAME_FLEX = "flex";
 
+    @Deprecated
     @SerializedName(SERIALIZED_NAME_FLEX)
     @jakarta.annotation.Nullable private Boolean flex;
 
@@ -784,19 +790,40 @@ public class VertexAIGeminiOptions {
         this.thinkingLevel = thinkingLevel;
     }
 
+    public VertexAIGeminiOptions serviceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+        return this;
+    }
+
+    /**
+     * Provider-defined processing tier. Unknown non-empty values are preserved for forward compatibility.
+     * @return serviceTier
+     */
+    @jakarta.annotation.Nullable public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+    }
+
+    @Deprecated
     public VertexAIGeminiOptions flex(@jakarta.annotation.Nullable Boolean flex) {
         this.flex = flex;
         return this;
     }
 
     /**
-     * Get flex
+     * Deprecated: Use service_tier&#x3D;\&quot;flex\&quot; instead.
      * @return flex
+     * @deprecated
      */
+    @Deprecated
     @jakarta.annotation.Nullable public Boolean getFlex() {
         return flex;
     }
 
+    @Deprecated
     public void setFlex(@jakarta.annotation.Nullable Boolean flex) {
         this.flex = flex;
     }
@@ -935,6 +962,7 @@ public class VertexAIGeminiOptions {
                 && Objects.equals(
                         this.thinkingBudgetTokens, vertexAIGeminiOptions.thinkingBudgetTokens)
                 && Objects.equals(this.thinkingLevel, vertexAIGeminiOptions.thinkingLevel)
+                && Objects.equals(this.serviceTier, vertexAIGeminiOptions.serviceTier)
                 && Objects.equals(this.flex, vertexAIGeminiOptions.flex)
                 && Objects.equals(this.imageAspectRatio, vertexAIGeminiOptions.imageAspectRatio)
                 && Objects.equals(this.imageSize, vertexAIGeminiOptions.imageSize)
@@ -962,6 +990,7 @@ public class VertexAIGeminiOptions {
                 includeThoughts,
                 thinkingBudgetTokens,
                 thinkingLevel,
+                serviceTier,
                 flex,
                 imageAspectRatio,
                 imageSize,
@@ -990,6 +1019,7 @@ public class VertexAIGeminiOptions {
                 .append(toIndentedString(thinkingBudgetTokens))
                 .append("\n");
         sb.append("    thinkingLevel: ").append(toIndentedString(thinkingLevel)).append("\n");
+        sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
         sb.append("    flex: ").append(toIndentedString(flex)).append("\n");
         sb.append("    imageAspectRatio: ").append(toIndentedString(imageAspectRatio)).append("\n");
         sb.append("    imageSize: ").append(toIndentedString(imageSize)).append("\n");
@@ -1032,6 +1062,7 @@ public class VertexAIGeminiOptions {
                                 "include_thoughts",
                                 "thinking_budget_tokens",
                                 "thinking_level",
+                                "service_tier",
                                 "flex",
                                 "image_aspect_ratio",
                                 "image_size",
@@ -1108,6 +1139,14 @@ public class VertexAIGeminiOptions {
         // validate the optional field `thinking_level`
         if (jsonObj.get("thinking_level") != null && !jsonObj.get("thinking_level").isJsonNull()) {
             ThinkingLevel.validateJsonElement(jsonObj.get("thinking_level"));
+        }
+        if ((jsonObj.get("service_tier") != null && !jsonObj.get("service_tier").isJsonNull())
+                && !jsonObj.get("service_tier").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `service_tier` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("service_tier").toString()));
         }
         if ((jsonObj.get("image_aspect_ratio") != null
                         && !jsonObj.get("image_aspect_ratio").isJsonNull())
