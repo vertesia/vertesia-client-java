@@ -472,6 +472,9 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
+                                                "azure-foundry-chat",
+                                                io.vertesia.model.AzureFoundryChatOptions.class);
+                                        classByDiscriminatorValue.put(
                                                 "bedrock-ai21",
                                                 io.vertesia.model.BedrockAI21Options.class);
                                         classByDiscriminatorValue.put(
@@ -516,6 +519,9 @@ public class JSON {
                                         classByDiscriminatorValue.put(
                                                 "groq-deepseek-thinking",
                                                 io.vertesia.model.GroqOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "mistral-text",
+                                                io.vertesia.model.MistralTextOptions.class);
                                         classByDiscriminatorValue.put(
                                                 "openai-dalle",
                                                 io.vertesia.model.OpenAiDalleOptions.class);
@@ -1166,6 +1172,8 @@ public class JSON {
                 new io.vertesia.model.AutonomousRunResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AwsConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AzureFoundryChatOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.BatchQueryPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1997,6 +2005,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.MigrationListResponseMigrationsInner
                         .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.MistralTextOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ModalityDefaults.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

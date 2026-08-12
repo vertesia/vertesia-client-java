@@ -43,6 +43,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
             final TypeAdapter<TextFallbackOptions> adapterTextFallbackOptions =
                     gson.getDelegateAdapter(this, TypeToken.get(TextFallbackOptions.class));
+            final TypeAdapter<AzureFoundryChatOptions> adapterAzureFoundryChatOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(AzureFoundryChatOptions.class));
             final TypeAdapter<ImagenOptions> adapterImagenOptions =
                     gson.getDelegateAdapter(this, TypeToken.get(ImagenOptions.class));
             final TypeAdapter<VertexAIClaudeOptions> adapterVertexAIClaudeOptions =
@@ -90,6 +92,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                     gson.getDelegateAdapter(this, TypeToken.get(OpenAiGptImageOptions.class));
             final TypeAdapter<GroqOptions> adapterGroqOptions =
                     gson.getDelegateAdapter(this, TypeToken.get(GroqOptions.class));
+            final TypeAdapter<MistralTextOptions> adapterMistralTextOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(MistralTextOptions.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<ModelOptions>() {
@@ -105,6 +109,15 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterTextFallbackOptions.toJsonTree(
                                                 (TextFallbackOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type `AzureFoundryChatOptions`
+                            if (value.getActualInstance() instanceof AzureFoundryChatOptions) {
+                                JsonElement element =
+                                        adapterAzureFoundryChatOptions.toJsonTree(
+                                                (AzureFoundryChatOptions)
+                                                        value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
@@ -296,8 +309,16 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 elementAdapter.write(out, element);
                                 return;
                             }
+                            // check if the actual instance is of the type `MistralTextOptions`
+                            if (value.getActualInstance() instanceof MistralTextOptions) {
+                                JsonElement element =
+                                        adapterMistralTextOptions.toJsonTree(
+                                                (MistralTextOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions");
+                                    "Failed to serialize as the type doesn't match oneOf schemas: AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions");
                         }
 
                         @Override
@@ -328,6 +349,27 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 log.log(
                                         Level.FINER,
                                         "Input data does not match schema 'TextFallbackOptions'",
+                                        e);
+                            }
+                            // deserialize AzureFoundryChatOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                AzureFoundryChatOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAzureFoundryChatOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'AzureFoundryChatOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for AzureFoundryChatOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'AzureFoundryChatOptions'",
                                         e);
                             }
                             // deserialize ImagenOptions
@@ -789,6 +831,27 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                         "Input data does not match schema 'GroqOptions'",
                                         e);
                             }
+                            // deserialize MistralTextOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                MistralTextOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterMistralTextOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'MistralTextOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for MistralTextOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'MistralTextOptions'",
+                                        e);
+                            }
 
                             if (match == 1) {
                                 ModelOptions ret = new ModelOptions();
@@ -822,6 +885,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
 
     static {
         schemas.put("TextFallbackOptions", TextFallbackOptions.class);
+        schemas.put("AzureFoundryChatOptions", AzureFoundryChatOptions.class);
         schemas.put("ImagenOptions", ImagenOptions.class);
         schemas.put("VertexAIClaudeOptions", VertexAIClaudeOptions.class);
         schemas.put("VertexAIGeminiOptions", VertexAIGeminiOptions.class);
@@ -845,6 +909,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         schemas.put("OpenAiDalleOptions", OpenAiDalleOptions.class);
         schemas.put("OpenAiGptImageOptions", OpenAiGptImageOptions.class);
         schemas.put("GroqOptions", GroqOptions.class);
+        schemas.put("MistralTextOptions", MistralTextOptions.class);
     }
 
     @Override
@@ -855,13 +920,18 @@ public class ModelOptions extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions
+     * AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions
      *
      * It could be an instance of the 'oneOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
         if (instance instanceof TextFallbackOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof AzureFoundryChatOptions) {
             super.setActualInstance(instance);
             return;
         }
@@ -976,15 +1046,20 @@ public class ModelOptions extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof MistralTextOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         throw new RuntimeException(
-                "Invalid instance type. Must be BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions");
+                "Invalid instance type. Must be AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions
+     * AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions
      *
-     * @return The actual instance (BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions)
+     * @return The actual instance (AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -1002,6 +1077,18 @@ public class ModelOptions extends AbstractOpenApiSchema {
     @SuppressWarnings("unchecked")
     public TextFallbackOptions getTextFallbackOptions() throws ClassCastException {
         return (TextFallbackOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `AzureFoundryChatOptions`. If the actual instance is not `AzureFoundryChatOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AzureFoundryChatOptions`
+     * @throws ClassCastException if the instance is not `AzureFoundryChatOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public AzureFoundryChatOptions getAzureFoundryChatOptions() throws ClassCastException {
+        return (AzureFoundryChatOptions) super.getActualInstance();
     }
 
     /**
@@ -1271,6 +1358,18 @@ public class ModelOptions extends AbstractOpenApiSchema {
     }
 
     /**
+     * Get the actual instance of `MistralTextOptions`. If the actual instance is not `MistralTextOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `MistralTextOptions`
+     * @throws ClassCastException if the instance is not `MistralTextOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public MistralTextOptions getMistralTextOptions() throws ClassCastException {
+        return (MistralTextOptions) super.getActualInstance();
+    }
+
+    /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
@@ -1289,6 +1388,18 @@ public class ModelOptions extends AbstractOpenApiSchema {
                     String.format(
                             java.util.Locale.ROOT,
                             "Deserialization for TextFallbackOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with AzureFoundryChatOptions
+        try {
+            AzureFoundryChatOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for AzureFoundryChatOptions failed with `%s`.",
                             e.getMessage()));
             // continue to the next one
         }
@@ -1556,11 +1667,23 @@ public class ModelOptions extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with MistralTextOptions
+        try {
+            MistralTextOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for MistralTextOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
             throw new IOException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for ModelOptions with oneOf schemas: BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            "The JSON string is invalid for ModelOptions with oneOf schemas: AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
                             validCount,
                             errorMessages,
                             jsonElement.toString()));

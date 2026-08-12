@@ -208,6 +208,7 @@ src/main/java/io/vertesia/model/AuditTrailResponse.java
 src/main/java/io/vertesia/model/AuthTokenResponse.java
 src/main/java/io/vertesia/model/AutonomousRunResponse.java
 src/main/java/io/vertesia/model/AwsConfiguration.java
+src/main/java/io/vertesia/model/AzureFoundryChatOptions.java
 src/main/java/io/vertesia/model/BatchQueryPayload.java
 src/main/java/io/vertesia/model/BatchQueryPayloadQueriesInner.java
 src/main/java/io/vertesia/model/BatchQueryResult.java
@@ -658,6 +659,7 @@ src/main/java/io/vertesia/model/McpOAuthTokenResponse.java
 src/main/java/io/vertesia/model/MediatorEnvConfig.java
 src/main/java/io/vertesia/model/MigrationListResponse.java
 src/main/java/io/vertesia/model/MigrationListResponseMigrationsInner.java
+src/main/java/io/vertesia/model/MistralTextOptions.java
 src/main/java/io/vertesia/model/Modalities.java
 src/main/java/io/vertesia/model/ModalityDefaults.java
 src/main/java/io/vertesia/model/ModelDefault.java

@@ -32,18 +32,18 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * BedrockMantleChatCompletionsOptions
+ * MistralTextOptions
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class BedrockMantleChatCompletionsOptions {
+public class MistralTextOptions {
     /**
      * Gets or Sets optionId
      */
     @JsonAdapter(OptionIdEnum.Adapter.class)
     public enum OptionIdEnum {
-        BEDROCK_MANTLE_CHAT_COMPLETIONS("bedrock-mantle-chat-completions"),
+        MISTRAL_TEXT("mistral-text"),
 
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
@@ -112,6 +112,16 @@ public class BedrockMantleChatCompletionsOptions {
     @SerializedName(SERIALIZED_NAME_TOP_P)
     @jakarta.annotation.Nullable private BigDecimal topP;
 
+    public static final String SERIALIZED_NAME_PRESENCE_PENALTY = "presence_penalty";
+
+    @SerializedName(SERIALIZED_NAME_PRESENCE_PENALTY)
+    @jakarta.annotation.Nullable private BigDecimal presencePenalty;
+
+    public static final String SERIALIZED_NAME_FREQUENCY_PENALTY = "frequency_penalty";
+
+    @SerializedName(SERIALIZED_NAME_FREQUENCY_PENALTY)
+    @jakarta.annotation.Nullable private BigDecimal frequencyPenalty;
+
     public static final String SERIALIZED_NAME_STOP_SEQUENCE = "stop_sequence";
 
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
@@ -122,9 +132,7 @@ public class BedrockMantleChatCompletionsOptions {
      */
     @JsonAdapter(EffortEnum.Adapter.class)
     public enum EffortEnum {
-        LOW("low"),
-
-        MEDIUM("medium"),
+        NONE("none"),
 
         HIGH("high"),
 
@@ -179,22 +187,39 @@ public class BedrockMantleChatCompletionsOptions {
     @SerializedName(SERIALIZED_NAME_EFFORT)
     @jakarta.annotation.Nullable private EffortEnum effort;
 
+    public static final String SERIALIZED_NAME_RANDOM_SEED = "random_seed";
+
+    @SerializedName(SERIALIZED_NAME_RANDOM_SEED)
+    @jakarta.annotation.Nullable private Integer randomSeed;
+
+    public static final String SERIALIZED_NAME_SAFE_PROMPT = "safe_prompt";
+
+    @SerializedName(SERIALIZED_NAME_SAFE_PROMPT)
+    @jakarta.annotation.Nullable private Boolean safePrompt;
+
+    public static final String SERIALIZED_NAME_PARALLEL_TOOL_CALLS = "parallel_tool_calls";
+
+    @SerializedName(SERIALIZED_NAME_PARALLEL_TOOL_CALLS)
+    @jakarta.annotation.Nullable private Boolean parallelToolCalls;
+
     /**
-     * Gets or Sets reasoningEffort
+     * Gets or Sets toolChoice
      */
-    @JsonAdapter(ReasoningEffortEnum.Adapter.class)
-    public enum ReasoningEffortEnum {
-        LOW("low"),
+    @JsonAdapter(ToolChoiceEnum.Adapter.class)
+    public enum ToolChoiceEnum {
+        AUTO("auto"),
 
-        MEDIUM("medium"),
+        NONE("none"),
 
-        HIGH("high"),
+        ANY("any"),
+
+        REQUIRED("required"),
 
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
         private String value;
 
-        ReasoningEffortEnum(String value) {
+        ToolChoiceEnum(String value) {
             this.value = value;
         }
 
@@ -207,8 +232,8 @@ public class BedrockMantleChatCompletionsOptions {
             return String.valueOf(value);
         }
 
-        public static ReasoningEffortEnum fromValue(String value) {
-            for (ReasoningEffortEnum b : ReasoningEffortEnum.values()) {
+        public static ToolChoiceEnum fromValue(String value) {
+            for (ToolChoiceEnum b : ToolChoiceEnum.values()) {
                 if (b.value.equals(value)) {
                     return b;
                 }
@@ -216,40 +241,97 @@ public class BedrockMantleChatCompletionsOptions {
             return UNKNOWN_DEFAULT_OPEN_API;
         }
 
-        public static class Adapter extends TypeAdapter<ReasoningEffortEnum> {
+        public static class Adapter extends TypeAdapter<ToolChoiceEnum> {
             @Override
-            public void write(final JsonWriter jsonWriter, final ReasoningEffortEnum enumeration)
+            public void write(final JsonWriter jsonWriter, final ToolChoiceEnum enumeration)
                     throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public ReasoningEffortEnum read(final JsonReader jsonReader) throws IOException {
+            public ToolChoiceEnum read(final JsonReader jsonReader) throws IOException {
                 String value = jsonReader.nextString();
-                return ReasoningEffortEnum.fromValue(value);
+                return ToolChoiceEnum.fromValue(value);
             }
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
             String value = jsonElement.getAsString();
-            ReasoningEffortEnum.fromValue(value);
+            ToolChoiceEnum.fromValue(value);
         }
     }
 
-    public static final String SERIALIZED_NAME_REASONING_EFFORT = "reasoning_effort";
+    public static final String SERIALIZED_NAME_TOOL_CHOICE = "tool_choice";
 
-    @SerializedName(SERIALIZED_NAME_REASONING_EFFORT)
-    @jakarta.annotation.Nullable private ReasoningEffortEnum reasoningEffort;
+    @SerializedName(SERIALIZED_NAME_TOOL_CHOICE)
+    @jakarta.annotation.Nullable private ToolChoiceEnum toolChoice;
+
+    /**
+     * Gets or Sets promptMode
+     */
+    @JsonAdapter(PromptModeEnum.Adapter.class)
+    public enum PromptModeEnum {
+        REASONING("reasoning"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        PromptModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static PromptModeEnum fromValue(String value) {
+            for (PromptModeEnum b : PromptModeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<PromptModeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final PromptModeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public PromptModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return PromptModeEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            PromptModeEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_PROMPT_MODE = "prompt_mode";
+
+    @SerializedName(SERIALIZED_NAME_PROMPT_MODE)
+    @jakarta.annotation.Nullable private PromptModeEnum promptMode;
 
     public static final String SERIALIZED_NAME_INCLUDE_THOUGHTS = "include_thoughts";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
     @jakarta.annotation.Nullable private Boolean includeThoughts;
 
-    public BedrockMantleChatCompletionsOptions() {}
+    public MistralTextOptions() {}
 
-    public BedrockMantleChatCompletionsOptions optionId(
-            @jakarta.annotation.Nonnull OptionIdEnum optionId) {
+    public MistralTextOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -267,8 +349,7 @@ public class BedrockMantleChatCompletionsOptions {
         this.optionId = optionId;
     }
 
-    public BedrockMantleChatCompletionsOptions maxTokens(
-            @jakarta.annotation.Nullable BigDecimal maxTokens) {
+    public MistralTextOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
         return this;
     }
@@ -285,8 +366,7 @@ public class BedrockMantleChatCompletionsOptions {
         this.maxTokens = maxTokens;
     }
 
-    public BedrockMantleChatCompletionsOptions temperature(
-            @jakarta.annotation.Nullable BigDecimal temperature) {
+    public MistralTextOptions temperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
         return this;
     }
@@ -303,7 +383,7 @@ public class BedrockMantleChatCompletionsOptions {
         this.temperature = temperature;
     }
 
-    public BedrockMantleChatCompletionsOptions topP(@jakarta.annotation.Nullable BigDecimal topP) {
+    public MistralTextOptions topP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
         return this;
     }
@@ -320,13 +400,48 @@ public class BedrockMantleChatCompletionsOptions {
         this.topP = topP;
     }
 
-    public BedrockMantleChatCompletionsOptions stopSequence(
-            @jakarta.annotation.Nullable List<String> stopSequence) {
+    public MistralTextOptions presencePenalty(
+            @jakarta.annotation.Nullable BigDecimal presencePenalty) {
+        this.presencePenalty = presencePenalty;
+        return this;
+    }
+
+    /**
+     * Get presencePenalty
+     * @return presencePenalty
+     */
+    @jakarta.annotation.Nullable public BigDecimal getPresencePenalty() {
+        return presencePenalty;
+    }
+
+    public void setPresencePenalty(@jakarta.annotation.Nullable BigDecimal presencePenalty) {
+        this.presencePenalty = presencePenalty;
+    }
+
+    public MistralTextOptions frequencyPenalty(
+            @jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
+        this.frequencyPenalty = frequencyPenalty;
+        return this;
+    }
+
+    /**
+     * Get frequencyPenalty
+     * @return frequencyPenalty
+     */
+    @jakarta.annotation.Nullable public BigDecimal getFrequencyPenalty() {
+        return frequencyPenalty;
+    }
+
+    public void setFrequencyPenalty(@jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
+        this.frequencyPenalty = frequencyPenalty;
+    }
+
+    public MistralTextOptions stopSequence(@jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
         return this;
     }
 
-    public BedrockMantleChatCompletionsOptions addStopSequenceItem(String stopSequenceItem) {
+    public MistralTextOptions addStopSequenceItem(String stopSequenceItem) {
         if (this.stopSequence == null) {
             this.stopSequence = new ArrayList<>();
         }
@@ -346,8 +461,7 @@ public class BedrockMantleChatCompletionsOptions {
         this.stopSequence = stopSequence;
     }
 
-    public BedrockMantleChatCompletionsOptions effort(
-            @jakarta.annotation.Nullable EffortEnum effort) {
+    public MistralTextOptions effort(@jakarta.annotation.Nullable EffortEnum effort) {
         this.effort = effort;
         return this;
     }
@@ -364,26 +478,95 @@ public class BedrockMantleChatCompletionsOptions {
         this.effort = effort;
     }
 
-    public BedrockMantleChatCompletionsOptions reasoningEffort(
-            @jakarta.annotation.Nullable ReasoningEffortEnum reasoningEffort) {
-        this.reasoningEffort = reasoningEffort;
+    public MistralTextOptions randomSeed(@jakarta.annotation.Nullable Integer randomSeed) {
+        this.randomSeed = randomSeed;
         return this;
     }
 
     /**
-     * Get reasoningEffort
-     * @return reasoningEffort
+     * Get randomSeed
+     * minimum: -9007199254740991
+     * maximum: 9007199254740991
+     * @return randomSeed
      */
-    @jakarta.annotation.Nullable public ReasoningEffortEnum getReasoningEffort() {
-        return reasoningEffort;
+    @jakarta.annotation.Nullable public Integer getRandomSeed() {
+        return randomSeed;
     }
 
-    public void setReasoningEffort(
-            @jakarta.annotation.Nullable ReasoningEffortEnum reasoningEffort) {
-        this.reasoningEffort = reasoningEffort;
+    public void setRandomSeed(@jakarta.annotation.Nullable Integer randomSeed) {
+        this.randomSeed = randomSeed;
     }
 
-    public BedrockMantleChatCompletionsOptions includeThoughts(
+    public MistralTextOptions safePrompt(@jakarta.annotation.Nullable Boolean safePrompt) {
+        this.safePrompt = safePrompt;
+        return this;
+    }
+
+    /**
+     * Get safePrompt
+     * @return safePrompt
+     */
+    @jakarta.annotation.Nullable public Boolean getSafePrompt() {
+        return safePrompt;
+    }
+
+    public void setSafePrompt(@jakarta.annotation.Nullable Boolean safePrompt) {
+        this.safePrompt = safePrompt;
+    }
+
+    public MistralTextOptions parallelToolCalls(
+            @jakarta.annotation.Nullable Boolean parallelToolCalls) {
+        this.parallelToolCalls = parallelToolCalls;
+        return this;
+    }
+
+    /**
+     * Get parallelToolCalls
+     * @return parallelToolCalls
+     */
+    @jakarta.annotation.Nullable public Boolean getParallelToolCalls() {
+        return parallelToolCalls;
+    }
+
+    public void setParallelToolCalls(@jakarta.annotation.Nullable Boolean parallelToolCalls) {
+        this.parallelToolCalls = parallelToolCalls;
+    }
+
+    public MistralTextOptions toolChoice(@jakarta.annotation.Nullable ToolChoiceEnum toolChoice) {
+        this.toolChoice = toolChoice;
+        return this;
+    }
+
+    /**
+     * Get toolChoice
+     * @return toolChoice
+     */
+    @jakarta.annotation.Nullable public ToolChoiceEnum getToolChoice() {
+        return toolChoice;
+    }
+
+    public void setToolChoice(@jakarta.annotation.Nullable ToolChoiceEnum toolChoice) {
+        this.toolChoice = toolChoice;
+    }
+
+    public MistralTextOptions promptMode(@jakarta.annotation.Nullable PromptModeEnum promptMode) {
+        this.promptMode = promptMode;
+        return this;
+    }
+
+    /**
+     * Get promptMode
+     * @return promptMode
+     */
+    @jakarta.annotation.Nullable public PromptModeEnum getPromptMode() {
+        return promptMode;
+    }
+
+    public void setPromptMode(@jakarta.annotation.Nullable PromptModeEnum promptMode) {
+        this.promptMode = promptMode;
+    }
+
+    public MistralTextOptions includeThoughts(
             @jakarta.annotation.Nullable Boolean includeThoughts) {
         this.includeThoughts = includeThoughts;
         return this;
@@ -409,19 +592,21 @@ public class BedrockMantleChatCompletionsOptions {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        BedrockMantleChatCompletionsOptions bedrockMantleChatCompletionsOptions =
-                (BedrockMantleChatCompletionsOptions) o;
-        return Objects.equals(this.optionId, bedrockMantleChatCompletionsOptions.optionId)
-                && Objects.equals(this.maxTokens, bedrockMantleChatCompletionsOptions.maxTokens)
-                && Objects.equals(this.temperature, bedrockMantleChatCompletionsOptions.temperature)
-                && Objects.equals(this.topP, bedrockMantleChatCompletionsOptions.topP)
-                && Objects.equals(
-                        this.stopSequence, bedrockMantleChatCompletionsOptions.stopSequence)
-                && Objects.equals(this.effort, bedrockMantleChatCompletionsOptions.effort)
-                && Objects.equals(
-                        this.reasoningEffort, bedrockMantleChatCompletionsOptions.reasoningEffort)
-                && Objects.equals(
-                        this.includeThoughts, bedrockMantleChatCompletionsOptions.includeThoughts);
+        MistralTextOptions mistralTextOptions = (MistralTextOptions) o;
+        return Objects.equals(this.optionId, mistralTextOptions.optionId)
+                && Objects.equals(this.maxTokens, mistralTextOptions.maxTokens)
+                && Objects.equals(this.temperature, mistralTextOptions.temperature)
+                && Objects.equals(this.topP, mistralTextOptions.topP)
+                && Objects.equals(this.presencePenalty, mistralTextOptions.presencePenalty)
+                && Objects.equals(this.frequencyPenalty, mistralTextOptions.frequencyPenalty)
+                && Objects.equals(this.stopSequence, mistralTextOptions.stopSequence)
+                && Objects.equals(this.effort, mistralTextOptions.effort)
+                && Objects.equals(this.randomSeed, mistralTextOptions.randomSeed)
+                && Objects.equals(this.safePrompt, mistralTextOptions.safePrompt)
+                && Objects.equals(this.parallelToolCalls, mistralTextOptions.parallelToolCalls)
+                && Objects.equals(this.toolChoice, mistralTextOptions.toolChoice)
+                && Objects.equals(this.promptMode, mistralTextOptions.promptMode)
+                && Objects.equals(this.includeThoughts, mistralTextOptions.includeThoughts);
     }
 
     @Override
@@ -431,23 +616,37 @@ public class BedrockMantleChatCompletionsOptions {
                 maxTokens,
                 temperature,
                 topP,
+                presencePenalty,
+                frequencyPenalty,
                 stopSequence,
                 effort,
-                reasoningEffort,
+                randomSeed,
+                safePrompt,
+                parallelToolCalls,
+                toolChoice,
+                promptMode,
                 includeThoughts);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BedrockMantleChatCompletionsOptions {\n");
+        sb.append("class MistralTextOptions {\n");
         sb.append("    optionId: ").append(toIndentedString(optionId)).append("\n");
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
         sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
         sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
+        sb.append("    presencePenalty: ").append(toIndentedString(presencePenalty)).append("\n");
+        sb.append("    frequencyPenalty: ").append(toIndentedString(frequencyPenalty)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
         sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
-        sb.append("    reasoningEffort: ").append(toIndentedString(reasoningEffort)).append("\n");
+        sb.append("    randomSeed: ").append(toIndentedString(randomSeed)).append("\n");
+        sb.append("    safePrompt: ").append(toIndentedString(safePrompt)).append("\n");
+        sb.append("    parallelToolCalls: ")
+                .append(toIndentedString(parallelToolCalls))
+                .append("\n");
+        sb.append("    toolChoice: ").append(toIndentedString(toolChoice)).append("\n");
+        sb.append("    promptMode: ").append(toIndentedString(promptMode)).append("\n");
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -473,9 +672,15 @@ public class BedrockMantleChatCompletionsOptions {
                                 "max_tokens",
                                 "temperature",
                                 "top_p",
+                                "presence_penalty",
+                                "frequency_penalty",
                                 "stop_sequence",
                                 "effort",
-                                "reasoning_effort",
+                                "random_seed",
+                                "safe_prompt",
+                                "parallel_tool_calls",
+                                "tool_choice",
+                                "prompt_mode",
                                 "include_thoughts"));
 
         // a set of required properties/fields (JSON key names)
@@ -486,23 +691,22 @@ public class BedrockMantleChatCompletionsOptions {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to BedrockMantleChatCompletionsOptions
+     * @throws IOException if the JSON Element is invalid with respect to MistralTextOptions
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!BedrockMantleChatCompletionsOptions.openapiRequiredFields
+            if (!MistralTextOptions.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 java.util.Locale.ROOT,
-                                "The required field(s) %s in BedrockMantleChatCompletionsOptions is not found in the empty JSON string",
-                                BedrockMantleChatCompletionsOptions.openapiRequiredFields
-                                        .toString()));
+                                "The required field(s) %s in MistralTextOptions is not found in the empty JSON string",
+                                MistralTextOptions.openapiRequiredFields.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : BedrockMantleChatCompletionsOptions.openapiRequiredFields) {
+        for (String requiredField : MistralTextOptions.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -544,19 +748,29 @@ public class BedrockMantleChatCompletionsOptions {
         if (jsonObj.get("effort") != null && !jsonObj.get("effort").isJsonNull()) {
             EffortEnum.validateJsonElement(jsonObj.get("effort"));
         }
-        if ((jsonObj.get("reasoning_effort") != null
-                        && !jsonObj.get("reasoning_effort").isJsonNull())
-                && !jsonObj.get("reasoning_effort").isJsonPrimitive()) {
+        if ((jsonObj.get("tool_choice") != null && !jsonObj.get("tool_choice").isJsonNull())
+                && !jsonObj.get("tool_choice").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `reasoning_effort` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("reasoning_effort").toString()));
+                            "Expected the field `tool_choice` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("tool_choice").toString()));
         }
-        // validate the optional field `reasoning_effort`
-        if (jsonObj.get("reasoning_effort") != null
-                && !jsonObj.get("reasoning_effort").isJsonNull()) {
-            ReasoningEffortEnum.validateJsonElement(jsonObj.get("reasoning_effort"));
+        // validate the optional field `tool_choice`
+        if (jsonObj.get("tool_choice") != null && !jsonObj.get("tool_choice").isJsonNull()) {
+            ToolChoiceEnum.validateJsonElement(jsonObj.get("tool_choice"));
+        }
+        if ((jsonObj.get("prompt_mode") != null && !jsonObj.get("prompt_mode").isJsonNull())
+                && !jsonObj.get("prompt_mode").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `prompt_mode` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("prompt_mode").toString()));
+        }
+        // validate the optional field `prompt_mode`
+        if (jsonObj.get("prompt_mode") != null && !jsonObj.get("prompt_mode").isJsonNull()) {
+            PromptModeEnum.validateJsonElement(jsonObj.get("prompt_mode"));
         }
     }
 
@@ -564,27 +778,24 @@ public class BedrockMantleChatCompletionsOptions {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!BedrockMantleChatCompletionsOptions.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'BedrockMantleChatCompletionsOptions' and
-                // its subtypes
+            if (!MistralTextOptions.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'MistralTextOptions' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<BedrockMantleChatCompletionsOptions> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(BedrockMantleChatCompletionsOptions.class));
+            final TypeAdapter<MistralTextOptions> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(MistralTextOptions.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<BedrockMantleChatCompletionsOptions>() {
+                    new TypeAdapter<MistralTextOptions>() {
                         @Override
-                        public void write(JsonWriter out, BedrockMantleChatCompletionsOptions value)
+                        public void write(JsonWriter out, MistralTextOptions value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public BedrockMantleChatCompletionsOptions read(JsonReader in)
-                                throws IOException {
+                        public MistralTextOptions read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -594,19 +805,18 @@ public class BedrockMantleChatCompletionsOptions {
     }
 
     /**
-     * Create an instance of BedrockMantleChatCompletionsOptions given an JSON string
+     * Create an instance of MistralTextOptions given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of BedrockMantleChatCompletionsOptions
-     * @throws IOException if the JSON string is invalid with respect to BedrockMantleChatCompletionsOptions
+     * @return An instance of MistralTextOptions
+     * @throws IOException if the JSON string is invalid with respect to MistralTextOptions
      */
-    public static BedrockMantleChatCompletionsOptions fromJson(String jsonString)
-            throws IOException {
-        return JSON.getGson().fromJson(jsonString, BedrockMantleChatCompletionsOptions.class);
+    public static MistralTextOptions fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, MistralTextOptions.class);
     }
 
     /**
-     * Convert an instance of BedrockMantleChatCompletionsOptions to an JSON string
+     * Convert an instance of MistralTextOptions to an JSON string
      *
      * @return JSON string
      */

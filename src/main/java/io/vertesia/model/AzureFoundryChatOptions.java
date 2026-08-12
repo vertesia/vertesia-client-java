@@ -32,18 +32,18 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * BedrockMantleChatCompletionsOptions
+ * AzureFoundryChatOptions
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class BedrockMantleChatCompletionsOptions {
+public class AzureFoundryChatOptions {
     /**
      * Gets or Sets optionId
      */
     @JsonAdapter(OptionIdEnum.Adapter.class)
     public enum OptionIdEnum {
-        BEDROCK_MANTLE_CHAT_COMPLETIONS("bedrock-mantle-chat-completions"),
+        AZURE_FOUNDRY_CHAT("azure-foundry-chat"),
 
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
@@ -112,27 +112,42 @@ public class BedrockMantleChatCompletionsOptions {
     @SerializedName(SERIALIZED_NAME_TOP_P)
     @jakarta.annotation.Nullable private BigDecimal topP;
 
+    public static final String SERIALIZED_NAME_PRESENCE_PENALTY = "presence_penalty";
+
+    @SerializedName(SERIALIZED_NAME_PRESENCE_PENALTY)
+    @jakarta.annotation.Nullable private BigDecimal presencePenalty;
+
+    public static final String SERIALIZED_NAME_FREQUENCY_PENALTY = "frequency_penalty";
+
+    @SerializedName(SERIALIZED_NAME_FREQUENCY_PENALTY)
+    @jakarta.annotation.Nullable private BigDecimal frequencyPenalty;
+
     public static final String SERIALIZED_NAME_STOP_SEQUENCE = "stop_sequence";
 
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
     @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_SEED = "seed";
+
+    @SerializedName(SERIALIZED_NAME_SEED)
+    @jakarta.annotation.Nullable private BigDecimal seed;
+
     /**
-     * Gets or Sets effort
+     * Gets or Sets imageDetail
      */
-    @JsonAdapter(EffortEnum.Adapter.class)
-    public enum EffortEnum {
+    @JsonAdapter(ImageDetailEnum.Adapter.class)
+    public enum ImageDetailEnum {
         LOW("low"),
 
-        MEDIUM("medium"),
-
         HIGH("high"),
+
+        AUTO("auto"),
 
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
         private String value;
 
-        EffortEnum(String value) {
+        ImageDetailEnum(String value) {
             this.value = value;
         }
 
@@ -145,8 +160,8 @@ public class BedrockMantleChatCompletionsOptions {
             return String.valueOf(value);
         }
 
-        public static EffortEnum fromValue(String value) {
-            for (EffortEnum b : EffortEnum.values()) {
+        public static ImageDetailEnum fromValue(String value) {
+            for (ImageDetailEnum b : ImageDetailEnum.values()) {
                 if (b.value.equals(value)) {
                     return b;
                 }
@@ -154,102 +169,39 @@ public class BedrockMantleChatCompletionsOptions {
             return UNKNOWN_DEFAULT_OPEN_API;
         }
 
-        public static class Adapter extends TypeAdapter<EffortEnum> {
+        public static class Adapter extends TypeAdapter<ImageDetailEnum> {
             @Override
-            public void write(final JsonWriter jsonWriter, final EffortEnum enumeration)
+            public void write(final JsonWriter jsonWriter, final ImageDetailEnum enumeration)
                     throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public EffortEnum read(final JsonReader jsonReader) throws IOException {
+            public ImageDetailEnum read(final JsonReader jsonReader) throws IOException {
                 String value = jsonReader.nextString();
-                return EffortEnum.fromValue(value);
+                return ImageDetailEnum.fromValue(value);
             }
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
             String value = jsonElement.getAsString();
-            EffortEnum.fromValue(value);
+            ImageDetailEnum.fromValue(value);
         }
     }
 
-    public static final String SERIALIZED_NAME_EFFORT = "effort";
+    public static final String SERIALIZED_NAME_IMAGE_DETAIL = "image_detail";
 
-    @SerializedName(SERIALIZED_NAME_EFFORT)
-    @jakarta.annotation.Nullable private EffortEnum effort;
-
-    /**
-     * Gets or Sets reasoningEffort
-     */
-    @JsonAdapter(ReasoningEffortEnum.Adapter.class)
-    public enum ReasoningEffortEnum {
-        LOW("low"),
-
-        MEDIUM("medium"),
-
-        HIGH("high"),
-
-        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
-
-        private String value;
-
-        ReasoningEffortEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static ReasoningEffortEnum fromValue(String value) {
-            for (ReasoningEffortEnum b : ReasoningEffortEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            return UNKNOWN_DEFAULT_OPEN_API;
-        }
-
-        public static class Adapter extends TypeAdapter<ReasoningEffortEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final ReasoningEffortEnum enumeration)
-                    throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public ReasoningEffortEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return ReasoningEffortEnum.fromValue(value);
-            }
-        }
-
-        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            ReasoningEffortEnum.fromValue(value);
-        }
-    }
-
-    public static final String SERIALIZED_NAME_REASONING_EFFORT = "reasoning_effort";
-
-    @SerializedName(SERIALIZED_NAME_REASONING_EFFORT)
-    @jakarta.annotation.Nullable private ReasoningEffortEnum reasoningEffort;
+    @SerializedName(SERIALIZED_NAME_IMAGE_DETAIL)
+    @jakarta.annotation.Nullable private ImageDetailEnum imageDetail;
 
     public static final String SERIALIZED_NAME_INCLUDE_THOUGHTS = "include_thoughts";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
     @jakarta.annotation.Nullable private Boolean includeThoughts;
 
-    public BedrockMantleChatCompletionsOptions() {}
+    public AzureFoundryChatOptions() {}
 
-    public BedrockMantleChatCompletionsOptions optionId(
-            @jakarta.annotation.Nonnull OptionIdEnum optionId) {
+    public AzureFoundryChatOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -267,8 +219,7 @@ public class BedrockMantleChatCompletionsOptions {
         this.optionId = optionId;
     }
 
-    public BedrockMantleChatCompletionsOptions maxTokens(
-            @jakarta.annotation.Nullable BigDecimal maxTokens) {
+    public AzureFoundryChatOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
         return this;
     }
@@ -285,7 +236,7 @@ public class BedrockMantleChatCompletionsOptions {
         this.maxTokens = maxTokens;
     }
 
-    public BedrockMantleChatCompletionsOptions temperature(
+    public AzureFoundryChatOptions temperature(
             @jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
         return this;
@@ -303,7 +254,7 @@ public class BedrockMantleChatCompletionsOptions {
         this.temperature = temperature;
     }
 
-    public BedrockMantleChatCompletionsOptions topP(@jakarta.annotation.Nullable BigDecimal topP) {
+    public AzureFoundryChatOptions topP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
         return this;
     }
@@ -320,13 +271,49 @@ public class BedrockMantleChatCompletionsOptions {
         this.topP = topP;
     }
 
-    public BedrockMantleChatCompletionsOptions stopSequence(
+    public AzureFoundryChatOptions presencePenalty(
+            @jakarta.annotation.Nullable BigDecimal presencePenalty) {
+        this.presencePenalty = presencePenalty;
+        return this;
+    }
+
+    /**
+     * Get presencePenalty
+     * @return presencePenalty
+     */
+    @jakarta.annotation.Nullable public BigDecimal getPresencePenalty() {
+        return presencePenalty;
+    }
+
+    public void setPresencePenalty(@jakarta.annotation.Nullable BigDecimal presencePenalty) {
+        this.presencePenalty = presencePenalty;
+    }
+
+    public AzureFoundryChatOptions frequencyPenalty(
+            @jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
+        this.frequencyPenalty = frequencyPenalty;
+        return this;
+    }
+
+    /**
+     * Get frequencyPenalty
+     * @return frequencyPenalty
+     */
+    @jakarta.annotation.Nullable public BigDecimal getFrequencyPenalty() {
+        return frequencyPenalty;
+    }
+
+    public void setFrequencyPenalty(@jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
+        this.frequencyPenalty = frequencyPenalty;
+    }
+
+    public AzureFoundryChatOptions stopSequence(
             @jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
         return this;
     }
 
-    public BedrockMantleChatCompletionsOptions addStopSequenceItem(String stopSequenceItem) {
+    public AzureFoundryChatOptions addStopSequenceItem(String stopSequenceItem) {
         if (this.stopSequence == null) {
             this.stopSequence = new ArrayList<>();
         }
@@ -346,44 +333,42 @@ public class BedrockMantleChatCompletionsOptions {
         this.stopSequence = stopSequence;
     }
 
-    public BedrockMantleChatCompletionsOptions effort(
-            @jakarta.annotation.Nullable EffortEnum effort) {
-        this.effort = effort;
+    public AzureFoundryChatOptions seed(@jakarta.annotation.Nullable BigDecimal seed) {
+        this.seed = seed;
         return this;
     }
 
     /**
-     * Get effort
-     * @return effort
+     * Get seed
+     * @return seed
      */
-    @jakarta.annotation.Nullable public EffortEnum getEffort() {
-        return effort;
+    @jakarta.annotation.Nullable public BigDecimal getSeed() {
+        return seed;
     }
 
-    public void setEffort(@jakarta.annotation.Nullable EffortEnum effort) {
-        this.effort = effort;
+    public void setSeed(@jakarta.annotation.Nullable BigDecimal seed) {
+        this.seed = seed;
     }
 
-    public BedrockMantleChatCompletionsOptions reasoningEffort(
-            @jakarta.annotation.Nullable ReasoningEffortEnum reasoningEffort) {
-        this.reasoningEffort = reasoningEffort;
+    public AzureFoundryChatOptions imageDetail(
+            @jakarta.annotation.Nullable ImageDetailEnum imageDetail) {
+        this.imageDetail = imageDetail;
         return this;
     }
 
     /**
-     * Get reasoningEffort
-     * @return reasoningEffort
+     * Get imageDetail
+     * @return imageDetail
      */
-    @jakarta.annotation.Nullable public ReasoningEffortEnum getReasoningEffort() {
-        return reasoningEffort;
+    @jakarta.annotation.Nullable public ImageDetailEnum getImageDetail() {
+        return imageDetail;
     }
 
-    public void setReasoningEffort(
-            @jakarta.annotation.Nullable ReasoningEffortEnum reasoningEffort) {
-        this.reasoningEffort = reasoningEffort;
+    public void setImageDetail(@jakarta.annotation.Nullable ImageDetailEnum imageDetail) {
+        this.imageDetail = imageDetail;
     }
 
-    public BedrockMantleChatCompletionsOptions includeThoughts(
+    public AzureFoundryChatOptions includeThoughts(
             @jakarta.annotation.Nullable Boolean includeThoughts) {
         this.includeThoughts = includeThoughts;
         return this;
@@ -409,19 +394,17 @@ public class BedrockMantleChatCompletionsOptions {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        BedrockMantleChatCompletionsOptions bedrockMantleChatCompletionsOptions =
-                (BedrockMantleChatCompletionsOptions) o;
-        return Objects.equals(this.optionId, bedrockMantleChatCompletionsOptions.optionId)
-                && Objects.equals(this.maxTokens, bedrockMantleChatCompletionsOptions.maxTokens)
-                && Objects.equals(this.temperature, bedrockMantleChatCompletionsOptions.temperature)
-                && Objects.equals(this.topP, bedrockMantleChatCompletionsOptions.topP)
-                && Objects.equals(
-                        this.stopSequence, bedrockMantleChatCompletionsOptions.stopSequence)
-                && Objects.equals(this.effort, bedrockMantleChatCompletionsOptions.effort)
-                && Objects.equals(
-                        this.reasoningEffort, bedrockMantleChatCompletionsOptions.reasoningEffort)
-                && Objects.equals(
-                        this.includeThoughts, bedrockMantleChatCompletionsOptions.includeThoughts);
+        AzureFoundryChatOptions azureFoundryChatOptions = (AzureFoundryChatOptions) o;
+        return Objects.equals(this.optionId, azureFoundryChatOptions.optionId)
+                && Objects.equals(this.maxTokens, azureFoundryChatOptions.maxTokens)
+                && Objects.equals(this.temperature, azureFoundryChatOptions.temperature)
+                && Objects.equals(this.topP, azureFoundryChatOptions.topP)
+                && Objects.equals(this.presencePenalty, azureFoundryChatOptions.presencePenalty)
+                && Objects.equals(this.frequencyPenalty, azureFoundryChatOptions.frequencyPenalty)
+                && Objects.equals(this.stopSequence, azureFoundryChatOptions.stopSequence)
+                && Objects.equals(this.seed, azureFoundryChatOptions.seed)
+                && Objects.equals(this.imageDetail, azureFoundryChatOptions.imageDetail)
+                && Objects.equals(this.includeThoughts, azureFoundryChatOptions.includeThoughts);
     }
 
     @Override
@@ -431,23 +414,27 @@ public class BedrockMantleChatCompletionsOptions {
                 maxTokens,
                 temperature,
                 topP,
+                presencePenalty,
+                frequencyPenalty,
                 stopSequence,
-                effort,
-                reasoningEffort,
+                seed,
+                imageDetail,
                 includeThoughts);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BedrockMantleChatCompletionsOptions {\n");
+        sb.append("class AzureFoundryChatOptions {\n");
         sb.append("    optionId: ").append(toIndentedString(optionId)).append("\n");
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
         sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
         sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
+        sb.append("    presencePenalty: ").append(toIndentedString(presencePenalty)).append("\n");
+        sb.append("    frequencyPenalty: ").append(toIndentedString(frequencyPenalty)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
-        sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
-        sb.append("    reasoningEffort: ").append(toIndentedString(reasoningEffort)).append("\n");
+        sb.append("    seed: ").append(toIndentedString(seed)).append("\n");
+        sb.append("    imageDetail: ").append(toIndentedString(imageDetail)).append("\n");
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -473,9 +460,11 @@ public class BedrockMantleChatCompletionsOptions {
                                 "max_tokens",
                                 "temperature",
                                 "top_p",
+                                "presence_penalty",
+                                "frequency_penalty",
                                 "stop_sequence",
-                                "effort",
-                                "reasoning_effort",
+                                "seed",
+                                "image_detail",
                                 "include_thoughts"));
 
         // a set of required properties/fields (JSON key names)
@@ -486,23 +475,22 @@ public class BedrockMantleChatCompletionsOptions {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to BedrockMantleChatCompletionsOptions
+     * @throws IOException if the JSON Element is invalid with respect to AzureFoundryChatOptions
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!BedrockMantleChatCompletionsOptions.openapiRequiredFields
+            if (!AzureFoundryChatOptions.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 java.util.Locale.ROOT,
-                                "The required field(s) %s in BedrockMantleChatCompletionsOptions is not found in the empty JSON string",
-                                BedrockMantleChatCompletionsOptions.openapiRequiredFields
-                                        .toString()));
+                                "The required field(s) %s in AzureFoundryChatOptions is not found in the empty JSON string",
+                                AzureFoundryChatOptions.openapiRequiredFields.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : BedrockMantleChatCompletionsOptions.openapiRequiredFields) {
+        for (String requiredField : AzureFoundryChatOptions.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -532,31 +520,17 @@ public class BedrockMantleChatCompletionsOptions {
                             "Expected the field `stop_sequence` to be an array in the JSON string but got `%s`",
                             jsonObj.get("stop_sequence").toString()));
         }
-        if ((jsonObj.get("effort") != null && !jsonObj.get("effort").isJsonNull())
-                && !jsonObj.get("effort").isJsonPrimitive()) {
+        if ((jsonObj.get("image_detail") != null && !jsonObj.get("image_detail").isJsonNull())
+                && !jsonObj.get("image_detail").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `effort` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("effort").toString()));
+                            "Expected the field `image_detail` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("image_detail").toString()));
         }
-        // validate the optional field `effort`
-        if (jsonObj.get("effort") != null && !jsonObj.get("effort").isJsonNull()) {
-            EffortEnum.validateJsonElement(jsonObj.get("effort"));
-        }
-        if ((jsonObj.get("reasoning_effort") != null
-                        && !jsonObj.get("reasoning_effort").isJsonNull())
-                && !jsonObj.get("reasoning_effort").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `reasoning_effort` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("reasoning_effort").toString()));
-        }
-        // validate the optional field `reasoning_effort`
-        if (jsonObj.get("reasoning_effort") != null
-                && !jsonObj.get("reasoning_effort").isJsonNull()) {
-            ReasoningEffortEnum.validateJsonElement(jsonObj.get("reasoning_effort"));
+        // validate the optional field `image_detail`
+        if (jsonObj.get("image_detail") != null && !jsonObj.get("image_detail").isJsonNull()) {
+            ImageDetailEnum.validateJsonElement(jsonObj.get("image_detail"));
         }
     }
 
@@ -564,27 +538,25 @@ public class BedrockMantleChatCompletionsOptions {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!BedrockMantleChatCompletionsOptions.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'BedrockMantleChatCompletionsOptions' and
-                // its subtypes
+            if (!AzureFoundryChatOptions.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'AzureFoundryChatOptions' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<BedrockMantleChatCompletionsOptions> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(BedrockMantleChatCompletionsOptions.class));
+            final TypeAdapter<AzureFoundryChatOptions> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(AzureFoundryChatOptions.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<BedrockMantleChatCompletionsOptions>() {
+                    new TypeAdapter<AzureFoundryChatOptions>() {
                         @Override
-                        public void write(JsonWriter out, BedrockMantleChatCompletionsOptions value)
+                        public void write(JsonWriter out, AzureFoundryChatOptions value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public BedrockMantleChatCompletionsOptions read(JsonReader in)
-                                throws IOException {
+                        public AzureFoundryChatOptions read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -594,19 +566,18 @@ public class BedrockMantleChatCompletionsOptions {
     }
 
     /**
-     * Create an instance of BedrockMantleChatCompletionsOptions given an JSON string
+     * Create an instance of AzureFoundryChatOptions given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of BedrockMantleChatCompletionsOptions
-     * @throws IOException if the JSON string is invalid with respect to BedrockMantleChatCompletionsOptions
+     * @return An instance of AzureFoundryChatOptions
+     * @throws IOException if the JSON string is invalid with respect to AzureFoundryChatOptions
      */
-    public static BedrockMantleChatCompletionsOptions fromJson(String jsonString)
-            throws IOException {
-        return JSON.getGson().fromJson(jsonString, BedrockMantleChatCompletionsOptions.class);
+    public static AzureFoundryChatOptions fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, AzureFoundryChatOptions.class);
     }
 
     /**
-     * Convert an instance of BedrockMantleChatCompletionsOptions to an JSON string
+     * Convert an instance of AzureFoundryChatOptions to an JSON string
      *
      * @return JSON string
      */
