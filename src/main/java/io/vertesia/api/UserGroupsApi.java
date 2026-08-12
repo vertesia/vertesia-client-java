@@ -24,6 +24,7 @@ import io.vertesia.model.UpdateUserGroupPayload;
 import io.vertesia.model.UserGroup;
 import io.vertesia.model.UserRef;
 import java.lang.reflect.Type;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -715,6 +716,11 @@ public class UserGroupsApi {
 
     /**
      * Build call for listUserGroups
+     * @param search  (optional)
+     * @param tags  (optional)
+     * @param limit  (optional)
+     * @param offset  (optional)
+     * @param project  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -727,7 +733,14 @@ public class UserGroupsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listUserGroupsCall(final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call listUserGroupsCall(
+            @jakarta.annotation.Nullable String search,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String project,
+            final ApiCallback _callback)
+            throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {};
@@ -751,6 +764,27 @@ public class UserGroupsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (search != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("search", search));
+        }
+
+        if (tags != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "tags", tags));
+        }
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        if (offset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("offset", offset));
+        }
+
+        if (project != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("project", project));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -781,14 +815,25 @@ public class UserGroupsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call listUserGroupsValidateBeforeCall(final ApiCallback _callback)
+    private okhttp3.Call listUserGroupsValidateBeforeCall(
+            @jakarta.annotation.Nullable String search,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String project,
+            final ApiCallback _callback)
             throws ApiException {
-        return listUserGroupsCall(_callback);
+        return listUserGroupsCall(search, tags, limit, offset, project, _callback);
     }
 
     /**
      * List user groups
      * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** &#x60;account:read&#x60;
+     * @param search  (optional)
+     * @param tags  (optional)
+     * @param limit  (optional)
+     * @param offset  (optional)
+     * @param project  (optional)
      * @return List&lt;UserGroup&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -800,14 +845,26 @@ public class UserGroupsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public List<UserGroup> listUserGroups() throws ApiException {
-        ApiResponse<List<UserGroup>> localVarResp = listUserGroupsWithHttpInfo();
+    public List<UserGroup> listUserGroups(
+            @jakarta.annotation.Nullable String search,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String project)
+            throws ApiException {
+        ApiResponse<List<UserGroup>> localVarResp =
+                listUserGroupsWithHttpInfo(search, tags, limit, offset, project);
         return localVarResp.getData();
     }
 
     /**
      * List user groups
      * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** &#x60;account:read&#x60;
+     * @param search  (optional)
+     * @param tags  (optional)
+     * @param limit  (optional)
+     * @param offset  (optional)
+     * @param project  (optional)
      * @return ApiResponse&lt;List&lt;UserGroup&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -819,8 +876,15 @@ public class UserGroupsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<List<UserGroup>> listUserGroupsWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = listUserGroupsValidateBeforeCall(null);
+    public ApiResponse<List<UserGroup>> listUserGroupsWithHttpInfo(
+            @jakarta.annotation.Nullable String search,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String project)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                listUserGroupsValidateBeforeCall(search, tags, limit, offset, project, null);
         Type localVarReturnType = new TypeToken<List<UserGroup>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -828,6 +892,11 @@ public class UserGroupsApi {
     /**
      * List user groups (asynchronously)
      * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** &#x60;account:read&#x60;
+     * @param search  (optional)
+     * @param tags  (optional)
+     * @param limit  (optional)
+     * @param offset  (optional)
+     * @param project  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -840,10 +909,17 @@ public class UserGroupsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call listUserGroupsAsync(final ApiCallback<List<UserGroup>> _callback)
+    public okhttp3.Call listUserGroupsAsync(
+            @jakarta.annotation.Nullable String search,
+            @jakarta.annotation.Nullable List<String> tags,
+            @jakarta.annotation.Nullable BigDecimal limit,
+            @jakarta.annotation.Nullable BigDecimal offset,
+            @jakarta.annotation.Nullable String project,
+            final ApiCallback<List<UserGroup>> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = listUserGroupsValidateBeforeCall(_callback);
+        okhttp3.Call localVarCall =
+                listUserGroupsValidateBeforeCall(search, tags, limit, offset, project, _callback);
         Type localVarReturnType = new TypeToken<List<UserGroup>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
