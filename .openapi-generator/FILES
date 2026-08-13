@@ -822,6 +822,8 @@ src/main/java/io/vertesia/model/ResendConfiguration.java
 src/main/java/io/vertesia/model/ResendConfigurationInput.java
 src/main/java/io/vertesia/model/ResolvePendingAskRequest.java
 src/main/java/io/vertesia/model/ResolvePendingAskResponse.java
+src/main/java/io/vertesia/model/ResolvedCatalogInteraction.java
+src/main/java/io/vertesia/model/ResolvedCatalogInteractionRuntime.java
 src/main/java/io/vertesia/model/ResolvedEnvironmentInfo.java
 src/main/java/io/vertesia/model/ResolvedInteractionExecutionInfo.java
 src/main/java/io/vertesia/model/ResolvedRuntimeConfig.java

@@ -48,6 +48,7 @@ import io.vertesia.model.NamedInteractionExecutionPayload;
 import io.vertesia.model.PromptImprovementResponse;
 import io.vertesia.model.RateLimitRequestPayload;
 import io.vertesia.model.RateLimitRequestResponse;
+import io.vertesia.model.ResolvedCatalogInteraction;
 import io.vertesia.model.ResolvedInteractionExecutionInfo;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
@@ -4960,7 +4961,7 @@ public class InteractionsApi {
      * Resolve catalog interaction
      * Resolves an in-code catalog interaction by ID for the current principal.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param interactionId  (required)
-     * @return CatalogInteractionRef
+     * @return ResolvedCatalogInteraction
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -4971,9 +4972,9 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public CatalogInteractionRef resolveCatalogInteraction(
+    public ResolvedCatalogInteraction resolveCatalogInteraction(
             @jakarta.annotation.Nonnull String interactionId) throws ApiException {
-        ApiResponse<CatalogInteractionRef> localVarResp =
+        ApiResponse<ResolvedCatalogInteraction> localVarResp =
                 resolveCatalogInteractionWithHttpInfo(interactionId);
         return localVarResp.getData();
     }
@@ -4982,7 +4983,7 @@ public class InteractionsApi {
      * Resolve catalog interaction
      * Resolves an in-code catalog interaction by ID for the current principal.  **Required permissions:** &#x60;interaction:read&#x60;
      * @param interactionId  (required)
-     * @return ApiResponse&lt;CatalogInteractionRef&gt;
+     * @return ApiResponse&lt;ResolvedCatalogInteraction&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -4993,11 +4994,11 @@ public class InteractionsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<CatalogInteractionRef> resolveCatalogInteractionWithHttpInfo(
+    public ApiResponse<ResolvedCatalogInteraction> resolveCatalogInteractionWithHttpInfo(
             @jakarta.annotation.Nonnull String interactionId) throws ApiException {
         okhttp3.Call localVarCall =
                 resolveCatalogInteractionValidateBeforeCall(interactionId, null);
-        Type localVarReturnType = new TypeToken<CatalogInteractionRef>() {}.getType();
+        Type localVarReturnType = new TypeToken<ResolvedCatalogInteraction>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -5019,12 +5020,12 @@ public class InteractionsApi {
      */
     public okhttp3.Call resolveCatalogInteractionAsync(
             @jakarta.annotation.Nonnull String interactionId,
-            final ApiCallback<CatalogInteractionRef> _callback)
+            final ApiCallback<ResolvedCatalogInteraction> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 resolveCatalogInteractionValidateBeforeCall(interactionId, _callback);
-        Type localVarReturnType = new TypeToken<CatalogInteractionRef>() {}.getType();
+        Type localVarReturnType = new TypeToken<ResolvedCatalogInteraction>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

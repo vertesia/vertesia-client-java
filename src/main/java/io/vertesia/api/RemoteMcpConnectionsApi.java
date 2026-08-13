@@ -811,7 +811,7 @@ public class RemoteMcpConnectionsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth authentication status for the MCP collection. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Authentication status for the MCP collection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -903,7 +903,7 @@ public class RemoteMcpConnectionsApi {
 
     /**
      * Retrieve a remote MCP connection status
-     * Returns OAuth authentication status for a specific OAuth-enabled MCP collection.
+     * Returns authentication status for a specific OAuth or API-key MCP collection.
      * @param appInstallId  (required)
      * @param collectionId  (required)
      * @return OAuthAuthStatus
@@ -912,7 +912,7 @@ public class RemoteMcpConnectionsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth authentication status for the MCP collection. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Authentication status for the MCP collection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -928,7 +928,7 @@ public class RemoteMcpConnectionsApi {
 
     /**
      * Retrieve a remote MCP connection status
-     * Returns OAuth authentication status for a specific OAuth-enabled MCP collection.
+     * Returns authentication status for a specific OAuth or API-key MCP collection.
      * @param appInstallId  (required)
      * @param collectionId  (required)
      * @return ApiResponse&lt;OAuthAuthStatus&gt;
@@ -937,7 +937,7 @@ public class RemoteMcpConnectionsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth authentication status for the MCP collection. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Authentication status for the MCP collection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -954,7 +954,7 @@ public class RemoteMcpConnectionsApi {
 
     /**
      * Retrieve a remote MCP connection status (asynchronously)
-     * Returns OAuth authentication status for a specific OAuth-enabled MCP collection.
+     * Returns authentication status for a specific OAuth or API-key MCP collection.
      * @param appInstallId  (required)
      * @param collectionId  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -964,7 +964,7 @@ public class RemoteMcpConnectionsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth authentication status for the MCP collection. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Authentication status for the MCP collection. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1153,7 +1153,7 @@ public class RemoteMcpConnectionsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1232,7 +1232,7 @@ public class RemoteMcpConnectionsApi {
 
     /**
      * List remote MCP connection statuses
-     * Returns OAuth authentication status for all OAuth-enabled MCP collections in an installed app.
+     * Returns authentication status for all OAuth and API-key MCP collections in an installed app.
      * @param appInstallId  (required)
      * @return List&lt;OAuthAuthStatus&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1240,7 +1240,7 @@ public class RemoteMcpConnectionsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1254,7 +1254,7 @@ public class RemoteMcpConnectionsApi {
 
     /**
      * List remote MCP connection statuses
-     * Returns OAuth authentication status for all OAuth-enabled MCP collections in an installed app.
+     * Returns authentication status for all OAuth and API-key MCP collections in an installed app.
      * @param appInstallId  (required)
      * @return ApiResponse&lt;List&lt;OAuthAuthStatus&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1262,7 +1262,7 @@ public class RemoteMcpConnectionsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1277,7 +1277,7 @@ public class RemoteMcpConnectionsApi {
 
     /**
      * List remote MCP connection statuses (asynchronously)
-     * Returns OAuth authentication status for all OAuth-enabled MCP collections in an installed app.
+     * Returns authentication status for all OAuth and API-key MCP collections in an installed app.
      * @param appInstallId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1286,7 +1286,7 @@ public class RemoteMcpConnectionsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> OAuth authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Authentication statuses for the app MCP collections. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
