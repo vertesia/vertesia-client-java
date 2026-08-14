@@ -550,6 +550,9 @@ public class JSON {
                                                 "vertexai-imagen",
                                                 io.vertesia.model.ImagenOptions.class);
                                         classByDiscriminatorValue.put(
+                                                "xai-grok-image",
+                                                io.vertesia.model.XAIGrokImageOptions.class);
+                                        classByDiscriminatorValue.put(
                                                 "ModelOptions",
                                                 io.vertesia.model.ModelOptions.class);
                                         return getClassByDiscriminator(
@@ -2710,6 +2713,8 @@ public class JSON {
                 new io.vertesia.model.WorkflowTask.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.WorkflowUpdatePublishResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.XAIGrokImageOptions.CustomTypeAdapterFactory());
         gson = gsonBuilder.create();
     }
 

@@ -1092,3 +1092,4 @@ src/main/java/io/vertesia/model/WorkflowRunWithDetails.java
 src/main/java/io/vertesia/model/WorkflowSearchAttributeValueInner.java
 src/main/java/io/vertesia/model/WorkflowTask.java
 src/main/java/io/vertesia/model/WorkflowUpdatePublishResponse.java
+src/main/java/io/vertesia/model/XAIGrokImageOptions.java
