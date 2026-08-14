@@ -96,6 +96,11 @@ public class ContentObjectTypeCatalogEntry {
     @SerializedName(SERIALIZED_NAME_EDITING)
     @jakarta.annotation.Nullable private ContentTypeEditingPolicy editing;
 
+    public static final String SERIALIZED_NAME_TITLE = "title";
+
+    @SerializedName(SERIALIZED_NAME_TITLE)
+    @jakarta.annotation.Nullable private String title;
+
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
@@ -339,6 +344,23 @@ public class ContentObjectTypeCatalogEntry {
         this.editing = editing;
     }
 
+    public ContentObjectTypeCatalogEntry title(@jakarta.annotation.Nullable String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Display title. Defaults to &#x60;name&#x60; or &#x60;id&#x60;.
+     * @return title
+     */
+    @jakarta.annotation.Nullable public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(@jakarta.annotation.Nullable String title) {
+        this.title = title;
+    }
+
     public ContentObjectTypeCatalogEntry updatedBy(@jakarta.annotation.Nullable String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
@@ -473,6 +495,7 @@ public class ContentObjectTypeCatalogEntry {
                 && Objects.equals(this.status, contentObjectTypeCatalogEntry.status)
                 && Objects.equals(this.intake, contentObjectTypeCatalogEntry.intake)
                 && Objects.equals(this.editing, contentObjectTypeCatalogEntry.editing)
+                && Objects.equals(this.title, contentObjectTypeCatalogEntry.title)
                 && Objects.equals(this.updatedBy, contentObjectTypeCatalogEntry.updatedBy)
                 && Objects.equals(this.createdBy, contentObjectTypeCatalogEntry.createdBy)
                 && Objects.equals(this.createdAt, contentObjectTypeCatalogEntry.createdAt)
@@ -496,6 +519,7 @@ public class ContentObjectTypeCatalogEntry {
                 status,
                 intake,
                 editing,
+                title,
                 updatedBy,
                 createdBy,
                 createdAt,
@@ -518,6 +542,7 @@ public class ContentObjectTypeCatalogEntry {
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    intake: ").append(toIndentedString(intake)).append("\n");
         sb.append("    editing: ").append(toIndentedString(editing)).append("\n");
+        sb.append("    title: ").append(toIndentedString(title)).append("\n");
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -556,6 +581,7 @@ public class ContentObjectTypeCatalogEntry {
                                 "status",
                                 "intake",
                                 "editing",
+                                "title",
                                 "updated_by",
                                 "created_by",
                                 "created_at",
@@ -657,6 +683,14 @@ public class ContentObjectTypeCatalogEntry {
         // validate the optional field `editing`
         if (jsonObj.get("editing") != null && !jsonObj.get("editing").isJsonNull()) {
             ContentTypeEditingPolicy.validateJsonElement(jsonObj.get("editing"));
+        }
+        if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+                && !jsonObj.get("title").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("title").toString()));
         }
         if ((jsonObj.get("updated_by") != null && !jsonObj.get("updated_by").isJsonNull())
                 && !jsonObj.get("updated_by").isJsonPrimitive()) {

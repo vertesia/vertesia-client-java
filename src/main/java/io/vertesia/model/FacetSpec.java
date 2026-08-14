@@ -54,7 +54,7 @@ public class FacetSpec {
     }
 
     /**
-     * Get name
+     * Key the buckets are returned under. &#x60;total&#x60; is reserved for the match count that every facet response carries, and is rejected with a 400.
      * @return name
      */
     @jakarta.annotation.Nonnull

@@ -96,6 +96,11 @@ public class InCodeTypeDefinition {
     @SerializedName(SERIALIZED_NAME_EDITING)
     @jakarta.annotation.Nullable private ContentTypeEditingPolicy editing;
 
+    public static final String SERIALIZED_NAME_TITLE = "title";
+
+    @SerializedName(SERIALIZED_NAME_TITLE)
+    @jakarta.annotation.Nullable private String title;
+
     public InCodeTypeDefinition() {}
 
     public InCodeTypeDefinition id(@jakarta.annotation.Nonnull String id) {
@@ -316,6 +321,23 @@ public class InCodeTypeDefinition {
         this.editing = editing;
     }
 
+    public InCodeTypeDefinition title(@jakarta.annotation.Nullable String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Display title. Defaults to &#x60;name&#x60; or &#x60;id&#x60;.
+     * @return title
+     */
+    @jakarta.annotation.Nullable public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(@jakarta.annotation.Nullable String title) {
+        this.title = title;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -381,6 +403,7 @@ public class InCodeTypeDefinition {
                 && Objects.equals(this.status, inCodeTypeDefinition.status)
                 && Objects.equals(this.intake, inCodeTypeDefinition.intake)
                 && Objects.equals(this.editing, inCodeTypeDefinition.editing)
+                && Objects.equals(this.title, inCodeTypeDefinition.title)
                 && Objects.equals(
                         this.additionalProperties, inCodeTypeDefinition.additionalProperties);
     }
@@ -399,6 +422,7 @@ public class InCodeTypeDefinition {
                 status,
                 intake,
                 editing,
+                title,
                 additionalProperties);
     }
 
@@ -417,6 +441,7 @@ public class InCodeTypeDefinition {
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    intake: ").append(toIndentedString(intake)).append("\n");
         sb.append("    editing: ").append(toIndentedString(editing)).append("\n");
+        sb.append("    title: ").append(toIndentedString(title)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -450,7 +475,8 @@ public class InCodeTypeDefinition {
                                 "strict_mode",
                                 "status",
                                 "intake",
-                                "editing"));
+                                "editing",
+                                "title"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name"));
@@ -548,6 +574,14 @@ public class InCodeTypeDefinition {
         // validate the optional field `editing`
         if (jsonObj.get("editing") != null && !jsonObj.get("editing").isJsonNull()) {
             ContentTypeEditingPolicy.validateJsonElement(jsonObj.get("editing"));
+        }
+        if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+                && !jsonObj.get("title").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("title").toString()));
         }
     }
 

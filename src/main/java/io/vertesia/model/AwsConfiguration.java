@@ -49,8 +49,7 @@ public class AwsConfiguration {
     public static final String SERIALIZED_NAME_S3_ROLE_ARN = "s3_role_arn";
 
     @SerializedName(SERIALIZED_NAME_S3_ROLE_ARN)
-    @jakarta.annotation.Nonnull
-    private String s3RoleArn;
+    @jakarta.annotation.Nullable private String s3RoleArn;
 
     public AwsConfiguration() {}
 
@@ -91,7 +90,7 @@ public class AwsConfiguration {
         this.enabled = enabled;
     }
 
-    public AwsConfiguration s3RoleArn(@jakarta.annotation.Nonnull String s3RoleArn) {
+    public AwsConfiguration s3RoleArn(@jakarta.annotation.Nullable String s3RoleArn) {
         this.s3RoleArn = s3RoleArn;
         return this;
     }
@@ -100,12 +99,11 @@ public class AwsConfiguration {
      * Get s3RoleArn
      * @return s3RoleArn
      */
-    @jakarta.annotation.Nonnull
-    public String getS3RoleArn() {
+    @jakarta.annotation.Nullable public String getS3RoleArn() {
         return s3RoleArn;
     }
 
-    public void setS3RoleArn(@jakarta.annotation.Nonnull String s3RoleArn) {
+    public void setS3RoleArn(@jakarta.annotation.Nullable String s3RoleArn) {
         this.s3RoleArn = s3RoleArn;
     }
 
@@ -155,8 +153,7 @@ public class AwsConfiguration {
         openapiFields = new HashSet<String>(Arrays.asList("integration", "enabled", "s3_role_arn"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields =
-                new HashSet<String>(Arrays.asList("integration", "enabled", "s3_role_arn"));
+        openapiRequiredFields = new HashSet<String>(Arrays.asList("integration", "enabled"));
     }
 
     /**
@@ -191,7 +188,8 @@ public class AwsConfiguration {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the required field `integration`
         SupportedIntegrationsAws.validateJsonElement(jsonObj.get("integration"));
-        if (!jsonObj.get("s3_role_arn").isJsonPrimitive()) {
+        if ((jsonObj.get("s3_role_arn") != null && !jsonObj.get("s3_role_arn").isJsonNull())
+                && !jsonObj.get("s3_role_arn").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,

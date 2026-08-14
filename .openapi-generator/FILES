@@ -991,6 +991,7 @@ src/main/java/io/vertesia/model/ViewActionConfiguration.java
 src/main/java/io/vertesia/model/ViewActionPlacement.java
 src/main/java/io/vertesia/model/ViewActionSelectionRequirement.java
 src/main/java/io/vertesia/model/ViewActionsConfiguration.java
+src/main/java/io/vertesia/model/ViewAgenticExecutionConfiguration.java
 src/main/java/io/vertesia/model/ViewAgenticSearchMode.java
 src/main/java/io/vertesia/model/ViewBoardCardConfiguration.java
 src/main/java/io/vertesia/model/ViewBoardColumn.java

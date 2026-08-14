@@ -43,7 +43,7 @@ public class AgenticViewSearchConfiguration {
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
-    @jakarta.annotation.Nullable private InteractionExecutionConfiguration config;
+    @jakarta.annotation.Nullable private ViewAgenticExecutionConfiguration config;
 
     public static final String SERIALIZED_NAME_INSTRUCTIONS = "instructions";
 
@@ -91,7 +91,7 @@ public class AgenticViewSearchConfiguration {
     }
 
     public AgenticViewSearchConfiguration config(
-            @jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
+            @jakarta.annotation.Nullable ViewAgenticExecutionConfiguration config) {
         this.config = config;
         return this;
     }
@@ -100,11 +100,11 @@ public class AgenticViewSearchConfiguration {
      * Get config
      * @return config
      */
-    @jakarta.annotation.Nullable public InteractionExecutionConfiguration getConfig() {
+    @jakarta.annotation.Nullable public ViewAgenticExecutionConfiguration getConfig() {
         return config;
     }
 
-    public void setConfig(@jakarta.annotation.Nullable InteractionExecutionConfiguration config) {
+    public void setConfig(@jakarta.annotation.Nullable ViewAgenticExecutionConfiguration config) {
         this.config = config;
     }
 
@@ -297,7 +297,7 @@ public class AgenticViewSearchConfiguration {
         }
         // validate the optional field `config`
         if (jsonObj.get("config") != null && !jsonObj.get("config").isJsonNull()) {
-            InteractionExecutionConfiguration.validateJsonElement(jsonObj.get("config"));
+            ViewAgenticExecutionConfiguration.validateJsonElement(jsonObj.get("config"));
         }
         if ((jsonObj.get("instructions") != null && !jsonObj.get("instructions").isJsonNull())
                 && !jsonObj.get("instructions").isJsonPrimitive()) {
