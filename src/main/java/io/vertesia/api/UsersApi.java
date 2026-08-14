@@ -299,7 +299,7 @@ public class UsersApi {
 
     /**
      * Retrieve the current user&#39;s identity
-     * Returns the current user id plus the merged ABAC principal context (clearance, compartments, email, tags, properties). Conceptually an OIDC-style userinfo / identity-token endpoint: takes no parameters, derives the subject from the JWT, and rejects non-user principals (API keys, service accounts) with 400. Use this client-side to preview how PrincipalSet rules will evaluate for the signed-in user.  **Required permissions:** &#x60;account:member&#x60;
+     * Returns the current user id plus the merged ABAC principal context (clearance, compartments, email, tags, properties). Conceptually an OIDC-style userinfo / identity-token endpoint: takes no parameters, derives the subject from a user or OAuth access token, and rejects principals without an underlying user (API keys, service accounts) with 400. Use this client-side to preview how PrincipalSet rules will evaluate for the signed-in user.  **Required permissions:** &#x60;account:member&#x60;
      * @return PrincipalIdentity
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -318,7 +318,7 @@ public class UsersApi {
 
     /**
      * Retrieve the current user&#39;s identity
-     * Returns the current user id plus the merged ABAC principal context (clearance, compartments, email, tags, properties). Conceptually an OIDC-style userinfo / identity-token endpoint: takes no parameters, derives the subject from the JWT, and rejects non-user principals (API keys, service accounts) with 400. Use this client-side to preview how PrincipalSet rules will evaluate for the signed-in user.  **Required permissions:** &#x60;account:member&#x60;
+     * Returns the current user id plus the merged ABAC principal context (clearance, compartments, email, tags, properties). Conceptually an OIDC-style userinfo / identity-token endpoint: takes no parameters, derives the subject from a user or OAuth access token, and rejects principals without an underlying user (API keys, service accounts) with 400. Use this client-side to preview how PrincipalSet rules will evaluate for the signed-in user.  **Required permissions:** &#x60;account:member&#x60;
      * @return ApiResponse&lt;PrincipalIdentity&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -338,7 +338,7 @@ public class UsersApi {
 
     /**
      * Retrieve the current user&#39;s identity (asynchronously)
-     * Returns the current user id plus the merged ABAC principal context (clearance, compartments, email, tags, properties). Conceptually an OIDC-style userinfo / identity-token endpoint: takes no parameters, derives the subject from the JWT, and rejects non-user principals (API keys, service accounts) with 400. Use this client-side to preview how PrincipalSet rules will evaluate for the signed-in user.  **Required permissions:** &#x60;account:member&#x60;
+     * Returns the current user id plus the merged ABAC principal context (clearance, compartments, email, tags, properties). Conceptually an OIDC-style userinfo / identity-token endpoint: takes no parameters, derives the subject from a user or OAuth access token, and rejects principals without an underlying user (API keys, service accounts) with 400. Use this client-side to preview how PrincipalSet rules will evaluate for the signed-in user.  **Required permissions:** &#x60;account:member&#x60;
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
