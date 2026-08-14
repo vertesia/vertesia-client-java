@@ -54,8 +54,7 @@ public class AskUserWebhookConfiguration {
     public static final String SERIALIZED_NAME_WEBHOOK_URL = "webhook_url";
 
     @SerializedName(SERIALIZED_NAME_WEBHOOK_URL)
-    @jakarta.annotation.Nonnull
-    private String webhookUrl;
+    @jakarta.annotation.Nullable private String webhookUrl;
 
     public static final String SERIALIZED_NAME_HAS_WEBHOOK_SECRET = "has_webhook_secret";
 
@@ -172,7 +171,7 @@ public class AskUserWebhookConfiguration {
         this.enabled = enabled;
     }
 
-    public AskUserWebhookConfiguration webhookUrl(@jakarta.annotation.Nonnull String webhookUrl) {
+    public AskUserWebhookConfiguration webhookUrl(@jakarta.annotation.Nullable String webhookUrl) {
         this.webhookUrl = webhookUrl;
         return this;
     }
@@ -181,12 +180,11 @@ public class AskUserWebhookConfiguration {
      * Webhook URL to receive ask_user events
      * @return webhookUrl
      */
-    @jakarta.annotation.Nonnull
-    public String getWebhookUrl() {
+    @jakarta.annotation.Nullable public String getWebhookUrl() {
         return webhookUrl;
     }
 
-    public void setWebhookUrl(@jakarta.annotation.Nonnull String webhookUrl) {
+    public void setWebhookUrl(@jakarta.annotation.Nullable String webhookUrl) {
         this.webhookUrl = webhookUrl;
     }
 
@@ -352,8 +350,7 @@ public class AskUserWebhookConfiguration {
                                 "custom_headers"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields =
-                new HashSet<String>(Arrays.asList("integration", "enabled", "webhook_url"));
+        openapiRequiredFields = new HashSet<String>(Arrays.asList("integration", "enabled"));
     }
 
     /**
@@ -388,7 +385,8 @@ public class AskUserWebhookConfiguration {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
         // validate the required field `integration`
         SupportedIntegrationsAskUserWebhook.validateJsonElement(jsonObj.get("integration"));
-        if (!jsonObj.get("webhook_url").isJsonPrimitive()) {
+        if ((jsonObj.get("webhook_url") != null && !jsonObj.get("webhook_url").isJsonNull())
+                && !jsonObj.get("webhook_url").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
