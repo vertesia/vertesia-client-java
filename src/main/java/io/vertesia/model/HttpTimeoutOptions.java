@@ -29,7 +29,7 @@ import java.util.HashSet;
 import java.util.Objects;
 
 /**
- * HTTP timeouts applied to a driver&#39;s upstream LLM-provider calls.  All values are in milliseconds. Drivers should map these onto whatever HTTP client their SDK uses; the defaults applied in &#x60;@llumiverse/core/createDriverHttpAgent&#x60; are:   - headersTimeout:   60_000   - bodyTimeout:      60_000   - connectTimeout:   10_000   - keepAliveTimeout: 30_000  The defaults are deliberately tighter than Node&#39;s undici default (5 minutes for headers/body) so a hung upstream surfaces quickly. Bump &#x60;bodyTimeout&#x60; for streaming flows that have legitimate silent gaps (e.g. tool-using agents).
+ * HTTP timeouts applied to a driver&#39;s upstream LLM-provider calls.  All values are in milliseconds. Drivers should map these onto whatever HTTP client their SDK uses; the defaults applied in &#x60;@llumiverse/core/createDriverHttpAgent&#x60; are:   - headersTimeout:   900_000   - bodyTimeout:      900_000   - connectTimeout:   60_000   - keepAliveTimeout: 300_000  The response defaults are deliberately longer than the hosting request boundary. Application-level cancellation should end user work first; driver timeouts are bounded-resource safety nets.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
