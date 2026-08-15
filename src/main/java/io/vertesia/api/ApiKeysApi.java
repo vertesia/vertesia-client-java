@@ -963,7 +963,7 @@ public class ApiKeysApi {
 
     /**
      * Update an API key
-     * Updates API key metadata: name, role, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
+     * Updates API key metadata, security attributes, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
      * @param keyId  (required)
      * @param updateApiKeyPayload  (required)
      * @return ApiKey
@@ -987,7 +987,7 @@ public class ApiKeysApi {
 
     /**
      * Update an API key
-     * Updates API key metadata: name, role, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
+     * Updates API key metadata, security attributes, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
      * @param keyId  (required)
      * @param updateApiKeyPayload  (required)
      * @return ApiResponse&lt;ApiKey&gt;
@@ -1013,7 +1013,7 @@ public class ApiKeysApi {
 
     /**
      * Update an API key (asynchronously)
-     * Updates API key metadata: name, role, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
+     * Updates API key metadata, security attributes, and enabled state.  **Required permissions:** &#x60;api_key:update&#x60;
      * @param keyId  (required)
      * @param updateApiKeyPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
