@@ -124,7 +124,7 @@ public class UpdateCollectionPayload {
     }
 
     /**
-     * Get description
+     * Description of the collection and its purpose
      * @return description
      */
     @jakarta.annotation.Nullable public String getDescription() {
@@ -141,7 +141,7 @@ public class UpdateCollectionPayload {
     }
 
     /**
-     * Get skipHeadSync
+     * When true the collection does not track and sync member HEAD revisions. Defaults to false.
      * @return skipHeadSync
      */
     @jakarta.annotation.Nullable public Boolean getSkipHeadSync() {
@@ -166,7 +166,7 @@ public class UpdateCollectionPayload {
     }
 
     /**
-     * Get tags
+     * Categorization tags for the collection
      * @return tags
      */
     @jakarta.annotation.Nullable public List<String> getTags() {
@@ -183,7 +183,7 @@ public class UpdateCollectionPayload {
     }
 
     /**
-     * Get type
+     * Default content type ID for documents in the collection
      * @return type
      */
     @jakarta.annotation.Nullable public String getType() {
@@ -208,7 +208,7 @@ public class UpdateCollectionPayload {
     }
 
     /**
-     * Get query
+     * MongoDB query that determines membership of a dynamic collection
      * @return query
      */
     @jakarta.annotation.Nullable public Map<String, Object> getQuery() {
@@ -234,7 +234,7 @@ public class UpdateCollectionPayload {
     }
 
     /**
-     * Get properties
+     * Metadata properties attached to the collection
      * @return properties
      */
     @jakarta.annotation.Nullable public Map<String, Object> getProperties() {
@@ -251,7 +251,7 @@ public class UpdateCollectionPayload {
     }
 
     /**
-     * Get parent
+     * Parent collection ID when the collection is nested
      * @return parent
      */
     @jakarta.annotation.Nullable public String getParent() {
@@ -277,7 +277,7 @@ public class UpdateCollectionPayload {
     }
 
     /**
-     * Get tableLayout
+     * Column layout used when listing collection members
      * @return tableLayout
      */
     @jakarta.annotation.Nullable public List<ColumnLayout> getTableLayout() {
@@ -303,7 +303,7 @@ public class UpdateCollectionPayload {
     }
 
     /**
-     * Get allowedTypes
+     * Content type IDs allowed to be added to the collection
      * @return allowedTypes
      */
     @jakarta.annotation.Nullable public List<String> getAllowedTypes() {
@@ -320,7 +320,7 @@ public class UpdateCollectionPayload {
     }
 
     /**
-     * Get updatedBy
+     * Identity recorded as the updater of the collection
      * @return updatedBy
      */
     @jakarta.annotation.Nullable public String getUpdatedBy() {
@@ -346,7 +346,7 @@ public class UpdateCollectionPayload {
     }
 
     /**
-     * Get sharedProperties
+     * Names of collection properties whose values are propagated to member documents
      * @return sharedProperties
      */
     @jakarta.annotation.Nullable public List<String> getSharedProperties() {
@@ -407,7 +407,7 @@ public class UpdateCollectionPayload {
     }
 
     /**
-     * Get name
+     * Name of the collection
      * @return name
      */
     @jakarta.annotation.Nullable public String getName() {
@@ -424,7 +424,7 @@ public class UpdateCollectionPayload {
     }
 
     /**
-     * Get dynamic
+     * When true, membership is determined by &#x60;query&#x60;; when false, members are added explicitly
      * @return dynamic
      */
     @jakarta.annotation.Nullable public Boolean getDynamic() {

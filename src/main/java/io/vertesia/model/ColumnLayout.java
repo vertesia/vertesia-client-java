@@ -123,7 +123,7 @@ public class ColumnLayout {
     }
 
     /**
-     * Get fallback
+     * Path of an alternate field to display when the primary field is absent
      * @return fallback
      */
     @jakarta.annotation.Nullable public String getFallback() {

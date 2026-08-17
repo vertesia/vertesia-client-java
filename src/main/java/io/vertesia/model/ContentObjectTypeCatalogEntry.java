@@ -217,7 +217,7 @@ public class ContentObjectTypeCatalogEntry {
     }
 
     /**
-     * this is only included in ContentObjectTypeItem if explicitly requested It is always included in ContentObjectType
+     * JSON Schema for the structured properties extracted into documents of this type. Only included in ContentObjectTypeItem if explicitly requested; always included in ContentObjectType.
      * @return objectSchema
      */
     @jakarta.annotation.Nullable public Map<String, Object> getObjectSchema() {
@@ -243,7 +243,7 @@ public class ContentObjectTypeCatalogEntry {
     }
 
     /**
-     * This is only included in ContentObjectTypeItem if explicitly requested It is always included in ContentObjectType
+     * Column layout used when listing documents of this type. Only included in ContentObjectTypeItem if explicitly requested; always included in ContentObjectType.
      * @return tableLayout
      */
     @jakarta.annotation.Nullable public List<ColumnLayout> getTableLayout() {
@@ -261,7 +261,7 @@ public class ContentObjectTypeCatalogEntry {
     }
 
     /**
-     * Get isChunkable
+     * Whether documents of this type can be split into chunks
      * @return isChunkable
      */
     @jakarta.annotation.Nullable public Boolean getIsChunkable() {
