@@ -51,6 +51,10 @@ public class ModelOptions extends AbstractOpenApiSchema {
                     gson.getDelegateAdapter(this, TypeToken.get(VertexAIClaudeOptions.class));
             final TypeAdapter<VertexAIGeminiOptions> adapterVertexAIGeminiOptions =
                     gson.getDelegateAdapter(this, TypeToken.get(VertexAIGeminiOptions.class));
+            final TypeAdapter<VertexAIGeminiOmniVideoOptions>
+                    adapterVertexAIGeminiOmniVideoOptions =
+                            gson.getDelegateAdapter(
+                                    this, TypeToken.get(VertexAIGeminiOmniVideoOptions.class));
             final TypeAdapter<VertexAIGrokOptions> adapterVertexAIGrokOptions =
                     gson.getDelegateAdapter(this, TypeToken.get(VertexAIGrokOptions.class));
             final TypeAdapter<NovaCanvasOptions> adapterNovaCanvasOptions =
@@ -144,6 +148,17 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 JsonElement element =
                                         adapterVertexAIGeminiOptions.toJsonTree(
                                                 (VertexAIGeminiOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type
+                            // `VertexAIGeminiOmniVideoOptions`
+                            if (value.getActualInstance()
+                                    instanceof VertexAIGeminiOmniVideoOptions) {
+                                JsonElement element =
+                                        adapterVertexAIGeminiOmniVideoOptions.toJsonTree(
+                                                (VertexAIGeminiOmniVideoOptions)
+                                                        value.getActualInstance());
                                 elementAdapter.write(out, element);
                                 return;
                             }
@@ -328,7 +343,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 return;
                             }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions");
+                                    "Failed to serialize as the type doesn't match oneOf schemas: AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions");
                         }
 
                         @Override
@@ -441,6 +456,27 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 log.log(
                                         Level.FINER,
                                         "Input data does not match schema 'VertexAIGeminiOptions'",
+                                        e);
+                            }
+                            // deserialize VertexAIGeminiOmniVideoOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                VertexAIGeminiOmniVideoOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterVertexAIGeminiOmniVideoOptions;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'VertexAIGeminiOmniVideoOptions'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for VertexAIGeminiOmniVideoOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'VertexAIGeminiOmniVideoOptions'",
                                         e);
                             }
                             // deserialize VertexAIGrokOptions
@@ -920,6 +956,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         schemas.put("ImagenOptions", ImagenOptions.class);
         schemas.put("VertexAIClaudeOptions", VertexAIClaudeOptions.class);
         schemas.put("VertexAIGeminiOptions", VertexAIGeminiOptions.class);
+        schemas.put("VertexAIGeminiOmniVideoOptions", VertexAIGeminiOmniVideoOptions.class);
         schemas.put("VertexAIGrokOptions", VertexAIGrokOptions.class);
         schemas.put("NovaCanvasOptions", NovaCanvasOptions.class);
         schemas.put("BedrockConverseOptions", BedrockConverseOptions.class);
@@ -952,7 +989,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions
+     * AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -979,6 +1016,11 @@ public class ModelOptions extends AbstractOpenApiSchema {
         }
 
         if (instance instanceof VertexAIGeminiOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof VertexAIGeminiOmniVideoOptions) {
             super.setActualInstance(instance);
             return;
         }
@@ -1089,14 +1131,14 @@ public class ModelOptions extends AbstractOpenApiSchema {
         }
 
         throw new RuntimeException(
-                "Invalid instance type. Must be AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions");
+                "Invalid instance type. Must be AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions
+     * AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions
      *
-     * @return The actual instance (AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions)
+     * @return The actual instance (AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -1162,6 +1204,19 @@ public class ModelOptions extends AbstractOpenApiSchema {
     @SuppressWarnings("unchecked")
     public VertexAIGeminiOptions getVertexAIGeminiOptions() throws ClassCastException {
         return (VertexAIGeminiOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `VertexAIGeminiOmniVideoOptions`. If the actual instance is not `VertexAIGeminiOmniVideoOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `VertexAIGeminiOmniVideoOptions`
+     * @throws ClassCastException if the instance is not `VertexAIGeminiOmniVideoOptions`
+     */
+    @SuppressWarnings("unchecked")
+    public VertexAIGeminiOmniVideoOptions getVertexAIGeminiOmniVideoOptions()
+            throws ClassCastException {
+        return (VertexAIGeminiOmniVideoOptions) super.getActualInstance();
     }
 
     /**
@@ -1488,6 +1543,18 @@ public class ModelOptions extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with VertexAIGeminiOmniVideoOptions
+        try {
+            VertexAIGeminiOmniVideoOptions.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for VertexAIGeminiOmniVideoOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
         // validate the json string with VertexAIGrokOptions
         try {
             VertexAIGrokOptions.validateJsonElement(jsonElement);
@@ -1744,7 +1811,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
             throw new IOException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for ModelOptions with oneOf schemas: AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            "The JSON string is invalid for ModelOptions with oneOf schemas: AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
                             validCount,
                             errorMessages,
                             jsonElement.toString()));

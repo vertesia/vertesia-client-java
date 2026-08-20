@@ -66,8 +66,7 @@ public class ExecutionRunRef {
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @jakarta.annotation.Nonnull
-    private ExecutionEnvironmentRef environment;
+    @jakarta.annotation.Nullable private ExecutionRunRefEnvironment environment;
 
     public static final String SERIALIZED_NAME_MODEL_ID = "modelId";
 
@@ -276,21 +275,21 @@ public class ExecutionRunRef {
     }
 
     public ExecutionRunRef environment(
-            @jakarta.annotation.Nonnull ExecutionEnvironmentRef environment) {
+            @jakarta.annotation.Nullable ExecutionRunRefEnvironment environment) {
         this.environment = environment;
         return this;
     }
 
     /**
-     * Environment reference - populated with full object in API responses
+     * Get environment
      * @return environment
      */
-    @jakarta.annotation.Nonnull
-    public ExecutionEnvironmentRef getEnvironment() {
+    @jakarta.annotation.Nullable public ExecutionRunRefEnvironment getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@jakarta.annotation.Nonnull ExecutionEnvironmentRef environment) {
+    public void setEnvironment(
+            @jakarta.annotation.Nullable ExecutionRunRefEnvironment environment) {
         this.environment = environment;
     }
 
@@ -1000,8 +999,10 @@ public class ExecutionRunRef {
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
         }
-        // validate the required field `environment`
-        ExecutionEnvironmentRef.validateJsonElement(jsonObj.get("environment"));
+        if (jsonObj.get("environment") != null && !jsonObj.get("environment").isJsonNull()) {
+            // validate the required field `environment`
+            ExecutionRunRefEnvironment.validateJsonElement(jsonObj.get("environment"));
+        }
         if ((jsonObj.get("modelId") != null && !jsonObj.get("modelId").isJsonNull())
                 && !jsonObj.get("modelId").isJsonPrimitive()) {
             throw new IllegalArgumentException(

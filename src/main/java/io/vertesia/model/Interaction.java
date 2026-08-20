@@ -101,6 +101,11 @@ public class Interaction {
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
     @jakarta.annotation.Nullable private ModelOptions modelOptions;
 
+    public static final String SERIALIZED_NAME_STORE_MEDIA_RESULTS = "store_media_results";
+
+    @SerializedName(SERIALIZED_NAME_STORE_MEDIA_RESULTS)
+    @jakarta.annotation.Nullable private Boolean storeMediaResults;
+
     public static final String SERIALIZED_NAME_RESTRICTION = "restriction";
 
     @SerializedName(SERIALIZED_NAME_RESTRICTION)
@@ -389,6 +394,23 @@ public class Interaction {
 
     public void setModelOptions(@jakarta.annotation.Nullable ModelOptions modelOptions) {
         this.modelOptions = modelOptions;
+    }
+
+    public Interaction storeMediaResults(@jakarta.annotation.Nullable Boolean storeMediaResults) {
+        this.storeMediaResults = storeMediaResults;
+        return this;
+    }
+
+    /**
+     * Get storeMediaResults
+     * @return storeMediaResults
+     */
+    @jakarta.annotation.Nullable public Boolean getStoreMediaResults() {
+        return storeMediaResults;
+    }
+
+    public void setStoreMediaResults(@jakarta.annotation.Nullable Boolean storeMediaResults) {
+        this.storeMediaResults = storeMediaResults;
     }
 
     public Interaction restriction(@jakarta.annotation.Nullable RunDataStorageLevel restriction) {
@@ -697,6 +719,7 @@ public class Interaction {
                 && Objects.equals(this.environment, interaction.environment)
                 && Objects.equals(this.model, interaction.model)
                 && Objects.equals(this.modelOptions, interaction.modelOptions)
+                && Objects.equals(this.storeMediaResults, interaction.storeMediaResults)
                 && Objects.equals(this.restriction, interaction.restriction)
                 && Objects.equals(this.outputModality, interaction.outputModality)
                 && Objects.equals(this.status, interaction.status)
@@ -728,6 +751,7 @@ public class Interaction {
                 environment,
                 model,
                 modelOptions,
+                storeMediaResults,
                 restriction,
                 outputModality,
                 status,
@@ -762,6 +786,9 @@ public class Interaction {
         sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
         sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
+        sb.append("    storeMediaResults: ")
+                .append(toIndentedString(storeMediaResults))
+                .append("\n");
         sb.append("    restriction: ").append(toIndentedString(restriction)).append("\n");
         sb.append("    outputModality: ").append(toIndentedString(outputModality)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -810,6 +837,7 @@ public class Interaction {
                                 "environment",
                                 "model",
                                 "model_options",
+                                "store_media_results",
                                 "restriction",
                                 "output_modality",
                                 "status",

@@ -127,6 +127,11 @@ public class InteractionUpdatePayload {
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
     @jakarta.annotation.Nullable private ModelOptions modelOptions;
 
+    public static final String SERIALIZED_NAME_STORE_MEDIA_RESULTS = "store_media_results";
+
+    @SerializedName(SERIALIZED_NAME_STORE_MEDIA_RESULTS)
+    @jakarta.annotation.Nullable private Boolean storeMediaResults;
+
     public static final String SERIALIZED_NAME_RESTRICTION = "restriction";
 
     @SerializedName(SERIALIZED_NAME_RESTRICTION)
@@ -469,6 +474,24 @@ public class InteractionUpdatePayload {
         this.modelOptions = modelOptions;
     }
 
+    public InteractionUpdatePayload storeMediaResults(
+            @jakarta.annotation.Nullable Boolean storeMediaResults) {
+        this.storeMediaResults = storeMediaResults;
+        return this;
+    }
+
+    /**
+     * Get storeMediaResults
+     * @return storeMediaResults
+     */
+    @jakarta.annotation.Nullable public Boolean getStoreMediaResults() {
+        return storeMediaResults;
+    }
+
+    public void setStoreMediaResults(@jakarta.annotation.Nullable Boolean storeMediaResults) {
+        this.storeMediaResults = storeMediaResults;
+    }
+
     public InteractionUpdatePayload restriction(
             @jakarta.annotation.Nullable RunDataStorageLevel restriction) {
         this.restriction = restriction;
@@ -556,6 +579,8 @@ public class InteractionUpdatePayload {
                 && Objects.equals(this.environment, interactionUpdatePayload.environment)
                 && Objects.equals(this.model, interactionUpdatePayload.model)
                 && Objects.equals(this.modelOptions, interactionUpdatePayload.modelOptions)
+                && Objects.equals(
+                        this.storeMediaResults, interactionUpdatePayload.storeMediaResults)
                 && Objects.equals(this.restriction, interactionUpdatePayload.restriction)
                 && Objects.equals(this.outputModality, interactionUpdatePayload.outputModality)
                 && Objects.equals(this.resultSchema, interactionUpdatePayload.resultSchema);
@@ -590,6 +615,7 @@ public class InteractionUpdatePayload {
                 environment,
                 model,
                 modelOptions,
+                storeMediaResults,
                 restriction,
                 outputModality,
                 resultSchema);
@@ -627,6 +653,9 @@ public class InteractionUpdatePayload {
         sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
         sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
+        sb.append("    storeMediaResults: ")
+                .append(toIndentedString(storeMediaResults))
+                .append("\n");
         sb.append("    restriction: ").append(toIndentedString(restriction)).append("\n");
         sb.append("    outputModality: ").append(toIndentedString(outputModality)).append("\n");
         sb.append("    resultSchema: ").append(toIndentedString(resultSchema)).append("\n");
@@ -667,6 +696,7 @@ public class InteractionUpdatePayload {
                                 "environment",
                                 "model",
                                 "model_options",
+                                "store_media_results",
                                 "restriction",
                                 "output_modality",
                                 "result_schema"));

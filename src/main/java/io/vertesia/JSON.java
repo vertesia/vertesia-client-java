@@ -181,6 +181,8 @@ public class JSON {
                                         classByDiscriminatorValue.put(
                                                 "thoughts", io.vertesia.model.ThoughtsResult.class);
                                         classByDiscriminatorValue.put(
+                                                "video", io.vertesia.model.VideoResult.class);
+                                        classByDiscriminatorValue.put(
                                                 "CompletionResult",
                                                 io.vertesia.model.CompletionResult.class);
                                         return getClassByDiscriminator(
@@ -543,6 +545,10 @@ public class JSON {
                                         classByDiscriminatorValue.put(
                                                 "vertexai-gemini",
                                                 io.vertesia.model.VertexAIGeminiOptions.class);
+                                        classByDiscriminatorValue.put(
+                                                "vertexai-gemini-omni-video",
+                                                io.vertesia.model.VertexAIGeminiOmniVideoOptions
+                                                        .class);
                                         classByDiscriminatorValue.put(
                                                 "vertexai-grok",
                                                 io.vertesia.model.VertexAIGrokOptions.class);
@@ -1754,6 +1760,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ExecutionRunRef.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ExecutionRunRefEnvironment.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ExecutionRunWorkflow.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ExecutionTokenUsage.CustomTypeAdapterFactory());
@@ -2531,9 +2539,13 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.VertexAIClaudeOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.VertexAIGeminiOmniVideoOptions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.VertexAIGeminiOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.VertexAIGrokOptions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.VideoResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ViewActionConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

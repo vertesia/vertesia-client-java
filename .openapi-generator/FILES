@@ -519,6 +519,7 @@ src/main/java/io/vertesia/model/ExecutionRunEvaluation.java
 src/main/java/io/vertesia/model/ExecutionRunInteraction.java
 src/main/java/io/vertesia/model/ExecutionRunParent.java
 src/main/java/io/vertesia/model/ExecutionRunRef.java
+src/main/java/io/vertesia/model/ExecutionRunRefEnvironment.java
 src/main/java/io/vertesia/model/ExecutionRunStatus.java
 src/main/java/io/vertesia/model/ExecutionRunWorkflow.java
 src/main/java/io/vertesia/model/ExecutionTokenUsage.java
@@ -988,8 +989,10 @@ src/main/java/io/vertesia/model/ValidateUrlResponse.java
 src/main/java/io/vertesia/model/VectorSearchQuery.java
 src/main/java/io/vertesia/model/VertesiaSDKToolCollectionObject.java
 src/main/java/io/vertesia/model/VertexAIClaudeOptions.java
+src/main/java/io/vertesia/model/VertexAIGeminiOmniVideoOptions.java
 src/main/java/io/vertesia/model/VertexAIGeminiOptions.java
 src/main/java/io/vertesia/model/VertexAIGrokOptions.java
+src/main/java/io/vertesia/model/VideoResult.java
 src/main/java/io/vertesia/model/ViewActionConfiguration.java
 src/main/java/io/vertesia/model/ViewActionPlacement.java
 src/main/java/io/vertesia/model/ViewActionSelectionRequirement.java
