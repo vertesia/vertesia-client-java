@@ -67,6 +67,17 @@ public class StatelessExecutionOptions {
     @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_KEY)
     @jakarta.annotation.Nullable private String promptCacheKey;
 
+    public static final String SERIALIZED_NAME_PROMPT_CACHE_MODE = "prompt_cache_mode";
+
+    @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_MODE)
+    @jakarta.annotation.Nullable private PromptCacheMode promptCacheMode;
+
+    public static final String SERIALIZED_NAME_PROMPT_CACHE_TTL_SECONDS =
+            "prompt_cache_ttl_seconds";
+
+    @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_TTL_SECONDS)
+    @jakarta.annotation.Nullable private Integer promptCacheTtlSeconds;
+
     public static final String SERIALIZED_NAME_HTTP_TIMEOUT = "httpTimeout";
 
     @SerializedName(SERIALIZED_NAME_HTTP_TIMEOUT)
@@ -190,6 +201,45 @@ public class StatelessExecutionOptions {
         this.promptCacheKey = promptCacheKey;
     }
 
+    public StatelessExecutionOptions promptCacheMode(
+            @jakarta.annotation.Nullable PromptCacheMode promptCacheMode) {
+        this.promptCacheMode = promptCacheMode;
+        return this;
+    }
+
+    /**
+     * Controls provider-side explicit caches — cache resources the driver creates and reuses (e.g. Vertex cachedContents). \&quot;auto\&quot; (default) caches the static prefix whenever prompt_cache_key is set; \&quot;off\&quot; never creates or uses a cache resource and leaves the provider payload unchanged. Implicit caching and cache breakpoints are unaffected.
+     * @return promptCacheMode
+     */
+    @jakarta.annotation.Nullable public PromptCacheMode getPromptCacheMode() {
+        return promptCacheMode;
+    }
+
+    public void setPromptCacheMode(@jakarta.annotation.Nullable PromptCacheMode promptCacheMode) {
+        this.promptCacheMode = promptCacheMode;
+    }
+
+    public StatelessExecutionOptions promptCacheTtlSeconds(
+            @jakarta.annotation.Nullable Integer promptCacheTtlSeconds) {
+        this.promptCacheTtlSeconds = promptCacheTtlSeconds;
+        return this;
+    }
+
+    /**
+     * Lifetime, in seconds, of a provider-side cache resource created for this execution. Defaults to 1800 (30 minutes). Ignored by providers without an explicit cache API.
+     * minimum: 0
+     * maximum: 9007199254740991
+     * @return promptCacheTtlSeconds
+     */
+    @jakarta.annotation.Nullable public Integer getPromptCacheTtlSeconds() {
+        return promptCacheTtlSeconds;
+    }
+
+    public void setPromptCacheTtlSeconds(
+            @jakarta.annotation.Nullable Integer promptCacheTtlSeconds) {
+        this.promptCacheTtlSeconds = promptCacheTtlSeconds;
+    }
+
     public StatelessExecutionOptions httpTimeout(
             @jakarta.annotation.Nullable HttpTimeoutOptions httpTimeout) {
         this.httpTimeout = httpTimeout;
@@ -249,6 +299,9 @@ public class StatelessExecutionOptions {
                         statelessExecutionOptions.includeOriginalResponse)
                 && Objects.equals(this.modelOptions, statelessExecutionOptions.modelOptions)
                 && Objects.equals(this.promptCacheKey, statelessExecutionOptions.promptCacheKey)
+                && Objects.equals(this.promptCacheMode, statelessExecutionOptions.promptCacheMode)
+                && Objects.equals(
+                        this.promptCacheTtlSeconds, statelessExecutionOptions.promptCacheTtlSeconds)
                 && Objects.equals(this.httpTimeout, statelessExecutionOptions.httpTimeout)
                 && Objects.equals(this.outputModality, statelessExecutionOptions.outputModality);
     }
@@ -262,6 +315,8 @@ public class StatelessExecutionOptions {
                 includeOriginalResponse,
                 modelOptions,
                 promptCacheKey,
+                promptCacheMode,
+                promptCacheTtlSeconds,
                 httpTimeout,
                 outputModality);
     }
@@ -280,6 +335,10 @@ public class StatelessExecutionOptions {
                 .append("\n");
         sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
         sb.append("    promptCacheKey: ").append(toIndentedString(promptCacheKey)).append("\n");
+        sb.append("    promptCacheMode: ").append(toIndentedString(promptCacheMode)).append("\n");
+        sb.append("    promptCacheTtlSeconds: ")
+                .append(toIndentedString(promptCacheTtlSeconds))
+                .append("\n");
         sb.append("    httpTimeout: ").append(toIndentedString(httpTimeout)).append("\n");
         sb.append("    outputModality: ").append(toIndentedString(outputModality)).append("\n");
         sb.append("}");
@@ -308,6 +367,8 @@ public class StatelessExecutionOptions {
                                 "include_original_response",
                                 "model_options",
                                 "prompt_cache_key",
+                                "prompt_cache_mode",
+                                "prompt_cache_ttl_seconds",
                                 "httpTimeout",
                                 "output_modality"));
 
@@ -368,6 +429,11 @@ public class StatelessExecutionOptions {
                             java.util.Locale.ROOT,
                             "Expected the field `prompt_cache_key` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("prompt_cache_key").toString()));
+        }
+        // validate the optional field `prompt_cache_mode`
+        if (jsonObj.get("prompt_cache_mode") != null
+                && !jsonObj.get("prompt_cache_mode").isJsonNull()) {
+            PromptCacheMode.validateJsonElement(jsonObj.get("prompt_cache_mode"));
         }
         // validate the optional field `httpTimeout`
         if (jsonObj.get("httpTimeout") != null && !jsonObj.get("httpTimeout").isJsonNull()) {
