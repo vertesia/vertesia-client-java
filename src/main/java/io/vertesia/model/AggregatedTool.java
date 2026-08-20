@@ -68,6 +68,16 @@ public class AggregatedTool {
     @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
     @jakarta.annotation.Nullable private MCPToolAnnotations annotations;
 
+    public static final String SERIALIZED_NAME_APPROVAL_CLASS = "approval_class";
+
+    @SerializedName(SERIALIZED_NAME_APPROVAL_CLASS)
+    @jakarta.annotation.Nullable private AgentToolApprovalClass approvalClass;
+
+    public static final String SERIALIZED_NAME_PROCESS_COMPATIBILITY = "process_compatibility";
+
+    @SerializedName(SERIALIZED_NAME_PROCESS_COMPATIBILITY)
+    @jakarta.annotation.Nullable private ProcessToolCompatibility processCompatibility;
+
     public static final String SERIALIZED_NAME_UNLOCKED_TOOLS = "unlocked_tools";
 
     @SerializedName(SERIALIZED_NAME_UNLOCKED_TOOLS)
@@ -199,6 +209,44 @@ public class AggregatedTool {
         this.annotations = annotations;
     }
 
+    public AggregatedTool approvalClass(
+            @jakarta.annotation.Nullable AgentToolApprovalClass approvalClass) {
+        this.approvalClass = approvalClass;
+        return this;
+    }
+
+    /**
+     * Get approvalClass
+     * @return approvalClass
+     */
+    @jakarta.annotation.Nullable public AgentToolApprovalClass getApprovalClass() {
+        return approvalClass;
+    }
+
+    public void setApprovalClass(
+            @jakarta.annotation.Nullable AgentToolApprovalClass approvalClass) {
+        this.approvalClass = approvalClass;
+    }
+
+    public AggregatedTool processCompatibility(
+            @jakarta.annotation.Nullable ProcessToolCompatibility processCompatibility) {
+        this.processCompatibility = processCompatibility;
+        return this;
+    }
+
+    /**
+     * Get processCompatibility
+     * @return processCompatibility
+     */
+    @jakarta.annotation.Nullable public ProcessToolCompatibility getProcessCompatibility() {
+        return processCompatibility;
+    }
+
+    public void setProcessCompatibility(
+            @jakarta.annotation.Nullable ProcessToolCompatibility processCompatibility) {
+        this.processCompatibility = processCompatibility;
+    }
+
     public AggregatedTool unlockedTools(@jakarta.annotation.Nullable List<String> unlockedTools) {
         this.unlockedTools = unlockedTools;
         return this;
@@ -307,6 +355,8 @@ public class AggregatedTool {
                 && Objects.equals(this.title, aggregatedTool.title)
                 && Objects.equals(this.isDefault, aggregatedTool.isDefault)
                 && Objects.equals(this.annotations, aggregatedTool.annotations)
+                && Objects.equals(this.approvalClass, aggregatedTool.approvalClass)
+                && Objects.equals(this.processCompatibility, aggregatedTool.processCompatibility)
                 && Objects.equals(this.unlockedTools, aggregatedTool.unlockedTools)
                 && Objects.equals(this.appInstallId, aggregatedTool.appInstallId)
                 && Objects.equals(this.appName, aggregatedTool.appName)
@@ -323,6 +373,8 @@ public class AggregatedTool {
                 title,
                 isDefault,
                 annotations,
+                approvalClass,
+                processCompatibility,
                 unlockedTools,
                 appInstallId,
                 appName,
@@ -340,6 +392,10 @@ public class AggregatedTool {
         sb.append("    title: ").append(toIndentedString(title)).append("\n");
         sb.append("    isDefault: ").append(toIndentedString(isDefault)).append("\n");
         sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
+        sb.append("    approvalClass: ").append(toIndentedString(approvalClass)).append("\n");
+        sb.append("    processCompatibility: ")
+                .append(toIndentedString(processCompatibility))
+                .append("\n");
         sb.append("    unlockedTools: ").append(toIndentedString(unlockedTools)).append("\n");
         sb.append("    appInstallId: ").append(toIndentedString(appInstallId)).append("\n");
         sb.append("    appName: ").append(toIndentedString(appName)).append("\n");
@@ -371,6 +427,8 @@ public class AggregatedTool {
                                 "title",
                                 "is_default",
                                 "annotations",
+                                "approval_class",
+                                "process_compatibility",
                                 "unlocked_tools",
                                 "app_install_id",
                                 "app_name",
@@ -439,6 +497,15 @@ public class AggregatedTool {
         // validate the optional field `annotations`
         if (jsonObj.get("annotations") != null && !jsonObj.get("annotations").isJsonNull()) {
             MCPToolAnnotations.validateJsonElement(jsonObj.get("annotations"));
+        }
+        // validate the optional field `approval_class`
+        if (jsonObj.get("approval_class") != null && !jsonObj.get("approval_class").isJsonNull()) {
+            AgentToolApprovalClass.validateJsonElement(jsonObj.get("approval_class"));
+        }
+        // validate the optional field `process_compatibility`
+        if (jsonObj.get("process_compatibility") != null
+                && !jsonObj.get("process_compatibility").isJsonNull()) {
+            ProcessToolCompatibility.validateJsonElement(jsonObj.get("process_compatibility"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("unlocked_tools") != null

@@ -745,6 +745,8 @@ src/main/java/io/vertesia/model/ProcessScriptInlineSource.java
 src/main/java/io/vertesia/model/ProcessScriptLanguage.java
 src/main/java/io/vertesia/model/ProcessScriptResource.java
 src/main/java/io/vertesia/model/ProcessState.java
+src/main/java/io/vertesia/model/ProcessToolCompatibility.java
+src/main/java/io/vertesia/model/ProcessToolCompatibilityReason.java
 src/main/java/io/vertesia/model/ProgrammaticRunResponse.java
 src/main/java/io/vertesia/model/Project.java
 src/main/java/io/vertesia/model/ProjectConfiguration.java
@@ -930,6 +932,7 @@ src/main/java/io/vertesia/model/ToolApprovalGrant.java
 src/main/java/io/vertesia/model/ToolCollectionAuthType.java
 src/main/java/io/vertesia/model/ToolCollectionObject.java
 src/main/java/io/vertesia/model/ToolDefinition.java
+src/main/java/io/vertesia/model/ToolInspection.java
 src/main/java/io/vertesia/model/ToolReference.java
 src/main/java/io/vertesia/model/ToolResult.java
 src/main/java/io/vertesia/model/ToolResultMeta.java

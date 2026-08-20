@@ -20,6 +20,7 @@ import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
 import io.vertesia.model.AggregatedTool;
+import io.vertesia.model.ToolInspection;
 import io.vertesia.model.ValidateToolNamesPayload;
 import io.vertesia.model.ValidateToolNamesResponse;
 import java.lang.reflect.Type;
@@ -66,7 +67,184 @@ public class ToolsApi {
     }
 
     /**
+     * Build call for inspectProjectTool
+     * @param toolName  (required)
+     * @param context  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Resolved tool details and input schema. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call inspectProjectToolCall(
+            @jakarta.annotation.Nonnull String toolName,
+            @jakarta.annotation.Nullable String context,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/tools/{toolName}"
+                        .replace(
+                                "{" + "toolName" + "}",
+                                localVarApiClient.escapeString(toolName.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (context != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("context", context));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call inspectProjectToolValidateBeforeCall(
+            @jakarta.annotation.Nonnull String toolName,
+            @jakarta.annotation.Nullable String context,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'toolName' is set
+        if (toolName == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'toolName' when calling inspectProjectTool(Async)");
+        }
+
+        return inspectProjectToolCall(toolName, context, _callback);
+    }
+
+    /**
+     * Inspect one project tool
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @param toolName  (required)
+     * @param context  (optional)
+     * @return ToolInspection
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Resolved tool details and input schema. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ToolInspection inspectProjectTool(
+            @jakarta.annotation.Nonnull String toolName,
+            @jakarta.annotation.Nullable String context)
+            throws ApiException {
+        ApiResponse<ToolInspection> localVarResp =
+                inspectProjectToolWithHttpInfo(toolName, context);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Inspect one project tool
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @param toolName  (required)
+     * @param context  (optional)
+     * @return ApiResponse&lt;ToolInspection&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Resolved tool details and input schema. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ToolInspection> inspectProjectToolWithHttpInfo(
+            @jakarta.annotation.Nonnull String toolName,
+            @jakarta.annotation.Nullable String context)
+            throws ApiException {
+        okhttp3.Call localVarCall = inspectProjectToolValidateBeforeCall(toolName, context, null);
+        Type localVarReturnType = new TypeToken<ToolInspection>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Inspect one project tool (asynchronously)
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @param toolName  (required)
+     * @param context  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Resolved tool details and input schema. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call inspectProjectToolAsync(
+            @jakarta.annotation.Nonnull String toolName,
+            @jakarta.annotation.Nullable String context,
+            final ApiCallback<ToolInspection> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                inspectProjectToolValidateBeforeCall(toolName, context, _callback);
+        Type localVarReturnType = new TypeToken<ToolInspection>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for listAgentTools
+     * @param context  (optional)
      * @param sources Include only these sources. (optional)
      * @param exclude Drop these sources from the result (and skip their fetch). Applied after &#x60;sources&#x60;. (optional)
      * @param _callback Callback for upload/download progress
@@ -82,6 +260,7 @@ public class ToolsApi {
      * </table>
      */
     public okhttp3.Call listAgentToolsCall(
+            @jakarta.annotation.Nullable String context,
             @jakarta.annotation.Nullable List<String> sources,
             @jakarta.annotation.Nullable List<String> exclude,
             final ApiCallback _callback)
@@ -109,6 +288,10 @@ public class ToolsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (context != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("context", context));
+        }
 
         if (sources != null) {
             localVarCollectionQueryParams.addAll(
@@ -150,16 +333,18 @@ public class ToolsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listAgentToolsValidateBeforeCall(
+            @jakarta.annotation.Nullable String context,
             @jakarta.annotation.Nullable List<String> sources,
             @jakarta.annotation.Nullable List<String> exclude,
             final ApiCallback _callback)
             throws ApiException {
-        return listAgentToolsCall(sources, exclude, _callback);
+        return listAgentToolsCall(context, sources, exclude, _callback);
     }
 
     /**
      * List all tools available in the project
-     * Returns the unified project-scoped tool registry visible to the current principal. Sources can be filtered via the &#x60;sources&#x60; query string.
+     * Returns the unified project-scoped tool registry visible to the current principal. Sources can be filtered via the &#x60;sources&#x60; query string.  **Required permissions:** &#x60;account:member&#x60;
+     * @param context  (optional)
      * @param sources Include only these sources. (optional)
      * @param exclude Drop these sources from the result (and skip their fetch). Applied after &#x60;sources&#x60;. (optional)
      * @return List&lt;AggregatedTool&gt;
@@ -174,17 +359,19 @@ public class ToolsApi {
      * </table>
      */
     public List<AggregatedTool> listAgentTools(
+            @jakarta.annotation.Nullable String context,
             @jakarta.annotation.Nullable List<String> sources,
             @jakarta.annotation.Nullable List<String> exclude)
             throws ApiException {
         ApiResponse<List<AggregatedTool>> localVarResp =
-                listAgentToolsWithHttpInfo(sources, exclude);
+                listAgentToolsWithHttpInfo(context, sources, exclude);
         return localVarResp.getData();
     }
 
     /**
      * List all tools available in the project
-     * Returns the unified project-scoped tool registry visible to the current principal. Sources can be filtered via the &#x60;sources&#x60; query string.
+     * Returns the unified project-scoped tool registry visible to the current principal. Sources can be filtered via the &#x60;sources&#x60; query string.  **Required permissions:** &#x60;account:member&#x60;
+     * @param context  (optional)
      * @param sources Include only these sources. (optional)
      * @param exclude Drop these sources from the result (and skip their fetch). Applied after &#x60;sources&#x60;. (optional)
      * @return ApiResponse&lt;List&lt;AggregatedTool&gt;&gt;
@@ -199,17 +386,20 @@ public class ToolsApi {
      * </table>
      */
     public ApiResponse<List<AggregatedTool>> listAgentToolsWithHttpInfo(
+            @jakarta.annotation.Nullable String context,
             @jakarta.annotation.Nullable List<String> sources,
             @jakarta.annotation.Nullable List<String> exclude)
             throws ApiException {
-        okhttp3.Call localVarCall = listAgentToolsValidateBeforeCall(sources, exclude, null);
+        okhttp3.Call localVarCall =
+                listAgentToolsValidateBeforeCall(context, sources, exclude, null);
         Type localVarReturnType = new TypeToken<List<AggregatedTool>>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * List all tools available in the project (asynchronously)
-     * Returns the unified project-scoped tool registry visible to the current principal. Sources can be filtered via the &#x60;sources&#x60; query string.
+     * Returns the unified project-scoped tool registry visible to the current principal. Sources can be filtered via the &#x60;sources&#x60; query string.  **Required permissions:** &#x60;account:member&#x60;
+     * @param context  (optional)
      * @param sources Include only these sources. (optional)
      * @param exclude Drop these sources from the result (and skip their fetch). Applied after &#x60;sources&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -225,12 +415,14 @@ public class ToolsApi {
      * </table>
      */
     public okhttp3.Call listAgentToolsAsync(
+            @jakarta.annotation.Nullable String context,
             @jakarta.annotation.Nullable List<String> sources,
             @jakarta.annotation.Nullable List<String> exclude,
             final ApiCallback<List<AggregatedTool>> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = listAgentToolsValidateBeforeCall(sources, exclude, _callback);
+        okhttp3.Call localVarCall =
+                listAgentToolsValidateBeforeCall(context, sources, exclude, _callback);
         Type localVarReturnType = new TypeToken<List<AggregatedTool>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -323,7 +515,7 @@ public class ToolsApi {
 
     /**
      * Validate tool names against the project registry
-     * Resolves each name to its source or reports it as invalid with a suggestion.
+     * Resolves each name to its source or reports it as invalid with a suggestion.  **Required permissions:** &#x60;account:member&#x60;
      * @param validateToolNamesPayload  (required)
      * @return ValidateToolNamesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -346,7 +538,7 @@ public class ToolsApi {
 
     /**
      * Validate tool names against the project registry
-     * Resolves each name to its source or reports it as invalid with a suggestion.
+     * Resolves each name to its source or reports it as invalid with a suggestion.  **Required permissions:** &#x60;account:member&#x60;
      * @param validateToolNamesPayload  (required)
      * @return ApiResponse&lt;ValidateToolNamesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -370,7 +562,7 @@ public class ToolsApi {
 
     /**
      * Validate tool names against the project registry (asynchronously)
-     * Resolves each name to its source or reports it as invalid with a suggestion.
+     * Resolves each name to its source or reports it as invalid with a suggestion.  **Required permissions:** &#x60;account:member&#x60;
      * @param validateToolNamesPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

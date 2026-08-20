@@ -142,6 +142,11 @@ public class ConversationState {
     @SerializedName(SERIALIZED_NAME_TOOL_REFERENCE)
     @jakarta.annotation.Nullable private ToolReference toolReference;
 
+    public static final String SERIALIZED_NAME_TOOL_CATALOG_STORAGE_ID = "tool_catalog_storage_id";
+
+    @SerializedName(SERIALIZED_NAME_TOOL_CATALOG_STORAGE_ID)
+    @jakarta.annotation.Nullable private String toolCatalogStorageId;
+
     public static final String SERIALIZED_NAME_ACTIVE_TOOL_NAMES = "active_tool_names";
 
     @SerializedName(SERIALIZED_NAME_ACTIVE_TOOL_NAMES)
@@ -637,6 +642,24 @@ public class ConversationState {
 
     public void setToolReference(@jakarta.annotation.Nullable ToolReference toolReference) {
         this.toolReference = toolReference;
+    }
+
+    public ConversationState toolCatalogStorageId(
+            @jakarta.annotation.Nullable String toolCatalogStorageId) {
+        this.toolCatalogStorageId = toolCatalogStorageId;
+        return this;
+    }
+
+    /**
+     * Artifact-storage scope containing the referenced tool catalog.
+     * @return toolCatalogStorageId
+     */
+    @jakarta.annotation.Nullable public String getToolCatalogStorageId() {
+        return toolCatalogStorageId;
+    }
+
+    public void setToolCatalogStorageId(@jakarta.annotation.Nullable String toolCatalogStorageId) {
+        this.toolCatalogStorageId = toolCatalogStorageId;
     }
 
     public ConversationState activeToolNames(
@@ -1171,6 +1194,7 @@ public class ConversationState {
                         this.conversationArtifactsBaseUrl,
                         conversationState.conversationArtifactsBaseUrl)
                 && Objects.equals(this.toolReference, conversationState.toolReference)
+                && Objects.equals(this.toolCatalogStorageId, conversationState.toolCatalogStorageId)
                 && Objects.equals(this.activeToolNames, conversationState.activeToolNames)
                 && Objects.equals(this.pinnedToolNames, conversationState.pinnedToolNames)
                 && Objects.equals(this.usedSkills, conversationState.usedSkills)
@@ -1224,6 +1248,7 @@ public class ConversationState {
                 stripOptions,
                 conversationArtifactsBaseUrl,
                 toolReference,
+                toolCatalogStorageId,
                 activeToolNames,
                 pinnedToolNames,
                 usedSkills,
@@ -1279,6 +1304,9 @@ public class ConversationState {
                 .append(toIndentedString(conversationArtifactsBaseUrl))
                 .append("\n");
         sb.append("    toolReference: ").append(toIndentedString(toolReference)).append("\n");
+        sb.append("    toolCatalogStorageId: ")
+                .append(toIndentedString(toolCatalogStorageId))
+                .append("\n");
         sb.append("    activeToolNames: ").append(toIndentedString(activeToolNames)).append("\n");
         sb.append("    pinnedToolNames: ").append(toIndentedString(pinnedToolNames)).append("\n");
         sb.append("    usedSkills: ").append(toIndentedString(usedSkills)).append("\n");
@@ -1358,6 +1386,7 @@ public class ConversationState {
                                 "strip_options",
                                 "conversation_artifacts_base_url",
                                 "tool_reference",
+                                "tool_catalog_storage_id",
                                 "active_tool_names",
                                 "pinned_tool_names",
                                 "used_skills",
@@ -1530,6 +1559,15 @@ public class ConversationState {
         // validate the optional field `tool_reference`
         if (jsonObj.get("tool_reference") != null && !jsonObj.get("tool_reference").isJsonNull()) {
             ToolReference.validateJsonElement(jsonObj.get("tool_reference"));
+        }
+        if ((jsonObj.get("tool_catalog_storage_id") != null
+                        && !jsonObj.get("tool_catalog_storage_id").isJsonNull())
+                && !jsonObj.get("tool_catalog_storage_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `tool_catalog_storage_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("tool_catalog_storage_id").toString()));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("active_tool_names") != null

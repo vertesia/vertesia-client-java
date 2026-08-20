@@ -55,6 +55,11 @@ public class AgentToolDefinition {
     @jakarta.annotation.Nonnull
     private Map<String, Object> inputSchema = new HashMap<>();
 
+    public static final String SERIALIZED_NAME_OUTPUT_SCHEMA = "output_schema";
+
+    @SerializedName(SERIALIZED_NAME_OUTPUT_SCHEMA)
+    @jakarta.annotation.Nullable private Map<String, Object> outputSchema = new HashMap<>();
+
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
@@ -147,6 +152,32 @@ public class AgentToolDefinition {
 
     public void setInputSchema(@jakarta.annotation.Nonnull Map<String, Object> inputSchema) {
         this.inputSchema = inputSchema;
+    }
+
+    public AgentToolDefinition outputSchema(
+            @jakarta.annotation.Nullable Map<String, Object> outputSchema) {
+        this.outputSchema = outputSchema;
+        return this;
+    }
+
+    public AgentToolDefinition putOutputSchemaItem(String key, Object outputSchemaItem) {
+        if (this.outputSchema == null) {
+            this.outputSchema = new HashMap<>();
+        }
+        this.outputSchema.put(key, outputSchemaItem);
+        return this;
+    }
+
+    /**
+     * Optional MCP outputSchema advertised by the provider for its structuredContent payload. Execution adapters may expose results differently.
+     * @return outputSchema
+     */
+    @jakarta.annotation.Nullable public Map<String, Object> getOutputSchema() {
+        return outputSchema;
+    }
+
+    public void setOutputSchema(@jakarta.annotation.Nullable Map<String, Object> outputSchema) {
+        this.outputSchema = outputSchema;
     }
 
     public AgentToolDefinition url(@jakarta.annotation.Nullable String url) {
@@ -262,6 +293,51 @@ public class AgentToolDefinition {
         this.approvalClass = approvalClass;
     }
 
+    /**
+     * A container for additional, undeclared properties.
+     * This is a holder for any undeclared properties as specified with
+     * the 'additionalProperties' keyword in the OAS document.
+     */
+    private Map<String, Object> additionalProperties;
+
+    /**
+     * Set the additional (undeclared) property with the specified name and value.
+     * If the property does not already exist, create it otherwise replace it.
+     *
+     * @param key name of the property
+     * @param value value of the property
+     * @return the AgentToolDefinition instance itself
+     */
+    public AgentToolDefinition putAdditionalProperty(String key, Object value) {
+        if (this.additionalProperties == null) {
+            this.additionalProperties = new HashMap<String, Object>();
+        }
+        this.additionalProperties.put(key, value);
+        return this;
+    }
+
+    /**
+     * Return the additional (undeclared) property.
+     *
+     * @return a map of objects
+     */
+    public Map<String, Object> getAdditionalProperties() {
+        return additionalProperties;
+    }
+
+    /**
+     * Return the additional (undeclared) property with the specified name.
+     *
+     * @param key name of the property
+     * @return an object
+     */
+    public Object getAdditionalProperty(String key) {
+        if (this.additionalProperties == null) {
+            return null;
+        }
+        return this.additionalProperties.get(key);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -274,12 +350,15 @@ public class AgentToolDefinition {
         return Objects.equals(this.name, agentToolDefinition.name)
                 && Objects.equals(this.description, agentToolDefinition.description)
                 && Objects.equals(this.inputSchema, agentToolDefinition.inputSchema)
+                && Objects.equals(this.outputSchema, agentToolDefinition.outputSchema)
                 && Objects.equals(this.url, agentToolDefinition.url)
                 && Objects.equals(this.category, agentToolDefinition.category)
                 && Objects.equals(this._default, agentToolDefinition._default)
                 && Objects.equals(this.tools, agentToolDefinition.tools)
                 && Objects.equals(this.annotations, agentToolDefinition.annotations)
-                && Objects.equals(this.approvalClass, agentToolDefinition.approvalClass);
+                && Objects.equals(this.approvalClass, agentToolDefinition.approvalClass)
+                && Objects.equals(
+                        this.additionalProperties, agentToolDefinition.additionalProperties);
     }
 
     @Override
@@ -288,12 +367,14 @@ public class AgentToolDefinition {
                 name,
                 description,
                 inputSchema,
+                outputSchema,
                 url,
                 category,
                 _default,
                 tools,
                 annotations,
-                approvalClass);
+                approvalClass,
+                additionalProperties);
     }
 
     @Override
@@ -303,12 +384,16 @@ public class AgentToolDefinition {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    inputSchema: ").append(toIndentedString(inputSchema)).append("\n");
+        sb.append("    outputSchema: ").append(toIndentedString(outputSchema)).append("\n");
         sb.append("    url: ").append(toIndentedString(url)).append("\n");
         sb.append("    category: ").append(toIndentedString(category)).append("\n");
         sb.append("    _default: ").append(toIndentedString(_default)).append("\n");
         sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
         sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
         sb.append("    approvalClass: ").append(toIndentedString(approvalClass)).append("\n");
+        sb.append("    additionalProperties: ")
+                .append(toIndentedString(additionalProperties))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -332,6 +417,7 @@ public class AgentToolDefinition {
                                 "name",
                                 "description",
                                 "input_schema",
+                                "output_schema",
                                 "url",
                                 "category",
                                 "default",
@@ -441,6 +527,30 @@ public class AgentToolDefinition {
                         public void write(JsonWriter out, AgentToolDefinition value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+                            obj.remove("additionalProperties");
+                            // serialize additional properties
+                            if (value.getAdditionalProperties() != null) {
+                                for (Map.Entry<String, Object> entry :
+                                        value.getAdditionalProperties().entrySet()) {
+                                    if (entry.getValue() instanceof String)
+                                        obj.addProperty(entry.getKey(), (String) entry.getValue());
+                                    else if (entry.getValue() instanceof Number)
+                                        obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                                    else if (entry.getValue() instanceof Boolean)
+                                        obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                                    else if (entry.getValue() instanceof Character)
+                                        obj.addProperty(
+                                                entry.getKey(), (Character) entry.getValue());
+                                    else {
+                                        JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                                        if (jsonElement.isJsonArray()) {
+                                            obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                                        } else {
+                                            obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                                        }
+                                    }
+                                }
+                            }
                             elementAdapter.write(out, obj);
                         }
 
@@ -448,7 +558,41 @@ public class AgentToolDefinition {
                         public AgentToolDefinition read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = jsonElement.getAsJsonObject();
+                            // store additional fields in the deserialized instance
+                            AgentToolDefinition instance = thisAdapter.fromJsonTree(jsonObj);
+                            for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+                                if (!openapiFields.contains(entry.getKey())) {
+                                    if (entry.getValue().isJsonPrimitive()) { // primitive type
+                                        if (entry.getValue().getAsJsonPrimitive().isString())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(), entry.getValue().getAsString());
+                                        else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(), entry.getValue().getAsNumber());
+                                        else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(),
+                                                    entry.getValue().getAsBoolean());
+                                        else
+                                            throw new IllegalArgumentException(
+                                                    String.format(
+                                                            java.util.Locale.ROOT,
+                                                            "The field `%s` has unknown primitive type. Value: %s",
+                                                            entry.getKey(),
+                                                            entry.getValue().toString()));
+                                    } else if (entry.getValue().isJsonArray()) {
+                                        instance.putAdditionalProperty(
+                                                entry.getKey(),
+                                                gson.fromJson(entry.getValue(), List.class));
+                                    } else { // JSON object
+                                        instance.putAdditionalProperty(
+                                                entry.getKey(),
+                                                gson.fromJson(entry.getValue(), HashMap.class));
+                                    }
+                                }
+                            }
+                            return instance;
                         }
                     }.nullSafe();
         }
