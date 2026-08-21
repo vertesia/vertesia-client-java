@@ -734,6 +734,37 @@ public class JSON {
                                     }
                                 })
                         .registerTypeSelector(
+                                io.vertesia.model.UpdateWorkflowDefinitionPayload.class,
+                                new TypeSelector<
+                                        io.vertesia.model.UpdateWorkflowDefinitionPayload>() {
+                                    @Override
+                                    public Class<
+                                                    ? extends
+                                                            io.vertesia.model
+                                                                    .UpdateWorkflowDefinitionPayload>
+                                            getClassForElement(JsonElement readElement) {
+                                        Map<String, Class> classByDiscriminatorValue =
+                                                new HashMap<String, Class>();
+                                        classByDiscriminatorValue.put(
+                                                "activities",
+                                                io.vertesia.model
+                                                        .UpdateWorkflowDefinitionPayloadWithActivities
+                                                        .class);
+                                        classByDiscriminatorValue.put(
+                                                "steps",
+                                                io.vertesia.model
+                                                        .UpdateWorkflowDefinitionPayloadWithSteps
+                                                        .class);
+                                        classByDiscriminatorValue.put(
+                                                "UpdateWorkflowDefinitionPayload",
+                                                io.vertesia.model.UpdateWorkflowDefinitionPayload
+                                                        .class);
+                                        return getClassByDiscriminator(
+                                                classByDiscriminatorValue,
+                                                getDiscriminatorValue(readElement, "spec_format"));
+                                    }
+                                })
+                        .registerTypeSelector(
                                 io.vertesia.model.UserChannel.class,
                                 new TypeSelector<io.vertesia.model.UserChannel>() {
                                     @Override
@@ -1919,6 +1950,13 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.InteractionProject.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.InteractionPromptSegmentInput.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.InteractionPromptSegmentInputTemplate
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.InteractionPromptTemplateInput.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.InteractionPublishPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.InteractionRef.CustomTypeAdapterFactory());
@@ -2467,6 +2505,8 @@ public class JSON {
                 new io.vertesia.model.UpdateAppInstallationToolAllowlistPayload
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.UpdateAppPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UpdateCollectionPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UpdateContentObjectPayload.CustomTypeAdapterFactory());
@@ -2506,6 +2546,14 @@ public class JSON {
                 new io.vertesia.model.UpdateUserPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UpdateViewExperienceRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.UpdateWorkflowDefinitionPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.UpdateWorkflowDefinitionPayloadWithActivities
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.UpdateWorkflowDefinitionPayloadWithSteps
+                        .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UpdateWorkflowRulePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

@@ -50,6 +50,7 @@ import io.vertesia.model.StartAppBuildResponse;
 import io.vertesia.model.StartAppScaffoldRequest;
 import io.vertesia.model.StartAppScaffoldResponse;
 import io.vertesia.model.UpdateAppInstallationToolAllowlistPayload;
+import io.vertesia.model.UpdateAppPayload;
 import io.vertesia.model.UpsertAppVersionRequest;
 import io.vertesia.model.ValidateUrlRequest;
 import io.vertesia.model.ValidateUrlResponse;
@@ -5742,7 +5743,7 @@ public class AppsApi {
     /**
      * Build call for updateApp
      * @param id  (required)
-     * @param appManifestData  (required)
+     * @param updateAppPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5751,13 +5752,14 @@ public class AppsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated app. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The app manifest was changed after the caller read it. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call updateAppCall(
             @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull AppManifestData appManifestData,
+            @jakarta.annotation.Nonnull UpdateAppPayload updateAppPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -5773,7 +5775,7 @@ public class AppsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = appManifestData;
+        Object localVarPostBody = updateAppPayload;
 
         // create path and map variables
         String localVarPath =
@@ -5817,7 +5819,7 @@ public class AppsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateAppValidateBeforeCall(
             @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull AppManifestData appManifestData,
+            @jakarta.annotation.Nonnull UpdateAppPayload updateAppPayload,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'id' is set
@@ -5826,20 +5828,20 @@ public class AppsApi {
                     "Missing the required parameter 'id' when calling updateApp(Async)");
         }
 
-        // verify the required parameter 'appManifestData' is set
-        if (appManifestData == null) {
+        // verify the required parameter 'updateAppPayload' is set
+        if (updateAppPayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'appManifestData' when calling updateApp(Async)");
+                    "Missing the required parameter 'updateAppPayload' when calling updateApp(Async)");
         }
 
-        return updateAppCall(id, appManifestData, _callback);
+        return updateAppCall(id, updateAppPayload, _callback);
     }
 
     /**
      * Update an app
      * Updates an existing app manifest.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
-     * @param appManifestData  (required)
+     * @param updateAppPayload  (required)
      * @return AppManifest
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5847,15 +5849,16 @@ public class AppsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated app. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The app manifest was changed after the caller read it. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
     public AppManifest updateApp(
             @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull AppManifestData appManifestData)
+            @jakarta.annotation.Nonnull UpdateAppPayload updateAppPayload)
             throws ApiException {
-        ApiResponse<AppManifest> localVarResp = updateAppWithHttpInfo(id, appManifestData);
+        ApiResponse<AppManifest> localVarResp = updateAppWithHttpInfo(id, updateAppPayload);
         return localVarResp.getData();
     }
 
@@ -5863,7 +5866,7 @@ public class AppsApi {
      * Update an app
      * Updates an existing app manifest.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
-     * @param appManifestData  (required)
+     * @param updateAppPayload  (required)
      * @return ApiResponse&lt;AppManifest&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5871,15 +5874,16 @@ public class AppsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated app. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The app manifest was changed after the caller read it. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
     public ApiResponse<AppManifest> updateAppWithHttpInfo(
             @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull AppManifestData appManifestData)
+            @jakarta.annotation.Nonnull UpdateAppPayload updateAppPayload)
             throws ApiException {
-        okhttp3.Call localVarCall = updateAppValidateBeforeCall(id, appManifestData, null);
+        okhttp3.Call localVarCall = updateAppValidateBeforeCall(id, updateAppPayload, null);
         Type localVarReturnType = new TypeToken<AppManifest>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5888,7 +5892,7 @@ public class AppsApi {
      * Update an app (asynchronously)
      * Updates an existing app manifest.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
-     * @param appManifestData  (required)
+     * @param updateAppPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5897,17 +5901,18 @@ public class AppsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated app. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The app manifest was changed after the caller read it. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
     public okhttp3.Call updateAppAsync(
             @jakarta.annotation.Nonnull String id,
-            @jakarta.annotation.Nonnull AppManifestData appManifestData,
+            @jakarta.annotation.Nonnull UpdateAppPayload updateAppPayload,
             final ApiCallback<AppManifest> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = updateAppValidateBeforeCall(id, appManifestData, _callback);
+        okhttp3.Call localVarCall = updateAppValidateBeforeCall(id, updateAppPayload, _callback);
         Type localVarReturnType = new TypeToken<AppManifest>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

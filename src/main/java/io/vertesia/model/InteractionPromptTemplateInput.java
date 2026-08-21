@@ -34,46 +34,63 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * PromptTemplateUpdatePayload
+ * InteractionPromptTemplateInput
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class PromptTemplateUpdatePayload {
+public class InteractionPromptTemplateInput {
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @jakarta.annotation.Nullable private PromptRole role;
+    @jakarta.annotation.Nonnull
+    private PromptRole role;
 
     public static final String SERIALIZED_NAME_CONTENT = "content";
 
     @SerializedName(SERIALIZED_NAME_CONTENT)
-    @jakarta.annotation.Nullable private String content;
+    @jakarta.annotation.Nonnull
+    private String content;
 
     public static final String SERIALIZED_NAME_CONTENT_TYPE = "content_type";
 
     @SerializedName(SERIALIZED_NAME_CONTENT_TYPE)
-    @jakarta.annotation.Nullable private TemplateType contentType;
+    @jakarta.annotation.Nonnull
+    private TemplateType contentType;
 
     public static final String SERIALIZED_NAME_INPUT_SCHEMA = "inputSchema";
 
     @SerializedName(SERIALIZED_NAME_INPUT_SCHEMA)
     @jakarta.annotation.Nullable private JSONSchema inputSchema;
 
+    public static final String SERIALIZED_NAME_ID = "id";
+
+    @SerializedName(SERIALIZED_NAME_ID)
+    @jakarta.annotation.Nonnull
+    private String id;
+
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
-    @jakarta.annotation.Nullable private String name;
+    @jakarta.annotation.Nonnull
+    private String name;
 
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
-    @jakarta.annotation.Nullable private PromptStatus status;
+    @jakarta.annotation.Nonnull
+    private PromptStatus status;
 
     public static final String SERIALIZED_NAME_VERSION = "version";
 
     @SerializedName(SERIALIZED_NAME_VERSION)
-    @jakarta.annotation.Nullable private BigDecimal version;
+    @jakarta.annotation.Nonnull
+    private BigDecimal version;
+
+    public static final String SERIALIZED_NAME_EDIT_REVISION = "edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EDIT_REVISION)
+    @jakarta.annotation.Nullable private Integer editRevision;
 
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
@@ -95,6 +112,12 @@ public class PromptTemplateUpdatePayload {
     @SerializedName(SERIALIZED_NAME_SCRIPT)
     @jakarta.annotation.Nullable private String script;
 
+    public static final String SERIALIZED_NAME_PROJECT = "project";
+
+    @SerializedName(SERIALIZED_NAME_PROJECT)
+    @jakarta.annotation.Nonnull
+    private InteractionProject project;
+
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
     @SerializedName(SERIALIZED_NAME_TAGS)
@@ -105,14 +128,33 @@ public class PromptTemplateUpdatePayload {
     @SerializedName(SERIALIZED_NAME_LAST_PUBLISHED_AT)
     @jakarta.annotation.Nullable private OffsetDateTime lastPublishedAt;
 
-    public static final String SERIALIZED_NAME_EXPECTED_EDIT_REVISION = "expected_edit_revision";
+    public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
-    @SerializedName(SERIALIZED_NAME_EXPECTED_EDIT_REVISION)
-    @jakarta.annotation.Nullable private Integer expectedEditRevision;
+    @SerializedName(SERIALIZED_NAME_CREATED_BY)
+    @jakarta.annotation.Nonnull
+    private String createdBy;
 
-    public PromptTemplateUpdatePayload() {}
+    public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
-    public PromptTemplateUpdatePayload role(@jakarta.annotation.Nullable PromptRole role) {
+    @SerializedName(SERIALIZED_NAME_UPDATED_BY)
+    @jakarta.annotation.Nonnull
+    private String updatedBy;
+
+    public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
+
+    @SerializedName(SERIALIZED_NAME_CREATED_AT)
+    @jakarta.annotation.Nonnull
+    private OffsetDateTime createdAt;
+
+    public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
+
+    @SerializedName(SERIALIZED_NAME_UPDATED_AT)
+    @jakarta.annotation.Nonnull
+    private OffsetDateTime updatedAt;
+
+    public InteractionPromptTemplateInput() {}
+
+    public InteractionPromptTemplateInput role(@jakarta.annotation.Nonnull PromptRole role) {
         this.role = role;
         return this;
     }
@@ -121,15 +163,16 @@ public class PromptTemplateUpdatePayload {
      * Get role
      * @return role
      */
-    @jakarta.annotation.Nullable public PromptRole getRole() {
+    @jakarta.annotation.Nonnull
+    public PromptRole getRole() {
         return role;
     }
 
-    public void setRole(@jakarta.annotation.Nullable PromptRole role) {
+    public void setRole(@jakarta.annotation.Nonnull PromptRole role) {
         this.role = role;
     }
 
-    public PromptTemplateUpdatePayload content(@jakarta.annotation.Nullable String content) {
+    public InteractionPromptTemplateInput content(@jakarta.annotation.Nonnull String content) {
         this.content = content;
         return this;
     }
@@ -138,16 +181,17 @@ public class PromptTemplateUpdatePayload {
      * Get content
      * @return content
      */
-    @jakarta.annotation.Nullable public String getContent() {
+    @jakarta.annotation.Nonnull
+    public String getContent() {
         return content;
     }
 
-    public void setContent(@jakarta.annotation.Nullable String content) {
+    public void setContent(@jakarta.annotation.Nonnull String content) {
         this.content = content;
     }
 
-    public PromptTemplateUpdatePayload contentType(
-            @jakarta.annotation.Nullable TemplateType contentType) {
+    public InteractionPromptTemplateInput contentType(
+            @jakarta.annotation.Nonnull TemplateType contentType) {
         this.contentType = contentType;
         return this;
     }
@@ -156,15 +200,16 @@ public class PromptTemplateUpdatePayload {
      * Get contentType
      * @return contentType
      */
-    @jakarta.annotation.Nullable public TemplateType getContentType() {
+    @jakarta.annotation.Nonnull
+    public TemplateType getContentType() {
         return contentType;
     }
 
-    public void setContentType(@jakarta.annotation.Nullable TemplateType contentType) {
+    public void setContentType(@jakarta.annotation.Nonnull TemplateType contentType) {
         this.contentType = contentType;
     }
 
-    public PromptTemplateUpdatePayload inputSchema(
+    public InteractionPromptTemplateInput inputSchema(
             @jakarta.annotation.Nullable JSONSchema inputSchema) {
         this.inputSchema = inputSchema;
         return this;
@@ -182,7 +227,25 @@ public class PromptTemplateUpdatePayload {
         this.inputSchema = inputSchema;
     }
 
-    public PromptTemplateUpdatePayload name(@jakarta.annotation.Nullable String name) {
+    public InteractionPromptTemplateInput id(@jakarta.annotation.Nonnull String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Get id
+     * @return id
+     */
+    @jakarta.annotation.Nonnull
+    public String getId() {
+        return id;
+    }
+
+    public void setId(@jakarta.annotation.Nonnull String id) {
+        this.id = id;
+    }
+
+    public InteractionPromptTemplateInput name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -191,15 +254,16 @@ public class PromptTemplateUpdatePayload {
      * Get name
      * @return name
      */
-    @jakarta.annotation.Nullable public String getName() {
+    @jakarta.annotation.Nonnull
+    public String getName() {
         return name;
     }
 
-    public void setName(@jakarta.annotation.Nullable String name) {
+    public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
     }
 
-    public PromptTemplateUpdatePayload status(@jakarta.annotation.Nullable PromptStatus status) {
+    public InteractionPromptTemplateInput status(@jakarta.annotation.Nonnull PromptStatus status) {
         this.status = status;
         return this;
     }
@@ -208,15 +272,16 @@ public class PromptTemplateUpdatePayload {
      * Get status
      * @return status
      */
-    @jakarta.annotation.Nullable public PromptStatus getStatus() {
+    @jakarta.annotation.Nonnull
+    public PromptStatus getStatus() {
         return status;
     }
 
-    public void setStatus(@jakarta.annotation.Nullable PromptStatus status) {
+    public void setStatus(@jakarta.annotation.Nonnull PromptStatus status) {
         this.status = status;
     }
 
-    public PromptTemplateUpdatePayload version(@jakarta.annotation.Nullable BigDecimal version) {
+    public InteractionPromptTemplateInput version(@jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
         return this;
     }
@@ -225,15 +290,36 @@ public class PromptTemplateUpdatePayload {
      * Get version
      * @return version
      */
-    @jakarta.annotation.Nullable public BigDecimal getVersion() {
+    @jakarta.annotation.Nonnull
+    public BigDecimal getVersion() {
         return version;
     }
 
-    public void setVersion(@jakarta.annotation.Nullable BigDecimal version) {
+    public void setVersion(@jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
     }
 
-    public PromptTemplateUpdatePayload parent(@jakarta.annotation.Nullable String parent) {
+    public InteractionPromptTemplateInput editRevision(
+            @jakarta.annotation.Nullable Integer editRevision) {
+        this.editRevision = editRevision;
+        return this;
+    }
+
+    /**
+     * Monotonic edit revision used to detect concurrent updates.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return editRevision
+     */
+    @jakarta.annotation.Nullable public Integer getEditRevision() {
+        return editRevision;
+    }
+
+    public void setEditRevision(@jakarta.annotation.Nullable Integer editRevision) {
+        this.editRevision = editRevision;
+    }
+
+    public InteractionPromptTemplateInput parent(@jakarta.annotation.Nullable String parent) {
         this.parent = parent;
         return this;
     }
@@ -250,7 +336,7 @@ public class PromptTemplateUpdatePayload {
         this.parent = parent;
     }
 
-    public PromptTemplateUpdatePayload description(
+    public InteractionPromptTemplateInput description(
             @jakarta.annotation.Nullable String description) {
         this.description = description;
         return this;
@@ -268,13 +354,13 @@ public class PromptTemplateUpdatePayload {
         this.description = description;
     }
 
-    public PromptTemplateUpdatePayload testData(
+    public InteractionPromptTemplateInput testData(
             @jakarta.annotation.Nullable Map<String, Object> testData) {
         this.testData = testData;
         return this;
     }
 
-    public PromptTemplateUpdatePayload putTestDataItem(String key, Object testDataItem) {
+    public InteractionPromptTemplateInput putTestDataItem(String key, Object testDataItem) {
         if (this.testData == null) {
             this.testData = new HashMap<>();
         }
@@ -294,7 +380,7 @@ public class PromptTemplateUpdatePayload {
         this.testData = testData;
     }
 
-    public PromptTemplateUpdatePayload script(@jakarta.annotation.Nullable String script) {
+    public InteractionPromptTemplateInput script(@jakarta.annotation.Nullable String script) {
         this.script = script;
         return this;
     }
@@ -311,12 +397,31 @@ public class PromptTemplateUpdatePayload {
         this.script = script;
     }
 
-    public PromptTemplateUpdatePayload tags(@jakarta.annotation.Nullable List<String> tags) {
+    public InteractionPromptTemplateInput project(
+            @jakarta.annotation.Nonnull InteractionProject project) {
+        this.project = project;
+        return this;
+    }
+
+    /**
+     * Get project
+     * @return project
+     */
+    @jakarta.annotation.Nonnull
+    public InteractionProject getProject() {
+        return project;
+    }
+
+    public void setProject(@jakarta.annotation.Nonnull InteractionProject project) {
+        this.project = project;
+    }
+
+    public InteractionPromptTemplateInput tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
 
-    public PromptTemplateUpdatePayload addTagsItem(String tagsItem) {
+    public InteractionPromptTemplateInput addTagsItem(String tagsItem) {
         if (this.tags == null) {
             this.tags = new ArrayList<>();
         }
@@ -336,7 +441,7 @@ public class PromptTemplateUpdatePayload {
         this.tags = tags;
     }
 
-    public PromptTemplateUpdatePayload lastPublishedAt(
+    public InteractionPromptTemplateInput lastPublishedAt(
             @jakarta.annotation.Nullable OffsetDateTime lastPublishedAt) {
         this.lastPublishedAt = lastPublishedAt;
         return this;
@@ -354,24 +459,78 @@ public class PromptTemplateUpdatePayload {
         this.lastPublishedAt = lastPublishedAt;
     }
 
-    public PromptTemplateUpdatePayload expectedEditRevision(
-            @jakarta.annotation.Nullable Integer expectedEditRevision) {
-        this.expectedEditRevision = expectedEditRevision;
+    public InteractionPromptTemplateInput createdBy(@jakarta.annotation.Nonnull String createdBy) {
+        this.createdBy = createdBy;
         return this;
     }
 
     /**
-     * Edit revision returned by the last read. Stale revisions are rejected with HTTP 409. Omit for legacy last-write-wins behavior.
-     * minimum: 1
-     * maximum: 9007199254740991
-     * @return expectedEditRevision
+     * Get createdBy
+     * @return createdBy
      */
-    @jakarta.annotation.Nullable public Integer getExpectedEditRevision() {
-        return expectedEditRevision;
+    @jakarta.annotation.Nonnull
+    public String getCreatedBy() {
+        return createdBy;
     }
 
-    public void setExpectedEditRevision(@jakarta.annotation.Nullable Integer expectedEditRevision) {
-        this.expectedEditRevision = expectedEditRevision;
+    public void setCreatedBy(@jakarta.annotation.Nonnull String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public InteractionPromptTemplateInput updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
+        this.updatedBy = updatedBy;
+        return this;
+    }
+
+    /**
+     * Get updatedBy
+     * @return updatedBy
+     */
+    @jakarta.annotation.Nonnull
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(@jakarta.annotation.Nonnull String updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    public InteractionPromptTemplateInput createdAt(
+            @jakarta.annotation.Nonnull OffsetDateTime createdAt) {
+        this.createdAt = createdAt;
+        return this;
+    }
+
+    /**
+     * Get createdAt
+     * @return createdAt
+     */
+    @jakarta.annotation.Nonnull
+    public OffsetDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(@jakarta.annotation.Nonnull OffsetDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public InteractionPromptTemplateInput updatedAt(
+            @jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+        return this;
+    }
+
+    /**
+     * Get updatedAt
+     * @return updatedAt
+     */
+    @jakarta.annotation.Nonnull
+    public OffsetDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(@jakarta.annotation.Nonnull OffsetDateTime updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     @Override
@@ -382,23 +541,29 @@ public class PromptTemplateUpdatePayload {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        PromptTemplateUpdatePayload promptTemplateUpdatePayload = (PromptTemplateUpdatePayload) o;
-        return Objects.equals(this.role, promptTemplateUpdatePayload.role)
-                && Objects.equals(this.content, promptTemplateUpdatePayload.content)
-                && Objects.equals(this.contentType, promptTemplateUpdatePayload.contentType)
-                && Objects.equals(this.inputSchema, promptTemplateUpdatePayload.inputSchema)
-                && Objects.equals(this.name, promptTemplateUpdatePayload.name)
-                && Objects.equals(this.status, promptTemplateUpdatePayload.status)
-                && Objects.equals(this.version, promptTemplateUpdatePayload.version)
-                && Objects.equals(this.parent, promptTemplateUpdatePayload.parent)
-                && Objects.equals(this.description, promptTemplateUpdatePayload.description)
-                && Objects.equals(this.testData, promptTemplateUpdatePayload.testData)
-                && Objects.equals(this.script, promptTemplateUpdatePayload.script)
-                && Objects.equals(this.tags, promptTemplateUpdatePayload.tags)
-                && Objects.equals(this.lastPublishedAt, promptTemplateUpdatePayload.lastPublishedAt)
+        InteractionPromptTemplateInput interactionPromptTemplateInput =
+                (InteractionPromptTemplateInput) o;
+        return Objects.equals(this.role, interactionPromptTemplateInput.role)
+                && Objects.equals(this.content, interactionPromptTemplateInput.content)
+                && Objects.equals(this.contentType, interactionPromptTemplateInput.contentType)
+                && Objects.equals(this.inputSchema, interactionPromptTemplateInput.inputSchema)
+                && Objects.equals(this.id, interactionPromptTemplateInput.id)
+                && Objects.equals(this.name, interactionPromptTemplateInput.name)
+                && Objects.equals(this.status, interactionPromptTemplateInput.status)
+                && Objects.equals(this.version, interactionPromptTemplateInput.version)
+                && Objects.equals(this.editRevision, interactionPromptTemplateInput.editRevision)
+                && Objects.equals(this.parent, interactionPromptTemplateInput.parent)
+                && Objects.equals(this.description, interactionPromptTemplateInput.description)
+                && Objects.equals(this.testData, interactionPromptTemplateInput.testData)
+                && Objects.equals(this.script, interactionPromptTemplateInput.script)
+                && Objects.equals(this.project, interactionPromptTemplateInput.project)
+                && Objects.equals(this.tags, interactionPromptTemplateInput.tags)
                 && Objects.equals(
-                        this.expectedEditRevision,
-                        promptTemplateUpdatePayload.expectedEditRevision);
+                        this.lastPublishedAt, interactionPromptTemplateInput.lastPublishedAt)
+                && Objects.equals(this.createdBy, interactionPromptTemplateInput.createdBy)
+                && Objects.equals(this.updatedBy, interactionPromptTemplateInput.updatedBy)
+                && Objects.equals(this.createdAt, interactionPromptTemplateInput.createdAt)
+                && Objects.equals(this.updatedAt, interactionPromptTemplateInput.updatedAt);
     }
 
     @Override
@@ -408,38 +573,48 @@ public class PromptTemplateUpdatePayload {
                 content,
                 contentType,
                 inputSchema,
+                id,
                 name,
                 status,
                 version,
+                editRevision,
                 parent,
                 description,
                 testData,
                 script,
+                project,
                 tags,
                 lastPublishedAt,
-                expectedEditRevision);
+                createdBy,
+                updatedBy,
+                createdAt,
+                updatedAt);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class PromptTemplateUpdatePayload {\n");
+        sb.append("class InteractionPromptTemplateInput {\n");
         sb.append("    role: ").append(toIndentedString(role)).append("\n");
         sb.append("    content: ").append(toIndentedString(content)).append("\n");
         sb.append("    contentType: ").append(toIndentedString(contentType)).append("\n");
         sb.append("    inputSchema: ").append(toIndentedString(inputSchema)).append("\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("    editRevision: ").append(toIndentedString(editRevision)).append("\n");
         sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    testData: ").append(toIndentedString(testData)).append("\n");
         sb.append("    script: ").append(toIndentedString(script)).append("\n");
+        sb.append("    project: ").append(toIndentedString(project)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
         sb.append("    lastPublishedAt: ").append(toIndentedString(lastPublishedAt)).append("\n");
-        sb.append("    expectedEditRevision: ")
-                .append(toIndentedString(expectedEditRevision))
-                .append("\n");
+        sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
+        sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
+        sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
+        sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -464,71 +639,102 @@ public class PromptTemplateUpdatePayload {
                                 "content",
                                 "content_type",
                                 "inputSchema",
+                                "id",
                                 "name",
                                 "status",
                                 "version",
+                                "edit_revision",
                                 "parent",
                                 "description",
                                 "test_data",
                                 "script",
+                                "project",
                                 "tags",
                                 "last_published_at",
-                                "expected_edit_revision"));
+                                "created_by",
+                                "updated_by",
+                                "created_at",
+                                "updated_at"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(0);
+        openapiRequiredFields =
+                new HashSet<String>(
+                        Arrays.asList(
+                                "role",
+                                "content",
+                                "content_type",
+                                "id",
+                                "name",
+                                "status",
+                                "version",
+                                "project",
+                                "created_by",
+                                "updated_by",
+                                "created_at",
+                                "updated_at"));
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to PromptTemplateUpdatePayload
+     * @throws IOException if the JSON Element is invalid with respect to InteractionPromptTemplateInput
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!PromptTemplateUpdatePayload.openapiRequiredFields
+            if (!InteractionPromptTemplateInput.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 java.util.Locale.ROOT,
-                                "The required field(s) %s in PromptTemplateUpdatePayload is not found in the empty JSON string",
-                                PromptTemplateUpdatePayload.openapiRequiredFields.toString()));
+                                "The required field(s) %s in InteractionPromptTemplateInput is not found in the empty JSON string",
+                                InteractionPromptTemplateInput.openapiRequiredFields.toString()));
+            }
+        }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : InteractionPromptTemplateInput.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                java.util.Locale.ROOT,
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField,
+                                jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the optional field `role`
-        if (jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) {
-            PromptRole.validateJsonElement(jsonObj.get("role"));
-        }
-        if ((jsonObj.get("content") != null && !jsonObj.get("content").isJsonNull())
-                && !jsonObj.get("content").isJsonPrimitive()) {
+        // validate the required field `role`
+        PromptRole.validateJsonElement(jsonObj.get("role"));
+        if (!jsonObj.get("content").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
                             "Expected the field `content` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("content").toString()));
         }
-        // validate the optional field `content_type`
-        if (jsonObj.get("content_type") != null && !jsonObj.get("content_type").isJsonNull()) {
-            TemplateType.validateJsonElement(jsonObj.get("content_type"));
-        }
+        // validate the required field `content_type`
+        TemplateType.validateJsonElement(jsonObj.get("content_type"));
         // validate the optional field `inputSchema`
         if (jsonObj.get("inputSchema") != null && !jsonObj.get("inputSchema").isJsonNull()) {
             JSONSchema.validateJsonElement(jsonObj.get("inputSchema"));
         }
-        if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
-                && !jsonObj.get("name").isJsonPrimitive()) {
+        if (!jsonObj.get("id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("id").toString()));
+        }
+        if (!jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
                             "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("name").toString()));
         }
-        // validate the optional field `status`
-        if (jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull()) {
-            PromptStatus.validateJsonElement(jsonObj.get("status"));
-        }
+        // validate the required field `status`
+        PromptStatus.validateJsonElement(jsonObj.get("status"));
         if ((jsonObj.get("parent") != null && !jsonObj.get("parent").isJsonNull())
                 && !jsonObj.get("parent").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -553,6 +759,8 @@ public class PromptTemplateUpdatePayload {
                             "Expected the field `script` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("script").toString()));
         }
+        // validate the required field `project`
+        InteractionProject.validateJsonElement(jsonObj.get("project"));
         // ensure the optional json data is an array if present
         if (jsonObj.get("tags") != null
                 && !jsonObj.get("tags").isJsonNull()
@@ -563,31 +771,47 @@ public class PromptTemplateUpdatePayload {
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
         }
+        if (!jsonObj.get("created_by").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `created_by` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("created_by").toString()));
+        }
+        if (!jsonObj.get("updated_by").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `updated_by` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("updated_by").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!PromptTemplateUpdatePayload.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'PromptTemplateUpdatePayload' and its
+            if (!InteractionPromptTemplateInput.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'InteractionPromptTemplateInput' and its
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<PromptTemplateUpdatePayload> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(PromptTemplateUpdatePayload.class));
+            final TypeAdapter<InteractionPromptTemplateInput> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(InteractionPromptTemplateInput.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<PromptTemplateUpdatePayload>() {
+                    new TypeAdapter<InteractionPromptTemplateInput>() {
                         @Override
-                        public void write(JsonWriter out, PromptTemplateUpdatePayload value)
+                        public void write(JsonWriter out, InteractionPromptTemplateInput value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public PromptTemplateUpdatePayload read(JsonReader in) throws IOException {
+                        public InteractionPromptTemplateInput read(JsonReader in)
+                                throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -597,18 +821,18 @@ public class PromptTemplateUpdatePayload {
     }
 
     /**
-     * Create an instance of PromptTemplateUpdatePayload given an JSON string
+     * Create an instance of InteractionPromptTemplateInput given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of PromptTemplateUpdatePayload
-     * @throws IOException if the JSON string is invalid with respect to PromptTemplateUpdatePayload
+     * @return An instance of InteractionPromptTemplateInput
+     * @throws IOException if the JSON string is invalid with respect to InteractionPromptTemplateInput
      */
-    public static PromptTemplateUpdatePayload fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, PromptTemplateUpdatePayload.class);
+    public static InteractionPromptTemplateInput fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, InteractionPromptTemplateInput.class);
     }
 
     /**
-     * Convert an instance of PromptTemplateUpdatePayload to an JSON string
+     * Convert an instance of InteractionPromptTemplateInput to an JSON string
      *
      * @return JSON string
      */

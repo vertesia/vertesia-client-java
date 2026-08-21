@@ -121,6 +121,11 @@ public class ContentObjectTypeCatalogEntry {
     @SerializedName(SERIALIZED_NAME_UPDATED_AT)
     @jakarta.annotation.Nullable private String updatedAt;
 
+    public static final String SERIALIZED_NAME_EDIT_REVISION = "edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EDIT_REVISION)
+    @jakarta.annotation.Nullable private Integer editRevision;
+
     public ContentObjectTypeCatalogEntry() {}
 
     public ContentObjectTypeCatalogEntry id(@jakarta.annotation.Nonnull String id) {
@@ -429,6 +434,26 @@ public class ContentObjectTypeCatalogEntry {
         this.updatedAt = updatedAt;
     }
 
+    public ContentObjectTypeCatalogEntry editRevision(
+            @jakarta.annotation.Nullable Integer editRevision) {
+        this.editRevision = editRevision;
+        return this;
+    }
+
+    /**
+     * Stored-resource revision. Omitted for app-contributed in-code types.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return editRevision
+     */
+    @jakarta.annotation.Nullable public Integer getEditRevision() {
+        return editRevision;
+    }
+
+    public void setEditRevision(@jakarta.annotation.Nullable Integer editRevision) {
+        this.editRevision = editRevision;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -500,6 +525,7 @@ public class ContentObjectTypeCatalogEntry {
                 && Objects.equals(this.createdBy, contentObjectTypeCatalogEntry.createdBy)
                 && Objects.equals(this.createdAt, contentObjectTypeCatalogEntry.createdAt)
                 && Objects.equals(this.updatedAt, contentObjectTypeCatalogEntry.updatedAt)
+                && Objects.equals(this.editRevision, contentObjectTypeCatalogEntry.editRevision)
                 && Objects.equals(
                         this.additionalProperties,
                         contentObjectTypeCatalogEntry.additionalProperties);
@@ -524,6 +550,7 @@ public class ContentObjectTypeCatalogEntry {
                 createdBy,
                 createdAt,
                 updatedAt,
+                editRevision,
                 additionalProperties);
     }
 
@@ -547,6 +574,7 @@ public class ContentObjectTypeCatalogEntry {
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+        sb.append("    editRevision: ").append(toIndentedString(editRevision)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -585,7 +613,8 @@ public class ContentObjectTypeCatalogEntry {
                                 "updated_by",
                                 "created_by",
                                 "created_at",
-                                "updated_at"));
+                                "updated_at",
+                                "edit_revision"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name"));

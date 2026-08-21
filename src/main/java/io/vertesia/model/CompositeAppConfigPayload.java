@@ -38,6 +38,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppConfigPayload {
+    public static final String SERIALIZED_NAME_EXPECTED_EDIT_REVISION = "expected_edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EXPECTED_EDIT_REVISION)
+    @jakarta.annotation.Nullable private Integer expectedEditRevision;
+
     public static final String SERIALIZED_NAME_CARD = "card";
 
     @SerializedName(SERIALIZED_NAME_CARD)
@@ -101,6 +106,26 @@ public class CompositeAppConfigPayload {
     @jakarta.annotation.Nullable private List<CompositeAppMenuSection> menu = new ArrayList<>();
 
     public CompositeAppConfigPayload() {}
+
+    public CompositeAppConfigPayload expectedEditRevision(
+            @jakarta.annotation.Nullable Integer expectedEditRevision) {
+        this.expectedEditRevision = expectedEditRevision;
+        return this;
+    }
+
+    /**
+     * Edit revision returned by the last read. Stale revisions are rejected with HTTP 409. Omit for legacy last-write-wins behavior.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return expectedEditRevision
+     */
+    @jakarta.annotation.Nullable public Integer getExpectedEditRevision() {
+        return expectedEditRevision;
+    }
+
+    public void setExpectedEditRevision(@jakarta.annotation.Nullable Integer expectedEditRevision) {
+        this.expectedEditRevision = expectedEditRevision;
+    }
 
     public CompositeAppConfigPayload card(
             @jakarta.annotation.Nullable CompositeAppCardOverrides card) {
@@ -361,7 +386,9 @@ public class CompositeAppConfigPayload {
             return false;
         }
         CompositeAppConfigPayload compositeAppConfigPayload = (CompositeAppConfigPayload) o;
-        return Objects.equals(this.card, compositeAppConfigPayload.card)
+        return Objects.equals(
+                        this.expectedEditRevision, compositeAppConfigPayload.expectedEditRevision)
+                && Objects.equals(this.card, compositeAppConfigPayload.card)
                 && Objects.equals(this.logo, compositeAppConfigPayload.logo)
                 && Objects.equals(this.message, compositeAppConfigPayload.message)
                 && Objects.equals(this.switchers, compositeAppConfigPayload.switchers)
@@ -387,6 +414,7 @@ public class CompositeAppConfigPayload {
     @Override
     public int hashCode() {
         return Objects.hash(
+                expectedEditRevision,
                 card,
                 logo,
                 message,
@@ -412,6 +440,9 @@ public class CompositeAppConfigPayload {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class CompositeAppConfigPayload {\n");
+        sb.append("    expectedEditRevision: ")
+                .append(toIndentedString(expectedEditRevision))
+                .append("\n");
         sb.append("    card: ").append(toIndentedString(card)).append("\n");
         sb.append("    logo: ").append(toIndentedString(logo)).append("\n");
         sb.append("    message: ").append(toIndentedString(message)).append("\n");
@@ -444,6 +475,7 @@ public class CompositeAppConfigPayload {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "expected_edit_revision",
                                 "card",
                                 "logo",
                                 "message",

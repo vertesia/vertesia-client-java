@@ -45,6 +45,12 @@ public class ContentObjectTypeItem {
     @jakarta.annotation.Nonnull
     private String id;
 
+    public static final String SERIALIZED_NAME_EDIT_REVISION = "edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EDIT_REVISION)
+    @jakarta.annotation.Nonnull
+    private Integer editRevision;
+
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -138,6 +144,26 @@ public class ContentObjectTypeItem {
 
     public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
+    }
+
+    public ContentObjectTypeItem editRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
+        return this;
+    }
+
+    /**
+     * Monotonic edit revision used to detect concurrent updates.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return editRevision
+     */
+    @jakarta.annotation.Nonnull
+    public Integer getEditRevision() {
+        return editRevision;
+    }
+
+    public void setEditRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
     }
 
     public ContentObjectTypeItem name(@jakarta.annotation.Nonnull String name) {
@@ -422,6 +448,7 @@ public class ContentObjectTypeItem {
         }
         ContentObjectTypeItem contentObjectTypeItem = (ContentObjectTypeItem) o;
         return Objects.equals(this.id, contentObjectTypeItem.id)
+                && Objects.equals(this.editRevision, contentObjectTypeItem.editRevision)
                 && Objects.equals(this.name, contentObjectTypeItem.name)
                 && Objects.equals(this.description, contentObjectTypeItem.description)
                 && Objects.equals(this.tags, contentObjectTypeItem.tags)
@@ -442,6 +469,7 @@ public class ContentObjectTypeItem {
     public int hashCode() {
         return Objects.hash(
                 id,
+                editRevision,
                 name,
                 description,
                 tags,
@@ -463,6 +491,7 @@ public class ContentObjectTypeItem {
         StringBuilder sb = new StringBuilder();
         sb.append("class ContentObjectTypeItem {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    editRevision: ").append(toIndentedString(editRevision)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -498,6 +527,7 @@ public class ContentObjectTypeItem {
                 new HashSet<String>(
                         Arrays.asList(
                                 "id",
+                                "edit_revision",
                                 "name",
                                 "description",
                                 "tags",
@@ -518,6 +548,7 @@ public class ContentObjectTypeItem {
                 new HashSet<String>(
                         Arrays.asList(
                                 "id",
+                                "edit_revision",
                                 "name",
                                 "updated_by",
                                 "created_by",

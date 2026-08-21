@@ -93,6 +93,12 @@ public class DSLWorkflowDefinitionResponse {
     @jakarta.annotation.Nonnull
     private String id;
 
+    public static final String SERIALIZED_NAME_EDIT_REVISION = "edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EDIT_REVISION)
+    @jakarta.annotation.Nonnull
+    private Integer editRevision;
+
     public static final String SERIALIZED_NAME_UPDATED_BY = "updated_by";
 
     @SerializedName(SERIALIZED_NAME_UPDATED_BY)
@@ -395,6 +401,27 @@ public class DSLWorkflowDefinitionResponse {
         this.id = id;
     }
 
+    public DSLWorkflowDefinitionResponse editRevision(
+            @jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
+        return this;
+    }
+
+    /**
+     * Monotonic edit revision used to detect concurrent updates.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return editRevision
+     */
+    @jakarta.annotation.Nonnull
+    public Integer getEditRevision() {
+        return editRevision;
+    }
+
+    public void setEditRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
+    }
+
     public DSLWorkflowDefinitionResponse updatedBy(@jakarta.annotation.Nonnull String updatedBy) {
         this.updatedBy = updatedBy;
         return this;
@@ -532,6 +559,7 @@ public class DSLWorkflowDefinitionResponse {
                 && Objects.equals(this.result, dsLWorkflowDefinitionResponse.result)
                 && Objects.equals(this.debugMode, dsLWorkflowDefinitionResponse.debugMode)
                 && Objects.equals(this.id, dsLWorkflowDefinitionResponse.id)
+                && Objects.equals(this.editRevision, dsLWorkflowDefinitionResponse.editRevision)
                 && Objects.equals(this.updatedBy, dsLWorkflowDefinitionResponse.updatedBy)
                 && Objects.equals(this.createdBy, dsLWorkflowDefinitionResponse.createdBy)
                 && Objects.equals(this.createdAt, dsLWorkflowDefinitionResponse.createdAt)
@@ -553,6 +581,7 @@ public class DSLWorkflowDefinitionResponse {
                 result,
                 debugMode,
                 id,
+                editRevision,
                 updatedBy,
                 createdBy,
                 createdAt,
@@ -575,6 +604,7 @@ public class DSLWorkflowDefinitionResponse {
         sb.append("    result: ").append(toIndentedString(result)).append("\n");
         sb.append("    debugMode: ").append(toIndentedString(debugMode)).append("\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    editRevision: ").append(toIndentedString(editRevision)).append("\n");
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -611,6 +641,7 @@ public class DSLWorkflowDefinitionResponse {
                                 "result",
                                 "debug_mode",
                                 "id",
+                                "edit_revision",
                                 "updated_by",
                                 "created_by",
                                 "created_at",
@@ -625,6 +656,7 @@ public class DSLWorkflowDefinitionResponse {
                                 "name",
                                 "vars",
                                 "id",
+                                "edit_revision",
                                 "updated_by",
                                 "created_by",
                                 "created_at",

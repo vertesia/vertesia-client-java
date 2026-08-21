@@ -39,6 +39,11 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UpdateWorkflowRulePayload {
+    public static final String SERIALIZED_NAME_EXPECTED_EDIT_REVISION = "expected_edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EXPECTED_EDIT_REVISION)
+    @jakarta.annotation.Nullable private Integer expectedEditRevision;
+
     public static final String SERIALIZED_NAME_MATCH = "match";
 
     @SerializedName(SERIALIZED_NAME_MATCH)
@@ -173,6 +178,26 @@ public class UpdateWorkflowRulePayload {
     @jakarta.annotation.Nullable private String name;
 
     public UpdateWorkflowRulePayload() {}
+
+    public UpdateWorkflowRulePayload expectedEditRevision(
+            @jakarta.annotation.Nullable Integer expectedEditRevision) {
+        this.expectedEditRevision = expectedEditRevision;
+        return this;
+    }
+
+    /**
+     * Edit revision returned by the last read. Stale revisions are rejected with HTTP 409. Omit for legacy last-write-wins behavior.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return expectedEditRevision
+     */
+    @jakarta.annotation.Nullable public Integer getExpectedEditRevision() {
+        return expectedEditRevision;
+    }
+
+    public void setExpectedEditRevision(@jakarta.annotation.Nullable Integer expectedEditRevision) {
+        this.expectedEditRevision = expectedEditRevision;
+    }
 
     public UpdateWorkflowRulePayload match(@jakarta.annotation.Nullable Map<String, Object> match) {
         this.match = match;
@@ -497,7 +522,9 @@ public class UpdateWorkflowRulePayload {
             return false;
         }
         UpdateWorkflowRulePayload updateWorkflowRulePayload = (UpdateWorkflowRulePayload) o;
-        return Objects.equals(this.match, updateWorkflowRulePayload.match)
+        return Objects.equals(
+                        this.expectedEditRevision, updateWorkflowRulePayload.expectedEditRevision)
+                && Objects.equals(this.match, updateWorkflowRulePayload.match)
                 && Objects.equals(this.config, updateWorkflowRulePayload.config)
                 && Objects.equals(this.debug, updateWorkflowRulePayload.debug)
                 && Objects.equals(this.customerOverride, updateWorkflowRulePayload.customerOverride)
@@ -522,6 +549,7 @@ public class UpdateWorkflowRulePayload {
     @Override
     public int hashCode() {
         return Objects.hash(
+                expectedEditRevision,
                 match,
                 config,
                 debug,
@@ -543,6 +571,9 @@ public class UpdateWorkflowRulePayload {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdateWorkflowRulePayload {\n");
+        sb.append("    expectedEditRevision: ")
+                .append(toIndentedString(expectedEditRevision))
+                .append("\n");
         sb.append("    match: ").append(toIndentedString(match)).append("\n");
         sb.append("    config: ").append(toIndentedString(config)).append("\n");
         sb.append("    debug: ").append(toIndentedString(debug)).append("\n");
@@ -584,6 +615,7 @@ public class UpdateWorkflowRulePayload {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "expected_edit_revision",
                                 "match",
                                 "config",
                                 "debug",

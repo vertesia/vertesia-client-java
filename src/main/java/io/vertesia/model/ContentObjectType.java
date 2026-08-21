@@ -45,6 +45,12 @@ public class ContentObjectType {
     @jakarta.annotation.Nonnull
     private String id;
 
+    public static final String SERIALIZED_NAME_EDIT_REVISION = "edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EDIT_REVISION)
+    @jakarta.annotation.Nonnull
+    private Integer editRevision;
+
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -138,6 +144,26 @@ public class ContentObjectType {
 
     public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
+    }
+
+    public ContentObjectType editRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
+        return this;
+    }
+
+    /**
+     * Monotonic edit revision used to detect concurrent updates.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return editRevision
+     */
+    @jakarta.annotation.Nonnull
+    public Integer getEditRevision() {
+        return editRevision;
+    }
+
+    public void setEditRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
     }
 
     public ContentObjectType name(@jakarta.annotation.Nonnull String name) {
@@ -465,6 +491,7 @@ public class ContentObjectType {
         }
         ContentObjectType contentObjectType = (ContentObjectType) o;
         return Objects.equals(this.id, contentObjectType.id)
+                && Objects.equals(this.editRevision, contentObjectType.editRevision)
                 && Objects.equals(this.name, contentObjectType.name)
                 && Objects.equals(this.description, contentObjectType.description)
                 && Objects.equals(this.tags, contentObjectType.tags)
@@ -487,6 +514,7 @@ public class ContentObjectType {
     public int hashCode() {
         return Objects.hash(
                 id,
+                editRevision,
                 name,
                 description,
                 tags,
@@ -509,6 +537,7 @@ public class ContentObjectType {
         StringBuilder sb = new StringBuilder();
         sb.append("class ContentObjectType {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    editRevision: ").append(toIndentedString(editRevision)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -547,6 +576,7 @@ public class ContentObjectType {
                 new HashSet<String>(
                         Arrays.asList(
                                 "id",
+                                "edit_revision",
                                 "name",
                                 "description",
                                 "tags",
@@ -567,6 +597,7 @@ public class ContentObjectType {
                 new HashSet<String>(
                         Arrays.asList(
                                 "id",
+                                "edit_revision",
                                 "name",
                                 "updated_by",
                                 "created_by",

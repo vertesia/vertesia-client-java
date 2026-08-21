@@ -34,18 +34,12 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * AppManifest
+ * UpdateAppPayload
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class AppManifest {
-    public static final String SERIALIZED_NAME_EDIT_REVISION = "edit_revision";
-
-    @SerializedName(SERIALIZED_NAME_EDIT_REVISION)
-    @jakarta.annotation.Nonnull
-    private Integer editRevision;
-
+public class UpdateAppPayload {
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -260,7 +254,7 @@ public class AppManifest {
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
-    @jakarta.annotation.Nullable private AppManifestSource source;
+    @jakarta.annotation.Nullable private AppSourceConfig source;
 
     public static final String SERIALIZED_NAME_TAGS = "tags";
 
@@ -272,52 +266,14 @@ public class AppManifest {
     @SerializedName(SERIALIZED_NAME_ACCESS_CONTROL)
     @jakarta.annotation.Nullable private AppAccessControl accessControl;
 
-    public static final String SERIALIZED_NAME_ID = "id";
+    public static final String SERIALIZED_NAME_EXPECTED_EDIT_REVISION = "expected_edit_revision";
 
-    @SerializedName(SERIALIZED_NAME_ID)
-    @jakarta.annotation.Nonnull
-    private String id;
+    @SerializedName(SERIALIZED_NAME_EXPECTED_EDIT_REVISION)
+    @jakarta.annotation.Nullable private Integer expectedEditRevision;
 
-    public static final String SERIALIZED_NAME_ACCOUNT = "account";
+    public UpdateAppPayload() {}
 
-    @SerializedName(SERIALIZED_NAME_ACCOUNT)
-    @jakarta.annotation.Nullable private String account;
-
-    public static final String SERIALIZED_NAME_CREATED_AT = "created_at";
-
-    @SerializedName(SERIALIZED_NAME_CREATED_AT)
-    @jakarta.annotation.Nonnull
-    private String createdAt;
-
-    public static final String SERIALIZED_NAME_UPDATED_AT = "updated_at";
-
-    @SerializedName(SERIALIZED_NAME_UPDATED_AT)
-    @jakarta.annotation.Nonnull
-    private String updatedAt;
-
-    public AppManifest() {}
-
-    public AppManifest editRevision(@jakarta.annotation.Nonnull Integer editRevision) {
-        this.editRevision = editRevision;
-        return this;
-    }
-
-    /**
-     * Monotonic edit revision used to detect concurrent updates.
-     * minimum: 1
-     * maximum: 9007199254740991
-     * @return editRevision
-     */
-    @jakarta.annotation.Nonnull
-    public Integer getEditRevision() {
-        return editRevision;
-    }
-
-    public void setEditRevision(@jakarta.annotation.Nonnull Integer editRevision) {
-        this.editRevision = editRevision;
-    }
-
-    public AppManifest name(@jakarta.annotation.Nonnull String name) {
+    public UpdateAppPayload name(@jakarta.annotation.Nonnull String name) {
         this.name = name;
         return this;
     }
@@ -335,7 +291,7 @@ public class AppManifest {
         this.name = name;
     }
 
-    public AppManifest visibility(@jakarta.annotation.Nonnull VisibilityEnum visibility) {
+    public UpdateAppPayload visibility(@jakarta.annotation.Nonnull VisibilityEnum visibility) {
         this.visibility = visibility;
         return this;
     }
@@ -353,7 +309,7 @@ public class AppManifest {
         this.visibility = visibility;
     }
 
-    public AppManifest title(@jakarta.annotation.Nonnull String title) {
+    public UpdateAppPayload title(@jakarta.annotation.Nonnull String title) {
         this.title = title;
         return this;
     }
@@ -371,7 +327,7 @@ public class AppManifest {
         this.title = title;
     }
 
-    public AppManifest description(@jakarta.annotation.Nonnull String description) {
+    public UpdateAppPayload description(@jakarta.annotation.Nonnull String description) {
         this.description = description;
         return this;
     }
@@ -389,7 +345,7 @@ public class AppManifest {
         this.description = description;
     }
 
-    public AppManifest publisher(@jakarta.annotation.Nonnull String publisher) {
+    public UpdateAppPayload publisher(@jakarta.annotation.Nonnull String publisher) {
         this.publisher = publisher;
         return this;
     }
@@ -407,7 +363,7 @@ public class AppManifest {
         this.publisher = publisher;
     }
 
-    public AppManifest icon(@jakarta.annotation.Nullable String icon) {
+    public UpdateAppPayload icon(@jakarta.annotation.Nullable String icon) {
         this.icon = icon;
         return this;
     }
@@ -424,7 +380,7 @@ public class AppManifest {
         this.icon = icon;
     }
 
-    public AppManifest color(@jakarta.annotation.Nullable String color) {
+    public UpdateAppPayload color(@jakarta.annotation.Nullable String color) {
         this.color = color;
         return this;
     }
@@ -441,7 +397,7 @@ public class AppManifest {
         this.color = color;
     }
 
-    public AppManifest previewScreenshot(
+    public UpdateAppPayload previewScreenshot(
             @jakarta.annotation.Nullable AppManifestPreviewScreenshot previewScreenshot) {
         this.previewScreenshot = previewScreenshot;
         return this;
@@ -460,7 +416,7 @@ public class AppManifest {
         this.previewScreenshot = previewScreenshot;
     }
 
-    public AppManifest status(@jakarta.annotation.Nonnull StatusEnum status) {
+    public UpdateAppPayload status(@jakarta.annotation.Nonnull StatusEnum status) {
         this.status = status;
         return this;
     }
@@ -478,7 +434,7 @@ public class AppManifest {
         this.status = status;
     }
 
-    public AppManifest ui(@jakarta.annotation.Nullable AppUIConfig ui) {
+    public UpdateAppPayload ui(@jakarta.annotation.Nullable AppUIConfig ui) {
         this.ui = ui;
         return this;
     }
@@ -495,13 +451,13 @@ public class AppManifest {
         this.ui = ui;
     }
 
-    public AppManifest toolCollections(
+    public UpdateAppPayload toolCollections(
             @jakarta.annotation.Nullable List<ToolCollectionObject> toolCollections) {
         this.toolCollections = toolCollections;
         return this;
     }
 
-    public AppManifest addToolCollectionsItem(ToolCollectionObject toolCollectionsItem) {
+    public UpdateAppPayload addToolCollectionsItem(ToolCollectionObject toolCollectionsItem) {
         if (this.toolCollections == null) {
             this.toolCollections = new ArrayList<>();
         }
@@ -522,13 +478,13 @@ public class AppManifest {
         this.toolCollections = toolCollections;
     }
 
-    public AppManifest oauthProviders(
+    public UpdateAppPayload oauthProviders(
             @jakarta.annotation.Nullable Map<String, MCPOAuthConfig> oauthProviders) {
         this.oauthProviders = oauthProviders;
         return this;
     }
 
-    public AppManifest putOauthProvidersItem(String key, MCPOAuthConfig oauthProvidersItem) {
+    public UpdateAppPayload putOauthProvidersItem(String key, MCPOAuthConfig oauthProvidersItem) {
         if (this.oauthProviders == null) {
             this.oauthProviders = new HashMap<>();
         }
@@ -549,7 +505,7 @@ public class AppManifest {
         this.oauthProviders = oauthProviders;
     }
 
-    public AppManifest interactions(@jakarta.annotation.Nullable String interactions) {
+    public UpdateAppPayload interactions(@jakarta.annotation.Nullable String interactions) {
         this.interactions = interactions;
         return this;
     }
@@ -567,7 +523,7 @@ public class AppManifest {
     }
 
     @Deprecated
-    public AppManifest settingsSchema(@jakarta.annotation.Nullable JSONSchema settingsSchema) {
+    public UpdateAppPayload settingsSchema(@jakarta.annotation.Nullable JSONSchema settingsSchema) {
         this.settingsSchema = settingsSchema;
         return this;
     }
@@ -587,13 +543,13 @@ public class AppManifest {
         this.settingsSchema = settingsSchema;
     }
 
-    public AppManifest capabilities(
+    public UpdateAppPayload capabilities(
             @jakarta.annotation.Nullable List<AppCapabilities> capabilities) {
         this.capabilities = capabilities;
         return this;
     }
 
-    public AppManifest addCapabilitiesItem(AppCapabilities capabilitiesItem) {
+    public UpdateAppPayload addCapabilitiesItem(AppCapabilities capabilitiesItem) {
         if (this.capabilities == null) {
             this.capabilities = new ArrayList<>();
         }
@@ -613,7 +569,7 @@ public class AppManifest {
         this.capabilities = capabilities;
     }
 
-    public AppManifest endpoint(@jakarta.annotation.Nullable String endpoint) {
+    public UpdateAppPayload endpoint(@jakarta.annotation.Nullable String endpoint) {
         this.endpoint = endpoint;
         return this;
     }
@@ -630,13 +586,13 @@ public class AppManifest {
         this.endpoint = endpoint;
     }
 
-    public AppManifest endpointOverrides(
+    public UpdateAppPayload endpointOverrides(
             @jakarta.annotation.Nullable Map<String, String> endpointOverrides) {
         this.endpointOverrides = endpointOverrides;
         return this;
     }
 
-    public AppManifest putEndpointOverridesItem(String key, String endpointOverridesItem) {
+    public UpdateAppPayload putEndpointOverridesItem(String key, String endpointOverridesItem) {
         if (this.endpointOverrides == null) {
             this.endpointOverrides = new HashMap<>();
         }
@@ -657,7 +613,7 @@ public class AppManifest {
         this.endpointOverrides = endpointOverrides;
     }
 
-    public AppManifest version(@jakarta.annotation.Nullable String version) {
+    public UpdateAppPayload version(@jakarta.annotation.Nullable String version) {
         this.version = version;
         return this;
     }
@@ -674,29 +630,29 @@ public class AppManifest {
         this.version = version;
     }
 
-    public AppManifest source(@jakarta.annotation.Nullable AppManifestSource source) {
+    public UpdateAppPayload source(@jakarta.annotation.Nullable AppSourceConfig source) {
         this.source = source;
         return this;
     }
 
     /**
-     * Source metadata for generated or synced app manifests.
+     * Source repository configuration for apps generated and maintained through AppGen. Branches are mutable development lanes; immutable app versions record their exact source commit in AppVersionRecord.source_commit and AppVersionRecord.storage.source_git.
      * @return source
      */
-    @jakarta.annotation.Nullable public AppManifestSource getSource() {
+    @jakarta.annotation.Nullable public AppSourceConfig getSource() {
         return source;
     }
 
-    public void setSource(@jakarta.annotation.Nullable AppManifestSource source) {
+    public void setSource(@jakarta.annotation.Nullable AppSourceConfig source) {
         this.source = source;
     }
 
-    public AppManifest tags(@jakarta.annotation.Nullable List<String> tags) {
+    public UpdateAppPayload tags(@jakarta.annotation.Nullable List<String> tags) {
         this.tags = tags;
         return this;
     }
 
-    public AppManifest addTagsItem(String tagsItem) {
+    public UpdateAppPayload addTagsItem(String tagsItem) {
         if (this.tags == null) {
             this.tags = new ArrayList<>();
         }
@@ -716,7 +672,8 @@ public class AppManifest {
         this.tags = tags;
     }
 
-    public AppManifest accessControl(@jakarta.annotation.Nullable AppAccessControl accessControl) {
+    public UpdateAppPayload accessControl(
+            @jakarta.annotation.Nullable AppAccessControl accessControl) {
         this.accessControl = accessControl;
         return this;
     }
@@ -733,75 +690,24 @@ public class AppManifest {
         this.accessControl = accessControl;
     }
 
-    public AppManifest id(@jakarta.annotation.Nonnull String id) {
-        this.id = id;
+    public UpdateAppPayload expectedEditRevision(
+            @jakarta.annotation.Nullable Integer expectedEditRevision) {
+        this.expectedEditRevision = expectedEditRevision;
         return this;
     }
 
     /**
-     * Get id
-     * @return id
+     * Edit revision returned by the last read. Stale revisions are rejected with HTTP 409. Omit for legacy last-write-wins behavior.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return expectedEditRevision
      */
-    @jakarta.annotation.Nonnull
-    public String getId() {
-        return id;
+    @jakarta.annotation.Nullable public Integer getExpectedEditRevision() {
+        return expectedEditRevision;
     }
 
-    public void setId(@jakarta.annotation.Nonnull String id) {
-        this.id = id;
-    }
-
-    public AppManifest account(@jakarta.annotation.Nullable String account) {
-        this.account = account;
-        return this;
-    }
-
-    /**
-     * The owning account. Undefined for apps imported from a master region.
-     * @return account
-     */
-    @jakarta.annotation.Nullable public String getAccount() {
-        return account;
-    }
-
-    public void setAccount(@jakarta.annotation.Nullable String account) {
-        this.account = account;
-    }
-
-    public AppManifest createdAt(@jakarta.annotation.Nonnull String createdAt) {
-        this.createdAt = createdAt;
-        return this;
-    }
-
-    /**
-     * Get createdAt
-     * @return createdAt
-     */
-    @jakarta.annotation.Nonnull
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(@jakarta.annotation.Nonnull String createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public AppManifest updatedAt(@jakarta.annotation.Nonnull String updatedAt) {
-        this.updatedAt = updatedAt;
-        return this;
-    }
-
-    /**
-     * Get updatedAt
-     * @return updatedAt
-     */
-    @jakarta.annotation.Nonnull
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(@jakarta.annotation.Nonnull String updatedAt) {
-        this.updatedAt = updatedAt;
+    public void setExpectedEditRevision(@jakarta.annotation.Nullable Integer expectedEditRevision) {
+        this.expectedEditRevision = expectedEditRevision;
     }
 
     /**
@@ -817,9 +723,9 @@ public class AppManifest {
      *
      * @param key name of the property
      * @param value value of the property
-     * @return the AppManifest instance itself
+     * @return the UpdateAppPayload instance itself
      */
-    public AppManifest putAdditionalProperty(String key, Object value) {
+    public UpdateAppPayload putAdditionalProperty(String key, Object value) {
         if (this.additionalProperties == null) {
             this.additionalProperties = new HashMap<String, Object>();
         }
@@ -857,40 +763,35 @@ public class AppManifest {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AppManifest appManifest = (AppManifest) o;
-        return Objects.equals(this.editRevision, appManifest.editRevision)
-                && Objects.equals(this.name, appManifest.name)
-                && Objects.equals(this.visibility, appManifest.visibility)
-                && Objects.equals(this.title, appManifest.title)
-                && Objects.equals(this.description, appManifest.description)
-                && Objects.equals(this.publisher, appManifest.publisher)
-                && Objects.equals(this.icon, appManifest.icon)
-                && Objects.equals(this.color, appManifest.color)
-                && Objects.equals(this.previewScreenshot, appManifest.previewScreenshot)
-                && Objects.equals(this.status, appManifest.status)
-                && Objects.equals(this.ui, appManifest.ui)
-                && Objects.equals(this.toolCollections, appManifest.toolCollections)
-                && Objects.equals(this.oauthProviders, appManifest.oauthProviders)
-                && Objects.equals(this.interactions, appManifest.interactions)
-                && Objects.equals(this.settingsSchema, appManifest.settingsSchema)
-                && Objects.equals(this.capabilities, appManifest.capabilities)
-                && Objects.equals(this.endpoint, appManifest.endpoint)
-                && Objects.equals(this.endpointOverrides, appManifest.endpointOverrides)
-                && Objects.equals(this.version, appManifest.version)
-                && Objects.equals(this.source, appManifest.source)
-                && Objects.equals(this.tags, appManifest.tags)
-                && Objects.equals(this.accessControl, appManifest.accessControl)
-                && Objects.equals(this.id, appManifest.id)
-                && Objects.equals(this.account, appManifest.account)
-                && Objects.equals(this.createdAt, appManifest.createdAt)
-                && Objects.equals(this.updatedAt, appManifest.updatedAt)
-                && Objects.equals(this.additionalProperties, appManifest.additionalProperties);
+        UpdateAppPayload updateAppPayload = (UpdateAppPayload) o;
+        return Objects.equals(this.name, updateAppPayload.name)
+                && Objects.equals(this.visibility, updateAppPayload.visibility)
+                && Objects.equals(this.title, updateAppPayload.title)
+                && Objects.equals(this.description, updateAppPayload.description)
+                && Objects.equals(this.publisher, updateAppPayload.publisher)
+                && Objects.equals(this.icon, updateAppPayload.icon)
+                && Objects.equals(this.color, updateAppPayload.color)
+                && Objects.equals(this.previewScreenshot, updateAppPayload.previewScreenshot)
+                && Objects.equals(this.status, updateAppPayload.status)
+                && Objects.equals(this.ui, updateAppPayload.ui)
+                && Objects.equals(this.toolCollections, updateAppPayload.toolCollections)
+                && Objects.equals(this.oauthProviders, updateAppPayload.oauthProviders)
+                && Objects.equals(this.interactions, updateAppPayload.interactions)
+                && Objects.equals(this.settingsSchema, updateAppPayload.settingsSchema)
+                && Objects.equals(this.capabilities, updateAppPayload.capabilities)
+                && Objects.equals(this.endpoint, updateAppPayload.endpoint)
+                && Objects.equals(this.endpointOverrides, updateAppPayload.endpointOverrides)
+                && Objects.equals(this.version, updateAppPayload.version)
+                && Objects.equals(this.source, updateAppPayload.source)
+                && Objects.equals(this.tags, updateAppPayload.tags)
+                && Objects.equals(this.accessControl, updateAppPayload.accessControl)
+                && Objects.equals(this.expectedEditRevision, updateAppPayload.expectedEditRevision)
+                && Objects.equals(this.additionalProperties, updateAppPayload.additionalProperties);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                editRevision,
                 name,
                 visibility,
                 title,
@@ -912,18 +813,14 @@ public class AppManifest {
                 source,
                 tags,
                 accessControl,
-                id,
-                account,
-                createdAt,
-                updatedAt,
+                expectedEditRevision,
                 additionalProperties);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AppManifest {\n");
-        sb.append("    editRevision: ").append(toIndentedString(editRevision)).append("\n");
+        sb.append("class UpdateAppPayload {\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
         sb.append("    title: ").append(toIndentedString(title)).append("\n");
@@ -949,10 +846,9 @@ public class AppManifest {
         sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
         sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
-        sb.append("    account: ").append(toIndentedString(account)).append("\n");
-        sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
-        sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
+        sb.append("    expectedEditRevision: ")
+                .append(toIndentedString(expectedEditRevision))
+                .append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -976,7 +872,6 @@ public class AppManifest {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "edit_revision",
                                 "name",
                                 "visibility",
                                 "title",
@@ -998,47 +893,40 @@ public class AppManifest {
                                 "source",
                                 "tags",
                                 "access_control",
-                                "id",
-                                "account",
-                                "created_at",
-                                "updated_at"));
+                                "expected_edit_revision"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "edit_revision",
                                 "name",
                                 "visibility",
                                 "title",
                                 "description",
                                 "publisher",
-                                "status",
-                                "id",
-                                "created_at",
-                                "updated_at"));
+                                "status"));
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to AppManifest
+     * @throws IOException if the JSON Element is invalid with respect to UpdateAppPayload
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!AppManifest.openapiRequiredFields
+            if (!UpdateAppPayload.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 java.util.Locale.ROOT,
-                                "The required field(s) %s in AppManifest is not found in the empty JSON string",
-                                AppManifest.openapiRequiredFields.toString()));
+                                "The required field(s) %s in UpdateAppPayload is not found in the empty JSON string",
+                                UpdateAppPayload.openapiRequiredFields.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : AppManifest.openapiRequiredFields) {
+        for (String requiredField : UpdateAppPayload.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -1181,7 +1069,7 @@ public class AppManifest {
         }
         // validate the optional field `source`
         if (jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) {
-            AppManifestSource.validateJsonElement(jsonObj.get("source"));
+            AppSourceConfig.validateJsonElement(jsonObj.get("source"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("tags") != null
@@ -1197,52 +1085,24 @@ public class AppManifest {
         if (jsonObj.get("access_control") != null && !jsonObj.get("access_control").isJsonNull()) {
             AppAccessControl.validateJsonElement(jsonObj.get("access_control"));
         }
-        if (!jsonObj.get("id").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `id` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("id").toString()));
-        }
-        if ((jsonObj.get("account") != null && !jsonObj.get("account").isJsonNull())
-                && !jsonObj.get("account").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `account` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("account").toString()));
-        }
-        if (!jsonObj.get("created_at").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `created_at` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("created_at").toString()));
-        }
-        if (!jsonObj.get("updated_at").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `updated_at` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("updated_at").toString()));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!AppManifest.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'AppManifest' and its subtypes
+            if (!UpdateAppPayload.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'UpdateAppPayload' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AppManifest> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(AppManifest.class));
+            final TypeAdapter<UpdateAppPayload> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(UpdateAppPayload.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<AppManifest>() {
+                    new TypeAdapter<UpdateAppPayload>() {
                         @Override
-                        public void write(JsonWriter out, AppManifest value) throws IOException {
+                        public void write(JsonWriter out, UpdateAppPayload value)
+                                throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             obj.remove("additionalProperties");
                             // serialize additional properties
@@ -1272,12 +1132,12 @@ public class AppManifest {
                         }
 
                         @Override
-                        public AppManifest read(JsonReader in) throws IOException {
+                        public UpdateAppPayload read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             JsonObject jsonObj = jsonElement.getAsJsonObject();
                             // store additional fields in the deserialized instance
-                            AppManifest instance = thisAdapter.fromJsonTree(jsonObj);
+                            UpdateAppPayload instance = thisAdapter.fromJsonTree(jsonObj);
                             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                                 if (!openapiFields.contains(entry.getKey())) {
                                     if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -1316,18 +1176,18 @@ public class AppManifest {
     }
 
     /**
-     * Create an instance of AppManifest given an JSON string
+     * Create an instance of UpdateAppPayload given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of AppManifest
-     * @throws IOException if the JSON string is invalid with respect to AppManifest
+     * @return An instance of UpdateAppPayload
+     * @throws IOException if the JSON string is invalid with respect to UpdateAppPayload
      */
-    public static AppManifest fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, AppManifest.class);
+    public static UpdateAppPayload fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, UpdateAppPayload.class);
     }
 
     /**
-     * Convert an instance of AppManifest to an JSON string
+     * Convert an instance of UpdateAppPayload to an JSON string
      *
      * @return JSON string
      */

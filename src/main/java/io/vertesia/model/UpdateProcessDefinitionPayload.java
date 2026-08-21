@@ -37,6 +37,11 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UpdateProcessDefinitionPayload {
+    public static final String SERIALIZED_NAME_EXPECTED_EDIT_REVISION = "expected_edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EXPECTED_EDIT_REVISION)
+    @jakarta.annotation.Nullable private Integer expectedEditRevision;
+
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -70,6 +75,26 @@ public class UpdateProcessDefinitionPayload {
     @jakarta.annotation.Nullable private ProcessDefinitionBody definition;
 
     public UpdateProcessDefinitionPayload() {}
+
+    public UpdateProcessDefinitionPayload expectedEditRevision(
+            @jakarta.annotation.Nullable Integer expectedEditRevision) {
+        this.expectedEditRevision = expectedEditRevision;
+        return this;
+    }
+
+    /**
+     * Edit revision returned by the last read. Stale revisions are rejected with HTTP 409. Omit for legacy last-write-wins behavior.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return expectedEditRevision
+     */
+    @jakarta.annotation.Nullable public Integer getExpectedEditRevision() {
+        return expectedEditRevision;
+    }
+
+    public void setExpectedEditRevision(@jakarta.annotation.Nullable Integer expectedEditRevision) {
+        this.expectedEditRevision = expectedEditRevision;
+    }
 
     public UpdateProcessDefinitionPayload name(@jakarta.annotation.Nullable String name) {
         this.name = name;
@@ -202,7 +227,10 @@ public class UpdateProcessDefinitionPayload {
         }
         UpdateProcessDefinitionPayload updateProcessDefinitionPayload =
                 (UpdateProcessDefinitionPayload) o;
-        return Objects.equals(this.name, updateProcessDefinitionPayload.name)
+        return Objects.equals(
+                        this.expectedEditRevision,
+                        updateProcessDefinitionPayload.expectedEditRevision)
+                && Objects.equals(this.name, updateProcessDefinitionPayload.name)
                 && Objects.equals(this.description, updateProcessDefinitionPayload.description)
                 && Objects.equals(this.status, updateProcessDefinitionPayload.status)
                 && Objects.equals(this.version, updateProcessDefinitionPayload.version)
@@ -212,13 +240,17 @@ public class UpdateProcessDefinitionPayload {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, status, version, tags, definition);
+        return Objects.hash(
+                expectedEditRevision, name, description, status, version, tags, definition);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdateProcessDefinitionPayload {\n");
+        sb.append("    expectedEditRevision: ")
+                .append(toIndentedString(expectedEditRevision))
+                .append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
@@ -245,7 +277,13 @@ public class UpdateProcessDefinitionPayload {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "name", "description", "status", "version", "tags", "definition"));
+                                "expected_edit_revision",
+                                "name",
+                                "description",
+                                "status",
+                                "version",
+                                "tags",
+                                "definition"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);

@@ -33,7 +33,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Fields to change on a content object type. Every field is optional — only the ones present are written, and the rest are left as they are.
+ * Fields to change on a content object type. Only fields present are written; expected_edit_revision prevents overwriting a concurrent edit.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -88,6 +88,11 @@ public class UpdateContentObjectTypePayload {
 
     @SerializedName(SERIALIZED_NAME_TAGS)
     @jakarta.annotation.Nullable private List<String> tags = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_EXPECTED_EDIT_REVISION = "expected_edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EXPECTED_EDIT_REVISION)
+    @jakarta.annotation.Nullable private Integer expectedEditRevision;
 
     public UpdateContentObjectTypePayload() {}
 
@@ -293,6 +298,26 @@ public class UpdateContentObjectTypePayload {
         this.tags = tags;
     }
 
+    public UpdateContentObjectTypePayload expectedEditRevision(
+            @jakarta.annotation.Nullable Integer expectedEditRevision) {
+        this.expectedEditRevision = expectedEditRevision;
+        return this;
+    }
+
+    /**
+     * Edit revision returned by the last read. Stale revisions are rejected with HTTP 409. Omit for legacy last-write-wins behavior.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return expectedEditRevision
+     */
+    @jakarta.annotation.Nullable public Integer getExpectedEditRevision() {
+        return expectedEditRevision;
+    }
+
+    public void setExpectedEditRevision(@jakarta.annotation.Nullable Integer expectedEditRevision) {
+        this.expectedEditRevision = expectedEditRevision;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -359,6 +384,9 @@ public class UpdateContentObjectTypePayload {
                 && Objects.equals(this.description, updateContentObjectTypePayload.description)
                 && Objects.equals(this.tags, updateContentObjectTypePayload.tags)
                 && Objects.equals(
+                        this.expectedEditRevision,
+                        updateContentObjectTypePayload.expectedEditRevision)
+                && Objects.equals(
                         this.additionalProperties,
                         updateContentObjectTypePayload.additionalProperties);
     }
@@ -376,6 +404,7 @@ public class UpdateContentObjectTypePayload {
                 name,
                 description,
                 tags,
+                expectedEditRevision,
                 additionalProperties);
     }
 
@@ -393,6 +422,9 @@ public class UpdateContentObjectTypePayload {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+        sb.append("    expectedEditRevision: ")
+                .append(toIndentedString(expectedEditRevision))
+                .append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -425,7 +457,8 @@ public class UpdateContentObjectTypePayload {
                                 "strict_mode",
                                 "name",
                                 "description",
-                                "tags"));
+                                "tags",
+                                "expected_edit_revision"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);

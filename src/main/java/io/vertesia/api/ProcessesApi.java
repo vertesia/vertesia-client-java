@@ -935,6 +935,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1035,6 +1036,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1061,6 +1063,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1090,6 +1093,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1121,6 +1125,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The reverted draft process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being reverted. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1221,6 +1226,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The reverted draft process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being reverted. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1247,6 +1253,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The reverted draft process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being reverted. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1276,6 +1283,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The reverted draft process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being reverted. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1307,6 +1315,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated draft process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition was changed after the caller read it. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1397,7 +1406,7 @@ public class ProcessesApi {
 
     /**
      * Update a process definition
-     * Updates the latest draft revision in place when the current head is a draft. Updating a published head forks a new latest draft revision while keeping the published revision immutable.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Updates the latest draft revision in place when the current head is a draft. Updating a published head forks a new latest draft revision while keeping the published revision immutable. The processId must identify the current head; non-head revisions are rejected with HTTP 400 and the response identifies the head to update.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param processId  (required)
      * @param updateProcessDefinitionPayload  (required)
      * @return ProcessDefinition
@@ -1407,6 +1416,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated draft process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition was changed after the caller read it. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1423,7 +1433,7 @@ public class ProcessesApi {
 
     /**
      * Update a process definition
-     * Updates the latest draft revision in place when the current head is a draft. Updating a published head forks a new latest draft revision while keeping the published revision immutable.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Updates the latest draft revision in place when the current head is a draft. Updating a published head forks a new latest draft revision while keeping the published revision immutable. The processId must identify the current head; non-head revisions are rejected with HTTP 400 and the response identifies the head to update.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param processId  (required)
      * @param updateProcessDefinitionPayload  (required)
      * @return ApiResponse&lt;ProcessDefinition&gt;
@@ -1433,6 +1443,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated draft process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition was changed after the caller read it. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1451,7 +1462,7 @@ public class ProcessesApi {
 
     /**
      * Update a process definition (asynchronously)
-     * Updates the latest draft revision in place when the current head is a draft. Updating a published head forks a new latest draft revision while keeping the published revision immutable.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Updates the latest draft revision in place when the current head is a draft. Updating a published head forks a new latest draft revision while keeping the published revision immutable. The processId must identify the current head; non-head revisions are rejected with HTTP 400 and the response identifies the head to update.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param processId  (required)
      * @param updateProcessDefinitionPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1462,6 +1473,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated draft process definition. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition was changed after the caller read it. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>

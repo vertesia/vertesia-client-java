@@ -87,6 +87,12 @@ public class PromptTemplate {
     @jakarta.annotation.Nonnull
     private BigDecimal version;
 
+    public static final String SERIALIZED_NAME_EDIT_REVISION = "edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EDIT_REVISION)
+    @jakarta.annotation.Nonnull
+    private Integer editRevision;
+
     public static final String SERIALIZED_NAME_PARENT = "parent";
 
     @SerializedName(SERIALIZED_NAME_PARENT)
@@ -290,6 +296,26 @@ public class PromptTemplate {
 
     public void setVersion(@jakarta.annotation.Nonnull BigDecimal version) {
         this.version = version;
+    }
+
+    public PromptTemplate editRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
+        return this;
+    }
+
+    /**
+     * Monotonic edit revision used to detect concurrent updates.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return editRevision
+     */
+    @jakarta.annotation.Nonnull
+    public Integer getEditRevision() {
+        return editRevision;
+    }
+
+    public void setEditRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
     }
 
     public PromptTemplate parent(@jakarta.annotation.Nullable String parent) {
@@ -518,6 +544,7 @@ public class PromptTemplate {
                 && Objects.equals(this.name, promptTemplate.name)
                 && Objects.equals(this.status, promptTemplate.status)
                 && Objects.equals(this.version, promptTemplate.version)
+                && Objects.equals(this.editRevision, promptTemplate.editRevision)
                 && Objects.equals(this.parent, promptTemplate.parent)
                 && Objects.equals(this.description, promptTemplate.description)
                 && Objects.equals(this.testData, promptTemplate.testData)
@@ -542,6 +569,7 @@ public class PromptTemplate {
                 name,
                 status,
                 version,
+                editRevision,
                 parent,
                 description,
                 testData,
@@ -567,6 +595,7 @@ public class PromptTemplate {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("    editRevision: ").append(toIndentedString(editRevision)).append("\n");
         sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    testData: ").append(toIndentedString(testData)).append("\n");
@@ -606,6 +635,7 @@ public class PromptTemplate {
                                 "name",
                                 "status",
                                 "version",
+                                "edit_revision",
                                 "parent",
                                 "description",
                                 "test_data",
@@ -629,6 +659,7 @@ public class PromptTemplate {
                                 "name",
                                 "status",
                                 "version",
+                                "edit_revision",
                                 "project",
                                 "created_by",
                                 "updated_by",

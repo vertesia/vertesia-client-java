@@ -47,6 +47,12 @@ public class Interaction {
     @jakarta.annotation.Nonnull
     private String id;
 
+    public static final String SERIALIZED_NAME_EDIT_REVISION = "edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EDIT_REVISION)
+    @jakarta.annotation.Nonnull
+    private Integer editRevision;
+
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -208,6 +214,26 @@ public class Interaction {
 
     public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
+    }
+
+    public Interaction editRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
+        return this;
+    }
+
+    /**
+     * Monotonic edit revision used to detect concurrent updates.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return editRevision
+     */
+    @jakarta.annotation.Nonnull
+    public Integer getEditRevision() {
+        return editRevision;
+    }
+
+    public void setEditRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
     }
 
     public Interaction name(@jakarta.annotation.Nonnull String name) {
@@ -709,6 +735,7 @@ public class Interaction {
         }
         Interaction interaction = (Interaction) o;
         return Objects.equals(this.id, interaction.id)
+                && Objects.equals(this.editRevision, interaction.editRevision)
                 && Objects.equals(this.name, interaction.name)
                 && Objects.equals(this.endpoint, interaction.endpoint)
                 && Objects.equals(this.description, interaction.description)
@@ -741,6 +768,7 @@ public class Interaction {
     public int hashCode() {
         return Objects.hash(
                 id,
+                editRevision,
                 name,
                 endpoint,
                 description,
@@ -774,6 +802,7 @@ public class Interaction {
         StringBuilder sb = new StringBuilder();
         sb.append("class Interaction {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    editRevision: ").append(toIndentedString(editRevision)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    endpoint: ").append(toIndentedString(endpoint)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -827,6 +856,7 @@ public class Interaction {
                 new HashSet<String>(
                         Arrays.asList(
                                 "id",
+                                "edit_revision",
                                 "name",
                                 "endpoint",
                                 "description",
@@ -859,6 +889,7 @@ public class Interaction {
                 new HashSet<String>(
                         Arrays.asList(
                                 "id",
+                                "edit_revision",
                                 "name",
                                 "endpoint",
                                 "project",

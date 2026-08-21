@@ -73,6 +73,11 @@ public class UpdateDashboardPayload {
     @SerializedName(SERIALIZED_NAME_SPEC)
     @jakarta.annotation.Nullable private Map<String, Object> spec = new HashMap<>();
 
+    public static final String SERIALIZED_NAME_EXPECTED_EDIT_REVISION = "expected_edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EXPECTED_EDIT_REVISION)
+    @jakarta.annotation.Nullable private Integer expectedEditRevision;
+
     public static final String SERIALIZED_NAME_SKIP_VERSIONING = "skip_versioning";
 
     @SerializedName(SERIALIZED_NAME_SKIP_VERSIONING)
@@ -218,6 +223,26 @@ public class UpdateDashboardPayload {
         this.spec = spec;
     }
 
+    public UpdateDashboardPayload expectedEditRevision(
+            @jakarta.annotation.Nullable Integer expectedEditRevision) {
+        this.expectedEditRevision = expectedEditRevision;
+        return this;
+    }
+
+    /**
+     * Edit revision returned by the last read. Stale revisions are rejected with HTTP 409. Omit for legacy last-write-wins behavior.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return expectedEditRevision
+     */
+    @jakarta.annotation.Nullable public Integer getExpectedEditRevision() {
+        return expectedEditRevision;
+    }
+
+    public void setExpectedEditRevision(@jakarta.annotation.Nullable Integer expectedEditRevision) {
+        this.expectedEditRevision = expectedEditRevision;
+    }
+
     public UpdateDashboardPayload skipVersioning(
             @jakarta.annotation.Nullable Boolean skipVersioning) {
         this.skipVersioning = skipVersioning;
@@ -297,6 +322,8 @@ public class UpdateDashboardPayload {
                 && Objects.equals(this.queryLimit, updateDashboardPayload.queryLimit)
                 && Objects.equals(this.queryParameters, updateDashboardPayload.queryParameters)
                 && Objects.equals(this.spec, updateDashboardPayload.spec)
+                && Objects.equals(
+                        this.expectedEditRevision, updateDashboardPayload.expectedEditRevision)
                 && Objects.equals(this.skipVersioning, updateDashboardPayload.skipVersioning)
                 && Objects.equals(
                         this.additionalProperties, updateDashboardPayload.additionalProperties);
@@ -312,6 +339,7 @@ public class UpdateDashboardPayload {
                 queryLimit,
                 queryParameters,
                 spec,
+                expectedEditRevision,
                 skipVersioning,
                 additionalProperties);
     }
@@ -327,6 +355,9 @@ public class UpdateDashboardPayload {
         sb.append("    queryLimit: ").append(toIndentedString(queryLimit)).append("\n");
         sb.append("    queryParameters: ").append(toIndentedString(queryParameters)).append("\n");
         sb.append("    spec: ").append(toIndentedString(spec)).append("\n");
+        sb.append("    expectedEditRevision: ")
+                .append(toIndentedString(expectedEditRevision))
+                .append("\n");
         sb.append("    skipVersioning: ").append(toIndentedString(skipVersioning)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
@@ -358,6 +389,7 @@ public class UpdateDashboardPayload {
                                 "queryLimit",
                                 "queryParameters",
                                 "spec",
+                                "expected_edit_revision",
                                 "skip_versioning"));
 
         // a set of required properties/fields (JSON key names)

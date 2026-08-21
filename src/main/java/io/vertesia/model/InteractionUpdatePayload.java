@@ -42,6 +42,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class InteractionUpdatePayload {
+    public static final String SERIALIZED_NAME_EXPECTED_EDIT_REVISION = "expected_edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EXPECTED_EDIT_REVISION)
+    @jakarta.annotation.Nullable private Integer expectedEditRevision;
+
     public static final String SERIALIZED_NAME_STATUS = "status";
 
     @SerializedName(SERIALIZED_NAME_STATUS)
@@ -80,7 +85,7 @@ public class InteractionUpdatePayload {
     public static final String SERIALIZED_NAME_PROMPTS = "prompts";
 
     @SerializedName(SERIALIZED_NAME_PROMPTS)
-    @jakarta.annotation.Nullable private List<PromptSegmentDef> prompts = new ArrayList<>();
+    @jakarta.annotation.Nullable private List<InteractionPromptSegmentInput> prompts = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LAST_PUBLISHED_AT = "last_published_at";
 
@@ -149,6 +154,26 @@ public class InteractionUpdatePayload {
     @jakarta.annotation.Nullable private AsyncConversationExecutionPayloadResultSchema resultSchema;
 
     public InteractionUpdatePayload() {}
+
+    public InteractionUpdatePayload expectedEditRevision(
+            @jakarta.annotation.Nullable Integer expectedEditRevision) {
+        this.expectedEditRevision = expectedEditRevision;
+        return this;
+    }
+
+    /**
+     * Edit revision returned by the last read. Stale revisions are rejected with HTTP 409. Omit for legacy last-write-wins behavior.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return expectedEditRevision
+     */
+    @jakarta.annotation.Nullable public Integer getExpectedEditRevision() {
+        return expectedEditRevision;
+    }
+
+    public void setExpectedEditRevision(@jakarta.annotation.Nullable Integer expectedEditRevision) {
+        this.expectedEditRevision = expectedEditRevision;
+    }
 
     public InteractionUpdatePayload status(@jakarta.annotation.Nullable InteractionStatus status) {
         this.status = status;
@@ -283,12 +308,12 @@ public class InteractionUpdatePayload {
     }
 
     public InteractionUpdatePayload prompts(
-            @jakarta.annotation.Nullable List<PromptSegmentDef> prompts) {
+            @jakarta.annotation.Nullable List<InteractionPromptSegmentInput> prompts) {
         this.prompts = prompts;
         return this;
     }
 
-    public InteractionUpdatePayload addPromptsItem(PromptSegmentDef promptsItem) {
+    public InteractionUpdatePayload addPromptsItem(InteractionPromptSegmentInput promptsItem) {
         if (this.prompts == null) {
             this.prompts = new ArrayList<>();
         }
@@ -300,11 +325,12 @@ public class InteractionUpdatePayload {
      * Get prompts
      * @return prompts
      */
-    @jakarta.annotation.Nullable public List<PromptSegmentDef> getPrompts() {
+    @jakarta.annotation.Nullable public List<InteractionPromptSegmentInput> getPrompts() {
         return prompts;
     }
 
-    public void setPrompts(@jakarta.annotation.Nullable List<PromptSegmentDef> prompts) {
+    public void setPrompts(
+            @jakarta.annotation.Nullable List<InteractionPromptSegmentInput> prompts) {
         this.prompts = prompts;
     }
 
@@ -560,7 +586,9 @@ public class InteractionUpdatePayload {
             return false;
         }
         InteractionUpdatePayload interactionUpdatePayload = (InteractionUpdatePayload) o;
-        return Objects.equals(this.status, interactionUpdatePayload.status)
+        return Objects.equals(
+                        this.expectedEditRevision, interactionUpdatePayload.expectedEditRevision)
+                && Objects.equals(this.status, interactionUpdatePayload.status)
                 && Objects.equals(this.parent, interactionUpdatePayload.parent)
                 && Objects.equals(this.visibility, interactionUpdatePayload.visibility)
                 && Objects.equals(this.version, interactionUpdatePayload.version)
@@ -598,6 +626,7 @@ public class InteractionUpdatePayload {
     @Override
     public int hashCode() {
         return Objects.hash(
+                expectedEditRevision,
                 status,
                 parent,
                 visibility,
@@ -632,6 +661,9 @@ public class InteractionUpdatePayload {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InteractionUpdatePayload {\n");
+        sb.append("    expectedEditRevision: ")
+                .append(toIndentedString(expectedEditRevision))
+                .append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    parent: ").append(toIndentedString(parent)).append("\n");
         sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
@@ -679,6 +711,7 @@ public class InteractionUpdatePayload {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "expected_edit_revision",
                                 "status",
                                 "parent",
                                 "visibility",
@@ -762,7 +795,7 @@ public class InteractionUpdatePayload {
 
                 // validate the optional field `prompts` (array)
                 for (int i = 0; i < jsonArrayprompts.size(); i++) {
-                    PromptSegmentDef.validateJsonElement(jsonArrayprompts.get(i));
+                    InteractionPromptSegmentInput.validateJsonElement(jsonArrayprompts.get(i));
                 }
                 ;
             }

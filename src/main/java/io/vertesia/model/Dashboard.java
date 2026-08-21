@@ -47,6 +47,12 @@ public class Dashboard {
     @jakarta.annotation.Nonnull
     private String id;
 
+    public static final String SERIALIZED_NAME_EDIT_REVISION = "edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EDIT_REVISION)
+    @jakarta.annotation.Nonnull
+    private Integer editRevision;
+
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -259,6 +265,26 @@ public class Dashboard {
 
     public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
+    }
+
+    public Dashboard editRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
+        return this;
+    }
+
+    /**
+     * Monotonic edit revision used to detect concurrent updates.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return editRevision
+     */
+    @jakarta.annotation.Nonnull
+    public Integer getEditRevision() {
+        return editRevision;
+    }
+
+    public void setEditRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
     }
 
     public Dashboard name(@jakarta.annotation.Nonnull String name) {
@@ -803,6 +829,7 @@ public class Dashboard {
         }
         Dashboard dashboard = (Dashboard) o;
         return Objects.equals(this.id, dashboard.id)
+                && Objects.equals(this.editRevision, dashboard.editRevision)
                 && Objects.equals(this.name, dashboard.name)
                 && Objects.equals(this.description, dashboard.description)
                 && Objects.equals(this.tags, dashboard.tags)
@@ -834,6 +861,7 @@ public class Dashboard {
     public int hashCode() {
         return Objects.hash(
                 id,
+                editRevision,
                 name,
                 description,
                 tags,
@@ -866,6 +894,7 @@ public class Dashboard {
         StringBuilder sb = new StringBuilder();
         sb.append("class Dashboard {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    editRevision: ").append(toIndentedString(editRevision)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
@@ -914,6 +943,7 @@ public class Dashboard {
                 new HashSet<String>(
                         Arrays.asList(
                                 "id",
+                                "edit_revision",
                                 "name",
                                 "description",
                                 "tags",
@@ -944,6 +974,7 @@ public class Dashboard {
                 new HashSet<String>(
                         Arrays.asList(
                                 "id",
+                                "edit_revision",
                                 "name",
                                 "tags",
                                 "updated_by",

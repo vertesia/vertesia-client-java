@@ -607,6 +607,9 @@ src/main/java/io/vertesia/model/InteractionExecutionResult.java
 src/main/java/io/vertesia/model/InteractionForkPayload.java
 src/main/java/io/vertesia/model/InteractionName.java
 src/main/java/io/vertesia/model/InteractionProject.java
+src/main/java/io/vertesia/model/InteractionPromptSegmentInput.java
+src/main/java/io/vertesia/model/InteractionPromptSegmentInputTemplate.java
+src/main/java/io/vertesia/model/InteractionPromptTemplateInput.java
 src/main/java/io/vertesia/model/InteractionPublishPayload.java
 src/main/java/io/vertesia/model/InteractionRef.java
 src/main/java/io/vertesia/model/InteractionRefWithSchema.java
@@ -954,6 +957,7 @@ src/main/java/io/vertesia/model/UpdateAgentArtifactContentPayload.java
 src/main/java/io/vertesia/model/UpdateAgentArtifactContentResponse.java
 src/main/java/io/vertesia/model/UpdateApiKeyPayload.java
 src/main/java/io/vertesia/model/UpdateAppInstallationToolAllowlistPayload.java
+src/main/java/io/vertesia/model/UpdateAppPayload.java
 src/main/java/io/vertesia/model/UpdateCollectionPayload.java
 src/main/java/io/vertesia/model/UpdateContentObjectPayload.java
 src/main/java/io/vertesia/model/UpdateContentObjectTypePayload.java
@@ -974,6 +978,9 @@ src/main/java/io/vertesia/model/UpdateTaskPayload.java
 src/main/java/io/vertesia/model/UpdateUserGroupPayload.java
 src/main/java/io/vertesia/model/UpdateUserPayload.java
 src/main/java/io/vertesia/model/UpdateViewExperienceRequest.java
+src/main/java/io/vertesia/model/UpdateWorkflowDefinitionPayload.java
+src/main/java/io/vertesia/model/UpdateWorkflowDefinitionPayloadWithActivities.java
+src/main/java/io/vertesia/model/UpdateWorkflowDefinitionPayloadWithSteps.java
 src/main/java/io/vertesia/model/UpdateWorkflowRulePayload.java
 src/main/java/io/vertesia/model/UpsertAppVersionRequest.java
 src/main/java/io/vertesia/model/UsedSkill.java

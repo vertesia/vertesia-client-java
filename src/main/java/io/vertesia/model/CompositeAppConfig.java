@@ -38,6 +38,12 @@ import org.openapitools.jackson.nullable.JsonNullable;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class CompositeAppConfig {
+    public static final String SERIALIZED_NAME_EDIT_REVISION = "edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EDIT_REVISION)
+    @jakarta.annotation.Nonnull
+    private Integer editRevision;
+
     public static final String SERIALIZED_NAME_ID = "id";
 
     @SerializedName(SERIALIZED_NAME_ID)
@@ -113,6 +119,26 @@ public class CompositeAppConfig {
     @jakarta.annotation.Nullable private List<CompositeAppMenuSection> menu = new ArrayList<>();
 
     public CompositeAppConfig() {}
+
+    public CompositeAppConfig editRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
+        return this;
+    }
+
+    /**
+     * Monotonic edit revision used to detect concurrent updates.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return editRevision
+     */
+    @jakarta.annotation.Nonnull
+    public Integer getEditRevision() {
+        return editRevision;
+    }
+
+    public void setEditRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
+    }
 
     public CompositeAppConfig id(@jakarta.annotation.Nullable String id) {
         this.id = id;
@@ -405,7 +431,8 @@ public class CompositeAppConfig {
             return false;
         }
         CompositeAppConfig compositeAppConfig = (CompositeAppConfig) o;
-        return Objects.equals(this.id, compositeAppConfig.id)
+        return Objects.equals(this.editRevision, compositeAppConfig.editRevision)
+                && Objects.equals(this.id, compositeAppConfig.id)
                 && Objects.equals(this.project, compositeAppConfig.project)
                 && Objects.equals(this.card, compositeAppConfig.card)
                 && Objects.equals(this.logo, compositeAppConfig.logo)
@@ -433,6 +460,7 @@ public class CompositeAppConfig {
     @Override
     public int hashCode() {
         return Objects.hash(
+                editRevision,
                 id,
                 project,
                 card,
@@ -460,6 +488,7 @@ public class CompositeAppConfig {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class CompositeAppConfig {\n");
+        sb.append("    editRevision: ").append(toIndentedString(editRevision)).append("\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    project: ").append(toIndentedString(project)).append("\n");
         sb.append("    card: ").append(toIndentedString(card)).append("\n");
@@ -494,6 +523,7 @@ public class CompositeAppConfig {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "edit_revision",
                                 "id",
                                 "project",
                                 "card",
@@ -510,7 +540,8 @@ public class CompositeAppConfig {
                                 "menu"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("project", "apps"));
+        openapiRequiredFields =
+                new HashSet<String>(Arrays.asList("edit_revision", "project", "apps"));
     }
 
     /**

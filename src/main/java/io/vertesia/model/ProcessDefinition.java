@@ -44,6 +44,12 @@ public class ProcessDefinition {
     @jakarta.annotation.Nonnull
     private String id;
 
+    public static final String SERIALIZED_NAME_EDIT_REVISION = "edit_revision";
+
+    @SerializedName(SERIALIZED_NAME_EDIT_REVISION)
+    @jakarta.annotation.Nonnull
+    private Integer editRevision;
+
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
@@ -137,6 +143,26 @@ public class ProcessDefinition {
 
     public void setId(@jakarta.annotation.Nonnull String id) {
         this.id = id;
+    }
+
+    public ProcessDefinition editRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
+        return this;
+    }
+
+    /**
+     * Monotonic edit revision used to detect concurrent updates.
+     * minimum: 1
+     * maximum: 9007199254740991
+     * @return editRevision
+     */
+    @jakarta.annotation.Nonnull
+    public Integer getEditRevision() {
+        return editRevision;
+    }
+
+    public void setEditRevision(@jakarta.annotation.Nonnull Integer editRevision) {
+        this.editRevision = editRevision;
     }
 
     public ProcessDefinition account(@jakarta.annotation.Nonnull String account) {
@@ -390,6 +416,7 @@ public class ProcessDefinition {
         }
         ProcessDefinition processDefinition = (ProcessDefinition) o;
         return Objects.equals(this.id, processDefinition.id)
+                && Objects.equals(this.editRevision, processDefinition.editRevision)
                 && Objects.equals(this.account, processDefinition.account)
                 && Objects.equals(this.project, processDefinition.project)
                 && Objects.equals(this.name, processDefinition.name)
@@ -409,6 +436,7 @@ public class ProcessDefinition {
     public int hashCode() {
         return Objects.hash(
                 id,
+                editRevision,
                 account,
                 project,
                 name,
@@ -429,6 +457,7 @@ public class ProcessDefinition {
         StringBuilder sb = new StringBuilder();
         sb.append("class ProcessDefinition {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    editRevision: ").append(toIndentedString(editRevision)).append("\n");
         sb.append("    account: ").append(toIndentedString(account)).append("\n");
         sb.append("    project: ").append(toIndentedString(project)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -463,6 +492,7 @@ public class ProcessDefinition {
                 new HashSet<String>(
                         Arrays.asList(
                                 "id",
+                                "edit_revision",
                                 "account",
                                 "project",
                                 "name",
@@ -482,6 +512,7 @@ public class ProcessDefinition {
                 new HashSet<String>(
                         Arrays.asList(
                                 "id",
+                                "edit_revision",
                                 "account",
                                 "project",
                                 "name",

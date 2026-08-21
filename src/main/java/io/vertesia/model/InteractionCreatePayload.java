@@ -65,7 +65,7 @@ public class InteractionCreatePayload {
 
     @SerializedName(SERIALIZED_NAME_PROMPTS)
     @jakarta.annotation.Nonnull
-    private List<PromptSegmentDef> prompts = new ArrayList<>();
+    private List<InteractionPromptSegmentInput> prompts = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_LAST_PUBLISHED_AT = "last_published_at";
 
@@ -218,12 +218,12 @@ public class InteractionCreatePayload {
     }
 
     public InteractionCreatePayload prompts(
-            @jakarta.annotation.Nonnull List<PromptSegmentDef> prompts) {
+            @jakarta.annotation.Nonnull List<InteractionPromptSegmentInput> prompts) {
         this.prompts = prompts;
         return this;
     }
 
-    public InteractionCreatePayload addPromptsItem(PromptSegmentDef promptsItem) {
+    public InteractionCreatePayload addPromptsItem(InteractionPromptSegmentInput promptsItem) {
         if (this.prompts == null) {
             this.prompts = new ArrayList<>();
         }
@@ -236,11 +236,12 @@ public class InteractionCreatePayload {
      * @return prompts
      */
     @jakarta.annotation.Nonnull
-    public List<PromptSegmentDef> getPrompts() {
+    public List<InteractionPromptSegmentInput> getPrompts() {
         return prompts;
     }
 
-    public void setPrompts(@jakarta.annotation.Nonnull List<PromptSegmentDef> prompts) {
+    public void setPrompts(
+            @jakarta.annotation.Nonnull List<InteractionPromptSegmentInput> prompts) {
         this.prompts = prompts;
     }
 
@@ -666,7 +667,7 @@ public class InteractionCreatePayload {
             JsonArray jsonArrayprompts = jsonObj.getAsJsonArray("prompts");
             // validate the required field `prompts` (array)
             for (int i = 0; i < jsonArrayprompts.size(); i++) {
-                PromptSegmentDef.validateJsonElement(jsonArrayprompts.get(i));
+                InteractionPromptSegmentInput.validateJsonElement(jsonArrayprompts.get(i));
             }
         }
         if (!jsonObj.get("name").isJsonPrimitive()) {
