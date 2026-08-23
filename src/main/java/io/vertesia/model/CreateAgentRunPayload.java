@@ -46,6 +46,26 @@ public class CreateAgentRunPayload {
     @jakarta.annotation.Nonnull
     private String interaction;
 
+    public static final String SERIALIZED_NAME_TITLE = "title";
+
+    @SerializedName(SERIALIZED_NAME_TITLE)
+    @jakarta.annotation.Nullable private String title;
+
+    public static final String SERIALIZED_NAME_TOPIC = "topic";
+
+    @SerializedName(SERIALIZED_NAME_TOPIC)
+    @jakarta.annotation.Nullable private String topic;
+
+    public static final String SERIALIZED_NAME_GENERATE_TOPIC = "generate_topic";
+
+    @SerializedName(SERIALIZED_NAME_GENERATE_TOPIC)
+    @jakarta.annotation.Nullable private Boolean generateTopic;
+
+    public static final String SERIALIZED_NAME_GENERATE_LESSONS = "generate_lessons";
+
+    @SerializedName(SERIALIZED_NAME_GENERATE_LESSONS)
+    @jakarta.annotation.Nullable private Boolean generateLessons;
+
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
@@ -201,6 +221,75 @@ public class CreateAgentRunPayload {
 
     public void setInteraction(@jakarta.annotation.Nonnull String interaction) {
         this.interaction = interaction;
+    }
+
+    public CreateAgentRunPayload title(@jakarta.annotation.Nullable String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Caller-provided conversation title.
+     * @return title
+     */
+    @jakarta.annotation.Nullable public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(@jakarta.annotation.Nullable String title) {
+        this.title = title;
+    }
+
+    public CreateAgentRunPayload topic(@jakarta.annotation.Nullable String topic) {
+        this.topic = topic;
+        return this;
+    }
+
+    /**
+     * Caller-provided conversation topic. Suppresses automatic topic generation.
+     * @return topic
+     */
+    @jakarta.annotation.Nullable public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(@jakarta.annotation.Nullable String topic) {
+        this.topic = topic;
+    }
+
+    public CreateAgentRunPayload generateTopic(@jakarta.annotation.Nullable Boolean generateTopic) {
+        this.generateTopic = generateTopic;
+        return this;
+    }
+
+    /**
+     * Whether to generate a conversation title and topic automatically. Defaults to true; a caller-provided topic always suppresses generation.
+     * @return generateTopic
+     */
+    @jakarta.annotation.Nullable public Boolean getGenerateTopic() {
+        return generateTopic;
+    }
+
+    public void setGenerateTopic(@jakarta.annotation.Nullable Boolean generateTopic) {
+        this.generateTopic = generateTopic;
+    }
+
+    public CreateAgentRunPayload generateLessons(
+            @jakarta.annotation.Nullable Boolean generateLessons) {
+        this.generateLessons = generateLessons;
+        return this;
+    }
+
+    /**
+     * Whether to generate lessons automatically at completion. Defaults to true; conversation content remains searchable when disabled.
+     * @return generateLessons
+     */
+    @jakarta.annotation.Nullable public Boolean getGenerateLessons() {
+        return generateLessons;
+    }
+
+    public void setGenerateLessons(@jakarta.annotation.Nullable Boolean generateLessons) {
+        this.generateLessons = generateLessons;
     }
 
     public CreateAgentRunPayload data(@jakarta.annotation.Nullable Map<String, Object> data) {
@@ -828,6 +917,10 @@ public class CreateAgentRunPayload {
         }
         CreateAgentRunPayload createAgentRunPayload = (CreateAgentRunPayload) o;
         return Objects.equals(this.interaction, createAgentRunPayload.interaction)
+                && Objects.equals(this.title, createAgentRunPayload.title)
+                && Objects.equals(this.topic, createAgentRunPayload.topic)
+                && Objects.equals(this.generateTopic, createAgentRunPayload.generateTopic)
+                && Objects.equals(this.generateLessons, createAgentRunPayload.generateLessons)
                 && Objects.equals(this.data, createAgentRunPayload.data)
                 && Objects.equals(this.config, createAgentRunPayload.config)
                 && Objects.equals(this.interactive, createAgentRunPayload.interactive)
@@ -864,6 +957,10 @@ public class CreateAgentRunPayload {
     public int hashCode() {
         return Objects.hash(
                 interaction,
+                title,
+                topic,
+                generateTopic,
+                generateLessons,
                 data,
                 config,
                 interactive,
@@ -899,6 +996,10 @@ public class CreateAgentRunPayload {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateAgentRunPayload {\n");
         sb.append("    interaction: ").append(toIndentedString(interaction)).append("\n");
+        sb.append("    title: ").append(toIndentedString(title)).append("\n");
+        sb.append("    topic: ").append(toIndentedString(topic)).append("\n");
+        sb.append("    generateTopic: ").append(toIndentedString(generateTopic)).append("\n");
+        sb.append("    generateLessons: ").append(toIndentedString(generateLessons)).append("\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    config: ").append(toIndentedString(config)).append("\n");
         sb.append("    interactive: ").append(toIndentedString(interactive)).append("\n");
@@ -952,6 +1053,10 @@ public class CreateAgentRunPayload {
                 new HashSet<String>(
                         Arrays.asList(
                                 "interaction",
+                                "title",
+                                "topic",
+                                "generate_topic",
+                                "generate_lessons",
                                 "data",
                                 "config",
                                 "interactive",
@@ -1020,6 +1125,22 @@ public class CreateAgentRunPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `interaction` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("interaction").toString()));
+        }
+        if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+                && !jsonObj.get("title").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("title").toString()));
+        }
+        if ((jsonObj.get("topic") != null && !jsonObj.get("topic").isJsonNull())
+                && !jsonObj.get("topic").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `topic` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("topic").toString()));
         }
         // validate the optional field `config`
         if (jsonObj.get("config") != null && !jsonObj.get("config").isJsonNull()) {

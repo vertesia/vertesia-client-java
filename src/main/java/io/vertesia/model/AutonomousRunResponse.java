@@ -387,6 +387,16 @@ public class AutonomousRunResponse {
     @SerializedName(SERIALIZED_NAME_TOPIC)
     @jakarta.annotation.Nullable private String topic;
 
+    public static final String SERIALIZED_NAME_GENERATE_TOPIC = "generate_topic";
+
+    @SerializedName(SERIALIZED_NAME_GENERATE_TOPIC)
+    @jakarta.annotation.Nullable private Boolean generateTopic;
+
+    public static final String SERIALIZED_NAME_GENERATE_LESSONS = "generate_lessons";
+
+    @SerializedName(SERIALIZED_NAME_GENERATE_LESSONS)
+    @jakarta.annotation.Nullable private Boolean generateLessons;
+
     public static final String SERIALIZED_NAME_LESSONS_LEARNED = "lessons_learned";
 
     @SerializedName(SERIALIZED_NAME_LESSONS_LEARNED)
@@ -1288,6 +1298,41 @@ public class AutonomousRunResponse {
         this.topic = topic;
     }
 
+    public AutonomousRunResponse generateTopic(@jakarta.annotation.Nullable Boolean generateTopic) {
+        this.generateTopic = generateTopic;
+        return this;
+    }
+
+    /**
+     * Whether automatic conversation title/topic generation is enabled for this run.
+     * @return generateTopic
+     */
+    @jakarta.annotation.Nullable public Boolean getGenerateTopic() {
+        return generateTopic;
+    }
+
+    public void setGenerateTopic(@jakarta.annotation.Nullable Boolean generateTopic) {
+        this.generateTopic = generateTopic;
+    }
+
+    public AutonomousRunResponse generateLessons(
+            @jakarta.annotation.Nullable Boolean generateLessons) {
+        this.generateLessons = generateLessons;
+        return this;
+    }
+
+    /**
+     * Whether automatic lessons generation is enabled for this run.
+     * @return generateLessons
+     */
+    @jakarta.annotation.Nullable public Boolean getGenerateLessons() {
+        return generateLessons;
+    }
+
+    public void setGenerateLessons(@jakarta.annotation.Nullable Boolean generateLessons) {
+        this.generateLessons = generateLessons;
+    }
+
     public AutonomousRunResponse lessonsLearned(
             @jakarta.annotation.Nullable List<String> lessonsLearned) {
         this.lessonsLearned = lessonsLearned;
@@ -1486,6 +1531,8 @@ public class AutonomousRunResponse {
                 && Objects.equals(this.interactionRef, autonomousRunResponse.interactionRef)
                 && Objects.equals(this.environmentRef, autonomousRunResponse.environmentRef)
                 && Objects.equals(this.topic, autonomousRunResponse.topic)
+                && Objects.equals(this.generateTopic, autonomousRunResponse.generateTopic)
+                && Objects.equals(this.generateLessons, autonomousRunResponse.generateLessons)
                 && Objects.equals(this.lessonsLearned, autonomousRunResponse.lessonsLearned)
                 && Objects.equals(this.archivedAt, autonomousRunResponse.archivedAt)
                 && Objects.equals(this.archiveVersion, autonomousRunResponse.archiveVersion)
@@ -1543,6 +1590,8 @@ public class AutonomousRunResponse {
                 interactionRef,
                 environmentRef,
                 topic,
+                generateTopic,
+                generateLessons,
                 lessonsLearned,
                 archivedAt,
                 archiveVersion,
@@ -1606,6 +1655,8 @@ public class AutonomousRunResponse {
         sb.append("    interactionRef: ").append(toIndentedString(interactionRef)).append("\n");
         sb.append("    environmentRef: ").append(toIndentedString(environmentRef)).append("\n");
         sb.append("    topic: ").append(toIndentedString(topic)).append("\n");
+        sb.append("    generateTopic: ").append(toIndentedString(generateTopic)).append("\n");
+        sb.append("    generateLessons: ").append(toIndentedString(generateLessons)).append("\n");
         sb.append("    lessonsLearned: ").append(toIndentedString(lessonsLearned)).append("\n");
         sb.append("    archivedAt: ").append(toIndentedString(archivedAt)).append("\n");
         sb.append("    archiveVersion: ").append(toIndentedString(archiveVersion)).append("\n");
@@ -1679,6 +1730,8 @@ public class AutonomousRunResponse {
                                 "interactionRef",
                                 "environmentRef",
                                 "topic",
+                                "generate_topic",
+                                "generate_lessons",
                                 "lessons_learned",
                                 "archived_at",
                                 "archive_version",
