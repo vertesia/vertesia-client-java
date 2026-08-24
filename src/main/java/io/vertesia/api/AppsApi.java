@@ -19,6 +19,7 @@ import io.vertesia.ApiException;
 import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
+import io.vertesia.model.AgentRunResponse;
 import io.vertesia.model.AppBuildProgress;
 import io.vertesia.model.AppDeleteSummary;
 import io.vertesia.model.AppDevelopmentTaskDetails;
@@ -47,6 +48,7 @@ import io.vertesia.model.PromoteAppVersionResponse;
 import io.vertesia.model.SetMcpApiKeyRequest;
 import io.vertesia.model.StartAppBuildRequest;
 import io.vertesia.model.StartAppBuildResponse;
+import io.vertesia.model.StartAppDevelopmentTaskRequest;
 import io.vertesia.model.StartAppScaffoldRequest;
 import io.vertesia.model.StartAppScaffoldResponse;
 import io.vertesia.model.UpdateAppInstallationToolAllowlistPayload;
@@ -1347,7 +1349,7 @@ public class AppsApi {
 
     /**
      * Get an app development task
-     * Returns the agent/_* Git branch and the latest matching parent Studio Assistant run, when started.  **Required permissions:** &#x60;account:member&#x60;
+     * Returns the agent/_* Git branch and the latest matching App Builder parent run, when started.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
      * @param taskId  (required)
      * @return AppDevelopmentTaskDetails
@@ -1371,7 +1373,7 @@ public class AppsApi {
 
     /**
      * Get an app development task
-     * Returns the agent/_* Git branch and the latest matching parent Studio Assistant run, when started.  **Required permissions:** &#x60;account:member&#x60;
+     * Returns the agent/_* Git branch and the latest matching App Builder parent run, when started.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
      * @param taskId  (required)
      * @return ApiResponse&lt;AppDevelopmentTaskDetails&gt;
@@ -1395,7 +1397,7 @@ public class AppsApi {
 
     /**
      * Get an app development task (asynchronously)
-     * Returns the agent/_* Git branch and the latest matching parent Studio Assistant run, when started.  **Required permissions:** &#x60;account:member&#x60;
+     * Returns the agent/_* Git branch and the latest matching App Builder parent run, when started.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
      * @param taskId  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -5420,6 +5422,208 @@ public class AppsApi {
         okhttp3.Call localVarCall =
                 startAppBuildValidateBeforeCall(id, startAppBuildRequest, _callback);
         Type localVarReturnType = new TypeToken<StartAppBuildResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for startAppDevelopmentTask
+     * @param id  (required)
+     * @param taskId  (required)
+     * @param startAppDevelopmentTaskRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The started App Builder parent run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call startAppDevelopmentTaskCall(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull
+                    StartAppDevelopmentTaskRequest startAppDevelopmentTaskRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = startAppDevelopmentTaskRequest;
+
+        // create path and map variables
+        String localVarPath =
+                "/apps/{id}/development-tasks/{taskId}/runs"
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()))
+                        .replace(
+                                "{" + "taskId" + "}",
+                                localVarApiClient.escapeString(taskId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call startAppDevelopmentTaskValidateBeforeCall(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull
+                    StartAppDevelopmentTaskRequest startAppDevelopmentTaskRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'id' when calling startAppDevelopmentTask(Async)");
+        }
+
+        // verify the required parameter 'taskId' is set
+        if (taskId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'taskId' when calling startAppDevelopmentTask(Async)");
+        }
+
+        // verify the required parameter 'startAppDevelopmentTaskRequest' is set
+        if (startAppDevelopmentTaskRequest == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'startAppDevelopmentTaskRequest' when calling startAppDevelopmentTask(Async)");
+        }
+
+        return startAppDevelopmentTaskCall(id, taskId, startAppDevelopmentTaskRequest, _callback);
+    }
+
+    /**
+     * Start an app development task run
+     * Starts the policy-controlled App Builder parent on an existing agent/_* task branch. The server fixes the interaction, orchestration skill, implementation denylist, lifecycle data, and run tags.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param taskId  (required)
+     * @param startAppDevelopmentTaskRequest  (required)
+     * @return AgentRunResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The started App Builder parent run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public AgentRunResponse startAppDevelopmentTask(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull
+                    StartAppDevelopmentTaskRequest startAppDevelopmentTaskRequest)
+            throws ApiException {
+        ApiResponse<AgentRunResponse> localVarResp =
+                startAppDevelopmentTaskWithHttpInfo(id, taskId, startAppDevelopmentTaskRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Start an app development task run
+     * Starts the policy-controlled App Builder parent on an existing agent/_* task branch. The server fixes the interaction, orchestration skill, implementation denylist, lifecycle data, and run tags.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param taskId  (required)
+     * @param startAppDevelopmentTaskRequest  (required)
+     * @return ApiResponse&lt;AgentRunResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The started App Builder parent run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AgentRunResponse> startAppDevelopmentTaskWithHttpInfo(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull
+                    StartAppDevelopmentTaskRequest startAppDevelopmentTaskRequest)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                startAppDevelopmentTaskValidateBeforeCall(
+                        id, taskId, startAppDevelopmentTaskRequest, null);
+        Type localVarReturnType = new TypeToken<AgentRunResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Start an app development task run (asynchronously)
+     * Starts the policy-controlled App Builder parent on an existing agent/_* task branch. The server fixes the interaction, orchestration skill, implementation denylist, lifecycle data, and run tags.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param taskId  (required)
+     * @param startAppDevelopmentTaskRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The started App Builder parent run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call startAppDevelopmentTaskAsync(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String taskId,
+            @jakarta.annotation.Nonnull
+                    StartAppDevelopmentTaskRequest startAppDevelopmentTaskRequest,
+            final ApiCallback<AgentRunResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                startAppDevelopmentTaskValidateBeforeCall(
+                        id, taskId, startAppDevelopmentTaskRequest, _callback);
+        Type localVarReturnType = new TypeToken<AgentRunResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

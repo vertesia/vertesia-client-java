@@ -910,6 +910,7 @@ src/main/java/io/vertesia/model/SortOption.java
 src/main/java/io/vertesia/model/SortOrder.java
 src/main/java/io/vertesia/model/StartAppBuildRequest.java
 src/main/java/io/vertesia/model/StartAppBuildResponse.java
+src/main/java/io/vertesia/model/StartAppDevelopmentTaskRequest.java
 src/main/java/io/vertesia/model/StartAppScaffoldRequest.java
 src/main/java/io/vertesia/model/StartAppScaffoldResponse.java
 src/main/java/io/vertesia/model/StartContentObjectExportRequest.java

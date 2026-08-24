@@ -142,7 +142,7 @@ public class AppDevelopmentTaskDetails {
     }
 
     /**
-     * Latest Studio Assistant run started for this task branch.
+     * Latest App Builder parent run started for this task branch.
      * @return agentRun
      */
     @jakarta.annotation.Nullable public AgentRunSearchHit getAgentRun() {

@@ -936,7 +936,7 @@ public class ConversationState {
     }
 
     /**
-     * Names of skills whose full instructions are already present in the live conversation history (i.e. were delivered by a prior &#x60;learn_&lt;skill&gt;&#x60; call). Used to make skill re-activation idempotent: a repeat call returns a short \&quot;already active\&quot; acknowledgement instead of re-dumping the instructions.  Unlike &#x60;unlocked_tools&#x60; (which must survive a checkpoint so tools stay unlocked), this list is reset when a checkpoint compacts the conversation, because the summary no longer carries the skill instructions and the next call must re-deliver them.
+     * Names of skills whose full instructions are already present in the live conversation history (i.e. were delivered by a prior &#x60;learn_&lt;skill&gt;&#x60; call). Used to make skill re-activation idempotent: a repeat call returns a short \&quot;already active\&quot; acknowledgement instead of re-dumping the instructions.  Unlike &#x60;unlocked_tools&#x60; (which must survive a checkpoint so tools stay unlocked), this list tracks only instructions present in the current compacted conversation. Checkpoints restore active builtin skill bodies and preserve their names; skills that cannot be restored are removed so the next call can re-deliver them.
      * @return skillInstructionsDelivered
      */
     @jakarta.annotation.Nullable public List<String> getSkillInstructionsDelivered() {
