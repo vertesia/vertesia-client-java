@@ -20,11 +20,17 @@ import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
 import io.vertesia.model.CreateProcessDefinitionPayload;
+import io.vertesia.model.CreateProcessTestSuitePayload;
 import io.vertesia.model.DeleteCountResult;
 import io.vertesia.model.ProcessDefinition;
+import io.vertesia.model.ProcessTestRun;
+import io.vertesia.model.ProcessTestSuite;
 import io.vertesia.model.PublishProcessDefinitionPayload;
 import io.vertesia.model.RevertProcessDefinitionPayload;
+import io.vertesia.model.StartProcessTestRunPayload;
+import io.vertesia.model.SubmitProcessTestRunPayload;
 import io.vertesia.model.UpdateProcessDefinitionPayload;
+import io.vertesia.model.UpdateProcessTestSuitePayload;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -67,6 +73,341 @@ public class ProcessesApi {
 
     public void setCustomBaseUrl(String customBaseUrl) {
         this.localCustomBaseUrl = customBaseUrl;
+    }
+
+    /**
+     * Build call for cancelProcessTestRun
+     * @param processId  (required)
+     * @param runId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call cancelProcessTestRunCall(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/processes/{processId}/test-runs/{runId}/cancel"
+                        .replace(
+                                "{" + "processId" + "}",
+                                localVarApiClient.escapeString(processId.toString()))
+                        .replace(
+                                "{" + "runId" + "}",
+                                localVarApiClient.escapeString(runId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cancelProcessTestRunValidateBeforeCall(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'processId' is set
+        if (processId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'processId' when calling cancelProcessTestRun(Async)");
+        }
+
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'runId' when calling cancelProcessTestRun(Async)");
+        }
+
+        return cancelProcessTestRunCall(processId, runId, _callback);
+    }
+
+    /**
+     * Cancel process test run
+     * **Required permissions:** &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @param runId  (required)
+     * @return ProcessTestRun
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ProcessTestRun cancelProcessTestRun(
+            @jakarta.annotation.Nonnull String processId, @jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        ApiResponse<ProcessTestRun> localVarResp =
+                cancelProcessTestRunWithHttpInfo(processId, runId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Cancel process test run
+     * **Required permissions:** &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @param runId  (required)
+     * @return ApiResponse&lt;ProcessTestRun&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ProcessTestRun> cancelProcessTestRunWithHttpInfo(
+            @jakarta.annotation.Nonnull String processId, @jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        okhttp3.Call localVarCall = cancelProcessTestRunValidateBeforeCall(processId, runId, null);
+        Type localVarReturnType = new TypeToken<ProcessTestRun>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Cancel process test run (asynchronously)
+     * **Required permissions:** &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @param runId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call cancelProcessTestRunAsync(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback<ProcessTestRun> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                cancelProcessTestRunValidateBeforeCall(processId, runId, _callback);
+        Type localVarReturnType = new TypeToken<ProcessTestRun>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for cancelProcessTestRunById
+     * @param runId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call cancelProcessTestRunByIdCall(
+            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/process-test-runs/{runId}/cancel"
+                        .replace(
+                                "{" + "runId" + "}",
+                                localVarApiClient.escapeString(runId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call cancelProcessTestRunByIdValidateBeforeCall(
+            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'runId' when calling cancelProcessTestRunById(Async)");
+        }
+
+        return cancelProcessTestRunByIdCall(runId, _callback);
+    }
+
+    /**
+     * Cancel a process test run by id
+     * **Required permissions:** &#x60;workflow:run&#x60;
+     * @param runId  (required)
+     * @return ProcessTestRun
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ProcessTestRun cancelProcessTestRunById(@jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        ApiResponse<ProcessTestRun> localVarResp = cancelProcessTestRunByIdWithHttpInfo(runId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Cancel a process test run by id
+     * **Required permissions:** &#x60;workflow:run&#x60;
+     * @param runId  (required)
+     * @return ApiResponse&lt;ProcessTestRun&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ProcessTestRun> cancelProcessTestRunByIdWithHttpInfo(
+            @jakarta.annotation.Nonnull String runId) throws ApiException {
+        okhttp3.Call localVarCall = cancelProcessTestRunByIdValidateBeforeCall(runId, null);
+        Type localVarReturnType = new TypeToken<ProcessTestRun>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Cancel a process test run by id (asynchronously)
+     * **Required permissions:** &#x60;workflow:run&#x60;
+     * @param runId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Cancelled process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call cancelProcessTestRunByIdAsync(
+            @jakarta.annotation.Nonnull String runId, final ApiCallback<ProcessTestRun> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = cancelProcessTestRunByIdValidateBeforeCall(runId, _callback);
+        Type localVarReturnType = new TypeToken<ProcessTestRun>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
     /**
@@ -236,6 +577,187 @@ public class ProcessesApi {
     }
 
     /**
+     * Build call for createProcessTestSuite
+     * @param processId  (required)
+     * @param createProcessTestSuitePayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> Created process test suite. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createProcessTestSuiteCall(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull CreateProcessTestSuitePayload createProcessTestSuitePayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createProcessTestSuitePayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/processes/{processId}/test-suites"
+                        .replace(
+                                "{" + "processId" + "}",
+                                localVarApiClient.escapeString(processId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createProcessTestSuiteValidateBeforeCall(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull CreateProcessTestSuitePayload createProcessTestSuitePayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'processId' is set
+        if (processId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'processId' when calling createProcessTestSuite(Async)");
+        }
+
+        // verify the required parameter 'createProcessTestSuitePayload' is set
+        if (createProcessTestSuitePayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'createProcessTestSuitePayload' when calling createProcessTestSuite(Async)");
+        }
+
+        return createProcessTestSuiteCall(processId, createProcessTestSuitePayload, _callback);
+    }
+
+    /**
+     * Create process test suite
+     * **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param processId  (required)
+     * @param createProcessTestSuitePayload  (required)
+     * @return ProcessTestSuite
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> Created process test suite. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ProcessTestSuite createProcessTestSuite(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull CreateProcessTestSuitePayload createProcessTestSuitePayload)
+            throws ApiException {
+        ApiResponse<ProcessTestSuite> localVarResp =
+                createProcessTestSuiteWithHttpInfo(processId, createProcessTestSuitePayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create process test suite
+     * **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param processId  (required)
+     * @param createProcessTestSuitePayload  (required)
+     * @return ApiResponse&lt;ProcessTestSuite&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> Created process test suite. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ProcessTestSuite> createProcessTestSuiteWithHttpInfo(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull CreateProcessTestSuitePayload createProcessTestSuitePayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                createProcessTestSuiteValidateBeforeCall(
+                        processId, createProcessTestSuitePayload, null);
+        Type localVarReturnType = new TypeToken<ProcessTestSuite>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create process test suite (asynchronously)
+     * **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param processId  (required)
+     * @param createProcessTestSuitePayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> Created process test suite. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createProcessTestSuiteAsync(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull CreateProcessTestSuitePayload createProcessTestSuitePayload,
+            final ApiCallback<ProcessTestSuite> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                createProcessTestSuiteValidateBeforeCall(
+                        processId, createProcessTestSuitePayload, _callback);
+        Type localVarReturnType = new TypeToken<ProcessTestSuite>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for deleteProcessDefinition
      * @param processId  (required)
      * @param _callback Callback for upload/download progress
@@ -394,6 +916,345 @@ public class ProcessesApi {
     }
 
     /**
+     * Build call for deleteProcessTestRun
+     * @param runId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Process test run deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteProcessTestRunCall(
+            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/process-test-runs/{runId}"
+                        .replace(
+                                "{" + "runId" + "}",
+                                localVarApiClient.escapeString(runId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteProcessTestRunValidateBeforeCall(
+            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'runId' when calling deleteProcessTestRun(Async)");
+        }
+
+        return deleteProcessTestRunCall(runId, _callback);
+    }
+
+    /**
+     * Delete a process test run
+     * Deletes a process test run and its definition snapshot. A run that is still active is cancelled first. Test runs are disposable diagnostic records; this is how a CI client or a test fixture cleans up after itself.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param runId  (required)
+     * @return DeleteCountResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Process test run deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public DeleteCountResult deleteProcessTestRun(@jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        ApiResponse<DeleteCountResult> localVarResp = deleteProcessTestRunWithHttpInfo(runId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a process test run
+     * Deletes a process test run and its definition snapshot. A run that is still active is cancelled first. Test runs are disposable diagnostic records; this is how a CI client or a test fixture cleans up after itself.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param runId  (required)
+     * @return ApiResponse&lt;DeleteCountResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Process test run deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<DeleteCountResult> deleteProcessTestRunWithHttpInfo(
+            @jakarta.annotation.Nonnull String runId) throws ApiException {
+        okhttp3.Call localVarCall = deleteProcessTestRunValidateBeforeCall(runId, null);
+        Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a process test run (asynchronously)
+     * Deletes a process test run and its definition snapshot. A run that is still active is cancelled first. Test runs are disposable diagnostic records; this is how a CI client or a test fixture cleans up after itself.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param runId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Process test run deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteProcessTestRunAsync(
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback<DeleteCountResult> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = deleteProcessTestRunValidateBeforeCall(runId, _callback);
+        Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for deleteProcessTestSuite
+     * @param processId  (required)
+     * @param suiteId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Process test suite deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteProcessTestSuiteCall(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String suiteId,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/processes/{processId}/test-suites/{suiteId}"
+                        .replace(
+                                "{" + "processId" + "}",
+                                localVarApiClient.escapeString(processId.toString()))
+                        .replace(
+                                "{" + "suiteId" + "}",
+                                localVarApiClient.escapeString(suiteId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteProcessTestSuiteValidateBeforeCall(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String suiteId,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'processId' is set
+        if (processId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'processId' when calling deleteProcessTestSuite(Async)");
+        }
+
+        // verify the required parameter 'suiteId' is set
+        if (suiteId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'suiteId' when calling deleteProcessTestSuite(Async)");
+        }
+
+        return deleteProcessTestSuiteCall(processId, suiteId, _callback);
+    }
+
+    /**
+     * Delete process test suite
+     * **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param processId  (required)
+     * @param suiteId  (required)
+     * @return DeleteCountResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Process test suite deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public DeleteCountResult deleteProcessTestSuite(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String suiteId)
+            throws ApiException {
+        ApiResponse<DeleteCountResult> localVarResp =
+                deleteProcessTestSuiteWithHttpInfo(processId, suiteId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete process test suite
+     * **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param processId  (required)
+     * @param suiteId  (required)
+     * @return ApiResponse&lt;DeleteCountResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Process test suite deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<DeleteCountResult> deleteProcessTestSuiteWithHttpInfo(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String suiteId)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                deleteProcessTestSuiteValidateBeforeCall(processId, suiteId, null);
+        Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete process test suite (asynchronously)
+     * **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param processId  (required)
+     * @param suiteId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Process test suite deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteProcessTestSuiteAsync(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String suiteId,
+            final ApiCallback<DeleteCountResult> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                deleteProcessTestSuiteValidateBeforeCall(processId, suiteId, _callback);
+        Type localVarReturnType = new TypeToken<DeleteCountResult>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for getProcessDefinition
      * @param processId  (required)
      * @param _callback Callback for upload/download progress
@@ -546,6 +1407,340 @@ public class ProcessesApi {
 
         okhttp3.Call localVarCall = getProcessDefinitionValidateBeforeCall(processId, _callback);
         Type localVarReturnType = new TypeToken<ProcessDefinition>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getProcessTestRun
+     * @param processId  (required)
+     * @param runId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getProcessTestRunCall(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/processes/{processId}/test-runs/{runId}"
+                        .replace(
+                                "{" + "processId" + "}",
+                                localVarApiClient.escapeString(processId.toString()))
+                        .replace(
+                                "{" + "runId" + "}",
+                                localVarApiClient.escapeString(runId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getProcessTestRunValidateBeforeCall(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'processId' is set
+        if (processId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'processId' when calling getProcessTestRun(Async)");
+        }
+
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'runId' when calling getProcessTestRun(Async)");
+        }
+
+        return getProcessTestRunCall(processId, runId, _callback);
+    }
+
+    /**
+     * Retrieve process test run
+     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @param runId  (required)
+     * @return ProcessTestRun
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ProcessTestRun getProcessTestRun(
+            @jakarta.annotation.Nonnull String processId, @jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        ApiResponse<ProcessTestRun> localVarResp = getProcessTestRunWithHttpInfo(processId, runId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve process test run
+     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @param runId  (required)
+     * @return ApiResponse&lt;ProcessTestRun&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ProcessTestRun> getProcessTestRunWithHttpInfo(
+            @jakarta.annotation.Nonnull String processId, @jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        okhttp3.Call localVarCall = getProcessTestRunValidateBeforeCall(processId, runId, null);
+        Type localVarReturnType = new TypeToken<ProcessTestRun>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve process test run (asynchronously)
+     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @param runId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getProcessTestRunAsync(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String runId,
+            final ApiCallback<ProcessTestRun> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getProcessTestRunValidateBeforeCall(processId, runId, _callback);
+        Type localVarReturnType = new TypeToken<ProcessTestRun>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getProcessTestRunById
+     * @param runId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getProcessTestRunByIdCall(
+            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/process-test-runs/{runId}"
+                        .replace(
+                                "{" + "runId" + "}",
+                                localVarApiClient.escapeString(runId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getProcessTestRunByIdValidateBeforeCall(
+            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'runId' is set
+        if (runId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'runId' when calling getProcessTestRunById(Async)");
+        }
+
+        return getProcessTestRunByIdCall(runId, _callback);
+    }
+
+    /**
+     * Retrieve a process test run by id
+     * Retrieves any process test run by its own id, whatever it was started against. Runs against a stored process report staleness against the current head revision; runs against an in-code or inline definition are never stale, since no later revision exists to drift from.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param runId  (required)
+     * @return ProcessTestRun
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ProcessTestRun getProcessTestRunById(@jakarta.annotation.Nonnull String runId)
+            throws ApiException {
+        ApiResponse<ProcessTestRun> localVarResp = getProcessTestRunByIdWithHttpInfo(runId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve a process test run by id
+     * Retrieves any process test run by its own id, whatever it was started against. Runs against a stored process report staleness against the current head revision; runs against an in-code or inline definition are never stale, since no later revision exists to drift from.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param runId  (required)
+     * @return ApiResponse&lt;ProcessTestRun&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ProcessTestRun> getProcessTestRunByIdWithHttpInfo(
+            @jakarta.annotation.Nonnull String runId) throws ApiException {
+        okhttp3.Call localVarCall = getProcessTestRunByIdValidateBeforeCall(runId, null);
+        Type localVarReturnType = new TypeToken<ProcessTestRun>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve a process test run by id (asynchronously)
+     * Retrieves any process test run by its own id, whatever it was started against. Runs against a stored process report staleness against the current head revision; runs against an in-code or inline definition are never stale, since no later revision exists to drift from.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param runId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Requested process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getProcessTestRunByIdAsync(
+            @jakarta.annotation.Nonnull String runId, final ApiCallback<ProcessTestRun> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = getProcessTestRunByIdValidateBeforeCall(runId, _callback);
+        Type localVarReturnType = new TypeToken<ProcessTestRun>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -919,6 +2114,340 @@ public class ProcessesApi {
                 listProcessDefinitionsValidateBeforeCall(
                         status, process, limit, offset, allVersions, _callback);
         Type localVarReturnType = new TypeToken<List<ProcessDefinition>>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listProcessTestRuns
+     * @param processId  (required)
+     * @param limit  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Matching process test runs. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listProcessTestRunsCall(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nullable Integer limit,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/processes/{processId}/test-runs"
+                        .replace(
+                                "{" + "processId" + "}",
+                                localVarApiClient.escapeString(processId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (limit != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listProcessTestRunsValidateBeforeCall(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nullable Integer limit,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'processId' is set
+        if (processId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'processId' when calling listProcessTestRuns(Async)");
+        }
+
+        return listProcessTestRunsCall(processId, limit, _callback);
+    }
+
+    /**
+     * List process test runs
+     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @param limit  (optional)
+     * @return List&lt;ProcessTestRun&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Matching process test runs. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public List<ProcessTestRun> listProcessTestRuns(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nullable Integer limit)
+            throws ApiException {
+        ApiResponse<List<ProcessTestRun>> localVarResp =
+                listProcessTestRunsWithHttpInfo(processId, limit);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List process test runs
+     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @param limit  (optional)
+     * @return ApiResponse&lt;List&lt;ProcessTestRun&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Matching process test runs. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<List<ProcessTestRun>> listProcessTestRunsWithHttpInfo(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nullable Integer limit)
+            throws ApiException {
+        okhttp3.Call localVarCall = listProcessTestRunsValidateBeforeCall(processId, limit, null);
+        Type localVarReturnType = new TypeToken<List<ProcessTestRun>>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List process test runs (asynchronously)
+     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @param limit  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Matching process test runs. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listProcessTestRunsAsync(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nullable Integer limit,
+            final ApiCallback<List<ProcessTestRun>> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listProcessTestRunsValidateBeforeCall(processId, limit, _callback);
+        Type localVarReturnType = new TypeToken<List<ProcessTestRun>>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listProcessTestSuites
+     * @param processId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Matching process test suites. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listProcessTestSuitesCall(
+            @jakarta.annotation.Nonnull String processId, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/processes/{processId}/test-suites"
+                        .replace(
+                                "{" + "processId" + "}",
+                                localVarApiClient.escapeString(processId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listProcessTestSuitesValidateBeforeCall(
+            @jakarta.annotation.Nonnull String processId, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'processId' is set
+        if (processId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'processId' when calling listProcessTestSuites(Async)");
+        }
+
+        return listProcessTestSuitesCall(processId, _callback);
+    }
+
+    /**
+     * List process test suites
+     * Lists deterministic test suites attached to this process revision family.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @return List&lt;ProcessTestSuite&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Matching process test suites. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public List<ProcessTestSuite> listProcessTestSuites(
+            @jakarta.annotation.Nonnull String processId) throws ApiException {
+        ApiResponse<List<ProcessTestSuite>> localVarResp =
+                listProcessTestSuitesWithHttpInfo(processId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List process test suites
+     * Lists deterministic test suites attached to this process revision family.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @return ApiResponse&lt;List&lt;ProcessTestSuite&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Matching process test suites. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<List<ProcessTestSuite>> listProcessTestSuitesWithHttpInfo(
+            @jakarta.annotation.Nonnull String processId) throws ApiException {
+        okhttp3.Call localVarCall = listProcessTestSuitesValidateBeforeCall(processId, null);
+        Type localVarReturnType = new TypeToken<List<ProcessTestSuite>>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List process test suites (asynchronously)
+     * Lists deterministic test suites attached to this process revision family.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Matching process test suites. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listProcessTestSuitesAsync(
+            @jakarta.annotation.Nonnull String processId,
+            final ApiCallback<List<ProcessTestSuite>> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = listProcessTestSuitesValidateBeforeCall(processId, _callback);
+        Type localVarReturnType = new TypeToken<List<ProcessTestSuite>>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1304,6 +2833,346 @@ public class ProcessesApi {
     }
 
     /**
+     * Build call for startProcessTestRun
+     * @param processId  (required)
+     * @param startProcessTestRunPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call startProcessTestRunCall(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull StartProcessTestRunPayload startProcessTestRunPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = startProcessTestRunPayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/processes/{processId}/test-runs"
+                        .replace(
+                                "{" + "processId" + "}",
+                                localVarApiClient.escapeString(processId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call startProcessTestRunValidateBeforeCall(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull StartProcessTestRunPayload startProcessTestRunPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'processId' is set
+        if (processId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'processId' when calling startProcessTestRun(Async)");
+        }
+
+        // verify the required parameter 'startProcessTestRunPayload' is set
+        if (startProcessTestRunPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'startProcessTestRunPayload' when calling startProcessTestRun(Async)");
+        }
+
+        return startProcessTestRunCall(processId, startProcessTestRunPayload, _callback);
+    }
+
+    /**
+     * Start process test run
+     * Starts isolated deterministic scenarios against an explicit stored process revision.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @param startProcessTestRunPayload  (required)
+     * @return ProcessTestRun
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ProcessTestRun startProcessTestRun(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull StartProcessTestRunPayload startProcessTestRunPayload)
+            throws ApiException {
+        ApiResponse<ProcessTestRun> localVarResp =
+                startProcessTestRunWithHttpInfo(processId, startProcessTestRunPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Start process test run
+     * Starts isolated deterministic scenarios against an explicit stored process revision.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @param startProcessTestRunPayload  (required)
+     * @return ApiResponse&lt;ProcessTestRun&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ProcessTestRun> startProcessTestRunWithHttpInfo(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull StartProcessTestRunPayload startProcessTestRunPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                startProcessTestRunValidateBeforeCall(processId, startProcessTestRunPayload, null);
+        Type localVarReturnType = new TypeToken<ProcessTestRun>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Start process test run (asynchronously)
+     * Starts isolated deterministic scenarios against an explicit stored process revision.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param processId  (required)
+     * @param startProcessTestRunPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call startProcessTestRunAsync(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull StartProcessTestRunPayload startProcessTestRunPayload,
+            final ApiCallback<ProcessTestRun> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                startProcessTestRunValidateBeforeCall(
+                        processId, startProcessTestRunPayload, _callback);
+        Type localVarReturnType = new TypeToken<ProcessTestRun>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for submitProcessTestRun
+     * @param submitProcessTestRunPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call submitProcessTestRunCall(
+            @jakarta.annotation.Nonnull SubmitProcessTestRunPayload submitProcessTestRunPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = submitProcessTestRunPayload;
+
+        // create path and map variables
+        String localVarPath = "/process-test-runs";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call submitProcessTestRunValidateBeforeCall(
+            @jakarta.annotation.Nonnull SubmitProcessTestRunPayload submitProcessTestRunPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'submitProcessTestRunPayload' is set
+        if (submitProcessTestRunPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'submitProcessTestRunPayload' when calling submitProcessTestRun(Async)");
+        }
+
+        return submitProcessTestRunCall(submitProcessTestRunPayload, _callback);
+    }
+
+    /**
+     * Submit a process test run
+     * Starts deterministic test scenarios against an in-code process (&#x60;app:&#x60; or &#x60;sys:&#x60;) or an inline definition, with the scenarios supplied in the request instead of a stored suite. Use POST /processes/{processId}/test-runs for stored process definitions.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param submitProcessTestRunPayload  (required)
+     * @return ProcessTestRun
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ProcessTestRun submitProcessTestRun(
+            @jakarta.annotation.Nonnull SubmitProcessTestRunPayload submitProcessTestRunPayload)
+            throws ApiException {
+        ApiResponse<ProcessTestRun> localVarResp =
+                submitProcessTestRunWithHttpInfo(submitProcessTestRunPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Submit a process test run
+     * Starts deterministic test scenarios against an in-code process (&#x60;app:&#x60; or &#x60;sys:&#x60;) or an inline definition, with the scenarios supplied in the request instead of a stored suite. Use POST /processes/{processId}/test-runs for stored process definitions.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param submitProcessTestRunPayload  (required)
+     * @return ApiResponse&lt;ProcessTestRun&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ProcessTestRun> submitProcessTestRunWithHttpInfo(
+            @jakarta.annotation.Nonnull SubmitProcessTestRunPayload submitProcessTestRunPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                submitProcessTestRunValidateBeforeCall(submitProcessTestRunPayload, null);
+        Type localVarReturnType = new TypeToken<ProcessTestRun>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Submit a process test run (asynchronously)
+     * Starts deterministic test scenarios against an in-code process (&#x60;app:&#x60; or &#x60;sys:&#x60;) or an inline definition, with the scenarios supplied in the request instead of a stored suite. Use POST /processes/{processId}/test-runs for stored process definitions.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param submitProcessTestRunPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 201 </td><td> Started process test run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call submitProcessTestRunAsync(
+            @jakarta.annotation.Nonnull SubmitProcessTestRunPayload submitProcessTestRunPayload,
+            final ApiCallback<ProcessTestRun> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                submitProcessTestRunValidateBeforeCall(submitProcessTestRunPayload, _callback);
+        Type localVarReturnType = new TypeToken<ProcessTestRun>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for updateProcessDefinition
      * @param processId  (required)
      * @param updateProcessDefinitionPayload  (required)
@@ -1489,6 +3358,207 @@ public class ProcessesApi {
                 updateProcessDefinitionValidateBeforeCall(
                         processId, updateProcessDefinitionPayload, _callback);
         Type localVarReturnType = new TypeToken<ProcessDefinition>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateProcessTestSuite
+     * @param processId  (required)
+     * @param suiteId  (required)
+     * @param updateProcessTestSuitePayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Updated process test suite. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateProcessTestSuiteCall(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String suiteId,
+            @jakarta.annotation.Nonnull UpdateProcessTestSuitePayload updateProcessTestSuitePayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateProcessTestSuitePayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/processes/{processId}/test-suites/{suiteId}"
+                        .replace(
+                                "{" + "processId" + "}",
+                                localVarApiClient.escapeString(processId.toString()))
+                        .replace(
+                                "{" + "suiteId" + "}",
+                                localVarApiClient.escapeString(suiteId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "PUT",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateProcessTestSuiteValidateBeforeCall(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String suiteId,
+            @jakarta.annotation.Nonnull UpdateProcessTestSuitePayload updateProcessTestSuitePayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'processId' is set
+        if (processId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'processId' when calling updateProcessTestSuite(Async)");
+        }
+
+        // verify the required parameter 'suiteId' is set
+        if (suiteId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'suiteId' when calling updateProcessTestSuite(Async)");
+        }
+
+        // verify the required parameter 'updateProcessTestSuitePayload' is set
+        if (updateProcessTestSuitePayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'updateProcessTestSuitePayload' when calling updateProcessTestSuite(Async)");
+        }
+
+        return updateProcessTestSuiteCall(
+                processId, suiteId, updateProcessTestSuitePayload, _callback);
+    }
+
+    /**
+     * Update process test suite
+     * **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param processId  (required)
+     * @param suiteId  (required)
+     * @param updateProcessTestSuitePayload  (required)
+     * @return ProcessTestSuite
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Updated process test suite. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ProcessTestSuite updateProcessTestSuite(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String suiteId,
+            @jakarta.annotation.Nonnull UpdateProcessTestSuitePayload updateProcessTestSuitePayload)
+            throws ApiException {
+        ApiResponse<ProcessTestSuite> localVarResp =
+                updateProcessTestSuiteWithHttpInfo(
+                        processId, suiteId, updateProcessTestSuitePayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update process test suite
+     * **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param processId  (required)
+     * @param suiteId  (required)
+     * @param updateProcessTestSuitePayload  (required)
+     * @return ApiResponse&lt;ProcessTestSuite&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Updated process test suite. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ProcessTestSuite> updateProcessTestSuiteWithHttpInfo(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String suiteId,
+            @jakarta.annotation.Nonnull UpdateProcessTestSuitePayload updateProcessTestSuitePayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                updateProcessTestSuiteValidateBeforeCall(
+                        processId, suiteId, updateProcessTestSuitePayload, null);
+        Type localVarReturnType = new TypeToken<ProcessTestSuite>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update process test suite (asynchronously)
+     * **Required permissions:** &#x60;workflow:admin&#x60;
+     * @param processId  (required)
+     * @param suiteId  (required)
+     * @param updateProcessTestSuitePayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Updated process test suite. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateProcessTestSuiteAsync(
+            @jakarta.annotation.Nonnull String processId,
+            @jakarta.annotation.Nonnull String suiteId,
+            @jakarta.annotation.Nonnull UpdateProcessTestSuitePayload updateProcessTestSuitePayload,
+            final ApiCallback<ProcessTestSuite> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                updateProcessTestSuiteValidateBeforeCall(
+                        processId, suiteId, updateProcessTestSuitePayload, _callback);
+        Type localVarReturnType = new TypeToken<ProcessTestSuite>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

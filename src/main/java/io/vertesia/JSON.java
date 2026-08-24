@@ -567,6 +567,56 @@ public class JSON {
                                     }
                                 })
                         .registerTypeSelector(
+                                io.vertesia.model.ProcessTestFixtureResponse.class,
+                                new TypeSelector<io.vertesia.model.ProcessTestFixtureResponse>() {
+                                    @Override
+                                    public Class<
+                                                    ? extends
+                                                            io.vertesia.model
+                                                                    .ProcessTestFixtureResponse>
+                                            getClassForElement(JsonElement readElement) {
+                                        Map<String, Class> classByDiscriminatorValue =
+                                                new HashMap<String, Class>();
+                                        classByDiscriminatorValue.put(
+                                                "error",
+                                                io.vertesia.model.ProcessTestFixtureError.class);
+                                        classByDiscriminatorValue.put(
+                                                "result",
+                                                io.vertesia.model.ProcessTestFixtureResult.class);
+                                        classByDiscriminatorValue.put(
+                                                "ProcessTestFixtureResponse",
+                                                io.vertesia.model.ProcessTestFixtureResponse.class);
+                                        return getClassByDiscriminator(
+                                                classByDiscriminatorValue,
+                                                getDiscriminatorValue(readElement, "kind"));
+                                    }
+                                })
+                        .registerTypeSelector(
+                                io.vertesia.model.ProcessTestSubject.class,
+                                new TypeSelector<io.vertesia.model.ProcessTestSubject>() {
+                                    @Override
+                                    public Class<? extends io.vertesia.model.ProcessTestSubject>
+                                            getClassForElement(JsonElement readElement) {
+                                        Map<String, Class> classByDiscriminatorValue =
+                                                new HashMap<String, Class>();
+                                        classByDiscriminatorValue.put(
+                                                "inline",
+                                                io.vertesia.model.ProcessTestInlineSubject.class);
+                                        classByDiscriminatorValue.put(
+                                                "resolved",
+                                                io.vertesia.model.ProcessTestResolvedSubject.class);
+                                        classByDiscriminatorValue.put(
+                                                "stored",
+                                                io.vertesia.model.ProcessTestStoredSubject.class);
+                                        classByDiscriminatorValue.put(
+                                                "ProcessTestSubject",
+                                                io.vertesia.model.ProcessTestSubject.class);
+                                        return getClassByDiscriminator(
+                                                classByDiscriminatorValue,
+                                                getDiscriminatorValue(readElement, "kind"));
+                                    }
+                                })
+                        .registerTypeSelector(
                                 io.vertesia.model.ProjectIntegrationConfigRequest.class,
                                 new TypeSelector<
                                         io.vertesia.model.ProjectIntegrationConfigRequest>() {
@@ -1506,6 +1556,8 @@ public class JSON {
                 new io.vertesia.model.CreateProcessRunWithDefinitionPayload
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.CreateProcessTestSuitePayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.CreateRunPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.CreateSecretRequest.CustomTypeAdapterFactory());
@@ -2181,6 +2233,50 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ProcessState.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestActorDecision.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestAssertionResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestAssertions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestChildTrace.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestCoverage.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestFixtureError.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestFixtureResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestFixtureResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestHumanAction.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestInlineSubject.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestNodeFixture.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestResolvedSubject.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestRun.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestScenario.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestScenarioResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestStoredSubject.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestSubject.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestSuite.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestTarget.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestTargetById.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestTargetWithDefinition.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessTestVirtualActor.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ProcessToolCompatibility.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ProgrammaticRunResponse.CustomTypeAdapterFactory());
@@ -2420,6 +2516,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.StartContentObjectExportResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.StartProcessTestRunPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.StartProjectReindexPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.StatelessExecutionOptions.CustomTypeAdapterFactory());
@@ -2435,6 +2533,8 @@ public class JSON {
                 new io.vertesia.model.StripeBillingEnabled.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.StripeBillingStatusResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.SubmitProcessTestRunPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.SuccessResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -2530,6 +2630,8 @@ public class JSON {
                 new io.vertesia.model.UpdateOAuthProviderPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UpdateProcessDefinitionPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.UpdateProcessTestSuitePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UpdateProjectConfigurationPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
