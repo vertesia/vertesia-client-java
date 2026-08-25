@@ -63,6 +63,11 @@ public class CostAnalyticsResponse {
     @jakarta.annotation.Nonnull
     private List<ModelPricing> pricing = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_PRICING_COVERAGE = "pricing_coverage";
+
+    @SerializedName(SERIALIZED_NAME_PRICING_COVERAGE)
+    @jakarta.annotation.Nullable private CostAnalyticsResponsePricingCoverage pricingCoverage;
+
     public static final String SERIALIZED_NAME_QUERY_RANGE = "query_range";
 
     @SerializedName(SERIALIZED_NAME_QUERY_RANGE)
@@ -175,6 +180,25 @@ public class CostAnalyticsResponse {
         this.pricing = pricing;
     }
 
+    public CostAnalyticsResponse pricingCoverage(
+            @jakarta.annotation.Nullable CostAnalyticsResponsePricingCoverage pricingCoverage) {
+        this.pricingCoverage = pricingCoverage;
+        return this;
+    }
+
+    /**
+     * Get pricingCoverage
+     * @return pricingCoverage
+     */
+    @jakarta.annotation.Nullable public CostAnalyticsResponsePricingCoverage getPricingCoverage() {
+        return pricingCoverage;
+    }
+
+    public void setPricingCoverage(
+            @jakarta.annotation.Nullable CostAnalyticsResponsePricingCoverage pricingCoverage) {
+        this.pricingCoverage = pricingCoverage;
+    }
+
     public CostAnalyticsResponse queryRange(
             @jakarta.annotation.Nonnull CostAnalyticsResponseQueryRange queryRange) {
         this.queryRange = queryRange;
@@ -271,6 +295,7 @@ public class CostAnalyticsResponse {
                 && Objects.equals(this.byDimension, costAnalyticsResponse.byDimension)
                 && Objects.equals(this.timeSeries, costAnalyticsResponse.timeSeries)
                 && Objects.equals(this.pricing, costAnalyticsResponse.pricing)
+                && Objects.equals(this.pricingCoverage, costAnalyticsResponse.pricingCoverage)
                 && Objects.equals(this.queryRange, costAnalyticsResponse.queryRange)
                 && Objects.equals(this.cached, costAnalyticsResponse.cached)
                 && Objects.equals(
@@ -284,6 +309,7 @@ public class CostAnalyticsResponse {
                 byDimension,
                 timeSeries,
                 pricing,
+                pricingCoverage,
                 queryRange,
                 cached,
                 additionalProperties);
@@ -297,6 +323,7 @@ public class CostAnalyticsResponse {
         sb.append("    byDimension: ").append(toIndentedString(byDimension)).append("\n");
         sb.append("    timeSeries: ").append(toIndentedString(timeSeries)).append("\n");
         sb.append("    pricing: ").append(toIndentedString(pricing)).append("\n");
+        sb.append("    pricingCoverage: ").append(toIndentedString(pricingCoverage)).append("\n");
         sb.append("    queryRange: ").append(toIndentedString(queryRange)).append("\n");
         sb.append("    cached: ").append(toIndentedString(cached)).append("\n");
         sb.append("    additionalProperties: ")
@@ -326,6 +353,7 @@ public class CostAnalyticsResponse {
                                 "by_dimension",
                                 "time_series",
                                 "pricing",
+                                "pricing_coverage",
                                 "query_range",
                                 "cached"));
 
@@ -414,6 +442,12 @@ public class CostAnalyticsResponse {
             for (int i = 0; i < jsonArraypricing.size(); i++) {
                 ModelPricing.validateJsonElement(jsonArraypricing.get(i));
             }
+        }
+        // validate the optional field `pricing_coverage`
+        if (jsonObj.get("pricing_coverage") != null
+                && !jsonObj.get("pricing_coverage").isJsonNull()) {
+            CostAnalyticsResponsePricingCoverage.validateJsonElement(
+                    jsonObj.get("pricing_coverage"));
         }
         // validate the required field `query_range`
         CostAnalyticsResponseQueryRange.validateJsonElement(jsonObj.get("query_range"));

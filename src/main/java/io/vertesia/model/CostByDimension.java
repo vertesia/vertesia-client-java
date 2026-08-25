@@ -54,6 +54,11 @@ public class CostByDimension {
     @SerializedName(SERIALIZED_NAME_PROVIDER)
     @jakarta.annotation.Nullable private String provider;
 
+    public static final String SERIALIZED_NAME_SERVICE_TIER = "service_tier";
+
+    @SerializedName(SERIALIZED_NAME_SERVICE_TIER)
+    @jakarta.annotation.Nullable private String serviceTier;
+
     public static final String SERIALIZED_NAME_COST = "cost";
 
     @SerializedName(SERIALIZED_NAME_COST)
@@ -146,6 +151,23 @@ public class CostByDimension {
 
     public void setProvider(@jakarta.annotation.Nullable String provider) {
         this.provider = provider;
+    }
+
+    public CostByDimension serviceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+        return this;
+    }
+
+    /**
+     * Get serviceTier
+     * @return serviceTier
+     */
+    @jakarta.annotation.Nullable public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
     }
 
     public CostByDimension cost(@jakarta.annotation.Nonnull BigDecimal cost) {
@@ -294,6 +316,7 @@ public class CostByDimension {
         return Objects.equals(this.dimension, costByDimension.dimension)
                 && Objects.equals(this.label, costByDimension.label)
                 && Objects.equals(this.provider, costByDimension.provider)
+                && Objects.equals(this.serviceTier, costByDimension.serviceTier)
                 && Objects.equals(this.cost, costByDimension.cost)
                 && Objects.equals(this.inputTokens, costByDimension.inputTokens)
                 && Objects.equals(this.cachedInputTokens, costByDimension.cachedInputTokens)
@@ -309,6 +332,7 @@ public class CostByDimension {
                 dimension,
                 label,
                 provider,
+                serviceTier,
                 cost,
                 inputTokens,
                 cachedInputTokens,
@@ -325,6 +349,7 @@ public class CostByDimension {
         sb.append("    dimension: ").append(toIndentedString(dimension)).append("\n");
         sb.append("    label: ").append(toIndentedString(label)).append("\n");
         sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
+        sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
         sb.append("    cost: ").append(toIndentedString(cost)).append("\n");
         sb.append("    inputTokens: ").append(toIndentedString(inputTokens)).append("\n");
         sb.append("    cachedInputTokens: ")
@@ -359,6 +384,7 @@ public class CostByDimension {
                                 "dimension",
                                 "label",
                                 "provider",
+                                "service_tier",
                                 "cost",
                                 "input_tokens",
                                 "cached_input_tokens",
@@ -426,6 +452,14 @@ public class CostByDimension {
                             java.util.Locale.ROOT,
                             "Expected the field `provider` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("provider").toString()));
+        }
+        if ((jsonObj.get("service_tier") != null && !jsonObj.get("service_tier").isJsonNull())
+                && !jsonObj.get("service_tier").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `service_tier` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("service_tier").toString()));
         }
         if (jsonObj.get("periods") != null && !jsonObj.get("periods").isJsonNull()) {
             JsonArray jsonArrayperiods = jsonObj.getAsJsonArray("periods");

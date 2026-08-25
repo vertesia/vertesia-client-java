@@ -52,6 +52,11 @@ public class ModelPricing {
     @SerializedName(SERIALIZED_NAME_PROVIDER_ACCOUNT_ID)
     @jakarta.annotation.Nullable private String providerAccountId;
 
+    public static final String SERIALIZED_NAME_SERVICE_TIER = "service_tier";
+
+    @SerializedName(SERIALIZED_NAME_SERVICE_TIER)
+    @jakarta.annotation.Nullable private String serviceTier;
+
     public static final String SERIALIZED_NAME_INPUT_PRICE_PER_M_TOKENS =
             "input_price_per_m_tokens";
 
@@ -195,6 +200,23 @@ public class ModelPricing {
         this.providerAccountId = providerAccountId;
     }
 
+    public ModelPricing serviceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+        return this;
+    }
+
+    /**
+     * Processing tier this price applies to
+     * @return serviceTier
+     */
+    @jakarta.annotation.Nullable public String getServiceTier() {
+        return serviceTier;
+    }
+
+    public void setServiceTier(@jakarta.annotation.Nullable String serviceTier) {
+        this.serviceTier = serviceTier;
+    }
+
     public ModelPricing inputPricePerMTokens(
             @jakarta.annotation.Nonnull BigDecimal inputPricePerMTokens) {
         this.inputPricePerMTokens = inputPricePerMTokens;
@@ -303,6 +325,7 @@ public class ModelPricing {
         return Objects.equals(this.model, modelPricing.model)
                 && Objects.equals(this.provider, modelPricing.provider)
                 && Objects.equals(this.providerAccountId, modelPricing.providerAccountId)
+                && Objects.equals(this.serviceTier, modelPricing.serviceTier)
                 && Objects.equals(this.inputPricePerMTokens, modelPricing.inputPricePerMTokens)
                 && Objects.equals(
                         this.cachedInputPricePerMTokens, modelPricing.cachedInputPricePerMTokens)
@@ -319,6 +342,7 @@ public class ModelPricing {
                 model,
                 provider,
                 providerAccountId,
+                serviceTier,
                 inputPricePerMTokens,
                 cachedInputPricePerMTokens,
                 cacheWriteInputPricePerMTokens,
@@ -335,6 +359,7 @@ public class ModelPricing {
         sb.append("    providerAccountId: ")
                 .append(toIndentedString(providerAccountId))
                 .append("\n");
+        sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
         sb.append("    inputPricePerMTokens: ")
                 .append(toIndentedString(inputPricePerMTokens))
                 .append("\n");
@@ -371,6 +396,7 @@ public class ModelPricing {
                                 "model",
                                 "provider",
                                 "provider_account_id",
+                                "service_tier",
                                 "input_price_per_m_tokens",
                                 "cached_input_price_per_m_tokens",
                                 "cache_write_input_price_per_m_tokens",
@@ -440,6 +466,14 @@ public class ModelPricing {
                             java.util.Locale.ROOT,
                             "Expected the field `provider_account_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("provider_account_id").toString()));
+        }
+        if ((jsonObj.get("service_tier") != null && !jsonObj.get("service_tier").isJsonNull())
+                && !jsonObj.get("service_tier").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `service_tier` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("service_tier").toString()));
         }
         if (!jsonObj.get("source").isJsonPrimitive()) {
             throw new IllegalArgumentException(
