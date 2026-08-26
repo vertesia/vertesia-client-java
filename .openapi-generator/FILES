@@ -801,7 +801,9 @@ src/main/java/io/vertesia/model/ProjectToolInfo.java
 src/main/java/io/vertesia/model/ProjectedContentObjectApiResponse.java
 src/main/java/io/vertesia/model/PromoteAppVersionResponse.java
 src/main/java/io/vertesia/model/PromoteDashboardVersionPayload.java
+src/main/java/io/vertesia/model/PromptCacheDiagnostic.java
 src/main/java/io/vertesia/model/PromptCacheMode.java
+src/main/java/io/vertesia/model/PromptCachePath.java
 src/main/java/io/vertesia/model/PromptImprovementResponse.java
 src/main/java/io/vertesia/model/PromptModalities.java
 src/main/java/io/vertesia/model/PromptRole.java

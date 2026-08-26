@@ -45,13 +45,15 @@ public class AppUIConfig {
     private String src;
 
     /**
-     * The isolation strategy. If not specified it defaults to shadow. - shadow - use Shadow DOM to fully isolate the plugin from the host. - css - inject the plugin&#39;s styles (minus the preflight) into the host document;   lighter but styles may conflict with the host.
+     * The isolation strategy. If not specified it defaults to shadow. - shadow - use Shadow DOM to fully isolate the plugin from the host. - css - inject the plugin&#39;s styles (minus the preflight) into the host document; lighter but styles may conflict with the host. - iframe - load a standalone application in a sandboxed iframe so it owns its JavaScript and dependency graph.
      */
     @JsonAdapter(IsolationEnum.Adapter.class)
     public enum IsolationEnum {
         SHADOW("shadow"),
 
         CSS("css"),
+
+        IFRAME("iframe"),
 
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
@@ -145,7 +147,7 @@ public class AppUIConfig {
     }
 
     /**
-     * The isolation strategy. If not specified it defaults to shadow. - shadow - use Shadow DOM to fully isolate the plugin from the host. - css - inject the plugin&#39;s styles (minus the preflight) into the host document;   lighter but styles may conflict with the host.
+     * The isolation strategy. If not specified it defaults to shadow. - shadow - use Shadow DOM to fully isolate the plugin from the host. - css - inject the plugin&#39;s styles (minus the preflight) into the host document; lighter but styles may conflict with the host. - iframe - load a standalone application in a sandboxed iframe so it owns its JavaScript and dependency graph.
      * @return isolation
      */
     @jakarta.annotation.Nullable public IsolationEnum getIsolation() {

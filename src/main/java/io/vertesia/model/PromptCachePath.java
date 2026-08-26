@@ -20,21 +20,43 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Gets or Sets PromptCacheMode
+ * Gets or Sets PromptCachePath
  */
-@JsonAdapter(PromptCacheMode.Adapter.class)
-public enum PromptCacheMode {
-    AUTO("auto"),
+@JsonAdapter(PromptCachePath.Adapter.class)
+public enum PromptCachePath {
+    DISABLED("disabled"),
 
-    OFF("off"),
+    NO_KEY("no_key"),
 
-    REQUIRED("required"),
+    LOCAL_MEMO_HIT("local_memo_hit"),
+
+    DISTRIBUTED_REGISTRY_HIT("distributed_registry_hit"),
+
+    PROVIDER_LIST_RECOVERY("provider_list_recovery"),
+
+    CREATED("created"),
+
+    WAITED_FOR_CREATOR("waited_for_creator"),
+
+    REFRESHED("refreshed"),
+
+    FALLBACK_QUOTA("fallback_quota"),
+
+    FALLBACK_PROVIDER_ERROR("fallback_provider_error"),
+
+    FALLBACK_COORDINATION_UNAVAILABLE("fallback_coordination_unavailable"),
+
+    FALLBACK_WAIT_TIMEOUT("fallback_wait_timeout"),
+
+    MINIMUM_TOKEN_REJECTION("minimum_token_rejection"),
+
+    UNUSABLE_RESOURCE_RECREATED("unusable_resource_recreated"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
-    PromptCacheMode(String value) {
+    PromptCachePath(String value) {
         this.value = value;
     }
 
@@ -47,8 +69,8 @@ public enum PromptCacheMode {
         return String.valueOf(value);
     }
 
-    public static PromptCacheMode fromValue(String value) {
-        for (PromptCacheMode b : PromptCacheMode.values()) {
+    public static PromptCachePath fromValue(String value) {
+        for (PromptCachePath b : PromptCachePath.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
@@ -56,22 +78,22 @@ public enum PromptCacheMode {
         return UNKNOWN_DEFAULT_OPEN_API;
     }
 
-    public static class Adapter extends TypeAdapter<PromptCacheMode> {
+    public static class Adapter extends TypeAdapter<PromptCachePath> {
         @Override
-        public void write(final JsonWriter jsonWriter, final PromptCacheMode enumeration)
+        public void write(final JsonWriter jsonWriter, final PromptCachePath enumeration)
                 throws IOException {
             jsonWriter.value(enumeration.getValue());
         }
 
         @Override
-        public PromptCacheMode read(final JsonReader jsonReader) throws IOException {
+        public PromptCachePath read(final JsonReader jsonReader) throws IOException {
             String value = jsonReader.nextString();
-            return PromptCacheMode.fromValue(value);
+            return PromptCachePath.fromValue(value);
         }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         String value = jsonElement.getAsString();
-        PromptCacheMode.fromValue(value);
+        PromptCachePath.fromValue(value);
     }
 }

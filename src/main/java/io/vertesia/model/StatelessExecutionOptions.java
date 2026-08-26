@@ -208,7 +208,7 @@ public class StatelessExecutionOptions {
     }
 
     /**
-     * Controls provider-side explicit caches — cache resources the driver creates and reuses (e.g. Vertex cachedContents). \&quot;auto\&quot; (default) caches the static prefix whenever prompt_cache_key is set; \&quot;off\&quot; never creates or uses a cache resource and leaves the provider payload unchanged. Implicit caching and cache breakpoints are unaffected.
+     * Controls provider-side explicit caches — cache resources the driver creates and reuses (e.g. Vertex cachedContents). \&quot;auto\&quot; (default) caches the static prefix whenever prompt_cache_key is set; \&quot;off\&quot; never creates or uses a cache resource and leaves the provider payload unchanged; \&quot;required\&quot; behaves like auto but surfaces cache preparation failures instead of falling back. Implicit caching and cache breakpoints are unaffected.
      * @return promptCacheMode
      */
     @jakarta.annotation.Nullable public PromptCacheMode getPromptCacheMode() {
@@ -226,8 +226,8 @@ public class StatelessExecutionOptions {
     }
 
     /**
-     * Lifetime, in seconds, of a provider-side cache resource created for this execution. Defaults to 1800 (30 minutes). Ignored by providers without an explicit cache API.
-     * minimum: 0
+     * Lifetime, in seconds, of a provider-side cache resource created for this execution. Defaults to 1800 (30 minutes) and must be at least 60 seconds. Ignored by providers without an explicit cache API.
+     * minimum: 60
      * maximum: 9007199254740991
      * @return promptCacheTtlSeconds
      */
