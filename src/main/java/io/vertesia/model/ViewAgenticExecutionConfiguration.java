@@ -77,6 +77,17 @@ public class ViewAgenticExecutionConfiguration {
     @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_KEY)
     @jakarta.annotation.Nullable private String promptCacheKey;
 
+    public static final String SERIALIZED_NAME_PROMPT_CACHE_MODE = "prompt_cache_mode";
+
+    @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_MODE)
+    @jakarta.annotation.Nullable private PromptCacheMode promptCacheMode;
+
+    public static final String SERIALIZED_NAME_PROMPT_CACHE_TTL_SECONDS =
+            "prompt_cache_ttl_seconds";
+
+    @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_TTL_SECONDS)
+    @jakarta.annotation.Nullable private Integer promptCacheTtlSeconds;
+
     public static final String SERIALIZED_NAME_PROMPT_CACHE_SCHEMA_SUFFIX =
             "prompt_cache_schema_suffix";
 
@@ -241,6 +252,45 @@ public class ViewAgenticExecutionConfiguration {
         this.promptCacheKey = promptCacheKey;
     }
 
+    public ViewAgenticExecutionConfiguration promptCacheMode(
+            @jakarta.annotation.Nullable PromptCacheMode promptCacheMode) {
+        this.promptCacheMode = promptCacheMode;
+        return this;
+    }
+
+    /**
+     * Controls provider-side explicit caching: auto falls back safely, off disables it, and required surfaces cache preparation failures for diagnostics.
+     * @return promptCacheMode
+     */
+    @jakarta.annotation.Nullable public PromptCacheMode getPromptCacheMode() {
+        return promptCacheMode;
+    }
+
+    public void setPromptCacheMode(@jakarta.annotation.Nullable PromptCacheMode promptCacheMode) {
+        this.promptCacheMode = promptCacheMode;
+    }
+
+    public ViewAgenticExecutionConfiguration promptCacheTtlSeconds(
+            @jakarta.annotation.Nullable Integer promptCacheTtlSeconds) {
+        this.promptCacheTtlSeconds = promptCacheTtlSeconds;
+        return this;
+    }
+
+    /**
+     * Caller-selected explicit cache lifetime in seconds. Defaults remain provider-specific; Vertex Gemini requires at least 60 seconds.
+     * minimum: 60
+     * maximum: 9007199254740991
+     * @return promptCacheTtlSeconds
+     */
+    @jakarta.annotation.Nullable public Integer getPromptCacheTtlSeconds() {
+        return promptCacheTtlSeconds;
+    }
+
+    public void setPromptCacheTtlSeconds(
+            @jakarta.annotation.Nullable Integer promptCacheTtlSeconds) {
+        this.promptCacheTtlSeconds = promptCacheTtlSeconds;
+    }
+
     public ViewAgenticExecutionConfiguration promptCacheSchemaSuffix(
             @jakarta.annotation.Nullable Boolean promptCacheSchemaSuffix) {
         this.promptCacheSchemaSuffix = promptCacheSchemaSuffix;
@@ -343,6 +393,11 @@ public class ViewAgenticExecutionConfiguration {
                 && Objects.equals(
                         this.promptCacheKey, viewAgenticExecutionConfiguration.promptCacheKey)
                 && Objects.equals(
+                        this.promptCacheMode, viewAgenticExecutionConfiguration.promptCacheMode)
+                && Objects.equals(
+                        this.promptCacheTtlSeconds,
+                        viewAgenticExecutionConfiguration.promptCacheTtlSeconds)
+                && Objects.equals(
                         this.promptCacheSchemaSuffix,
                         viewAgenticExecutionConfiguration.promptCacheSchemaSuffix)
                 && Objects.equals(this.httpTimeout, viewAgenticExecutionConfiguration.httpTimeout)
@@ -362,6 +417,8 @@ public class ViewAgenticExecutionConfiguration {
                 configMode,
                 modelOptions,
                 promptCacheKey,
+                promptCacheMode,
+                promptCacheTtlSeconds,
                 promptCacheSchemaSuffix,
                 httpTimeout,
                 additionalProperties);
@@ -379,6 +436,10 @@ public class ViewAgenticExecutionConfiguration {
         sb.append("    configMode: ").append(toIndentedString(configMode)).append("\n");
         sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
         sb.append("    promptCacheKey: ").append(toIndentedString(promptCacheKey)).append("\n");
+        sb.append("    promptCacheMode: ").append(toIndentedString(promptCacheMode)).append("\n");
+        sb.append("    promptCacheTtlSeconds: ")
+                .append(toIndentedString(promptCacheTtlSeconds))
+                .append("\n");
         sb.append("    promptCacheSchemaSuffix: ")
                 .append(toIndentedString(promptCacheSchemaSuffix))
                 .append("\n");
@@ -414,6 +475,8 @@ public class ViewAgenticExecutionConfiguration {
                                 "configMode",
                                 "model_options",
                                 "prompt_cache_key",
+                                "prompt_cache_mode",
+                                "prompt_cache_ttl_seconds",
                                 "prompt_cache_schema_suffix",
                                 "http_timeout"));
 
@@ -480,6 +543,11 @@ public class ViewAgenticExecutionConfiguration {
                             java.util.Locale.ROOT,
                             "Expected the field `prompt_cache_key` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("prompt_cache_key").toString()));
+        }
+        // validate the optional field `prompt_cache_mode`
+        if (jsonObj.get("prompt_cache_mode") != null
+                && !jsonObj.get("prompt_cache_mode").isJsonNull()) {
+            PromptCacheMode.validateJsonElement(jsonObj.get("prompt_cache_mode"));
         }
         // validate the optional field `http_timeout`
         if (jsonObj.get("http_timeout") != null && !jsonObj.get("http_timeout").isJsonNull()) {

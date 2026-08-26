@@ -105,6 +105,12 @@ public class ExecutionRunRef {
     @SerializedName(SERIALIZED_NAME_TOKEN_USE)
     @jakarta.annotation.Nullable private ExecutionTokenUsage tokenUse;
 
+    public static final String SERIALIZED_NAME_PROMPT_CACHE_DIAGNOSTICS =
+            "prompt_cache_diagnostics";
+
+    @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_DIAGNOSTICS)
+    @jakarta.annotation.Nullable private List<PromptCacheDiagnostic> promptCacheDiagnostics = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_CHUNKS = "chunks";
 
     @SerializedName(SERIALIZED_NAME_CHUNKS)
@@ -412,6 +418,34 @@ public class ExecutionRunRef {
 
     public void setTokenUse(@jakarta.annotation.Nullable ExecutionTokenUsage tokenUse) {
         this.tokenUse = tokenUse;
+    }
+
+    public ExecutionRunRef promptCacheDiagnostics(
+            @jakarta.annotation.Nullable List<PromptCacheDiagnostic> promptCacheDiagnostics) {
+        this.promptCacheDiagnostics = promptCacheDiagnostics;
+        return this;
+    }
+
+    public ExecutionRunRef addPromptCacheDiagnosticsItem(
+            PromptCacheDiagnostic promptCacheDiagnosticsItem) {
+        if (this.promptCacheDiagnostics == null) {
+            this.promptCacheDiagnostics = new ArrayList<>();
+        }
+        this.promptCacheDiagnostics.add(promptCacheDiagnosticsItem);
+        return this;
+    }
+
+    /**
+     * Get promptCacheDiagnostics
+     * @return promptCacheDiagnostics
+     */
+    @jakarta.annotation.Nullable public List<PromptCacheDiagnostic> getPromptCacheDiagnostics() {
+        return promptCacheDiagnostics;
+    }
+
+    public void setPromptCacheDiagnostics(
+            @jakarta.annotation.Nullable List<PromptCacheDiagnostic> promptCacheDiagnostics) {
+        this.promptCacheDiagnostics = promptCacheDiagnostics;
     }
 
     public ExecutionRunRef chunks(@jakarta.annotation.Nullable BigDecimal chunks) {
@@ -773,6 +807,8 @@ public class ExecutionRunRef {
                 && Objects.equals(this.finishReason, executionRunRef.finishReason)
                 && Objects.equals(this.prompt, executionRunRef.prompt)
                 && Objects.equals(this.tokenUse, executionRunRef.tokenUse)
+                && Objects.equals(
+                        this.promptCacheDiagnostics, executionRunRef.promptCacheDiagnostics)
                 && Objects.equals(this.chunks, executionRunRef.chunks)
                 && Objects.equals(this.executionTime, executionRunRef.executionTime)
                 && Objects.equals(this.createdAt, executionRunRef.createdAt)
@@ -816,6 +852,7 @@ public class ExecutionRunRef {
                 finishReason,
                 prompt,
                 tokenUse,
+                promptCacheDiagnostics,
                 chunks,
                 executionTime,
                 createdAt,
@@ -858,6 +895,9 @@ public class ExecutionRunRef {
         sb.append("    finishReason: ").append(toIndentedString(finishReason)).append("\n");
         sb.append("    prompt: ").append(toIndentedString(prompt)).append("\n");
         sb.append("    tokenUse: ").append(toIndentedString(tokenUse)).append("\n");
+        sb.append("    promptCacheDiagnostics: ")
+                .append(toIndentedString(promptCacheDiagnostics))
+                .append("\n");
         sb.append("    chunks: ").append(toIndentedString(chunks)).append("\n");
         sb.append("    executionTime: ").append(toIndentedString(executionTime)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -909,6 +949,7 @@ public class ExecutionRunRef {
                                 "finish_reason",
                                 "prompt",
                                 "token_use",
+                                "prompt_cache_diagnostics",
                                 "chunks",
                                 "execution_time",
                                 "created_at",
@@ -1028,6 +1069,28 @@ public class ExecutionRunRef {
         // validate the optional field `token_use`
         if (jsonObj.get("token_use") != null && !jsonObj.get("token_use").isJsonNull()) {
             ExecutionTokenUsage.validateJsonElement(jsonObj.get("token_use"));
+        }
+        if (jsonObj.get("prompt_cache_diagnostics") != null
+                && !jsonObj.get("prompt_cache_diagnostics").isJsonNull()) {
+            JsonArray jsonArraypromptCacheDiagnostics =
+                    jsonObj.getAsJsonArray("prompt_cache_diagnostics");
+            if (jsonArraypromptCacheDiagnostics != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("prompt_cache_diagnostics").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `prompt_cache_diagnostics` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("prompt_cache_diagnostics").toString()));
+                }
+
+                // validate the optional field `prompt_cache_diagnostics` (array)
+                for (int i = 0; i < jsonArraypromptCacheDiagnostics.size(); i++) {
+                    PromptCacheDiagnostic.validateJsonElement(
+                            jsonArraypromptCacheDiagnostics.get(i));
+                }
+                ;
+            }
         }
         // validate the required field `account`
         AccountRef.validateJsonElement(jsonObj.get("account"));
