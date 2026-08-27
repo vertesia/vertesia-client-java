@@ -52,8 +52,7 @@ public class AgentToolDefinition {
     public static final String SERIALIZED_NAME_INPUT_SCHEMA = "input_schema";
 
     @SerializedName(SERIALIZED_NAME_INPUT_SCHEMA)
-    @jakarta.annotation.Nonnull
-    private Map<String, Object> inputSchema = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> inputSchema;
 
     public static final String SERIALIZED_NAME_OUTPUT_SCHEMA = "output_schema";
 
@@ -128,7 +127,7 @@ public class AgentToolDefinition {
     }
 
     public AgentToolDefinition inputSchema(
-            @jakarta.annotation.Nonnull Map<String, Object> inputSchema) {
+            @jakarta.annotation.Nullable Map<String, Object> inputSchema) {
         this.inputSchema = inputSchema;
         return this;
     }
@@ -145,12 +144,11 @@ public class AgentToolDefinition {
      * Get inputSchema
      * @return inputSchema
      */
-    @jakarta.annotation.Nonnull
-    public Map<String, Object> getInputSchema() {
+    @jakarta.annotation.Nullable public Map<String, Object> getInputSchema() {
         return inputSchema;
     }
 
-    public void setInputSchema(@jakarta.annotation.Nonnull Map<String, Object> inputSchema) {
+    public void setInputSchema(@jakarta.annotation.Nullable Map<String, Object> inputSchema) {
         this.inputSchema = inputSchema;
     }
 

@@ -128,7 +128,7 @@ public class ContentObjectItemApiResponse {
     public static final String SERIALIZED_NAME_METADATA = "metadata";
 
     @SerializedName(SERIALIZED_NAME_METADATA)
-    @jakarta.annotation.Nullable private Map<String, Object> metadata = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> metadata;
 
     public static final String SERIALIZED_NAME_TOKENS = "tokens";
 
@@ -195,7 +195,7 @@ public class ContentObjectItemApiResponse {
     public static final String SERIALIZED_NAME_TRANSCRIPT = "transcript";
 
     @SerializedName(SERIALIZED_NAME_TRANSCRIPT)
-    @jakarta.annotation.Nullable private Map<String, Object> transcript = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> transcript;
 
     public static final String SERIALIZED_NAME_SECURITY = "security";
 

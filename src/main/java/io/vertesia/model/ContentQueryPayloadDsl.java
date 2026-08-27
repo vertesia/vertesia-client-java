@@ -31,6 +31,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * ContentQueryPayloadDsl
@@ -42,12 +43,12 @@ public class ContentQueryPayloadDsl {
     public static final String SERIALIZED_NAME_QUERY = "query";
 
     @SerializedName(SERIALIZED_NAME_QUERY)
-    @jakarta.annotation.Nullable private Map<String, Object> query = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> query;
 
     public static final String SERIALIZED_NAME_AGGS = "aggs";
 
     @SerializedName(SERIALIZED_NAME_AGGS)
-    @jakarta.annotation.Nullable private Map<String, Object> aggs = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> aggs;
 
     public static final String SERIALIZED_NAME_SIZE = "size";
 
@@ -192,9 +193,25 @@ public class ContentQueryPayloadDsl {
                 && Objects.equals(this.sort, contentQueryPayloadDsl.sort);
     }
 
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(query, aggs, size, from, sort);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override

@@ -59,8 +59,7 @@ public class DSLWorkflowSpecWithSteps {
     public static final String SERIALIZED_NAME_VARS = "vars";
 
     @SerializedName(SERIALIZED_NAME_VARS)
-    @jakarta.annotation.Nonnull
-    private Map<String, Object> vars = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> vars;
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
@@ -210,7 +209,7 @@ public class DSLWorkflowSpecWithSteps {
         this.tags = tags;
     }
 
-    public DSLWorkflowSpecWithSteps vars(@jakarta.annotation.Nonnull Map<String, Object> vars) {
+    public DSLWorkflowSpecWithSteps vars(@jakarta.annotation.Nullable Map<String, Object> vars) {
         this.vars = vars;
         return this;
     }
@@ -227,12 +226,11 @@ public class DSLWorkflowSpecWithSteps {
      * Get vars
      * @return vars
      */
-    @jakarta.annotation.Nonnull
-    public Map<String, Object> getVars() {
+    @jakarta.annotation.Nullable public Map<String, Object> getVars() {
         return vars;
     }
 
-    public void setVars(@jakarta.annotation.Nonnull Map<String, Object> vars) {
+    public void setVars(@jakarta.annotation.Nullable Map<String, Object> vars) {
         this.vars = vars;
     }
 
@@ -363,6 +361,51 @@ public class DSLWorkflowSpecWithSteps {
         this.specFormat = specFormat;
     }
 
+    /**
+     * A container for additional, undeclared properties.
+     * This is a holder for any undeclared properties as specified with
+     * the 'additionalProperties' keyword in the OAS document.
+     */
+    private Map<String, Object> additionalProperties;
+
+    /**
+     * Set the additional (undeclared) property with the specified name and value.
+     * If the property does not already exist, create it otherwise replace it.
+     *
+     * @param key name of the property
+     * @param value value of the property
+     * @return the DSLWorkflowSpecWithSteps instance itself
+     */
+    public DSLWorkflowSpecWithSteps putAdditionalProperty(String key, Object value) {
+        if (this.additionalProperties == null) {
+            this.additionalProperties = new HashMap<String, Object>();
+        }
+        this.additionalProperties.put(key, value);
+        return this;
+    }
+
+    /**
+     * Return the additional (undeclared) property.
+     *
+     * @return a map of objects
+     */
+    public Map<String, Object> getAdditionalProperties() {
+        return additionalProperties;
+    }
+
+    /**
+     * Return the additional (undeclared) property with the specified name.
+     *
+     * @param key name of the property
+     * @return an object
+     */
+    public Object getAdditionalProperty(String key) {
+        if (this.additionalProperties == null) {
+            return null;
+        }
+        return this.additionalProperties.get(key);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -381,7 +424,9 @@ public class DSLWorkflowSpecWithSteps {
                 && Objects.equals(this.debugMode, dsLWorkflowSpecWithSteps.debugMode)
                 && Objects.equals(this.steps, dsLWorkflowSpecWithSteps.steps)
                 && Objects.equals(this.activities, dsLWorkflowSpecWithSteps.activities)
-                && Objects.equals(this.specFormat, dsLWorkflowSpecWithSteps.specFormat);
+                && Objects.equals(this.specFormat, dsLWorkflowSpecWithSteps.specFormat)
+                && Objects.equals(
+                        this.additionalProperties, dsLWorkflowSpecWithSteps.additionalProperties);
     }
 
     @Override
@@ -396,7 +441,8 @@ public class DSLWorkflowSpecWithSteps {
                 debugMode,
                 steps,
                 activities,
-                specFormat);
+                specFormat,
+                additionalProperties);
     }
 
     @Override
@@ -413,6 +459,9 @@ public class DSLWorkflowSpecWithSteps {
         sb.append("    steps: ").append(toIndentedString(steps)).append("\n");
         sb.append("    activities: ").append(toIndentedString(activities)).append("\n");
         sb.append("    specFormat: ").append(toIndentedString(specFormat)).append("\n");
+        sb.append("    additionalProperties: ")
+                .append(toIndentedString(additionalProperties))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -578,6 +627,30 @@ public class DSLWorkflowSpecWithSteps {
                         public void write(JsonWriter out, DSLWorkflowSpecWithSteps value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+                            obj.remove("additionalProperties");
+                            // serialize additional properties
+                            if (value.getAdditionalProperties() != null) {
+                                for (Map.Entry<String, Object> entry :
+                                        value.getAdditionalProperties().entrySet()) {
+                                    if (entry.getValue() instanceof String)
+                                        obj.addProperty(entry.getKey(), (String) entry.getValue());
+                                    else if (entry.getValue() instanceof Number)
+                                        obj.addProperty(entry.getKey(), (Number) entry.getValue());
+                                    else if (entry.getValue() instanceof Boolean)
+                                        obj.addProperty(entry.getKey(), (Boolean) entry.getValue());
+                                    else if (entry.getValue() instanceof Character)
+                                        obj.addProperty(
+                                                entry.getKey(), (Character) entry.getValue());
+                                    else {
+                                        JsonElement jsonElement = gson.toJsonTree(entry.getValue());
+                                        if (jsonElement.isJsonArray()) {
+                                            obj.add(entry.getKey(), jsonElement.getAsJsonArray());
+                                        } else {
+                                            obj.add(entry.getKey(), jsonElement.getAsJsonObject());
+                                        }
+                                    }
+                                }
+                            }
                             elementAdapter.write(out, obj);
                         }
 
@@ -585,7 +658,41 @@ public class DSLWorkflowSpecWithSteps {
                         public DSLWorkflowSpecWithSteps read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+                            JsonObject jsonObj = jsonElement.getAsJsonObject();
+                            // store additional fields in the deserialized instance
+                            DSLWorkflowSpecWithSteps instance = thisAdapter.fromJsonTree(jsonObj);
+                            for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
+                                if (!openapiFields.contains(entry.getKey())) {
+                                    if (entry.getValue().isJsonPrimitive()) { // primitive type
+                                        if (entry.getValue().getAsJsonPrimitive().isString())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(), entry.getValue().getAsString());
+                                        else if (entry.getValue().getAsJsonPrimitive().isNumber())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(), entry.getValue().getAsNumber());
+                                        else if (entry.getValue().getAsJsonPrimitive().isBoolean())
+                                            instance.putAdditionalProperty(
+                                                    entry.getKey(),
+                                                    entry.getValue().getAsBoolean());
+                                        else
+                                            throw new IllegalArgumentException(
+                                                    String.format(
+                                                            java.util.Locale.ROOT,
+                                                            "The field `%s` has unknown primitive type. Value: %s",
+                                                            entry.getKey(),
+                                                            entry.getValue().toString()));
+                                    } else if (entry.getValue().isJsonArray()) {
+                                        instance.putAdditionalProperty(
+                                                entry.getKey(),
+                                                gson.fromJson(entry.getValue(), List.class));
+                                    } else { // JSON object
+                                        instance.putAdditionalProperty(
+                                                entry.getKey(),
+                                                gson.fromJson(entry.getValue(), HashMap.class));
+                                    }
+                                }
+                            }
+                            return instance;
                         }
                     }.nullSafe();
         }

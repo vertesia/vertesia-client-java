@@ -43,8 +43,7 @@ public class ProcessState {
     public static final String SERIALIZED_NAME_CONTEXT = "context";
 
     @SerializedName(SERIALIZED_NAME_CONTEXT)
-    @jakarta.annotation.Nonnull
-    private Map<String, Object> context = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> context;
 
     public static final String SERIALIZED_NAME_CURRENT_NODE = "current_node";
 
@@ -71,7 +70,7 @@ public class ProcessState {
 
     public ProcessState() {}
 
-    public ProcessState context(@jakarta.annotation.Nonnull Map<String, Object> context) {
+    public ProcessState context(@jakarta.annotation.Nullable Map<String, Object> context) {
         this.context = context;
         return this;
     }
@@ -88,12 +87,11 @@ public class ProcessState {
      * Get context
      * @return context
      */
-    @jakarta.annotation.Nonnull
-    public Map<String, Object> getContext() {
+    @jakarta.annotation.Nullable public Map<String, Object> getContext() {
         return context;
     }
 
-    public void setContext(@jakarta.annotation.Nonnull Map<String, Object> context) {
+    public void setContext(@jakarta.annotation.Nullable Map<String, Object> context) {
         this.context = context;
     }
 

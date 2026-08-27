@@ -30,6 +30,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * DSLChildWorkflowStepOptions
@@ -41,7 +42,7 @@ public class DSLChildWorkflowStepOptions {
     public static final String SERIALIZED_NAME_MEMO = "memo";
 
     @SerializedName(SERIALIZED_NAME_MEMO)
-    @jakarta.annotation.Nullable private Map<String, Object> memo = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> memo;
 
     public static final String SERIALIZED_NAME_RETRY = "retry";
 
@@ -373,6 +374,15 @@ public class DSLChildWorkflowStepOptions {
                         this.parentClosePolicy, dsLChildWorkflowStepOptions.parentClosePolicy);
     }
 
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(
@@ -386,6 +396,13 @@ public class DSLChildWorkflowStepOptions {
                 workflowId,
                 cronSchedule,
                 parentClosePolicy);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
