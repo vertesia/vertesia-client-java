@@ -58,6 +58,11 @@ public class ResendConfiguration {
     @SerializedName(SERIALIZED_NAME_API_KEY_HINT)
     @jakarta.annotation.Nullable private String apiKeyHint;
 
+    public static final String SERIALIZED_NAME_API_KEY = "api_key";
+
+    @SerializedName(SERIALIZED_NAME_API_KEY)
+    @jakarta.annotation.Nullable private String apiKey;
+
     public static final String SERIALIZED_NAME_EMAIL_DOMAIN = "email_domain";
 
     @SerializedName(SERIALIZED_NAME_EMAIL_DOMAIN)
@@ -78,6 +83,11 @@ public class ResendConfiguration {
 
     @SerializedName(SERIALIZED_NAME_WEBHOOK_SECRET_HINT)
     @jakarta.annotation.Nullable private String webhookSecretHint;
+
+    public static final String SERIALIZED_NAME_WEBHOOK_SECRET = "webhook_secret";
+
+    @SerializedName(SERIALIZED_NAME_WEBHOOK_SECRET)
+    @jakarta.annotation.Nullable private String webhookSecret;
 
     public static final String SERIALIZED_NAME_ALLOWED_SENDER_DOMAINS = "allowed_sender_domains";
 
@@ -168,6 +178,23 @@ public class ResendConfiguration {
         this.apiKeyHint = apiKeyHint;
     }
 
+    public ResendConfiguration apiKey(@jakarta.annotation.Nullable String apiKey) {
+        this.apiKey = apiKey;
+        return this;
+    }
+
+    /**
+     * Decrypted credential returned only to authenticated agent principals for runtime use. Human and service-account callers receive null; presence and hint fields report configuration status.
+     * @return apiKey
+     */
+    @jakarta.annotation.Nullable public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(@jakarta.annotation.Nullable String apiKey) {
+        this.apiKey = apiKey;
+    }
+
     public ResendConfiguration emailDomain(@jakarta.annotation.Nonnull String emailDomain) {
         this.emailDomain = emailDomain;
         return this;
@@ -238,6 +265,23 @@ public class ResendConfiguration {
 
     public void setWebhookSecretHint(@jakarta.annotation.Nullable String webhookSecretHint) {
         this.webhookSecretHint = webhookSecretHint;
+    }
+
+    public ResendConfiguration webhookSecret(@jakarta.annotation.Nullable String webhookSecret) {
+        this.webhookSecret = webhookSecret;
+        return this;
+    }
+
+    /**
+     * Decrypted credential returned only to authenticated agent principals for runtime use. Human and service-account callers receive null; presence and hint fields report configuration status.
+     * @return webhookSecret
+     */
+    @jakarta.annotation.Nullable public String getWebhookSecret() {
+        return webhookSecret;
+    }
+
+    public void setWebhookSecret(@jakarta.annotation.Nullable String webhookSecret) {
+        this.webhookSecret = webhookSecret;
     }
 
     public ResendConfiguration allowedSenderDomains(
@@ -316,10 +360,12 @@ public class ResendConfiguration {
                 && Objects.equals(this.enabled, resendConfiguration.enabled)
                 && Objects.equals(this.hasApiKey, resendConfiguration.hasApiKey)
                 && Objects.equals(this.apiKeyHint, resendConfiguration.apiKeyHint)
+                && Objects.equals(this.apiKey, resendConfiguration.apiKey)
                 && Objects.equals(this.emailDomain, resendConfiguration.emailDomain)
                 && Objects.equals(this.defaultFromName, resendConfiguration.defaultFromName)
                 && Objects.equals(this.hasWebhookSecret, resendConfiguration.hasWebhookSecret)
                 && Objects.equals(this.webhookSecretHint, resendConfiguration.webhookSecretHint)
+                && Objects.equals(this.webhookSecret, resendConfiguration.webhookSecret)
                 && Objects.equals(
                         this.allowedSenderDomains, resendConfiguration.allowedSenderDomains)
                 && Objects.equals(
@@ -334,10 +380,12 @@ public class ResendConfiguration {
                 enabled,
                 hasApiKey,
                 apiKeyHint,
+                apiKey,
                 emailDomain,
                 defaultFromName,
                 hasWebhookSecret,
                 webhookSecretHint,
+                webhookSecret,
                 allowedSenderDomains,
                 requireProjectAccess,
                 requireEmailAuth);
@@ -351,12 +399,14 @@ public class ResendConfiguration {
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    hasApiKey: ").append(toIndentedString(hasApiKey)).append("\n");
         sb.append("    apiKeyHint: ").append(toIndentedString(apiKeyHint)).append("\n");
+        sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
         sb.append("    emailDomain: ").append(toIndentedString(emailDomain)).append("\n");
         sb.append("    defaultFromName: ").append(toIndentedString(defaultFromName)).append("\n");
         sb.append("    hasWebhookSecret: ").append(toIndentedString(hasWebhookSecret)).append("\n");
         sb.append("    webhookSecretHint: ")
                 .append(toIndentedString(webhookSecretHint))
                 .append("\n");
+        sb.append("    webhookSecret: ").append(toIndentedString(webhookSecret)).append("\n");
         sb.append("    allowedSenderDomains: ")
                 .append(toIndentedString(allowedSenderDomains))
                 .append("\n");
@@ -388,17 +438,25 @@ public class ResendConfiguration {
                                 "enabled",
                                 "has_api_key",
                                 "api_key_hint",
+                                "api_key",
                                 "email_domain",
                                 "default_from_name",
                                 "has_webhook_secret",
                                 "webhook_secret_hint",
+                                "webhook_secret",
                                 "allowed_sender_domains",
                                 "require_project_access",
                                 "require_email_auth"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
-                new HashSet<String>(Arrays.asList("integration", "enabled", "email_domain"));
+                new HashSet<String>(
+                        Arrays.asList(
+                                "integration",
+                                "enabled",
+                                "api_key",
+                                "email_domain",
+                                "webhook_secret"));
     }
 
     /**
@@ -441,6 +499,14 @@ public class ResendConfiguration {
                             "Expected the field `api_key_hint` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("api_key_hint").toString()));
         }
+        if ((jsonObj.get("api_key") != null && !jsonObj.get("api_key").isJsonNull())
+                && !jsonObj.get("api_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `api_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("api_key").toString()));
+        }
         if (!jsonObj.get("email_domain").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
@@ -465,6 +531,14 @@ public class ResendConfiguration {
                             java.util.Locale.ROOT,
                             "Expected the field `webhook_secret_hint` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("webhook_secret_hint").toString()));
+        }
+        if ((jsonObj.get("webhook_secret") != null && !jsonObj.get("webhook_secret").isJsonNull())
+                && !jsonObj.get("webhook_secret").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `webhook_secret` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("webhook_secret").toString()));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("allowed_sender_domains") != null

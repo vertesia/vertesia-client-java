@@ -66,6 +66,11 @@ public class AskUserWebhookConfiguration {
     @SerializedName(SERIALIZED_NAME_WEBHOOK_SECRET_HINT)
     @jakarta.annotation.Nullable private String webhookSecretHint;
 
+    public static final String SERIALIZED_NAME_WEBHOOK_SECRET = "webhook_secret";
+
+    @SerializedName(SERIALIZED_NAME_WEBHOOK_SECRET)
+    @jakarta.annotation.Nullable private String webhookSecret;
+
     /**
      * Gets or Sets events
      */
@@ -224,6 +229,24 @@ public class AskUserWebhookConfiguration {
         this.webhookSecretHint = webhookSecretHint;
     }
 
+    public AskUserWebhookConfiguration webhookSecret(
+            @jakarta.annotation.Nullable String webhookSecret) {
+        this.webhookSecret = webhookSecret;
+        return this;
+    }
+
+    /**
+     * Decrypted credential returned only to authenticated agent principals for runtime use. Human and service-account callers receive null; presence and hint fields report configuration status.
+     * @return webhookSecret
+     */
+    @jakarta.annotation.Nullable public String getWebhookSecret() {
+        return webhookSecret;
+    }
+
+    public void setWebhookSecret(@jakarta.annotation.Nullable String webhookSecret) {
+        this.webhookSecret = webhookSecret;
+    }
+
     public AskUserWebhookConfiguration events(
             @jakarta.annotation.Nullable List<EventsEnum> events) {
         this.events = events;
@@ -292,6 +315,7 @@ public class AskUserWebhookConfiguration {
                         this.hasWebhookSecret, askUserWebhookConfiguration.hasWebhookSecret)
                 && Objects.equals(
                         this.webhookSecretHint, askUserWebhookConfiguration.webhookSecretHint)
+                && Objects.equals(this.webhookSecret, askUserWebhookConfiguration.webhookSecret)
                 && Objects.equals(this.events, askUserWebhookConfiguration.events)
                 && Objects.equals(this.customHeaders, askUserWebhookConfiguration.customHeaders);
     }
@@ -304,6 +328,7 @@ public class AskUserWebhookConfiguration {
                 webhookUrl,
                 hasWebhookSecret,
                 webhookSecretHint,
+                webhookSecret,
                 events,
                 customHeaders);
     }
@@ -319,6 +344,7 @@ public class AskUserWebhookConfiguration {
         sb.append("    webhookSecretHint: ")
                 .append(toIndentedString(webhookSecretHint))
                 .append("\n");
+        sb.append("    webhookSecret: ").append(toIndentedString(webhookSecret)).append("\n");
         sb.append("    events: ").append(toIndentedString(events)).append("\n");
         sb.append("    customHeaders: ").append(toIndentedString(customHeaders)).append("\n");
         sb.append("}");
@@ -346,11 +372,13 @@ public class AskUserWebhookConfiguration {
                                 "webhook_url",
                                 "has_webhook_secret",
                                 "webhook_secret_hint",
+                                "webhook_secret",
                                 "events",
                                 "custom_headers"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("integration", "enabled"));
+        openapiRequiredFields =
+                new HashSet<String>(Arrays.asList("integration", "enabled", "webhook_secret"));
     }
 
     /**
@@ -401,6 +429,14 @@ public class AskUserWebhookConfiguration {
                             java.util.Locale.ROOT,
                             "Expected the field `webhook_secret_hint` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("webhook_secret_hint").toString()));
+        }
+        if ((jsonObj.get("webhook_secret") != null && !jsonObj.get("webhook_secret").isJsonNull())
+                && !jsonObj.get("webhook_secret").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `webhook_secret` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("webhook_secret").toString()));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("events") != null

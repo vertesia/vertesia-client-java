@@ -56,6 +56,11 @@ public class LinkupConfiguration {
     @SerializedName(SERIALIZED_NAME_API_KEY_HINT)
     @jakarta.annotation.Nullable private String apiKeyHint;
 
+    public static final String SERIALIZED_NAME_API_KEY = "api_key";
+
+    @SerializedName(SERIALIZED_NAME_API_KEY)
+    @jakarta.annotation.Nullable private String apiKey;
+
     public LinkupConfiguration() {}
 
     public LinkupConfiguration integration(
@@ -130,6 +135,23 @@ public class LinkupConfiguration {
         this.apiKeyHint = apiKeyHint;
     }
 
+    public LinkupConfiguration apiKey(@jakarta.annotation.Nullable String apiKey) {
+        this.apiKey = apiKey;
+        return this;
+    }
+
+    /**
+     * Decrypted credential returned only to authenticated agent principals for runtime use. Human and service-account callers receive null; presence and hint fields report configuration status.
+     * @return apiKey
+     */
+    @jakarta.annotation.Nullable public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(@jakarta.annotation.Nullable String apiKey) {
+        this.apiKey = apiKey;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -142,12 +164,13 @@ public class LinkupConfiguration {
         return Objects.equals(this.integration, linkupConfiguration.integration)
                 && Objects.equals(this.enabled, linkupConfiguration.enabled)
                 && Objects.equals(this.hasApiKey, linkupConfiguration.hasApiKey)
-                && Objects.equals(this.apiKeyHint, linkupConfiguration.apiKeyHint);
+                && Objects.equals(this.apiKeyHint, linkupConfiguration.apiKeyHint)
+                && Objects.equals(this.apiKey, linkupConfiguration.apiKey);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(integration, enabled, hasApiKey, apiKeyHint);
+        return Objects.hash(integration, enabled, hasApiKey, apiKeyHint, apiKey);
     }
 
     @Override
@@ -158,6 +181,7 @@ public class LinkupConfiguration {
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    hasApiKey: ").append(toIndentedString(hasApiKey)).append("\n");
         sb.append("    apiKeyHint: ").append(toIndentedString(apiKeyHint)).append("\n");
+        sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -177,10 +201,16 @@ public class LinkupConfiguration {
         // a set of all properties/fields (JSON key names)
         openapiFields =
                 new HashSet<String>(
-                        Arrays.asList("integration", "enabled", "has_api_key", "api_key_hint"));
+                        Arrays.asList(
+                                "integration",
+                                "enabled",
+                                "has_api_key",
+                                "api_key_hint",
+                                "api_key"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("integration", "enabled"));
+        openapiRequiredFields =
+                new HashSet<String>(Arrays.asList("integration", "enabled", "api_key"));
     }
 
     /**
@@ -222,6 +252,14 @@ public class LinkupConfiguration {
                             java.util.Locale.ROOT,
                             "Expected the field `api_key_hint` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("api_key_hint").toString()));
+        }
+        if ((jsonObj.get("api_key") != null && !jsonObj.get("api_key").isJsonNull())
+                && !jsonObj.get("api_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `api_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("api_key").toString()));
         }
     }
 

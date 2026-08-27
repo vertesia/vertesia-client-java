@@ -56,6 +56,11 @@ public class GladiaConfiguration {
     @SerializedName(SERIALIZED_NAME_API_KEY_HINT)
     @jakarta.annotation.Nullable private String apiKeyHint;
 
+    public static final String SERIALIZED_NAME_API_KEY = "api_key";
+
+    @SerializedName(SERIALIZED_NAME_API_KEY)
+    @jakarta.annotation.Nullable private String apiKey;
+
     public static final String SERIALIZED_NAME_URL = "url";
 
     @SerializedName(SERIALIZED_NAME_URL)
@@ -135,6 +140,23 @@ public class GladiaConfiguration {
         this.apiKeyHint = apiKeyHint;
     }
 
+    public GladiaConfiguration apiKey(@jakarta.annotation.Nullable String apiKey) {
+        this.apiKey = apiKey;
+        return this;
+    }
+
+    /**
+     * Decrypted credential returned only to authenticated agent principals for runtime use. Human and service-account callers receive null; presence and hint fields report configuration status.
+     * @return apiKey
+     */
+    @jakarta.annotation.Nullable public String getApiKey() {
+        return apiKey;
+    }
+
+    public void setApiKey(@jakarta.annotation.Nullable String apiKey) {
+        this.apiKey = apiKey;
+    }
+
     public GladiaConfiguration url(@jakarta.annotation.Nullable String url) {
         this.url = url;
         return this;
@@ -165,12 +187,13 @@ public class GladiaConfiguration {
                 && Objects.equals(this.enabled, gladiaConfiguration.enabled)
                 && Objects.equals(this.hasApiKey, gladiaConfiguration.hasApiKey)
                 && Objects.equals(this.apiKeyHint, gladiaConfiguration.apiKeyHint)
+                && Objects.equals(this.apiKey, gladiaConfiguration.apiKey)
                 && Objects.equals(this.url, gladiaConfiguration.url);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(integration, enabled, hasApiKey, apiKeyHint, url);
+        return Objects.hash(integration, enabled, hasApiKey, apiKeyHint, apiKey, url);
     }
 
     @Override
@@ -181,6 +204,7 @@ public class GladiaConfiguration {
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
         sb.append("    hasApiKey: ").append(toIndentedString(hasApiKey)).append("\n");
         sb.append("    apiKeyHint: ").append(toIndentedString(apiKeyHint)).append("\n");
+        sb.append("    apiKey: ").append(toIndentedString(apiKey)).append("\n");
         sb.append("    url: ").append(toIndentedString(url)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -202,10 +226,16 @@ public class GladiaConfiguration {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "integration", "enabled", "has_api_key", "api_key_hint", "url"));
+                                "integration",
+                                "enabled",
+                                "has_api_key",
+                                "api_key_hint",
+                                "api_key",
+                                "url"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("integration", "enabled"));
+        openapiRequiredFields =
+                new HashSet<String>(Arrays.asList("integration", "enabled", "api_key"));
     }
 
     /**
@@ -247,6 +277,14 @@ public class GladiaConfiguration {
                             java.util.Locale.ROOT,
                             "Expected the field `api_key_hint` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("api_key_hint").toString()));
+        }
+        if ((jsonObj.get("api_key") != null && !jsonObj.get("api_key").isJsonNull())
+                && !jsonObj.get("api_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `api_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("api_key").toString()));
         }
         if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull())
                 && !jsonObj.get("url").isJsonPrimitive()) {

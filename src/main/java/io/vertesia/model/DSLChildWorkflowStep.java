@@ -39,7 +39,7 @@ import java.util.Objects;
         comments = "Generator version: 7.22.0")
 public class DSLChildWorkflowStep {
     /**
-     * The type fo the step. If not set defaults to \&quot;activity\&quot;
+     * Identifies this step as a child workflow
      */
     @JsonAdapter(TypeEnum.Adapter.class)
     public enum TypeEnum {
@@ -103,6 +103,16 @@ public class DSLChildWorkflowStep {
     @jakarta.annotation.Nonnull
     private String name;
 
+    public static final String SERIALIZED_NAME_TITLE = "title";
+
+    @SerializedName(SERIALIZED_NAME_TITLE)
+    @jakarta.annotation.Nullable private String title;
+
+    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+
+    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+    @jakarta.annotation.Nullable private String description;
+
     public static final String SERIALIZED_NAME_VARS = "vars";
 
     @SerializedName(SERIALIZED_NAME_VARS)
@@ -141,7 +151,7 @@ public class DSLChildWorkflowStep {
     }
 
     /**
-     * The type fo the step. If not set defaults to \&quot;activity\&quot;
+     * Identifies this step as a child workflow
      * @return type
      */
     @jakarta.annotation.Nonnull
@@ -169,6 +179,40 @@ public class DSLChildWorkflowStep {
 
     public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
+    }
+
+    public DSLChildWorkflowStep title(@jakarta.annotation.Nullable String title) {
+        this.title = title;
+        return this;
+    }
+
+    /**
+     * Title of the child workflow to be displayed in the UI workflow builder
+     * @return title
+     */
+    @jakarta.annotation.Nullable public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(@jakarta.annotation.Nullable String title) {
+        this.title = title;
+    }
+
+    public DSLChildWorkflowStep description(@jakarta.annotation.Nullable String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Description of the child workflow displayed in the UI workflow builder
+     * @return description
+     */
+    @jakarta.annotation.Nullable public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(@jakarta.annotation.Nullable String description) {
+        this.description = description;
     }
 
     public DSLChildWorkflowStep vars(@jakarta.annotation.Nullable Map<String, Object> vars) {
@@ -347,6 +391,8 @@ public class DSLChildWorkflowStep {
         DSLChildWorkflowStep dsLChildWorkflowStep = (DSLChildWorkflowStep) o;
         return Objects.equals(this.type, dsLChildWorkflowStep.type)
                 && Objects.equals(this.name, dsLChildWorkflowStep.name)
+                && Objects.equals(this.title, dsLChildWorkflowStep.title)
+                && Objects.equals(this.description, dsLChildWorkflowStep.description)
                 && Objects.equals(this.vars, dsLChildWorkflowStep.vars)
                 && Objects.equals(this.async, dsLChildWorkflowStep.async)
                 && Objects.equals(this.output, dsLChildWorkflowStep.output)
@@ -360,7 +406,17 @@ public class DSLChildWorkflowStep {
     @Override
     public int hashCode() {
         return Objects.hash(
-                type, name, vars, async, output, condition, spec, options, additionalProperties);
+                type,
+                name,
+                title,
+                description,
+                vars,
+                async,
+                output,
+                condition,
+                spec,
+                options,
+                additionalProperties);
     }
 
     @Override
@@ -369,6 +425,8 @@ public class DSLChildWorkflowStep {
         sb.append("class DSLChildWorkflowStep {\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    title: ").append(toIndentedString(title)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    vars: ").append(toIndentedString(vars)).append("\n");
         sb.append("    async: ").append(toIndentedString(async)).append("\n");
         sb.append("    output: ").append(toIndentedString(output)).append("\n");
@@ -400,6 +458,8 @@ public class DSLChildWorkflowStep {
                         Arrays.asList(
                                 "type",
                                 "name",
+                                "title",
+                                "description",
                                 "vars",
                                 "async",
                                 "output",
@@ -456,6 +516,22 @@ public class DSLChildWorkflowStep {
                             java.util.Locale.ROOT,
                             "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("name").toString()));
+        }
+        if ((jsonObj.get("title") != null && !jsonObj.get("title").isJsonNull())
+                && !jsonObj.get("title").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `title` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("title").toString()));
+        }
+        if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
+                && !jsonObj.get("description").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("description").toString()));
         }
         if ((jsonObj.get("output") != null && !jsonObj.get("output").isJsonNull())
                 && !jsonObj.get("output").isJsonPrimitive()) {
