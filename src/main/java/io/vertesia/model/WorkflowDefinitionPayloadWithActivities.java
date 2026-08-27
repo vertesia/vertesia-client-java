@@ -59,8 +59,7 @@ public class WorkflowDefinitionPayloadWithActivities {
     public static final String SERIALIZED_NAME_VARS = "vars";
 
     @SerializedName(SERIALIZED_NAME_VARS)
-    @jakarta.annotation.Nonnull
-    private Map<String, Object> vars = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> vars;
 
     public static final String SERIALIZED_NAME_OPTIONS = "options";
 
@@ -228,7 +227,7 @@ public class WorkflowDefinitionPayloadWithActivities {
     }
 
     public WorkflowDefinitionPayloadWithActivities vars(
-            @jakarta.annotation.Nonnull Map<String, Object> vars) {
+            @jakarta.annotation.Nullable Map<String, Object> vars) {
         this.vars = vars;
         return this;
     }
@@ -245,12 +244,11 @@ public class WorkflowDefinitionPayloadWithActivities {
      * Get vars
      * @return vars
      */
-    @jakarta.annotation.Nonnull
-    public Map<String, Object> getVars() {
+    @jakarta.annotation.Nullable public Map<String, Object> getVars() {
         return vars;
     }
 
-    public void setVars(@jakarta.annotation.Nonnull Map<String, Object> vars) {
+    public void setVars(@jakarta.annotation.Nullable Map<String, Object> vars) {
         this.vars = vars;
     }
 

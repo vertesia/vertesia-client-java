@@ -537,6 +537,9 @@ public class JSON {
                                                 "openai-thinking",
                                                 io.vertesia.model.OpenAiThinkingOptions.class);
                                         classByDiscriminatorValue.put(
+                                                "openrouter-text",
+                                                io.vertesia.model.OpenRouterTextOptions.class);
+                                        classByDiscriminatorValue.put(
                                                 "text-fallback",
                                                 io.vertesia.model.TextFallbackOptions.class);
                                         classByDiscriminatorValue.put(
@@ -2180,6 +2183,8 @@ public class JSON {
                 new io.vertesia.model.OpenAiTextOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.OpenAiThinkingOptions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.OpenRouterTextOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ParallelCollectDefinition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

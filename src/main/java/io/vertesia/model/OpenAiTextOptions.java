@@ -27,8 +27,10 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -208,6 +210,11 @@ public class OpenAiTextOptions {
 
     @SerializedName(SERIALIZED_NAME_SERVICE_TIER)
     @jakarta.annotation.Nullable private String serviceTier;
+
+    public static final String SERIALIZED_NAME_EXTRA_BODY = "extra_body";
+
+    @SerializedName(SERIALIZED_NAME_EXTRA_BODY)
+    @jakarta.annotation.Nullable private Map<String, Object> extraBody = new HashMap<>();
 
     public OpenAiTextOptions() {}
 
@@ -427,6 +434,31 @@ public class OpenAiTextOptions {
         this.serviceTier = serviceTier;
     }
 
+    public OpenAiTextOptions extraBody(@jakarta.annotation.Nullable Map<String, Object> extraBody) {
+        this.extraBody = extraBody;
+        return this;
+    }
+
+    public OpenAiTextOptions putExtraBodyItem(String key, Object extraBodyItem) {
+        if (this.extraBody == null) {
+            this.extraBody = new HashMap<>();
+        }
+        this.extraBody.put(key, extraBodyItem);
+        return this;
+    }
+
+    /**
+     * Additional provider-specific fields merged into the OpenAI-compatible request body.
+     * @return extraBody
+     */
+    @jakarta.annotation.Nullable public Map<String, Object> getExtraBody() {
+        return extraBody;
+    }
+
+    public void setExtraBody(@jakarta.annotation.Nullable Map<String, Object> extraBody) {
+        this.extraBody = extraBody;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -447,7 +479,8 @@ public class OpenAiTextOptions {
                 && Objects.equals(this.stopSequence, openAiTextOptions.stopSequence)
                 && Objects.equals(this.imageDetail, openAiTextOptions.imageDetail)
                 && Objects.equals(this.includeThoughts, openAiTextOptions.includeThoughts)
-                && Objects.equals(this.serviceTier, openAiTextOptions.serviceTier);
+                && Objects.equals(this.serviceTier, openAiTextOptions.serviceTier)
+                && Objects.equals(this.extraBody, openAiTextOptions.extraBody);
     }
 
     @Override
@@ -464,7 +497,8 @@ public class OpenAiTextOptions {
                 stopSequence,
                 imageDetail,
                 includeThoughts,
-                serviceTier);
+                serviceTier,
+                extraBody);
     }
 
     @Override
@@ -483,6 +517,7 @@ public class OpenAiTextOptions {
         sb.append("    imageDetail: ").append(toIndentedString(imageDetail)).append("\n");
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
+        sb.append("    extraBody: ").append(toIndentedString(extraBody)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -514,7 +549,8 @@ public class OpenAiTextOptions {
                                 "stop_sequence",
                                 "image_detail",
                                 "include_thoughts",
-                                "service_tier"));
+                                "service_tier",
+                                "extra_body"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));

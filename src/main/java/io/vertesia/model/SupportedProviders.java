@@ -54,6 +54,8 @@ public enum SupportedProviders {
 
     ANTHROPIC("anthropic"),
 
+    OPENROUTER("openrouter"),
+
     VIRTUAL_LB("virtual_lb"),
 
     VIRTUAL_MEDIATOR("virtual_mediator"),

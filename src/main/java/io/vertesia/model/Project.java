@@ -31,6 +31,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * Project
@@ -77,7 +78,7 @@ public class Project {
     public static final String SERIALIZED_NAME_INTEGRATIONS = "integrations";
 
     @SerializedName(SERIALIZED_NAME_INTEGRATIONS)
-    @jakarta.annotation.Nullable private Map<String, Object> integrations = new HashMap<>();
+    @jakarta.annotation.Nullable private Map<String, Object> integrations;
 
     public static final String SERIALIZED_NAME_PLUGINS = "plugins";
 
@@ -410,6 +411,15 @@ public class Project {
                 && Objects.equals(this.additionalProperties, project.additionalProperties);
     }
 
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(
@@ -426,6 +436,13 @@ public class Project {
                 createdAt,
                 updatedAt,
                 additionalProperties);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override

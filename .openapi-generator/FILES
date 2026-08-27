@@ -713,6 +713,7 @@ src/main/java/io/vertesia/model/OpenAiDalleOptions.java
 src/main/java/io/vertesia/model/OpenAiGptImageOptions.java
 src/main/java/io/vertesia/model/OpenAiTextOptions.java
 src/main/java/io/vertesia/model/OpenAiThinkingOptions.java
+src/main/java/io/vertesia/model/OpenRouterTextOptions.java
 src/main/java/io/vertesia/model/ParallelCollectDefinition.java
 src/main/java/io/vertesia/model/ParallelCollectField.java
 src/main/java/io/vertesia/model/ParallelCollectMode.java
