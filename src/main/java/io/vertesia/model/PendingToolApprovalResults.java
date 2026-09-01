@@ -57,6 +57,10 @@ public class PendingToolApprovalResults {
 
         REVIEWER_DENIED("reviewer_denied"),
 
+        USER_INTERRUPTED_AFTER_TOOL_EXECUTION("user_interrupted_after_tool_execution"),
+
+        USER_STOPPED_AFTER_TOOL_EXECUTION("user_stopped_after_tool_execution"),
+
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
         private String value;

@@ -217,6 +217,11 @@ public class AsyncConversationExecutionPayload {
     @SerializedName(SERIALIZED_NAME_EXCLUDED_TOOLS)
     @jakarta.annotation.Nullable private List<String> excludedTools = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_AGENT_POLICY = "agent_policy";
+
+    @SerializedName(SERIALIZED_NAME_AGENT_POLICY)
+    @jakarta.annotation.Nullable private ProcessAgentExecutionPolicy agentPolicy;
+
     public static final String SERIALIZED_NAME_MAX_ITERATIONS = "max_iterations";
 
     @SerializedName(SERIALIZED_NAME_MAX_ITERATIONS)
@@ -819,6 +824,25 @@ public class AsyncConversationExecutionPayload {
         this.excludedTools = excludedTools;
     }
 
+    public AsyncConversationExecutionPayload agentPolicy(
+            @jakarta.annotation.Nullable ProcessAgentExecutionPolicy agentPolicy) {
+        this.agentPolicy = agentPolicy;
+        return this;
+    }
+
+    /**
+     * Process-authored successful-tool phases enforced by this child conversation. Ordinary conversation callers should leave this unset.
+     * @return agentPolicy
+     */
+    @jakarta.annotation.Nullable public ProcessAgentExecutionPolicy getAgentPolicy() {
+        return agentPolicy;
+    }
+
+    public void setAgentPolicy(
+            @jakarta.annotation.Nullable ProcessAgentExecutionPolicy agentPolicy) {
+        this.agentPolicy = agentPolicy;
+    }
+
     public AsyncConversationExecutionPayload maxIterations(
             @jakarta.annotation.Nullable BigDecimal maxIterations) {
         this.maxIterations = maxIterations;
@@ -1316,6 +1340,7 @@ public class AsyncConversationExecutionPayload {
                         this.initialToolCalls, asyncConversationExecutionPayload.initialToolCalls)
                 && Objects.equals(
                         this.excludedTools, asyncConversationExecutionPayload.excludedTools)
+                && Objects.equals(this.agentPolicy, asyncConversationExecutionPayload.agentPolicy)
                 && Objects.equals(
                         this.maxIterations, asyncConversationExecutionPayload.maxIterations)
                 && Objects.equals(this.interactive, asyncConversationExecutionPayload.interactive)
@@ -1393,6 +1418,7 @@ public class AsyncConversationExecutionPayload {
                 initialSkills,
                 initialToolCalls,
                 excludedTools,
+                agentPolicy,
                 maxIterations,
                 interactive,
                 userChannels,
@@ -1452,6 +1478,7 @@ public class AsyncConversationExecutionPayload {
         sb.append("    initialSkills: ").append(toIndentedString(initialSkills)).append("\n");
         sb.append("    initialToolCalls: ").append(toIndentedString(initialToolCalls)).append("\n");
         sb.append("    excludedTools: ").append(toIndentedString(excludedTools)).append("\n");
+        sb.append("    agentPolicy: ").append(toIndentedString(agentPolicy)).append("\n");
         sb.append("    maxIterations: ").append(toIndentedString(maxIterations)).append("\n");
         sb.append("    interactive: ").append(toIndentedString(interactive)).append("\n");
         sb.append("    userChannels: ").append(toIndentedString(userChannels)).append("\n");
@@ -1532,6 +1559,7 @@ public class AsyncConversationExecutionPayload {
                                 "initial_skills",
                                 "initial_tool_calls",
                                 "excluded_tools",
+                                "agent_policy",
                                 "max_iterations",
                                 "interactive",
                                 "user_channels",
@@ -1752,6 +1780,10 @@ public class AsyncConversationExecutionPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `excluded_tools` to be an array in the JSON string but got `%s`",
                             jsonObj.get("excluded_tools").toString()));
+        }
+        // validate the optional field `agent_policy`
+        if (jsonObj.get("agent_policy") != null && !jsonObj.get("agent_policy").isJsonNull()) {
+            ProcessAgentExecutionPolicy.validateJsonElement(jsonObj.get("agent_policy"));
         }
         if (jsonObj.get("user_channels") != null && !jsonObj.get("user_channels").isJsonNull()) {
             JsonArray jsonArrayuserChannels = jsonObj.getAsJsonArray("user_channels");

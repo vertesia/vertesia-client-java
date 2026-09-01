@@ -107,6 +107,11 @@ public class NodeDefinition {
     @SerializedName(SERIALIZED_NAME_INPUT)
     @jakarta.annotation.Nullable private Map<String, Object> input;
 
+    public static final String SERIALIZED_NAME_INHERIT_CONTEXT = "inherit_context";
+
+    @SerializedName(SERIALIZED_NAME_INHERIT_CONTEXT)
+    @jakarta.annotation.Nullable private Boolean inheritContext;
+
     public static final String SERIALIZED_NAME_CONFIG = "config";
 
     @SerializedName(SERIALIZED_NAME_CONFIG)
@@ -151,6 +156,21 @@ public class NodeDefinition {
 
     @SerializedName(SERIALIZED_NAME_TOOLS)
     @jakarta.annotation.Nullable private List<String> tools = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_INITIAL_SKILLS = "initial_skills";
+
+    @SerializedName(SERIALIZED_NAME_INITIAL_SKILLS)
+    @jakarta.annotation.Nullable private List<String> initialSkills = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_EXCLUDED_TOOLS = "excluded_tools";
+
+    @SerializedName(SERIALIZED_NAME_EXCLUDED_TOOLS)
+    @jakarta.annotation.Nullable private List<String> excludedTools = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_AGENT_POLICY = "agent_policy";
+
+    @SerializedName(SERIALIZED_NAME_AGENT_POLICY)
+    @jakarta.annotation.Nullable private ProcessAgentExecutionPolicy agentPolicy;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
@@ -447,6 +467,23 @@ public class NodeDefinition {
         this.input = input;
     }
 
+    public NodeDefinition inheritContext(@jakarta.annotation.Nullable Boolean inheritContext) {
+        this.inheritContext = inheritContext;
+        return this;
+    }
+
+    /**
+     * Whether interaction and custom-agent nodes receive the complete process context in addition to resolved input. Defaults to true; set false for input-only specialist prompts.
+     * @return inheritContext
+     */
+    @jakarta.annotation.Nullable public Boolean getInheritContext() {
+        return inheritContext;
+    }
+
+    public void setInheritContext(@jakarta.annotation.Nullable Boolean inheritContext) {
+        this.inheritContext = inheritContext;
+    }
+
     public NodeDefinition config(@jakarta.annotation.Nullable Map<String, Object> config) {
         this.config = config;
         return this;
@@ -632,6 +669,75 @@ public class NodeDefinition {
 
     public void setTools(@jakarta.annotation.Nullable List<String> tools) {
         this.tools = tools;
+    }
+
+    public NodeDefinition initialSkills(@jakarta.annotation.Nullable List<String> initialSkills) {
+        this.initialSkills = initialSkills;
+        return this;
+    }
+
+    public NodeDefinition addInitialSkillsItem(String initialSkillsItem) {
+        if (this.initialSkills == null) {
+            this.initialSkills = new ArrayList<>();
+        }
+        this.initialSkills.add(initialSkillsItem);
+        return this;
+    }
+
+    /**
+     * Builtin system skills activated before the agent node&#39;s first model turn.
+     * @return initialSkills
+     */
+    @jakarta.annotation.Nullable public List<String> getInitialSkills() {
+        return initialSkills;
+    }
+
+    public void setInitialSkills(@jakarta.annotation.Nullable List<String> initialSkills) {
+        this.initialSkills = initialSkills;
+    }
+
+    public NodeDefinition excludedTools(@jakarta.annotation.Nullable List<String> excludedTools) {
+        this.excludedTools = excludedTools;
+        return this;
+    }
+
+    public NodeDefinition addExcludedToolsItem(String excludedToolsItem) {
+        if (this.excludedTools == null) {
+            this.excludedTools = new ArrayList<>();
+        }
+        this.excludedTools.add(excludedToolsItem);
+        return this;
+    }
+
+    /**
+     * Execution-time tool denylist for the agent node&#39;s child conversation.
+     * @return excludedTools
+     */
+    @jakarta.annotation.Nullable public List<String> getExcludedTools() {
+        return excludedTools;
+    }
+
+    public void setExcludedTools(@jakarta.annotation.Nullable List<String> excludedTools) {
+        this.excludedTools = excludedTools;
+    }
+
+    public NodeDefinition agentPolicy(
+            @jakarta.annotation.Nullable ProcessAgentExecutionPolicy agentPolicy) {
+        this.agentPolicy = agentPolicy;
+        return this;
+    }
+
+    /**
+     * Declarative successful-tool phases and completion behavior for this agent node. The Process owns this policy; the child conversation enforces it generically.
+     * @return agentPolicy
+     */
+    @jakarta.annotation.Nullable public ProcessAgentExecutionPolicy getAgentPolicy() {
+        return agentPolicy;
+    }
+
+    public void setAgentPolicy(
+            @jakarta.annotation.Nullable ProcessAgentExecutionPolicy agentPolicy) {
+        this.agentPolicy = agentPolicy;
     }
 
     public NodeDefinition model(@jakarta.annotation.Nullable String model) {
@@ -916,6 +1022,7 @@ public class NodeDefinition {
                 && Objects.equals(this.resultSchema, nodeDefinition.resultSchema)
                 && Objects.equals(this.prompt, nodeDefinition.prompt)
                 && Objects.equals(this.input, nodeDefinition.input)
+                && Objects.equals(this.inheritContext, nodeDefinition.inheritContext)
                 && Objects.equals(this.config, nodeDefinition.config)
                 && Objects.equals(this.title, nodeDefinition.title)
                 && Objects.equals(this.description, nodeDefinition.description)
@@ -925,6 +1032,9 @@ public class NodeDefinition {
                 && Objects.equals(this.maxRetries, nodeDefinition.maxRetries)
                 && Objects.equals(this.transitions, nodeDefinition.transitions)
                 && Objects.equals(this.tools, nodeDefinition.tools)
+                && Objects.equals(this.initialSkills, nodeDefinition.initialSkills)
+                && Objects.equals(this.excludedTools, nodeDefinition.excludedTools)
+                && Objects.equals(this.agentPolicy, nodeDefinition.agentPolicy)
                 && Objects.equals(this.model, nodeDefinition.model)
                 && Objects.equals(this.task, nodeDefinition.task)
                 && Objects.equals(this.foreach, nodeDefinition.foreach)
@@ -965,6 +1075,7 @@ public class NodeDefinition {
                 resultSchema,
                 prompt,
                 input,
+                inheritContext,
                 config,
                 title,
                 description,
@@ -974,6 +1085,9 @@ public class NodeDefinition {
                 maxRetries,
                 transitions,
                 tools,
+                initialSkills,
+                excludedTools,
+                agentPolicy,
                 model,
                 task,
                 foreach,
@@ -1015,6 +1129,7 @@ public class NodeDefinition {
         sb.append("    resultSchema: ").append(toIndentedString(resultSchema)).append("\n");
         sb.append("    prompt: ").append(toIndentedString(prompt)).append("\n");
         sb.append("    input: ").append(toIndentedString(input)).append("\n");
+        sb.append("    inheritContext: ").append(toIndentedString(inheritContext)).append("\n");
         sb.append("    config: ").append(toIndentedString(config)).append("\n");
         sb.append("    title: ").append(toIndentedString(title)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -1024,6 +1139,9 @@ public class NodeDefinition {
         sb.append("    maxRetries: ").append(toIndentedString(maxRetries)).append("\n");
         sb.append("    transitions: ").append(toIndentedString(transitions)).append("\n");
         sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
+        sb.append("    initialSkills: ").append(toIndentedString(initialSkills)).append("\n");
+        sb.append("    excludedTools: ").append(toIndentedString(excludedTools)).append("\n");
+        sb.append("    agentPolicy: ").append(toIndentedString(agentPolicy)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
         sb.append("    task: ").append(toIndentedString(task)).append("\n");
         sb.append("    foreach: ").append(toIndentedString(foreach)).append("\n");
@@ -1072,6 +1190,7 @@ public class NodeDefinition {
                                 "result_schema",
                                 "prompt",
                                 "input",
+                                "inherit_context",
                                 "config",
                                 "title",
                                 "description",
@@ -1081,6 +1200,9 @@ public class NodeDefinition {
                                 "max_retries",
                                 "transitions",
                                 "tools",
+                                "initial_skills",
+                                "excluded_tools",
+                                "agent_policy",
                                 "model",
                                 "task",
                                 "foreach",
@@ -1250,6 +1372,30 @@ public class NodeDefinition {
                             java.util.Locale.ROOT,
                             "Expected the field `tools` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tools").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("initial_skills") != null
+                && !jsonObj.get("initial_skills").isJsonNull()
+                && !jsonObj.get("initial_skills").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `initial_skills` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("initial_skills").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("excluded_tools") != null
+                && !jsonObj.get("excluded_tools").isJsonNull()
+                && !jsonObj.get("excluded_tools").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `excluded_tools` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("excluded_tools").toString()));
+        }
+        // validate the optional field `agent_policy`
+        if (jsonObj.get("agent_policy") != null && !jsonObj.get("agent_policy").isJsonNull()) {
+            ProcessAgentExecutionPolicy.validateJsonElement(jsonObj.get("agent_policy"));
         }
         if ((jsonObj.get("model") != null && !jsonObj.get("model").isJsonNull())
                 && !jsonObj.get("model").isJsonPrimitive()) {

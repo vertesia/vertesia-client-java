@@ -27,6 +27,7 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * PendingActivity
@@ -66,6 +67,11 @@ public class PendingActivity {
 
     @SerializedName(SERIALIZED_NAME_LAST_STARTED_TIME)
     @jakarta.annotation.Nullable private String lastStartedTime;
+
+    public static final String SERIALIZED_NAME_LAST_HEARTBEAT_TIME = "lastHeartbeatTime";
+
+    @SerializedName(SERIALIZED_NAME_LAST_HEARTBEAT_TIME)
+    @jakarta.annotation.Nullable private String lastHeartbeatTime;
 
     public PendingActivity() {}
 
@@ -173,6 +179,24 @@ public class PendingActivity {
         this.lastStartedTime = lastStartedTime;
     }
 
+    public PendingActivity lastHeartbeatTime(
+            @jakarta.annotation.Nullable String lastHeartbeatTime) {
+        this.lastHeartbeatTime = lastHeartbeatTime;
+        return this;
+    }
+
+    /**
+     * Get lastHeartbeatTime
+     * @return lastHeartbeatTime
+     */
+    @jakarta.annotation.Nullable public String getLastHeartbeatTime() {
+        return lastHeartbeatTime;
+    }
+
+    public void setLastHeartbeatTime(@jakarta.annotation.Nullable String lastHeartbeatTime) {
+        this.lastHeartbeatTime = lastHeartbeatTime;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -187,13 +211,36 @@ public class PendingActivity {
                 && Objects.equals(this.attempt, pendingActivity.attempt)
                 && Objects.equals(this.maximumAttempts, pendingActivity.maximumAttempts)
                 && Objects.equals(this.lastFailure, pendingActivity.lastFailure)
-                && Objects.equals(this.lastStartedTime, pendingActivity.lastStartedTime);
+                && Objects.equals(this.lastStartedTime, pendingActivity.lastStartedTime)
+                && Objects.equals(this.lastHeartbeatTime, pendingActivity.lastHeartbeatTime);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                activityId, activityType, attempt, maximumAttempts, lastFailure, lastStartedTime);
+                activityId,
+                activityType,
+                attempt,
+                maximumAttempts,
+                lastFailure,
+                lastStartedTime,
+                lastHeartbeatTime);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -206,6 +253,9 @@ public class PendingActivity {
         sb.append("    maximumAttempts: ").append(toIndentedString(maximumAttempts)).append("\n");
         sb.append("    lastFailure: ").append(toIndentedString(lastFailure)).append("\n");
         sb.append("    lastStartedTime: ").append(toIndentedString(lastStartedTime)).append("\n");
+        sb.append("    lastHeartbeatTime: ")
+                .append(toIndentedString(lastHeartbeatTime))
+                .append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -231,7 +281,8 @@ public class PendingActivity {
                                 "attempt",
                                 "maximumAttempts",
                                 "lastFailure",
-                                "lastStartedTime"));
+                                "lastStartedTime",
+                                "lastHeartbeatTime"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -299,6 +350,15 @@ public class PendingActivity {
                             java.util.Locale.ROOT,
                             "Expected the field `lastStartedTime` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("lastStartedTime").toString()));
+        }
+        if ((jsonObj.get("lastHeartbeatTime") != null
+                        && !jsonObj.get("lastHeartbeatTime").isJsonNull())
+                && !jsonObj.get("lastHeartbeatTime").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `lastHeartbeatTime` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("lastHeartbeatTime").toString()));
         }
     }
 

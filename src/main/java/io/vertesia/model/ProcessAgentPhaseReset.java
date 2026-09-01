@@ -13,6 +13,7 @@
 package io.vertesia.model;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
@@ -23,6 +24,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -31,125 +33,101 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * ProcessRunConfig
+ * ProcessAgentPhaseReset
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class ProcessRunConfig {
-    public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
+public class ProcessAgentPhaseReset {
+    public static final String SERIALIZED_NAME_TOOLS = "tools";
 
-    @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @jakarta.annotation.Nullable private String environment;
+    @SerializedName(SERIALIZED_NAME_TOOLS)
+    @jakarta.annotation.Nonnull
+    private List<String> tools = new ArrayList<>();
 
-    public static final String SERIALIZED_NAME_MODEL = "model";
+    public static final String SERIALIZED_NAME_TOOL_INPUT_CONTAINS = "tool_input_contains";
 
-    @SerializedName(SERIALIZED_NAME_MODEL)
-    @jakarta.annotation.Nullable private String model;
+    @SerializedName(SERIALIZED_NAME_TOOL_INPUT_CONTAINS)
+    @jakarta.annotation.Nullable private List<ProcessAgentToolInputContains> toolInputContains = new ArrayList<>();
 
-    public static final String SERIALIZED_NAME_MODEL_OPTIONS = "model_options";
+    public static final String SERIALIZED_NAME_TO_PHASE = "to_phase";
 
-    @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
-    @jakarta.annotation.Nullable private ModelOptions modelOptions;
+    @SerializedName(SERIALIZED_NAME_TO_PHASE)
+    @jakarta.annotation.Nonnull
+    private String toPhase;
 
-    public static final String SERIALIZED_NAME_USER_MESSAGE = "user_message";
+    public ProcessAgentPhaseReset() {}
 
-    @SerializedName(SERIALIZED_NAME_USER_MESSAGE)
-    @jakarta.annotation.Nullable private String userMessage;
+    public ProcessAgentPhaseReset tools(@jakarta.annotation.Nonnull List<String> tools) {
+        this.tools = tools;
+        return this;
+    }
 
-    public static final String SERIALIZED_NAME_PROCESS_WORKSTREAM_MONITOR =
-            "process_workstream_monitor";
-
-    @SerializedName(SERIALIZED_NAME_PROCESS_WORKSTREAM_MONITOR)
-    @jakarta.annotation.Nullable private ProcessRunConfigProcessWorkstreamMonitor processWorkstreamMonitor;
-
-    public ProcessRunConfig() {}
-
-    public ProcessRunConfig environment(@jakarta.annotation.Nullable String environment) {
-        this.environment = environment;
+    public ProcessAgentPhaseReset addToolsItem(String toolsItem) {
+        if (this.tools == null) {
+            this.tools = new ArrayList<>();
+        }
+        this.tools.add(toolsItem);
         return this;
     }
 
     /**
-     * Execution environment id used by Process LLM nodes and the supervisor.
-     * @return environment
+     * Successful tools that invalidate later phase progress.
+     * @return tools
      */
-    @jakarta.annotation.Nullable public String getEnvironment() {
-        return environment;
+    @jakarta.annotation.Nonnull
+    public List<String> getTools() {
+        return tools;
     }
 
-    public void setEnvironment(@jakarta.annotation.Nullable String environment) {
-        this.environment = environment;
+    public void setTools(@jakarta.annotation.Nonnull List<String> tools) {
+        this.tools = tools;
     }
 
-    public ProcessRunConfig model(@jakarta.annotation.Nullable String model) {
-        this.model = model;
+    public ProcessAgentPhaseReset toolInputContains(
+            @jakarta.annotation.Nullable List<ProcessAgentToolInputContains> toolInputContains) {
+        this.toolInputContains = toolInputContains;
+        return this;
+    }
+
+    public ProcessAgentPhaseReset addToolInputContainsItem(
+            ProcessAgentToolInputContains toolInputContainsItem) {
+        if (this.toolInputContains == null) {
+            this.toolInputContains = new ArrayList<>();
+        }
+        this.toolInputContains.add(toolInputContainsItem);
         return this;
     }
 
     /**
-     * Get model
-     * @return model
+     * Optional input checks applied to the invalidating tool call.
+     * @return toolInputContains
      */
-    @jakarta.annotation.Nullable public String getModel() {
-        return model;
+    @jakarta.annotation.Nullable public List<ProcessAgentToolInputContains> getToolInputContains() {
+        return toolInputContains;
     }
 
-    public void setModel(@jakarta.annotation.Nullable String model) {
-        this.model = model;
+    public void setToolInputContains(
+            @jakarta.annotation.Nullable List<ProcessAgentToolInputContains> toolInputContains) {
+        this.toolInputContains = toolInputContains;
     }
 
-    public ProcessRunConfig modelOptions(@jakarta.annotation.Nullable ModelOptions modelOptions) {
-        this.modelOptions = modelOptions;
+    public ProcessAgentPhaseReset toPhase(@jakarta.annotation.Nonnull String toPhase) {
+        this.toPhase = toPhase;
         return this;
     }
 
     /**
-     * Validated model options applied to Process LLM nodes and the supervisor.
-     * @return modelOptions
+     * Phase id that must be completed next after invalidation.
+     * @return toPhase
      */
-    @jakarta.annotation.Nullable public ModelOptions getModelOptions() {
-        return modelOptions;
+    @jakarta.annotation.Nonnull
+    public String getToPhase() {
+        return toPhase;
     }
 
-    public void setModelOptions(@jakarta.annotation.Nullable ModelOptions modelOptions) {
-        this.modelOptions = modelOptions;
-    }
-
-    public ProcessRunConfig userMessage(@jakarta.annotation.Nullable String userMessage) {
-        this.userMessage = userMessage;
-        return this;
-    }
-
-    /**
-     * Free-form message from the user when starting a run. Passed to the orchestrator LLM in supervised mode; stored on the run regardless so programmatic runs retain the intent that triggered them.
-     * @return userMessage
-     */
-    @jakarta.annotation.Nullable public String getUserMessage() {
-        return userMessage;
-    }
-
-    public void setUserMessage(@jakarta.annotation.Nullable String userMessage) {
-        this.userMessage = userMessage;
-    }
-
-    public ProcessRunConfig processWorkstreamMonitor(
-            @jakarta.annotation.Nullable ProcessRunConfigProcessWorkstreamMonitor processWorkstreamMonitor) {
-        this.processWorkstreamMonitor = processWorkstreamMonitor;
-        return this;
-    }
-
-    /**
-     * Get processWorkstreamMonitor
-     * @return processWorkstreamMonitor
-     */
-    @jakarta.annotation.Nullable public ProcessRunConfigProcessWorkstreamMonitor getProcessWorkstreamMonitor() {
-        return processWorkstreamMonitor;
-    }
-
-    public void setProcessWorkstreamMonitor(
-            @jakarta.annotation.Nullable ProcessRunConfigProcessWorkstreamMonitor processWorkstreamMonitor) {
-        this.processWorkstreamMonitor = processWorkstreamMonitor;
+    public void setToPhase(@jakarta.annotation.Nonnull String toPhase) {
+        this.toPhase = toPhase;
     }
 
     /**
@@ -165,9 +143,9 @@ public class ProcessRunConfig {
      *
      * @param key name of the property
      * @param value value of the property
-     * @return the ProcessRunConfig instance itself
+     * @return the ProcessAgentPhaseReset instance itself
      */
-    public ProcessRunConfig putAdditionalProperty(String key, Object value) {
+    public ProcessAgentPhaseReset putAdditionalProperty(String key, Object value) {
         if (this.additionalProperties == null) {
             this.additionalProperties = new HashMap<String, Object>();
         }
@@ -205,38 +183,28 @@ public class ProcessRunConfig {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ProcessRunConfig processRunConfig = (ProcessRunConfig) o;
-        return Objects.equals(this.environment, processRunConfig.environment)
-                && Objects.equals(this.model, processRunConfig.model)
-                && Objects.equals(this.modelOptions, processRunConfig.modelOptions)
-                && Objects.equals(this.userMessage, processRunConfig.userMessage)
+        ProcessAgentPhaseReset processAgentPhaseReset = (ProcessAgentPhaseReset) o;
+        return Objects.equals(this.tools, processAgentPhaseReset.tools)
+                && Objects.equals(this.toolInputContains, processAgentPhaseReset.toolInputContains)
+                && Objects.equals(this.toPhase, processAgentPhaseReset.toPhase)
                 && Objects.equals(
-                        this.processWorkstreamMonitor, processRunConfig.processWorkstreamMonitor)
-                && Objects.equals(this.additionalProperties, processRunConfig.additionalProperties);
+                        this.additionalProperties, processAgentPhaseReset.additionalProperties);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(
-                environment,
-                model,
-                modelOptions,
-                userMessage,
-                processWorkstreamMonitor,
-                additionalProperties);
+        return Objects.hash(tools, toolInputContains, toPhase, additionalProperties);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ProcessRunConfig {\n");
-        sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
-        sb.append("    model: ").append(toIndentedString(model)).append("\n");
-        sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
-        sb.append("    userMessage: ").append(toIndentedString(userMessage)).append("\n");
-        sb.append("    processWorkstreamMonitor: ")
-                .append(toIndentedString(processWorkstreamMonitor))
+        sb.append("class ProcessAgentPhaseReset {\n");
+        sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
+        sb.append("    toolInputContains: ")
+                .append(toIndentedString(toolInputContains))
                 .append("\n");
+        sb.append("    toPhase: ").append(toIndentedString(toPhase)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -258,69 +226,80 @@ public class ProcessRunConfig {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields =
-                new HashSet<String>(
-                        Arrays.asList(
-                                "environment",
-                                "model",
-                                "model_options",
-                                "user_message",
-                                "process_workstream_monitor"));
+                new HashSet<String>(Arrays.asList("tools", "tool_input_contains", "to_phase"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(0);
+        openapiRequiredFields = new HashSet<String>(Arrays.asList("tools", "to_phase"));
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to ProcessRunConfig
+     * @throws IOException if the JSON Element is invalid with respect to ProcessAgentPhaseReset
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ProcessRunConfig.openapiRequiredFields
+            if (!ProcessAgentPhaseReset.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 java.util.Locale.ROOT,
-                                "The required field(s) %s in ProcessRunConfig is not found in the empty JSON string",
-                                ProcessRunConfig.openapiRequiredFields.toString()));
+                                "The required field(s) %s in ProcessAgentPhaseReset is not found in the empty JSON string",
+                                ProcessAgentPhaseReset.openapiRequiredFields.toString()));
+            }
+        }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : ProcessAgentPhaseReset.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                java.util.Locale.ROOT,
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField,
+                                jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if ((jsonObj.get("environment") != null && !jsonObj.get("environment").isJsonNull())
-                && !jsonObj.get("environment").isJsonPrimitive()) {
+        // ensure the required json array is present
+        if (jsonObj.get("tools") == null) {
+            throw new IllegalArgumentException(
+                    "Expected the field `linkedContent` to be an array in the JSON string but got `null`");
+        } else if (!jsonObj.get("tools").isJsonArray()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `environment` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("environment").toString()));
+                            "Expected the field `tools` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("tools").toString()));
         }
-        if ((jsonObj.get("model") != null && !jsonObj.get("model").isJsonNull())
-                && !jsonObj.get("model").isJsonPrimitive()) {
+        if (jsonObj.get("tool_input_contains") != null
+                && !jsonObj.get("tool_input_contains").isJsonNull()) {
+            JsonArray jsonArraytoolInputContains = jsonObj.getAsJsonArray("tool_input_contains");
+            if (jsonArraytoolInputContains != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("tool_input_contains").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `tool_input_contains` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("tool_input_contains").toString()));
+                }
+
+                // validate the optional field `tool_input_contains` (array)
+                for (int i = 0; i < jsonArraytoolInputContains.size(); i++) {
+                    ProcessAgentToolInputContains.validateJsonElement(
+                            jsonArraytoolInputContains.get(i));
+                }
+                ;
+            }
+        }
+        if (!jsonObj.get("to_phase").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `model` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("model").toString()));
-        }
-        // validate the optional field `model_options`
-        if (jsonObj.get("model_options") != null && !jsonObj.get("model_options").isJsonNull()) {
-            ModelOptions.validateJsonElement(jsonObj.get("model_options"));
-        }
-        if ((jsonObj.get("user_message") != null && !jsonObj.get("user_message").isJsonNull())
-                && !jsonObj.get("user_message").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `user_message` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("user_message").toString()));
-        }
-        // validate the optional field `process_workstream_monitor`
-        if (jsonObj.get("process_workstream_monitor") != null
-                && !jsonObj.get("process_workstream_monitor").isJsonNull()) {
-            ProcessRunConfigProcessWorkstreamMonitor.validateJsonElement(
-                    jsonObj.get("process_workstream_monitor"));
+                            "Expected the field `to_phase` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("to_phase").toString()));
         }
     }
 
@@ -328,17 +307,17 @@ public class ProcessRunConfig {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ProcessRunConfig.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ProcessRunConfig' and its subtypes
+            if (!ProcessAgentPhaseReset.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'ProcessAgentPhaseReset' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ProcessRunConfig> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(ProcessRunConfig.class));
+            final TypeAdapter<ProcessAgentPhaseReset> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(ProcessAgentPhaseReset.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ProcessRunConfig>() {
+                    new TypeAdapter<ProcessAgentPhaseReset>() {
                         @Override
-                        public void write(JsonWriter out, ProcessRunConfig value)
+                        public void write(JsonWriter out, ProcessAgentPhaseReset value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             obj.remove("additionalProperties");
@@ -369,12 +348,12 @@ public class ProcessRunConfig {
                         }
 
                         @Override
-                        public ProcessRunConfig read(JsonReader in) throws IOException {
+                        public ProcessAgentPhaseReset read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             JsonObject jsonObj = jsonElement.getAsJsonObject();
                             // store additional fields in the deserialized instance
-                            ProcessRunConfig instance = thisAdapter.fromJsonTree(jsonObj);
+                            ProcessAgentPhaseReset instance = thisAdapter.fromJsonTree(jsonObj);
                             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                                 if (!openapiFields.contains(entry.getKey())) {
                                     if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -413,18 +392,18 @@ public class ProcessRunConfig {
     }
 
     /**
-     * Create an instance of ProcessRunConfig given an JSON string
+     * Create an instance of ProcessAgentPhaseReset given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ProcessRunConfig
-     * @throws IOException if the JSON string is invalid with respect to ProcessRunConfig
+     * @return An instance of ProcessAgentPhaseReset
+     * @throws IOException if the JSON string is invalid with respect to ProcessAgentPhaseReset
      */
-    public static ProcessRunConfig fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ProcessRunConfig.class);
+    public static ProcessAgentPhaseReset fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, ProcessAgentPhaseReset.class);
     }
 
     /**
-     * Convert an instance of ProcessRunConfig to an JSON string
+     * Convert an instance of ProcessAgentPhaseReset to an JSON string
      *
      * @return JSON string
      */

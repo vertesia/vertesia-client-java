@@ -57,6 +57,11 @@ public class StartAppScaffoldRequest {
     @SerializedName(SERIALIZED_NAME_MODULES)
     @jakarta.annotation.Nullable private List<AppScaffoldModule> modules = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_APPGEN_PACKAGE_SPEC = "appgen_package_spec";
+
+    @SerializedName(SERIALIZED_NAME_APPGEN_PACKAGE_SPEC)
+    @jakarta.annotation.Nullable private String appgenPackageSpec;
+
     public static final String SERIALIZED_NAME_CREATE_VERSION = "create_version";
 
     @SerializedName(SERIALIZED_NAME_CREATE_VERSION)
@@ -142,6 +147,24 @@ public class StartAppScaffoldRequest {
         this.modules = modules;
     }
 
+    public StartAppScaffoldRequest appgenPackageSpec(
+            @jakarta.annotation.Nullable String appgenPackageSpec) {
+        this.appgenPackageSpec = appgenPackageSpec;
+        return this;
+    }
+
+    /**
+     * Optional Vertesia SDK version or package track for this scaffold. Overrides the deployment default.
+     * @return appgenPackageSpec
+     */
+    @jakarta.annotation.Nullable public String getAppgenPackageSpec() {
+        return appgenPackageSpec;
+    }
+
+    public void setAppgenPackageSpec(@jakarta.annotation.Nullable String appgenPackageSpec) {
+        this.appgenPackageSpec = appgenPackageSpec;
+    }
+
     public StartAppScaffoldRequest createVersion(
             @jakarta.annotation.Nullable Boolean createVersion) {
         this.createVersion = createVersion;
@@ -173,12 +196,13 @@ public class StartAppScaffoldRequest {
                 && Objects.equals(this.title, startAppScaffoldRequest.title)
                 && Objects.equals(this.description, startAppScaffoldRequest.description)
                 && Objects.equals(this.modules, startAppScaffoldRequest.modules)
+                && Objects.equals(this.appgenPackageSpec, startAppScaffoldRequest.appgenPackageSpec)
                 && Objects.equals(this.createVersion, startAppScaffoldRequest.createVersion);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(appId, title, description, modules, createVersion);
+        return Objects.hash(appId, title, description, modules, appgenPackageSpec, createVersion);
     }
 
     @Override
@@ -189,6 +213,9 @@ public class StartAppScaffoldRequest {
         sb.append("    title: ").append(toIndentedString(title)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    modules: ").append(toIndentedString(modules)).append("\n");
+        sb.append("    appgenPackageSpec: ")
+                .append(toIndentedString(appgenPackageSpec))
+                .append("\n");
         sb.append("    createVersion: ").append(toIndentedString(createVersion)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -210,7 +237,12 @@ public class StartAppScaffoldRequest {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "app_id", "title", "description", "modules", "create_version"));
+                                "app_id",
+                                "title",
+                                "description",
+                                "modules",
+                                "appgen_package_spec",
+                                "create_version"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("app_id"));
@@ -278,6 +310,15 @@ public class StartAppScaffoldRequest {
                             java.util.Locale.ROOT,
                             "Expected the field `modules` to be an array in the JSON string but got `%s`",
                             jsonObj.get("modules").toString()));
+        }
+        if ((jsonObj.get("appgen_package_spec") != null
+                        && !jsonObj.get("appgen_package_spec").isJsonNull())
+                && !jsonObj.get("appgen_package_spec").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `appgen_package_spec` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("appgen_package_spec").toString()));
         }
     }
 

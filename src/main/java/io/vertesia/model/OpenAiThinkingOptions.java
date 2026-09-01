@@ -104,6 +104,70 @@ public class OpenAiThinkingOptions {
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
     @jakarta.annotation.Nullable private BigDecimal maxTokens;
 
+    /**
+     * Gets or Sets toolChoice
+     */
+    @JsonAdapter(ToolChoiceEnum.Adapter.class)
+    public enum ToolChoiceEnum {
+        AUTO("auto"),
+
+        NONE("none"),
+
+        ANY("any"),
+
+        REQUIRED("required"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        ToolChoiceEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ToolChoiceEnum fromValue(String value) {
+            for (ToolChoiceEnum b : ToolChoiceEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<ToolChoiceEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ToolChoiceEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ToolChoiceEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ToolChoiceEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            ToolChoiceEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_TOOL_CHOICE = "tool_choice";
+
+    @SerializedName(SERIALIZED_NAME_TOOL_CHOICE)
+    @jakarta.annotation.Nullable private ToolChoiceEnum toolChoice;
+
     public static final String SERIALIZED_NAME_STOP_SEQUENCE = "stop_sequence";
 
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
@@ -231,6 +295,24 @@ public class OpenAiThinkingOptions {
 
     public void setMaxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
+    }
+
+    public OpenAiThinkingOptions toolChoice(
+            @jakarta.annotation.Nullable ToolChoiceEnum toolChoice) {
+        this.toolChoice = toolChoice;
+        return this;
+    }
+
+    /**
+     * Get toolChoice
+     * @return toolChoice
+     */
+    @jakarta.annotation.Nullable public ToolChoiceEnum getToolChoice() {
+        return toolChoice;
+    }
+
+    public void setToolChoice(@jakarta.annotation.Nullable ToolChoiceEnum toolChoice) {
+        this.toolChoice = toolChoice;
     }
 
     public OpenAiThinkingOptions stopSequence(
@@ -429,6 +511,7 @@ public class OpenAiThinkingOptions {
         OpenAiThinkingOptions openAiThinkingOptions = (OpenAiThinkingOptions) o;
         return Objects.equals(this.optionId, openAiThinkingOptions.optionId)
                 && Objects.equals(this.maxTokens, openAiThinkingOptions.maxTokens)
+                && Objects.equals(this.toolChoice, openAiThinkingOptions.toolChoice)
                 && Objects.equals(this.stopSequence, openAiThinkingOptions.stopSequence)
                 && Objects.equals(this.effort, openAiThinkingOptions.effort)
                 && Objects.equals(this.reasoningEffort, openAiThinkingOptions.reasoningEffort)
@@ -445,6 +528,7 @@ public class OpenAiThinkingOptions {
         return Objects.hash(
                 optionId,
                 maxTokens,
+                toolChoice,
                 stopSequence,
                 effort,
                 reasoningEffort,
@@ -461,6 +545,7 @@ public class OpenAiThinkingOptions {
         sb.append("class OpenAiThinkingOptions {\n");
         sb.append("    optionId: ").append(toIndentedString(optionId)).append("\n");
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
+        sb.append("    toolChoice: ").append(toIndentedString(toolChoice)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
         sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
         sb.append("    reasoningEffort: ").append(toIndentedString(reasoningEffort)).append("\n");
@@ -493,6 +578,7 @@ public class OpenAiThinkingOptions {
                         Arrays.asList(
                                 "_option_id",
                                 "max_tokens",
+                                "tool_choice",
                                 "stop_sequence",
                                 "effort",
                                 "reasoning_effort",
@@ -544,6 +630,18 @@ public class OpenAiThinkingOptions {
         }
         // validate the required field `_option_id`
         OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        if ((jsonObj.get("tool_choice") != null && !jsonObj.get("tool_choice").isJsonNull())
+                && !jsonObj.get("tool_choice").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `tool_choice` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("tool_choice").toString()));
+        }
+        // validate the optional field `tool_choice`
+        if (jsonObj.get("tool_choice") != null && !jsonObj.get("tool_choice").isJsonNull()) {
+            ToolChoiceEnum.validateJsonElement(jsonObj.get("tool_choice"));
+        }
         // ensure the optional json data is an array if present
         if (jsonObj.get("stop_sequence") != null
                 && !jsonObj.get("stop_sequence").isJsonNull()

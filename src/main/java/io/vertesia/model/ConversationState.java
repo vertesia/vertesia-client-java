@@ -391,7 +391,7 @@ public class ConversationState {
     }
 
     /**
-     * Buffered tool results held while approval denial pauses until the next user message.
+     * Buffered tool results held across an interactive pause until the next user message.
      * @return pendingToolApprovalResults
      */
     @jakarta.annotation.Nullable public PendingToolApprovalResults getPendingToolApprovalResults() {

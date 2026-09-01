@@ -731,6 +731,10 @@ src/main/java/io/vertesia/model/PostAgentRunUpdatePayload.java
 src/main/java/io/vertesia/model/PostAgentRunUpdateResponse.java
 src/main/java/io/vertesia/model/PreviewViewExperienceRequest.java
 src/main/java/io/vertesia/model/PrincipalIdentity.java
+src/main/java/io/vertesia/model/ProcessAgentExecutionPolicy.java
+src/main/java/io/vertesia/model/ProcessAgentPhaseReset.java
+src/main/java/io/vertesia/model/ProcessAgentToolInputContains.java
+src/main/java/io/vertesia/model/ProcessAgentToolPhase.java
 src/main/java/io/vertesia/model/ProcessContextDefinition.java
 src/main/java/io/vertesia/model/ProcessContextResponse.java
 src/main/java/io/vertesia/model/ProcessDefinition.java
