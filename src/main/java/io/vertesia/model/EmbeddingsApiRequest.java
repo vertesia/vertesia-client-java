@@ -44,6 +44,11 @@ public class EmbeddingsApiRequest {
     @jakarta.annotation.Nonnull
     private List<EmbeddingsApiInput> inputs = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_EMBEDDING_TYPE = "embedding_type";
+
+    @SerializedName(SERIALIZED_NAME_EMBEDDING_TYPE)
+    @jakarta.annotation.Nullable private SupportedEmbeddingTypes embeddingType;
+
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
@@ -88,13 +93,32 @@ public class EmbeddingsApiRequest {
         this.inputs = inputs;
     }
 
+    public EmbeddingsApiRequest embeddingType(
+            @jakarta.annotation.Nullable SupportedEmbeddingTypes embeddingType) {
+        this.embeddingType = embeddingType;
+        return this;
+    }
+
+    /**
+     * Logical project embedding type. This distinguishes properties embeddings from text inputs when the server resolves an omitted model from project settings.
+     * @return embeddingType
+     */
+    @jakarta.annotation.Nullable public SupportedEmbeddingTypes getEmbeddingType() {
+        return embeddingType;
+    }
+
+    public void setEmbeddingType(
+            @jakarta.annotation.Nullable SupportedEmbeddingTypes embeddingType) {
+        this.embeddingType = embeddingType;
+    }
+
     public EmbeddingsApiRequest model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
 
     /**
-     * Get model
+     * Explicit model override intended for validating a configuration before it is saved. Normal callers should omit this field and provide embedding_type so the project model is resolved.
      * @return model
      */
     @jakarta.annotation.Nullable public String getModel() {
@@ -149,6 +173,7 @@ public class EmbeddingsApiRequest {
         }
         EmbeddingsApiRequest embeddingsApiRequest = (EmbeddingsApiRequest) o;
         return Objects.equals(this.inputs, embeddingsApiRequest.inputs)
+                && Objects.equals(this.embeddingType, embeddingsApiRequest.embeddingType)
                 && Objects.equals(this.model, embeddingsApiRequest.model)
                 && Objects.equals(this.taskType, embeddingsApiRequest.taskType)
                 && Objects.equals(this.dimensions, embeddingsApiRequest.dimensions);
@@ -156,7 +181,7 @@ public class EmbeddingsApiRequest {
 
     @Override
     public int hashCode() {
-        return Objects.hash(inputs, model, taskType, dimensions);
+        return Objects.hash(inputs, embeddingType, model, taskType, dimensions);
     }
 
     @Override
@@ -164,6 +189,7 @@ public class EmbeddingsApiRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class EmbeddingsApiRequest {\n");
         sb.append("    inputs: ").append(toIndentedString(inputs)).append("\n");
+        sb.append("    embeddingType: ").append(toIndentedString(embeddingType)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
         sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");
         sb.append("    dimensions: ").append(toIndentedString(dimensions)).append("\n");
@@ -185,7 +211,9 @@ public class EmbeddingsApiRequest {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields =
-                new HashSet<String>(Arrays.asList("inputs", "model", "task_type", "dimensions"));
+                new HashSet<String>(
+                        Arrays.asList(
+                                "inputs", "embedding_type", "model", "task_type", "dimensions"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("inputs"));
@@ -234,6 +262,10 @@ public class EmbeddingsApiRequest {
             for (int i = 0; i < jsonArrayinputs.size(); i++) {
                 EmbeddingsApiInput.validateJsonElement(jsonArrayinputs.get(i));
             }
+        }
+        // validate the optional field `embedding_type`
+        if (jsonObj.get("embedding_type") != null && !jsonObj.get("embedding_type").isJsonNull()) {
+            SupportedEmbeddingTypes.validateJsonElement(jsonObj.get("embedding_type"));
         }
         if ((jsonObj.get("model") != null && !jsonObj.get("model").isJsonNull())
                 && !jsonObj.get("model").isJsonPrimitive()) {
