@@ -105,6 +105,10 @@ public class VertexAIGeminiOmniVideoOptions {
 
         REFERENCE_TO_VIDEO("reference_to_video"),
 
+        EDIT("edit"),
+
+        EXTEND("extend"),
+
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
         private String value;
@@ -221,6 +225,70 @@ public class VertexAIGeminiOmniVideoOptions {
     @SerializedName(SERIALIZED_NAME_DURATION_SECONDS)
     @jakarta.annotation.Nullable private Integer durationSeconds;
 
+    /**
+     * Gets or Sets resolution
+     */
+    @JsonAdapter(ResolutionEnum.Adapter.class)
+    public enum ResolutionEnum {
+        _360P("360p"),
+
+        _720P("720p"),
+
+        _1080P("1080p"),
+
+        _4K("4k"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        ResolutionEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ResolutionEnum fromValue(String value) {
+            for (ResolutionEnum b : ResolutionEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<ResolutionEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ResolutionEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ResolutionEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ResolutionEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            ResolutionEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_RESOLUTION = "resolution";
+
+    @SerializedName(SERIALIZED_NAME_RESOLUTION)
+    @jakarta.annotation.Nullable private ResolutionEnum resolution;
+
     public VertexAIGeminiOmniVideoOptions() {}
 
     public VertexAIGeminiOmniVideoOptions optionId(
@@ -297,6 +365,24 @@ public class VertexAIGeminiOmniVideoOptions {
         this.durationSeconds = durationSeconds;
     }
 
+    public VertexAIGeminiOmniVideoOptions resolution(
+            @jakarta.annotation.Nullable ResolutionEnum resolution) {
+        this.resolution = resolution;
+        return this;
+    }
+
+    /**
+     * Get resolution
+     * @return resolution
+     */
+    @jakarta.annotation.Nullable public ResolutionEnum getResolution() {
+        return resolution;
+    }
+
+    public void setResolution(@jakarta.annotation.Nullable ResolutionEnum resolution) {
+        this.resolution = resolution;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -311,12 +397,13 @@ public class VertexAIGeminiOmniVideoOptions {
                 && Objects.equals(this.task, vertexAIGeminiOmniVideoOptions.task)
                 && Objects.equals(this.aspectRatio, vertexAIGeminiOmniVideoOptions.aspectRatio)
                 && Objects.equals(
-                        this.durationSeconds, vertexAIGeminiOmniVideoOptions.durationSeconds);
+                        this.durationSeconds, vertexAIGeminiOmniVideoOptions.durationSeconds)
+                && Objects.equals(this.resolution, vertexAIGeminiOmniVideoOptions.resolution);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(optionId, task, aspectRatio, durationSeconds);
+        return Objects.hash(optionId, task, aspectRatio, durationSeconds, resolution);
     }
 
     @Override
@@ -327,6 +414,7 @@ public class VertexAIGeminiOmniVideoOptions {
         sb.append("    task: ").append(toIndentedString(task)).append("\n");
         sb.append("    aspectRatio: ").append(toIndentedString(aspectRatio)).append("\n");
         sb.append("    durationSeconds: ").append(toIndentedString(durationSeconds)).append("\n");
+        sb.append("    resolution: ").append(toIndentedString(resolution)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -346,7 +434,12 @@ public class VertexAIGeminiOmniVideoOptions {
         // a set of all properties/fields (JSON key names)
         openapiFields =
                 new HashSet<String>(
-                        Arrays.asList("_option_id", "task", "aspect_ratio", "duration_seconds"));
+                        Arrays.asList(
+                                "_option_id",
+                                "task",
+                                "aspect_ratio",
+                                "duration_seconds",
+                                "resolution"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));
@@ -414,6 +507,18 @@ public class VertexAIGeminiOmniVideoOptions {
         // validate the optional field `aspect_ratio`
         if (jsonObj.get("aspect_ratio") != null && !jsonObj.get("aspect_ratio").isJsonNull()) {
             AspectRatioEnum.validateJsonElement(jsonObj.get("aspect_ratio"));
+        }
+        if ((jsonObj.get("resolution") != null && !jsonObj.get("resolution").isJsonNull())
+                && !jsonObj.get("resolution").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `resolution` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("resolution").toString()));
+        }
+        // validate the optional field `resolution`
+        if (jsonObj.get("resolution") != null && !jsonObj.get("resolution").isJsonNull()) {
+            ResolutionEnum.validateJsonElement(jsonObj.get("resolution"));
         }
     }
 
