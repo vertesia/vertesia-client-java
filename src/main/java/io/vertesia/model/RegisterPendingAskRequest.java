@@ -78,6 +78,11 @@ public class RegisterPendingAskRequest {
     @SerializedName(SERIALIZED_NAME_TASK_FIELDS)
     @jakarta.annotation.Nullable private List<TaskField> taskFields = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_REQUEST_ID = "requestId";
+
+    @SerializedName(SERIALIZED_NAME_REQUEST_ID)
+    @jakarta.annotation.Nullable private String requestId;
+
     public RegisterPendingAskRequest() {}
 
     public RegisterPendingAskRequest runId(@jakarta.annotation.Nonnull String runId) {
@@ -231,6 +236,23 @@ public class RegisterPendingAskRequest {
         this.taskFields = taskFields;
     }
 
+    public RegisterPendingAskRequest requestId(@jakarta.annotation.Nullable String requestId) {
+        this.requestId = requestId;
+        return this;
+    }
+
+    /**
+     * Get requestId
+     * @return requestId
+     */
+    @jakarta.annotation.Nullable public String getRequestId() {
+        return requestId;
+    }
+
+    public void setRequestId(@jakarta.annotation.Nullable String requestId) {
+        this.requestId = requestId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -246,13 +268,21 @@ public class RegisterPendingAskRequest {
                 && Objects.equals(this.questions, registerPendingAskRequest.questions)
                 && Objects.equals(this.timeoutHours, registerPendingAskRequest.timeoutHours)
                 && Objects.equals(this.userChannels, registerPendingAskRequest.userChannels)
-                && Objects.equals(this.taskFields, registerPendingAskRequest.taskFields);
+                && Objects.equals(this.taskFields, registerPendingAskRequest.taskFields)
+                && Objects.equals(this.requestId, registerPendingAskRequest.requestId);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                runId, workflowId, agentName, questions, timeoutHours, userChannels, taskFields);
+                runId,
+                workflowId,
+                agentName,
+                questions,
+                timeoutHours,
+                userChannels,
+                taskFields,
+                requestId);
     }
 
     @Override
@@ -266,6 +296,7 @@ public class RegisterPendingAskRequest {
         sb.append("    timeoutHours: ").append(toIndentedString(timeoutHours)).append("\n");
         sb.append("    userChannels: ").append(toIndentedString(userChannels)).append("\n");
         sb.append("    taskFields: ").append(toIndentedString(taskFields)).append("\n");
+        sb.append("    requestId: ").append(toIndentedString(requestId)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -292,7 +323,8 @@ public class RegisterPendingAskRequest {
                                 "questions",
                                 "timeoutHours",
                                 "userChannels",
-                                "taskFields"));
+                                "taskFields",
+                                "requestId"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -395,6 +427,14 @@ public class RegisterPendingAskRequest {
                 }
                 ;
             }
+        }
+        if ((jsonObj.get("requestId") != null && !jsonObj.get("requestId").isJsonNull())
+                && !jsonObj.get("requestId").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `requestId` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("requestId").toString()));
         }
     }
 
