@@ -34,6 +34,11 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ExecutionRunWorkflow {
+    public static final String SERIALIZED_NAME_AGENT_RUN_ID = "agent_run_id";
+
+    @SerializedName(SERIALIZED_NAME_AGENT_RUN_ID)
+    @jakarta.annotation.Nullable private String agentRunId;
+
     public static final String SERIALIZED_NAME_RATE_LIMIT_ID = "rate_limit_id";
 
     @SerializedName(SERIALIZED_NAME_RATE_LIMIT_ID)
@@ -59,6 +64,23 @@ public class ExecutionRunWorkflow {
     @jakarta.annotation.Nullable private String activityType;
 
     public ExecutionRunWorkflow() {}
+
+    public ExecutionRunWorkflow agentRunId(@jakarta.annotation.Nullable String agentRunId) {
+        this.agentRunId = agentRunId;
+        return this;
+    }
+
+    /**
+     * Root agent run owning this inference, including inference performed by child workstreams.
+     * @return agentRunId
+     */
+    @jakarta.annotation.Nullable public String getAgentRunId() {
+        return agentRunId;
+    }
+
+    public void setAgentRunId(@jakarta.annotation.Nullable String agentRunId) {
+        this.agentRunId = agentRunId;
+    }
 
     public ExecutionRunWorkflow rateLimitId(@jakarta.annotation.Nullable String rateLimitId) {
         this.rateLimitId = rateLimitId;
@@ -147,7 +169,8 @@ public class ExecutionRunWorkflow {
             return false;
         }
         ExecutionRunWorkflow executionRunWorkflow = (ExecutionRunWorkflow) o;
-        return Objects.equals(this.rateLimitId, executionRunWorkflow.rateLimitId)
+        return Objects.equals(this.agentRunId, executionRunWorkflow.agentRunId)
+                && Objects.equals(this.rateLimitId, executionRunWorkflow.rateLimitId)
                 && Objects.equals(this.runId, executionRunWorkflow.runId)
                 && Objects.equals(this.workflowId, executionRunWorkflow.workflowId)
                 && Objects.equals(this.activityType, executionRunWorkflow.activityType);
@@ -155,13 +178,14 @@ public class ExecutionRunWorkflow {
 
     @Override
     public int hashCode() {
-        return Objects.hash(rateLimitId, runId, workflowId, activityType);
+        return Objects.hash(agentRunId, rateLimitId, runId, workflowId, activityType);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ExecutionRunWorkflow {\n");
+        sb.append("    agentRunId: ").append(toIndentedString(agentRunId)).append("\n");
         sb.append("    rateLimitId: ").append(toIndentedString(rateLimitId)).append("\n");
         sb.append("    runId: ").append(toIndentedString(runId)).append("\n");
         sb.append("    workflowId: ").append(toIndentedString(workflowId)).append("\n");
@@ -185,7 +209,12 @@ public class ExecutionRunWorkflow {
         // a set of all properties/fields (JSON key names)
         openapiFields =
                 new HashSet<String>(
-                        Arrays.asList("rate_limit_id", "run_id", "workflow_id", "activity_type"));
+                        Arrays.asList(
+                                "agent_run_id",
+                                "rate_limit_id",
+                                "run_id",
+                                "workflow_id",
+                                "activity_type"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("run_id", "workflow_id"));
@@ -221,6 +250,14 @@ public class ExecutionRunWorkflow {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if ((jsonObj.get("agent_run_id") != null && !jsonObj.get("agent_run_id").isJsonNull())
+                && !jsonObj.get("agent_run_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `agent_run_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("agent_run_id").toString()));
+        }
         if ((jsonObj.get("rate_limit_id") != null && !jsonObj.get("rate_limit_id").isJsonNull())
                 && !jsonObj.get("rate_limit_id").isJsonPrimitive()) {
             throw new IllegalArgumentException(

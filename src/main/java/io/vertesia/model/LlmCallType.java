@@ -34,6 +34,8 @@ public enum LlmCallType {
 
     NESTED_INTERACTION("nested_interaction"),
 
+    BACKGROUND("background"),
+
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
