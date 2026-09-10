@@ -94,6 +94,21 @@ public class AgentTokenRequest {
     @jakarta.annotation.Nonnull
     private TypeEnum type;
 
+    public static final String SERIALIZED_NAME_DELEGATION_GRANT_ID = "delegation_grant_id";
+
+    @SerializedName(SERIALIZED_NAME_DELEGATION_GRANT_ID)
+    @jakarta.annotation.Nullable private String delegationGrantId;
+
+    public static final String SERIALIZED_NAME_DELEGATION_POLICY_HASH = "delegation_policy_hash";
+
+    @SerializedName(SERIALIZED_NAME_DELEGATION_POLICY_HASH)
+    @jakarta.annotation.Nullable private String delegationPolicyHash;
+
+    public static final String SERIALIZED_NAME_CONTINUATION_TOKEN = "continuation_token";
+
+    @SerializedName(SERIALIZED_NAME_CONTINUATION_TOKEN)
+    @jakarta.annotation.Nullable private String continuationToken;
+
     public static final String SERIALIZED_NAME_AUDIENCE = "audience";
 
     @SerializedName(SERIALIZED_NAME_AUDIENCE)
@@ -145,6 +160,60 @@ public class AgentTokenRequest {
 
     public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
+    }
+
+    public AgentTokenRequest delegationGrantId(
+            @jakarta.annotation.Nullable String delegationGrantId) {
+        this.delegationGrantId = delegationGrantId;
+        return this;
+    }
+
+    /**
+     * Get delegationGrantId
+     * @return delegationGrantId
+     */
+    @jakarta.annotation.Nullable public String getDelegationGrantId() {
+        return delegationGrantId;
+    }
+
+    public void setDelegationGrantId(@jakarta.annotation.Nullable String delegationGrantId) {
+        this.delegationGrantId = delegationGrantId;
+    }
+
+    public AgentTokenRequest delegationPolicyHash(
+            @jakarta.annotation.Nullable String delegationPolicyHash) {
+        this.delegationPolicyHash = delegationPolicyHash;
+        return this;
+    }
+
+    /**
+     * Get delegationPolicyHash
+     * @return delegationPolicyHash
+     */
+    @jakarta.annotation.Nullable public String getDelegationPolicyHash() {
+        return delegationPolicyHash;
+    }
+
+    public void setDelegationPolicyHash(@jakarta.annotation.Nullable String delegationPolicyHash) {
+        this.delegationPolicyHash = delegationPolicyHash;
+    }
+
+    public AgentTokenRequest continuationToken(
+            @jakarta.annotation.Nullable String continuationToken) {
+        this.continuationToken = continuationToken;
+        return this;
+    }
+
+    /**
+     * Get continuationToken
+     * @return continuationToken
+     */
+    @jakarta.annotation.Nullable public String getContinuationToken() {
+        return continuationToken;
+    }
+
+    public void setContinuationToken(@jakarta.annotation.Nullable String continuationToken) {
+        this.continuationToken = continuationToken;
     }
 
     public AgentTokenRequest audience(@jakarta.annotation.Nullable String audience) {
@@ -262,6 +331,9 @@ public class AgentTokenRequest {
         }
         AgentTokenRequest agentTokenRequest = (AgentTokenRequest) o;
         return Objects.equals(this.type, agentTokenRequest.type)
+                && Objects.equals(this.delegationGrantId, agentTokenRequest.delegationGrantId)
+                && Objects.equals(this.delegationPolicyHash, agentTokenRequest.delegationPolicyHash)
+                && Objects.equals(this.continuationToken, agentTokenRequest.continuationToken)
                 && Objects.equals(this.audience, agentTokenRequest.audience)
                 && Objects.equals(this.algorithm, agentTokenRequest.algorithm)
                 && Objects.equals(this.accountId, agentTokenRequest.accountId)
@@ -272,7 +344,17 @@ public class AgentTokenRequest {
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, audience, algorithm, accountId, projectId, name, onBehalfOf);
+        return Objects.hash(
+                type,
+                delegationGrantId,
+                delegationPolicyHash,
+                continuationToken,
+                audience,
+                algorithm,
+                accountId,
+                projectId,
+                name,
+                onBehalfOf);
     }
 
     @Override
@@ -280,6 +362,15 @@ public class AgentTokenRequest {
         StringBuilder sb = new StringBuilder();
         sb.append("class AgentTokenRequest {\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    delegationGrantId: ")
+                .append(toIndentedString(delegationGrantId))
+                .append("\n");
+        sb.append("    delegationPolicyHash: ")
+                .append(toIndentedString(delegationPolicyHash))
+                .append("\n");
+        sb.append("    continuationToken: ")
+                .append(toIndentedString(continuationToken))
+                .append("\n");
         sb.append("    audience: ").append(toIndentedString(audience)).append("\n");
         sb.append("    algorithm: ").append(toIndentedString(algorithm)).append("\n");
         sb.append("    accountId: ").append(toIndentedString(accountId)).append("\n");
@@ -307,6 +398,9 @@ public class AgentTokenRequest {
                 new HashSet<String>(
                         Arrays.asList(
                                 "type",
+                                "delegation_grant_id",
+                                "delegation_policy_hash",
+                                "continuation_token",
                                 "audience",
                                 "algorithm",
                                 "account_id",
@@ -359,6 +453,33 @@ public class AgentTokenRequest {
         }
         // validate the required field `type`
         TypeEnum.validateJsonElement(jsonObj.get("type"));
+        if ((jsonObj.get("delegation_grant_id") != null
+                        && !jsonObj.get("delegation_grant_id").isJsonNull())
+                && !jsonObj.get("delegation_grant_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `delegation_grant_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("delegation_grant_id").toString()));
+        }
+        if ((jsonObj.get("delegation_policy_hash") != null
+                        && !jsonObj.get("delegation_policy_hash").isJsonNull())
+                && !jsonObj.get("delegation_policy_hash").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `delegation_policy_hash` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("delegation_policy_hash").toString()));
+        }
+        if ((jsonObj.get("continuation_token") != null
+                        && !jsonObj.get("continuation_token").isJsonNull())
+                && !jsonObj.get("continuation_token").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `continuation_token` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("continuation_token").toString()));
+        }
         if ((jsonObj.get("audience") != null && !jsonObj.get("audience").isJsonNull())
                 && !jsonObj.get("audience").isJsonPrimitive()) {
             throw new IllegalArgumentException(

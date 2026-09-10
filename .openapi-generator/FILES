@@ -24,6 +24,7 @@ src/main/java/io/vertesia/api/ContentObjectTypesApi.java
 src/main/java/io/vertesia/api/ContentQueryApi.java
 src/main/java/io/vertesia/api/CostsApi.java
 src/main/java/io/vertesia/api/DataApi.java
+src/main/java/io/vertesia/api/DelegationGrantsApi.java
 src/main/java/io/vertesia/api/EmailApi.java
 src/main/java/io/vertesia/api/EnvironmentsApi.java
 src/main/java/io/vertesia/api/EventIngestChannelsApi.java
@@ -355,6 +356,7 @@ src/main/java/io/vertesia/model/CreateContentObjectTypePayload.java
 src/main/java/io/vertesia/model/CreateDashboardPayload.java
 src/main/java/io/vertesia/model/CreateDashboardSnapshotPayload.java
 src/main/java/io/vertesia/model/CreateDataStorePayload.java
+src/main/java/io/vertesia/model/CreateDelegationGrantPayload.java
 src/main/java/io/vertesia/model/CreateEmailRouteRequest.java
 src/main/java/io/vertesia/model/CreateEmailRouteResponse.java
 src/main/java/io/vertesia/model/CreateEventIngestChannelPayload.java
@@ -435,6 +437,7 @@ src/main/java/io/vertesia/model/DataTable.java
 src/main/java/io/vertesia/model/DataTableForAI.java
 src/main/java/io/vertesia/model/DataTableSemanticType.java
 src/main/java/io/vertesia/model/DataTableSummary.java
+src/main/java/io/vertesia/model/DelegationGrant.java
 src/main/java/io/vertesia/model/DeleteAppVersionResponse.java
 src/main/java/io/vertesia/model/DeleteByIdResult.java
 src/main/java/io/vertesia/model/DeleteContentObjectExportResponse.java

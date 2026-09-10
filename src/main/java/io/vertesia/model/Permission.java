@@ -24,6 +24,8 @@ import java.io.IOException;
  */
 @JsonAdapter(Permission.Adapter.class)
 public enum Permission {
+    SCHEDULE_DELEGATE("schedule:delegate"),
+
     INTERACTION_READ("interaction:read"),
 
     INTERACTION_WRITE("interaction:write"),
