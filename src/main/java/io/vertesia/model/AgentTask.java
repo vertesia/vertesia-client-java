@@ -40,6 +40,11 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AgentTask {
+    public static final String SERIALIZED_NAME_HISTORY_ID = "history_id";
+
+    @SerializedName(SERIALIZED_NAME_HISTORY_ID)
+    @jakarta.annotation.Nullable private String historyId;
+
     /**
      * Type discriminator for future task types
      */
@@ -391,6 +396,23 @@ public class AgentTask {
     @jakarta.annotation.Nullable private List<String> warnings = new ArrayList<>();
 
     public AgentTask() {}
+
+    public AgentTask historyId(@jakarta.annotation.Nullable String historyId) {
+        this.historyId = historyId;
+        return this;
+    }
+
+    /**
+     * Stable observability row identity across refreshes.
+     * @return historyId
+     */
+    @jakarta.annotation.Nullable public String getHistoryId() {
+        return historyId;
+    }
+
+    public void setHistoryId(@jakarta.annotation.Nullable String historyId) {
+        this.historyId = historyId;
+    }
 
     public AgentTask taskType(@jakarta.annotation.Nonnull TaskTypeEnum taskType) {
         this.taskType = taskType;
@@ -838,7 +860,8 @@ public class AgentTask {
             return false;
         }
         AgentTask agentTask = (AgentTask) o;
-        return Objects.equals(this.taskType, agentTask.taskType)
+        return Objects.equals(this.historyId, agentTask.historyId)
+                && Objects.equals(this.taskType, agentTask.taskType)
                 && Objects.equals(this.toolName, agentTask.toolName)
                 && Objects.equals(this.toolUseId, agentTask.toolUseId)
                 && Objects.equals(this.toolRunId, agentTask.toolRunId)
@@ -865,6 +888,7 @@ public class AgentTask {
     @Override
     public int hashCode() {
         return Objects.hash(
+                historyId,
                 taskType,
                 toolName,
                 toolUseId,
@@ -893,6 +917,7 @@ public class AgentTask {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AgentTask {\n");
+        sb.append("    historyId: ").append(toIndentedString(historyId)).append("\n");
         sb.append("    taskType: ").append(toIndentedString(taskType)).append("\n");
         sb.append("    toolName: ").append(toIndentedString(toolName)).append("\n");
         sb.append("    toolUseId: ").append(toIndentedString(toolUseId)).append("\n");
@@ -937,6 +962,7 @@ public class AgentTask {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "history_id",
                                 "taskType",
                                 "toolName",
                                 "toolUseId",
@@ -1001,6 +1027,14 @@ public class AgentTask {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if ((jsonObj.get("history_id") != null && !jsonObj.get("history_id").isJsonNull())
+                && !jsonObj.get("history_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `history_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("history_id").toString()));
+        }
         if (!jsonObj.get("taskType").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(

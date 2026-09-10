@@ -97,6 +97,71 @@ public class WorkflowHistoryOneOf2 {
     @jakarta.annotation.Nonnull
     private TypeEnum type;
 
+    /**
+     * Snapshot replaces all history; delta replaces returned rows by history_id and retains other rows.
+     */
+    @JsonAdapter(ModeEnum.Adapter.class)
+    public enum ModeEnum {
+        SNAPSHOT("snapshot"),
+
+        DELTA("delta"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        ModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ModeEnum fromValue(String value) {
+            for (ModeEnum b : ModeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<ModeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ModeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ModeEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            ModeEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_MODE = "mode";
+
+    @SerializedName(SERIALIZED_NAME_MODE)
+    @jakarta.annotation.Nullable private ModeEnum mode;
+
+    public static final String SERIALIZED_NAME_NEXT_FROM = "next_from";
+
+    @SerializedName(SERIALIZED_NAME_NEXT_FROM)
+    @jakarta.annotation.Nullable private String nextFrom;
+
     public static final String SERIALIZED_NAME_AGENT_TASKS = "agentTasks";
 
     @SerializedName(SERIALIZED_NAME_AGENT_TASKS)
@@ -121,6 +186,40 @@ public class WorkflowHistoryOneOf2 {
 
     public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
+    }
+
+    public WorkflowHistoryOneOf2 mode(@jakarta.annotation.Nullable ModeEnum mode) {
+        this.mode = mode;
+        return this;
+    }
+
+    /**
+     * Snapshot replaces all history; delta replaces returned rows by history_id and retains other rows.
+     * @return mode
+     */
+    @jakarta.annotation.Nullable public ModeEnum getMode() {
+        return mode;
+    }
+
+    public void setMode(@jakarta.annotation.Nullable ModeEnum mode) {
+        this.mode = mode;
+    }
+
+    public WorkflowHistoryOneOf2 nextFrom(@jakarta.annotation.Nullable String nextFrom) {
+        this.nextFrom = nextFrom;
+        return this;
+    }
+
+    /**
+     * Pass as from on the next refresh with the same options. Absence disables incremental refresh.
+     * @return nextFrom
+     */
+    @jakarta.annotation.Nullable public String getNextFrom() {
+        return nextFrom;
+    }
+
+    public void setNextFrom(@jakarta.annotation.Nullable String nextFrom) {
+        this.nextFrom = nextFrom;
     }
 
     public WorkflowHistoryOneOf2 agentTasks(
@@ -160,12 +259,14 @@ public class WorkflowHistoryOneOf2 {
         }
         WorkflowHistoryOneOf2 workflowHistoryOneOf2 = (WorkflowHistoryOneOf2) o;
         return Objects.equals(this.type, workflowHistoryOneOf2.type)
+                && Objects.equals(this.mode, workflowHistoryOneOf2.mode)
+                && Objects.equals(this.nextFrom, workflowHistoryOneOf2.nextFrom)
                 && Objects.equals(this.agentTasks, workflowHistoryOneOf2.agentTasks);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(type, agentTasks);
+        return Objects.hash(type, mode, nextFrom, agentTasks);
     }
 
     @Override
@@ -173,6 +274,8 @@ public class WorkflowHistoryOneOf2 {
         StringBuilder sb = new StringBuilder();
         sb.append("class WorkflowHistoryOneOf2 {\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+        sb.append("    nextFrom: ").append(toIndentedString(nextFrom)).append("\n");
         sb.append("    agentTasks: ").append(toIndentedString(agentTasks)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -191,7 +294,8 @@ public class WorkflowHistoryOneOf2 {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("type", "agentTasks"));
+        openapiFields =
+                new HashSet<String>(Arrays.asList("type", "mode", "next_from", "agentTasks"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("type", "agentTasks"));
@@ -236,6 +340,26 @@ public class WorkflowHistoryOneOf2 {
         }
         // validate the required field `type`
         TypeEnum.validateJsonElement(jsonObj.get("type"));
+        if ((jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull())
+                && !jsonObj.get("mode").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `mode` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("mode").toString()));
+        }
+        // validate the optional field `mode`
+        if (jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull()) {
+            ModeEnum.validateJsonElement(jsonObj.get("mode"));
+        }
+        if ((jsonObj.get("next_from") != null && !jsonObj.get("next_from").isJsonNull())
+                && !jsonObj.get("next_from").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `next_from` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("next_from").toString()));
+        }
         if (jsonObj.get("agentTasks") != null) {
             if (!jsonObj.get("agentTasks").isJsonArray()) {
                 throw new IllegalArgumentException(

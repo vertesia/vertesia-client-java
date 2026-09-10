@@ -1523,6 +1523,9 @@ public class AgentRunsApi {
      * Build call for getAgentRunChildDetails
      * @param agentRunId  (required)
      * @param childWorkflowId  (required)
+     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
+     * @param includeHistory  (optional)
+     * @param hydratePayloads  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1538,6 +1541,9 @@ public class AgentRunsApi {
     public okhttp3.Call getAgentRunChildDetailsCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String childWorkflowId,
+            @jakarta.annotation.Nullable String from,
+            @jakarta.annotation.Nullable Boolean includeHistory,
+            @jakarta.annotation.Nullable Boolean hydratePayloads,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1571,6 +1577,20 @@ public class AgentRunsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
+
+        if (includeHistory != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("include_history", includeHistory));
+        }
+
+        if (hydratePayloads != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("hydrate_payloads", hydratePayloads));
+        }
+
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -1603,6 +1623,9 @@ public class AgentRunsApi {
     private okhttp3.Call getAgentRunChildDetailsValidateBeforeCall(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String childWorkflowId,
+            @jakarta.annotation.Nullable String from,
+            @jakarta.annotation.Nullable Boolean includeHistory,
+            @jakarta.annotation.Nullable Boolean hydratePayloads,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'agentRunId' is set
@@ -1617,7 +1640,8 @@ public class AgentRunsApi {
                     "Missing the required parameter 'childWorkflowId' when calling getAgentRunChildDetails(Async)");
         }
 
-        return getAgentRunChildDetailsCall(agentRunId, childWorkflowId, _callback);
+        return getAgentRunChildDetailsCall(
+                agentRunId, childWorkflowId, from, includeHistory, hydratePayloads, _callback);
     }
 
     /**
@@ -1625,6 +1649,9 @@ public class AgentRunsApi {
      * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param childWorkflowId  (required)
+     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
+     * @param includeHistory  (optional)
+     * @param hydratePayloads  (optional)
      * @return WorkflowRunWithDetails
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1638,10 +1665,14 @@ public class AgentRunsApi {
      */
     public WorkflowRunWithDetails getAgentRunChildDetails(
             @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String childWorkflowId)
+            @jakarta.annotation.Nonnull String childWorkflowId,
+            @jakarta.annotation.Nullable String from,
+            @jakarta.annotation.Nullable Boolean includeHistory,
+            @jakarta.annotation.Nullable Boolean hydratePayloads)
             throws ApiException {
         ApiResponse<WorkflowRunWithDetails> localVarResp =
-                getAgentRunChildDetailsWithHttpInfo(agentRunId, childWorkflowId);
+                getAgentRunChildDetailsWithHttpInfo(
+                        agentRunId, childWorkflowId, from, includeHistory, hydratePayloads);
         return localVarResp.getData();
     }
 
@@ -1650,6 +1681,9 @@ public class AgentRunsApi {
      * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param childWorkflowId  (required)
+     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
+     * @param includeHistory  (optional)
+     * @param hydratePayloads  (optional)
      * @return ApiResponse&lt;WorkflowRunWithDetails&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1663,10 +1697,14 @@ public class AgentRunsApi {
      */
     public ApiResponse<WorkflowRunWithDetails> getAgentRunChildDetailsWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
-            @jakarta.annotation.Nonnull String childWorkflowId)
+            @jakarta.annotation.Nonnull String childWorkflowId,
+            @jakarta.annotation.Nullable String from,
+            @jakarta.annotation.Nullable Boolean includeHistory,
+            @jakarta.annotation.Nullable Boolean hydratePayloads)
             throws ApiException {
         okhttp3.Call localVarCall =
-                getAgentRunChildDetailsValidateBeforeCall(agentRunId, childWorkflowId, null);
+                getAgentRunChildDetailsValidateBeforeCall(
+                        agentRunId, childWorkflowId, from, includeHistory, hydratePayloads, null);
         Type localVarReturnType = new TypeToken<WorkflowRunWithDetails>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1676,6 +1714,9 @@ public class AgentRunsApi {
      * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param childWorkflowId  (required)
+     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
+     * @param includeHistory  (optional)
+     * @param hydratePayloads  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1691,11 +1732,20 @@ public class AgentRunsApi {
     public okhttp3.Call getAgentRunChildDetailsAsync(
             @jakarta.annotation.Nonnull String agentRunId,
             @jakarta.annotation.Nonnull String childWorkflowId,
+            @jakarta.annotation.Nullable String from,
+            @jakarta.annotation.Nullable Boolean includeHistory,
+            @jakarta.annotation.Nullable Boolean hydratePayloads,
             final ApiCallback<WorkflowRunWithDetails> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                getAgentRunChildDetailsValidateBeforeCall(agentRunId, childWorkflowId, _callback);
+                getAgentRunChildDetailsValidateBeforeCall(
+                        agentRunId,
+                        childWorkflowId,
+                        from,
+                        includeHistory,
+                        hydratePayloads,
+                        _callback);
         Type localVarReturnType = new TypeToken<WorkflowRunWithDetails>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1704,6 +1754,7 @@ public class AgentRunsApi {
     /**
      * Build call for getAgentRunDetails
      * @param agentRunId  (required)
+     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
      * @param includeHistory  (optional)
      * @param hydratePayloads  (optional)
      * @param _callback Callback for upload/download progress
@@ -1720,6 +1771,7 @@ public class AgentRunsApi {
      */
     public okhttp3.Call getAgentRunDetailsCall(
             @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nullable String from,
             @jakarta.annotation.Nullable Boolean includeHistory,
             @jakarta.annotation.Nullable Boolean hydratePayloads,
             final ApiCallback _callback)
@@ -1751,6 +1803,10 @@ public class AgentRunsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (from != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("from", from));
+        }
 
         if (includeHistory != null) {
             localVarQueryParams.addAll(
@@ -1793,6 +1849,7 @@ public class AgentRunsApi {
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAgentRunDetailsValidateBeforeCall(
             @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nullable String from,
             @jakarta.annotation.Nullable Boolean includeHistory,
             @jakarta.annotation.Nullable Boolean hydratePayloads,
             final ApiCallback _callback)
@@ -1803,13 +1860,14 @@ public class AgentRunsApi {
                     "Missing the required parameter 'agentRunId' when calling getAgentRunDetails(Async)");
         }
 
-        return getAgentRunDetailsCall(agentRunId, includeHistory, hydratePayloads, _callback);
+        return getAgentRunDetailsCall(agentRunId, from, includeHistory, hydratePayloads, _callback);
     }
 
     /**
      * Get agent run details
      * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
+     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
      * @param includeHistory  (optional)
      * @param hydratePayloads  (optional)
      * @return WorkflowRunWithDetails
@@ -1825,11 +1883,12 @@ public class AgentRunsApi {
      */
     public WorkflowRunWithDetails getAgentRunDetails(
             @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nullable String from,
             @jakarta.annotation.Nullable Boolean includeHistory,
             @jakarta.annotation.Nullable Boolean hydratePayloads)
             throws ApiException {
         ApiResponse<WorkflowRunWithDetails> localVarResp =
-                getAgentRunDetailsWithHttpInfo(agentRunId, includeHistory, hydratePayloads);
+                getAgentRunDetailsWithHttpInfo(agentRunId, from, includeHistory, hydratePayloads);
         return localVarResp.getData();
     }
 
@@ -1837,6 +1896,7 @@ public class AgentRunsApi {
      * Get agent run details
      * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
+     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
      * @param includeHistory  (optional)
      * @param hydratePayloads  (optional)
      * @return ApiResponse&lt;WorkflowRunWithDetails&gt;
@@ -1852,12 +1912,13 @@ public class AgentRunsApi {
      */
     public ApiResponse<WorkflowRunWithDetails> getAgentRunDetailsWithHttpInfo(
             @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nullable String from,
             @jakarta.annotation.Nullable Boolean includeHistory,
             @jakarta.annotation.Nullable Boolean hydratePayloads)
             throws ApiException {
         okhttp3.Call localVarCall =
                 getAgentRunDetailsValidateBeforeCall(
-                        agentRunId, includeHistory, hydratePayloads, null);
+                        agentRunId, from, includeHistory, hydratePayloads, null);
         Type localVarReturnType = new TypeToken<WorkflowRunWithDetails>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1866,6 +1927,7 @@ public class AgentRunsApi {
      * Get agent run details (asynchronously)
      * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
+     * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
      * @param includeHistory  (optional)
      * @param hydratePayloads  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1882,6 +1944,7 @@ public class AgentRunsApi {
      */
     public okhttp3.Call getAgentRunDetailsAsync(
             @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nullable String from,
             @jakarta.annotation.Nullable Boolean includeHistory,
             @jakarta.annotation.Nullable Boolean hydratePayloads,
             final ApiCallback<WorkflowRunWithDetails> _callback)
@@ -1889,7 +1952,7 @@ public class AgentRunsApi {
 
         okhttp3.Call localVarCall =
                 getAgentRunDetailsValidateBeforeCall(
-                        agentRunId, includeHistory, hydratePayloads, _callback);
+                        agentRunId, from, includeHistory, hydratePayloads, _callback);
         Type localVarReturnType = new TypeToken<WorkflowRunWithDetails>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
