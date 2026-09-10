@@ -2634,7 +2634,9 @@ public class ObjectsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendition URLs or generation status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Rendition URLs. </td><td>  -  </td></tr>
+     * <tr><td> 202 </td><td> Rendition generation is in progress. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Rendition generation failed. Returns status: failed and workflow_run_id when available. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -2766,7 +2768,9 @@ public class ObjectsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendition URLs or generation status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Rendition URLs. </td><td>  -  </td></tr>
+     * <tr><td> 202 </td><td> Rendition generation is in progress. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Rendition generation failed. Returns status: failed and workflow_run_id when available. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -2800,7 +2804,9 @@ public class ObjectsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendition URLs or generation status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Rendition URLs. </td><td>  -  </td></tr>
+     * <tr><td> 202 </td><td> Rendition generation is in progress. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Rendition generation failed. Returns status: failed and workflow_run_id when available. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -2842,7 +2848,9 @@ public class ObjectsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Rendition URLs or generation status. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Rendition URLs. </td><td>  -  </td></tr>
+     * <tr><td> 202 </td><td> Rendition generation is in progress. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> Rendition generation failed. Returns status: failed and workflow_run_id when available. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
