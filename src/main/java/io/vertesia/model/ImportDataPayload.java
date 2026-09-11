@@ -37,6 +37,11 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ImportDataPayload {
+    public static final String SERIALIZED_NAME_IMPORT_ID = "import_id";
+
+    @SerializedName(SERIALIZED_NAME_IMPORT_ID)
+    @jakarta.annotation.Nullable private String importId;
+
     public static final String SERIALIZED_NAME_TABLES = "tables";
 
     @SerializedName(SERIALIZED_NAME_TABLES)
@@ -112,6 +117,23 @@ public class ImportDataPayload {
 
     public ImportDataPayload() {}
 
+    public ImportDataPayload importId(@jakarta.annotation.Nullable String importId) {
+        this.importId = importId;
+        return this;
+    }
+
+    /**
+     * Optional client-generated Mongo ObjectId for idempotent retries. Generate once before submitting, then reuse with identical input. New IDs must be less than 24 hours old; existing jobs are returned without executing again. Poll GET /data/:storeId/import/:importId after a timeout.
+     * @return importId
+     */
+    @jakarta.annotation.Nullable public String getImportId() {
+        return importId;
+    }
+
+    public void setImportId(@jakarta.annotation.Nullable String importId) {
+        this.importId = importId;
+    }
+
     public ImportDataPayload tables(
             @jakarta.annotation.Nonnull Map<String, ImportTableData> tables) {
         this.tables = tables;
@@ -184,20 +206,22 @@ public class ImportDataPayload {
             return false;
         }
         ImportDataPayload importDataPayload = (ImportDataPayload) o;
-        return Objects.equals(this.tables, importDataPayload.tables)
+        return Objects.equals(this.importId, importDataPayload.importId)
+                && Objects.equals(this.tables, importDataPayload.tables)
                 && Objects.equals(this.mode, importDataPayload.mode)
                 && Objects.equals(this.message, importDataPayload.message);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(tables, mode, message);
+        return Objects.hash(importId, tables, mode, message);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ImportDataPayload {\n");
+        sb.append("    importId: ").append(toIndentedString(importId)).append("\n");
         sb.append("    tables: ").append(toIndentedString(tables)).append("\n");
         sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
         sb.append("    message: ").append(toIndentedString(message)).append("\n");
@@ -218,7 +242,8 @@ public class ImportDataPayload {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("tables", "mode", "message"));
+        openapiFields =
+                new HashSet<String>(Arrays.asList("import_id", "tables", "mode", "message"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("tables", "mode", "message"));
@@ -254,6 +279,14 @@ public class ImportDataPayload {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if ((jsonObj.get("import_id") != null && !jsonObj.get("import_id").isJsonNull())
+                && !jsonObj.get("import_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `import_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("import_id").toString()));
+        }
         if (!jsonObj.get("mode").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
