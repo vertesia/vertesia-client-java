@@ -402,6 +402,16 @@ public class AutonomousRunResponse {
     @SerializedName(SERIALIZED_NAME_LESSONS_LEARNED)
     @jakarta.annotation.Nullable private List<String> lessonsLearned = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_EVALUATION = "evaluation";
+
+    @SerializedName(SERIALIZED_NAME_EVALUATION)
+    @jakarta.annotation.Nullable private AgentRunEvaluation evaluation;
+
+    public static final String SERIALIZED_NAME_FEEDBACK = "feedback";
+
+    @SerializedName(SERIALIZED_NAME_FEEDBACK)
+    @jakarta.annotation.Nullable private List<AgentRunFeedbackEntry> feedback = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_ARCHIVED_AT = "archived_at";
 
     @SerializedName(SERIALIZED_NAME_ARCHIVED_AT)
@@ -1359,6 +1369,50 @@ public class AutonomousRunResponse {
         this.lessonsLearned = lessonsLearned;
     }
 
+    public AutonomousRunResponse evaluation(
+            @jakarta.annotation.Nullable AgentRunEvaluation evaluation) {
+        this.evaluation = evaluation;
+        return this;
+    }
+
+    /**
+     * Evaluation summary of the run.
+     * @return evaluation
+     */
+    @jakarta.annotation.Nullable public AgentRunEvaluation getEvaluation() {
+        return evaluation;
+    }
+
+    public void setEvaluation(@jakarta.annotation.Nullable AgentRunEvaluation evaluation) {
+        this.evaluation = evaluation;
+    }
+
+    public AutonomousRunResponse feedback(
+            @jakarta.annotation.Nullable List<AgentRunFeedbackEntry> feedback) {
+        this.feedback = feedback;
+        return this;
+    }
+
+    public AutonomousRunResponse addFeedbackItem(AgentRunFeedbackEntry feedbackItem) {
+        if (this.feedback == null) {
+            this.feedback = new ArrayList<>();
+        }
+        this.feedback.add(feedbackItem);
+        return this;
+    }
+
+    /**
+     * Retained user ratings on the run.
+     * @return feedback
+     */
+    @jakarta.annotation.Nullable public List<AgentRunFeedbackEntry> getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(@jakarta.annotation.Nullable List<AgentRunFeedbackEntry> feedback) {
+        this.feedback = feedback;
+    }
+
     public AutonomousRunResponse archivedAt(
             @jakarta.annotation.Nullable OffsetDateTime archivedAt) {
         this.archivedAt = archivedAt;
@@ -1534,6 +1588,8 @@ public class AutonomousRunResponse {
                 && Objects.equals(this.generateTopic, autonomousRunResponse.generateTopic)
                 && Objects.equals(this.generateLessons, autonomousRunResponse.generateLessons)
                 && Objects.equals(this.lessonsLearned, autonomousRunResponse.lessonsLearned)
+                && Objects.equals(this.evaluation, autonomousRunResponse.evaluation)
+                && Objects.equals(this.feedback, autonomousRunResponse.feedback)
                 && Objects.equals(this.archivedAt, autonomousRunResponse.archivedAt)
                 && Objects.equals(this.archiveVersion, autonomousRunResponse.archiveVersion)
                 && Objects.equals(this.lastArchiveError, autonomousRunResponse.lastArchiveError)
@@ -1593,6 +1649,8 @@ public class AutonomousRunResponse {
                 generateTopic,
                 generateLessons,
                 lessonsLearned,
+                evaluation,
+                feedback,
                 archivedAt,
                 archiveVersion,
                 lastArchiveError,
@@ -1658,6 +1716,8 @@ public class AutonomousRunResponse {
         sb.append("    generateTopic: ").append(toIndentedString(generateTopic)).append("\n");
         sb.append("    generateLessons: ").append(toIndentedString(generateLessons)).append("\n");
         sb.append("    lessonsLearned: ").append(toIndentedString(lessonsLearned)).append("\n");
+        sb.append("    evaluation: ").append(toIndentedString(evaluation)).append("\n");
+        sb.append("    feedback: ").append(toIndentedString(feedback)).append("\n");
         sb.append("    archivedAt: ").append(toIndentedString(archivedAt)).append("\n");
         sb.append("    archiveVersion: ").append(toIndentedString(archiveVersion)).append("\n");
         sb.append("    lastArchiveError: ").append(toIndentedString(lastArchiveError)).append("\n");
@@ -1733,6 +1793,8 @@ public class AutonomousRunResponse {
                                 "generate_topic",
                                 "generate_lessons",
                                 "lessons_learned",
+                                "evaluation",
+                                "feedback",
                                 "archived_at",
                                 "archive_version",
                                 "last_archive_error",
@@ -2068,6 +2130,29 @@ public class AutonomousRunResponse {
                             java.util.Locale.ROOT,
                             "Expected the field `lessons_learned` to be an array in the JSON string but got `%s`",
                             jsonObj.get("lessons_learned").toString()));
+        }
+        // validate the optional field `evaluation`
+        if (jsonObj.get("evaluation") != null && !jsonObj.get("evaluation").isJsonNull()) {
+            AgentRunEvaluation.validateJsonElement(jsonObj.get("evaluation"));
+        }
+        if (jsonObj.get("feedback") != null && !jsonObj.get("feedback").isJsonNull()) {
+            JsonArray jsonArrayfeedback = jsonObj.getAsJsonArray("feedback");
+            if (jsonArrayfeedback != null) {
+                // ensure the json data is an array
+                if (!jsonObj.get("feedback").isJsonArray()) {
+                    throw new IllegalArgumentException(
+                            String.format(
+                                    java.util.Locale.ROOT,
+                                    "Expected the field `feedback` to be an array in the JSON string but got `%s`",
+                                    jsonObj.get("feedback").toString()));
+                }
+
+                // validate the optional field `feedback` (array)
+                for (int i = 0; i < jsonArrayfeedback.size(); i++) {
+                    AgentRunFeedbackEntry.validateJsonElement(jsonArrayfeedback.get(i));
+                }
+                ;
+            }
         }
         if ((jsonObj.get("last_archive_error") != null
                         && !jsonObj.get("last_archive_error").isJsonNull())

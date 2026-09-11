@@ -23,6 +23,8 @@ import io.vertesia.model.AdvanceProcessPayload;
 import io.vertesia.model.AgentArtifactContentResponse;
 import io.vertesia.model.AgentArtifactUrlResponse;
 import io.vertesia.model.AgentRun;
+import io.vertesia.model.AgentRunFeedbackPayload;
+import io.vertesia.model.AgentRunFeedbackResponse;
 import io.vertesia.model.AgentRunResponse;
 import io.vertesia.model.AgentRunUpdatesResponse;
 import io.vertesia.model.AnswerProcessTaskPayload;
@@ -2802,6 +2804,10 @@ public class AgentRunsApi {
      * @param runKind Filter by internal run discriminator (optional)
      * @param sort Field to sort by (optional)
      * @param order Sort order (optional)
+     * @param evaluationSeverity Filter by evaluation severity; &#x60;unrated&#x60; selects runs without an evaluation (optional)
+     * @param evaluationFlag Filter by evaluation flag (any of) (optional)
+     * @param feedbackRating Filter by last feedback rating (optional)
+     * @param contradicted Only runs whose feedback or judge contradicts the detectors (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2830,6 +2836,10 @@ public class AgentRunsApi {
             @jakarta.annotation.Nullable String runKind,
             @jakarta.annotation.Nullable String sort,
             @jakarta.annotation.Nullable String order,
+            @jakarta.annotation.Nullable List<String> evaluationSeverity,
+            @jakarta.annotation.Nullable List<String> evaluationFlag,
+            @jakarta.annotation.Nullable String feedbackRating,
+            @jakarta.annotation.Nullable Boolean contradicted,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2920,6 +2930,27 @@ public class AgentRunsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("order", order));
         }
 
+        if (evaluationSeverity != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs(
+                            "multi", "evaluation_severity", evaluationSeverity));
+        }
+
+        if (evaluationFlag != null) {
+            localVarCollectionQueryParams.addAll(
+                    localVarApiClient.parameterToPairs("multi", "evaluation_flag", evaluationFlag));
+        }
+
+        if (feedbackRating != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("feedback_rating", feedbackRating));
+        }
+
+        if (contradicted != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("contradicted", contradicted));
+        }
+
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
@@ -2965,6 +2996,10 @@ public class AgentRunsApi {
             @jakarta.annotation.Nullable String runKind,
             @jakarta.annotation.Nullable String sort,
             @jakarta.annotation.Nullable String order,
+            @jakarta.annotation.Nullable List<String> evaluationSeverity,
+            @jakarta.annotation.Nullable List<String> evaluationFlag,
+            @jakarta.annotation.Nullable String feedbackRating,
+            @jakarta.annotation.Nullable Boolean contradicted,
             final ApiCallback _callback)
             throws ApiException {
         return listAgentRunsCall(
@@ -2983,6 +3018,10 @@ public class AgentRunsApi {
                 runKind,
                 sort,
                 order,
+                evaluationSeverity,
+                evaluationFlag,
+                feedbackRating,
+                contradicted,
                 _callback);
     }
 
@@ -3004,6 +3043,10 @@ public class AgentRunsApi {
      * @param runKind Filter by internal run discriminator (optional)
      * @param sort Field to sort by (optional)
      * @param order Sort order (optional)
+     * @param evaluationSeverity Filter by evaluation severity; &#x60;unrated&#x60; selects runs without an evaluation (optional)
+     * @param evaluationFlag Filter by evaluation flag (any of) (optional)
+     * @param feedbackRating Filter by last feedback rating (optional)
+     * @param contradicted Only runs whose feedback or judge contradicts the detectors (optional)
      * @return ListAgentRunsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3030,7 +3073,11 @@ public class AgentRunsApi {
             @jakarta.annotation.Nullable List<String> runType,
             @jakarta.annotation.Nullable String runKind,
             @jakarta.annotation.Nullable String sort,
-            @jakarta.annotation.Nullable String order)
+            @jakarta.annotation.Nullable String order,
+            @jakarta.annotation.Nullable List<String> evaluationSeverity,
+            @jakarta.annotation.Nullable List<String> evaluationFlag,
+            @jakarta.annotation.Nullable String feedbackRating,
+            @jakarta.annotation.Nullable Boolean contradicted)
             throws ApiException {
         ApiResponse<ListAgentRunsResponse> localVarResp =
                 listAgentRunsWithHttpInfo(
@@ -3048,7 +3095,11 @@ public class AgentRunsApi {
                         runType,
                         runKind,
                         sort,
-                        order);
+                        order,
+                        evaluationSeverity,
+                        evaluationFlag,
+                        feedbackRating,
+                        contradicted);
         return localVarResp.getData();
     }
 
@@ -3070,6 +3121,10 @@ public class AgentRunsApi {
      * @param runKind Filter by internal run discriminator (optional)
      * @param sort Field to sort by (optional)
      * @param order Sort order (optional)
+     * @param evaluationSeverity Filter by evaluation severity; &#x60;unrated&#x60; selects runs without an evaluation (optional)
+     * @param evaluationFlag Filter by evaluation flag (any of) (optional)
+     * @param feedbackRating Filter by last feedback rating (optional)
+     * @param contradicted Only runs whose feedback or judge contradicts the detectors (optional)
      * @return ApiResponse&lt;ListAgentRunsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3096,7 +3151,11 @@ public class AgentRunsApi {
             @jakarta.annotation.Nullable List<String> runType,
             @jakarta.annotation.Nullable String runKind,
             @jakarta.annotation.Nullable String sort,
-            @jakarta.annotation.Nullable String order)
+            @jakarta.annotation.Nullable String order,
+            @jakarta.annotation.Nullable List<String> evaluationSeverity,
+            @jakarta.annotation.Nullable List<String> evaluationFlag,
+            @jakarta.annotation.Nullable String feedbackRating,
+            @jakarta.annotation.Nullable Boolean contradicted)
             throws ApiException {
         okhttp3.Call localVarCall =
                 listAgentRunsValidateBeforeCall(
@@ -3115,6 +3174,10 @@ public class AgentRunsApi {
                         runKind,
                         sort,
                         order,
+                        evaluationSeverity,
+                        evaluationFlag,
+                        feedbackRating,
+                        contradicted,
                         null);
         Type localVarReturnType = new TypeToken<ListAgentRunsResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
@@ -3138,6 +3201,10 @@ public class AgentRunsApi {
      * @param runKind Filter by internal run discriminator (optional)
      * @param sort Field to sort by (optional)
      * @param order Sort order (optional)
+     * @param evaluationSeverity Filter by evaluation severity; &#x60;unrated&#x60; selects runs without an evaluation (optional)
+     * @param evaluationFlag Filter by evaluation flag (any of) (optional)
+     * @param feedbackRating Filter by last feedback rating (optional)
+     * @param contradicted Only runs whose feedback or judge contradicts the detectors (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3166,6 +3233,10 @@ public class AgentRunsApi {
             @jakarta.annotation.Nullable String runKind,
             @jakarta.annotation.Nullable String sort,
             @jakarta.annotation.Nullable String order,
+            @jakarta.annotation.Nullable List<String> evaluationSeverity,
+            @jakarta.annotation.Nullable List<String> evaluationFlag,
+            @jakarta.annotation.Nullable String feedbackRating,
+            @jakarta.annotation.Nullable Boolean contradicted,
             final ApiCallback<ListAgentRunsResponse> _callback)
             throws ApiException {
 
@@ -3186,6 +3257,10 @@ public class AgentRunsApi {
                         runKind,
                         sort,
                         order,
+                        evaluationSeverity,
+                        evaluationFlag,
+                        feedbackRating,
+                        contradicted,
                         _callback);
         Type localVarReturnType = new TypeToken<ListAgentRunsResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
@@ -3548,6 +3623,186 @@ public class AgentRunsApi {
         okhttp3.Call localVarCall =
                 queryAgentRunValidateBeforeCall(agentRunId, queryName, _callback);
         Type localVarReturnType = new TypeToken<Object>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for recordAgentRunFeedback
+     * @param agentRunId  (required)
+     * @param agentRunFeedbackPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Whether the rating was recorded, replaced or disabled. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call recordAgentRunFeedbackCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull AgentRunFeedbackPayload agentRunFeedbackPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = agentRunFeedbackPayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/agents/{agentRunId}/feedback"
+                        .replace(
+                                "{" + "agentRunId" + "}",
+                                localVarApiClient.escapeString(agentRunId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call recordAgentRunFeedbackValidateBeforeCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull AgentRunFeedbackPayload agentRunFeedbackPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'agentRunId' is set
+        if (agentRunId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'agentRunId' when calling recordAgentRunFeedback(Async)");
+        }
+
+        // verify the required parameter 'agentRunFeedbackPayload' is set
+        if (agentRunFeedbackPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'agentRunFeedbackPayload' when calling recordAgentRunFeedback(Async)");
+        }
+
+        return recordAgentRunFeedbackCall(agentRunId, agentRunFeedbackPayload, _callback);
+    }
+
+    /**
+     * Rate an agent run
+     * Records a thumbs up/down, an optional reason code and an optional comment against an agent run. One active rating per user and scope; a new rating replaces the previous one and a retried &#x60;feedback_id&#x60; is idempotent. The comment stays in the project; only its presence is exported.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param agentRunFeedbackPayload  (required)
+     * @return AgentRunFeedbackResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Whether the rating was recorded, replaced or disabled. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public AgentRunFeedbackResponse recordAgentRunFeedback(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull AgentRunFeedbackPayload agentRunFeedbackPayload)
+            throws ApiException {
+        ApiResponse<AgentRunFeedbackResponse> localVarResp =
+                recordAgentRunFeedbackWithHttpInfo(agentRunId, agentRunFeedbackPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Rate an agent run
+     * Records a thumbs up/down, an optional reason code and an optional comment against an agent run. One active rating per user and scope; a new rating replaces the previous one and a retried &#x60;feedback_id&#x60; is idempotent. The comment stays in the project; only its presence is exported.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param agentRunFeedbackPayload  (required)
+     * @return ApiResponse&lt;AgentRunFeedbackResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Whether the rating was recorded, replaced or disabled. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AgentRunFeedbackResponse> recordAgentRunFeedbackWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull AgentRunFeedbackPayload agentRunFeedbackPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                recordAgentRunFeedbackValidateBeforeCall(agentRunId, agentRunFeedbackPayload, null);
+        Type localVarReturnType = new TypeToken<AgentRunFeedbackResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Rate an agent run (asynchronously)
+     * Records a thumbs up/down, an optional reason code and an optional comment against an agent run. One active rating per user and scope; a new rating replaces the previous one and a retried &#x60;feedback_id&#x60; is idempotent. The comment stays in the project; only its presence is exported.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param agentRunFeedbackPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Whether the rating was recorded, replaced or disabled. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call recordAgentRunFeedbackAsync(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull AgentRunFeedbackPayload agentRunFeedbackPayload,
+            final ApiCallback<AgentRunFeedbackResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                recordAgentRunFeedbackValidateBeforeCall(
+                        agentRunId, agentRunFeedbackPayload, _callback);
+        Type localVarReturnType = new TypeToken<AgentRunFeedbackResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
