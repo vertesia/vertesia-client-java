@@ -11,6 +11,13 @@ globalProperties:
 nameMappings:
   additionalProperties: schemaAdditionalProperties
 
+schemaMappings:
+  ConversationJsonValue: JsonElement
+  ConversationToolInputSchema: JsonElement
+
+importMappings:
+  JsonElement: com.google.gson.JsonElement
+
 additionalProperties:
   enumClassPrefix: true
   enumUnknownDefaultCase: true
