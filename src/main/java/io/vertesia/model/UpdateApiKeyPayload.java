@@ -54,6 +54,11 @@ public class UpdateApiKeyPayload {
     @SerializedName(SERIALIZED_NAME_ENABLED)
     @jakarta.annotation.Nullable private Boolean enabled;
 
+    public static final String SERIALIZED_NAME_SCIM_PROVISIONING = "scim_provisioning";
+
+    @SerializedName(SERIALIZED_NAME_SCIM_PROVISIONING)
+    @jakarta.annotation.Nullable private Boolean scimProvisioning;
+
     public static final String SERIALIZED_NAME_PROPERTIES = "properties";
 
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
@@ -120,6 +125,24 @@ public class UpdateApiKeyPayload {
 
     public void setEnabled(@jakarta.annotation.Nullable Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public UpdateApiKeyPayload scimProvisioning(
+            @jakarta.annotation.Nullable Boolean scimProvisioning) {
+        this.scimProvisioning = scimProvisioning;
+        return this;
+    }
+
+    /**
+     * Organization-wide SCIM provisioning credential. Only account administrators may create or manage these keys. May be enabled by account administrators on existing keys; disable or delete to revoke access.
+     * @return scimProvisioning
+     */
+    @jakarta.annotation.Nullable public Boolean getScimProvisioning() {
+        return scimProvisioning;
+    }
+
+    public void setScimProvisioning(@jakarta.annotation.Nullable Boolean scimProvisioning) {
+        this.scimProvisioning = scimProvisioning;
     }
 
     public UpdateApiKeyPayload properties(
@@ -248,6 +271,7 @@ public class UpdateApiKeyPayload {
         return Objects.equals(this.name, updateApiKeyPayload.name)
                 && Objects.equals(this.role, updateApiKeyPayload.role)
                 && Objects.equals(this.enabled, updateApiKeyPayload.enabled)
+                && Objects.equals(this.scimProvisioning, updateApiKeyPayload.scimProvisioning)
                 && Objects.equals(this.properties, updateApiKeyPayload.properties)
                 && Objects.equals(this.clearance, updateApiKeyPayload.clearance)
                 && Objects.equals(this.compartments, updateApiKeyPayload.compartments)
@@ -258,7 +282,14 @@ public class UpdateApiKeyPayload {
     @Override
     public int hashCode() {
         return Objects.hash(
-                name, role, enabled, properties, clearance, compartments, additionalProperties);
+                name,
+                role,
+                enabled,
+                scimProvisioning,
+                properties,
+                clearance,
+                compartments,
+                additionalProperties);
     }
 
     @Override
@@ -268,6 +299,7 @@ public class UpdateApiKeyPayload {
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    role: ").append(toIndentedString(role)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+        sb.append("    scimProvisioning: ").append(toIndentedString(scimProvisioning)).append("\n");
         sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
         sb.append("    clearance: ").append(toIndentedString(clearance)).append("\n");
         sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
@@ -297,6 +329,7 @@ public class UpdateApiKeyPayload {
                                 "name",
                                 "role",
                                 "enabled",
+                                "scim_provisioning",
                                 "properties",
                                 "clearance",
                                 "compartments"));

@@ -92,6 +92,11 @@ public class ApiKey {
     @jakarta.annotation.Nonnull
     private Boolean enabled;
 
+    public static final String SERIALIZED_NAME_SCIM_PROVISIONING = "scim_provisioning";
+
+    @SerializedName(SERIALIZED_NAME_SCIM_PROVISIONING)
+    @jakarta.annotation.Nullable private Boolean scimProvisioning;
+
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
@@ -296,6 +301,23 @@ public class ApiKey {
 
     public void setEnabled(@jakarta.annotation.Nonnull Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public ApiKey scimProvisioning(@jakarta.annotation.Nullable Boolean scimProvisioning) {
+        this.scimProvisioning = scimProvisioning;
+        return this;
+    }
+
+    /**
+     * Organization-wide SCIM provisioning credential. Only account administrators may create or manage these keys. May be enabled by account administrators on existing keys; disable or delete to revoke access.
+     * @return scimProvisioning
+     */
+    @jakarta.annotation.Nullable public Boolean getScimProvisioning() {
+        return scimProvisioning;
+    }
+
+    public void setScimProvisioning(@jakarta.annotation.Nullable Boolean scimProvisioning) {
+        this.scimProvisioning = scimProvisioning;
     }
 
     public ApiKey createdBy(@jakarta.annotation.Nonnull String createdBy) {
@@ -517,6 +539,7 @@ public class ApiKey {
                 && Objects.equals(this.account, apiKey.account)
                 && Objects.equals(this.project, apiKey.project)
                 && Objects.equals(this.enabled, apiKey.enabled)
+                && Objects.equals(this.scimProvisioning, apiKey.scimProvisioning)
                 && Objects.equals(this.createdBy, apiKey.createdBy)
                 && Objects.equals(this.updatedBy, apiKey.updatedBy)
                 && Objects.equals(this.createdAt, apiKey.createdAt)
@@ -540,6 +563,7 @@ public class ApiKey {
                 account,
                 project,
                 enabled,
+                scimProvisioning,
                 createdBy,
                 updatedBy,
                 createdAt,
@@ -564,6 +588,7 @@ public class ApiKey {
         sb.append("    account: ").append(toIndentedString(account)).append("\n");
         sb.append("    project: ").append(toIndentedString(project)).append("\n");
         sb.append("    enabled: ").append(toIndentedString(enabled)).append("\n");
+        sb.append("    scimProvisioning: ").append(toIndentedString(scimProvisioning)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -604,6 +629,7 @@ public class ApiKey {
                                 "account",
                                 "project",
                                 "enabled",
+                                "scim_provisioning",
                                 "created_by",
                                 "updated_by",
                                 "created_at",
