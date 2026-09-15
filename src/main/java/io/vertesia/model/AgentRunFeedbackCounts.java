@@ -28,7 +28,7 @@ import java.util.HashSet;
 import java.util.Objects;
 
 /**
- * Ratings over the retained feedback entries.
+ * Ratings over the retained feedback entries, one vote per rater: a user who rated the run and one of its answers counts once, by their latest rating.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
