@@ -29,7 +29,7 @@ import java.util.HashSet;
 import java.util.Objects;
 
 /**
- * Explicit search mapping for one content-object property.  Changing a mapping requires a full reindex. Existing Elasticsearch fields cannot change type in place.
+ * Explicit search mapping for one content-object property.  Changing a mapping requires a full reindex. Existing Elasticsearch fields cannot change type in place. A &#x60;nested&#x60; mapping accepts no scalar options; declare its searchable child fields as separate mappings below its path.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
