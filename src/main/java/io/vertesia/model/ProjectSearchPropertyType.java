@@ -20,7 +20,7 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Elasticsearch field types that may be explicitly assigned to content-object properties. Paths are relative to the object&#39;s &#x60;properties&#x60; field.
+ * Elasticsearch field types that may be explicitly assigned to content-object properties. Declare nested object-array paths with type &#x60;nested&#x60; and their children as separate dotted paths. Paths are relative to the object&#39;s &#x60;properties&#x60; field.
  */
 @JsonAdapter(ProjectSearchPropertyType.Adapter.class)
 public enum ProjectSearchPropertyType {
@@ -37,6 +37,8 @@ public enum ProjectSearchPropertyType {
     DATE("date"),
 
     GEO_POINT("geo_point"),
+
+    NESTED("nested"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
