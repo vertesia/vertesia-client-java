@@ -24,6 +24,26 @@ import java.io.IOException;
  */
 @JsonAdapter(Permission.Adapter.class)
 public enum Permission {
+    ACCOUNT_USER_READ("account:user:read"),
+
+    ACCOUNT_USER_MANAGE("account:user:manage"),
+
+    ACCOUNT_GROUP_READ("account:group:read"),
+
+    ACCOUNT_GROUP_MANAGE("account:group:manage"),
+
+    ACCOUNT_MEMBERSHIP_READ("account:membership:read"),
+
+    ACCOUNT_MEMBERSHIP_MANAGE("account:membership:manage"),
+
+    ACCOUNT_API_KEY_READ("account:api_key:read"),
+
+    ACCOUNT_API_KEY_MANAGE("account:api_key:manage"),
+
+    ACCOUNT_BILLING_STATUS_READ("account:billing:status_read"),
+
+    ACCOUNT_BILLING_PORTAL_CREATE("account:billing:portal_create"),
+
     SCHEDULE_DELEGATE("schedule:delegate"),
 
     INTERACTION_READ("interaction:read"),

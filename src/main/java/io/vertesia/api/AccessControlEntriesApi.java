@@ -153,7 +153,7 @@ public class AccessControlEntriesApi {
 
     /**
      * Create an access control entry
-     * Creates a new access control entry for an account, project, or application resource.  **Required permissions:** &#x60;account:admin&#x60;
+     * Creates a new access control entry for an account, project, or application resource.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
      * @param acECreatePayload  (required)
      * @return AccessControlEntry
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -175,7 +175,7 @@ public class AccessControlEntriesApi {
 
     /**
      * Create an access control entry
-     * Creates a new access control entry for an account, project, or application resource.  **Required permissions:** &#x60;account:admin&#x60;
+     * Creates a new access control entry for an account, project, or application resource.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
      * @param acECreatePayload  (required)
      * @return ApiResponse&lt;AccessControlEntry&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -198,7 +198,7 @@ public class AccessControlEntriesApi {
 
     /**
      * Create an access control entry (asynchronously)
-     * Creates a new access control entry for an account, project, or application resource.  **Required permissions:** &#x60;account:admin&#x60;
+     * Creates a new access control entry for an account, project, or application resource.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
      * @param acECreatePayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -313,7 +313,7 @@ public class AccessControlEntriesApi {
 
     /**
      * Delete an access control entry
-     * Deletes an access control entry by ID.  **Required permissions:** &#x60;account:admin&#x60;
+     * Deletes an access control entry by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
      * @param aceId  (required)
      * @return DeleteByIdResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -334,7 +334,7 @@ public class AccessControlEntriesApi {
 
     /**
      * Delete an access control entry
-     * Deletes an access control entry by ID.  **Required permissions:** &#x60;account:admin&#x60;
+     * Deletes an access control entry by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
      * @param aceId  (required)
      * @return ApiResponse&lt;DeleteByIdResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -356,7 +356,7 @@ public class AccessControlEntriesApi {
 
     /**
      * Delete an access control entry (asynchronously)
-     * Deletes an access control entry by ID.  **Required permissions:** &#x60;account:admin&#x60;
+     * Deletes an access control entry by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
      * @param aceId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -469,7 +469,7 @@ public class AccessControlEntriesApi {
 
     /**
      * Retrieve an access control entry
-     * Retrieves an access control entry by ID.  **Required permissions:** &#x60;account:read&#x60;
+     * Retrieves an access control entry by ID.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:membership:read&#x60;
      * @param aceId  (required)
      * @return AccessControlEntry
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -490,7 +490,7 @@ public class AccessControlEntriesApi {
 
     /**
      * Retrieve an access control entry
-     * Retrieves an access control entry by ID.  **Required permissions:** &#x60;account:read&#x60;
+     * Retrieves an access control entry by ID.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:membership:read&#x60;
      * @param aceId  (required)
      * @return ApiResponse&lt;AccessControlEntry&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -512,7 +512,7 @@ public class AccessControlEntriesApi {
 
     /**
      * Retrieve an access control entry (asynchronously)
-     * Retrieves an access control entry by ID.  **Required permissions:** &#x60;account:read&#x60;
+     * Retrieves an access control entry by ID.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:membership:read&#x60;
      * @param aceId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -613,7 +613,7 @@ public class AccessControlEntriesApi {
 
     /**
      * List access control entries
-     * Lists access control entries visible in the current account and project context.  **Required permissions:** &#x60;account:read&#x60;
+     * Lists access control entries visible in the current account and project context.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:membership:read&#x60;
      * @return List&lt;AccessControlEntry&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -632,7 +632,7 @@ public class AccessControlEntriesApi {
 
     /**
      * List access control entries
-     * Lists access control entries visible in the current account and project context.  **Required permissions:** &#x60;account:read&#x60;
+     * Lists access control entries visible in the current account and project context.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:membership:read&#x60;
      * @return ApiResponse&lt;List&lt;AccessControlEntry&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -653,7 +653,7 @@ public class AccessControlEntriesApi {
 
     /**
      * List access control entries (asynchronously)
-     * Lists access control entries visible in the current account and project context.  **Required permissions:** &#x60;account:read&#x60;
+     * Lists access control entries visible in the current account and project context.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:membership:read&#x60;
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -914,7 +914,7 @@ public class AccessControlEntriesApi {
 
     /**
      * Update an access control entry
-     * Updates an access control entry by ID.  **Required permissions:** &#x60;account:admin&#x60;
+     * Updates an access control entry by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
      * @param aceId  (required)
      * @param acEUpdatePayload  (required)
      * @return AccessControlEntry
@@ -939,7 +939,7 @@ public class AccessControlEntriesApi {
 
     /**
      * Update an access control entry
-     * Updates an access control entry by ID.  **Required permissions:** &#x60;account:admin&#x60;
+     * Updates an access control entry by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
      * @param aceId  (required)
      * @param acEUpdatePayload  (required)
      * @return ApiResponse&lt;AccessControlEntry&gt;
@@ -965,7 +965,7 @@ public class AccessControlEntriesApi {
 
     /**
      * Update an access control entry (asynchronously)
-     * Updates an access control entry by ID.  **Required permissions:** &#x60;account:admin&#x60;
+     * Updates an access control entry by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:membership:manage&#x60;
      * @param aceId  (required)
      * @param acEUpdatePayload  (required)
      * @param _callback The callback to be executed when the API call finishes

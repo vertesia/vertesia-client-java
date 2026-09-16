@@ -1047,6 +1047,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.Account.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AccountApiKey.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AccountApiKeyWithValue.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AccountBilling.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AccountOnboarding.CustomTypeAdapterFactory());
@@ -1543,6 +1547,8 @@ public class JSON {
                 new io.vertesia.model.CostTimeSeriesPoint.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.CountResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.CreateAccountApiKeyPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.CreateAgentRunPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -2635,6 +2641,8 @@ public class JSON {
                 new io.vertesia.model.TransitionDefinition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.TwelvelabsPegasusOptions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.UpdateAccountApiKeyPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UpdateAccountPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

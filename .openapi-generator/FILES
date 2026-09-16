@@ -24,6 +24,7 @@ src/main/java/io/vertesia/api/ContentObjectTypesApi.java
 src/main/java/io/vertesia/api/ContentQueryApi.java
 src/main/java/io/vertesia/api/CostsApi.java
 src/main/java/io/vertesia/api/DataApi.java
+src/main/java/io/vertesia/api/DefaultApi.java
 src/main/java/io/vertesia/api/DelegationGrantsApi.java
 src/main/java/io/vertesia/api/EmailApi.java
 src/main/java/io/vertesia/api/EnvironmentsApi.java
@@ -69,6 +70,8 @@ src/main/java/io/vertesia/model/AccessControlEntry.java
 src/main/java/io/vertesia/model/AccessControlPrincipalType.java
 src/main/java/io/vertesia/model/AccessControlResourceType.java
 src/main/java/io/vertesia/model/Account.java
+src/main/java/io/vertesia/model/AccountApiKey.java
+src/main/java/io/vertesia/model/AccountApiKeyWithValue.java
 src/main/java/io/vertesia/model/AccountBilling.java
 src/main/java/io/vertesia/model/AccountOnboarding.java
 src/main/java/io/vertesia/model/AccountProjectsResponse.java
@@ -359,6 +362,7 @@ src/main/java/io/vertesia/model/CostRunPriceResponse.java
 src/main/java/io/vertesia/model/CostSummary.java
 src/main/java/io/vertesia/model/CostTimeSeriesPoint.java
 src/main/java/io/vertesia/model/CountResult.java
+src/main/java/io/vertesia/model/CreateAccountApiKeyPayload.java
 src/main/java/io/vertesia/model/CreateAgentRunPayload.java
 src/main/java/io/vertesia/model/CreateApiKeyPayload.java
 src/main/java/io/vertesia/model/CreateCollectionPayload.java
@@ -1009,6 +1013,7 @@ src/main/java/io/vertesia/model/TransitionTrigger.java
 src/main/java/io/vertesia/model/TurnEvaluationFlag.java
 src/main/java/io/vertesia/model/TurnTerminalType.java
 src/main/java/io/vertesia/model/TwelvelabsPegasusOptions.java
+src/main/java/io/vertesia/model/UpdateAccountApiKeyPayload.java
 src/main/java/io/vertesia/model/UpdateAccountPayload.java
 src/main/java/io/vertesia/model/UpdateAgentArtifactContentPayload.java
 src/main/java/io/vertesia/model/UpdateAgentArtifactContentResponse.java

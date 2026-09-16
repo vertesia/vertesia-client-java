@@ -761,7 +761,7 @@ public class AccountsApi {
 
     /**
      * Retrieve the current account
-     * Retrieves the current authenticated account.  **Required permissions:** &#x60;account:member&#x60;
+     * Retrieves the current authenticated account.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
      * @return Account
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -780,7 +780,7 @@ public class AccountsApi {
 
     /**
      * Retrieve the current account
-     * Retrieves the current authenticated account.  **Required permissions:** &#x60;account:member&#x60;
+     * Retrieves the current authenticated account.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
      * @return ApiResponse&lt;Account&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -800,7 +800,7 @@ public class AccountsApi {
 
     /**
      * Retrieve the current account (asynchronously)
-     * Retrieves the current authenticated account.  **Required permissions:** &#x60;account:member&#x60;
+     * Retrieves the current authenticated account.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -898,7 +898,7 @@ public class AccountsApi {
 
     /**
      * Get Stripe billing status
-     * Returns Stripe billing portal availability and status for the current account.  **Required permissions:** &#x60;account:billing&#x60;
+     * Returns Stripe billing portal availability and status for the current account.  **Required permissions:** Any of &#x60;account:billing&#x60;, &#x60;account:billing:status_read&#x60;
      * @return StripeBillingStatusResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -918,7 +918,7 @@ public class AccountsApi {
 
     /**
      * Get Stripe billing status
-     * Returns Stripe billing portal availability and status for the current account.  **Required permissions:** &#x60;account:billing&#x60;
+     * Returns Stripe billing portal availability and status for the current account.  **Required permissions:** Any of &#x60;account:billing&#x60;, &#x60;account:billing:status_read&#x60;
      * @return ApiResponse&lt;StripeBillingStatusResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -939,7 +939,7 @@ public class AccountsApi {
 
     /**
      * Get Stripe billing status (asynchronously)
-     * Returns Stripe billing portal availability and status for the current account.  **Required permissions:** &#x60;account:billing&#x60;
+     * Returns Stripe billing portal availability and status for the current account.  **Required permissions:** Any of &#x60;account:billing&#x60;, &#x60;account:billing:status_read&#x60;
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1177,7 +1177,7 @@ public class AccountsApi {
 
     /**
      * List account members
-     * Lists members who have access to the current account or its projects.  **Required permissions:** &#x60;account:member&#x60;
+     * Lists members who have access to the current account or its projects.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:read&#x60;
      * @return List&lt;User&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1196,7 +1196,7 @@ public class AccountsApi {
 
     /**
      * List account members
-     * Lists members who have access to the current account or its projects.  **Required permissions:** &#x60;account:member&#x60;
+     * Lists members who have access to the current account or its projects.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:read&#x60;
      * @return ApiResponse&lt;List&lt;User&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1216,7 +1216,7 @@ public class AccountsApi {
 
     /**
      * List account members (asynchronously)
-     * Lists members who have access to the current account or its projects.  **Required permissions:** &#x60;account:member&#x60;
+     * Lists members who have access to the current account or its projects.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:read&#x60;
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1313,7 +1313,7 @@ public class AccountsApi {
 
     /**
      * List account projects
-     * Lists projects in the current account.  **Required permissions:** &#x60;account:member&#x60;
+     * Lists projects in the current account.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
      * @return AccountProjectsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1332,7 +1332,7 @@ public class AccountsApi {
 
     /**
      * List account projects
-     * Lists projects in the current account.  **Required permissions:** &#x60;account:member&#x60;
+     * Lists projects in the current account.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
      * @return ApiResponse&lt;AccountProjectsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1353,7 +1353,7 @@ public class AccountsApi {
 
     /**
      * List account projects (asynchronously)
-     * Lists projects in the current account.  **Required permissions:** &#x60;account:member&#x60;
+     * Lists projects in the current account.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

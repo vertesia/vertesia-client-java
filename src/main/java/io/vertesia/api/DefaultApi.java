@@ -19,26 +19,27 @@ import io.vertesia.ApiException;
 import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
-import io.vertesia.model.DeleteByIdResult;
-import io.vertesia.model.PrincipalIdentity;
-import io.vertesia.model.UpdateUserPayload;
-import io.vertesia.model.User;
+import io.vertesia.model.AccountApiKey;
+import io.vertesia.model.AccountApiKeyWithValue;
+import io.vertesia.model.CreateAccountApiKeyPayload;
+import io.vertesia.model.DeleteOperationResult;
+import io.vertesia.model.UpdateAccountApiKeyPayload;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class UsersApi {
+public class DefaultApi {
     private ApiClient localVarApiClient;
     private int localHostIndex;
     private String localCustomBaseUrl;
 
-    public UsersApi() {
+    public DefaultApi() {
         this(Configuration.getDefaultApiClient());
     }
 
-    public UsersApi(ApiClient apiClient) {
+    public DefaultApi(ApiClient apiClient) {
         this.localVarApiClient = apiClient;
     }
 
@@ -67,8 +68,8 @@ public class UsersApi {
     }
 
     /**
-     * Build call for deleteUser
-     * @param userId  (required)
+     * Build call for createAccountApiKey
+     * @param createAccountApiKeyPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -76,13 +77,173 @@ public class UsersApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account key; secret returned once. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteUserCall(
-            @jakarta.annotation.Nonnull String userId, final ApiCallback _callback)
+    public okhttp3.Call createAccountApiKeyCall(
+            @jakarta.annotation.Nonnull CreateAccountApiKeyPayload createAccountApiKeyPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createAccountApiKeyPayload;
+
+        // create path and map variables
+        String localVarPath = "/account/apikeys";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createAccountApiKeyValidateBeforeCall(
+            @jakarta.annotation.Nonnull CreateAccountApiKeyPayload createAccountApiKeyPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'createAccountApiKeyPayload' is set
+        if (createAccountApiKeyPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'createAccountApiKeyPayload' when calling createAccountApiKey(Async)");
+        }
+
+        return createAccountApiKeyCall(createAccountApiKeyPayload, _callback);
+    }
+
+    /**
+     * Create an account API key
+     *
+     * @param createAccountApiKeyPayload  (required)
+     * @return AccountApiKeyWithValue
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Account key; secret returned once. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public AccountApiKeyWithValue createAccountApiKey(
+            @jakarta.annotation.Nonnull CreateAccountApiKeyPayload createAccountApiKeyPayload)
+            throws ApiException {
+        ApiResponse<AccountApiKeyWithValue> localVarResp =
+                createAccountApiKeyWithHttpInfo(createAccountApiKeyPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create an account API key
+     *
+     * @param createAccountApiKeyPayload  (required)
+     * @return ApiResponse&lt;AccountApiKeyWithValue&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Account key; secret returned once. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AccountApiKeyWithValue> createAccountApiKeyWithHttpInfo(
+            @jakarta.annotation.Nonnull CreateAccountApiKeyPayload createAccountApiKeyPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                createAccountApiKeyValidateBeforeCall(createAccountApiKeyPayload, null);
+        Type localVarReturnType = new TypeToken<AccountApiKeyWithValue>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create an account API key (asynchronously)
+     *
+     * @param createAccountApiKeyPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Account key; secret returned once. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createAccountApiKeyAsync(
+            @jakarta.annotation.Nonnull CreateAccountApiKeyPayload createAccountApiKeyPayload,
+            final ApiCallback<AccountApiKeyWithValue> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                createAccountApiKeyValidateBeforeCall(createAccountApiKeyPayload, _callback);
+        Type localVarReturnType = new TypeToken<AccountApiKeyWithValue>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for deleteAccountApiKey
+     * @param keyId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Account key deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteAccountApiKeyCall(
+            @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -101,10 +262,10 @@ public class UsersApi {
 
         // create path and map variables
         String localVarPath =
-                "/iam/users/{userId}"
+                "/account/apikeys/{keyId}"
                         .replace(
-                                "{" + "userId" + "}",
-                                localVarApiClient.escapeString(userId.toString()));
+                                "{" + "keyId" + "}",
+                                localVarApiClient.escapeString(keyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -141,65 +302,65 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call deleteUserValidateBeforeCall(
-            @jakarta.annotation.Nonnull String userId, final ApiCallback _callback)
+    private okhttp3.Call deleteAccountApiKeyValidateBeforeCall(
+            @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
+        // verify the required parameter 'keyId' is set
+        if (keyId == null) {
             throw new ApiException(
-                    "Missing the required parameter 'userId' when calling deleteUser(Async)");
+                    "Missing the required parameter 'keyId' when calling deleteAccountApiKey(Async)");
         }
 
-        return deleteUserCall(userId, _callback);
+        return deleteAccountApiKeyCall(keyId, _callback);
     }
 
     /**
-     * Delete a user
-     * Deletes a user from the current account. Account admins cannot delete their own user account through this endpoint.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param userId  (required)
-     * @return DeleteByIdResult
+     * Delete an account API key
+     *
+     * @param keyId  (required)
+     * @return DeleteOperationResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account key deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public DeleteByIdResult deleteUser(@jakarta.annotation.Nonnull String userId)
+    public DeleteOperationResult deleteAccountApiKey(@jakarta.annotation.Nonnull String keyId)
             throws ApiException {
-        ApiResponse<DeleteByIdResult> localVarResp = deleteUserWithHttpInfo(userId);
+        ApiResponse<DeleteOperationResult> localVarResp = deleteAccountApiKeyWithHttpInfo(keyId);
         return localVarResp.getData();
     }
 
     /**
-     * Delete a user
-     * Deletes a user from the current account. Account admins cannot delete their own user account through this endpoint.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param userId  (required)
-     * @return ApiResponse&lt;DeleteByIdResult&gt;
+     * Delete an account API key
+     *
+     * @param keyId  (required)
+     * @return ApiResponse&lt;DeleteOperationResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account key deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<DeleteByIdResult> deleteUserWithHttpInfo(
-            @jakarta.annotation.Nonnull String userId) throws ApiException {
-        okhttp3.Call localVarCall = deleteUserValidateBeforeCall(userId, null);
-        Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
+    public ApiResponse<DeleteOperationResult> deleteAccountApiKeyWithHttpInfo(
+            @jakarta.annotation.Nonnull String keyId) throws ApiException {
+        okhttp3.Call localVarCall = deleteAccountApiKeyValidateBeforeCall(keyId, null);
+        Type localVarReturnType = new TypeToken<DeleteOperationResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Delete a user (asynchronously)
-     * Deletes a user from the current account. Account admins cannot delete their own user account through this endpoint.  **Required permissions:** &#x60;account:admin&#x60;
-     * @param userId  (required)
+     * Delete an account API key (asynchronously)
+     *
+     * @param keyId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -207,24 +368,25 @@ public class UsersApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> User deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account key deletion result. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call deleteUserAsync(
-            @jakarta.annotation.Nonnull String userId,
-            final ApiCallback<DeleteByIdResult> _callback)
+    public okhttp3.Call deleteAccountApiKeyAsync(
+            @jakarta.annotation.Nonnull String keyId,
+            final ApiCallback<DeleteOperationResult> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = deleteUserValidateBeforeCall(userId, _callback);
-        Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
+        okhttp3.Call localVarCall = deleteAccountApiKeyValidateBeforeCall(keyId, _callback);
+        Type localVarReturnType = new TypeToken<DeleteOperationResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     /**
-     * Build call for getCurrentUserIdentity
+     * Build call for getAccountApiKey
+     * @param keyId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -232,151 +394,13 @@ public class UsersApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current user&#39;s principal identity (id + resolved context). </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account key metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getCurrentUserIdentityCall(final ApiCallback _callback)
-            throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {};
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null) {
-            basePath = localCustomBaseUrl;
-        } else if (localBasePaths.length > 0) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = null;
-
-        // create path and map variables
-        String localVarPath = "/iam/users/identity";
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {"application/json"};
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {};
-        final String localVarContentType =
-                localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
-        return localVarApiClient.buildCall(
-                basePath,
-                localVarPath,
-                "GET",
-                localVarQueryParams,
-                localVarCollectionQueryParams,
-                localVarPostBody,
-                localVarHeaderParams,
-                localVarCookieParams,
-                localVarFormParams,
-                localVarAuthNames,
-                _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call getCurrentUserIdentityValidateBeforeCall(final ApiCallback _callback)
-            throws ApiException {
-        return getCurrentUserIdentityCall(_callback);
-    }
-
-    /**
-     * Retrieve the current user&#39;s identity
-     * Returns the current user id plus the merged ABAC principal context (clearance, compartments, email, tags, properties). Conceptually an OIDC-style userinfo / identity-token endpoint: takes no parameters, derives the subject from a user or OAuth access token, and rejects principals without an underlying user (API keys, service accounts) with 400. Use this client-side to preview how PrincipalSet rules will evaluate for the signed-in user.  **Required permissions:** &#x60;account:member&#x60;
-     * @return PrincipalIdentity
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current user&#39;s principal identity (id + resolved context). </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public PrincipalIdentity getCurrentUserIdentity() throws ApiException {
-        ApiResponse<PrincipalIdentity> localVarResp = getCurrentUserIdentityWithHttpInfo();
-        return localVarResp.getData();
-    }
-
-    /**
-     * Retrieve the current user&#39;s identity
-     * Returns the current user id plus the merged ABAC principal context (clearance, compartments, email, tags, properties). Conceptually an OIDC-style userinfo / identity-token endpoint: takes no parameters, derives the subject from a user or OAuth access token, and rejects principals without an underlying user (API keys, service accounts) with 400. Use this client-side to preview how PrincipalSet rules will evaluate for the signed-in user.  **Required permissions:** &#x60;account:member&#x60;
-     * @return ApiResponse&lt;PrincipalIdentity&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current user&#39;s principal identity (id + resolved context). </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public ApiResponse<PrincipalIdentity> getCurrentUserIdentityWithHttpInfo() throws ApiException {
-        okhttp3.Call localVarCall = getCurrentUserIdentityValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<PrincipalIdentity>() {}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Retrieve the current user&#39;s identity (asynchronously)
-     * Returns the current user id plus the merged ABAC principal context (clearance, compartments, email, tags, properties). Conceptually an OIDC-style userinfo / identity-token endpoint: takes no parameters, derives the subject from a user or OAuth access token, and rejects principals without an underlying user (API keys, service accounts) with 400. Use this client-side to preview how PrincipalSet rules will evaluate for the signed-in user.  **Required permissions:** &#x60;account:member&#x60;
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The current user&#39;s principal identity (id + resolved context). </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getCurrentUserIdentityAsync(final ApiCallback<PrincipalIdentity> _callback)
-            throws ApiException {
-
-        okhttp3.Call localVarCall = getCurrentUserIdentityValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<PrincipalIdentity>() {}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-
-    /**
-     * Build call for getUser
-     * @param userId  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     * <table border="1">
-     * <caption>Response Details</caption>
-     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested user. </td><td>  -  </td></tr>
-     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
-     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
-     * </table>
-     */
-    public okhttp3.Call getUserCall(
-            @jakarta.annotation.Nonnull String userId, final ApiCallback _callback)
+    public okhttp3.Call getAccountApiKeyCall(
+            @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -395,10 +419,10 @@ public class UsersApi {
 
         // create path and map variables
         String localVarPath =
-                "/iam/users/{userId}"
+                "/account/apikeys/{keyId}"
                         .replace(
-                                "{" + "userId" + "}",
-                                localVarApiClient.escapeString(userId.toString()));
+                                "{" + "keyId" + "}",
+                                localVarApiClient.escapeString(keyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -435,64 +459,65 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getUserValidateBeforeCall(
-            @jakarta.annotation.Nonnull String userId, final ApiCallback _callback)
+    private okhttp3.Call getAccountApiKeyValidateBeforeCall(
+            @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
+        // verify the required parameter 'keyId' is set
+        if (keyId == null) {
             throw new ApiException(
-                    "Missing the required parameter 'userId' when calling getUser(Async)");
+                    "Missing the required parameter 'keyId' when calling getAccountApiKey(Async)");
         }
 
-        return getUserCall(userId, _callback);
+        return getAccountApiKeyCall(keyId, _callback);
     }
 
     /**
-     * Retrieve a user
-     * Retrieves a user by ID when the user belongs to the current account or is the caller.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:read&#x60;
-     * @param userId  (required)
-     * @return User
+     * Get account API key metadata
+     *
+     * @param keyId  (required)
+     * @return AccountApiKey
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested user. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account key metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public User getUser(@jakarta.annotation.Nonnull String userId) throws ApiException {
-        ApiResponse<User> localVarResp = getUserWithHttpInfo(userId);
+    public AccountApiKey getAccountApiKey(@jakarta.annotation.Nonnull String keyId)
+            throws ApiException {
+        ApiResponse<AccountApiKey> localVarResp = getAccountApiKeyWithHttpInfo(keyId);
         return localVarResp.getData();
     }
 
     /**
-     * Retrieve a user
-     * Retrieves a user by ID when the user belongs to the current account or is the caller.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:read&#x60;
-     * @param userId  (required)
-     * @return ApiResponse&lt;User&gt;
+     * Get account API key metadata
+     *
+     * @param keyId  (required)
+     * @return ApiResponse&lt;AccountApiKey&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested user. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account key metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<User> getUserWithHttpInfo(@jakarta.annotation.Nonnull String userId)
-            throws ApiException {
-        okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, null);
-        Type localVarReturnType = new TypeToken<User>() {}.getType();
+    public ApiResponse<AccountApiKey> getAccountApiKeyWithHttpInfo(
+            @jakarta.annotation.Nonnull String keyId) throws ApiException {
+        okhttp3.Call localVarCall = getAccountApiKeyValidateBeforeCall(keyId, null);
+        Type localVarReturnType = new TypeToken<AccountApiKey>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Retrieve a user (asynchronously)
-     * Retrieves a user by ID when the user belongs to the current account or is the caller.  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:read&#x60;
-     * @param userId  (required)
+     * Get account API key metadata (asynchronously)
+     *
+     * @param keyId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -500,25 +525,23 @@ public class UsersApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The requested user. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account key metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call getUserAsync(
-            @jakarta.annotation.Nonnull String userId, final ApiCallback<User> _callback)
+    public okhttp3.Call getAccountApiKeyAsync(
+            @jakarta.annotation.Nonnull String keyId, final ApiCallback<AccountApiKey> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = getUserValidateBeforeCall(userId, _callback);
-        Type localVarReturnType = new TypeToken<User>() {}.getType();
+        okhttp3.Call localVarCall = getAccountApiKeyValidateBeforeCall(keyId, _callback);
+        Type localVarReturnType = new TypeToken<AccountApiKey>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
 
     /**
-     * Build call for updateUser
-     * @param userId  (required)
-     * @param updateUserPayload  (required)
+     * Build call for listAccountApiKeys
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -526,14 +549,152 @@ public class UsersApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Account key metadata; never contains secrets. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateUserCall(
-            @jakarta.annotation.Nonnull String userId,
-            @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload,
+    public okhttp3.Call listAccountApiKeysCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/account/apikeys";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listAccountApiKeysValidateBeforeCall(final ApiCallback _callback)
+            throws ApiException {
+        return listAccountApiKeysCall(_callback);
+    }
+
+    /**
+     * List account API keys
+     *
+     * @return List&lt;AccountApiKey&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Account key metadata; never contains secrets. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public List<AccountApiKey> listAccountApiKeys() throws ApiException {
+        ApiResponse<List<AccountApiKey>> localVarResp = listAccountApiKeysWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * List account API keys
+     *
+     * @return ApiResponse&lt;List&lt;AccountApiKey&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Account key metadata; never contains secrets. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<List<AccountApiKey>> listAccountApiKeysWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = listAccountApiKeysValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<AccountApiKey>>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List account API keys (asynchronously)
+     *
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Account key metadata; never contains secrets. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listAccountApiKeysAsync(final ApiCallback<List<AccountApiKey>> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = listAccountApiKeysValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<AccountApiKey>>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateAccountApiKey
+     * @param keyId  (required)
+     * @param updateAccountApiKeyPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Updated account key metadata. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateAccountApiKeyCall(
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nonnull UpdateAccountApiKeyPayload updateAccountApiKeyPayload,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -549,14 +710,14 @@ public class UsersApi {
             basePath = null;
         }
 
-        Object localVarPostBody = updateUserPayload;
+        Object localVarPostBody = updateAccountApiKeyPayload;
 
         // create path and map variables
         String localVarPath =
-                "/iam/users/{userId}"
+                "/account/apikeys/{keyId}"
                         .replace(
-                                "{" + "userId" + "}",
-                                localVarApiClient.escapeString(userId.toString()));
+                                "{" + "keyId" + "}",
+                                localVarApiClient.escapeString(keyId.toString()));
 
         List<Pair> localVarQueryParams = new ArrayList<Pair>();
         List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
@@ -593,80 +754,82 @@ public class UsersApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call updateUserValidateBeforeCall(
-            @jakarta.annotation.Nonnull String userId,
-            @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload,
+    private okhttp3.Call updateAccountApiKeyValidateBeforeCall(
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nonnull UpdateAccountApiKeyPayload updateAccountApiKeyPayload,
             final ApiCallback _callback)
             throws ApiException {
-        // verify the required parameter 'userId' is set
-        if (userId == null) {
+        // verify the required parameter 'keyId' is set
+        if (keyId == null) {
             throw new ApiException(
-                    "Missing the required parameter 'userId' when calling updateUser(Async)");
+                    "Missing the required parameter 'keyId' when calling updateAccountApiKey(Async)");
         }
 
-        // verify the required parameter 'updateUserPayload' is set
-        if (updateUserPayload == null) {
+        // verify the required parameter 'updateAccountApiKeyPayload' is set
+        if (updateAccountApiKeyPayload == null) {
             throw new ApiException(
-                    "Missing the required parameter 'updateUserPayload' when calling updateUser(Async)");
+                    "Missing the required parameter 'updateAccountApiKeyPayload' when calling updateAccountApiKey(Async)");
         }
 
-        return updateUserCall(userId, updateUserPayload, _callback);
+        return updateAccountApiKeyCall(keyId, updateAccountApiKeyPayload, _callback);
     }
 
     /**
-     * Update a user
-     * Updates profile fields for the caller or an administrator. Only account-role administrators may change authorization attributes (properties, clearance, or compartments).  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:manage&#x60;
-     * @param userId  (required)
-     * @param updateUserPayload  (required)
-     * @return User
+     * Update an account API key
+     *
+     * @param keyId  (required)
+     * @param updateAccountApiKeyPayload  (required)
+     * @return AccountApiKey
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Updated account key metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public User updateUser(
-            @jakarta.annotation.Nonnull String userId,
-            @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload)
+    public AccountApiKey updateAccountApiKey(
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nonnull UpdateAccountApiKeyPayload updateAccountApiKeyPayload)
             throws ApiException {
-        ApiResponse<User> localVarResp = updateUserWithHttpInfo(userId, updateUserPayload);
+        ApiResponse<AccountApiKey> localVarResp =
+                updateAccountApiKeyWithHttpInfo(keyId, updateAccountApiKeyPayload);
         return localVarResp.getData();
     }
 
     /**
-     * Update a user
-     * Updates profile fields for the caller or an administrator. Only account-role administrators may change authorization attributes (properties, clearance, or compartments).  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:manage&#x60;
-     * @param userId  (required)
-     * @param updateUserPayload  (required)
-     * @return ApiResponse&lt;User&gt;
+     * Update an account API key
+     *
+     * @param keyId  (required)
+     * @param updateAccountApiKeyPayload  (required)
+     * @return ApiResponse&lt;AccountApiKey&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Updated account key metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<User> updateUserWithHttpInfo(
-            @jakarta.annotation.Nonnull String userId,
-            @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload)
+    public ApiResponse<AccountApiKey> updateAccountApiKeyWithHttpInfo(
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nonnull UpdateAccountApiKeyPayload updateAccountApiKeyPayload)
             throws ApiException {
-        okhttp3.Call localVarCall = updateUserValidateBeforeCall(userId, updateUserPayload, null);
-        Type localVarReturnType = new TypeToken<User>() {}.getType();
+        okhttp3.Call localVarCall =
+                updateAccountApiKeyValidateBeforeCall(keyId, updateAccountApiKeyPayload, null);
+        Type localVarReturnType = new TypeToken<AccountApiKey>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
-     * Update a user (asynchronously)
-     * Updates profile fields for the caller or an administrator. Only account-role administrators may change authorization attributes (properties, clearance, or compartments).  **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:user:manage&#x60;
-     * @param userId  (required)
-     * @param updateUserPayload  (required)
+     * Update an account API key (asynchronously)
+     *
+     * @param keyId  (required)
+     * @param updateAccountApiKeyPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -674,20 +837,20 @@ public class UsersApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> The updated user. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Updated account key metadata. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public okhttp3.Call updateUserAsync(
-            @jakarta.annotation.Nonnull String userId,
-            @jakarta.annotation.Nonnull UpdateUserPayload updateUserPayload,
-            final ApiCallback<User> _callback)
+    public okhttp3.Call updateAccountApiKeyAsync(
+            @jakarta.annotation.Nonnull String keyId,
+            @jakarta.annotation.Nonnull UpdateAccountApiKeyPayload updateAccountApiKeyPayload,
+            final ApiCallback<AccountApiKey> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
-                updateUserValidateBeforeCall(userId, updateUserPayload, _callback);
-        Type localVarReturnType = new TypeToken<User>() {}.getType();
+                updateAccountApiKeyValidateBeforeCall(keyId, updateAccountApiKeyPayload, _callback);
+        Type localVarReturnType = new TypeToken<AccountApiKey>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -170,7 +170,7 @@ public class UserGroupsApi {
 
     /**
      * Add a user to a group
-     * Adds a user to a user group.  **Required permissions:** &#x60;account:admin&#x60;
+     * Adds a user to a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @param groupId  (required)
      * @param userId  (required)
      * @return UserGroup
@@ -193,7 +193,7 @@ public class UserGroupsApi {
 
     /**
      * Add a user to a group
-     * Adds a user to a user group.  **Required permissions:** &#x60;account:admin&#x60;
+     * Adds a user to a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @param groupId  (required)
      * @param userId  (required)
      * @return ApiResponse&lt;UserGroup&gt;
@@ -217,7 +217,7 @@ public class UserGroupsApi {
 
     /**
      * Add a user to a group (asynchronously)
-     * Adds a user to a user group.  **Required permissions:** &#x60;account:admin&#x60;
+     * Adds a user to a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @param groupId  (required)
      * @param userId  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -332,7 +332,7 @@ public class UserGroupsApi {
 
     /**
      * Create a user group
-     * Creates a new user group in the current account. Pass &#x60;allowed_projects&#x60; to restrict the group to specific projects (empty/absent &#x3D; org-wide).  **Required permissions:** &#x60;account:admin&#x60;
+     * Creates a new user group in the current account. Pass &#x60;allowed_projects&#x60; to restrict the group to specific projects (empty/absent &#x3D; org-wide).  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @param createUserGroupPayload  (required)
      * @return UserGroup
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -354,7 +354,7 @@ public class UserGroupsApi {
 
     /**
      * Create a user group
-     * Creates a new user group in the current account. Pass &#x60;allowed_projects&#x60; to restrict the group to specific projects (empty/absent &#x3D; org-wide).  **Required permissions:** &#x60;account:admin&#x60;
+     * Creates a new user group in the current account. Pass &#x60;allowed_projects&#x60; to restrict the group to specific projects (empty/absent &#x3D; org-wide).  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @param createUserGroupPayload  (required)
      * @return ApiResponse&lt;UserGroup&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -377,7 +377,7 @@ public class UserGroupsApi {
 
     /**
      * Create a user group (asynchronously)
-     * Creates a new user group in the current account. Pass &#x60;allowed_projects&#x60; to restrict the group to specific projects (empty/absent &#x3D; org-wide).  **Required permissions:** &#x60;account:admin&#x60;
+     * Creates a new user group in the current account. Pass &#x60;allowed_projects&#x60; to restrict the group to specific projects (empty/absent &#x3D; org-wide).  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @param createUserGroupPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -492,7 +492,7 @@ public class UserGroupsApi {
 
     /**
      * Retrieve a user group
-     * Retrieves a user group by ID.  **Required permissions:** &#x60;account:read&#x60;
+     * Retrieves a user group by ID.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
      * @param groupId  (required)
      * @return UserGroup
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -512,7 +512,7 @@ public class UserGroupsApi {
 
     /**
      * Retrieve a user group
-     * Retrieves a user group by ID.  **Required permissions:** &#x60;account:read&#x60;
+     * Retrieves a user group by ID.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
      * @param groupId  (required)
      * @return ApiResponse&lt;UserGroup&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -534,7 +534,7 @@ public class UserGroupsApi {
 
     /**
      * Retrieve a user group (asynchronously)
-     * Retrieves a user group by ID.  **Required permissions:** &#x60;account:read&#x60;
+     * Retrieves a user group by ID.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
      * @param groupId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -647,7 +647,7 @@ public class UserGroupsApi {
 
     /**
      * List user group members
-     * Lists members of a user group.  **Required permissions:** &#x60;account:read&#x60;
+     * Lists members of a user group.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
      * @param groupId  (required)
      * @return List&lt;UserRef&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -668,7 +668,7 @@ public class UserGroupsApi {
 
     /**
      * List user group members
-     * Lists members of a user group.  **Required permissions:** &#x60;account:read&#x60;
+     * Lists members of a user group.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
      * @param groupId  (required)
      * @return ApiResponse&lt;List&lt;UserRef&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -690,7 +690,7 @@ public class UserGroupsApi {
 
     /**
      * List user group members (asynchronously)
-     * Lists members of a user group.  **Required permissions:** &#x60;account:read&#x60;
+     * Lists members of a user group.  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
      * @param groupId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -828,7 +828,7 @@ public class UserGroupsApi {
 
     /**
      * List user groups
-     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** &#x60;account:read&#x60;
+     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
      * @param search  (optional)
      * @param tags  (optional)
      * @param limit  (optional)
@@ -859,7 +859,7 @@ public class UserGroupsApi {
 
     /**
      * List user groups
-     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** &#x60;account:read&#x60;
+     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
      * @param search  (optional)
      * @param tags  (optional)
      * @param limit  (optional)
@@ -891,7 +891,7 @@ public class UserGroupsApi {
 
     /**
      * List user groups (asynchronously)
-     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** &#x60;account:read&#x60;
+     * Lists user groups in the current account. Pass &#x60;project&#x60; to return only groups usable in that project (org-wide groups plus groups restricted to it).  **Required permissions:** Any of &#x60;account:read&#x60;, &#x60;account:group:read&#x60;
      * @param search  (optional)
      * @param tags  (optional)
      * @param limit  (optional)
@@ -1028,7 +1028,7 @@ public class UserGroupsApi {
 
     /**
      * Remove a user from a group
-     * Removes a user from a user group.  **Required permissions:** &#x60;account:admin&#x60;
+     * Removes a user from a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @param groupId  (required)
      * @param userId  (required)
      * @return UserGroup
@@ -1051,7 +1051,7 @@ public class UserGroupsApi {
 
     /**
      * Remove a user from a group
-     * Removes a user from a user group.  **Required permissions:** &#x60;account:admin&#x60;
+     * Removes a user from a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @param groupId  (required)
      * @param userId  (required)
      * @return ApiResponse&lt;UserGroup&gt;
@@ -1075,7 +1075,7 @@ public class UserGroupsApi {
 
     /**
      * Remove a user from a group (asynchronously)
-     * Removes a user from a user group.  **Required permissions:** &#x60;account:admin&#x60;
+     * Removes a user from a user group.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @param groupId  (required)
      * @param userId  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1178,7 +1178,7 @@ public class UserGroupsApi {
 
     /**
      * Sync the members group
-     * Synchronizes the built-in members group with current account membership.  **Required permissions:** &#x60;account:admin&#x60;
+     * Synchronizes the built-in members group with current account membership.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @return UserGroup
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1197,7 +1197,7 @@ public class UserGroupsApi {
 
     /**
      * Sync the members group
-     * Synchronizes the built-in members group with current account membership.  **Required permissions:** &#x60;account:admin&#x60;
+     * Synchronizes the built-in members group with current account membership.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @return ApiResponse&lt;UserGroup&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1217,7 +1217,7 @@ public class UserGroupsApi {
 
     /**
      * Sync the members group (asynchronously)
-     * Synchronizes the built-in members group with current account membership.  **Required permissions:** &#x60;account:admin&#x60;
+     * Synchronizes the built-in members group with current account membership.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1339,7 +1339,7 @@ public class UserGroupsApi {
 
     /**
      * Update a user group
-     * Updates a user group by ID.  **Required permissions:** &#x60;account:admin&#x60;
+     * Updates a user group by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @param groupId  (required)
      * @param updateUserGroupPayload  (required)
      * @return UserGroup
@@ -1364,7 +1364,7 @@ public class UserGroupsApi {
 
     /**
      * Update a user group
-     * Updates a user group by ID.  **Required permissions:** &#x60;account:admin&#x60;
+     * Updates a user group by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @param groupId  (required)
      * @param updateUserGroupPayload  (required)
      * @return ApiResponse&lt;UserGroup&gt;
@@ -1390,7 +1390,7 @@ public class UserGroupsApi {
 
     /**
      * Update a user group (asynchronously)
-     * Updates a user group by ID.  **Required permissions:** &#x60;account:admin&#x60;
+     * Updates a user group by ID.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:group:manage&#x60;
      * @param groupId  (required)
      * @param updateUserGroupPayload  (required)
      * @param _callback The callback to be executed when the API call finishes

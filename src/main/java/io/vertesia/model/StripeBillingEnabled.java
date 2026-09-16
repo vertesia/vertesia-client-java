@@ -156,8 +156,7 @@ public class StripeBillingEnabled {
     public static final String SERIALIZED_NAME_PORTAL_URL = "portal_url";
 
     @SerializedName(SERIALIZED_NAME_PORTAL_URL)
-    @jakarta.annotation.Nonnull
-    private String portalUrl;
+    @jakarta.annotation.Nullable private String portalUrl;
 
     public StripeBillingEnabled() {}
 
@@ -198,21 +197,20 @@ public class StripeBillingEnabled {
         this.billingMethod = billingMethod;
     }
 
-    public StripeBillingEnabled portalUrl(@jakarta.annotation.Nonnull String portalUrl) {
+    public StripeBillingEnabled portalUrl(@jakarta.annotation.Nullable String portalUrl) {
         this.portalUrl = portalUrl;
         return this;
     }
 
     /**
-     * Get portalUrl
+     * Interactive billing portal URL; null for account API keys.
      * @return portalUrl
      */
-    @jakarta.annotation.Nonnull
-    public String getPortalUrl() {
+    @jakarta.annotation.Nullable public String getPortalUrl() {
         return portalUrl;
     }
 
-    public void setPortalUrl(@jakarta.annotation.Nonnull String portalUrl) {
+    public void setPortalUrl(@jakarta.annotation.Nullable String portalUrl) {
         this.portalUrl = portalUrl;
     }
 
@@ -315,7 +313,8 @@ public class StripeBillingEnabled {
         }
         // validate the required field `billing_method`
         BillingMethodEnum.validateJsonElement(jsonObj.get("billing_method"));
-        if (!jsonObj.get("portal_url").isJsonPrimitive()) {
+        if ((jsonObj.get("portal_url") != null && !jsonObj.get("portal_url").isJsonNull())
+                && !jsonObj.get("portal_url").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
