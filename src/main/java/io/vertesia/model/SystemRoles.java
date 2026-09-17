@@ -28,6 +28,8 @@ public enum SystemRoles {
 
     ADMIN("admin"),
 
+    APP_ADMIN("app_admin"),
+
     MANAGER("manager"),
 
     DEVELOPER("developer"),
