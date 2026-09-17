@@ -3122,6 +3122,7 @@ public class DataApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
+     * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -3210,7 +3211,7 @@ public class DataApi {
 
     /**
      * Import data into a data store
-     * Starts an atomic multi-table import job and returns the import job record.  **Required permissions:** &#x60;content:write&#x60;
+     * Starts an atomic multi-table import. Background-enabled deployments return 202 after durable acceptance; poll the original import ID until completed or failed.  **Required permissions:** &#x60;content:write&#x60;
      * @param storeId  (required)
      * @param importDataPayload  (required)
      * @return ImportJob
@@ -3220,6 +3221,7 @@ public class DataApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
+     * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -3235,7 +3237,7 @@ public class DataApi {
 
     /**
      * Import data into a data store
-     * Starts an atomic multi-table import job and returns the import job record.  **Required permissions:** &#x60;content:write&#x60;
+     * Starts an atomic multi-table import. Background-enabled deployments return 202 after durable acceptance; poll the original import ID until completed or failed.  **Required permissions:** &#x60;content:write&#x60;
      * @param storeId  (required)
      * @param importDataPayload  (required)
      * @return ApiResponse&lt;ImportJob&gt;
@@ -3245,6 +3247,7 @@ public class DataApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
+     * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -3261,7 +3264,7 @@ public class DataApi {
 
     /**
      * Import data into a data store (asynchronously)
-     * Starts an atomic multi-table import job and returns the import job record.  **Required permissions:** &#x60;content:write&#x60;
+     * Starts an atomic multi-table import. Background-enabled deployments return 202 after durable acceptance; poll the original import ID until completed or failed.  **Required permissions:** &#x60;content:write&#x60;
      * @param storeId  (required)
      * @param importDataPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -3272,6 +3275,7 @@ public class DataApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
+     * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
