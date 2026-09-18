@@ -40,6 +40,11 @@ public class FileBucketResponse {
     @jakarta.annotation.Nonnull
     private String bucket;
 
+    public static final String SERIALIZED_NAME_LOCATION = "location";
+
+    @SerializedName(SERIALIZED_NAME_LOCATION)
+    @jakarta.annotation.Nullable private String location;
+
     public FileBucketResponse() {}
 
     public FileBucketResponse bucket(@jakarta.annotation.Nonnull String bucket) {
@@ -60,6 +65,23 @@ public class FileBucketResponse {
         this.bucket = bucket;
     }
 
+    public FileBucketResponse location(@jakarta.annotation.Nullable String location) {
+        this.location = location;
+        return this;
+    }
+
+    /**
+     * Get location
+     * @return location
+     */
+    @jakarta.annotation.Nullable public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(@jakarta.annotation.Nullable String location) {
+        this.location = location;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -69,12 +91,13 @@ public class FileBucketResponse {
             return false;
         }
         FileBucketResponse fileBucketResponse = (FileBucketResponse) o;
-        return Objects.equals(this.bucket, fileBucketResponse.bucket);
+        return Objects.equals(this.bucket, fileBucketResponse.bucket)
+                && Objects.equals(this.location, fileBucketResponse.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(bucket);
+        return Objects.hash(bucket, location);
     }
 
     @Override
@@ -82,6 +105,7 @@ public class FileBucketResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class FileBucketResponse {\n");
         sb.append("    bucket: ").append(toIndentedString(bucket)).append("\n");
+        sb.append("    location: ").append(toIndentedString(location)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -99,7 +123,7 @@ public class FileBucketResponse {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("bucket"));
+        openapiFields = new HashSet<String>(Arrays.asList("bucket", "location"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("bucket"));
@@ -141,6 +165,14 @@ public class FileBucketResponse {
                             java.util.Locale.ROOT,
                             "Expected the field `bucket` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("bucket").toString()));
+        }
+        if ((jsonObj.get("location") != null && !jsonObj.get("location").isJsonNull())
+                && !jsonObj.get("location").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `location` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("location").toString()));
         }
     }
 

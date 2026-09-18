@@ -51,6 +51,11 @@ public class EmbeddingsStatusResponse {
     @SerializedName(SERIALIZED_NAME_EMBEDDING_RUNS_IN_PROGRESS)
     @jakarta.annotation.Nullable private BigDecimal embeddingRunsInProgress;
 
+    public static final String SERIALIZED_NAME_LATEST_BATCH_RUN = "latestBatchRun";
+
+    @SerializedName(SERIALIZED_NAME_LATEST_BATCH_RUN)
+    @jakarta.annotation.Nullable private EmbeddingBatchRunSummary latestBatchRun;
+
     public static final String SERIALIZED_NAME_TOTAL_INDEXABLE_OBJECTS = "totalIndexableObjects";
 
     @SerializedName(SERIALIZED_NAME_TOTAL_INDEXABLE_OBJECTS)
@@ -109,6 +114,25 @@ public class EmbeddingsStatusResponse {
     public void setEmbeddingRunsInProgress(
             @jakarta.annotation.Nullable BigDecimal embeddingRunsInProgress) {
         this.embeddingRunsInProgress = embeddingRunsInProgress;
+    }
+
+    public EmbeddingsStatusResponse latestBatchRun(
+            @jakarta.annotation.Nullable EmbeddingBatchRunSummary latestBatchRun) {
+        this.latestBatchRun = latestBatchRun;
+        return this;
+    }
+
+    /**
+     * Get latestBatchRun
+     * @return latestBatchRun
+     */
+    @jakarta.annotation.Nullable public EmbeddingBatchRunSummary getLatestBatchRun() {
+        return latestBatchRun;
+    }
+
+    public void setLatestBatchRun(
+            @jakarta.annotation.Nullable EmbeddingBatchRunSummary latestBatchRun) {
+        this.latestBatchRun = latestBatchRun;
     }
 
     public EmbeddingsStatusResponse totalIndexableObjects(
@@ -253,6 +277,7 @@ public class EmbeddingsStatusResponse {
                 && Objects.equals(
                         this.embeddingRunsInProgress,
                         embeddingsStatusResponse.embeddingRunsInProgress)
+                && Objects.equals(this.latestBatchRun, embeddingsStatusResponse.latestBatchRun)
                 && Objects.equals(
                         this.totalIndexableObjects, embeddingsStatusResponse.totalIndexableObjects)
                 && Objects.equals(this.embeddingsModels, embeddingsStatusResponse.embeddingsModels)
@@ -268,6 +293,7 @@ public class EmbeddingsStatusResponse {
         return Objects.hash(
                 status,
                 embeddingRunsInProgress,
+                latestBatchRun,
                 totalIndexableObjects,
                 embeddingsModels,
                 objectsWithEmbeddings,
@@ -283,6 +309,7 @@ public class EmbeddingsStatusResponse {
         sb.append("    embeddingRunsInProgress: ")
                 .append(toIndentedString(embeddingRunsInProgress))
                 .append("\n");
+        sb.append("    latestBatchRun: ").append(toIndentedString(latestBatchRun)).append("\n");
         sb.append("    totalIndexableObjects: ")
                 .append(toIndentedString(totalIndexableObjects))
                 .append("\n");
@@ -316,6 +343,7 @@ public class EmbeddingsStatusResponse {
                         Arrays.asList(
                                 "status",
                                 "embeddingRunsInProgress",
+                                "latestBatchRun",
                                 "totalIndexableObjects",
                                 "embeddingsModels",
                                 "objectsWithEmbeddings",
@@ -361,6 +389,10 @@ public class EmbeddingsStatusResponse {
                             java.util.Locale.ROOT,
                             "Expected the field `status` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("status").toString()));
+        }
+        // validate the optional field `latestBatchRun`
+        if (jsonObj.get("latestBatchRun") != null && !jsonObj.get("latestBatchRun").isJsonNull()) {
+            EmbeddingBatchRunSummary.validateJsonElement(jsonObj.get("latestBatchRun"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("embeddingsModels") != null

@@ -1561,6 +1561,8 @@ public class CommandsApi {
     /**
      * Build call for recalculateProjectEmbeddings
      * @param type  (required)
+     * @param mode Force synchronous per-object recalculation. When omitted, batch inference is used when supported. (optional)
+     * @param force Recalculate all eligible objects, including current embeddings. Token limits still apply; existing renditions are reused. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1574,7 +1576,10 @@ public class CommandsApi {
      * </table>
      */
     public okhttp3.Call recalculateProjectEmbeddingsCall(
-            @jakarta.annotation.Nonnull String type, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nullable String mode,
+            @jakarta.annotation.Nullable Boolean force,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -1603,6 +1608,14 @@ public class CommandsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (mode != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("mode", mode));
+        }
+
+        if (force != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("force", force));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -1634,7 +1647,10 @@ public class CommandsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call recalculateProjectEmbeddingsValidateBeforeCall(
-            @jakarta.annotation.Nonnull String type, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nullable String mode,
+            @jakarta.annotation.Nullable Boolean force,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'type' is set
         if (type == null) {
@@ -1642,13 +1658,15 @@ public class CommandsApi {
                     "Missing the required parameter 'type' when calling recalculateProjectEmbeddings(Async)");
         }
 
-        return recalculateProjectEmbeddingsCall(type, _callback);
+        return recalculateProjectEmbeddingsCall(type, mode, force, _callback);
     }
 
     /**
      * Recalculate embeddings
-     * Queues recalculation workflows for objects that are missing or have stale embeddings for the selected embedding type.  **Required permissions:** &#x60;project:admin&#x60;
+     * Queues recalculation for missing or outdated embeddings, or all eligible objects with force&#x3D;true. Uses batch inference when supported unless mode&#x3D;sync is specified. Token limits still apply and existing renditions are reused.  **Required permissions:** &#x60;project:admin&#x60;
      * @param type  (required)
+     * @param mode Force synchronous per-object recalculation. When omitted, batch inference is used when supported. (optional)
+     * @param force Recalculate all eligible objects, including current embeddings. Token limits still apply; existing renditions are reused. (optional)
      * @return GenericCommandResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1661,16 +1679,21 @@ public class CommandsApi {
      * </table>
      */
     public GenericCommandResponse recalculateProjectEmbeddings(
-            @jakarta.annotation.Nonnull String type) throws ApiException {
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nullable String mode,
+            @jakarta.annotation.Nullable Boolean force)
+            throws ApiException {
         ApiResponse<GenericCommandResponse> localVarResp =
-                recalculateProjectEmbeddingsWithHttpInfo(type);
+                recalculateProjectEmbeddingsWithHttpInfo(type, mode, force);
         return localVarResp.getData();
     }
 
     /**
      * Recalculate embeddings
-     * Queues recalculation workflows for objects that are missing or have stale embeddings for the selected embedding type.  **Required permissions:** &#x60;project:admin&#x60;
+     * Queues recalculation for missing or outdated embeddings, or all eligible objects with force&#x3D;true. Uses batch inference when supported unless mode&#x3D;sync is specified. Token limits still apply and existing renditions are reused.  **Required permissions:** &#x60;project:admin&#x60;
      * @param type  (required)
+     * @param mode Force synchronous per-object recalculation. When omitted, batch inference is used when supported. (optional)
+     * @param force Recalculate all eligible objects, including current embeddings. Token limits still apply; existing renditions are reused. (optional)
      * @return ApiResponse&lt;GenericCommandResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1683,16 +1706,22 @@ public class CommandsApi {
      * </table>
      */
     public ApiResponse<GenericCommandResponse> recalculateProjectEmbeddingsWithHttpInfo(
-            @jakarta.annotation.Nonnull String type) throws ApiException {
-        okhttp3.Call localVarCall = recalculateProjectEmbeddingsValidateBeforeCall(type, null);
+            @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nullable String mode,
+            @jakarta.annotation.Nullable Boolean force)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                recalculateProjectEmbeddingsValidateBeforeCall(type, mode, force, null);
         Type localVarReturnType = new TypeToken<GenericCommandResponse>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Recalculate embeddings (asynchronously)
-     * Queues recalculation workflows for objects that are missing or have stale embeddings for the selected embedding type.  **Required permissions:** &#x60;project:admin&#x60;
+     * Queues recalculation for missing or outdated embeddings, or all eligible objects with force&#x3D;true. Uses batch inference when supported unless mode&#x3D;sync is specified. Token limits still apply and existing renditions are reused.  **Required permissions:** &#x60;project:admin&#x60;
      * @param type  (required)
+     * @param mode Force synchronous per-object recalculation. When omitted, batch inference is used when supported. (optional)
+     * @param force Recalculate all eligible objects, including current embeddings. Token limits still apply; existing renditions are reused. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1707,10 +1736,13 @@ public class CommandsApi {
      */
     public okhttp3.Call recalculateProjectEmbeddingsAsync(
             @jakarta.annotation.Nonnull String type,
+            @jakarta.annotation.Nullable String mode,
+            @jakarta.annotation.Nullable Boolean force,
             final ApiCallback<GenericCommandResponse> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = recalculateProjectEmbeddingsValidateBeforeCall(type, _callback);
+        okhttp3.Call localVarCall =
+                recalculateProjectEmbeddingsValidateBeforeCall(type, mode, force, _callback);
         Type localVarReturnType = new TypeToken<GenericCommandResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
