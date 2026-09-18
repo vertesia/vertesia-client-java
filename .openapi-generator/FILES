@@ -459,6 +459,7 @@ src/main/java/io/vertesia/model/ElasticsearchBackend.java
 src/main/java/io/vertesia/model/EmailChannel.java
 src/main/java/io/vertesia/model/EmailRouteResponse.java
 src/main/java/io/vertesia/model/Embedding.java
+src/main/java/io/vertesia/model/EmbeddingBatchRunSummary.java
 src/main/java/io/vertesia/model/EmbeddingOutput.java
 src/main/java/io/vertesia/model/EmbeddingResultItem.java
 src/main/java/io/vertesia/model/EmbeddingTaskType.java
