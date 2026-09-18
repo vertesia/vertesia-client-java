@@ -20,10 +20,12 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Authentication type for tool collections. - &#39;oauth&#39;: the runtime resolves a per-user or per-project OAuth access token - &#39;api_key&#39;: a static key held in the project&#39;s secret store is sent as the RFC 6750 bearer token (&#x60;Authorization: Bearer &lt;key&gt;&#x60;)
+ * Authentication type for tool collections. - &#39;none&#39;: connect directly without credentials for MCP collections; does not disable authentication for Vertesia SDK collections - &#39;oauth&#39;: the runtime resolves a per-user or per-project OAuth access token - &#39;api_key&#39;: a static key held in the project&#39;s secret store is sent as the RFC 6750 bearer token (&#x60;Authorization: Bearer &lt;key&gt;&#x60;) - &#39;other&#39; or omitted: use the legacy provider connection-details flow for MCP collections
  */
 @JsonAdapter(ToolCollectionAuthType.Adapter.class)
 public enum ToolCollectionAuthType {
+    NONE("none"),
+
     OAUTH("oauth"),
 
     API_KEY("api_key"),
