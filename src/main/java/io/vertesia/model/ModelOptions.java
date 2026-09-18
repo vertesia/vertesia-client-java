@@ -100,6 +100,8 @@ public class ModelOptions extends AbstractOpenApiSchema {
                     gson.getDelegateAdapter(this, TypeToken.get(GroqOptions.class));
             final TypeAdapter<MistralTextOptions> adapterMistralTextOptions =
                     gson.getDelegateAdapter(this, TypeToken.get(MistralTextOptions.class));
+            final TypeAdapter<AnthropicClaudeOptions> adapterAnthropicClaudeOptions =
+                    gson.getDelegateAdapter(this, TypeToken.get(AnthropicClaudeOptions.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<ModelOptions>() {
@@ -342,8 +344,16 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 elementAdapter.write(out, element);
                                 return;
                             }
+                            // check if the actual instance is of the type `AnthropicClaudeOptions`
+                            if (value.getActualInstance() instanceof AnthropicClaudeOptions) {
+                                JsonElement element =
+                                        adapterAnthropicClaudeOptions.toJsonTree(
+                                                (AnthropicClaudeOptions) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions");
+                                    "Failed to serialize as the type doesn't match anyOf schemas: AnthropicClaudeOptions, AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions");
                         }
 
                         @Override
@@ -351,7 +361,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
                             Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
 
-                            int match = 0;
                             ArrayList<String> errorMessages = new ArrayList<>();
                             TypeAdapter actualAdapter = elementAdapter;
 
@@ -360,10 +369,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 TextFallbackOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterTextFallbackOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'TextFallbackOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -381,10 +389,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 AzureFoundryChatOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterAzureFoundryChatOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'AzureFoundryChatOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -402,8 +409,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 ImagenOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterImagenOptions;
-                                match++;
-                                log.log(Level.FINER, "Input data matches schema 'ImagenOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -421,10 +429,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 VertexAIClaudeOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterVertexAIClaudeOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'VertexAIClaudeOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -442,10 +449,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 VertexAIGeminiOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterVertexAIGeminiOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'VertexAIGeminiOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -463,10 +469,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 VertexAIGeminiOmniVideoOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterVertexAIGeminiOmniVideoOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'VertexAIGeminiOmniVideoOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -484,10 +489,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 VertexAIGrokOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterVertexAIGrokOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'VertexAIGrokOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -505,10 +509,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 NovaCanvasOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterNovaCanvasOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'NovaCanvasOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -526,10 +529,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 BedrockConverseOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterBedrockConverseOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'BedrockConverseOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -547,10 +549,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 BedrockNovaOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterBedrockNovaOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'BedrockNovaOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -568,10 +569,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 BedrockMistralOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterBedrockMistralOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'BedrockMistralOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -589,10 +589,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 BedrockAI21Options.validateJsonElement(jsonElement);
                                 actualAdapter = adapterBedrockAI21Options;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'BedrockAI21Options'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -610,10 +609,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 BedrockCohereCommandOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterBedrockCohereCommandOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'BedrockCohereCommandOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -631,10 +629,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 BedrockClaudeOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterBedrockClaudeOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'BedrockClaudeOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -652,10 +649,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 BedrockPalmyraOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterBedrockPalmyraOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'BedrockPalmyraOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -673,10 +669,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 BedrockGptOssOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterBedrockGptOssOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'BedrockGptOssOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -694,10 +689,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 TwelvelabsPegasusOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterTwelvelabsPegasusOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'TwelvelabsPegasusOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -715,10 +709,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 BedrockMantleResponsesOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterBedrockMantleResponsesOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'BedrockMantleResponsesOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -737,10 +730,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 BedrockMantleChatCompletionsOptions.validateJsonElement(
                                         jsonElement);
                                 actualAdapter = adapterBedrockMantleChatCompletionsOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'BedrockMantleChatCompletionsOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -758,10 +750,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 BedrockMantleClaudeOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterBedrockMantleClaudeOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'BedrockMantleClaudeOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -779,10 +770,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 OpenAiThinkingOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterOpenAiThinkingOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'OpenAiThinkingOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -800,10 +790,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 OpenAiTextOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterOpenAiTextOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'OpenAiTextOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -821,10 +810,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 OpenAiDalleOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterOpenAiDalleOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'OpenAiDalleOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -842,10 +830,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 OpenAiGptImageOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterOpenAiGptImageOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'OpenAiGptImageOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -863,10 +850,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 XAIGrokImageOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterXAIGrokImageOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'XAIGrokImageOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -884,8 +870,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 GroqOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterGroqOptions;
-                                match++;
-                                log.log(Level.FINER, "Input data matches schema 'GroqOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -903,10 +890,9 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                 // validate the JSON object to see if any exception is thrown
                                 MistralTextOptions.validateJsonElement(jsonElement);
                                 actualAdapter = adapterMistralTextOptions;
-                                match++;
-                                log.log(
-                                        Level.FINER,
-                                        "Input data matches schema 'MistralTextOptions'");
+                                ModelOptions ret = new ModelOptions();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
                             } catch (Exception e) {
                                 // deserialization failed, continue
                                 errorMessages.add(
@@ -919,18 +905,31 @@ public class ModelOptions extends AbstractOpenApiSchema {
                                         "Input data does not match schema 'MistralTextOptions'",
                                         e);
                             }
-
-                            if (match == 1) {
+                            // deserialize AnthropicClaudeOptions
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                AnthropicClaudeOptions.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAnthropicClaudeOptions;
                                 ModelOptions ret = new ModelOptions();
                                 ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
                                 return ret;
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for AnthropicClaudeOptions failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'AnthropicClaudeOptions'",
+                                        e);
                             }
 
                             throw new IOException(
                                     String.format(
                                             java.util.Locale.ROOT,
-                                            "Failed deserialization for ModelOptions: %d classes match result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
-                                            match,
+                                            "Failed deserialization for ModelOptions: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
                                             errorMessages,
                                             jsonElement.toString()));
                         }
@@ -938,15 +937,15 @@ public class ModelOptions extends AbstractOpenApiSchema {
         }
     }
 
-    // store a list of schema names defined in oneOf
+    // store a list of schema names defined in anyOf
     public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
 
     public ModelOptions() {
-        super("oneOf", Boolean.FALSE);
+        super("anyOf", Boolean.FALSE);
     }
 
     public ModelOptions(Object o) {
-        super("oneOf", Boolean.FALSE);
+        super("anyOf", Boolean.FALSE);
         setActualInstance(o);
     }
 
@@ -979,6 +978,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         schemas.put("XAIGrokImageOptions", XAIGrokImageOptions.class);
         schemas.put("GroqOptions", GroqOptions.class);
         schemas.put("MistralTextOptions", MistralTextOptions.class);
+        schemas.put("AnthropicClaudeOptions", AnthropicClaudeOptions.class);
     }
 
     @Override
@@ -987,11 +987,11 @@ public class ModelOptions extends AbstractOpenApiSchema {
     }
 
     /**
-     * Set the instance that matches the oneOf child schema, check
-     * the instance parameter is valid against the oneOf child schemas:
-     * AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions
+     * Set the instance that matches the anyOf child schema, check
+     * the instance parameter is valid against the anyOf child schemas:
+     * AnthropicClaudeOptions, AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions
      *
-     * It could be an instance of the 'oneOf' schemas.
+     * It could be an instance of the 'anyOf' schemas.
      */
     @Override
     public void setActualInstance(Object instance) {
@@ -1130,15 +1130,20 @@ public class ModelOptions extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof AnthropicClaudeOptions) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         throw new RuntimeException(
-                "Invalid instance type. Must be AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions");
+                "Invalid instance type. Must be AnthropicClaudeOptions, AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions
+     * AnthropicClaudeOptions, AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions
      *
-     * @return The actual instance (AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions)
+     * @return The actual instance (AnthropicClaudeOptions, AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -1153,7 +1158,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `TextFallbackOptions`
      * @throws ClassCastException if the instance is not `TextFallbackOptions`
      */
-    @SuppressWarnings("unchecked")
     public TextFallbackOptions getTextFallbackOptions() throws ClassCastException {
         return (TextFallbackOptions) super.getActualInstance();
     }
@@ -1165,7 +1169,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `AzureFoundryChatOptions`
      * @throws ClassCastException if the instance is not `AzureFoundryChatOptions`
      */
-    @SuppressWarnings("unchecked")
     public AzureFoundryChatOptions getAzureFoundryChatOptions() throws ClassCastException {
         return (AzureFoundryChatOptions) super.getActualInstance();
     }
@@ -1177,7 +1180,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `ImagenOptions`
      * @throws ClassCastException if the instance is not `ImagenOptions`
      */
-    @SuppressWarnings("unchecked")
     public ImagenOptions getImagenOptions() throws ClassCastException {
         return (ImagenOptions) super.getActualInstance();
     }
@@ -1189,7 +1191,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `VertexAIClaudeOptions`
      * @throws ClassCastException if the instance is not `VertexAIClaudeOptions`
      */
-    @SuppressWarnings("unchecked")
     public VertexAIClaudeOptions getVertexAIClaudeOptions() throws ClassCastException {
         return (VertexAIClaudeOptions) super.getActualInstance();
     }
@@ -1201,7 +1202,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `VertexAIGeminiOptions`
      * @throws ClassCastException if the instance is not `VertexAIGeminiOptions`
      */
-    @SuppressWarnings("unchecked")
     public VertexAIGeminiOptions getVertexAIGeminiOptions() throws ClassCastException {
         return (VertexAIGeminiOptions) super.getActualInstance();
     }
@@ -1213,7 +1213,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `VertexAIGeminiOmniVideoOptions`
      * @throws ClassCastException if the instance is not `VertexAIGeminiOmniVideoOptions`
      */
-    @SuppressWarnings("unchecked")
     public VertexAIGeminiOmniVideoOptions getVertexAIGeminiOmniVideoOptions()
             throws ClassCastException {
         return (VertexAIGeminiOmniVideoOptions) super.getActualInstance();
@@ -1226,7 +1225,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `VertexAIGrokOptions`
      * @throws ClassCastException if the instance is not `VertexAIGrokOptions`
      */
-    @SuppressWarnings("unchecked")
     public VertexAIGrokOptions getVertexAIGrokOptions() throws ClassCastException {
         return (VertexAIGrokOptions) super.getActualInstance();
     }
@@ -1238,7 +1236,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `NovaCanvasOptions`
      * @throws ClassCastException if the instance is not `NovaCanvasOptions`
      */
-    @SuppressWarnings("unchecked")
     public NovaCanvasOptions getNovaCanvasOptions() throws ClassCastException {
         return (NovaCanvasOptions) super.getActualInstance();
     }
@@ -1250,7 +1247,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `BedrockConverseOptions`
      * @throws ClassCastException if the instance is not `BedrockConverseOptions`
      */
-    @SuppressWarnings("unchecked")
     public BedrockConverseOptions getBedrockConverseOptions() throws ClassCastException {
         return (BedrockConverseOptions) super.getActualInstance();
     }
@@ -1262,7 +1258,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `BedrockNovaOptions`
      * @throws ClassCastException if the instance is not `BedrockNovaOptions`
      */
-    @SuppressWarnings("unchecked")
     public BedrockNovaOptions getBedrockNovaOptions() throws ClassCastException {
         return (BedrockNovaOptions) super.getActualInstance();
     }
@@ -1274,7 +1269,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `BedrockMistralOptions`
      * @throws ClassCastException if the instance is not `BedrockMistralOptions`
      */
-    @SuppressWarnings("unchecked")
     public BedrockMistralOptions getBedrockMistralOptions() throws ClassCastException {
         return (BedrockMistralOptions) super.getActualInstance();
     }
@@ -1286,7 +1280,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `BedrockAI21Options`
      * @throws ClassCastException if the instance is not `BedrockAI21Options`
      */
-    @SuppressWarnings("unchecked")
     public BedrockAI21Options getBedrockAI21Options() throws ClassCastException {
         return (BedrockAI21Options) super.getActualInstance();
     }
@@ -1298,7 +1291,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `BedrockCohereCommandOptions`
      * @throws ClassCastException if the instance is not `BedrockCohereCommandOptions`
      */
-    @SuppressWarnings("unchecked")
     public BedrockCohereCommandOptions getBedrockCohereCommandOptions() throws ClassCastException {
         return (BedrockCohereCommandOptions) super.getActualInstance();
     }
@@ -1310,7 +1302,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `BedrockClaudeOptions`
      * @throws ClassCastException if the instance is not `BedrockClaudeOptions`
      */
-    @SuppressWarnings("unchecked")
     public BedrockClaudeOptions getBedrockClaudeOptions() throws ClassCastException {
         return (BedrockClaudeOptions) super.getActualInstance();
     }
@@ -1322,7 +1313,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `BedrockPalmyraOptions`
      * @throws ClassCastException if the instance is not `BedrockPalmyraOptions`
      */
-    @SuppressWarnings("unchecked")
     public BedrockPalmyraOptions getBedrockPalmyraOptions() throws ClassCastException {
         return (BedrockPalmyraOptions) super.getActualInstance();
     }
@@ -1334,7 +1324,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `BedrockGptOssOptions`
      * @throws ClassCastException if the instance is not `BedrockGptOssOptions`
      */
-    @SuppressWarnings("unchecked")
     public BedrockGptOssOptions getBedrockGptOssOptions() throws ClassCastException {
         return (BedrockGptOssOptions) super.getActualInstance();
     }
@@ -1346,7 +1335,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `TwelvelabsPegasusOptions`
      * @throws ClassCastException if the instance is not `TwelvelabsPegasusOptions`
      */
-    @SuppressWarnings("unchecked")
     public TwelvelabsPegasusOptions getTwelvelabsPegasusOptions() throws ClassCastException {
         return (TwelvelabsPegasusOptions) super.getActualInstance();
     }
@@ -1358,7 +1346,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `BedrockMantleResponsesOptions`
      * @throws ClassCastException if the instance is not `BedrockMantleResponsesOptions`
      */
-    @SuppressWarnings("unchecked")
     public BedrockMantleResponsesOptions getBedrockMantleResponsesOptions()
             throws ClassCastException {
         return (BedrockMantleResponsesOptions) super.getActualInstance();
@@ -1371,7 +1358,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `BedrockMantleChatCompletionsOptions`
      * @throws ClassCastException if the instance is not `BedrockMantleChatCompletionsOptions`
      */
-    @SuppressWarnings("unchecked")
     public BedrockMantleChatCompletionsOptions getBedrockMantleChatCompletionsOptions()
             throws ClassCastException {
         return (BedrockMantleChatCompletionsOptions) super.getActualInstance();
@@ -1384,7 +1370,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `BedrockMantleClaudeOptions`
      * @throws ClassCastException if the instance is not `BedrockMantleClaudeOptions`
      */
-    @SuppressWarnings("unchecked")
     public BedrockMantleClaudeOptions getBedrockMantleClaudeOptions() throws ClassCastException {
         return (BedrockMantleClaudeOptions) super.getActualInstance();
     }
@@ -1396,7 +1381,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `OpenAiThinkingOptions`
      * @throws ClassCastException if the instance is not `OpenAiThinkingOptions`
      */
-    @SuppressWarnings("unchecked")
     public OpenAiThinkingOptions getOpenAiThinkingOptions() throws ClassCastException {
         return (OpenAiThinkingOptions) super.getActualInstance();
     }
@@ -1408,7 +1392,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `OpenAiTextOptions`
      * @throws ClassCastException if the instance is not `OpenAiTextOptions`
      */
-    @SuppressWarnings("unchecked")
     public OpenAiTextOptions getOpenAiTextOptions() throws ClassCastException {
         return (OpenAiTextOptions) super.getActualInstance();
     }
@@ -1420,7 +1403,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `OpenAiDalleOptions`
      * @throws ClassCastException if the instance is not `OpenAiDalleOptions`
      */
-    @SuppressWarnings("unchecked")
     public OpenAiDalleOptions getOpenAiDalleOptions() throws ClassCastException {
         return (OpenAiDalleOptions) super.getActualInstance();
     }
@@ -1432,7 +1414,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `OpenAiGptImageOptions`
      * @throws ClassCastException if the instance is not `OpenAiGptImageOptions`
      */
-    @SuppressWarnings("unchecked")
     public OpenAiGptImageOptions getOpenAiGptImageOptions() throws ClassCastException {
         return (OpenAiGptImageOptions) super.getActualInstance();
     }
@@ -1444,7 +1425,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `XAIGrokImageOptions`
      * @throws ClassCastException if the instance is not `XAIGrokImageOptions`
      */
-    @SuppressWarnings("unchecked")
     public XAIGrokImageOptions getXAIGrokImageOptions() throws ClassCastException {
         return (XAIGrokImageOptions) super.getActualInstance();
     }
@@ -1456,7 +1436,6 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `GroqOptions`
      * @throws ClassCastException if the instance is not `GroqOptions`
      */
-    @SuppressWarnings("unchecked")
     public GroqOptions getGroqOptions() throws ClassCastException {
         return (GroqOptions) super.getActualInstance();
     }
@@ -1468,9 +1447,19 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @return The actual instance of `MistralTextOptions`
      * @throws ClassCastException if the instance is not `MistralTextOptions`
      */
-    @SuppressWarnings("unchecked")
     public MistralTextOptions getMistralTextOptions() throws ClassCastException {
         return (MistralTextOptions) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `AnthropicClaudeOptions`. If the actual instance is not `AnthropicClaudeOptions`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AnthropicClaudeOptions`
+     * @throws ClassCastException if the instance is not `AnthropicClaudeOptions`
+     */
+    public AnthropicClaudeOptions getAnthropicClaudeOptions() throws ClassCastException {
+        return (AnthropicClaudeOptions) super.getActualInstance();
     }
 
     /**
@@ -1480,13 +1469,12 @@ public class ModelOptions extends AbstractOpenApiSchema {
      * @throws IOException if the JSON Element is invalid with respect to ModelOptions
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        // validate oneOf schemas one by one
-        int validCount = 0;
+        // validate anyOf schemas one by one
         ArrayList<String> errorMessages = new ArrayList<>();
         // validate the json string with TextFallbackOptions
         try {
             TextFallbackOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1498,7 +1486,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with AzureFoundryChatOptions
         try {
             AzureFoundryChatOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1510,7 +1498,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with ImagenOptions
         try {
             ImagenOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1522,7 +1510,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with VertexAIClaudeOptions
         try {
             VertexAIClaudeOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1534,7 +1522,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with VertexAIGeminiOptions
         try {
             VertexAIGeminiOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1546,7 +1534,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with VertexAIGeminiOmniVideoOptions
         try {
             VertexAIGeminiOmniVideoOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1558,7 +1546,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with VertexAIGrokOptions
         try {
             VertexAIGrokOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1570,7 +1558,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with NovaCanvasOptions
         try {
             NovaCanvasOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1582,7 +1570,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with BedrockConverseOptions
         try {
             BedrockConverseOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1594,7 +1582,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with BedrockNovaOptions
         try {
             BedrockNovaOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1606,7 +1594,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with BedrockMistralOptions
         try {
             BedrockMistralOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1618,7 +1606,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with BedrockAI21Options
         try {
             BedrockAI21Options.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1630,7 +1618,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with BedrockCohereCommandOptions
         try {
             BedrockCohereCommandOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1642,7 +1630,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with BedrockClaudeOptions
         try {
             BedrockClaudeOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1654,7 +1642,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with BedrockPalmyraOptions
         try {
             BedrockPalmyraOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1666,7 +1654,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with BedrockGptOssOptions
         try {
             BedrockGptOssOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1678,7 +1666,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with TwelvelabsPegasusOptions
         try {
             TwelvelabsPegasusOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1690,7 +1678,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with BedrockMantleResponsesOptions
         try {
             BedrockMantleResponsesOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1702,7 +1690,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with BedrockMantleChatCompletionsOptions
         try {
             BedrockMantleChatCompletionsOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1714,7 +1702,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with BedrockMantleClaudeOptions
         try {
             BedrockMantleClaudeOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1726,7 +1714,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with OpenAiThinkingOptions
         try {
             OpenAiThinkingOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1738,7 +1726,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with OpenAiTextOptions
         try {
             OpenAiTextOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1750,7 +1738,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with OpenAiDalleOptions
         try {
             OpenAiDalleOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1762,7 +1750,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with OpenAiGptImageOptions
         try {
             OpenAiGptImageOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1774,7 +1762,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with XAIGrokImageOptions
         try {
             XAIGrokImageOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1786,7 +1774,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with GroqOptions
         try {
             GroqOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1798,7 +1786,7 @@ public class ModelOptions extends AbstractOpenApiSchema {
         // validate the json string with MistralTextOptions
         try {
             MistralTextOptions.validateJsonElement(jsonElement);
-            validCount++;
+            return;
         } catch (Exception e) {
             errorMessages.add(
                     String.format(
@@ -1807,15 +1795,24 @@ public class ModelOptions extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
-        if (validCount != 1) {
-            throw new IOException(
+        // validate the json string with AnthropicClaudeOptions
+        try {
+            AnthropicClaudeOptions.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for ModelOptions with oneOf schemas: AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
-                            validCount,
-                            errorMessages,
-                            jsonElement.toString()));
+                            "Deserialization for AnthropicClaudeOptions failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
         }
+        throw new IOException(
+                String.format(
+                        java.util.Locale.ROOT,
+                        "The JSON string is invalid for ModelOptions with anyOf schemas: AnthropicClaudeOptions, AzureFoundryChatOptions, BedrockAI21Options, BedrockClaudeOptions, BedrockCohereCommandOptions, BedrockConverseOptions, BedrockGptOssOptions, BedrockMantleChatCompletionsOptions, BedrockMantleClaudeOptions, BedrockMantleResponsesOptions, BedrockMistralOptions, BedrockNovaOptions, BedrockPalmyraOptions, GroqOptions, ImagenOptions, MistralTextOptions, NovaCanvasOptions, OpenAiDalleOptions, OpenAiGptImageOptions, OpenAiTextOptions, OpenAiThinkingOptions, TextFallbackOptions, TwelvelabsPegasusOptions, VertexAIClaudeOptions, VertexAIGeminiOmniVideoOptions, VertexAIGeminiOptions, VertexAIGrokOptions, XAIGrokImageOptions. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
+                        errorMessages,
+                        jsonElement.toString()));
     }
 
     /**

@@ -94,8 +94,7 @@ public class BedrockMistralOptions {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @jakarta.annotation.Nonnull
-    private OptionIdEnum optionId;
+    @jakarta.annotation.Nullable private OptionIdEnum optionId;
 
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
@@ -111,6 +110,11 @@ public class BedrockMistralOptions {
 
     @SerializedName(SERIALIZED_NAME_TOP_P)
     @jakarta.annotation.Nullable private BigDecimal topP;
+
+    public static final String SERIALIZED_NAME_TOP_K = "top_k";
+
+    @SerializedName(SERIALIZED_NAME_TOP_K)
+    @jakarta.annotation.Nullable private BigDecimal topK;
 
     public static final String SERIALIZED_NAME_STOP_SEQUENCE = "stop_sequence";
 
@@ -129,7 +133,7 @@ public class BedrockMistralOptions {
 
     public BedrockMistralOptions() {}
 
-    public BedrockMistralOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
+    public BedrockMistralOptions optionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -138,12 +142,11 @@ public class BedrockMistralOptions {
      * Get optionId
      * @return optionId
      */
-    @jakarta.annotation.Nonnull
-    public OptionIdEnum getOptionId() {
+    @jakarta.annotation.Nullable public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
@@ -196,6 +199,23 @@ public class BedrockMistralOptions {
 
     public void setTopP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
+    }
+
+    public BedrockMistralOptions topK(@jakarta.annotation.Nullable BigDecimal topK) {
+        this.topK = topK;
+        return this;
+    }
+
+    /**
+     * Get topK
+     * @return topK
+     */
+    @jakarta.annotation.Nullable public BigDecimal getTopK() {
+        return topK;
+    }
+
+    public void setTopK(@jakarta.annotation.Nullable BigDecimal topK) {
+        this.topK = topK;
     }
 
     public BedrockMistralOptions stopSequence(
@@ -272,6 +292,7 @@ public class BedrockMistralOptions {
                 && Objects.equals(this.maxTokens, bedrockMistralOptions.maxTokens)
                 && Objects.equals(this.temperature, bedrockMistralOptions.temperature)
                 && Objects.equals(this.topP, bedrockMistralOptions.topP)
+                && Objects.equals(this.topK, bedrockMistralOptions.topK)
                 && Objects.equals(this.stopSequence, bedrockMistralOptions.stopSequence)
                 && Objects.equals(this.includeThoughts, bedrockMistralOptions.includeThoughts)
                 && Objects.equals(this.serviceTier, bedrockMistralOptions.serviceTier);
@@ -280,7 +301,14 @@ public class BedrockMistralOptions {
     @Override
     public int hashCode() {
         return Objects.hash(
-                optionId, maxTokens, temperature, topP, stopSequence, includeThoughts, serviceTier);
+                optionId,
+                maxTokens,
+                temperature,
+                topP,
+                topK,
+                stopSequence,
+                includeThoughts,
+                serviceTier);
     }
 
     @Override
@@ -291,6 +319,7 @@ public class BedrockMistralOptions {
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
         sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
         sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
+        sb.append("    topK: ").append(toIndentedString(topK)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
@@ -318,12 +347,13 @@ public class BedrockMistralOptions {
                                 "max_tokens",
                                 "temperature",
                                 "top_p",
+                                "top_k",
                                 "stop_sequence",
                                 "include_thoughts",
                                 "service_tier"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));
+        openapiRequiredFields = new HashSet<String>(0);
     }
 
     /**
@@ -343,28 +373,19 @@ public class BedrockMistralOptions {
                                 BedrockMistralOptions.openapiRequiredFields.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : BedrockMistralOptions.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                java.util.Locale.ROOT,
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField,
-                                jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("_option_id").isJsonPrimitive()) {
+        if ((jsonObj.get("_option_id") != null && !jsonObj.get("_option_id").isJsonNull())
+                && !jsonObj.get("_option_id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
                             "Expected the field `_option_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("_option_id").toString()));
         }
-        // validate the required field `_option_id`
-        OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        // validate the optional field `_option_id`
+        if (jsonObj.get("_option_id") != null && !jsonObj.get("_option_id").isJsonNull()) {
+            OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        }
         // ensure the optional json data is an array if present
         if (jsonObj.get("stop_sequence") != null
                 && !jsonObj.get("stop_sequence").isJsonNull()

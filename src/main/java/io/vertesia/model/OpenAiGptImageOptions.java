@@ -91,8 +91,7 @@ public class OpenAiGptImageOptions {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @jakarta.annotation.Nonnull
-    private OptionIdEnum optionId;
+    @jakarta.annotation.Nullable private OptionIdEnum optionId;
 
     /**
      * Gets or Sets size
@@ -348,7 +347,7 @@ public class OpenAiGptImageOptions {
 
     public OpenAiGptImageOptions() {}
 
-    public OpenAiGptImageOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
+    public OpenAiGptImageOptions optionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -357,12 +356,11 @@ public class OpenAiGptImageOptions {
      * Get optionId
      * @return optionId
      */
-    @jakarta.annotation.Nonnull
-    public OptionIdEnum getOptionId() {
+    @jakarta.annotation.Nullable public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
@@ -494,7 +492,7 @@ public class OpenAiGptImageOptions {
                                 "output_format"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));
+        openapiRequiredFields = new HashSet<String>(0);
     }
 
     /**
@@ -514,28 +512,19 @@ public class OpenAiGptImageOptions {
                                 OpenAiGptImageOptions.openapiRequiredFields.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : OpenAiGptImageOptions.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                java.util.Locale.ROOT,
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField,
-                                jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("_option_id").isJsonPrimitive()) {
+        if ((jsonObj.get("_option_id") != null && !jsonObj.get("_option_id").isJsonNull())
+                && !jsonObj.get("_option_id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
                             "Expected the field `_option_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("_option_id").toString()));
         }
-        // validate the required field `_option_id`
-        OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        // validate the optional field `_option_id`
+        if (jsonObj.get("_option_id") != null && !jsonObj.get("_option_id").isJsonNull()) {
+            OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        }
         if ((jsonObj.get("size") != null && !jsonObj.get("size").isJsonNull())
                 && !jsonObj.get("size").isJsonPrimitive()) {
             throw new IllegalArgumentException(

@@ -96,8 +96,7 @@ public class OpenAiThinkingOptions {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @jakarta.annotation.Nonnull
-    private OptionIdEnum optionId;
+    @jakarta.annotation.Nullable private OptionIdEnum optionId;
 
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
@@ -198,7 +197,7 @@ public class OpenAiThinkingOptions {
 
     public OpenAiThinkingOptions() {}
 
-    public OpenAiThinkingOptions optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
+    public OpenAiThinkingOptions optionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -207,12 +206,11 @@ public class OpenAiThinkingOptions {
      * Get optionId
      * @return optionId
      */
-    @jakarta.annotation.Nonnull
-    public OptionIdEnum getOptionId() {
+    @jakarta.annotation.Nullable public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
@@ -502,7 +500,7 @@ public class OpenAiThinkingOptions {
                                 "extra_body"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));
+        openapiRequiredFields = new HashSet<String>(0);
     }
 
     /**
@@ -522,28 +520,19 @@ public class OpenAiThinkingOptions {
                                 OpenAiThinkingOptions.openapiRequiredFields.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : OpenAiThinkingOptions.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                java.util.Locale.ROOT,
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField,
-                                jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("_option_id").isJsonPrimitive()) {
+        if ((jsonObj.get("_option_id") != null && !jsonObj.get("_option_id").isJsonNull())
+                && !jsonObj.get("_option_id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
                             "Expected the field `_option_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("_option_id").toString()));
         }
-        // validate the required field `_option_id`
-        OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        // validate the optional field `_option_id`
+        if (jsonObj.get("_option_id") != null && !jsonObj.get("_option_id").isJsonNull()) {
+            OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        }
         // ensure the optional json data is an array if present
         if (jsonObj.get("stop_sequence") != null
                 && !jsonObj.get("stop_sequence").isJsonNull()

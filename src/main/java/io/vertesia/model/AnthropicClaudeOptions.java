@@ -32,18 +32,18 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * AzureFoundryChatOptions
+ * AnthropicClaudeOptions
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class AzureFoundryChatOptions {
+public class AnthropicClaudeOptions {
     /**
      * Gets or Sets optionId
      */
     @JsonAdapter(OptionIdEnum.Adapter.class)
     public enum OptionIdEnum {
-        AZURE_FOUNDRY_CHAT("azure-foundry-chat"),
+        ANTHROPIC_CLAUDE("anthropic-claude"),
 
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
@@ -111,42 +111,36 @@ public class AzureFoundryChatOptions {
     @SerializedName(SERIALIZED_NAME_TOP_P)
     @jakarta.annotation.Nullable private BigDecimal topP;
 
-    public static final String SERIALIZED_NAME_PRESENCE_PENALTY = "presence_penalty";
+    public static final String SERIALIZED_NAME_TOP_K = "top_k";
 
-    @SerializedName(SERIALIZED_NAME_PRESENCE_PENALTY)
-    @jakarta.annotation.Nullable private BigDecimal presencePenalty;
-
-    public static final String SERIALIZED_NAME_FREQUENCY_PENALTY = "frequency_penalty";
-
-    @SerializedName(SERIALIZED_NAME_FREQUENCY_PENALTY)
-    @jakarta.annotation.Nullable private BigDecimal frequencyPenalty;
+    @SerializedName(SERIALIZED_NAME_TOP_K)
+    @jakarta.annotation.Nullable private BigDecimal topK;
 
     public static final String SERIALIZED_NAME_STOP_SEQUENCE = "stop_sequence";
 
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
     @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
-    public static final String SERIALIZED_NAME_SEED = "seed";
-
-    @SerializedName(SERIALIZED_NAME_SEED)
-    @jakarta.annotation.Nullable private BigDecimal seed;
-
     /**
-     * Gets or Sets imageDetail
+     * Gets or Sets effort
      */
-    @JsonAdapter(ImageDetailEnum.Adapter.class)
-    public enum ImageDetailEnum {
+    @JsonAdapter(EffortEnum.Adapter.class)
+    public enum EffortEnum {
         LOW("low"),
+
+        MEDIUM("medium"),
 
         HIGH("high"),
 
-        AUTO("auto"),
+        XHIGH("xhigh"),
+
+        MAX("max"),
 
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
         private String value;
 
-        ImageDetailEnum(String value) {
+        EffortEnum(String value) {
             this.value = value;
         }
 
@@ -159,8 +153,8 @@ public class AzureFoundryChatOptions {
             return String.valueOf(value);
         }
 
-        public static ImageDetailEnum fromValue(String value) {
-            for (ImageDetailEnum b : ImageDetailEnum.values()) {
+        public static EffortEnum fromValue(String value) {
+            for (EffortEnum b : EffortEnum.values()) {
                 if (b.value.equals(value)) {
                     return b;
                 }
@@ -168,39 +162,109 @@ public class AzureFoundryChatOptions {
             return UNKNOWN_DEFAULT_OPEN_API;
         }
 
-        public static class Adapter extends TypeAdapter<ImageDetailEnum> {
+        public static class Adapter extends TypeAdapter<EffortEnum> {
             @Override
-            public void write(final JsonWriter jsonWriter, final ImageDetailEnum enumeration)
+            public void write(final JsonWriter jsonWriter, final EffortEnum enumeration)
                     throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public ImageDetailEnum read(final JsonReader jsonReader) throws IOException {
+            public EffortEnum read(final JsonReader jsonReader) throws IOException {
                 String value = jsonReader.nextString();
-                return ImageDetailEnum.fromValue(value);
+                return EffortEnum.fromValue(value);
             }
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
             String value = jsonElement.getAsString();
-            ImageDetailEnum.fromValue(value);
+            EffortEnum.fromValue(value);
         }
     }
 
-    public static final String SERIALIZED_NAME_IMAGE_DETAIL = "image_detail";
+    public static final String SERIALIZED_NAME_EFFORT = "effort";
 
-    @SerializedName(SERIALIZED_NAME_IMAGE_DETAIL)
-    @jakarta.annotation.Nullable private ImageDetailEnum imageDetail;
+    @SerializedName(SERIALIZED_NAME_EFFORT)
+    @jakarta.annotation.Nullable private EffortEnum effort;
+
+    public static final String SERIALIZED_NAME_THINKING_BUDGET_TOKENS = "thinking_budget_tokens";
+
+    @SerializedName(SERIALIZED_NAME_THINKING_BUDGET_TOKENS)
+    @jakarta.annotation.Nullable private BigDecimal thinkingBudgetTokens;
 
     public static final String SERIALIZED_NAME_INCLUDE_THOUGHTS = "include_thoughts";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
     @jakarta.annotation.Nullable private Boolean includeThoughts;
 
-    public AzureFoundryChatOptions() {}
+    public static final String SERIALIZED_NAME_CACHE_ENABLED = "cache_enabled";
 
-    public AzureFoundryChatOptions optionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
+    @SerializedName(SERIALIZED_NAME_CACHE_ENABLED)
+    @jakarta.annotation.Nullable private Boolean cacheEnabled;
+
+    /**
+     * Gets or Sets cacheTtl
+     */
+    @JsonAdapter(CacheTtlEnum.Adapter.class)
+    public enum CacheTtlEnum {
+        _5M("5m"),
+
+        _1H("1h"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        CacheTtlEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static CacheTtlEnum fromValue(String value) {
+            for (CacheTtlEnum b : CacheTtlEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<CacheTtlEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CacheTtlEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CacheTtlEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return CacheTtlEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            CacheTtlEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_CACHE_TTL = "cache_ttl";
+
+    @SerializedName(SERIALIZED_NAME_CACHE_TTL)
+    @jakarta.annotation.Nullable private CacheTtlEnum cacheTtl;
+
+    public AnthropicClaudeOptions() {}
+
+    public AnthropicClaudeOptions optionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -217,7 +281,7 @@ public class AzureFoundryChatOptions {
         this.optionId = optionId;
     }
 
-    public AzureFoundryChatOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
+    public AnthropicClaudeOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
         return this;
     }
@@ -234,8 +298,7 @@ public class AzureFoundryChatOptions {
         this.maxTokens = maxTokens;
     }
 
-    public AzureFoundryChatOptions temperature(
-            @jakarta.annotation.Nullable BigDecimal temperature) {
+    public AnthropicClaudeOptions temperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
         return this;
     }
@@ -252,7 +315,7 @@ public class AzureFoundryChatOptions {
         this.temperature = temperature;
     }
 
-    public AzureFoundryChatOptions topP(@jakarta.annotation.Nullable BigDecimal topP) {
+    public AnthropicClaudeOptions topP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
         return this;
     }
@@ -269,49 +332,30 @@ public class AzureFoundryChatOptions {
         this.topP = topP;
     }
 
-    public AzureFoundryChatOptions presencePenalty(
-            @jakarta.annotation.Nullable BigDecimal presencePenalty) {
-        this.presencePenalty = presencePenalty;
+    public AnthropicClaudeOptions topK(@jakarta.annotation.Nullable BigDecimal topK) {
+        this.topK = topK;
         return this;
     }
 
     /**
-     * Get presencePenalty
-     * @return presencePenalty
+     * Get topK
+     * @return topK
      */
-    @jakarta.annotation.Nullable public BigDecimal getPresencePenalty() {
-        return presencePenalty;
+    @jakarta.annotation.Nullable public BigDecimal getTopK() {
+        return topK;
     }
 
-    public void setPresencePenalty(@jakarta.annotation.Nullable BigDecimal presencePenalty) {
-        this.presencePenalty = presencePenalty;
+    public void setTopK(@jakarta.annotation.Nullable BigDecimal topK) {
+        this.topK = topK;
     }
 
-    public AzureFoundryChatOptions frequencyPenalty(
-            @jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
-        this.frequencyPenalty = frequencyPenalty;
-        return this;
-    }
-
-    /**
-     * Get frequencyPenalty
-     * @return frequencyPenalty
-     */
-    @jakarta.annotation.Nullable public BigDecimal getFrequencyPenalty() {
-        return frequencyPenalty;
-    }
-
-    public void setFrequencyPenalty(@jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
-        this.frequencyPenalty = frequencyPenalty;
-    }
-
-    public AzureFoundryChatOptions stopSequence(
+    public AnthropicClaudeOptions stopSequence(
             @jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
         return this;
     }
 
-    public AzureFoundryChatOptions addStopSequenceItem(String stopSequenceItem) {
+    public AnthropicClaudeOptions addStopSequenceItem(String stopSequenceItem) {
         if (this.stopSequence == null) {
             this.stopSequence = new ArrayList<>();
         }
@@ -331,42 +375,43 @@ public class AzureFoundryChatOptions {
         this.stopSequence = stopSequence;
     }
 
-    public AzureFoundryChatOptions seed(@jakarta.annotation.Nullable BigDecimal seed) {
-        this.seed = seed;
+    public AnthropicClaudeOptions effort(@jakarta.annotation.Nullable EffortEnum effort) {
+        this.effort = effort;
         return this;
     }
 
     /**
-     * Get seed
-     * @return seed
+     * Get effort
+     * @return effort
      */
-    @jakarta.annotation.Nullable public BigDecimal getSeed() {
-        return seed;
+    @jakarta.annotation.Nullable public EffortEnum getEffort() {
+        return effort;
     }
 
-    public void setSeed(@jakarta.annotation.Nullable BigDecimal seed) {
-        this.seed = seed;
+    public void setEffort(@jakarta.annotation.Nullable EffortEnum effort) {
+        this.effort = effort;
     }
 
-    public AzureFoundryChatOptions imageDetail(
-            @jakarta.annotation.Nullable ImageDetailEnum imageDetail) {
-        this.imageDetail = imageDetail;
+    public AnthropicClaudeOptions thinkingBudgetTokens(
+            @jakarta.annotation.Nullable BigDecimal thinkingBudgetTokens) {
+        this.thinkingBudgetTokens = thinkingBudgetTokens;
         return this;
     }
 
     /**
-     * Get imageDetail
-     * @return imageDetail
+     * Get thinkingBudgetTokens
+     * @return thinkingBudgetTokens
      */
-    @jakarta.annotation.Nullable public ImageDetailEnum getImageDetail() {
-        return imageDetail;
+    @jakarta.annotation.Nullable public BigDecimal getThinkingBudgetTokens() {
+        return thinkingBudgetTokens;
     }
 
-    public void setImageDetail(@jakarta.annotation.Nullable ImageDetailEnum imageDetail) {
-        this.imageDetail = imageDetail;
+    public void setThinkingBudgetTokens(
+            @jakarta.annotation.Nullable BigDecimal thinkingBudgetTokens) {
+        this.thinkingBudgetTokens = thinkingBudgetTokens;
     }
 
-    public AzureFoundryChatOptions includeThoughts(
+    public AnthropicClaudeOptions includeThoughts(
             @jakarta.annotation.Nullable Boolean includeThoughts) {
         this.includeThoughts = includeThoughts;
         return this;
@@ -384,6 +429,40 @@ public class AzureFoundryChatOptions {
         this.includeThoughts = includeThoughts;
     }
 
+    public AnthropicClaudeOptions cacheEnabled(@jakarta.annotation.Nullable Boolean cacheEnabled) {
+        this.cacheEnabled = cacheEnabled;
+        return this;
+    }
+
+    /**
+     * Get cacheEnabled
+     * @return cacheEnabled
+     */
+    @jakarta.annotation.Nullable public Boolean getCacheEnabled() {
+        return cacheEnabled;
+    }
+
+    public void setCacheEnabled(@jakarta.annotation.Nullable Boolean cacheEnabled) {
+        this.cacheEnabled = cacheEnabled;
+    }
+
+    public AnthropicClaudeOptions cacheTtl(@jakarta.annotation.Nullable CacheTtlEnum cacheTtl) {
+        this.cacheTtl = cacheTtl;
+        return this;
+    }
+
+    /**
+     * Get cacheTtl
+     * @return cacheTtl
+     */
+    @jakarta.annotation.Nullable public CacheTtlEnum getCacheTtl() {
+        return cacheTtl;
+    }
+
+    public void setCacheTtl(@jakarta.annotation.Nullable CacheTtlEnum cacheTtl) {
+        this.cacheTtl = cacheTtl;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -392,17 +471,19 @@ public class AzureFoundryChatOptions {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        AzureFoundryChatOptions azureFoundryChatOptions = (AzureFoundryChatOptions) o;
-        return Objects.equals(this.optionId, azureFoundryChatOptions.optionId)
-                && Objects.equals(this.maxTokens, azureFoundryChatOptions.maxTokens)
-                && Objects.equals(this.temperature, azureFoundryChatOptions.temperature)
-                && Objects.equals(this.topP, azureFoundryChatOptions.topP)
-                && Objects.equals(this.presencePenalty, azureFoundryChatOptions.presencePenalty)
-                && Objects.equals(this.frequencyPenalty, azureFoundryChatOptions.frequencyPenalty)
-                && Objects.equals(this.stopSequence, azureFoundryChatOptions.stopSequence)
-                && Objects.equals(this.seed, azureFoundryChatOptions.seed)
-                && Objects.equals(this.imageDetail, azureFoundryChatOptions.imageDetail)
-                && Objects.equals(this.includeThoughts, azureFoundryChatOptions.includeThoughts);
+        AnthropicClaudeOptions anthropicClaudeOptions = (AnthropicClaudeOptions) o;
+        return Objects.equals(this.optionId, anthropicClaudeOptions.optionId)
+                && Objects.equals(this.maxTokens, anthropicClaudeOptions.maxTokens)
+                && Objects.equals(this.temperature, anthropicClaudeOptions.temperature)
+                && Objects.equals(this.topP, anthropicClaudeOptions.topP)
+                && Objects.equals(this.topK, anthropicClaudeOptions.topK)
+                && Objects.equals(this.stopSequence, anthropicClaudeOptions.stopSequence)
+                && Objects.equals(this.effort, anthropicClaudeOptions.effort)
+                && Objects.equals(
+                        this.thinkingBudgetTokens, anthropicClaudeOptions.thinkingBudgetTokens)
+                && Objects.equals(this.includeThoughts, anthropicClaudeOptions.includeThoughts)
+                && Objects.equals(this.cacheEnabled, anthropicClaudeOptions.cacheEnabled)
+                && Objects.equals(this.cacheTtl, anthropicClaudeOptions.cacheTtl);
     }
 
     @Override
@@ -412,28 +493,32 @@ public class AzureFoundryChatOptions {
                 maxTokens,
                 temperature,
                 topP,
-                presencePenalty,
-                frequencyPenalty,
+                topK,
                 stopSequence,
-                seed,
-                imageDetail,
-                includeThoughts);
+                effort,
+                thinkingBudgetTokens,
+                includeThoughts,
+                cacheEnabled,
+                cacheTtl);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class AzureFoundryChatOptions {\n");
+        sb.append("class AnthropicClaudeOptions {\n");
         sb.append("    optionId: ").append(toIndentedString(optionId)).append("\n");
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
         sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
         sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
-        sb.append("    presencePenalty: ").append(toIndentedString(presencePenalty)).append("\n");
-        sb.append("    frequencyPenalty: ").append(toIndentedString(frequencyPenalty)).append("\n");
+        sb.append("    topK: ").append(toIndentedString(topK)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
-        sb.append("    seed: ").append(toIndentedString(seed)).append("\n");
-        sb.append("    imageDetail: ").append(toIndentedString(imageDetail)).append("\n");
+        sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
+        sb.append("    thinkingBudgetTokens: ")
+                .append(toIndentedString(thinkingBudgetTokens))
+                .append("\n");
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
+        sb.append("    cacheEnabled: ").append(toIndentedString(cacheEnabled)).append("\n");
+        sb.append("    cacheTtl: ").append(toIndentedString(cacheTtl)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -458,12 +543,13 @@ public class AzureFoundryChatOptions {
                                 "max_tokens",
                                 "temperature",
                                 "top_p",
-                                "presence_penalty",
-                                "frequency_penalty",
+                                "top_k",
                                 "stop_sequence",
-                                "seed",
-                                "image_detail",
-                                "include_thoughts"));
+                                "effort",
+                                "thinking_budget_tokens",
+                                "include_thoughts",
+                                "cache_enabled",
+                                "cache_ttl"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -473,17 +559,17 @@ public class AzureFoundryChatOptions {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to AzureFoundryChatOptions
+     * @throws IOException if the JSON Element is invalid with respect to AnthropicClaudeOptions
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!AzureFoundryChatOptions.openapiRequiredFields
+            if (!AnthropicClaudeOptions.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 java.util.Locale.ROOT,
-                                "The required field(s) %s in AzureFoundryChatOptions is not found in the empty JSON string",
-                                AzureFoundryChatOptions.openapiRequiredFields.toString()));
+                                "The required field(s) %s in AnthropicClaudeOptions is not found in the empty JSON string",
+                                AnthropicClaudeOptions.openapiRequiredFields.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -509,17 +595,29 @@ public class AzureFoundryChatOptions {
                             "Expected the field `stop_sequence` to be an array in the JSON string but got `%s`",
                             jsonObj.get("stop_sequence").toString()));
         }
-        if ((jsonObj.get("image_detail") != null && !jsonObj.get("image_detail").isJsonNull())
-                && !jsonObj.get("image_detail").isJsonPrimitive()) {
+        if ((jsonObj.get("effort") != null && !jsonObj.get("effort").isJsonNull())
+                && !jsonObj.get("effort").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `image_detail` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("image_detail").toString()));
+                            "Expected the field `effort` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("effort").toString()));
         }
-        // validate the optional field `image_detail`
-        if (jsonObj.get("image_detail") != null && !jsonObj.get("image_detail").isJsonNull()) {
-            ImageDetailEnum.validateJsonElement(jsonObj.get("image_detail"));
+        // validate the optional field `effort`
+        if (jsonObj.get("effort") != null && !jsonObj.get("effort").isJsonNull()) {
+            EffortEnum.validateJsonElement(jsonObj.get("effort"));
+        }
+        if ((jsonObj.get("cache_ttl") != null && !jsonObj.get("cache_ttl").isJsonNull())
+                && !jsonObj.get("cache_ttl").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `cache_ttl` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("cache_ttl").toString()));
+        }
+        // validate the optional field `cache_ttl`
+        if (jsonObj.get("cache_ttl") != null && !jsonObj.get("cache_ttl").isJsonNull()) {
+            CacheTtlEnum.validateJsonElement(jsonObj.get("cache_ttl"));
         }
     }
 
@@ -527,25 +625,24 @@ public class AzureFoundryChatOptions {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!AzureFoundryChatOptions.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'AzureFoundryChatOptions' and its
-                // subtypes
+            if (!AnthropicClaudeOptions.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'AnthropicClaudeOptions' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AzureFoundryChatOptions> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(AzureFoundryChatOptions.class));
+            final TypeAdapter<AnthropicClaudeOptions> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(AnthropicClaudeOptions.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<AzureFoundryChatOptions>() {
+                    new TypeAdapter<AnthropicClaudeOptions>() {
                         @Override
-                        public void write(JsonWriter out, AzureFoundryChatOptions value)
+                        public void write(JsonWriter out, AnthropicClaudeOptions value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public AzureFoundryChatOptions read(JsonReader in) throws IOException {
+                        public AnthropicClaudeOptions read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -555,18 +652,18 @@ public class AzureFoundryChatOptions {
     }
 
     /**
-     * Create an instance of AzureFoundryChatOptions given an JSON string
+     * Create an instance of AnthropicClaudeOptions given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of AzureFoundryChatOptions
-     * @throws IOException if the JSON string is invalid with respect to AzureFoundryChatOptions
+     * @return An instance of AnthropicClaudeOptions
+     * @throws IOException if the JSON string is invalid with respect to AnthropicClaudeOptions
      */
-    public static AzureFoundryChatOptions fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, AzureFoundryChatOptions.class);
+    public static AnthropicClaudeOptions fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, AnthropicClaudeOptions.class);
     }
 
     /**
-     * Convert an instance of AzureFoundryChatOptions to an JSON string
+     * Convert an instance of AnthropicClaudeOptions to an JSON string
      *
      * @return JSON string
      */
