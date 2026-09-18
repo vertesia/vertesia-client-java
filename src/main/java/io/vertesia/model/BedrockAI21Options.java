@@ -94,8 +94,7 @@ public class BedrockAI21Options {
     public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
 
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @jakarta.annotation.Nonnull
-    private OptionIdEnum optionId;
+    @jakarta.annotation.Nullable private OptionIdEnum optionId;
 
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
@@ -111,6 +110,16 @@ public class BedrockAI21Options {
 
     @SerializedName(SERIALIZED_NAME_TOP_P)
     @jakarta.annotation.Nullable private BigDecimal topP;
+
+    public static final String SERIALIZED_NAME_PRESENCE_PENALTY = "presence_penalty";
+
+    @SerializedName(SERIALIZED_NAME_PRESENCE_PENALTY)
+    @jakarta.annotation.Nullable private BigDecimal presencePenalty;
+
+    public static final String SERIALIZED_NAME_FREQUENCY_PENALTY = "frequency_penalty";
+
+    @SerializedName(SERIALIZED_NAME_FREQUENCY_PENALTY)
+    @jakarta.annotation.Nullable private BigDecimal frequencyPenalty;
 
     public static final String SERIALIZED_NAME_STOP_SEQUENCE = "stop_sequence";
 
@@ -129,7 +138,7 @@ public class BedrockAI21Options {
 
     public BedrockAI21Options() {}
 
-    public BedrockAI21Options optionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
+    public BedrockAI21Options optionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -138,12 +147,11 @@ public class BedrockAI21Options {
      * Get optionId
      * @return optionId
      */
-    @jakarta.annotation.Nonnull
-    public OptionIdEnum getOptionId() {
+    @jakarta.annotation.Nullable public OptionIdEnum getOptionId() {
         return optionId;
     }
 
-    public void setOptionId(@jakarta.annotation.Nonnull OptionIdEnum optionId) {
+    public void setOptionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
         this.optionId = optionId;
     }
 
@@ -196,6 +204,42 @@ public class BedrockAI21Options {
 
     public void setTopP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
+    }
+
+    public BedrockAI21Options presencePenalty(
+            @jakarta.annotation.Nullable BigDecimal presencePenalty) {
+        this.presencePenalty = presencePenalty;
+        return this;
+    }
+
+    /**
+     * Get presencePenalty
+     * @return presencePenalty
+     */
+    @jakarta.annotation.Nullable public BigDecimal getPresencePenalty() {
+        return presencePenalty;
+    }
+
+    public void setPresencePenalty(@jakarta.annotation.Nullable BigDecimal presencePenalty) {
+        this.presencePenalty = presencePenalty;
+    }
+
+    public BedrockAI21Options frequencyPenalty(
+            @jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
+        this.frequencyPenalty = frequencyPenalty;
+        return this;
+    }
+
+    /**
+     * Get frequencyPenalty
+     * @return frequencyPenalty
+     */
+    @jakarta.annotation.Nullable public BigDecimal getFrequencyPenalty() {
+        return frequencyPenalty;
+    }
+
+    public void setFrequencyPenalty(@jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
+        this.frequencyPenalty = frequencyPenalty;
     }
 
     public BedrockAI21Options stopSequence(@jakarta.annotation.Nullable List<String> stopSequence) {
@@ -271,6 +315,8 @@ public class BedrockAI21Options {
                 && Objects.equals(this.maxTokens, bedrockAI21Options.maxTokens)
                 && Objects.equals(this.temperature, bedrockAI21Options.temperature)
                 && Objects.equals(this.topP, bedrockAI21Options.topP)
+                && Objects.equals(this.presencePenalty, bedrockAI21Options.presencePenalty)
+                && Objects.equals(this.frequencyPenalty, bedrockAI21Options.frequencyPenalty)
                 && Objects.equals(this.stopSequence, bedrockAI21Options.stopSequence)
                 && Objects.equals(this.includeThoughts, bedrockAI21Options.includeThoughts)
                 && Objects.equals(this.serviceTier, bedrockAI21Options.serviceTier);
@@ -279,7 +325,15 @@ public class BedrockAI21Options {
     @Override
     public int hashCode() {
         return Objects.hash(
-                optionId, maxTokens, temperature, topP, stopSequence, includeThoughts, serviceTier);
+                optionId,
+                maxTokens,
+                temperature,
+                topP,
+                presencePenalty,
+                frequencyPenalty,
+                stopSequence,
+                includeThoughts,
+                serviceTier);
     }
 
     @Override
@@ -290,6 +344,8 @@ public class BedrockAI21Options {
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
         sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
         sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
+        sb.append("    presencePenalty: ").append(toIndentedString(presencePenalty)).append("\n");
+        sb.append("    frequencyPenalty: ").append(toIndentedString(frequencyPenalty)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
@@ -317,12 +373,14 @@ public class BedrockAI21Options {
                                 "max_tokens",
                                 "temperature",
                                 "top_p",
+                                "presence_penalty",
+                                "frequency_penalty",
                                 "stop_sequence",
                                 "include_thoughts",
                                 "service_tier"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("_option_id"));
+        openapiRequiredFields = new HashSet<String>(0);
     }
 
     /**
@@ -342,28 +400,19 @@ public class BedrockAI21Options {
                                 BedrockAI21Options.openapiRequiredFields.toString()));
             }
         }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : BedrockAI21Options.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                java.util.Locale.ROOT,
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField,
-                                jsonElement.toString()));
-            }
-        }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if (!jsonObj.get("_option_id").isJsonPrimitive()) {
+        if ((jsonObj.get("_option_id") != null && !jsonObj.get("_option_id").isJsonNull())
+                && !jsonObj.get("_option_id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
                             "Expected the field `_option_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("_option_id").toString()));
         }
-        // validate the required field `_option_id`
-        OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        // validate the optional field `_option_id`
+        if (jsonObj.get("_option_id") != null && !jsonObj.get("_option_id").isJsonNull()) {
+            OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        }
         // ensure the optional json data is an array if present
         if (jsonObj.get("stop_sequence") != null
                 && !jsonObj.get("stop_sequence").isJsonNull()

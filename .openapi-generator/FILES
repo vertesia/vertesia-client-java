@@ -133,6 +133,7 @@ src/main/java/io/vertesia/model/AlterTableOperationOneOf3.java
 src/main/java/io/vertesia/model/AlterTablePayload.java
 src/main/java/io/vertesia/model/AnalyticsAxis.java
 src/main/java/io/vertesia/model/AnswerProcessTaskPayload.java
+src/main/java/io/vertesia/model/AnthropicClaudeOptions.java
 src/main/java/io/vertesia/model/ApiKey.java
 src/main/java/io/vertesia/model/ApiKeyReadResponse.java
 src/main/java/io/vertesia/model/ApiKeyTokenRequest.java

@@ -32,18 +32,18 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * BedrockGptOssOptions
+ * AnthropicClaudeOptions
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class BedrockGptOssOptions {
+public class AnthropicClaudeOptions {
     /**
      * Gets or Sets optionId
      */
     @JsonAdapter(OptionIdEnum.Adapter.class)
     public enum OptionIdEnum {
-        BEDROCK_GPT_OSS("bedrock-gpt-oss"),
+        ANTHROPIC_CLAUDE("anthropic-claude"),
 
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
@@ -111,27 +111,36 @@ public class BedrockGptOssOptions {
     @SerializedName(SERIALIZED_NAME_TOP_P)
     @jakarta.annotation.Nullable private BigDecimal topP;
 
+    public static final String SERIALIZED_NAME_TOP_K = "top_k";
+
+    @SerializedName(SERIALIZED_NAME_TOP_K)
+    @jakarta.annotation.Nullable private BigDecimal topK;
+
     public static final String SERIALIZED_NAME_STOP_SEQUENCE = "stop_sequence";
 
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
     @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
     /**
-     * Gets or Sets reasoningEffort
+     * Gets or Sets effort
      */
-    @JsonAdapter(ReasoningEffortEnum.Adapter.class)
-    public enum ReasoningEffortEnum {
+    @JsonAdapter(EffortEnum.Adapter.class)
+    public enum EffortEnum {
         LOW("low"),
 
         MEDIUM("medium"),
 
         HIGH("high"),
 
+        XHIGH("xhigh"),
+
+        MAX("max"),
+
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
         private String value;
 
-        ReasoningEffortEnum(String value) {
+        EffortEnum(String value) {
             this.value = value;
         }
 
@@ -144,8 +153,8 @@ public class BedrockGptOssOptions {
             return String.valueOf(value);
         }
 
-        public static ReasoningEffortEnum fromValue(String value) {
-            for (ReasoningEffortEnum b : ReasoningEffortEnum.values()) {
+        public static EffortEnum fromValue(String value) {
+            for (EffortEnum b : EffortEnum.values()) {
                 if (b.value.equals(value)) {
                     return b;
                 }
@@ -153,49 +162,109 @@ public class BedrockGptOssOptions {
             return UNKNOWN_DEFAULT_OPEN_API;
         }
 
-        public static class Adapter extends TypeAdapter<ReasoningEffortEnum> {
+        public static class Adapter extends TypeAdapter<EffortEnum> {
             @Override
-            public void write(final JsonWriter jsonWriter, final ReasoningEffortEnum enumeration)
+            public void write(final JsonWriter jsonWriter, final EffortEnum enumeration)
                     throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public ReasoningEffortEnum read(final JsonReader jsonReader) throws IOException {
+            public EffortEnum read(final JsonReader jsonReader) throws IOException {
                 String value = jsonReader.nextString();
-                return ReasoningEffortEnum.fromValue(value);
+                return EffortEnum.fromValue(value);
             }
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
             String value = jsonElement.getAsString();
-            ReasoningEffortEnum.fromValue(value);
+            EffortEnum.fromValue(value);
         }
     }
 
-    public static final String SERIALIZED_NAME_REASONING_EFFORT = "reasoning_effort";
+    public static final String SERIALIZED_NAME_EFFORT = "effort";
 
-    @SerializedName(SERIALIZED_NAME_REASONING_EFFORT)
-    @jakarta.annotation.Nullable private ReasoningEffortEnum reasoningEffort;
+    @SerializedName(SERIALIZED_NAME_EFFORT)
+    @jakarta.annotation.Nullable private EffortEnum effort;
 
-    public static final String SERIALIZED_NAME_FREQUENCY_PENALTY = "frequency_penalty";
+    public static final String SERIALIZED_NAME_THINKING_BUDGET_TOKENS = "thinking_budget_tokens";
 
-    @SerializedName(SERIALIZED_NAME_FREQUENCY_PENALTY)
-    @jakarta.annotation.Nullable private BigDecimal frequencyPenalty;
+    @SerializedName(SERIALIZED_NAME_THINKING_BUDGET_TOKENS)
+    @jakarta.annotation.Nullable private BigDecimal thinkingBudgetTokens;
 
-    public static final String SERIALIZED_NAME_PRESENCE_PENALTY = "presence_penalty";
+    public static final String SERIALIZED_NAME_INCLUDE_THOUGHTS = "include_thoughts";
 
-    @SerializedName(SERIALIZED_NAME_PRESENCE_PENALTY)
-    @jakarta.annotation.Nullable private BigDecimal presencePenalty;
+    @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
+    @jakarta.annotation.Nullable private Boolean includeThoughts;
 
-    public static final String SERIALIZED_NAME_SERVICE_TIER = "service_tier";
+    public static final String SERIALIZED_NAME_CACHE_ENABLED = "cache_enabled";
 
-    @SerializedName(SERIALIZED_NAME_SERVICE_TIER)
-    @jakarta.annotation.Nullable private String serviceTier;
+    @SerializedName(SERIALIZED_NAME_CACHE_ENABLED)
+    @jakarta.annotation.Nullable private Boolean cacheEnabled;
 
-    public BedrockGptOssOptions() {}
+    /**
+     * Gets or Sets cacheTtl
+     */
+    @JsonAdapter(CacheTtlEnum.Adapter.class)
+    public enum CacheTtlEnum {
+        _5M("5m"),
 
-    public BedrockGptOssOptions optionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
+        _1H("1h"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        CacheTtlEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static CacheTtlEnum fromValue(String value) {
+            for (CacheTtlEnum b : CacheTtlEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<CacheTtlEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final CacheTtlEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public CacheTtlEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return CacheTtlEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            CacheTtlEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_CACHE_TTL = "cache_ttl";
+
+    @SerializedName(SERIALIZED_NAME_CACHE_TTL)
+    @jakarta.annotation.Nullable private CacheTtlEnum cacheTtl;
+
+    public AnthropicClaudeOptions() {}
+
+    public AnthropicClaudeOptions optionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
         this.optionId = optionId;
         return this;
     }
@@ -212,7 +281,7 @@ public class BedrockGptOssOptions {
         this.optionId = optionId;
     }
 
-    public BedrockGptOssOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
+    public AnthropicClaudeOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
         return this;
     }
@@ -229,7 +298,7 @@ public class BedrockGptOssOptions {
         this.maxTokens = maxTokens;
     }
 
-    public BedrockGptOssOptions temperature(@jakarta.annotation.Nullable BigDecimal temperature) {
+    public AnthropicClaudeOptions temperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
         return this;
     }
@@ -246,7 +315,7 @@ public class BedrockGptOssOptions {
         this.temperature = temperature;
     }
 
-    public BedrockGptOssOptions topP(@jakarta.annotation.Nullable BigDecimal topP) {
+    public AnthropicClaudeOptions topP(@jakarta.annotation.Nullable BigDecimal topP) {
         this.topP = topP;
         return this;
     }
@@ -263,13 +332,30 @@ public class BedrockGptOssOptions {
         this.topP = topP;
     }
 
-    public BedrockGptOssOptions stopSequence(
+    public AnthropicClaudeOptions topK(@jakarta.annotation.Nullable BigDecimal topK) {
+        this.topK = topK;
+        return this;
+    }
+
+    /**
+     * Get topK
+     * @return topK
+     */
+    @jakarta.annotation.Nullable public BigDecimal getTopK() {
+        return topK;
+    }
+
+    public void setTopK(@jakarta.annotation.Nullable BigDecimal topK) {
+        this.topK = topK;
+    }
+
+    public AnthropicClaudeOptions stopSequence(
             @jakarta.annotation.Nullable List<String> stopSequence) {
         this.stopSequence = stopSequence;
         return this;
     }
 
-    public BedrockGptOssOptions addStopSequenceItem(String stopSequenceItem) {
+    public AnthropicClaudeOptions addStopSequenceItem(String stopSequenceItem) {
         if (this.stopSequence == null) {
             this.stopSequence = new ArrayList<>();
         }
@@ -289,76 +375,92 @@ public class BedrockGptOssOptions {
         this.stopSequence = stopSequence;
     }
 
-    public BedrockGptOssOptions reasoningEffort(
-            @jakarta.annotation.Nullable ReasoningEffortEnum reasoningEffort) {
-        this.reasoningEffort = reasoningEffort;
+    public AnthropicClaudeOptions effort(@jakarta.annotation.Nullable EffortEnum effort) {
+        this.effort = effort;
         return this;
     }
 
     /**
-     * Get reasoningEffort
-     * @return reasoningEffort
+     * Get effort
+     * @return effort
      */
-    @jakarta.annotation.Nullable public ReasoningEffortEnum getReasoningEffort() {
-        return reasoningEffort;
+    @jakarta.annotation.Nullable public EffortEnum getEffort() {
+        return effort;
     }
 
-    public void setReasoningEffort(
-            @jakarta.annotation.Nullable ReasoningEffortEnum reasoningEffort) {
-        this.reasoningEffort = reasoningEffort;
+    public void setEffort(@jakarta.annotation.Nullable EffortEnum effort) {
+        this.effort = effort;
     }
 
-    public BedrockGptOssOptions frequencyPenalty(
-            @jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
-        this.frequencyPenalty = frequencyPenalty;
+    public AnthropicClaudeOptions thinkingBudgetTokens(
+            @jakarta.annotation.Nullable BigDecimal thinkingBudgetTokens) {
+        this.thinkingBudgetTokens = thinkingBudgetTokens;
         return this;
     }
 
     /**
-     * Get frequencyPenalty
-     * @return frequencyPenalty
+     * Get thinkingBudgetTokens
+     * @return thinkingBudgetTokens
      */
-    @jakarta.annotation.Nullable public BigDecimal getFrequencyPenalty() {
-        return frequencyPenalty;
+    @jakarta.annotation.Nullable public BigDecimal getThinkingBudgetTokens() {
+        return thinkingBudgetTokens;
     }
 
-    public void setFrequencyPenalty(@jakarta.annotation.Nullable BigDecimal frequencyPenalty) {
-        this.frequencyPenalty = frequencyPenalty;
+    public void setThinkingBudgetTokens(
+            @jakarta.annotation.Nullable BigDecimal thinkingBudgetTokens) {
+        this.thinkingBudgetTokens = thinkingBudgetTokens;
     }
 
-    public BedrockGptOssOptions presencePenalty(
-            @jakarta.annotation.Nullable BigDecimal presencePenalty) {
-        this.presencePenalty = presencePenalty;
+    public AnthropicClaudeOptions includeThoughts(
+            @jakarta.annotation.Nullable Boolean includeThoughts) {
+        this.includeThoughts = includeThoughts;
         return this;
     }
 
     /**
-     * Get presencePenalty
-     * @return presencePenalty
+     * Get includeThoughts
+     * @return includeThoughts
      */
-    @jakarta.annotation.Nullable public BigDecimal getPresencePenalty() {
-        return presencePenalty;
+    @jakarta.annotation.Nullable public Boolean getIncludeThoughts() {
+        return includeThoughts;
     }
 
-    public void setPresencePenalty(@jakarta.annotation.Nullable BigDecimal presencePenalty) {
-        this.presencePenalty = presencePenalty;
+    public void setIncludeThoughts(@jakarta.annotation.Nullable Boolean includeThoughts) {
+        this.includeThoughts = includeThoughts;
     }
 
-    public BedrockGptOssOptions serviceTier(@jakarta.annotation.Nullable String serviceTier) {
-        this.serviceTier = serviceTier;
+    public AnthropicClaudeOptions cacheEnabled(@jakarta.annotation.Nullable Boolean cacheEnabled) {
+        this.cacheEnabled = cacheEnabled;
         return this;
     }
 
     /**
-     * Provider-defined processing tier. Unknown non-empty values are preserved for forward compatibility.
-     * @return serviceTier
+     * Get cacheEnabled
+     * @return cacheEnabled
      */
-    @jakarta.annotation.Nullable public String getServiceTier() {
-        return serviceTier;
+    @jakarta.annotation.Nullable public Boolean getCacheEnabled() {
+        return cacheEnabled;
     }
 
-    public void setServiceTier(@jakarta.annotation.Nullable String serviceTier) {
-        this.serviceTier = serviceTier;
+    public void setCacheEnabled(@jakarta.annotation.Nullable Boolean cacheEnabled) {
+        this.cacheEnabled = cacheEnabled;
+    }
+
+    public AnthropicClaudeOptions cacheTtl(@jakarta.annotation.Nullable CacheTtlEnum cacheTtl) {
+        this.cacheTtl = cacheTtl;
+        return this;
+    }
+
+    /**
+     * Get cacheTtl
+     * @return cacheTtl
+     */
+    @jakarta.annotation.Nullable public CacheTtlEnum getCacheTtl() {
+        return cacheTtl;
+    }
+
+    public void setCacheTtl(@jakarta.annotation.Nullable CacheTtlEnum cacheTtl) {
+        this.cacheTtl = cacheTtl;
     }
 
     @Override
@@ -369,16 +471,19 @@ public class BedrockGptOssOptions {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        BedrockGptOssOptions bedrockGptOssOptions = (BedrockGptOssOptions) o;
-        return Objects.equals(this.optionId, bedrockGptOssOptions.optionId)
-                && Objects.equals(this.maxTokens, bedrockGptOssOptions.maxTokens)
-                && Objects.equals(this.temperature, bedrockGptOssOptions.temperature)
-                && Objects.equals(this.topP, bedrockGptOssOptions.topP)
-                && Objects.equals(this.stopSequence, bedrockGptOssOptions.stopSequence)
-                && Objects.equals(this.reasoningEffort, bedrockGptOssOptions.reasoningEffort)
-                && Objects.equals(this.frequencyPenalty, bedrockGptOssOptions.frequencyPenalty)
-                && Objects.equals(this.presencePenalty, bedrockGptOssOptions.presencePenalty)
-                && Objects.equals(this.serviceTier, bedrockGptOssOptions.serviceTier);
+        AnthropicClaudeOptions anthropicClaudeOptions = (AnthropicClaudeOptions) o;
+        return Objects.equals(this.optionId, anthropicClaudeOptions.optionId)
+                && Objects.equals(this.maxTokens, anthropicClaudeOptions.maxTokens)
+                && Objects.equals(this.temperature, anthropicClaudeOptions.temperature)
+                && Objects.equals(this.topP, anthropicClaudeOptions.topP)
+                && Objects.equals(this.topK, anthropicClaudeOptions.topK)
+                && Objects.equals(this.stopSequence, anthropicClaudeOptions.stopSequence)
+                && Objects.equals(this.effort, anthropicClaudeOptions.effort)
+                && Objects.equals(
+                        this.thinkingBudgetTokens, anthropicClaudeOptions.thinkingBudgetTokens)
+                && Objects.equals(this.includeThoughts, anthropicClaudeOptions.includeThoughts)
+                && Objects.equals(this.cacheEnabled, anthropicClaudeOptions.cacheEnabled)
+                && Objects.equals(this.cacheTtl, anthropicClaudeOptions.cacheTtl);
     }
 
     @Override
@@ -388,26 +493,32 @@ public class BedrockGptOssOptions {
                 maxTokens,
                 temperature,
                 topP,
+                topK,
                 stopSequence,
-                reasoningEffort,
-                frequencyPenalty,
-                presencePenalty,
-                serviceTier);
+                effort,
+                thinkingBudgetTokens,
+                includeThoughts,
+                cacheEnabled,
+                cacheTtl);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class BedrockGptOssOptions {\n");
+        sb.append("class AnthropicClaudeOptions {\n");
         sb.append("    optionId: ").append(toIndentedString(optionId)).append("\n");
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
         sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
         sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
+        sb.append("    topK: ").append(toIndentedString(topK)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
-        sb.append("    reasoningEffort: ").append(toIndentedString(reasoningEffort)).append("\n");
-        sb.append("    frequencyPenalty: ").append(toIndentedString(frequencyPenalty)).append("\n");
-        sb.append("    presencePenalty: ").append(toIndentedString(presencePenalty)).append("\n");
-        sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
+        sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
+        sb.append("    thinkingBudgetTokens: ")
+                .append(toIndentedString(thinkingBudgetTokens))
+                .append("\n");
+        sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
+        sb.append("    cacheEnabled: ").append(toIndentedString(cacheEnabled)).append("\n");
+        sb.append("    cacheTtl: ").append(toIndentedString(cacheTtl)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -432,11 +543,13 @@ public class BedrockGptOssOptions {
                                 "max_tokens",
                                 "temperature",
                                 "top_p",
+                                "top_k",
                                 "stop_sequence",
-                                "reasoning_effort",
-                                "frequency_penalty",
-                                "presence_penalty",
-                                "service_tier"));
+                                "effort",
+                                "thinking_budget_tokens",
+                                "include_thoughts",
+                                "cache_enabled",
+                                "cache_ttl"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -446,17 +559,17 @@ public class BedrockGptOssOptions {
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to BedrockGptOssOptions
+     * @throws IOException if the JSON Element is invalid with respect to AnthropicClaudeOptions
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!BedrockGptOssOptions.openapiRequiredFields
+            if (!AnthropicClaudeOptions.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 java.util.Locale.ROOT,
-                                "The required field(s) %s in BedrockGptOssOptions is not found in the empty JSON string",
-                                BedrockGptOssOptions.openapiRequiredFields.toString()));
+                                "The required field(s) %s in AnthropicClaudeOptions is not found in the empty JSON string",
+                                AnthropicClaudeOptions.openapiRequiredFields.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
@@ -482,27 +595,29 @@ public class BedrockGptOssOptions {
                             "Expected the field `stop_sequence` to be an array in the JSON string but got `%s`",
                             jsonObj.get("stop_sequence").toString()));
         }
-        if ((jsonObj.get("reasoning_effort") != null
-                        && !jsonObj.get("reasoning_effort").isJsonNull())
-                && !jsonObj.get("reasoning_effort").isJsonPrimitive()) {
+        if ((jsonObj.get("effort") != null && !jsonObj.get("effort").isJsonNull())
+                && !jsonObj.get("effort").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `reasoning_effort` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("reasoning_effort").toString()));
+                            "Expected the field `effort` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("effort").toString()));
         }
-        // validate the optional field `reasoning_effort`
-        if (jsonObj.get("reasoning_effort") != null
-                && !jsonObj.get("reasoning_effort").isJsonNull()) {
-            ReasoningEffortEnum.validateJsonElement(jsonObj.get("reasoning_effort"));
+        // validate the optional field `effort`
+        if (jsonObj.get("effort") != null && !jsonObj.get("effort").isJsonNull()) {
+            EffortEnum.validateJsonElement(jsonObj.get("effort"));
         }
-        if ((jsonObj.get("service_tier") != null && !jsonObj.get("service_tier").isJsonNull())
-                && !jsonObj.get("service_tier").isJsonPrimitive()) {
+        if ((jsonObj.get("cache_ttl") != null && !jsonObj.get("cache_ttl").isJsonNull())
+                && !jsonObj.get("cache_ttl").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `service_tier` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("service_tier").toString()));
+                            "Expected the field `cache_ttl` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("cache_ttl").toString()));
+        }
+        // validate the optional field `cache_ttl`
+        if (jsonObj.get("cache_ttl") != null && !jsonObj.get("cache_ttl").isJsonNull()) {
+            CacheTtlEnum.validateJsonElement(jsonObj.get("cache_ttl"));
         }
     }
 
@@ -510,24 +625,24 @@ public class BedrockGptOssOptions {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!BedrockGptOssOptions.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'BedrockGptOssOptions' and its subtypes
+            if (!AnthropicClaudeOptions.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'AnthropicClaudeOptions' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<BedrockGptOssOptions> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(BedrockGptOssOptions.class));
+            final TypeAdapter<AnthropicClaudeOptions> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(AnthropicClaudeOptions.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<BedrockGptOssOptions>() {
+                    new TypeAdapter<AnthropicClaudeOptions>() {
                         @Override
-                        public void write(JsonWriter out, BedrockGptOssOptions value)
+                        public void write(JsonWriter out, AnthropicClaudeOptions value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public BedrockGptOssOptions read(JsonReader in) throws IOException {
+                        public AnthropicClaudeOptions read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -537,18 +652,18 @@ public class BedrockGptOssOptions {
     }
 
     /**
-     * Create an instance of BedrockGptOssOptions given an JSON string
+     * Create an instance of AnthropicClaudeOptions given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of BedrockGptOssOptions
-     * @throws IOException if the JSON string is invalid with respect to BedrockGptOssOptions
+     * @return An instance of AnthropicClaudeOptions
+     * @throws IOException if the JSON string is invalid with respect to AnthropicClaudeOptions
      */
-    public static BedrockGptOssOptions fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, BedrockGptOssOptions.class);
+    public static AnthropicClaudeOptions fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, AnthropicClaudeOptions.class);
     }
 
     /**
-     * Convert an instance of BedrockGptOssOptions to an JSON string
+     * Convert an instance of AnthropicClaudeOptions to an JSON string
      *
      * @return JSON string
      */

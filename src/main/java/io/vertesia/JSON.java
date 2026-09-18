@@ -466,110 +466,6 @@ public class JSON {
                                     }
                                 })
                         .registerTypeSelector(
-                                io.vertesia.model.ModelOptions.class,
-                                new TypeSelector<io.vertesia.model.ModelOptions>() {
-                                    @Override
-                                    public Class<? extends io.vertesia.model.ModelOptions>
-                                            getClassForElement(JsonElement readElement) {
-                                        Map<String, Class> classByDiscriminatorValue =
-                                                new HashMap<String, Class>();
-                                        classByDiscriminatorValue.put(
-                                                "azure-foundry-chat",
-                                                io.vertesia.model.AzureFoundryChatOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "bedrock-ai21",
-                                                io.vertesia.model.BedrockAI21Options.class);
-                                        classByDiscriminatorValue.put(
-                                                "bedrock-claude",
-                                                io.vertesia.model.BedrockClaudeOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "bedrock-cohere-command",
-                                                io.vertesia.model.BedrockCohereCommandOptions
-                                                        .class);
-                                        classByDiscriminatorValue.put(
-                                                "bedrock-converse",
-                                                io.vertesia.model.BedrockConverseOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "bedrock-gpt-oss",
-                                                io.vertesia.model.BedrockGptOssOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "bedrock-mantle-chat-completions",
-                                                io.vertesia.model
-                                                        .BedrockMantleChatCompletionsOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "bedrock-mantle-claude",
-                                                io.vertesia.model.BedrockMantleClaudeOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "bedrock-mantle-responses",
-                                                io.vertesia.model.BedrockMantleResponsesOptions
-                                                        .class);
-                                        classByDiscriminatorValue.put(
-                                                "bedrock-mistral",
-                                                io.vertesia.model.BedrockMistralOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "bedrock-nova",
-                                                io.vertesia.model.BedrockNovaOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "bedrock-nova-canvas",
-                                                io.vertesia.model.NovaCanvasOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "bedrock-palmyra",
-                                                io.vertesia.model.BedrockPalmyraOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "bedrock-twelvelabs-pegasus",
-                                                io.vertesia.model.TwelvelabsPegasusOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "groq-deepseek-thinking",
-                                                io.vertesia.model.GroqOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "mistral-text",
-                                                io.vertesia.model.MistralTextOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "openai-dalle",
-                                                io.vertesia.model.OpenAiDalleOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "openai-gpt-image",
-                                                io.vertesia.model.OpenAiGptImageOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "openai-text",
-                                                io.vertesia.model.OpenAiTextOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "openai-thinking",
-                                                io.vertesia.model.OpenAiThinkingOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "openrouter-text",
-                                                io.vertesia.model.OpenRouterTextOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "text-fallback",
-                                                io.vertesia.model.TextFallbackOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "vertexai-claude",
-                                                io.vertesia.model.VertexAIClaudeOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "vertexai-gemini",
-                                                io.vertesia.model.VertexAIGeminiOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "vertexai-gemini-omni-video",
-                                                io.vertesia.model.VertexAIGeminiOmniVideoOptions
-                                                        .class);
-                                        classByDiscriminatorValue.put(
-                                                "vertexai-grok",
-                                                io.vertesia.model.VertexAIGrokOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "vertexai-imagen",
-                                                io.vertesia.model.ImagenOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "xai-grok-image",
-                                                io.vertesia.model.XAIGrokImageOptions.class);
-                                        classByDiscriminatorValue.put(
-                                                "ModelOptions",
-                                                io.vertesia.model.ModelOptions.class);
-                                        return getClassByDiscriminator(
-                                                classByDiscriminatorValue,
-                                                getDiscriminatorValue(readElement, "_option_id"));
-                                    }
-                                })
-                        .registerTypeSelector(
                                 io.vertesia.model.ProcessTestFixtureResponse.class,
                                 new TypeSelector<io.vertesia.model.ProcessTestFixtureResponse>() {
                                     @Override
@@ -1140,6 +1036,8 @@ public class JSON {
                 new io.vertesia.model.AnalyticsAxis.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AnswerProcessTaskPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AnthropicClaudeOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ApiKey.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
