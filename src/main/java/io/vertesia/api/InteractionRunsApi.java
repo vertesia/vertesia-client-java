@@ -1123,7 +1123,7 @@ public class InteractionRunsApi {
 
     /**
      * Stream a run
-     * Opens a Server-Sent Events stream for an existing run. The stream is authenticated with the &#x60;access_token&#x60; query parameter and emits execution chunks and completion events as the run progresses.  **Required permissions:** &#x60;run:read&#x60;
+     * Opens a Server-Sent Events stream for an existing run. The stream is authenticated with the &#x60;access_token&#x60; query parameter and emits execution chunks and completion events as the run progresses. No x-api-version header is required because native EventSource cannot send custom headers.  **Required permissions:** &#x60;run:read&#x60;
      * @param runId  (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1143,7 +1143,7 @@ public class InteractionRunsApi {
 
     /**
      * Stream a run
-     * Opens a Server-Sent Events stream for an existing run. The stream is authenticated with the &#x60;access_token&#x60; query parameter and emits execution chunks and completion events as the run progresses.  **Required permissions:** &#x60;run:read&#x60;
+     * Opens a Server-Sent Events stream for an existing run. The stream is authenticated with the &#x60;access_token&#x60; query parameter and emits execution chunks and completion events as the run progresses. No x-api-version header is required because native EventSource cannot send custom headers.  **Required permissions:** &#x60;run:read&#x60;
      * @param runId  (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1165,7 +1165,7 @@ public class InteractionRunsApi {
 
     /**
      * Stream a run (asynchronously)
-     * Opens a Server-Sent Events stream for an existing run. The stream is authenticated with the &#x60;access_token&#x60; query parameter and emits execution chunks and completion events as the run progresses.  **Required permissions:** &#x60;run:read&#x60;
+     * Opens a Server-Sent Events stream for an existing run. The stream is authenticated with the &#x60;access_token&#x60; query parameter and emits execution chunks and completion events as the run progresses. No x-api-version header is required because native EventSource cannot send custom headers.  **Required permissions:** &#x60;run:read&#x60;
      * @param runId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
