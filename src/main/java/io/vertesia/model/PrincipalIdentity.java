@@ -17,6 +17,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -33,12 +34,79 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Response shape of the &#x60;/iam/users/identity&#x60; endpoint: the current principal&#39;s  {@link  PrincipalContext }  plus its id. Distinct from &#x60;PrincipalContext&#x60; itself because the id is identity metadata, not a merged BLP field — adding it to &#x60;PrincipalContext&#x60; would unintentionally expose &#x60;$principal.id&#x60; to PrincipalSet rule evaluation.
+ * Response shape of the &#x60;/iam/users/identity&#x60; endpoint: the current principal&#39;s full ABAC context — its &#x60;kind&#x60; (always &#x60;user&#x60; here), &#x60;id&#x60;, and the merged BLP attributes a rule can reference through &#x60;$principal.*&#x60;.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PrincipalIdentity {
+    /**
+     * Gets or Sets kind
+     */
+    @JsonAdapter(KindEnum.Adapter.class)
+    public enum KindEnum {
+        USER("user"),
+
+        APIKEY("apikey"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        KindEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static KindEnum fromValue(String value) {
+            for (KindEnum b : KindEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<KindEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final KindEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public KindEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return KindEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            KindEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_KIND = "kind";
+
+    @SerializedName(SERIALIZED_NAME_KIND)
+    @jakarta.annotation.Nonnull
+    private KindEnum kind;
+
+    public static final String SERIALIZED_NAME_ID = "id";
+
+    @SerializedName(SERIALIZED_NAME_ID)
+    @jakarta.annotation.Nonnull
+    private String id;
+
     public static final String SERIALIZED_NAME_CLEARANCE = "clearance";
 
     @SerializedName(SERIALIZED_NAME_CLEARANCE)
@@ -67,13 +135,43 @@ public class PrincipalIdentity {
     @SerializedName(SERIALIZED_NAME_PROPERTIES)
     @jakarta.annotation.Nullable private Map<String, Object> properties;
 
-    public static final String SERIALIZED_NAME_ID = "id";
-
-    @SerializedName(SERIALIZED_NAME_ID)
-    @jakarta.annotation.Nonnull
-    private String id;
-
     public PrincipalIdentity() {}
+
+    public PrincipalIdentity kind(@jakarta.annotation.Nonnull KindEnum kind) {
+        this.kind = kind;
+        return this;
+    }
+
+    /**
+     * Get kind
+     * @return kind
+     */
+    @jakarta.annotation.Nonnull
+    public KindEnum getKind() {
+        return kind;
+    }
+
+    public void setKind(@jakarta.annotation.Nonnull KindEnum kind) {
+        this.kind = kind;
+    }
+
+    public PrincipalIdentity id(@jakarta.annotation.Nonnull String id) {
+        this.id = id;
+        return this;
+    }
+
+    /**
+     * Get id
+     * @return id
+     */
+    @jakarta.annotation.Nonnull
+    public String getId() {
+        return id;
+    }
+
+    public void setId(@jakarta.annotation.Nonnull String id) {
+        this.id = id;
+    }
 
     public PrincipalIdentity clearance(@jakarta.annotation.Nonnull BigDecimal clearance) {
         this.clearance = clearance;
@@ -188,24 +286,6 @@ public class PrincipalIdentity {
         this.properties = properties;
     }
 
-    public PrincipalIdentity id(@jakarta.annotation.Nonnull String id) {
-        this.id = id;
-        return this;
-    }
-
-    /**
-     * Get id
-     * @return id
-     */
-    @jakarta.annotation.Nonnull
-    public String getId() {
-        return id;
-    }
-
-    public void setId(@jakarta.annotation.Nonnull String id) {
-        this.id = id;
-    }
-
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -260,12 +340,13 @@ public class PrincipalIdentity {
             return false;
         }
         PrincipalIdentity principalIdentity = (PrincipalIdentity) o;
-        return Objects.equals(this.clearance, principalIdentity.clearance)
+        return Objects.equals(this.kind, principalIdentity.kind)
+                && Objects.equals(this.id, principalIdentity.id)
+                && Objects.equals(this.clearance, principalIdentity.clearance)
                 && Objects.equals(this.compartments, principalIdentity.compartments)
                 && Objects.equals(this.email, principalIdentity.email)
                 && Objects.equals(this.tags, principalIdentity.tags)
                 && Objects.equals(this.properties, principalIdentity.properties)
-                && Objects.equals(this.id, principalIdentity.id)
                 && Objects.equals(
                         this.additionalProperties, principalIdentity.additionalProperties);
     }
@@ -273,19 +354,20 @@ public class PrincipalIdentity {
     @Override
     public int hashCode() {
         return Objects.hash(
-                clearance, compartments, email, tags, properties, id, additionalProperties);
+                kind, id, clearance, compartments, email, tags, properties, additionalProperties);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PrincipalIdentity {\n");
+        sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    clearance: ").append(toIndentedString(clearance)).append("\n");
         sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
         sb.append("    email: ").append(toIndentedString(email)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
         sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
-        sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -309,12 +391,19 @@ public class PrincipalIdentity {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "clearance", "compartments", "email", "tags", "properties", "id"));
+                                "kind",
+                                "id",
+                                "clearance",
+                                "compartments",
+                                "email",
+                                "tags",
+                                "properties"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
                 new HashSet<String>(
-                        Arrays.asList("clearance", "compartments", "tags", "properties", "id"));
+                        Arrays.asList(
+                                "kind", "id", "clearance", "compartments", "tags", "properties"));
     }
 
     /**
@@ -347,6 +436,22 @@ public class PrincipalIdentity {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if (!jsonObj.get("kind").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `kind` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("kind").toString()));
+        }
+        // validate the required field `kind`
+        KindEnum.validateJsonElement(jsonObj.get("kind"));
+        if (!jsonObj.get("id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("id").toString()));
+        }
         // ensure the required json array is present
         if (jsonObj.get("compartments") == null) {
             throw new IllegalArgumentException(
@@ -376,13 +481,6 @@ public class PrincipalIdentity {
                             java.util.Locale.ROOT,
                             "Expected the field `tags` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tags").toString()));
-        }
-        if (!jsonObj.get("id").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `id` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("id").toString()));
         }
     }
 
