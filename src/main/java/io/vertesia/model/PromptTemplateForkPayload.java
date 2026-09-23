@@ -34,6 +34,11 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class PromptTemplateForkPayload {
+    public static final String SERIALIZED_NAME_NEW_NAME = "newName";
+
+    @SerializedName(SERIALIZED_NAME_NEW_NAME)
+    @jakarta.annotation.Nullable private String newName;
+
     public static final String SERIALIZED_NAME_KEEP_TAGS = "keepTags";
 
     @SerializedName(SERIALIZED_NAME_KEEP_TAGS)
@@ -45,6 +50,23 @@ public class PromptTemplateForkPayload {
     @jakarta.annotation.Nullable private String targetProject;
 
     public PromptTemplateForkPayload() {}
+
+    public PromptTemplateForkPayload newName(@jakarta.annotation.Nullable String newName) {
+        this.newName = newName;
+        return this;
+    }
+
+    /**
+     * Get newName
+     * @return newName
+     */
+    @jakarta.annotation.Nullable public String getNewName() {
+        return newName;
+    }
+
+    public void setNewName(@jakarta.annotation.Nullable String newName) {
+        this.newName = newName;
+    }
 
     public PromptTemplateForkPayload keepTags(@jakarta.annotation.Nullable Boolean keepTags) {
         this.keepTags = keepTags;
@@ -90,19 +112,21 @@ public class PromptTemplateForkPayload {
             return false;
         }
         PromptTemplateForkPayload promptTemplateForkPayload = (PromptTemplateForkPayload) o;
-        return Objects.equals(this.keepTags, promptTemplateForkPayload.keepTags)
+        return Objects.equals(this.newName, promptTemplateForkPayload.newName)
+                && Objects.equals(this.keepTags, promptTemplateForkPayload.keepTags)
                 && Objects.equals(this.targetProject, promptTemplateForkPayload.targetProject);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(keepTags, targetProject);
+        return Objects.hash(newName, keepTags, targetProject);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class PromptTemplateForkPayload {\n");
+        sb.append("    newName: ").append(toIndentedString(newName)).append("\n");
         sb.append("    keepTags: ").append(toIndentedString(keepTags)).append("\n");
         sb.append("    targetProject: ").append(toIndentedString(targetProject)).append("\n");
         sb.append("}");
@@ -122,7 +146,7 @@ public class PromptTemplateForkPayload {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("keepTags", "targetProject"));
+        openapiFields = new HashSet<String>(Arrays.asList("newName", "keepTags", "targetProject"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -146,6 +170,14 @@ public class PromptTemplateForkPayload {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if ((jsonObj.get("newName") != null && !jsonObj.get("newName").isJsonNull())
+                && !jsonObj.get("newName").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `newName` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("newName").toString()));
+        }
         if ((jsonObj.get("targetProject") != null && !jsonObj.get("targetProject").isJsonNull())
                 && !jsonObj.get("targetProject").isJsonPrimitive()) {
             throw new IllegalArgumentException(
