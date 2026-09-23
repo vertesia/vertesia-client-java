@@ -116,7 +116,7 @@ public class QuotaApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -252,7 +252,7 @@ public class QuotaApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,

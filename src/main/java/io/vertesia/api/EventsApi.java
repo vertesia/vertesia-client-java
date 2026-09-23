@@ -126,7 +126,7 @@ public class EventsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -293,7 +293,7 @@ public class EventsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -459,7 +459,7 @@ public class EventsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -692,7 +692,7 @@ public class EventsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
