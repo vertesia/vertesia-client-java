@@ -672,7 +672,7 @@ public class CollectionsApi {
 
     /**
      * Delete a collection
-     * Deletes a collection after verifying delete permission.  **Required permissions:** &#x60;content:delete&#x60;
+     * Deletes a collection after verifying delete permission.
      * @param collectionId  (required)
      * @return DeleteCountResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -693,7 +693,7 @@ public class CollectionsApi {
 
     /**
      * Delete a collection
-     * Deletes a collection after verifying delete permission.  **Required permissions:** &#x60;content:delete&#x60;
+     * Deletes a collection after verifying delete permission.
      * @param collectionId  (required)
      * @return ApiResponse&lt;DeleteCountResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -715,7 +715,7 @@ public class CollectionsApi {
 
     /**
      * Delete a collection (asynchronously)
-     * Deletes a collection after verifying delete permission.  **Required permissions:** &#x60;content:delete&#x60;
+     * Deletes a collection after verifying delete permission.
      * @param collectionId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2057,7 +2057,7 @@ public class CollectionsApi {
 
     /**
      * Update a collection
-     * Updates a collection, including shared properties and content type settings.  **Required permissions:** &#x60;content:write&#x60;
+     * Updates a collection, including shared properties and content type settings.
      * @param collectionId  (required)
      * @param updateCollectionPayload  (required)
      * @return Collection
@@ -2082,7 +2082,7 @@ public class CollectionsApi {
 
     /**
      * Update a collection
-     * Updates a collection, including shared properties and content type settings.  **Required permissions:** &#x60;content:write&#x60;
+     * Updates a collection, including shared properties and content type settings.
      * @param collectionId  (required)
      * @param updateCollectionPayload  (required)
      * @return ApiResponse&lt;Collection&gt;
@@ -2108,7 +2108,7 @@ public class CollectionsApi {
 
     /**
      * Update a collection (asynchronously)
-     * Updates a collection, including shared properties and content type settings.  **Required permissions:** &#x60;content:write&#x60;
+     * Updates a collection, including shared properties and content type settings.
      * @param collectionId  (required)
      * @param updateCollectionPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2240,7 +2240,7 @@ public class CollectionsApi {
 
     /**
      * Update child collections
-     * Adds or removes child collections from a parent collection.  **Required permissions:** &#x60;content:write&#x60;
+     * Adds or removes child collections from a parent collection.
      * @param collectionId  (required)
      * @param collectionChildrenUpdatePayload  (required)
      * @return CollectionChildrenUpdateResult
@@ -2266,7 +2266,7 @@ public class CollectionsApi {
 
     /**
      * Update child collections
-     * Adds or removes child collections from a parent collection.  **Required permissions:** &#x60;content:write&#x60;
+     * Adds or removes child collections from a parent collection.
      * @param collectionId  (required)
      * @param collectionChildrenUpdatePayload  (required)
      * @return ApiResponse&lt;CollectionChildrenUpdateResult&gt;
@@ -2294,7 +2294,7 @@ public class CollectionsApi {
 
     /**
      * Update child collections (asynchronously)
-     * Adds or removes child collections from a parent collection.  **Required permissions:** &#x60;content:write&#x60;
+     * Adds or removes child collections from a parent collection.
      * @param collectionId  (required)
      * @param collectionChildrenUpdatePayload  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2426,7 +2426,7 @@ public class CollectionsApi {
 
     /**
      * Update collection members
-     * Adds or removes content objects from a static collection.  **Required permissions:** &#x60;content:write&#x60;
+     * Adds or removes content objects from a static collection.
      * @param collectionId  (required)
      * @param collectionMembersUpdatePayload  (required)
      * @return CollectionMembersUpdateResult
@@ -2452,7 +2452,7 @@ public class CollectionsApi {
 
     /**
      * Update collection members
-     * Adds or removes content objects from a static collection.  **Required permissions:** &#x60;content:write&#x60;
+     * Adds or removes content objects from a static collection.
      * @param collectionId  (required)
      * @param collectionMembersUpdatePayload  (required)
      * @return ApiResponse&lt;CollectionMembersUpdateResult&gt;
@@ -2480,7 +2480,7 @@ public class CollectionsApi {
 
     /**
      * Update collection members (asynchronously)
-     * Adds or removes content objects from a static collection.  **Required permissions:** &#x60;content:write&#x60;
+     * Adds or removes content objects from a static collection.
      * @param collectionId  (required)
      * @param collectionMembersUpdatePayload  (required)
      * @param _callback The callback to be executed when the API call finishes
