@@ -34,6 +34,7 @@ src/main/java/io/vertesia/api/EventsApi.java
 src/main/java/io/vertesia/api/FilesApi.java
 src/main/java/io/vertesia/api/InteractionRunsApi.java
 src/main/java/io/vertesia/api/InteractionsApi.java
+src/main/java/io/vertesia/api/OAuthApi.java
 src/main/java/io/vertesia/api/OAuthClientsApi.java
 src/main/java/io/vertesia/api/OAuthGrantsApi.java
 src/main/java/io/vertesia/api/OAuthProvidersApi.java
@@ -164,6 +165,7 @@ src/main/java/io/vertesia/model/AppInspectionResult.java
 src/main/java/io/vertesia/model/AppInstallation.java
 src/main/java/io/vertesia/model/AppInstallationListEntry.java
 src/main/java/io/vertesia/model/AppInstallationOAuthBinding.java
+src/main/java/io/vertesia/model/AppInstallationOauthApproval.java
 src/main/java/io/vertesia/model/AppInstallationPayload.java
 src/main/java/io/vertesia/model/AppInstallationProviderBinding.java
 src/main/java/io/vertesia/model/AppInstallationWithManifest.java
@@ -187,6 +189,8 @@ src/main/java/io/vertesia/model/AppRepoTreeEntry.java
 src/main/java/io/vertesia/model/AppScaffoldModule.java
 src/main/java/io/vertesia/model/AppScaffoldProgress.java
 src/main/java/io/vertesia/model/AppScaffoldProgressStatus.java
+src/main/java/io/vertesia/model/AppSessionTokenRequest.java
+src/main/java/io/vertesia/model/AppSessionTokenResponse.java
 src/main/java/io/vertesia/model/AppSourceConfig.java
 src/main/java/io/vertesia/model/AppToolCollection.java
 src/main/java/io/vertesia/model/AppUIConfig.java
@@ -727,6 +731,9 @@ src/main/java/io/vertesia/model/OAuthGrantSortField.java
 src/main/java/io/vertesia/model/OAuthGrantSortOrder.java
 src/main/java/io/vertesia/model/OAuthGrantStatus.java
 src/main/java/io/vertesia/model/OAuthGrantType.java
+src/main/java/io/vertesia/model/OAuthLoginDecisionResponse.java
+src/main/java/io/vertesia/model/OAuthLoginPayload.java
+src/main/java/io/vertesia/model/OAuthLoginUserNotFoundResponse.java
 src/main/java/io/vertesia/model/OAuthMetadataResponse.java
 src/main/java/io/vertesia/model/OAuthProjectBindingMode.java
 src/main/java/io/vertesia/model/OAuthProvider.java
@@ -821,6 +828,7 @@ src/main/java/io/vertesia/model/ProjectConfiguration.java
 src/main/java/io/vertesia/model/ProjectConfigurationEmbedding.java
 src/main/java/io/vertesia/model/ProjectConfigurationEmbeddingEnablePayload.java
 src/main/java/io/vertesia/model/ProjectConfigurationEmbeddings.java
+src/main/java/io/vertesia/model/ProjectConfigurationOauthClients.java
 src/main/java/io/vertesia/model/ProjectIndexingConfiguration.java
 src/main/java/io/vertesia/model/ProjectIntakeConfiguration.java
 src/main/java/io/vertesia/model/ProjectIntakeSniffConfiguration.java
@@ -1028,6 +1036,7 @@ src/main/java/io/vertesia/model/UpdateAccountPayload.java
 src/main/java/io/vertesia/model/UpdateAgentArtifactContentPayload.java
 src/main/java/io/vertesia/model/UpdateAgentArtifactContentResponse.java
 src/main/java/io/vertesia/model/UpdateApiKeyPayload.java
+src/main/java/io/vertesia/model/UpdateAppInstallationOAuthApprovalPayload.java
 src/main/java/io/vertesia/model/UpdateAppInstallationToolAllowlistPayload.java
 src/main/java/io/vertesia/model/UpdateAppPayload.java
 src/main/java/io/vertesia/model/UpdateCollectionPayload.java
