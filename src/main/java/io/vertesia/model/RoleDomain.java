@@ -20,13 +20,15 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Logical grouping of roles by the service area that owns them. One domain may declare roles applicable to multiple scopes (e.g. the &#x60;content&#x60; domain owns roles applicable to both &#x60;document&#x60; and &#x60;collection&#x60; scopes). The &#x60;system&#x60; domain owns the built-in foundational roles (currently exposed as &#x60;SystemRoles&#x60;) — registered first so domain partitions cannot shadow them.
+ * Logical grouping of roles by the service area that owns them. One domain may declare roles applicable to multiple scopes (e.g. the &#x60;content&#x60; domain owns roles applicable to both &#x60;document&#x60; and &#x60;collection&#x60; scopes, while &#x60;agent_runs&#x60; owns the &#x60;agent_run&#x60; scope). The &#x60;system&#x60; domain owns the built-in foundational roles (currently exposed as &#x60;SystemRoles&#x60;) — registered first so domain partitions cannot shadow them.
  */
 @JsonAdapter(RoleDomain.Adapter.class)
 public enum RoleDomain {
     SYSTEM("system"),
 
     CONTENT("content"),
+
+    AGENT_RUNS("agent_runs"),
 
     TASKS("tasks"),
 

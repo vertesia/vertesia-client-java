@@ -28,6 +28,8 @@ public enum AbacScope {
 
     COLLECTION("collection"),
 
+    AGENT_RUN("agent_run"),
+
     TASK("task"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");

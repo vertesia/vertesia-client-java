@@ -111,7 +111,7 @@ public class AceConditions {
     }
 
     /**
-     * Kind of object the &#x60;resource_props&#x60; matches. Used to disambiguate which partition&#39;s roles apply (e.g. content roles vs task roles) and to form the JWT &#x60;content_security&#x60; key prefix (&#x60;{scope}:{verb}&#x60;). Absent → &#x60;&#39;document&#39;&#x60; (default; emits bare &#x60;read&#x60;/&#x60;write&#x60;/&#x60;delete&#x60; keys for backward compatibility).
+     * Kind of object the &#x60;resource_props&#x60; matches. Used to disambiguate which partition&#39;s roles apply (e.g. content roles vs agent-run roles) and to form the JWT &#x60;content_security&#x60; key prefix (&#x60;{scope}:{verb}&#x60;). Absent → &#x60;&#39;document&#39;&#x60; (default; emits bare &#x60;read&#x60;/&#x60;write&#x60;/&#x60;delete&#x60; keys for backward compatibility).
      * @return scope
      */
     @jakarta.annotation.Nullable public AbacScope getScope() {

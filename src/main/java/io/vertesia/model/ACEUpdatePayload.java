@@ -94,7 +94,7 @@ public class ACEUpdatePayload {
     }
 
     /**
-     * Role name. Typed as &#x60;string&#x60; because role names now span multiple partitions: &#x60;SystemRoles&#x60; enum values for system-domain roles, and bare strings for ABAC-domain roles (e.g. &#x60;&#39;content:reader&#39;&#x60;, &#x60;&#39;content:writer&#39;&#x60;, &#x60;&#39;content:manager&#39;&#x60;). Mongoose schema validates the value against the registered role catalog via &#x60;getAllRoleNames()&#x60;.
+     * Role name. Typed as &#x60;string&#x60; because role names now span multiple partitions: &#x60;SystemRoles&#x60; enum values for system-domain roles, and bare strings for ABAC-domain roles (e.g. &#x60;&#39;content:reader&#39;&#x60;, &#x60;&#39;content:writer&#39;&#x60;, &#x60;&#39;content:manager&#39;&#x60;, &#x60;&#39;agent_runs:reader&#39;&#x60;). Mongoose schema validates the value against the registered role catalog via &#x60;getAllRoleNames()&#x60;.
      * @return role
      */
     @jakarta.annotation.Nullable public String getRole() {
