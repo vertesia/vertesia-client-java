@@ -154,7 +154,7 @@ public class CostsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -336,7 +336,7 @@ public class CostsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -503,7 +503,7 @@ public class CostsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -662,7 +662,7 @@ public class CostsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,

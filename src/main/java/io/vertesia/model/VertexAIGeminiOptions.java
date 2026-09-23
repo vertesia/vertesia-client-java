@@ -226,6 +226,40 @@ public class VertexAIGeminiOptions {
     @SerializedName(SERIALIZED_NAME_FLEX)
     @jakarta.annotation.Nullable private Boolean flex;
 
+    public static final String SERIALIZED_NAME_SPEECH_VOICE = "speech_voice";
+
+    @SerializedName(SERIALIZED_NAME_SPEECH_VOICE)
+    @jakarta.annotation.Nullable private String speechVoice;
+
+    public static final String SERIALIZED_NAME_SPEECH_LANGUAGE = "speech_language";
+
+    @SerializedName(SERIALIZED_NAME_SPEECH_LANGUAGE)
+    @jakarta.annotation.Nullable private String speechLanguage;
+
+    public static final String SERIALIZED_NAME_TRANSCRIPTION_LANGUAGE_CODES =
+            "transcription_language_codes";
+
+    @SerializedName(SERIALIZED_NAME_TRANSCRIPTION_LANGUAGE_CODES)
+    @jakarta.annotation.Nullable private List<String> transcriptionLanguageCodes = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_TRANSCRIPTION_DIARIZATION =
+            "transcription_diarization";
+
+    @SerializedName(SERIALIZED_NAME_TRANSCRIPTION_DIARIZATION)
+    @jakarta.annotation.Nullable private Boolean transcriptionDiarization;
+
+    public static final String SERIALIZED_NAME_TRANSCRIPTION_WORD_TIMESTAMPS =
+            "transcription_word_timestamps";
+
+    @SerializedName(SERIALIZED_NAME_TRANSCRIPTION_WORD_TIMESTAMPS)
+    @jakarta.annotation.Nullable private Boolean transcriptionWordTimestamps;
+
+    public static final String SERIALIZED_NAME_TRANSCRIPTION_VOCABULARY =
+            "transcription_vocabulary";
+
+    @SerializedName(SERIALIZED_NAME_TRANSCRIPTION_VOCABULARY)
+    @jakarta.annotation.Nullable private List<String> transcriptionVocabulary = new ArrayList<>();
+
     /**
      * Gets or Sets imageAspectRatio
      */
@@ -826,6 +860,135 @@ public class VertexAIGeminiOptions {
         this.flex = flex;
     }
 
+    public VertexAIGeminiOptions speechVoice(@jakarta.annotation.Nullable String speechVoice) {
+        this.speechVoice = speechVoice;
+        return this;
+    }
+
+    /**
+     * Get speechVoice
+     * @return speechVoice
+     */
+    @jakarta.annotation.Nullable public String getSpeechVoice() {
+        return speechVoice;
+    }
+
+    public void setSpeechVoice(@jakarta.annotation.Nullable String speechVoice) {
+        this.speechVoice = speechVoice;
+    }
+
+    public VertexAIGeminiOptions speechLanguage(
+            @jakarta.annotation.Nullable String speechLanguage) {
+        this.speechLanguage = speechLanguage;
+        return this;
+    }
+
+    /**
+     * Get speechLanguage
+     * @return speechLanguage
+     */
+    @jakarta.annotation.Nullable public String getSpeechLanguage() {
+        return speechLanguage;
+    }
+
+    public void setSpeechLanguage(@jakarta.annotation.Nullable String speechLanguage) {
+        this.speechLanguage = speechLanguage;
+    }
+
+    public VertexAIGeminiOptions transcriptionLanguageCodes(
+            @jakarta.annotation.Nullable List<String> transcriptionLanguageCodes) {
+        this.transcriptionLanguageCodes = transcriptionLanguageCodes;
+        return this;
+    }
+
+    public VertexAIGeminiOptions addTranscriptionLanguageCodesItem(
+            String transcriptionLanguageCodesItem) {
+        if (this.transcriptionLanguageCodes == null) {
+            this.transcriptionLanguageCodes = new ArrayList<>();
+        }
+        this.transcriptionLanguageCodes.add(transcriptionLanguageCodesItem);
+        return this;
+    }
+
+    /**
+     * Get transcriptionLanguageCodes
+     * @return transcriptionLanguageCodes
+     */
+    @jakarta.annotation.Nullable public List<String> getTranscriptionLanguageCodes() {
+        return transcriptionLanguageCodes;
+    }
+
+    public void setTranscriptionLanguageCodes(
+            @jakarta.annotation.Nullable List<String> transcriptionLanguageCodes) {
+        this.transcriptionLanguageCodes = transcriptionLanguageCodes;
+    }
+
+    public VertexAIGeminiOptions transcriptionDiarization(
+            @jakarta.annotation.Nullable Boolean transcriptionDiarization) {
+        this.transcriptionDiarization = transcriptionDiarization;
+        return this;
+    }
+
+    /**
+     * Get transcriptionDiarization
+     * @return transcriptionDiarization
+     */
+    @jakarta.annotation.Nullable public Boolean getTranscriptionDiarization() {
+        return transcriptionDiarization;
+    }
+
+    public void setTranscriptionDiarization(
+            @jakarta.annotation.Nullable Boolean transcriptionDiarization) {
+        this.transcriptionDiarization = transcriptionDiarization;
+    }
+
+    public VertexAIGeminiOptions transcriptionWordTimestamps(
+            @jakarta.annotation.Nullable Boolean transcriptionWordTimestamps) {
+        this.transcriptionWordTimestamps = transcriptionWordTimestamps;
+        return this;
+    }
+
+    /**
+     * Get transcriptionWordTimestamps
+     * @return transcriptionWordTimestamps
+     */
+    @jakarta.annotation.Nullable public Boolean getTranscriptionWordTimestamps() {
+        return transcriptionWordTimestamps;
+    }
+
+    public void setTranscriptionWordTimestamps(
+            @jakarta.annotation.Nullable Boolean transcriptionWordTimestamps) {
+        this.transcriptionWordTimestamps = transcriptionWordTimestamps;
+    }
+
+    public VertexAIGeminiOptions transcriptionVocabulary(
+            @jakarta.annotation.Nullable List<String> transcriptionVocabulary) {
+        this.transcriptionVocabulary = transcriptionVocabulary;
+        return this;
+    }
+
+    public VertexAIGeminiOptions addTranscriptionVocabularyItem(
+            String transcriptionVocabularyItem) {
+        if (this.transcriptionVocabulary == null) {
+            this.transcriptionVocabulary = new ArrayList<>();
+        }
+        this.transcriptionVocabulary.add(transcriptionVocabularyItem);
+        return this;
+    }
+
+    /**
+     * Get transcriptionVocabulary
+     * @return transcriptionVocabulary
+     */
+    @jakarta.annotation.Nullable public List<String> getTranscriptionVocabulary() {
+        return transcriptionVocabulary;
+    }
+
+    public void setTranscriptionVocabulary(
+            @jakarta.annotation.Nullable List<String> transcriptionVocabulary) {
+        this.transcriptionVocabulary = transcriptionVocabulary;
+    }
+
     public VertexAIGeminiOptions imageAspectRatio(
             @jakarta.annotation.Nullable ImageAspectRatioEnum imageAspectRatio) {
         this.imageAspectRatio = imageAspectRatio;
@@ -962,6 +1125,19 @@ public class VertexAIGeminiOptions {
                 && Objects.equals(this.thinkingLevel, vertexAIGeminiOptions.thinkingLevel)
                 && Objects.equals(this.serviceTier, vertexAIGeminiOptions.serviceTier)
                 && Objects.equals(this.flex, vertexAIGeminiOptions.flex)
+                && Objects.equals(this.speechVoice, vertexAIGeminiOptions.speechVoice)
+                && Objects.equals(this.speechLanguage, vertexAIGeminiOptions.speechLanguage)
+                && Objects.equals(
+                        this.transcriptionLanguageCodes,
+                        vertexAIGeminiOptions.transcriptionLanguageCodes)
+                && Objects.equals(
+                        this.transcriptionDiarization,
+                        vertexAIGeminiOptions.transcriptionDiarization)
+                && Objects.equals(
+                        this.transcriptionWordTimestamps,
+                        vertexAIGeminiOptions.transcriptionWordTimestamps)
+                && Objects.equals(
+                        this.transcriptionVocabulary, vertexAIGeminiOptions.transcriptionVocabulary)
                 && Objects.equals(this.imageAspectRatio, vertexAIGeminiOptions.imageAspectRatio)
                 && Objects.equals(this.imageSize, vertexAIGeminiOptions.imageSize)
                 && Objects.equals(this.personGeneration, vertexAIGeminiOptions.personGeneration)
@@ -990,6 +1166,12 @@ public class VertexAIGeminiOptions {
                 thinkingLevel,
                 serviceTier,
                 flex,
+                speechVoice,
+                speechLanguage,
+                transcriptionLanguageCodes,
+                transcriptionDiarization,
+                transcriptionWordTimestamps,
+                transcriptionVocabulary,
                 imageAspectRatio,
                 imageSize,
                 personGeneration,
@@ -1019,6 +1201,20 @@ public class VertexAIGeminiOptions {
         sb.append("    thinkingLevel: ").append(toIndentedString(thinkingLevel)).append("\n");
         sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
         sb.append("    flex: ").append(toIndentedString(flex)).append("\n");
+        sb.append("    speechVoice: ").append(toIndentedString(speechVoice)).append("\n");
+        sb.append("    speechLanguage: ").append(toIndentedString(speechLanguage)).append("\n");
+        sb.append("    transcriptionLanguageCodes: ")
+                .append(toIndentedString(transcriptionLanguageCodes))
+                .append("\n");
+        sb.append("    transcriptionDiarization: ")
+                .append(toIndentedString(transcriptionDiarization))
+                .append("\n");
+        sb.append("    transcriptionWordTimestamps: ")
+                .append(toIndentedString(transcriptionWordTimestamps))
+                .append("\n");
+        sb.append("    transcriptionVocabulary: ")
+                .append(toIndentedString(transcriptionVocabulary))
+                .append("\n");
         sb.append("    imageAspectRatio: ").append(toIndentedString(imageAspectRatio)).append("\n");
         sb.append("    imageSize: ").append(toIndentedString(imageSize)).append("\n");
         sb.append("    personGeneration: ").append(toIndentedString(personGeneration)).append("\n");
@@ -1062,6 +1258,12 @@ public class VertexAIGeminiOptions {
                                 "thinking_level",
                                 "service_tier",
                                 "flex",
+                                "speech_voice",
+                                "speech_language",
+                                "transcription_language_codes",
+                                "transcription_diarization",
+                                "transcription_word_timestamps",
+                                "transcription_vocabulary",
                                 "image_aspect_ratio",
                                 "image_size",
                                 "person_generation",
@@ -1136,6 +1338,42 @@ public class VertexAIGeminiOptions {
                             java.util.Locale.ROOT,
                             "Expected the field `service_tier` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("service_tier").toString()));
+        }
+        if ((jsonObj.get("speech_voice") != null && !jsonObj.get("speech_voice").isJsonNull())
+                && !jsonObj.get("speech_voice").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `speech_voice` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("speech_voice").toString()));
+        }
+        if ((jsonObj.get("speech_language") != null && !jsonObj.get("speech_language").isJsonNull())
+                && !jsonObj.get("speech_language").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `speech_language` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("speech_language").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("transcription_language_codes") != null
+                && !jsonObj.get("transcription_language_codes").isJsonNull()
+                && !jsonObj.get("transcription_language_codes").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `transcription_language_codes` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("transcription_language_codes").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("transcription_vocabulary") != null
+                && !jsonObj.get("transcription_vocabulary").isJsonNull()
+                && !jsonObj.get("transcription_vocabulary").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `transcription_vocabulary` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("transcription_vocabulary").toString()));
         }
         if ((jsonObj.get("image_aspect_ratio") != null
                         && !jsonObj.get("image_aspect_ratio").isJsonNull())

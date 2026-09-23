@@ -173,6 +173,8 @@ public class JSON {
                                         Map<String, Class> classByDiscriminatorValue =
                                                 new HashMap<String, Class>();
                                         classByDiscriminatorValue.put(
+                                                "audio", io.vertesia.model.AudioResult.class);
+                                        classByDiscriminatorValue.put(
                                                 "image", io.vertesia.model.ImageResult.class);
                                         classByDiscriminatorValue.put(
                                                 "json", io.vertesia.model.JsonResult.class);
@@ -1154,6 +1156,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AsyncInteractionExecutionPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AudioResult.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AuditAction.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AuditAggregationDetailFilter.CustomTypeAdapterFactory());
@@ -2102,13 +2106,19 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.OnboardingProgress.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.OpenAiAudioOptions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.OpenAiDalleOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.OpenAiGptImageOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.OpenAiSpeechOptions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.OpenAiTextOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.OpenAiThinkingOptions.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.OpenAiTranscriptionOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.OpenRouterTextOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

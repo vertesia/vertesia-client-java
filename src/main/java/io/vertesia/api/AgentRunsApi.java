@@ -150,7 +150,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -329,7 +329,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -503,7 +503,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -674,7 +674,7 @@ public class AgentRunsApi {
                     "content-type", localVarApiClient.parameterToString(contentType));
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -859,7 +859,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -1015,7 +1015,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -1197,7 +1197,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -1403,7 +1403,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -1606,7 +1606,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -1833,7 +1833,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -2019,7 +2019,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -2177,7 +2177,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -2342,7 +2342,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -2512,7 +2512,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -2677,7 +2677,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -2964,7 +2964,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -3329,7 +3329,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -3512,7 +3512,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -3689,7 +3689,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -3869,7 +3869,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -4042,7 +4042,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -4298,7 +4298,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -4602,7 +4602,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -4799,7 +4799,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -4976,7 +4976,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -5132,7 +5132,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,
@@ -5299,7 +5299,7 @@ public class AgentRunsApi {
             localVarHeaderParams.put("Content-Type", localVarContentType);
         }
 
-        String[] localVarAuthNames = new String[] {"bearerAuth", "OpenID"};
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
         return localVarApiClient.buildCall(
                 basePath,
                 localVarPath,

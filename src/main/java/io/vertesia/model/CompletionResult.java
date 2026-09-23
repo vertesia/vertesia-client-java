@@ -51,6 +51,8 @@ public class CompletionResult extends AbstractOpenApiSchema {
                     gson.getDelegateAdapter(this, TypeToken.get(ImageResult.class));
             final TypeAdapter<VideoResult> adapterVideoResult =
                     gson.getDelegateAdapter(this, TypeToken.get(VideoResult.class));
+            final TypeAdapter<AudioResult> adapterAudioResult =
+                    gson.getDelegateAdapter(this, TypeToken.get(AudioResult.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<CompletionResult>() {
@@ -102,8 +104,16 @@ public class CompletionResult extends AbstractOpenApiSchema {
                                 elementAdapter.write(out, element);
                                 return;
                             }
+                            // check if the actual instance is of the type `AudioResult`
+                            if (value.getActualInstance() instanceof AudioResult) {
+                                JsonElement element =
+                                        adapterAudioResult.toJsonTree(
+                                                (AudioResult) value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: ImageResult, JsonResult, TextResult, ThoughtsResult, VideoResult");
+                                    "Failed to serialize as the type doesn't match oneOf schemas: AudioResult, ImageResult, JsonResult, TextResult, ThoughtsResult, VideoResult");
                         }
 
                         @Override
@@ -210,6 +220,25 @@ public class CompletionResult extends AbstractOpenApiSchema {
                                         "Input data does not match schema 'VideoResult'",
                                         e);
                             }
+                            // deserialize AudioResult
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                AudioResult.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAudioResult;
+                                match++;
+                                log.log(Level.FINER, "Input data matches schema 'AudioResult'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for AudioResult failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'AudioResult'",
+                                        e);
+                            }
 
                             if (match == 1) {
                                 CompletionResult ret = new CompletionResult();
@@ -247,6 +276,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
         schemas.put("JsonResult", JsonResult.class);
         schemas.put("ImageResult", ImageResult.class);
         schemas.put("VideoResult", VideoResult.class);
+        schemas.put("AudioResult", AudioResult.class);
     }
 
     @Override
@@ -257,7 +287,7 @@ public class CompletionResult extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * ImageResult, JsonResult, TextResult, ThoughtsResult, VideoResult
+     * AudioResult, ImageResult, JsonResult, TextResult, ThoughtsResult, VideoResult
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -288,15 +318,20 @@ public class CompletionResult extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof AudioResult) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         throw new RuntimeException(
-                "Invalid instance type. Must be ImageResult, JsonResult, TextResult, ThoughtsResult, VideoResult");
+                "Invalid instance type. Must be AudioResult, ImageResult, JsonResult, TextResult, ThoughtsResult, VideoResult");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * ImageResult, JsonResult, TextResult, ThoughtsResult, VideoResult
+     * AudioResult, ImageResult, JsonResult, TextResult, ThoughtsResult, VideoResult
      *
-     * @return The actual instance (ImageResult, JsonResult, TextResult, ThoughtsResult, VideoResult)
+     * @return The actual instance (AudioResult, ImageResult, JsonResult, TextResult, ThoughtsResult, VideoResult)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -362,6 +397,18 @@ public class CompletionResult extends AbstractOpenApiSchema {
     @SuppressWarnings("unchecked")
     public VideoResult getVideoResult() throws ClassCastException {
         return (VideoResult) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `AudioResult`. If the actual instance is not `AudioResult`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AudioResult`
+     * @throws ClassCastException if the instance is not `AudioResult`
+     */
+    @SuppressWarnings("unchecked")
+    public AudioResult getAudioResult() throws ClassCastException {
+        return (AudioResult) super.getActualInstance();
     }
 
     /**
@@ -434,11 +481,23 @@ public class CompletionResult extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with AudioResult
+        try {
+            AudioResult.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for AudioResult failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
             throw new IOException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for CompletionResult with oneOf schemas: ImageResult, JsonResult, TextResult, ThoughtsResult, VideoResult. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            "The JSON string is invalid for CompletionResult with oneOf schemas: AudioResult, ImageResult, JsonResult, TextResult, ThoughtsResult, VideoResult. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
