@@ -1396,7 +1396,7 @@ public class ObjectsApi {
 
     /**
      * Delete a content object
-     * Deletes a content object. Deleting a head revision deletes the whole revision set visible to the caller.  **Required permissions:** &#x60;content:delete&#x60;
+     * Deletes a content object. Deleting a head revision deletes the whole revision set visible to the caller.
      * @param objectId  (required)
      * @return DeleteContentObjectResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1417,7 +1417,7 @@ public class ObjectsApi {
 
     /**
      * Delete a content object
-     * Deletes a content object. Deleting a head revision deletes the whole revision set visible to the caller.  **Required permissions:** &#x60;content:delete&#x60;
+     * Deletes a content object. Deleting a head revision deletes the whole revision set visible to the caller.
      * @param objectId  (required)
      * @return ApiResponse&lt;DeleteContentObjectResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1439,7 +1439,7 @@ public class ObjectsApi {
 
     /**
      * Delete a content object (asynchronously)
-     * Deletes a content object. Deleting a head revision deletes the whole revision set visible to the caller.  **Required permissions:** &#x60;content:delete&#x60;
+     * Deletes a content object. Deleting a head revision deletes the whole revision set visible to the caller.
      * @param objectId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3919,7 +3919,7 @@ public class ObjectsApi {
 
     /**
      * Set content object embeddings
-     * Stores embeddings for a specific embedding type on a content object.  **Required permissions:** &#x60;content:write&#x60;
+     * Stores embeddings for a specific embedding type on a content object.
      * @param objectId  (required)
      * @param type  (required)
      * @param embedding  (required)
@@ -3946,7 +3946,7 @@ public class ObjectsApi {
 
     /**
      * Set content object embeddings
-     * Stores embeddings for a specific embedding type on a content object.  **Required permissions:** &#x60;content:write&#x60;
+     * Stores embeddings for a specific embedding type on a content object.
      * @param objectId  (required)
      * @param type  (required)
      * @param embedding  (required)
@@ -3974,7 +3974,7 @@ public class ObjectsApi {
 
     /**
      * Set content object embeddings (asynchronously)
-     * Stores embeddings for a specific embedding type on a content object.  **Required permissions:** &#x60;content:write&#x60;
+     * Stores embeddings for a specific embedding type on a content object.
      * @param objectId  (required)
      * @param type  (required)
      * @param embedding  (required)
@@ -4702,7 +4702,7 @@ public class ObjectsApi {
 
     /**
      * Update a content object
-     * Updates a content object, optionally creating a new revision and triggering downstream indexing and processing workflows.  **Required permissions:** &#x60;content:write&#x60;
+     * Updates a content object, optionally creating a new revision and triggering downstream indexing and processing workflows.
      * @param objectId  (required)
      * @param updateContentObjectPayload  (required)
      * @param createRevision  (optional)
@@ -4753,7 +4753,7 @@ public class ObjectsApi {
 
     /**
      * Update a content object
-     * Updates a content object, optionally creating a new revision and triggering downstream indexing and processing workflows.  **Required permissions:** &#x60;content:write&#x60;
+     * Updates a content object, optionally creating a new revision and triggering downstream indexing and processing workflows.
      * @param objectId  (required)
      * @param updateContentObjectPayload  (required)
      * @param createRevision  (optional)
@@ -4806,7 +4806,7 @@ public class ObjectsApi {
 
     /**
      * Update a content object (asynchronously)
-     * Updates a content object, optionally creating a new revision and triggering downstream indexing and processing workflows.  **Required permissions:** &#x60;content:write&#x60;
+     * Updates a content object, optionally creating a new revision and triggering downstream indexing and processing workflows.
      * @param objectId  (required)
      * @param updateContentObjectPayload  (required)
      * @param createRevision  (optional)

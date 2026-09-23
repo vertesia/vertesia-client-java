@@ -155,6 +155,11 @@ public class Collection {
     @SerializedName(SERIALIZED_NAME_SHARED_PROPERTIES)
     @jakarta.annotation.Nullable private List<String> sharedProperties = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_USER_PERMISSIONS = "user_permissions";
+
+    @SerializedName(SERIALIZED_NAME_USER_PERMISSIONS)
+    @jakarta.annotation.Nullable private ContentObjectUserPermissions userPermissions;
+
     public Collection() {}
 
     public Collection id(@jakarta.annotation.Nonnull String id) {
@@ -595,6 +600,25 @@ public class Collection {
         this.sharedProperties = sharedProperties;
     }
 
+    public Collection userPermissions(
+            @jakarta.annotation.Nullable ContentObjectUserPermissions userPermissions) {
+        this.userPermissions = userPermissions;
+        return this;
+    }
+
+    /**
+     * Computed per-request permissions for the current user on this collection. Not stored — computed on the fly from the collection&#39;s security field (same semantics as a content object&#39;s user_permissions).
+     * @return userPermissions
+     */
+    @jakarta.annotation.Nullable public ContentObjectUserPermissions getUserPermissions() {
+        return userPermissions;
+    }
+
+    public void setUserPermissions(
+            @jakarta.annotation.Nullable ContentObjectUserPermissions userPermissions) {
+        this.userPermissions = userPermissions;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -670,6 +694,7 @@ public class Collection {
                 && Objects.equals(this.sensitivity, collection.sensitivity)
                 && Objects.equals(this.compartments, collection.compartments)
                 && Objects.equals(this.sharedProperties, collection.sharedProperties)
+                && Objects.equals(this.userPermissions, collection.userPermissions)
                 && Objects.equals(this.additionalProperties, collection.additionalProperties);
     }
 
@@ -706,6 +731,7 @@ public class Collection {
                 sensitivity,
                 compartments,
                 sharedProperties,
+                userPermissions,
                 additionalProperties);
     }
 
@@ -741,6 +767,7 @@ public class Collection {
         sb.append("    sensitivity: ").append(toIndentedString(sensitivity)).append("\n");
         sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
         sb.append("    sharedProperties: ").append(toIndentedString(sharedProperties)).append("\n");
+        sb.append("    userPermissions: ").append(toIndentedString(userPermissions)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -784,7 +811,8 @@ public class Collection {
                                 "security",
                                 "sensitivity",
                                 "compartments",
-                                "shared_properties"));
+                                "shared_properties",
+                                "user_permissions"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -955,6 +983,11 @@ public class Collection {
                             java.util.Locale.ROOT,
                             "Expected the field `shared_properties` to be an array in the JSON string but got `%s`",
                             jsonObj.get("shared_properties").toString()));
+        }
+        // validate the optional field `user_permissions`
+        if (jsonObj.get("user_permissions") != null
+                && !jsonObj.get("user_permissions").isJsonNull()) {
+            ContentObjectUserPermissions.validateJsonElement(jsonObj.get("user_permissions"));
         }
     }
 
