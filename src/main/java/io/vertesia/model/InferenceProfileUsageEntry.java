@@ -17,162 +17,201 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
- * ProcessRunConfig
+ * InferenceProfileUsageEntry
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class ProcessRunConfig {
-    public static final String SERIALIZED_NAME_INFERENCE_PROFILE = "inference_profile";
+public class InferenceProfileUsageEntry {
+    public static final String SERIALIZED_NAME_ID = "id";
 
-    @SerializedName(SERIALIZED_NAME_INFERENCE_PROFILE)
-    @jakarta.annotation.Nullable private String inferenceProfile;
+    @SerializedName(SERIALIZED_NAME_ID)
+    @jakarta.annotation.Nonnull
+    private String id;
 
-    public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
+    public static final String SERIALIZED_NAME_NAME = "name";
 
-    @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
-    @jakarta.annotation.Nullable private String environment;
+    @SerializedName(SERIALIZED_NAME_NAME)
+    @jakarta.annotation.Nonnull
+    private String name;
 
-    public static final String SERIALIZED_NAME_MODEL = "model";
+    /**
+     * Gets or Sets kind
+     */
+    @JsonAdapter(KindEnum.Adapter.class)
+    public enum KindEnum {
+        STORED("stored"),
 
-    @SerializedName(SERIALIZED_NAME_MODEL)
-    @jakarta.annotation.Nullable private String model;
+        SYSTEM("system"),
 
-    public static final String SERIALIZED_NAME_MODEL_OPTIONS = "model_options";
+        APP("app"),
 
-    @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
-    @jakarta.annotation.Nullable private ModelOptions modelOptions;
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
-    public static final String SERIALIZED_NAME_USER_MESSAGE = "user_message";
+        private String value;
 
-    @SerializedName(SERIALIZED_NAME_USER_MESSAGE)
-    @jakarta.annotation.Nullable private String userMessage;
+        KindEnum(String value) {
+            this.value = value;
+        }
 
-    public static final String SERIALIZED_NAME_PROCESS_WORKSTREAM_MONITOR =
-            "process_workstream_monitor";
+        public String getValue() {
+            return value;
+        }
 
-    @SerializedName(SERIALIZED_NAME_PROCESS_WORKSTREAM_MONITOR)
-    @jakarta.annotation.Nullable private ProcessRunConfigProcessWorkstreamMonitor processWorkstreamMonitor;
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
 
-    public ProcessRunConfig() {}
+        public static KindEnum fromValue(String value) {
+            for (KindEnum b : KindEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
 
-    public ProcessRunConfig inferenceProfile(@jakarta.annotation.Nullable String inferenceProfile) {
-        this.inferenceProfile = inferenceProfile;
+        public static class Adapter extends TypeAdapter<KindEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final KindEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public KindEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return KindEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            KindEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_KIND = "kind";
+
+    @SerializedName(SERIALIZED_NAME_KIND)
+    @jakarta.annotation.Nonnull
+    private KindEnum kind;
+
+    public static final String SERIALIZED_NAME_VERSION = "version";
+
+    @SerializedName(SERIALIZED_NAME_VERSION)
+    @jakarta.annotation.Nullable private BigDecimal version;
+
+    public static final String SERIALIZED_NAME_STATUS = "status";
+
+    @SerializedName(SERIALIZED_NAME_STATUS)
+    @jakarta.annotation.Nullable private String status;
+
+    public InferenceProfileUsageEntry() {}
+
+    public InferenceProfileUsageEntry id(@jakarta.annotation.Nonnull String id) {
+        this.id = id;
         return this;
     }
 
     /**
-     * Run-level inference profile ID for process LLM nodes and the supervisor. Explicit model settings retain precedence.
-     * @return inferenceProfile
+     * Get id
+     * @return id
      */
-    @jakarta.annotation.Nullable public String getInferenceProfile() {
-        return inferenceProfile;
+    @jakarta.annotation.Nonnull
+    public String getId() {
+        return id;
     }
 
-    public void setInferenceProfile(@jakarta.annotation.Nullable String inferenceProfile) {
-        this.inferenceProfile = inferenceProfile;
+    public void setId(@jakarta.annotation.Nonnull String id) {
+        this.id = id;
     }
 
-    public ProcessRunConfig environment(@jakarta.annotation.Nullable String environment) {
-        this.environment = environment;
+    public InferenceProfileUsageEntry name(@jakarta.annotation.Nonnull String name) {
+        this.name = name;
         return this;
     }
 
     /**
-     * Execution environment id used by Process LLM nodes and the supervisor.
-     * @return environment
+     * Get name
+     * @return name
      */
-    @jakarta.annotation.Nullable public String getEnvironment() {
-        return environment;
+    @jakarta.annotation.Nonnull
+    public String getName() {
+        return name;
     }
 
-    public void setEnvironment(@jakarta.annotation.Nullable String environment) {
-        this.environment = environment;
+    public void setName(@jakarta.annotation.Nonnull String name) {
+        this.name = name;
     }
 
-    public ProcessRunConfig model(@jakarta.annotation.Nullable String model) {
-        this.model = model;
+    public InferenceProfileUsageEntry kind(@jakarta.annotation.Nonnull KindEnum kind) {
+        this.kind = kind;
         return this;
     }
 
     /**
-     * Get model
-     * @return model
+     * Get kind
+     * @return kind
      */
-    @jakarta.annotation.Nullable public String getModel() {
-        return model;
+    @jakarta.annotation.Nonnull
+    public KindEnum getKind() {
+        return kind;
     }
 
-    public void setModel(@jakarta.annotation.Nullable String model) {
-        this.model = model;
+    public void setKind(@jakarta.annotation.Nonnull KindEnum kind) {
+        this.kind = kind;
     }
 
-    public ProcessRunConfig modelOptions(@jakarta.annotation.Nullable ModelOptions modelOptions) {
-        this.modelOptions = modelOptions;
+    public InferenceProfileUsageEntry version(@jakarta.annotation.Nullable BigDecimal version) {
+        this.version = version;
         return this;
     }
 
     /**
-     * Validated model options applied to Process LLM nodes and the supervisor.
-     * @return modelOptions
+     * Get version
+     * @return version
      */
-    @jakarta.annotation.Nullable public ModelOptions getModelOptions() {
-        return modelOptions;
+    @jakarta.annotation.Nullable public BigDecimal getVersion() {
+        return version;
     }
 
-    public void setModelOptions(@jakarta.annotation.Nullable ModelOptions modelOptions) {
-        this.modelOptions = modelOptions;
+    public void setVersion(@jakarta.annotation.Nullable BigDecimal version) {
+        this.version = version;
     }
 
-    public ProcessRunConfig userMessage(@jakarta.annotation.Nullable String userMessage) {
-        this.userMessage = userMessage;
+    public InferenceProfileUsageEntry status(@jakarta.annotation.Nullable String status) {
+        this.status = status;
         return this;
     }
 
     /**
-     * Free-form message from the user when starting a run. Passed to the orchestrator LLM in supervised mode; stored on the run regardless so programmatic runs retain the intent that triggered them.
-     * @return userMessage
+     * Get status
+     * @return status
      */
-    @jakarta.annotation.Nullable public String getUserMessage() {
-        return userMessage;
+    @jakarta.annotation.Nullable public String getStatus() {
+        return status;
     }
 
-    public void setUserMessage(@jakarta.annotation.Nullable String userMessage) {
-        this.userMessage = userMessage;
-    }
-
-    public ProcessRunConfig processWorkstreamMonitor(
-            @jakarta.annotation.Nullable ProcessRunConfigProcessWorkstreamMonitor processWorkstreamMonitor) {
-        this.processWorkstreamMonitor = processWorkstreamMonitor;
-        return this;
-    }
-
-    /**
-     * Get processWorkstreamMonitor
-     * @return processWorkstreamMonitor
-     */
-    @jakarta.annotation.Nullable public ProcessRunConfigProcessWorkstreamMonitor getProcessWorkstreamMonitor() {
-        return processWorkstreamMonitor;
-    }
-
-    public void setProcessWorkstreamMonitor(
-            @jakarta.annotation.Nullable ProcessRunConfigProcessWorkstreamMonitor processWorkstreamMonitor) {
-        this.processWorkstreamMonitor = processWorkstreamMonitor;
+    public void setStatus(@jakarta.annotation.Nullable String status) {
+        this.status = status;
     }
 
     /**
@@ -188,9 +227,9 @@ public class ProcessRunConfig {
      *
      * @param key name of the property
      * @param value value of the property
-     * @return the ProcessRunConfig instance itself
+     * @return the InferenceProfileUsageEntry instance itself
      */
-    public ProcessRunConfig putAdditionalProperty(String key, Object value) {
+    public InferenceProfileUsageEntry putAdditionalProperty(String key, Object value) {
         if (this.additionalProperties == null) {
             this.additionalProperties = new HashMap<String, Object>();
         }
@@ -228,57 +267,30 @@ public class ProcessRunConfig {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ProcessRunConfig processRunConfig = (ProcessRunConfig) o;
-        return Objects.equals(this.inferenceProfile, processRunConfig.inferenceProfile)
-                && Objects.equals(this.environment, processRunConfig.environment)
-                && Objects.equals(this.model, processRunConfig.model)
-                && Objects.equals(this.modelOptions, processRunConfig.modelOptions)
-                && Objects.equals(this.userMessage, processRunConfig.userMessage)
+        InferenceProfileUsageEntry inferenceProfileUsageEntry = (InferenceProfileUsageEntry) o;
+        return Objects.equals(this.id, inferenceProfileUsageEntry.id)
+                && Objects.equals(this.name, inferenceProfileUsageEntry.name)
+                && Objects.equals(this.kind, inferenceProfileUsageEntry.kind)
+                && Objects.equals(this.version, inferenceProfileUsageEntry.version)
+                && Objects.equals(this.status, inferenceProfileUsageEntry.status)
                 && Objects.equals(
-                        this.processWorkstreamMonitor, processRunConfig.processWorkstreamMonitor)
-                && Objects.equals(this.additionalProperties, processRunConfig.additionalProperties);
-    }
-
-    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-        return a == b
-                || (a != null
-                        && b != null
-                        && a.isPresent()
-                        && b.isPresent()
-                        && Objects.deepEquals(a.get(), b.get()));
+                        this.additionalProperties, inferenceProfileUsageEntry.additionalProperties);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(
-                inferenceProfile,
-                environment,
-                model,
-                modelOptions,
-                userMessage,
-                processWorkstreamMonitor,
-                additionalProperties);
-    }
-
-    private static <T> int hashCodeNullable(JsonNullable<T> a) {
-        if (a == null) {
-            return 1;
-        }
-        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
+        return Objects.hash(id, name, kind, version, status, additionalProperties);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ProcessRunConfig {\n");
-        sb.append("    inferenceProfile: ").append(toIndentedString(inferenceProfile)).append("\n");
-        sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
-        sb.append("    model: ").append(toIndentedString(model)).append("\n");
-        sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
-        sb.append("    userMessage: ").append(toIndentedString(userMessage)).append("\n");
-        sb.append("    processWorkstreamMonitor: ")
-                .append(toIndentedString(processWorkstreamMonitor))
-                .append("\n");
+        sb.append("class InferenceProfileUsageEntry {\n");
+        sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
+        sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -300,79 +312,72 @@ public class ProcessRunConfig {
     static {
         // a set of all properties/fields (JSON key names)
         openapiFields =
-                new HashSet<String>(
-                        Arrays.asList(
-                                "inference_profile",
-                                "environment",
-                                "model",
-                                "model_options",
-                                "user_message",
-                                "process_workstream_monitor"));
+                new HashSet<String>(Arrays.asList("id", "name", "kind", "version", "status"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(0);
+        openapiRequiredFields = new HashSet<String>(Arrays.asList("id", "name", "kind"));
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to ProcessRunConfig
+     * @throws IOException if the JSON Element is invalid with respect to InferenceProfileUsageEntry
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ProcessRunConfig.openapiRequiredFields
+            if (!InferenceProfileUsageEntry.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 java.util.Locale.ROOT,
-                                "The required field(s) %s in ProcessRunConfig is not found in the empty JSON string",
-                                ProcessRunConfig.openapiRequiredFields.toString()));
+                                "The required field(s) %s in InferenceProfileUsageEntry is not found in the empty JSON string",
+                                InferenceProfileUsageEntry.openapiRequiredFields.toString()));
+            }
+        }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : InferenceProfileUsageEntry.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                java.util.Locale.ROOT,
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField,
+                                jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if ((jsonObj.get("inference_profile") != null
-                        && !jsonObj.get("inference_profile").isJsonNull())
-                && !jsonObj.get("inference_profile").isJsonPrimitive()) {
+        if (!jsonObj.get("id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `inference_profile` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("inference_profile").toString()));
+                            "Expected the field `id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("id").toString()));
         }
-        if ((jsonObj.get("environment") != null && !jsonObj.get("environment").isJsonNull())
-                && !jsonObj.get("environment").isJsonPrimitive()) {
+        if (!jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `environment` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("environment").toString()));
+                            "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("name").toString()));
         }
-        if ((jsonObj.get("model") != null && !jsonObj.get("model").isJsonNull())
-                && !jsonObj.get("model").isJsonPrimitive()) {
+        if (!jsonObj.get("kind").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `model` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("model").toString()));
+                            "Expected the field `kind` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("kind").toString()));
         }
-        // validate the optional field `model_options`
-        if (jsonObj.get("model_options") != null && !jsonObj.get("model_options").isJsonNull()) {
-            ModelOptions.validateJsonElement(jsonObj.get("model_options"));
-        }
-        if ((jsonObj.get("user_message") != null && !jsonObj.get("user_message").isJsonNull())
-                && !jsonObj.get("user_message").isJsonPrimitive()) {
+        // validate the required field `kind`
+        KindEnum.validateJsonElement(jsonObj.get("kind"));
+        if ((jsonObj.get("status") != null && !jsonObj.get("status").isJsonNull())
+                && !jsonObj.get("status").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `user_message` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("user_message").toString()));
-        }
-        // validate the optional field `process_workstream_monitor`
-        if (jsonObj.get("process_workstream_monitor") != null
-                && !jsonObj.get("process_workstream_monitor").isJsonNull()) {
-            ProcessRunConfigProcessWorkstreamMonitor.validateJsonElement(
-                    jsonObj.get("process_workstream_monitor"));
+                            "Expected the field `status` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("status").toString()));
         }
     }
 
@@ -380,17 +385,18 @@ public class ProcessRunConfig {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ProcessRunConfig.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ProcessRunConfig' and its subtypes
+            if (!InferenceProfileUsageEntry.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'InferenceProfileUsageEntry' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ProcessRunConfig> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(ProcessRunConfig.class));
+            final TypeAdapter<InferenceProfileUsageEntry> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(InferenceProfileUsageEntry.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ProcessRunConfig>() {
+                    new TypeAdapter<InferenceProfileUsageEntry>() {
                         @Override
-                        public void write(JsonWriter out, ProcessRunConfig value)
+                        public void write(JsonWriter out, InferenceProfileUsageEntry value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             obj.remove("additionalProperties");
@@ -421,12 +427,12 @@ public class ProcessRunConfig {
                         }
 
                         @Override
-                        public ProcessRunConfig read(JsonReader in) throws IOException {
+                        public InferenceProfileUsageEntry read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             JsonObject jsonObj = jsonElement.getAsJsonObject();
                             // store additional fields in the deserialized instance
-                            ProcessRunConfig instance = thisAdapter.fromJsonTree(jsonObj);
+                            InferenceProfileUsageEntry instance = thisAdapter.fromJsonTree(jsonObj);
                             for (Map.Entry<String, JsonElement> entry : jsonObj.entrySet()) {
                                 if (!openapiFields.contains(entry.getKey())) {
                                     if (entry.getValue().isJsonPrimitive()) { // primitive type
@@ -465,18 +471,18 @@ public class ProcessRunConfig {
     }
 
     /**
-     * Create an instance of ProcessRunConfig given an JSON string
+     * Create an instance of InferenceProfileUsageEntry given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ProcessRunConfig
-     * @throws IOException if the JSON string is invalid with respect to ProcessRunConfig
+     * @return An instance of InferenceProfileUsageEntry
+     * @throws IOException if the JSON string is invalid with respect to InferenceProfileUsageEntry
      */
-    public static ProcessRunConfig fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ProcessRunConfig.class);
+    public static InferenceProfileUsageEntry fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, InferenceProfileUsageEntry.class);
     }
 
     /**
-     * Convert an instance of ProcessRunConfig to an JSON string
+     * Convert an instance of InferenceProfileUsageEntry to an JSON string
      *
      * @return JSON string
      */

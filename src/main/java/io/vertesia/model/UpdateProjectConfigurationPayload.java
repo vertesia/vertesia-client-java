@@ -55,8 +55,14 @@ public class UpdateProjectConfigurationPayload {
 
     public static final String SERIALIZED_NAME_DEFAULTS = "defaults";
 
+    @Deprecated
     @SerializedName(SERIALIZED_NAME_DEFAULTS)
     @jakarta.annotation.Nullable private ProjectModelDefaults defaults;
+
+    public static final String SERIALIZED_NAME_INFERENCE = "inference";
+
+    @SerializedName(SERIALIZED_NAME_INFERENCE)
+    @jakarta.annotation.Nullable private ProjectInferenceProfiles inference;
 
     public static final String SERIALIZED_NAME_DEFAULT_VISIBILITY = "default_visibility";
 
@@ -179,6 +185,7 @@ public class UpdateProjectConfigurationPayload {
         this.humanContext = humanContext;
     }
 
+    @Deprecated
     public UpdateProjectConfigurationPayload defaults(
             @jakarta.annotation.Nullable ProjectModelDefaults defaults) {
         this.defaults = defaults;
@@ -186,15 +193,36 @@ public class UpdateProjectConfigurationPayload {
     }
 
     /**
-     * Get defaults
+     * Legacy model defaults, replaced by inference profile assignments after migration.
      * @return defaults
+     * @deprecated
      */
+    @Deprecated
     @jakarta.annotation.Nullable public ProjectModelDefaults getDefaults() {
         return defaults;
     }
 
+    @Deprecated
     public void setDefaults(@jakarta.annotation.Nullable ProjectModelDefaults defaults) {
         this.defaults = defaults;
+    }
+
+    public UpdateProjectConfigurationPayload inference(
+            @jakarta.annotation.Nullable ProjectInferenceProfiles inference) {
+        this.inference = inference;
+        return this;
+    }
+
+    /**
+     * Get inference
+     * @return inference
+     */
+    @jakarta.annotation.Nullable public ProjectInferenceProfiles getInference() {
+        return inference;
+    }
+
+    public void setInference(@jakarta.annotation.Nullable ProjectInferenceProfiles inference) {
+        this.inference = inference;
     }
 
     public UpdateProjectConfigurationPayload defaultVisibility(
@@ -498,6 +526,7 @@ public class UpdateProjectConfigurationPayload {
                 && Objects.equals(this.defaultModel, updateProjectConfigurationPayload.defaultModel)
                 && Objects.equals(this.humanContext, updateProjectConfigurationPayload.humanContext)
                 && Objects.equals(this.defaults, updateProjectConfigurationPayload.defaults)
+                && Objects.equals(this.inference, updateProjectConfigurationPayload.inference)
                 && Objects.equals(
                         this.defaultVisibility, updateProjectConfigurationPayload.defaultVisibility)
                 && Objects.equals(
@@ -540,6 +569,7 @@ public class UpdateProjectConfigurationPayload {
                 defaultModel,
                 humanContext,
                 defaults,
+                inference,
                 defaultVisibility,
                 syncContentProperties,
                 embeddings,
@@ -573,6 +603,7 @@ public class UpdateProjectConfigurationPayload {
         sb.append("    defaultModel: ").append(toIndentedString(defaultModel)).append("\n");
         sb.append("    humanContext: ").append(toIndentedString(humanContext)).append("\n");
         sb.append("    defaults: ").append(toIndentedString(defaults)).append("\n");
+        sb.append("    inference: ").append(toIndentedString(inference)).append("\n");
         sb.append("    defaultVisibility: ")
                 .append(toIndentedString(defaultVisibility))
                 .append("\n");
@@ -621,6 +652,7 @@ public class UpdateProjectConfigurationPayload {
                                 "default_model",
                                 "human_context",
                                 "defaults",
+                                "inference",
                                 "default_visibility",
                                 "sync_content_properties",
                                 "embeddings",
@@ -686,6 +718,10 @@ public class UpdateProjectConfigurationPayload {
         // validate the optional field `defaults`
         if (jsonObj.get("defaults") != null && !jsonObj.get("defaults").isJsonNull()) {
             ProjectModelDefaults.validateJsonElement(jsonObj.get("defaults"));
+        }
+        // validate the optional field `inference`
+        if (jsonObj.get("inference") != null && !jsonObj.get("inference").isJsonNull()) {
+            ProjectInferenceProfiles.validateJsonElement(jsonObj.get("inference"));
         }
         // validate the optional field `default_visibility`
         if (jsonObj.get("default_visibility") != null

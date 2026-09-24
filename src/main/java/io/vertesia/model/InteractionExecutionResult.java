@@ -152,6 +152,11 @@ public class InteractionExecutionResult {
     @jakarta.annotation.Nonnull
     private InteractionExecutionConfiguration config;
 
+    public static final String SERIALIZED_NAME_INFERENCE_PROFILE = "inference_profile";
+
+    @SerializedName(SERIALIZED_NAME_INFERENCE_PROFILE)
+    @jakarta.annotation.Nullable private InferenceProfileSnapshot inferenceProfile;
+
     public static final String SERIALIZED_NAME_ERROR = "error";
 
     @SerializedName(SERIALIZED_NAME_ERROR)
@@ -617,6 +622,25 @@ public class InteractionExecutionResult {
         this.config = config;
     }
 
+    public InteractionExecutionResult inferenceProfile(
+            @jakarta.annotation.Nullable InferenceProfileSnapshot inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+        return this;
+    }
+
+    /**
+     * Get inferenceProfile
+     * @return inferenceProfile
+     */
+    @jakarta.annotation.Nullable public InferenceProfileSnapshot getInferenceProfile() {
+        return inferenceProfile;
+    }
+
+    public void setInferenceProfile(
+            @jakarta.annotation.Nullable InferenceProfileSnapshot inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+    }
+
     public InteractionExecutionResult error(
             @jakarta.annotation.Nullable InteractionExecutionError error) {
         this.error = error;
@@ -919,6 +943,8 @@ public class InteractionExecutionResult {
                 && Objects.equals(this.createdAt, interactionExecutionResult.createdAt)
                 && Objects.equals(this.updatedAt, interactionExecutionResult.updatedAt)
                 && Objects.equals(this.config, interactionExecutionResult.config)
+                && Objects.equals(
+                        this.inferenceProfile, interactionExecutionResult.inferenceProfile)
                 && Objects.equals(this.error, interactionExecutionResult.error)
                 && Objects.equals(this.source, interactionExecutionResult.source)
                 && Objects.equals(this.outputModality, interactionExecutionResult.outputModality)
@@ -967,6 +993,7 @@ public class InteractionExecutionResult {
                 createdAt,
                 updatedAt,
                 config,
+                inferenceProfile,
                 error,
                 source,
                 outputModality,
@@ -1015,6 +1042,7 @@ public class InteractionExecutionResult {
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
         sb.append("    updatedAt: ").append(toIndentedString(updatedAt)).append("\n");
         sb.append("    config: ").append(toIndentedString(config)).append("\n");
+        sb.append("    inferenceProfile: ").append(toIndentedString(inferenceProfile)).append("\n");
         sb.append("    error: ").append(toIndentedString(error)).append("\n");
         sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("    outputModality: ").append(toIndentedString(outputModality)).append("\n");
@@ -1070,6 +1098,7 @@ public class InteractionExecutionResult {
                                 "created_at",
                                 "updated_at",
                                 "config",
+                                "inference_profile",
                                 "error",
                                 "source",
                                 "output_modality",
@@ -1224,6 +1253,11 @@ public class InteractionExecutionResult {
         }
         // validate the required field `config`
         InteractionExecutionConfiguration.validateJsonElement(jsonObj.get("config"));
+        // validate the optional field `inference_profile`
+        if (jsonObj.get("inference_profile") != null
+                && !jsonObj.get("inference_profile").isJsonNull()) {
+            InferenceProfileSnapshot.validateJsonElement(jsonObj.get("inference_profile"));
+        }
         // validate the optional field `error`
         if (jsonObj.get("error") != null && !jsonObj.get("error").isJsonNull()) {
             InteractionExecutionError.validateJsonElement(jsonObj.get("error"));

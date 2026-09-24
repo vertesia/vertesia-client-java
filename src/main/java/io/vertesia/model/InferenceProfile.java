@@ -28,43 +28,75 @@ import java.util.HashSet;
 import java.util.Objects;
 
 /**
- * Resolved runtime configuration for an interaction
+ * A reusable environment, model and inference parameter preset. Credentials remain in the environment.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class ResolvedRuntimeConfig {
+public class InferenceProfile {
+    public static final String SERIALIZED_NAME_NAME = "name";
+
+    @SerializedName(SERIALIZED_NAME_NAME)
+    @jakarta.annotation.Nullable private String name;
+
+    public static final String SERIALIZED_NAME_DESCRIPTION = "description";
+
+    @SerializedName(SERIALIZED_NAME_DESCRIPTION)
+    @jakarta.annotation.Nullable private String description;
+
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT)
     @jakarta.annotation.Nonnull
-    private ResolvedEnvironmentInfo environment;
+    private String environment;
 
     public static final String SERIALIZED_NAME_MODEL = "model";
 
     @SerializedName(SERIALIZED_NAME_MODEL)
     @jakarta.annotation.Nullable private String model;
 
-    public static final String SERIALIZED_NAME_MODEL_SOURCE = "model_source";
-
-    @SerializedName(SERIALIZED_NAME_MODEL_SOURCE)
-    @jakarta.annotation.Nonnull
-    private ModelSource modelSource;
-
-    public static final String SERIALIZED_NAME_INFERENCE_PROFILE = "inference_profile";
-
-    @SerializedName(SERIALIZED_NAME_INFERENCE_PROFILE)
-    @jakarta.annotation.Nullable private InferenceProfileSnapshot inferenceProfile;
-
     public static final String SERIALIZED_NAME_MODEL_OPTIONS = "model_options";
 
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
     @jakarta.annotation.Nullable private ModelOptions modelOptions;
 
-    public ResolvedRuntimeConfig() {}
+    public InferenceProfile() {}
 
-    public ResolvedRuntimeConfig environment(
-            @jakarta.annotation.Nonnull ResolvedEnvironmentInfo environment) {
+    public InferenceProfile name(@jakarta.annotation.Nullable String name) {
+        this.name = name;
+        return this;
+    }
+
+    /**
+     * Editable display name.
+     * @return name
+     */
+    @jakarta.annotation.Nullable public String getName() {
+        return name;
+    }
+
+    public void setName(@jakarta.annotation.Nullable String name) {
+        this.name = name;
+    }
+
+    public InferenceProfile description(@jakarta.annotation.Nullable String description) {
+        this.description = description;
+        return this;
+    }
+
+    /**
+     * Get description
+     * @return description
+     */
+    @jakarta.annotation.Nullable public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(@jakarta.annotation.Nullable String description) {
+        this.description = description;
+    }
+
+    public InferenceProfile environment(@jakarta.annotation.Nonnull String environment) {
         this.environment = environment;
         return this;
     }
@@ -74,15 +106,15 @@ public class ResolvedRuntimeConfig {
      * @return environment
      */
     @jakarta.annotation.Nonnull
-    public ResolvedEnvironmentInfo getEnvironment() {
+    public String getEnvironment() {
         return environment;
     }
 
-    public void setEnvironment(@jakarta.annotation.Nonnull ResolvedEnvironmentInfo environment) {
+    public void setEnvironment(@jakarta.annotation.Nonnull String environment) {
         this.environment = environment;
     }
 
-    public ResolvedRuntimeConfig model(@jakarta.annotation.Nullable String model) {
+    public InferenceProfile model(@jakarta.annotation.Nullable String model) {
         this.model = model;
         return this;
     }
@@ -99,45 +131,7 @@ public class ResolvedRuntimeConfig {
         this.model = model;
     }
 
-    public ResolvedRuntimeConfig modelSource(@jakarta.annotation.Nonnull ModelSource modelSource) {
-        this.modelSource = modelSource;
-        return this;
-    }
-
-    /**
-     * Get modelSource
-     * @return modelSource
-     */
-    @jakarta.annotation.Nonnull
-    public ModelSource getModelSource() {
-        return modelSource;
-    }
-
-    public void setModelSource(@jakarta.annotation.Nonnull ModelSource modelSource) {
-        this.modelSource = modelSource;
-    }
-
-    public ResolvedRuntimeConfig inferenceProfile(
-            @jakarta.annotation.Nullable InferenceProfileSnapshot inferenceProfile) {
-        this.inferenceProfile = inferenceProfile;
-        return this;
-    }
-
-    /**
-     * Get inferenceProfile
-     * @return inferenceProfile
-     */
-    @jakarta.annotation.Nullable public InferenceProfileSnapshot getInferenceProfile() {
-        return inferenceProfile;
-    }
-
-    public void setInferenceProfile(
-            @jakarta.annotation.Nullable InferenceProfileSnapshot inferenceProfile) {
-        this.inferenceProfile = inferenceProfile;
-    }
-
-    public ResolvedRuntimeConfig modelOptions(
-            @jakarta.annotation.Nullable ModelOptions modelOptions) {
+    public InferenceProfile modelOptions(@jakarta.annotation.Nullable ModelOptions modelOptions) {
         this.modelOptions = modelOptions;
         return this;
     }
@@ -162,27 +156,27 @@ public class ResolvedRuntimeConfig {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        ResolvedRuntimeConfig resolvedRuntimeConfig = (ResolvedRuntimeConfig) o;
-        return Objects.equals(this.environment, resolvedRuntimeConfig.environment)
-                && Objects.equals(this.model, resolvedRuntimeConfig.model)
-                && Objects.equals(this.modelSource, resolvedRuntimeConfig.modelSource)
-                && Objects.equals(this.inferenceProfile, resolvedRuntimeConfig.inferenceProfile)
-                && Objects.equals(this.modelOptions, resolvedRuntimeConfig.modelOptions);
+        InferenceProfile inferenceProfile = (InferenceProfile) o;
+        return Objects.equals(this.name, inferenceProfile.name)
+                && Objects.equals(this.description, inferenceProfile.description)
+                && Objects.equals(this.environment, inferenceProfile.environment)
+                && Objects.equals(this.model, inferenceProfile.model)
+                && Objects.equals(this.modelOptions, inferenceProfile.modelOptions);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(environment, model, modelSource, inferenceProfile, modelOptions);
+        return Objects.hash(name, description, environment, model, modelOptions);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class ResolvedRuntimeConfig {\n");
+        sb.append("class InferenceProfile {\n");
+        sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
-        sb.append("    modelSource: ").append(toIndentedString(modelSource)).append("\n");
-        sb.append("    inferenceProfile: ").append(toIndentedString(inferenceProfile)).append("\n");
         sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -204,36 +198,32 @@ public class ResolvedRuntimeConfig {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "environment",
-                                "model",
-                                "model_source",
-                                "inference_profile",
-                                "model_options"));
+                                "name", "description", "environment", "model", "model_options"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("environment", "model_source"));
+        openapiRequiredFields = new HashSet<String>(Arrays.asList("environment"));
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to ResolvedRuntimeConfig
+     * @throws IOException if the JSON Element is invalid with respect to InferenceProfile
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!ResolvedRuntimeConfig.openapiRequiredFields
+            if (!InferenceProfile.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 java.util.Locale.ROOT,
-                                "The required field(s) %s in ResolvedRuntimeConfig is not found in the empty JSON string",
-                                ResolvedRuntimeConfig.openapiRequiredFields.toString()));
+                                "The required field(s) %s in InferenceProfile is not found in the empty JSON string",
+                                InferenceProfile.openapiRequiredFields.toString()));
             }
         }
 
         // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : ResolvedRuntimeConfig.openapiRequiredFields) {
+        for (String requiredField : InferenceProfile.openapiRequiredFields) {
             if (jsonElement.getAsJsonObject().get(requiredField) == null) {
                 throw new IllegalArgumentException(
                         String.format(
@@ -244,8 +234,29 @@ public class ResolvedRuntimeConfig {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        // validate the required field `environment`
-        ResolvedEnvironmentInfo.validateJsonElement(jsonObj.get("environment"));
+        if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull())
+                && !jsonObj.get("name").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("name").toString()));
+        }
+        if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
+                && !jsonObj.get("description").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `description` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("description").toString()));
+        }
+        if (!jsonObj.get("environment").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `environment` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("environment").toString()));
+        }
         if ((jsonObj.get("model") != null && !jsonObj.get("model").isJsonNull())
                 && !jsonObj.get("model").isJsonPrimitive()) {
             throw new IllegalArgumentException(
@@ -253,13 +264,6 @@ public class ResolvedRuntimeConfig {
                             java.util.Locale.ROOT,
                             "Expected the field `model` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("model").toString()));
-        }
-        // validate the required field `model_source`
-        ModelSource.validateJsonElement(jsonObj.get("model_source"));
-        // validate the optional field `inference_profile`
-        if (jsonObj.get("inference_profile") != null
-                && !jsonObj.get("inference_profile").isJsonNull()) {
-            InferenceProfileSnapshot.validateJsonElement(jsonObj.get("inference_profile"));
         }
         // validate the optional field `model_options`
         if (jsonObj.get("model_options") != null && !jsonObj.get("model_options").isJsonNull()) {
@@ -271,24 +275,24 @@ public class ResolvedRuntimeConfig {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!ResolvedRuntimeConfig.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'ResolvedRuntimeConfig' and its subtypes
+            if (!InferenceProfile.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'InferenceProfile' and its subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<ResolvedRuntimeConfig> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(ResolvedRuntimeConfig.class));
+            final TypeAdapter<InferenceProfile> thisAdapter =
+                    gson.getDelegateAdapter(this, TypeToken.get(InferenceProfile.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<ResolvedRuntimeConfig>() {
+                    new TypeAdapter<InferenceProfile>() {
                         @Override
-                        public void write(JsonWriter out, ResolvedRuntimeConfig value)
+                        public void write(JsonWriter out, InferenceProfile value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public ResolvedRuntimeConfig read(JsonReader in) throws IOException {
+                        public InferenceProfile read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -298,18 +302,18 @@ public class ResolvedRuntimeConfig {
     }
 
     /**
-     * Create an instance of ResolvedRuntimeConfig given an JSON string
+     * Create an instance of InferenceProfile given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of ResolvedRuntimeConfig
-     * @throws IOException if the JSON string is invalid with respect to ResolvedRuntimeConfig
+     * @return An instance of InferenceProfile
+     * @throws IOException if the JSON string is invalid with respect to InferenceProfile
      */
-    public static ResolvedRuntimeConfig fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, ResolvedRuntimeConfig.class);
+    public static InferenceProfile fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, InferenceProfile.class);
     }
 
     /**
-     * Convert an instance of ResolvedRuntimeConfig to an JSON string
+     * Convert an instance of InferenceProfile to an JSON string
      *
      * @return JSON string
      */

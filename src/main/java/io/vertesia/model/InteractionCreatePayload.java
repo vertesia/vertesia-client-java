@@ -32,6 +32,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * InteractionCreatePayload
@@ -107,6 +108,11 @@ public class InteractionCreatePayload {
 
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
     @jakarta.annotation.Nullable private ModelOptions modelOptions;
+
+    public static final String SERIALIZED_NAME_INFERENCE_PROFILE = "inference_profile";
+
+    @SerializedName(SERIALIZED_NAME_INFERENCE_PROFILE)
+    @jakarta.annotation.Nullable private String inferenceProfile;
 
     public static final String SERIALIZED_NAME_STORE_MEDIA_RESULTS = "store_media_results";
 
@@ -388,6 +394,24 @@ public class InteractionCreatePayload {
         this.modelOptions = modelOptions;
     }
 
+    public InteractionCreatePayload inferenceProfile(
+            @jakarta.annotation.Nullable String inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+        return this;
+    }
+
+    /**
+     * MongoDB ObjectId of the inference profile.
+     * @return inferenceProfile
+     */
+    @jakarta.annotation.Nullable public String getInferenceProfile() {
+        return inferenceProfile;
+    }
+
+    public void setInferenceProfile(@jakarta.annotation.Nullable String inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+    }
+
     public InteractionCreatePayload storeMediaResults(
             @jakarta.annotation.Nullable Boolean storeMediaResults) {
         this.storeMediaResults = storeMediaResults;
@@ -513,12 +537,22 @@ public class InteractionCreatePayload {
                 && Objects.equals(this.environment, interactionCreatePayload.environment)
                 && Objects.equals(this.model, interactionCreatePayload.model)
                 && Objects.equals(this.modelOptions, interactionCreatePayload.modelOptions)
+                && Objects.equals(this.inferenceProfile, interactionCreatePayload.inferenceProfile)
                 && Objects.equals(
                         this.storeMediaResults, interactionCreatePayload.storeMediaResults)
                 && Objects.equals(this.restriction, interactionCreatePayload.restriction)
                 && Objects.equals(this.outputModality, interactionCreatePayload.outputModality)
                 && Objects.equals(this.visibility, interactionCreatePayload.visibility)
                 && Objects.equals(this.tags, interactionCreatePayload.tags);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
     }
 
     @Override
@@ -537,11 +571,19 @@ public class InteractionCreatePayload {
                 environment,
                 model,
                 modelOptions,
+                inferenceProfile,
                 storeMediaResults,
                 restriction,
                 outputModality,
                 visibility,
                 tags);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -565,6 +607,7 @@ public class InteractionCreatePayload {
         sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
         sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
+        sb.append("    inferenceProfile: ").append(toIndentedString(inferenceProfile)).append("\n");
         sb.append("    storeMediaResults: ")
                 .append(toIndentedString(storeMediaResults))
                 .append("\n");
@@ -605,6 +648,7 @@ public class InteractionCreatePayload {
                                 "environment",
                                 "model",
                                 "model_options",
+                                "inference_profile",
                                 "store_media_results",
                                 "restriction",
                                 "output_modality",
@@ -709,6 +753,15 @@ public class InteractionCreatePayload {
         // validate the optional field `model_options`
         if (jsonObj.get("model_options") != null && !jsonObj.get("model_options").isJsonNull()) {
             ModelOptions.validateJsonElement(jsonObj.get("model_options"));
+        }
+        if ((jsonObj.get("inference_profile") != null
+                        && !jsonObj.get("inference_profile").isJsonNull())
+                && !jsonObj.get("inference_profile").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `inference_profile` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("inference_profile").toString()));
         }
         // validate the optional field `restriction`
         if (jsonObj.get("restriction") != null && !jsonObj.get("restriction").isJsonNull()) {

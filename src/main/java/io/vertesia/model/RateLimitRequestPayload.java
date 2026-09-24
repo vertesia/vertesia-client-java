@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * RateLimitRequestPayload
@@ -44,6 +45,16 @@ public class RateLimitRequestPayload {
 
     @SerializedName(SERIALIZED_NAME_ENVIRONMENT_ID)
     @jakarta.annotation.Nullable private String environmentId;
+
+    public static final String SERIALIZED_NAME_INFERENCE_PROFILE = "inference_profile";
+
+    @SerializedName(SERIALIZED_NAME_INFERENCE_PROFILE)
+    @jakarta.annotation.Nullable private String inferenceProfile;
+
+    public static final String SERIALIZED_NAME_INHERIT_MODEL_CONFIG = "inherit_model_config";
+
+    @SerializedName(SERIALIZED_NAME_INHERIT_MODEL_CONFIG)
+    @jakarta.annotation.Nullable private Boolean inheritModelConfig;
 
     public static final String SERIALIZED_NAME_MODEL_ID = "model_id";
 
@@ -102,6 +113,42 @@ public class RateLimitRequestPayload {
 
     public void setEnvironmentId(@jakarta.annotation.Nullable String environmentId) {
         this.environmentId = environmentId;
+    }
+
+    public RateLimitRequestPayload inferenceProfile(
+            @jakarta.annotation.Nullable String inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+        return this;
+    }
+
+    /**
+     * MongoDB ObjectId of the inference profile.
+     * @return inferenceProfile
+     */
+    @jakarta.annotation.Nullable public String getInferenceProfile() {
+        return inferenceProfile;
+    }
+
+    public void setInferenceProfile(@jakarta.annotation.Nullable String inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+    }
+
+    public RateLimitRequestPayload inheritModelConfig(
+            @jakarta.annotation.Nullable Boolean inheritModelConfig) {
+        this.inheritModelConfig = inheritModelConfig;
+        return this;
+    }
+
+    /**
+     * Get inheritModelConfig
+     * @return inheritModelConfig
+     */
+    @jakarta.annotation.Nullable public Boolean getInheritModelConfig() {
+        return inheritModelConfig;
+    }
+
+    public void setInheritModelConfig(@jakarta.annotation.Nullable Boolean inheritModelConfig) {
+        this.inheritModelConfig = inheritModelConfig;
     }
 
     public RateLimitRequestPayload modelId(@jakarta.annotation.Nullable String modelId) {
@@ -189,16 +236,42 @@ public class RateLimitRequestPayload {
         RateLimitRequestPayload rateLimitRequestPayload = (RateLimitRequestPayload) o;
         return Objects.equals(this.interaction, rateLimitRequestPayload.interaction)
                 && Objects.equals(this.environmentId, rateLimitRequestPayload.environmentId)
+                && Objects.equals(this.inferenceProfile, rateLimitRequestPayload.inferenceProfile)
+                && Objects.equals(
+                        this.inheritModelConfig, rateLimitRequestPayload.inheritModelConfig)
                 && Objects.equals(this.modelId, rateLimitRequestPayload.modelId)
                 && Objects.equals(this.workflowRunId, rateLimitRequestPayload.workflowRunId)
                 && Objects.equals(this.rateLimitId, rateLimitRequestPayload.rateLimitId)
                 && Objects.equals(this.modalities, rateLimitRequestPayload.modalities);
     }
 
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(
-                interaction, environmentId, modelId, workflowRunId, rateLimitId, modalities);
+                interaction,
+                environmentId,
+                inferenceProfile,
+                inheritModelConfig,
+                modelId,
+                workflowRunId,
+                rateLimitId,
+                modalities);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -207,6 +280,10 @@ public class RateLimitRequestPayload {
         sb.append("class RateLimitRequestPayload {\n");
         sb.append("    interaction: ").append(toIndentedString(interaction)).append("\n");
         sb.append("    environmentId: ").append(toIndentedString(environmentId)).append("\n");
+        sb.append("    inferenceProfile: ").append(toIndentedString(inferenceProfile)).append("\n");
+        sb.append("    inheritModelConfig: ")
+                .append(toIndentedString(inheritModelConfig))
+                .append("\n");
         sb.append("    modelId: ").append(toIndentedString(modelId)).append("\n");
         sb.append("    workflowRunId: ").append(toIndentedString(workflowRunId)).append("\n");
         sb.append("    rateLimitId: ").append(toIndentedString(rateLimitId)).append("\n");
@@ -233,6 +310,8 @@ public class RateLimitRequestPayload {
                         Arrays.asList(
                                 "interaction",
                                 "environment_id",
+                                "inference_profile",
+                                "inherit_model_config",
                                 "model_id",
                                 "workflow_run_id",
                                 "rate_limit_id",
@@ -286,6 +365,15 @@ public class RateLimitRequestPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `environment_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("environment_id").toString()));
+        }
+        if ((jsonObj.get("inference_profile") != null
+                        && !jsonObj.get("inference_profile").isJsonNull())
+                && !jsonObj.get("inference_profile").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `inference_profile` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("inference_profile").toString()));
         }
         if ((jsonObj.get("model_id") != null && !jsonObj.get("model_id").isJsonNull())
                 && !jsonObj.get("model_id").isJsonPrimitive()) {

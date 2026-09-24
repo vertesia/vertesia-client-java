@@ -168,6 +168,11 @@ public class ExecutionRun {
     @jakarta.annotation.Nonnull
     private InteractionExecutionConfiguration config;
 
+    public static final String SERIALIZED_NAME_INFERENCE_PROFILE = "inference_profile";
+
+    @SerializedName(SERIALIZED_NAME_INFERENCE_PROFILE)
+    @jakarta.annotation.Nullable private InferenceProfileSnapshot inferenceProfile;
+
     public static final String SERIALIZED_NAME_ERROR = "error";
 
     @SerializedName(SERIALIZED_NAME_ERROR)
@@ -635,6 +640,25 @@ public class ExecutionRun {
         this.config = config;
     }
 
+    public ExecutionRun inferenceProfile(
+            @jakarta.annotation.Nullable InferenceProfileSnapshot inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+        return this;
+    }
+
+    /**
+     * Get inferenceProfile
+     * @return inferenceProfile
+     */
+    @jakarta.annotation.Nullable public InferenceProfileSnapshot getInferenceProfile() {
+        return inferenceProfile;
+    }
+
+    public void setInferenceProfile(
+            @jakarta.annotation.Nullable InferenceProfileSnapshot inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+    }
+
     public ExecutionRun error(@jakarta.annotation.Nullable InteractionExecutionError error) {
         this.error = error;
         return this;
@@ -821,6 +845,7 @@ public class ExecutionRun {
                 && Objects.equals(this.account, executionRun.account)
                 && Objects.equals(this.project, executionRun.project)
                 && Objects.equals(this.config, executionRun.config)
+                && Objects.equals(this.inferenceProfile, executionRun.inferenceProfile)
                 && Objects.equals(this.error, executionRun.error)
                 && Objects.equals(this.source, executionRun.source)
                 && Objects.equals(this.outputModality, executionRun.outputModality)
@@ -865,6 +890,7 @@ public class ExecutionRun {
                 account,
                 project,
                 config,
+                inferenceProfile,
                 error,
                 source,
                 outputModality,
@@ -910,6 +936,7 @@ public class ExecutionRun {
         sb.append("    account: ").append(toIndentedString(account)).append("\n");
         sb.append("    project: ").append(toIndentedString(project)).append("\n");
         sb.append("    config: ").append(toIndentedString(config)).append("\n");
+        sb.append("    inferenceProfile: ").append(toIndentedString(inferenceProfile)).append("\n");
         sb.append("    error: ").append(toIndentedString(error)).append("\n");
         sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("    outputModality: ").append(toIndentedString(outputModality)).append("\n");
@@ -962,6 +989,7 @@ public class ExecutionRun {
                                 "account",
                                 "project",
                                 "config",
+                                "inference_profile",
                                 "error",
                                 "source",
                                 "output_modality",
@@ -1118,6 +1146,11 @@ public class ExecutionRun {
         ProjectRef.validateJsonElement(jsonObj.get("project"));
         // validate the required field `config`
         InteractionExecutionConfiguration.validateJsonElement(jsonObj.get("config"));
+        // validate the optional field `inference_profile`
+        if (jsonObj.get("inference_profile") != null
+                && !jsonObj.get("inference_profile").isJsonNull()) {
+            InferenceProfileSnapshot.validateJsonElement(jsonObj.get("inference_profile"));
+        }
         // validate the optional field `error`
         if (jsonObj.get("error") != null && !jsonObj.get("error").isJsonNull()) {
             InteractionExecutionError.validateJsonElement(jsonObj.get("error"));

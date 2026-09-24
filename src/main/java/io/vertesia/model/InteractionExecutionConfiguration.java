@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * InteractionExecutionConfiguration
@@ -38,6 +39,16 @@ public class InteractionExecutionConfiguration {
 
     @SerializedName(SERIALIZED_NAME_ID)
     @jakarta.annotation.Nullable private String id;
+
+    public static final String SERIALIZED_NAME_INFERENCE_PROFILE = "inference_profile";
+
+    @SerializedName(SERIALIZED_NAME_INFERENCE_PROFILE)
+    @jakarta.annotation.Nullable private String inferenceProfile;
+
+    public static final String SERIALIZED_NAME_INHERIT_MODEL_CONFIG = "inherit_model_config";
+
+    @SerializedName(SERIALIZED_NAME_INHERIT_MODEL_CONFIG)
+    @jakarta.annotation.Nullable private Boolean inheritModelConfig;
 
     public static final String SERIALIZED_NAME_ENVIRONMENT = "environment";
 
@@ -113,6 +124,42 @@ public class InteractionExecutionConfiguration {
 
     public void setId(@jakarta.annotation.Nullable String id) {
         this.id = id;
+    }
+
+    public InteractionExecutionConfiguration inferenceProfile(
+            @jakarta.annotation.Nullable String inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+        return this;
+    }
+
+    /**
+     * Select a project inference profile. Null bypasses profile defaults.
+     * @return inferenceProfile
+     */
+    @jakarta.annotation.Nullable public String getInferenceProfile() {
+        return inferenceProfile;
+    }
+
+    public void setInferenceProfile(@jakarta.annotation.Nullable String inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+    }
+
+    public InteractionExecutionConfiguration inheritModelConfig(
+            @jakarta.annotation.Nullable Boolean inheritModelConfig) {
+        this.inheritModelConfig = inheritModelConfig;
+        return this;
+    }
+
+    /**
+     * Treat supplied model settings as inherited fallback: an applicable profile replaces them.
+     * @return inheritModelConfig
+     */
+    @jakarta.annotation.Nullable public Boolean getInheritModelConfig() {
+        return inheritModelConfig;
+    }
+
+    public void setInheritModelConfig(@jakarta.annotation.Nullable Boolean inheritModelConfig) {
+        this.inheritModelConfig = inheritModelConfig;
     }
 
     public InteractionExecutionConfiguration environment(
@@ -327,6 +374,11 @@ public class InteractionExecutionConfiguration {
         InteractionExecutionConfiguration interactionExecutionConfiguration =
                 (InteractionExecutionConfiguration) o;
         return Objects.equals(this.id, interactionExecutionConfiguration.id)
+                && Objects.equals(
+                        this.inferenceProfile, interactionExecutionConfiguration.inferenceProfile)
+                && Objects.equals(
+                        this.inheritModelConfig,
+                        interactionExecutionConfiguration.inheritModelConfig)
                 && Objects.equals(this.environment, interactionExecutionConfiguration.environment)
                 && Objects.equals(this.model, interactionExecutionConfiguration.model)
                 && Objects.equals(this.doValidate, interactionExecutionConfiguration.doValidate)
@@ -346,10 +398,21 @@ public class InteractionExecutionConfiguration {
                 && Objects.equals(this.httpTimeout, interactionExecutionConfiguration.httpTimeout);
     }
 
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
+    }
+
     @Override
     public int hashCode() {
         return Objects.hash(
                 id,
+                inferenceProfile,
+                inheritModelConfig,
                 environment,
                 model,
                 doValidate,
@@ -363,11 +426,22 @@ public class InteractionExecutionConfiguration {
                 httpTimeout);
     }
 
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class InteractionExecutionConfiguration {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
+        sb.append("    inferenceProfile: ").append(toIndentedString(inferenceProfile)).append("\n");
+        sb.append("    inheritModelConfig: ")
+                .append(toIndentedString(inheritModelConfig))
+                .append("\n");
         sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
         sb.append("    doValidate: ").append(toIndentedString(doValidate)).append("\n");
@@ -404,6 +478,8 @@ public class InteractionExecutionConfiguration {
                 new HashSet<String>(
                         Arrays.asList(
                                 "id",
+                                "inference_profile",
+                                "inherit_model_config",
                                 "environment",
                                 "model",
                                 "do_validate",
@@ -446,6 +522,15 @@ public class InteractionExecutionConfiguration {
                             java.util.Locale.ROOT,
                             "Expected the field `id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("id").toString()));
+        }
+        if ((jsonObj.get("inference_profile") != null
+                        && !jsonObj.get("inference_profile").isJsonNull())
+                && !jsonObj.get("inference_profile").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `inference_profile` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("inference_profile").toString()));
         }
         if ((jsonObj.get("environment") != null && !jsonObj.get("environment").isJsonNull())
                 && !jsonObj.get("environment").isJsonPrimitive()) {

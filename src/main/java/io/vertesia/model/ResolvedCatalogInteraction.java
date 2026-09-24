@@ -33,6 +33,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * A catalog interaction resolved to its complete executable definition.
@@ -169,6 +170,11 @@ public class ResolvedCatalogInteraction {
 
     @SerializedName(SERIALIZED_NAME_MODEL_OPTIONS)
     @jakarta.annotation.Nullable private ModelOptions modelOptions;
+
+    public static final String SERIALIZED_NAME_INFERENCE_PROFILE = "inference_profile";
+
+    @SerializedName(SERIALIZED_NAME_INFERENCE_PROFILE)
+    @jakarta.annotation.Nullable private String inferenceProfile;
 
     public static final String SERIALIZED_NAME_PROMPTS = "prompts";
 
@@ -428,6 +434,24 @@ public class ResolvedCatalogInteraction {
         this.modelOptions = modelOptions;
     }
 
+    public ResolvedCatalogInteraction inferenceProfile(
+            @jakarta.annotation.Nullable String inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+        return this;
+    }
+
+    /**
+     * MongoDB ObjectId of the inference profile.
+     * @return inferenceProfile
+     */
+    @jakarta.annotation.Nullable public String getInferenceProfile() {
+        return inferenceProfile;
+    }
+
+    public void setInferenceProfile(@jakarta.annotation.Nullable String inferenceProfile) {
+        this.inferenceProfile = inferenceProfile;
+    }
+
     public ResolvedCatalogInteraction prompts(
             @jakarta.annotation.Nonnull List<InCodePrompt> prompts) {
         this.prompts = prompts;
@@ -558,11 +582,22 @@ public class ResolvedCatalogInteraction {
                 && Objects.equals(
                         this.agentRunnerOptions, resolvedCatalogInteraction.agentRunnerOptions)
                 && Objects.equals(this.modelOptions, resolvedCatalogInteraction.modelOptions)
+                && Objects.equals(
+                        this.inferenceProfile, resolvedCatalogInteraction.inferenceProfile)
                 && Objects.equals(this.prompts, resolvedCatalogInteraction.prompts)
                 && Objects.equals(this.externalId, resolvedCatalogInteraction.externalId)
                 && Objects.equals(this.runtime, resolvedCatalogInteraction.runtime)
                 && Objects.equals(
                         this.additionalProperties, resolvedCatalogInteraction.additionalProperties);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
     }
 
     @Override
@@ -581,10 +616,18 @@ public class ResolvedCatalogInteraction {
                 tags,
                 agentRunnerOptions,
                 modelOptions,
+                inferenceProfile,
                 prompts,
                 externalId,
                 runtime,
                 additionalProperties);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -606,6 +649,7 @@ public class ResolvedCatalogInteraction {
                 .append(toIndentedString(agentRunnerOptions))
                 .append("\n");
         sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
+        sb.append("    inferenceProfile: ").append(toIndentedString(inferenceProfile)).append("\n");
         sb.append("    prompts: ").append(toIndentedString(prompts)).append("\n");
         sb.append("    externalId: ").append(toIndentedString(externalId)).append("\n");
         sb.append("    runtime: ").append(toIndentedString(runtime)).append("\n");
@@ -645,6 +689,7 @@ public class ResolvedCatalogInteraction {
                                 "tags",
                                 "agent_runner_options",
                                 "model_options",
+                                "inference_profile",
                                 "prompts",
                                 "externalId",
                                 "runtime"));
@@ -755,6 +800,15 @@ public class ResolvedCatalogInteraction {
         // validate the optional field `model_options`
         if (jsonObj.get("model_options") != null && !jsonObj.get("model_options").isJsonNull()) {
             ModelOptions.validateJsonElement(jsonObj.get("model_options"));
+        }
+        if ((jsonObj.get("inference_profile") != null
+                        && !jsonObj.get("inference_profile").isJsonNull())
+                && !jsonObj.get("inference_profile").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `inference_profile` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("inference_profile").toString()));
         }
         if (jsonObj.get("prompts") != null) {
             if (!jsonObj.get("prompts").isJsonArray()) {

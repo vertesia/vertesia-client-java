@@ -31,6 +31,7 @@ import io.vertesia.model.GeneratedInteractionDefinition;
 import io.vertesia.model.ImprovePromptPayload;
 import io.vertesia.model.ImprovePromptPayloadConfig;
 import io.vertesia.model.Interaction;
+import io.vertesia.model.InteractionConfigurationResult;
 import io.vertesia.model.InteractionCreatePayload;
 import io.vertesia.model.InteractionEndpoint;
 import io.vertesia.model.InteractionEndpointQuery;
@@ -50,6 +51,7 @@ import io.vertesia.model.RateLimitRequestPayload;
 import io.vertesia.model.RateLimitRequestResponse;
 import io.vertesia.model.ResolvedCatalogInteraction;
 import io.vertesia.model.ResolvedInteractionExecutionInfo;
+import io.vertesia.model.UpdateInteractionConfigurationPayload;
 import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -573,6 +575,166 @@ public class InteractionsApi {
 
         okhttp3.Call localVarCall = deleteInteractionValidateBeforeCall(interactionId, _callback);
         Type localVarReturnType = new TypeToken<DeleteByIdResult>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for deleteInteractionConfiguration
+     * @param interactionId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> No configuration remains. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteInteractionConfigurationCall(
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/interaction-configurations/{interactionId}"
+                        .replace(
+                                "{" + "interactionId" + "}",
+                                localVarApiClient.escapeString(interactionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteInteractionConfigurationValidateBeforeCall(
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'interactionId' is set
+        if (interactionId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'interactionId' when calling deleteInteractionConfiguration(Async)");
+        }
+
+        return deleteInteractionConfigurationCall(interactionId, _callback);
+    }
+
+    /**
+     * Remove code interaction configuration
+     * **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param interactionId  (required)
+     * @return InteractionConfigurationResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> No configuration remains. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public InteractionConfigurationResult deleteInteractionConfiguration(
+            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
+        ApiResponse<InteractionConfigurationResult> localVarResp =
+                deleteInteractionConfigurationWithHttpInfo(interactionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Remove code interaction configuration
+     * **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param interactionId  (required)
+     * @return ApiResponse&lt;InteractionConfigurationResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> No configuration remains. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<InteractionConfigurationResult> deleteInteractionConfigurationWithHttpInfo(
+            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
+        okhttp3.Call localVarCall =
+                deleteInteractionConfigurationValidateBeforeCall(interactionId, null);
+        Type localVarReturnType = new TypeToken<InteractionConfigurationResult>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Remove code interaction configuration (asynchronously)
+     * **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param interactionId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> No configuration remains. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteInteractionConfigurationAsync(
+            @jakarta.annotation.Nonnull String interactionId,
+            final ApiCallback<InteractionConfigurationResult> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                deleteInteractionConfigurationValidateBeforeCall(interactionId, _callback);
+        Type localVarReturnType = new TypeToken<InteractionConfigurationResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2150,6 +2312,166 @@ public class InteractionsApi {
 
         okhttp3.Call localVarCall = getInteractionValidateBeforeCall(interactionId, _callback);
         Type localVarReturnType = new TypeToken<Interaction>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getInteractionConfiguration
+     * @param interactionId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The project-scoped configuration, or null. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getInteractionConfigurationCall(
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/interaction-configurations/{interactionId}"
+                        .replace(
+                                "{" + "interactionId" + "}",
+                                localVarApiClient.escapeString(interactionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getInteractionConfigurationValidateBeforeCall(
+            @jakarta.annotation.Nonnull String interactionId, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'interactionId' is set
+        if (interactionId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'interactionId' when calling getInteractionConfiguration(Async)");
+        }
+
+        return getInteractionConfigurationCall(interactionId, _callback);
+    }
+
+    /**
+     * Get saved code interaction configuration
+     *
+     * @param interactionId  (required)
+     * @return InteractionConfigurationResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The project-scoped configuration, or null. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public InteractionConfigurationResult getInteractionConfiguration(
+            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
+        ApiResponse<InteractionConfigurationResult> localVarResp =
+                getInteractionConfigurationWithHttpInfo(interactionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get saved code interaction configuration
+     *
+     * @param interactionId  (required)
+     * @return ApiResponse&lt;InteractionConfigurationResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The project-scoped configuration, or null. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<InteractionConfigurationResult> getInteractionConfigurationWithHttpInfo(
+            @jakarta.annotation.Nonnull String interactionId) throws ApiException {
+        okhttp3.Call localVarCall =
+                getInteractionConfigurationValidateBeforeCall(interactionId, null);
+        Type localVarReturnType = new TypeToken<InteractionConfigurationResult>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get saved code interaction configuration (asynchronously)
+     *
+     * @param interactionId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The project-scoped configuration, or null. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getInteractionConfigurationAsync(
+            @jakarta.annotation.Nonnull String interactionId,
+            final ApiCallback<InteractionConfigurationResult> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getInteractionConfigurationValidateBeforeCall(interactionId, _callback);
+        Type localVarReturnType = new TypeToken<InteractionConfigurationResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5039,6 +5361,8 @@ public class InteractionsApi {
      * @param nameOrId  (required)
      * @param environment  (optional)
      * @param model  (optional)
+     * @param inferenceProfile  (optional)
+     * @param inheritModelConfig  (optional)
      * @param hasImage  (optional)
      * @param hasVideo  (optional)
      * @param _callback Callback for upload/download progress
@@ -5057,6 +5381,8 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String nameOrId,
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String inferenceProfile,
+            @jakarta.annotation.Nullable Boolean inheritModelConfig,
             @jakarta.annotation.Nullable Boolean hasImage,
             @jakarta.annotation.Nullable Boolean hasVideo,
             final ApiCallback _callback)
@@ -5096,6 +5422,16 @@ public class InteractionsApi {
 
         if (model != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("model", model));
+        }
+
+        if (inferenceProfile != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("inference_profile", inferenceProfile));
+        }
+
+        if (inheritModelConfig != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("inherit_model_config", inheritModelConfig));
         }
 
         if (hasImage != null) {
@@ -5139,6 +5475,8 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String nameOrId,
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String inferenceProfile,
+            @jakarta.annotation.Nullable Boolean inheritModelConfig,
             @jakarta.annotation.Nullable Boolean hasImage,
             @jakarta.annotation.Nullable Boolean hasVideo,
             final ApiCallback _callback)
@@ -5149,7 +5487,15 @@ public class InteractionsApi {
                     "Missing the required parameter 'nameOrId' when calling resolveInteraction(Async)");
         }
 
-        return resolveInteractionCall(nameOrId, environment, model, hasImage, hasVideo, _callback);
+        return resolveInteractionCall(
+                nameOrId,
+                environment,
+                model,
+                inferenceProfile,
+                inheritModelConfig,
+                hasImage,
+                hasVideo,
+                _callback);
     }
 
     /**
@@ -5158,6 +5504,8 @@ public class InteractionsApi {
      * @param nameOrId  (required)
      * @param environment  (optional)
      * @param model  (optional)
+     * @param inferenceProfile  (optional)
+     * @param inheritModelConfig  (optional)
      * @param hasImage  (optional)
      * @param hasVideo  (optional)
      * @return ResolvedInteractionExecutionInfo
@@ -5175,11 +5523,20 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String nameOrId,
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String inferenceProfile,
+            @jakarta.annotation.Nullable Boolean inheritModelConfig,
             @jakarta.annotation.Nullable Boolean hasImage,
             @jakarta.annotation.Nullable Boolean hasVideo)
             throws ApiException {
         ApiResponse<ResolvedInteractionExecutionInfo> localVarResp =
-                resolveInteractionWithHttpInfo(nameOrId, environment, model, hasImage, hasVideo);
+                resolveInteractionWithHttpInfo(
+                        nameOrId,
+                        environment,
+                        model,
+                        inferenceProfile,
+                        inheritModelConfig,
+                        hasImage,
+                        hasVideo);
         return localVarResp.getData();
     }
 
@@ -5189,6 +5546,8 @@ public class InteractionsApi {
      * @param nameOrId  (required)
      * @param environment  (optional)
      * @param model  (optional)
+     * @param inferenceProfile  (optional)
+     * @param inheritModelConfig  (optional)
      * @param hasImage  (optional)
      * @param hasVideo  (optional)
      * @return ApiResponse&lt;ResolvedInteractionExecutionInfo&gt;
@@ -5206,12 +5565,21 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String nameOrId,
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String inferenceProfile,
+            @jakarta.annotation.Nullable Boolean inheritModelConfig,
             @jakarta.annotation.Nullable Boolean hasImage,
             @jakarta.annotation.Nullable Boolean hasVideo)
             throws ApiException {
         okhttp3.Call localVarCall =
                 resolveInteractionValidateBeforeCall(
-                        nameOrId, environment, model, hasImage, hasVideo, null);
+                        nameOrId,
+                        environment,
+                        model,
+                        inferenceProfile,
+                        inheritModelConfig,
+                        hasImage,
+                        hasVideo,
+                        null);
         Type localVarReturnType = new TypeToken<ResolvedInteractionExecutionInfo>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5222,6 +5590,8 @@ public class InteractionsApi {
      * @param nameOrId  (required)
      * @param environment  (optional)
      * @param model  (optional)
+     * @param inferenceProfile  (optional)
+     * @param inheritModelConfig  (optional)
      * @param hasImage  (optional)
      * @param hasVideo  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -5240,6 +5610,8 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String nameOrId,
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable String inferenceProfile,
+            @jakarta.annotation.Nullable Boolean inheritModelConfig,
             @jakarta.annotation.Nullable Boolean hasImage,
             @jakarta.annotation.Nullable Boolean hasVideo,
             final ApiCallback<ResolvedInteractionExecutionInfo> _callback)
@@ -5247,7 +5619,14 @@ public class InteractionsApi {
 
         okhttp3.Call localVarCall =
                 resolveInteractionValidateBeforeCall(
-                        nameOrId, environment, model, hasImage, hasVideo, _callback);
+                        nameOrId,
+                        environment,
+                        model,
+                        inferenceProfile,
+                        inheritModelConfig,
+                        hasImage,
+                        hasVideo,
+                        _callback);
         Type localVarReturnType = new TypeToken<ResolvedInteractionExecutionInfo>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5618,6 +5997,194 @@ public class InteractionsApi {
                 updateInteractionValidateBeforeCall(
                         interactionId, interactionUpdatePayload, _callback);
         Type localVarReturnType = new TypeToken<Interaction>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateInteractionConfiguration
+     * @param interactionId  (required)
+     * @param updateInteractionConfigurationPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The saved configuration. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateInteractionConfigurationCall(
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull
+                    UpdateInteractionConfigurationPayload updateInteractionConfigurationPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateInteractionConfigurationPayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/interaction-configurations/{interactionId}"
+                        .replace(
+                                "{" + "interactionId" + "}",
+                                localVarApiClient.escapeString(interactionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "PUT",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateInteractionConfigurationValidateBeforeCall(
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull
+                    UpdateInteractionConfigurationPayload updateInteractionConfigurationPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'interactionId' is set
+        if (interactionId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'interactionId' when calling updateInteractionConfiguration(Async)");
+        }
+
+        // verify the required parameter 'updateInteractionConfigurationPayload' is set
+        if (updateInteractionConfigurationPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'updateInteractionConfigurationPayload' when calling updateInteractionConfiguration(Async)");
+        }
+
+        return updateInteractionConfigurationCall(
+                interactionId, updateInteractionConfigurationPayload, _callback);
+    }
+
+    /**
+     * Create or update code interaction configuration
+     * **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param interactionId  (required)
+     * @param updateInteractionConfigurationPayload  (required)
+     * @return InteractionConfigurationResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The saved configuration. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public InteractionConfigurationResult updateInteractionConfiguration(
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull
+                    UpdateInteractionConfigurationPayload updateInteractionConfigurationPayload)
+            throws ApiException {
+        ApiResponse<InteractionConfigurationResult> localVarResp =
+                updateInteractionConfigurationWithHttpInfo(
+                        interactionId, updateInteractionConfigurationPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create or update code interaction configuration
+     * **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param interactionId  (required)
+     * @param updateInteractionConfigurationPayload  (required)
+     * @return ApiResponse&lt;InteractionConfigurationResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The saved configuration. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<InteractionConfigurationResult> updateInteractionConfigurationWithHttpInfo(
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull
+                    UpdateInteractionConfigurationPayload updateInteractionConfigurationPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                updateInteractionConfigurationValidateBeforeCall(
+                        interactionId, updateInteractionConfigurationPayload, null);
+        Type localVarReturnType = new TypeToken<InteractionConfigurationResult>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create or update code interaction configuration (asynchronously)
+     * **Required permissions:** &#x60;project:settings_write&#x60;
+     * @param interactionId  (required)
+     * @param updateInteractionConfigurationPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The saved configuration. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateInteractionConfigurationAsync(
+            @jakarta.annotation.Nonnull String interactionId,
+            @jakarta.annotation.Nonnull
+                    UpdateInteractionConfigurationPayload updateInteractionConfigurationPayload,
+            final ApiCallback<InteractionConfigurationResult> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                updateInteractionConfigurationValidateBeforeCall(
+                        interactionId, updateInteractionConfigurationPayload, _callback);
+        Type localVarReturnType = new TypeToken<InteractionConfigurationResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
