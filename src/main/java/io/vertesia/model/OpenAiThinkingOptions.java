@@ -183,6 +183,68 @@ public class OpenAiThinkingOptions {
     @jakarta.annotation.Nullable private ReasoningEffort reasoningEffort;
 
     /**
+     * Gets or Sets reasoningContext
+     */
+    @JsonAdapter(ReasoningContextEnum.Adapter.class)
+    public enum ReasoningContextEnum {
+        AUTO("auto"),
+
+        CURRENT_TURN("current_turn"),
+
+        ALL_TURNS("all_turns"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        ReasoningContextEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ReasoningContextEnum fromValue(String value) {
+            for (ReasoningContextEnum b : ReasoningContextEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<ReasoningContextEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ReasoningContextEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ReasoningContextEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ReasoningContextEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            ReasoningContextEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_REASONING_CONTEXT = "reasoning_context";
+
+    @SerializedName(SERIALIZED_NAME_REASONING_CONTEXT)
+    @jakarta.annotation.Nullable private ReasoningContextEnum reasoningContext;
+
+    /**
      * Gets or Sets imageDetail
      */
     @JsonAdapter(ImageDetailEnum.Adapter.class)
@@ -374,6 +436,25 @@ public class OpenAiThinkingOptions {
         this.reasoningEffort = reasoningEffort;
     }
 
+    public OpenAiThinkingOptions reasoningContext(
+            @jakarta.annotation.Nullable ReasoningContextEnum reasoningContext) {
+        this.reasoningContext = reasoningContext;
+        return this;
+    }
+
+    /**
+     * Get reasoningContext
+     * @return reasoningContext
+     */
+    @jakarta.annotation.Nullable public ReasoningContextEnum getReasoningContext() {
+        return reasoningContext;
+    }
+
+    public void setReasoningContext(
+            @jakarta.annotation.Nullable ReasoningContextEnum reasoningContext) {
+        this.reasoningContext = reasoningContext;
+    }
+
     public OpenAiThinkingOptions imageDetail(
             @jakarta.annotation.Nullable ImageDetailEnum imageDetail) {
         this.imageDetail = imageDetail;
@@ -513,6 +594,7 @@ public class OpenAiThinkingOptions {
                 && Objects.equals(this.stopSequence, openAiThinkingOptions.stopSequence)
                 && Objects.equals(this.effort, openAiThinkingOptions.effort)
                 && Objects.equals(this.reasoningEffort, openAiThinkingOptions.reasoningEffort)
+                && Objects.equals(this.reasoningContext, openAiThinkingOptions.reasoningContext)
                 && Objects.equals(this.imageDetail, openAiThinkingOptions.imageDetail)
                 && Objects.equals(this.includeThoughts, openAiThinkingOptions.includeThoughts)
                 && Objects.equals(this.serviceTier, openAiThinkingOptions.serviceTier)
@@ -530,6 +612,7 @@ public class OpenAiThinkingOptions {
                 stopSequence,
                 effort,
                 reasoningEffort,
+                reasoningContext,
                 imageDetail,
                 includeThoughts,
                 serviceTier,
@@ -547,6 +630,7 @@ public class OpenAiThinkingOptions {
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
         sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
         sb.append("    reasoningEffort: ").append(toIndentedString(reasoningEffort)).append("\n");
+        sb.append("    reasoningContext: ").append(toIndentedString(reasoningContext)).append("\n");
         sb.append("    imageDetail: ").append(toIndentedString(imageDetail)).append("\n");
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
@@ -580,6 +664,7 @@ public class OpenAiThinkingOptions {
                                 "stop_sequence",
                                 "effort",
                                 "reasoning_effort",
+                                "reasoning_context",
                                 "image_detail",
                                 "include_thoughts",
                                 "service_tier",
@@ -649,6 +734,20 @@ public class OpenAiThinkingOptions {
         if (jsonObj.get("reasoning_effort") != null
                 && !jsonObj.get("reasoning_effort").isJsonNull()) {
             ReasoningEffort.validateJsonElement(jsonObj.get("reasoning_effort"));
+        }
+        if ((jsonObj.get("reasoning_context") != null
+                        && !jsonObj.get("reasoning_context").isJsonNull())
+                && !jsonObj.get("reasoning_context").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `reasoning_context` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("reasoning_context").toString()));
+        }
+        // validate the optional field `reasoning_context`
+        if (jsonObj.get("reasoning_context") != null
+                && !jsonObj.get("reasoning_context").isJsonNull()) {
+            ReasoningContextEnum.validateJsonElement(jsonObj.get("reasoning_context"));
         }
         if ((jsonObj.get("image_detail") != null && !jsonObj.get("image_detail").isJsonNull())
                 && !jsonObj.get("image_detail").isJsonPrimitive()) {
