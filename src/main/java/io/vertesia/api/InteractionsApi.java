@@ -5362,7 +5362,7 @@ public class InteractionsApi {
      * @param environment  (optional)
      * @param model  (optional)
      * @param inferenceProfile  (optional)
-     * @param inheritModelConfig  (optional)
+     * @param inheritModelConfig Treat supplied model settings as inherited fallback: an applicable profile replaces them. (optional)
      * @param hasImage  (optional)
      * @param hasVideo  (optional)
      * @param _callback Callback for upload/download progress
@@ -5505,7 +5505,7 @@ public class InteractionsApi {
      * @param environment  (optional)
      * @param model  (optional)
      * @param inferenceProfile  (optional)
-     * @param inheritModelConfig  (optional)
+     * @param inheritModelConfig Treat supplied model settings as inherited fallback: an applicable profile replaces them. (optional)
      * @param hasImage  (optional)
      * @param hasVideo  (optional)
      * @return ResolvedInteractionExecutionInfo
@@ -5547,7 +5547,7 @@ public class InteractionsApi {
      * @param environment  (optional)
      * @param model  (optional)
      * @param inferenceProfile  (optional)
-     * @param inheritModelConfig  (optional)
+     * @param inheritModelConfig Treat supplied model settings as inherited fallback: an applicable profile replaces them. (optional)
      * @param hasImage  (optional)
      * @param hasVideo  (optional)
      * @return ApiResponse&lt;ResolvedInteractionExecutionInfo&gt;
@@ -5591,7 +5591,7 @@ public class InteractionsApi {
      * @param environment  (optional)
      * @param model  (optional)
      * @param inferenceProfile  (optional)
-     * @param inheritModelConfig  (optional)
+     * @param inheritModelConfig Treat supplied model settings as inherited fallback: an applicable profile replaces them. (optional)
      * @param hasImage  (optional)
      * @param hasVideo  (optional)
      * @param _callback The callback to be executed when the API call finishes
