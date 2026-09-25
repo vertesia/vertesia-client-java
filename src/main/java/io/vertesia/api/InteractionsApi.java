@@ -5039,6 +5039,7 @@ public class InteractionsApi {
      * @param nameOrId  (required)
      * @param environment  (optional)
      * @param model  (optional)
+     * @param inheritModelConfig Treat environment and model as inherited fallbacks after interaction settings, before project defaults. (optional)
      * @param hasImage  (optional)
      * @param hasVideo  (optional)
      * @param _callback Callback for upload/download progress
@@ -5057,6 +5058,7 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String nameOrId,
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable Boolean inheritModelConfig,
             @jakarta.annotation.Nullable Boolean hasImage,
             @jakarta.annotation.Nullable Boolean hasVideo,
             final ApiCallback _callback)
@@ -5096,6 +5098,11 @@ public class InteractionsApi {
 
         if (model != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("model", model));
+        }
+
+        if (inheritModelConfig != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("inherit_model_config", inheritModelConfig));
         }
 
         if (hasImage != null) {
@@ -5139,6 +5146,7 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String nameOrId,
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable Boolean inheritModelConfig,
             @jakarta.annotation.Nullable Boolean hasImage,
             @jakarta.annotation.Nullable Boolean hasVideo,
             final ApiCallback _callback)
@@ -5149,7 +5157,8 @@ public class InteractionsApi {
                     "Missing the required parameter 'nameOrId' when calling resolveInteraction(Async)");
         }
 
-        return resolveInteractionCall(nameOrId, environment, model, hasImage, hasVideo, _callback);
+        return resolveInteractionCall(
+                nameOrId, environment, model, inheritModelConfig, hasImage, hasVideo, _callback);
     }
 
     /**
@@ -5158,6 +5167,7 @@ public class InteractionsApi {
      * @param nameOrId  (required)
      * @param environment  (optional)
      * @param model  (optional)
+     * @param inheritModelConfig Treat environment and model as inherited fallbacks after interaction settings, before project defaults. (optional)
      * @param hasImage  (optional)
      * @param hasVideo  (optional)
      * @return ResolvedInteractionExecutionInfo
@@ -5175,11 +5185,13 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String nameOrId,
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable Boolean inheritModelConfig,
             @jakarta.annotation.Nullable Boolean hasImage,
             @jakarta.annotation.Nullable Boolean hasVideo)
             throws ApiException {
         ApiResponse<ResolvedInteractionExecutionInfo> localVarResp =
-                resolveInteractionWithHttpInfo(nameOrId, environment, model, hasImage, hasVideo);
+                resolveInteractionWithHttpInfo(
+                        nameOrId, environment, model, inheritModelConfig, hasImage, hasVideo);
         return localVarResp.getData();
     }
 
@@ -5189,6 +5201,7 @@ public class InteractionsApi {
      * @param nameOrId  (required)
      * @param environment  (optional)
      * @param model  (optional)
+     * @param inheritModelConfig Treat environment and model as inherited fallbacks after interaction settings, before project defaults. (optional)
      * @param hasImage  (optional)
      * @param hasVideo  (optional)
      * @return ApiResponse&lt;ResolvedInteractionExecutionInfo&gt;
@@ -5206,12 +5219,13 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String nameOrId,
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable Boolean inheritModelConfig,
             @jakarta.annotation.Nullable Boolean hasImage,
             @jakarta.annotation.Nullable Boolean hasVideo)
             throws ApiException {
         okhttp3.Call localVarCall =
                 resolveInteractionValidateBeforeCall(
-                        nameOrId, environment, model, hasImage, hasVideo, null);
+                        nameOrId, environment, model, inheritModelConfig, hasImage, hasVideo, null);
         Type localVarReturnType = new TypeToken<ResolvedInteractionExecutionInfo>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -5222,6 +5236,7 @@ public class InteractionsApi {
      * @param nameOrId  (required)
      * @param environment  (optional)
      * @param model  (optional)
+     * @param inheritModelConfig Treat environment and model as inherited fallbacks after interaction settings, before project defaults. (optional)
      * @param hasImage  (optional)
      * @param hasVideo  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -5240,6 +5255,7 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String nameOrId,
             @jakarta.annotation.Nullable String environment,
             @jakarta.annotation.Nullable String model,
+            @jakarta.annotation.Nullable Boolean inheritModelConfig,
             @jakarta.annotation.Nullable Boolean hasImage,
             @jakarta.annotation.Nullable Boolean hasVideo,
             final ApiCallback<ResolvedInteractionExecutionInfo> _callback)
@@ -5247,7 +5263,13 @@ public class InteractionsApi {
 
         okhttp3.Call localVarCall =
                 resolveInteractionValidateBeforeCall(
-                        nameOrId, environment, model, hasImage, hasVideo, _callback);
+                        nameOrId,
+                        environment,
+                        model,
+                        inheritModelConfig,
+                        hasImage,
+                        hasVideo,
+                        _callback);
         Type localVarReturnType = new TypeToken<ResolvedInteractionExecutionInfo>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

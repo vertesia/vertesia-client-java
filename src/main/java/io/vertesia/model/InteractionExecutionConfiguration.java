@@ -49,6 +49,11 @@ public class InteractionExecutionConfiguration {
     @SerializedName(SERIALIZED_NAME_MODEL)
     @jakarta.annotation.Nullable private String model;
 
+    public static final String SERIALIZED_NAME_INHERIT_MODEL_CONFIG = "inherit_model_config";
+
+    @SerializedName(SERIALIZED_NAME_INHERIT_MODEL_CONFIG)
+    @jakarta.annotation.Nullable private Boolean inheritModelConfig;
+
     public static final String SERIALIZED_NAME_DO_VALIDATE = "do_validate";
 
     @SerializedName(SERIALIZED_NAME_DO_VALIDATE)
@@ -148,6 +153,24 @@ public class InteractionExecutionConfiguration {
 
     public void setModel(@jakarta.annotation.Nullable String model) {
         this.model = model;
+    }
+
+    public InteractionExecutionConfiguration inheritModelConfig(
+            @jakarta.annotation.Nullable Boolean inheritModelConfig) {
+        this.inheritModelConfig = inheritModelConfig;
+        return this;
+    }
+
+    /**
+     * Treat environment and model as inherited fallbacks after interaction settings, before project defaults.
+     * @return inheritModelConfig
+     */
+    @jakarta.annotation.Nullable public Boolean getInheritModelConfig() {
+        return inheritModelConfig;
+    }
+
+    public void setInheritModelConfig(@jakarta.annotation.Nullable Boolean inheritModelConfig) {
+        this.inheritModelConfig = inheritModelConfig;
     }
 
     public InteractionExecutionConfiguration doValidate(
@@ -329,6 +352,9 @@ public class InteractionExecutionConfiguration {
         return Objects.equals(this.id, interactionExecutionConfiguration.id)
                 && Objects.equals(this.environment, interactionExecutionConfiguration.environment)
                 && Objects.equals(this.model, interactionExecutionConfiguration.model)
+                && Objects.equals(
+                        this.inheritModelConfig,
+                        interactionExecutionConfiguration.inheritModelConfig)
                 && Objects.equals(this.doValidate, interactionExecutionConfiguration.doValidate)
                 && Objects.equals(this.runData, interactionExecutionConfiguration.runData)
                 && Objects.equals(this.configMode, interactionExecutionConfiguration.configMode)
@@ -352,6 +378,7 @@ public class InteractionExecutionConfiguration {
                 id,
                 environment,
                 model,
+                inheritModelConfig,
                 doValidate,
                 runData,
                 configMode,
@@ -370,6 +397,9 @@ public class InteractionExecutionConfiguration {
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    environment: ").append(toIndentedString(environment)).append("\n");
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
+        sb.append("    inheritModelConfig: ")
+                .append(toIndentedString(inheritModelConfig))
+                .append("\n");
         sb.append("    doValidate: ").append(toIndentedString(doValidate)).append("\n");
         sb.append("    runData: ").append(toIndentedString(runData)).append("\n");
         sb.append("    configMode: ").append(toIndentedString(configMode)).append("\n");
@@ -406,6 +436,7 @@ public class InteractionExecutionConfiguration {
                                 "id",
                                 "environment",
                                 "model",
+                                "inherit_model_config",
                                 "do_validate",
                                 "run_data",
                                 "configMode",
