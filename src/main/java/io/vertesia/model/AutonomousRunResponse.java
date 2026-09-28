@@ -402,6 +402,11 @@ public class AutonomousRunResponse {
     @SerializedName(SERIALIZED_NAME_LESSONS_LEARNED)
     @jakarta.annotation.Nullable private List<String> lessonsLearned = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_EVALUATE = "evaluate";
+
+    @SerializedName(SERIALIZED_NAME_EVALUATE)
+    @jakarta.annotation.Nullable private Boolean evaluate;
+
     public static final String SERIALIZED_NAME_EVALUATION = "evaluation";
 
     @SerializedName(SERIALIZED_NAME_EVALUATION)
@@ -1369,6 +1374,23 @@ public class AutonomousRunResponse {
         this.lessonsLearned = lessonsLearned;
     }
 
+    public AutonomousRunResponse evaluate(@jakarta.annotation.Nullable Boolean evaluate) {
+        this.evaluate = evaluate;
+        return this;
+    }
+
+    /**
+     * Request LLM evaluation when the project evaluation policy is opt_in. Defaults to false. Cannot override disabled or opt out of always_on.
+     * @return evaluate
+     */
+    @jakarta.annotation.Nullable public Boolean getEvaluate() {
+        return evaluate;
+    }
+
+    public void setEvaluate(@jakarta.annotation.Nullable Boolean evaluate) {
+        this.evaluate = evaluate;
+    }
+
     public AutonomousRunResponse evaluation(
             @jakarta.annotation.Nullable AgentRunEvaluation evaluation) {
         this.evaluation = evaluation;
@@ -1588,6 +1610,7 @@ public class AutonomousRunResponse {
                 && Objects.equals(this.generateTopic, autonomousRunResponse.generateTopic)
                 && Objects.equals(this.generateLessons, autonomousRunResponse.generateLessons)
                 && Objects.equals(this.lessonsLearned, autonomousRunResponse.lessonsLearned)
+                && Objects.equals(this.evaluate, autonomousRunResponse.evaluate)
                 && Objects.equals(this.evaluation, autonomousRunResponse.evaluation)
                 && Objects.equals(this.feedback, autonomousRunResponse.feedback)
                 && Objects.equals(this.archivedAt, autonomousRunResponse.archivedAt)
@@ -1649,6 +1672,7 @@ public class AutonomousRunResponse {
                 generateTopic,
                 generateLessons,
                 lessonsLearned,
+                evaluate,
                 evaluation,
                 feedback,
                 archivedAt,
@@ -1716,6 +1740,7 @@ public class AutonomousRunResponse {
         sb.append("    generateTopic: ").append(toIndentedString(generateTopic)).append("\n");
         sb.append("    generateLessons: ").append(toIndentedString(generateLessons)).append("\n");
         sb.append("    lessonsLearned: ").append(toIndentedString(lessonsLearned)).append("\n");
+        sb.append("    evaluate: ").append(toIndentedString(evaluate)).append("\n");
         sb.append("    evaluation: ").append(toIndentedString(evaluation)).append("\n");
         sb.append("    feedback: ").append(toIndentedString(feedback)).append("\n");
         sb.append("    archivedAt: ").append(toIndentedString(archivedAt)).append("\n");
@@ -1793,6 +1818,7 @@ public class AutonomousRunResponse {
                                 "generate_topic",
                                 "generate_lessons",
                                 "lessons_learned",
+                                "evaluate",
                                 "evaluation",
                                 "feedback",
                                 "archived_at",

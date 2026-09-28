@@ -20,19 +20,21 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 
 /**
- * Gets or Sets AgentRunContradictionReason
+ * Outcome of an LLM evaluation run.
  */
-@JsonAdapter(AgentRunContradictionReason.Adapter.class)
-public enum AgentRunContradictionReason {
-    FEEDBACK_DOWN_ON_CLEAN_RUN("feedback_down_on_clean_run"),
+@JsonAdapter(EvaluationOutcome.Adapter.class)
+public enum EvaluationOutcome {
+    EVALUATED("evaluated"),
 
-    EVALUATION_FAILURE_ON_CLEAN_RUN("evaluation_failure_on_clean_run"),
+    SKIPPED_UNARCHIVED("skipped_unarchived"),
+
+    FAILED("failed"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
 
-    AgentRunContradictionReason(String value) {
+    EvaluationOutcome(String value) {
         this.value = value;
     }
 
@@ -45,8 +47,8 @@ public enum AgentRunContradictionReason {
         return String.valueOf(value);
     }
 
-    public static AgentRunContradictionReason fromValue(String value) {
-        for (AgentRunContradictionReason b : AgentRunContradictionReason.values()) {
+    public static EvaluationOutcome fromValue(String value) {
+        for (EvaluationOutcome b : EvaluationOutcome.values()) {
             if (b.value.equals(value)) {
                 return b;
             }
@@ -54,23 +56,22 @@ public enum AgentRunContradictionReason {
         return UNKNOWN_DEFAULT_OPEN_API;
     }
 
-    public static class Adapter extends TypeAdapter<AgentRunContradictionReason> {
+    public static class Adapter extends TypeAdapter<EvaluationOutcome> {
         @Override
-        public void write(
-                final JsonWriter jsonWriter, final AgentRunContradictionReason enumeration)
+        public void write(final JsonWriter jsonWriter, final EvaluationOutcome enumeration)
                 throws IOException {
             jsonWriter.value(enumeration.getValue());
         }
 
         @Override
-        public AgentRunContradictionReason read(final JsonReader jsonReader) throws IOException {
+        public EvaluationOutcome read(final JsonReader jsonReader) throws IOException {
             String value = jsonReader.nextString();
-            return AgentRunContradictionReason.fromValue(value);
+            return EvaluationOutcome.fromValue(value);
         }
     }
 
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         String value = jsonElement.getAsString();
-        AgentRunContradictionReason.fromValue(value);
+        EvaluationOutcome.fromValue(value);
     }
 }

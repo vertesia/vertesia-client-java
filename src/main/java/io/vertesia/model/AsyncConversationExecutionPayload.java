@@ -68,6 +68,11 @@ public class AsyncConversationExecutionPayload {
     @SerializedName(SERIALIZED_NAME_GENERATE_LESSONS)
     @jakarta.annotation.Nullable private Boolean generateLessons;
 
+    public static final String SERIALIZED_NAME_EVALUATE = "evaluate";
+
+    @SerializedName(SERIALIZED_NAME_EVALUATE)
+    @jakarta.annotation.Nullable private Boolean evaluate;
+
     public static final String SERIALIZED_NAME_APP_VERSION = "app_version";
 
     @SerializedName(SERIALIZED_NAME_APP_VERSION)
@@ -426,6 +431,24 @@ public class AsyncConversationExecutionPayload {
 
     public void setGenerateLessons(@jakarta.annotation.Nullable Boolean generateLessons) {
         this.generateLessons = generateLessons;
+    }
+
+    public AsyncConversationExecutionPayload evaluate(
+            @jakarta.annotation.Nullable Boolean evaluate) {
+        this.evaluate = evaluate;
+        return this;
+    }
+
+    /**
+     * Request LLM evaluation when the project evaluation policy is opt_in. Defaults to false. Cannot override disabled or opt out of always_on.
+     * @return evaluate
+     */
+    @jakarta.annotation.Nullable public Boolean getEvaluate() {
+        return evaluate;
+    }
+
+    public void setEvaluate(@jakarta.annotation.Nullable Boolean evaluate) {
+        this.evaluate = evaluate;
     }
 
     public AsyncConversationExecutionPayload appVersion(
@@ -1338,6 +1361,7 @@ public class AsyncConversationExecutionPayload {
                         this.generateTopic, asyncConversationExecutionPayload.generateTopic)
                 && Objects.equals(
                         this.generateLessons, asyncConversationExecutionPayload.generateLessons)
+                && Objects.equals(this.evaluate, asyncConversationExecutionPayload.evaluate)
                 && Objects.equals(this.appVersion, asyncConversationExecutionPayload.appVersion)
                 && Objects.equals(this.data, asyncConversationExecutionPayload.data)
                 && Objects.equals(this.config, asyncConversationExecutionPayload.config)
@@ -1424,6 +1448,7 @@ public class AsyncConversationExecutionPayload {
                 topic,
                 generateTopic,
                 generateLessons,
+                evaluate,
                 appVersion,
                 data,
                 config,
@@ -1485,6 +1510,7 @@ public class AsyncConversationExecutionPayload {
         sb.append("    topic: ").append(toIndentedString(topic)).append("\n");
         sb.append("    generateTopic: ").append(toIndentedString(generateTopic)).append("\n");
         sb.append("    generateLessons: ").append(toIndentedString(generateLessons)).append("\n");
+        sb.append("    evaluate: ").append(toIndentedString(evaluate)).append("\n");
         sb.append("    appVersion: ").append(toIndentedString(appVersion)).append("\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    config: ").append(toIndentedString(config)).append("\n");
@@ -1569,6 +1595,7 @@ public class AsyncConversationExecutionPayload {
                                 "topic",
                                 "generate_topic",
                                 "generate_lessons",
+                                "evaluate",
                                 "app_version",
                                 "data",
                                 "config",

@@ -17,6 +17,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -34,12 +35,93 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AgentProjectConfiguration {
+    /**
+     * LLM evaluation policy. Defaults to always_on when omitted. disabled prevents evaluation even when requested; opt_in requires evaluate&#x3D;true on the run; always_on evaluates every eligible run without sampling. Deterministic diagnostics are unaffected.
+     */
+    @JsonAdapter(EvaluationPolicyEnum.Adapter.class)
+    public enum EvaluationPolicyEnum {
+        DISABLED("disabled"),
+
+        OPT_IN("opt_in"),
+
+        ALWAYS_ON("always_on"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        EvaluationPolicyEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static EvaluationPolicyEnum fromValue(String value) {
+            for (EvaluationPolicyEnum b : EvaluationPolicyEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<EvaluationPolicyEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final EvaluationPolicyEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public EvaluationPolicyEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return EvaluationPolicyEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            EvaluationPolicyEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_EVALUATION_POLICY = "evaluation_policy";
+
+    @SerializedName(SERIALIZED_NAME_EVALUATION_POLICY)
+    @jakarta.annotation.Nullable private EvaluationPolicyEnum evaluationPolicy;
+
     public static final String SERIALIZED_NAME_CHECKPOINT = "checkpoint";
 
     @SerializedName(SERIALIZED_NAME_CHECKPOINT)
     @jakarta.annotation.Nullable private AgentCheckpointConfiguration checkpoint;
 
     public AgentProjectConfiguration() {}
+
+    public AgentProjectConfiguration evaluationPolicy(
+            @jakarta.annotation.Nullable EvaluationPolicyEnum evaluationPolicy) {
+        this.evaluationPolicy = evaluationPolicy;
+        return this;
+    }
+
+    /**
+     * LLM evaluation policy. Defaults to always_on when omitted. disabled prevents evaluation even when requested; opt_in requires evaluate&#x3D;true on the run; always_on evaluates every eligible run without sampling. Deterministic diagnostics are unaffected.
+     * @return evaluationPolicy
+     */
+    @jakarta.annotation.Nullable public EvaluationPolicyEnum getEvaluationPolicy() {
+        return evaluationPolicy;
+    }
+
+    public void setEvaluationPolicy(
+            @jakarta.annotation.Nullable EvaluationPolicyEnum evaluationPolicy) {
+        this.evaluationPolicy = evaluationPolicy;
+    }
 
     public AgentProjectConfiguration checkpoint(
             @jakarta.annotation.Nullable AgentCheckpointConfiguration checkpoint) {
@@ -69,18 +151,20 @@ public class AgentProjectConfiguration {
             return false;
         }
         AgentProjectConfiguration agentProjectConfiguration = (AgentProjectConfiguration) o;
-        return Objects.equals(this.checkpoint, agentProjectConfiguration.checkpoint);
+        return Objects.equals(this.evaluationPolicy, agentProjectConfiguration.evaluationPolicy)
+                && Objects.equals(this.checkpoint, agentProjectConfiguration.checkpoint);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(checkpoint);
+        return Objects.hash(evaluationPolicy, checkpoint);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AgentProjectConfiguration {\n");
+        sb.append("    evaluationPolicy: ").append(toIndentedString(evaluationPolicy)).append("\n");
         sb.append("    checkpoint: ").append(toIndentedString(checkpoint)).append("\n");
         sb.append("}");
         return sb.toString();
@@ -99,7 +183,7 @@ public class AgentProjectConfiguration {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("checkpoint"));
+        openapiFields = new HashSet<String>(Arrays.asList("evaluation_policy", "checkpoint"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -123,6 +207,20 @@ public class AgentProjectConfiguration {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if ((jsonObj.get("evaluation_policy") != null
+                        && !jsonObj.get("evaluation_policy").isJsonNull())
+                && !jsonObj.get("evaluation_policy").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `evaluation_policy` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("evaluation_policy").toString()));
+        }
+        // validate the optional field `evaluation_policy`
+        if (jsonObj.get("evaluation_policy") != null
+                && !jsonObj.get("evaluation_policy").isJsonNull()) {
+            EvaluationPolicyEnum.validateJsonElement(jsonObj.get("evaluation_policy"));
+        }
         // validate the optional field `checkpoint`
         if (jsonObj.get("checkpoint") != null && !jsonObj.get("checkpoint").isJsonNull()) {
             AgentCheckpointConfiguration.validateJsonElement(jsonObj.get("checkpoint"));

@@ -66,6 +66,11 @@ public class CreateAgentRunPayload {
     @SerializedName(SERIALIZED_NAME_GENERATE_LESSONS)
     @jakarta.annotation.Nullable private Boolean generateLessons;
 
+    public static final String SERIALIZED_NAME_EVALUATE = "evaluate";
+
+    @SerializedName(SERIALIZED_NAME_EVALUATE)
+    @jakarta.annotation.Nullable private Boolean evaluate;
+
     public static final String SERIALIZED_NAME_DATA = "data";
 
     @SerializedName(SERIALIZED_NAME_DATA)
@@ -295,6 +300,23 @@ public class CreateAgentRunPayload {
 
     public void setGenerateLessons(@jakarta.annotation.Nullable Boolean generateLessons) {
         this.generateLessons = generateLessons;
+    }
+
+    public CreateAgentRunPayload evaluate(@jakarta.annotation.Nullable Boolean evaluate) {
+        this.evaluate = evaluate;
+        return this;
+    }
+
+    /**
+     * Request LLM evaluation when the project evaluation policy is opt_in. Defaults to false. Cannot override disabled or opt out of always_on.
+     * @return evaluate
+     */
+    @jakarta.annotation.Nullable public Boolean getEvaluate() {
+        return evaluate;
+    }
+
+    public void setEvaluate(@jakarta.annotation.Nullable Boolean evaluate) {
+        this.evaluate = evaluate;
     }
 
     public CreateAgentRunPayload data(@jakarta.annotation.Nullable Map<String, Object> data) {
@@ -944,6 +966,7 @@ public class CreateAgentRunPayload {
                 && Objects.equals(this.topic, createAgentRunPayload.topic)
                 && Objects.equals(this.generateTopic, createAgentRunPayload.generateTopic)
                 && Objects.equals(this.generateLessons, createAgentRunPayload.generateLessons)
+                && Objects.equals(this.evaluate, createAgentRunPayload.evaluate)
                 && Objects.equals(this.data, createAgentRunPayload.data)
                 && Objects.equals(this.config, createAgentRunPayload.config)
                 && Objects.equals(this.interactive, createAgentRunPayload.interactive)
@@ -985,6 +1008,7 @@ public class CreateAgentRunPayload {
                 topic,
                 generateTopic,
                 generateLessons,
+                evaluate,
                 data,
                 config,
                 interactive,
@@ -1025,6 +1049,7 @@ public class CreateAgentRunPayload {
         sb.append("    topic: ").append(toIndentedString(topic)).append("\n");
         sb.append("    generateTopic: ").append(toIndentedString(generateTopic)).append("\n");
         sb.append("    generateLessons: ").append(toIndentedString(generateLessons)).append("\n");
+        sb.append("    evaluate: ").append(toIndentedString(evaluate)).append("\n");
         sb.append("    data: ").append(toIndentedString(data)).append("\n");
         sb.append("    config: ").append(toIndentedString(config)).append("\n");
         sb.append("    interactive: ").append(toIndentedString(interactive)).append("\n");
@@ -1085,6 +1110,7 @@ public class CreateAgentRunPayload {
                                 "topic",
                                 "generate_topic",
                                 "generate_lessons",
+                                "evaluate",
                                 "data",
                                 "config",
                                 "interactive",

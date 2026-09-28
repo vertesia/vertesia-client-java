@@ -997,7 +997,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AgentRunFeedbackResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.AgentRunJudgeResult.CustomTypeAdapterFactory());
+                new io.vertesia.model.AgentRunLlmEvaluationResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AgentRunResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

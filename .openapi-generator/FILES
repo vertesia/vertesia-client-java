@@ -112,7 +112,7 @@ src/main/java/io/vertesia/model/AgentRunFeedbackRating.java
 src/main/java/io/vertesia/model/AgentRunFeedbackReasonCode.java
 src/main/java/io/vertesia/model/AgentRunFeedbackResponse.java
 src/main/java/io/vertesia/model/AgentRunFeedbackStatus.java
-src/main/java/io/vertesia/model/AgentRunJudgeResult.java
+src/main/java/io/vertesia/model/AgentRunLlmEvaluationResult.java
 src/main/java/io/vertesia/model/AgentRunResponse.java
 src/main/java/io/vertesia/model/AgentRunSearchHit.java
 src/main/java/io/vertesia/model/AgentRunStatus.java
@@ -509,7 +509,10 @@ src/main/java/io/vertesia/model/EmbeddingsTokenUsage.java
 src/main/java/io/vertesia/model/EnableEnvironmentModelPayload.java
 src/main/java/io/vertesia/model/EnvironmentTokenRequest.java
 src/main/java/io/vertesia/model/ErrorResponse.java
+src/main/java/io/vertesia/model/EvaluationGateReason.java
+src/main/java/io/vertesia/model/EvaluationOutcome.java
 src/main/java/io/vertesia/model/EvaluationSeverity.java
+src/main/java/io/vertesia/model/EvaluationVerdict.java
 src/main/java/io/vertesia/model/EventCategory.java
 src/main/java/io/vertesia/model/EventDeliveryIntentStatus.java
 src/main/java/io/vertesia/model/EventDeliveryIntentSummary.java
@@ -677,9 +680,6 @@ src/main/java/io/vertesia/model/IssueTokenUnavailableResponse.java
 src/main/java/io/vertesia/model/JSONSchema.java
 src/main/java/io/vertesia/model/JSONSchemaAdditionalProperties.java
 src/main/java/io/vertesia/model/JsonResult.java
-src/main/java/io/vertesia/model/JudgeGateReason.java
-src/main/java/io/vertesia/model/JudgeOutcome.java
-src/main/java/io/vertesia/model/JudgeVerdict.java
 src/main/java/io/vertesia/model/KnownAuditAction.java
 src/main/java/io/vertesia/model/LinkupConfiguration.java
 src/main/java/io/vertesia/model/LinkupConfigurationInput.java

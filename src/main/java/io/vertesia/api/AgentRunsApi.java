@@ -2807,7 +2807,7 @@ public class AgentRunsApi {
      * @param evaluationSeverity Filter by evaluation severity; &#x60;unrated&#x60; selects runs without an evaluation (optional)
      * @param evaluationFlag Filter by evaluation flag (any of) (optional)
      * @param feedbackRating Filter by last feedback rating (optional)
-     * @param contradicted Only runs whose feedback or judge contradicts the detectors (optional)
+     * @param contradicted Only runs whose feedback or LLM evaluation contradicts the detectors (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3046,7 +3046,7 @@ public class AgentRunsApi {
      * @param evaluationSeverity Filter by evaluation severity; &#x60;unrated&#x60; selects runs without an evaluation (optional)
      * @param evaluationFlag Filter by evaluation flag (any of) (optional)
      * @param feedbackRating Filter by last feedback rating (optional)
-     * @param contradicted Only runs whose feedback or judge contradicts the detectors (optional)
+     * @param contradicted Only runs whose feedback or LLM evaluation contradicts the detectors (optional)
      * @return ListAgentRunsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3124,7 +3124,7 @@ public class AgentRunsApi {
      * @param evaluationSeverity Filter by evaluation severity; &#x60;unrated&#x60; selects runs without an evaluation (optional)
      * @param evaluationFlag Filter by evaluation flag (any of) (optional)
      * @param feedbackRating Filter by last feedback rating (optional)
-     * @param contradicted Only runs whose feedback or judge contradicts the detectors (optional)
+     * @param contradicted Only runs whose feedback or LLM evaluation contradicts the detectors (optional)
      * @return ApiResponse&lt;ListAgentRunsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3204,7 +3204,7 @@ public class AgentRunsApi {
      * @param evaluationSeverity Filter by evaluation severity; &#x60;unrated&#x60; selects runs without an evaluation (optional)
      * @param evaluationFlag Filter by evaluation flag (any of) (optional)
      * @param feedbackRating Filter by last feedback rating (optional)
-     * @param contradicted Only runs whose feedback or judge contradicts the detectors (optional)
+     * @param contradicted Only runs whose feedback or LLM evaluation contradicts the detectors (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
