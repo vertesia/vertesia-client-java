@@ -300,6 +300,11 @@ public class AsyncConversationExecutionPayload {
     @SerializedName(SERIALIZED_NAME_PARENT_METADATA)
     @jakarta.annotation.Nullable private Map<String, Object> parentMetadata = new HashMap<>();
 
+    public static final String SERIALIZED_NAME_FINAL_VERIFICATION = "final_verification";
+
+    @SerializedName(SERIALIZED_NAME_FINAL_VERIFICATION)
+    @jakarta.annotation.Nullable private Boolean finalVerification;
+
     public static final String SERIALIZED_NAME_NON_BLOCKING_SUBAGENTS = "non_blocking_subagents";
 
     @SerializedName(SERIALIZED_NAME_NON_BLOCKING_SUBAGENTS)
@@ -1144,6 +1149,24 @@ public class AsyncConversationExecutionPayload {
         this.parentMetadata = parentMetadata;
     }
 
+    public AsyncConversationExecutionPayload finalVerification(
+            @jakarta.annotation.Nullable Boolean finalVerification) {
+        this.finalVerification = finalVerification;
+        return this;
+    }
+
+    /**
+     * When true, a non-interactive free-form run takes one extra turn after its answer to check that the task is complete. Off by default, and never applied to workstreams: their parent reviews the result and can message the workstream to continue.
+     * @return finalVerification
+     */
+    @jakarta.annotation.Nullable public Boolean getFinalVerification() {
+        return finalVerification;
+    }
+
+    public void setFinalVerification(@jakarta.annotation.Nullable Boolean finalVerification) {
+        this.finalVerification = finalVerification;
+    }
+
     public AsyncConversationExecutionPayload nonBlockingSubagents(
             @jakarta.annotation.Nullable Boolean nonBlockingSubagents) {
         this.nonBlockingSubagents = nonBlockingSubagents;
@@ -1366,6 +1389,8 @@ public class AsyncConversationExecutionPayload {
                 && Objects.equals(
                         this.parentMetadata, asyncConversationExecutionPayload.parentMetadata)
                 && Objects.equals(
+                        this.finalVerification, asyncConversationExecutionPayload.finalVerification)
+                && Objects.equals(
                         this.nonBlockingSubagents,
                         asyncConversationExecutionPayload.nonBlockingSubagents)
                 && Objects.equals(
@@ -1434,6 +1459,7 @@ public class AsyncConversationExecutionPayload {
                 debugMode,
                 maxNestedConversationDepth,
                 parentMetadata,
+                finalVerification,
                 nonBlockingSubagents,
                 restartFromWorkflowRunId,
                 sourceFirstWorkflowRunId,
@@ -1500,6 +1526,9 @@ public class AsyncConversationExecutionPayload {
                 .append(toIndentedString(maxNestedConversationDepth))
                 .append("\n");
         sb.append("    parentMetadata: ").append(toIndentedString(parentMetadata)).append("\n");
+        sb.append("    finalVerification: ")
+                .append(toIndentedString(finalVerification))
+                .append("\n");
         sb.append("    nonBlockingSubagents: ")
                 .append(toIndentedString(nonBlockingSubagents))
                 .append("\n");
@@ -1575,6 +1604,7 @@ public class AsyncConversationExecutionPayload {
                                 "debug_mode",
                                 "max_nested_conversation_depth",
                                 "parent_metadata",
+                                "final_verification",
                                 "non_blocking_subagents",
                                 "restart_from_workflow_run_id",
                                 "source_first_workflow_run_id",

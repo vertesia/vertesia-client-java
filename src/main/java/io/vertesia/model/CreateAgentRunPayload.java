@@ -188,6 +188,11 @@ public class CreateAgentRunPayload {
     @SerializedName(SERIALIZED_NAME_MAX_ITERATIONS)
     @jakarta.annotation.Nullable private BigDecimal maxIterations;
 
+    public static final String SERIALIZED_NAME_FINAL_VERIFICATION = "final_verification";
+
+    @SerializedName(SERIALIZED_NAME_FINAL_VERIFICATION)
+    @jakarta.annotation.Nullable private Boolean finalVerification;
+
     public static final String SERIALIZED_NAME_NOTIFY_ENDPOINTS = "notify_endpoints";
 
     @SerializedName(SERIALIZED_NAME_NOTIFY_ENDPOINTS)
@@ -802,6 +807,24 @@ public class CreateAgentRunPayload {
         this.maxIterations = maxIterations;
     }
 
+    public CreateAgentRunPayload finalVerification(
+            @jakarta.annotation.Nullable Boolean finalVerification) {
+        this.finalVerification = finalVerification;
+        return this;
+    }
+
+    /**
+     * When true, a non-interactive free-form run takes one extra turn after its answer to check that the task is complete. Off by default. Not kept on restart or fork.
+     * @return finalVerification
+     */
+    @jakarta.annotation.Nullable public Boolean getFinalVerification() {
+        return finalVerification;
+    }
+
+    public void setFinalVerification(@jakarta.annotation.Nullable Boolean finalVerification) {
+        this.finalVerification = finalVerification;
+    }
+
     public CreateAgentRunPayload notifyEndpoints(
             @jakarta.annotation.Nullable List<String> notifyEndpoints) {
         this.notifyEndpoints = notifyEndpoints;
@@ -946,6 +969,7 @@ public class CreateAgentRunPayload {
                 && Objects.equals(this.checkpointTokens, createAgentRunPayload.checkpointTokens)
                 && Objects.equals(this.checkpoint, createAgentRunPayload.checkpoint)
                 && Objects.equals(this.maxIterations, createAgentRunPayload.maxIterations)
+                && Objects.equals(this.finalVerification, createAgentRunPayload.finalVerification)
                 && Objects.equals(this.notifyEndpoints, createAgentRunPayload.notifyEndpoints)
                 && Objects.equals(this.debugMode, createAgentRunPayload.debugMode)
                 && Objects.equals(this.startedBy, createAgentRunPayload.startedBy)
@@ -985,6 +1009,7 @@ public class CreateAgentRunPayload {
                 checkpointTokens,
                 checkpoint,
                 maxIterations,
+                finalVerification,
                 notifyEndpoints,
                 debugMode,
                 startedBy,
@@ -1026,6 +1051,9 @@ public class CreateAgentRunPayload {
         sb.append("    checkpointTokens: ").append(toIndentedString(checkpointTokens)).append("\n");
         sb.append("    checkpoint: ").append(toIndentedString(checkpoint)).append("\n");
         sb.append("    maxIterations: ").append(toIndentedString(maxIterations)).append("\n");
+        sb.append("    finalVerification: ")
+                .append(toIndentedString(finalVerification))
+                .append("\n");
         sb.append("    notifyEndpoints: ").append(toIndentedString(notifyEndpoints)).append("\n");
         sb.append("    debugMode: ").append(toIndentedString(debugMode)).append("\n");
         sb.append("    startedBy: ").append(toIndentedString(startedBy)).append("\n");
@@ -1081,6 +1109,7 @@ public class CreateAgentRunPayload {
                                 "checkpoint_tokens",
                                 "checkpoint",
                                 "max_iterations",
+                                "final_verification",
                                 "notify_endpoints",
                                 "debug_mode",
                                 "started_by"));
