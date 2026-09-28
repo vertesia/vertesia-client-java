@@ -60,10 +60,25 @@ public class ExecutionTokenUsage {
     @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_WRITE)
     @jakarta.annotation.Nullable private BigDecimal promptCacheWrite;
 
+    public static final String SERIALIZED_NAME_PROMPT_CACHE_WRITE1H = "prompt_cache_write_1h";
+
+    @SerializedName(SERIALIZED_NAME_PROMPT_CACHE_WRITE1H)
+    @jakarta.annotation.Nullable private BigDecimal promptCacheWrite1h;
+
     public static final String SERIALIZED_NAME_PROMPT_NEW = "prompt_new";
 
     @SerializedName(SERIALIZED_NAME_PROMPT_NEW)
     @jakarta.annotation.Nullable private BigDecimal promptNew;
+
+    public static final String SERIALIZED_NAME_RESULT_IMAGE = "result_image";
+
+    @SerializedName(SERIALIZED_NAME_RESULT_IMAGE)
+    @jakarta.annotation.Nullable private BigDecimal resultImage;
+
+    public static final String SERIALIZED_NAME_PROVIDER_COST_USD = "provider_cost_usd";
+
+    @SerializedName(SERIALIZED_NAME_PROVIDER_COST_USD)
+    @jakarta.annotation.Nullable private BigDecimal providerCostUsd;
 
     public ExecutionTokenUsage() {}
 
@@ -153,6 +168,24 @@ public class ExecutionTokenUsage {
         this.promptCacheWrite = promptCacheWrite;
     }
 
+    public ExecutionTokenUsage promptCacheWrite1h(
+            @jakarta.annotation.Nullable BigDecimal promptCacheWrite1h) {
+        this.promptCacheWrite1h = promptCacheWrite1h;
+        return this;
+    }
+
+    /**
+     * Of &#x60;prompt_cache_write&#x60;, the tokens written with a one-hour cache lifetime, when the provider reports it. The remainder used the default (five-minute) lifetime.
+     * @return promptCacheWrite1h
+     */
+    @jakarta.annotation.Nullable public BigDecimal getPromptCacheWrite1h() {
+        return promptCacheWrite1h;
+    }
+
+    public void setPromptCacheWrite1h(@jakarta.annotation.Nullable BigDecimal promptCacheWrite1h) {
+        this.promptCacheWrite1h = promptCacheWrite1h;
+    }
+
     public ExecutionTokenUsage promptNew(@jakarta.annotation.Nullable BigDecimal promptNew) {
         this.promptNew = promptNew;
         return this;
@@ -170,6 +203,41 @@ public class ExecutionTokenUsage {
         this.promptNew = promptNew;
     }
 
+    public ExecutionTokenUsage resultImage(@jakarta.annotation.Nullable BigDecimal resultImage) {
+        this.resultImage = resultImage;
+        return this;
+    }
+
+    /**
+     * Of &#x60;result&#x60;, the tokens of generated images, when the provider reports them. Image output is priced separately from text output.
+     * @return resultImage
+     */
+    @jakarta.annotation.Nullable public BigDecimal getResultImage() {
+        return resultImage;
+    }
+
+    public void setResultImage(@jakarta.annotation.Nullable BigDecimal resultImage) {
+        this.resultImage = resultImage;
+    }
+
+    public ExecutionTokenUsage providerCostUsd(
+            @jakarta.annotation.Nullable BigDecimal providerCostUsd) {
+        this.providerCostUsd = providerCostUsd;
+        return this;
+    }
+
+    /**
+     * Amount the provider reported charging for this request, in USD, when the provider returns it (e.g. OpenRouter). Absent for bring-your-own-key requests.
+     * @return providerCostUsd
+     */
+    @jakarta.annotation.Nullable public BigDecimal getProviderCostUsd() {
+        return providerCostUsd;
+    }
+
+    public void setProviderCostUsd(@jakarta.annotation.Nullable BigDecimal providerCostUsd) {
+        this.providerCostUsd = providerCostUsd;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -184,12 +252,24 @@ public class ExecutionTokenUsage {
                 && Objects.equals(this.total, executionTokenUsage.total)
                 && Objects.equals(this.promptCached, executionTokenUsage.promptCached)
                 && Objects.equals(this.promptCacheWrite, executionTokenUsage.promptCacheWrite)
-                && Objects.equals(this.promptNew, executionTokenUsage.promptNew);
+                && Objects.equals(this.promptCacheWrite1h, executionTokenUsage.promptCacheWrite1h)
+                && Objects.equals(this.promptNew, executionTokenUsage.promptNew)
+                && Objects.equals(this.resultImage, executionTokenUsage.resultImage)
+                && Objects.equals(this.providerCostUsd, executionTokenUsage.providerCostUsd);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(prompt, result, total, promptCached, promptCacheWrite, promptNew);
+        return Objects.hash(
+                prompt,
+                result,
+                total,
+                promptCached,
+                promptCacheWrite,
+                promptCacheWrite1h,
+                promptNew,
+                resultImage,
+                providerCostUsd);
     }
 
     @Override
@@ -201,7 +281,12 @@ public class ExecutionTokenUsage {
         sb.append("    total: ").append(toIndentedString(total)).append("\n");
         sb.append("    promptCached: ").append(toIndentedString(promptCached)).append("\n");
         sb.append("    promptCacheWrite: ").append(toIndentedString(promptCacheWrite)).append("\n");
+        sb.append("    promptCacheWrite1h: ")
+                .append(toIndentedString(promptCacheWrite1h))
+                .append("\n");
         sb.append("    promptNew: ").append(toIndentedString(promptNew)).append("\n");
+        sb.append("    resultImage: ").append(toIndentedString(resultImage)).append("\n");
+        sb.append("    providerCostUsd: ").append(toIndentedString(providerCostUsd)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -227,7 +312,10 @@ public class ExecutionTokenUsage {
                                 "total",
                                 "prompt_cached",
                                 "prompt_cache_write",
-                                "prompt_new"));
+                                "prompt_cache_write_1h",
+                                "prompt_new",
+                                "result_image",
+                                "provider_cost_usd"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);

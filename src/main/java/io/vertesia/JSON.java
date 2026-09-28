@@ -1435,6 +1435,9 @@ public class JSON {
                 new io.vertesia.model.CostAnalyticsResponsePricingCoverage
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.CostAnalyticsResponsePricingCoverageCostBySource
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.CostAnalyticsResponsePricingCoverageUnpricedInner
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

@@ -62,6 +62,11 @@ public class CostAnalyticsResponsePricingCoverage {
     @jakarta.annotation.Nonnull
     private List<CostAnalyticsResponsePricingCoverageUnpricedInner> unpriced = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_COST_BY_SOURCE = "cost_by_source";
+
+    @SerializedName(SERIALIZED_NAME_COST_BY_SOURCE)
+    @jakarta.annotation.Nullable private CostAnalyticsResponsePricingCoverageCostBySource costBySource;
+
     public CostAnalyticsResponsePricingCoverage() {}
 
     public CostAnalyticsResponsePricingCoverage pricedCalls(
@@ -152,6 +157,25 @@ public class CostAnalyticsResponsePricingCoverage {
         this.unpriced = unpriced;
     }
 
+    public CostAnalyticsResponsePricingCoverage costBySource(
+            @jakarta.annotation.Nullable CostAnalyticsResponsePricingCoverageCostBySource costBySource) {
+        this.costBySource = costBySource;
+        return this;
+    }
+
+    /**
+     * Get costBySource
+     * @return costBySource
+     */
+    @jakarta.annotation.Nullable public CostAnalyticsResponsePricingCoverageCostBySource getCostBySource() {
+        return costBySource;
+    }
+
+    public void setCostBySource(
+            @jakarta.annotation.Nullable CostAnalyticsResponsePricingCoverageCostBySource costBySource) {
+        this.costBySource = costBySource;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -168,12 +192,15 @@ public class CostAnalyticsResponsePricingCoverage {
                 && Objects.equals(
                         this.assumedDefaultCalls,
                         costAnalyticsResponsePricingCoverage.assumedDefaultCalls)
-                && Objects.equals(this.unpriced, costAnalyticsResponsePricingCoverage.unpriced);
+                && Objects.equals(this.unpriced, costAnalyticsResponsePricingCoverage.unpriced)
+                && Objects.equals(
+                        this.costBySource, costAnalyticsResponsePricingCoverage.costBySource);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(pricedCalls, unpricedCalls, assumedDefaultCalls, unpriced);
+        return Objects.hash(
+                pricedCalls, unpricedCalls, assumedDefaultCalls, unpriced, costBySource);
     }
 
     @Override
@@ -186,6 +213,7 @@ public class CostAnalyticsResponsePricingCoverage {
                 .append(toIndentedString(assumedDefaultCalls))
                 .append("\n");
         sb.append("    unpriced: ").append(toIndentedString(unpriced)).append("\n");
+        sb.append("    costBySource: ").append(toIndentedString(costBySource)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -209,7 +237,8 @@ public class CostAnalyticsResponsePricingCoverage {
                                 "priced_calls",
                                 "unpriced_calls",
                                 "assumed_default_calls",
-                                "unpriced"));
+                                "unpriced",
+                                "cost_by_source"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -266,6 +295,11 @@ public class CostAnalyticsResponsePricingCoverage {
                 CostAnalyticsResponsePricingCoverageUnpricedInner.validateJsonElement(
                         jsonArrayunpriced.get(i));
             }
+        }
+        // validate the optional field `cost_by_source`
+        if (jsonObj.get("cost_by_source") != null && !jsonObj.get("cost_by_source").isJsonNull()) {
+            CostAnalyticsResponsePricingCoverageCostBySource.validateJsonElement(
+                    jsonObj.get("cost_by_source"));
         }
     }
 

@@ -363,6 +363,7 @@ src/main/java/io/vertesia/model/CopyFileResponse.java
 src/main/java/io/vertesia/model/CostAnalyticsQuery.java
 src/main/java/io/vertesia/model/CostAnalyticsResponse.java
 src/main/java/io/vertesia/model/CostAnalyticsResponsePricingCoverage.java
+src/main/java/io/vertesia/model/CostAnalyticsResponsePricingCoverageCostBySource.java
 src/main/java/io/vertesia/model/CostAnalyticsResponsePricingCoverageUnpricedInner.java
 src/main/java/io/vertesia/model/CostAnalyticsResponseQueryRange.java
 src/main/java/io/vertesia/model/CostByDimension.java

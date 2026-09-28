@@ -154,7 +154,7 @@ public class ViewAgenticExecutionConfiguration {
     }
 
     /**
-     * Treat supplied model settings as inherited fallback: an applicable profile replaces them.
+     * Treat the supplied environment, model and inference_profile as the caller&#39;s settings, inherited as a fallback: the interaction&#39;s bound or attached profile, or its own model, replaces them.
      * @return inheritModelConfig
      */
     @jakarta.annotation.Nullable public Boolean getInheritModelConfig() {

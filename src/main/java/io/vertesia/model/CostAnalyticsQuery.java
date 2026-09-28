@@ -46,7 +46,7 @@ public class CostAnalyticsQuery {
     @jakarta.annotation.Nullable private GetModelPricesToParameter to;
 
     /**
-     * Group results by this dimension
+     * Group results by this dimension. &#x60;agent_run&#x60; groups by root agent run, including the calls of its sub-agents; &#x60;workflow_run&#x60; groups by Temporal workflow run, which separates each sub-agent.
      */
     @JsonAdapter(GroupByEnum.Adapter.class)
     public enum GroupByEnum {
@@ -67,6 +67,10 @@ public class CostAnalyticsQuery {
         INTERACTION("interaction"),
 
         WORKFLOW("workflow"),
+
+        AGENT_RUN("agent_run"),
+
+        WORKFLOW_RUN("workflow_run"),
 
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
@@ -410,7 +414,7 @@ public class CostAnalyticsQuery {
     }
 
     /**
-     * Group results by this dimension
+     * Group results by this dimension. &#x60;agent_run&#x60; groups by root agent run, including the calls of its sub-agents; &#x60;workflow_run&#x60; groups by Temporal workflow run, which separates each sub-agent.
      * @return groupBy
      */
     @jakarta.annotation.Nullable public GroupByEnum getGroupBy() {

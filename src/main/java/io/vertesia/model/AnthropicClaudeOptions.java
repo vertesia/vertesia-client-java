@@ -262,6 +262,66 @@ public class AnthropicClaudeOptions {
     @SerializedName(SERIALIZED_NAME_CACHE_TTL)
     @jakarta.annotation.Nullable private CacheTtlEnum cacheTtl;
 
+    /**
+     * Gets or Sets speed
+     */
+    @JsonAdapter(SpeedEnum.Adapter.class)
+    public enum SpeedEnum {
+        STANDARD("standard"),
+
+        FAST("fast"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        SpeedEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static SpeedEnum fromValue(String value) {
+            for (SpeedEnum b : SpeedEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<SpeedEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final SpeedEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public SpeedEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return SpeedEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            SpeedEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_SPEED = "speed";
+
+    @SerializedName(SERIALIZED_NAME_SPEED)
+    @jakarta.annotation.Nullable private SpeedEnum speed;
+
     public AnthropicClaudeOptions() {}
 
     public AnthropicClaudeOptions optionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
@@ -463,6 +523,23 @@ public class AnthropicClaudeOptions {
         this.cacheTtl = cacheTtl;
     }
 
+    public AnthropicClaudeOptions speed(@jakarta.annotation.Nullable SpeedEnum speed) {
+        this.speed = speed;
+        return this;
+    }
+
+    /**
+     * Get speed
+     * @return speed
+     */
+    @jakarta.annotation.Nullable public SpeedEnum getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(@jakarta.annotation.Nullable SpeedEnum speed) {
+        this.speed = speed;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -483,7 +560,8 @@ public class AnthropicClaudeOptions {
                         this.thinkingBudgetTokens, anthropicClaudeOptions.thinkingBudgetTokens)
                 && Objects.equals(this.includeThoughts, anthropicClaudeOptions.includeThoughts)
                 && Objects.equals(this.cacheEnabled, anthropicClaudeOptions.cacheEnabled)
-                && Objects.equals(this.cacheTtl, anthropicClaudeOptions.cacheTtl);
+                && Objects.equals(this.cacheTtl, anthropicClaudeOptions.cacheTtl)
+                && Objects.equals(this.speed, anthropicClaudeOptions.speed);
     }
 
     @Override
@@ -499,7 +577,8 @@ public class AnthropicClaudeOptions {
                 thinkingBudgetTokens,
                 includeThoughts,
                 cacheEnabled,
-                cacheTtl);
+                cacheTtl,
+                speed);
     }
 
     @Override
@@ -519,6 +598,7 @@ public class AnthropicClaudeOptions {
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("    cacheEnabled: ").append(toIndentedString(cacheEnabled)).append("\n");
         sb.append("    cacheTtl: ").append(toIndentedString(cacheTtl)).append("\n");
+        sb.append("    speed: ").append(toIndentedString(speed)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -549,7 +629,8 @@ public class AnthropicClaudeOptions {
                                 "thinking_budget_tokens",
                                 "include_thoughts",
                                 "cache_enabled",
-                                "cache_ttl"));
+                                "cache_ttl",
+                                "speed"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -618,6 +699,18 @@ public class AnthropicClaudeOptions {
         // validate the optional field `cache_ttl`
         if (jsonObj.get("cache_ttl") != null && !jsonObj.get("cache_ttl").isJsonNull()) {
             CacheTtlEnum.validateJsonElement(jsonObj.get("cache_ttl"));
+        }
+        if ((jsonObj.get("speed") != null && !jsonObj.get("speed").isJsonNull())
+                && !jsonObj.get("speed").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `speed` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("speed").toString()));
+        }
+        // validate the optional field `speed`
+        if (jsonObj.get("speed") != null && !jsonObj.get("speed").isJsonNull()) {
+            SpeedEnum.validateJsonElement(jsonObj.get("speed"));
         }
     }
 
