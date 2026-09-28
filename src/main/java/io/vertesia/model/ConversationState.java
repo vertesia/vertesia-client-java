@@ -177,6 +177,11 @@ public class ConversationState {
     @SerializedName(SERIALIZED_NAME_CHECKPOINT_TOKENS)
     @jakarta.annotation.Nullable private BigDecimal checkpointTokens;
 
+    public static final String SERIALIZED_NAME_BUDGET = "budget";
+
+    @SerializedName(SERIALIZED_NAME_BUDGET)
+    @jakarta.annotation.Nullable private AgentBudgetConfiguration budget;
+
     public static final String SERIALIZED_NAME_USER_CHANNELS = "user_channels";
 
     @SerializedName(SERIALIZED_NAME_USER_CHANNELS)
@@ -794,6 +799,23 @@ public class ConversationState {
         this.checkpointTokens = checkpointTokens;
     }
 
+    public ConversationState budget(@jakarta.annotation.Nullable AgentBudgetConfiguration budget) {
+        this.budget = budget;
+        return this;
+    }
+
+    /**
+     * Project-configured agent token budget (cached from project.configuration.agent.budget at conversation start). The workflow resolves the effective budget field-wise from this, the interaction&#39;s agent_runner_options.budget, and the per-run budget override.
+     * @return budget
+     */
+    @jakarta.annotation.Nullable public AgentBudgetConfiguration getBudget() {
+        return budget;
+    }
+
+    public void setBudget(@jakarta.annotation.Nullable AgentBudgetConfiguration budget) {
+        this.budget = budget;
+    }
+
     public ConversationState userChannels(
             @jakarta.annotation.Nullable List<UserChannel> userChannels) {
         this.userChannels = userChannels;
@@ -1201,6 +1223,7 @@ public class ConversationState {
                 && Objects.equals(this.streamingEnabled, conversationState.streamingEnabled)
                 && Objects.equals(this.checkpointThreshold, conversationState.checkpointThreshold)
                 && Objects.equals(this.checkpointTokens, conversationState.checkpointTokens)
+                && Objects.equals(this.budget, conversationState.budget)
                 && Objects.equals(this.userChannels, conversationState.userChannels)
                 && Objects.equals(this.resolvedInteraction, conversationState.resolvedInteraction)
                 && Objects.equals(this.endConversation, conversationState.endConversation)
@@ -1255,6 +1278,7 @@ public class ConversationState {
                 streamingEnabled,
                 checkpointThreshold,
                 checkpointTokens,
+                budget,
                 userChannels,
                 resolvedInteraction,
                 endConversation,
@@ -1315,6 +1339,7 @@ public class ConversationState {
                 .append(toIndentedString(checkpointThreshold))
                 .append("\n");
         sb.append("    checkpointTokens: ").append(toIndentedString(checkpointTokens)).append("\n");
+        sb.append("    budget: ").append(toIndentedString(budget)).append("\n");
         sb.append("    userChannels: ").append(toIndentedString(userChannels)).append("\n");
         sb.append("    resolvedInteraction: ")
                 .append(toIndentedString(resolvedInteraction))
@@ -1393,6 +1418,7 @@ public class ConversationState {
                                 "streaming_enabled",
                                 "checkpoint_threshold",
                                 "checkpoint_tokens",
+                                "budget",
                                 "user_channels",
                                 "resolvedInteraction",
                                 "end_conversation",
@@ -1607,6 +1633,10 @@ public class ConversationState {
                 }
                 ;
             }
+        }
+        // validate the optional field `budget`
+        if (jsonObj.get("budget") != null && !jsonObj.get("budget").isJsonNull()) {
+            AgentBudgetConfiguration.validateJsonElement(jsonObj.get("budget"));
         }
         if (jsonObj.get("user_channels") != null && !jsonObj.get("user_channels").isJsonNull()) {
             JsonArray jsonArrayuserChannels = jsonObj.getAsJsonArray("user_channels");

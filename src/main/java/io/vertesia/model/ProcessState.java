@@ -68,6 +68,16 @@ public class ProcessState {
     @jakarta.annotation.Nonnull
     private BigDecimal sequence;
 
+    public static final String SERIALIZED_NAME_TERMINAL_REASON = "terminal_reason";
+
+    @SerializedName(SERIALIZED_NAME_TERMINAL_REASON)
+    @jakarta.annotation.Nullable private ProcessTerminalReason terminalReason;
+
+    public static final String SERIALIZED_NAME_BUDGET = "budget";
+
+    @SerializedName(SERIALIZED_NAME_BUDGET)
+    @jakarta.annotation.Nullable private ProcessBudgetState budget;
+
     public ProcessState() {}
 
     public ProcessState context(@jakarta.annotation.Nullable Map<String, Object> context) {
@@ -176,6 +186,42 @@ public class ProcessState {
         this.sequence = sequence;
     }
 
+    public ProcessState terminalReason(
+            @jakarta.annotation.Nullable ProcessTerminalReason terminalReason) {
+        this.terminalReason = terminalReason;
+        return this;
+    }
+
+    /**
+     * Get terminalReason
+     * @return terminalReason
+     */
+    @jakarta.annotation.Nullable public ProcessTerminalReason getTerminalReason() {
+        return terminalReason;
+    }
+
+    public void setTerminalReason(
+            @jakarta.annotation.Nullable ProcessTerminalReason terminalReason) {
+        this.terminalReason = terminalReason;
+    }
+
+    public ProcessState budget(@jakarta.annotation.Nullable ProcessBudgetState budget) {
+        this.budget = budget;
+        return this;
+    }
+
+    /**
+     * Token budget of the run, present when the run has one.
+     * @return budget
+     */
+    @jakarta.annotation.Nullable public ProcessBudgetState getBudget() {
+        return budget;
+    }
+
+    public void setBudget(@jakarta.annotation.Nullable ProcessBudgetState budget) {
+        this.budget = budget;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -235,13 +281,22 @@ public class ProcessState {
                 && Objects.equals(this.nodeHistory, processState.nodeHistory)
                 && Objects.equals(this.nodeHistoryRef, processState.nodeHistoryRef)
                 && Objects.equals(this.sequence, processState.sequence)
+                && Objects.equals(this.terminalReason, processState.terminalReason)
+                && Objects.equals(this.budget, processState.budget)
                 && Objects.equals(this.additionalProperties, processState.additionalProperties);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                context, currentNode, nodeHistory, nodeHistoryRef, sequence, additionalProperties);
+                context,
+                currentNode,
+                nodeHistory,
+                nodeHistoryRef,
+                sequence,
+                terminalReason,
+                budget,
+                additionalProperties);
     }
 
     @Override
@@ -253,6 +308,8 @@ public class ProcessState {
         sb.append("    nodeHistory: ").append(toIndentedString(nodeHistory)).append("\n");
         sb.append("    nodeHistoryRef: ").append(toIndentedString(nodeHistoryRef)).append("\n");
         sb.append("    sequence: ").append(toIndentedString(sequence)).append("\n");
+        sb.append("    terminalReason: ").append(toIndentedString(terminalReason)).append("\n");
+        sb.append("    budget: ").append(toIndentedString(budget)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -280,7 +337,9 @@ public class ProcessState {
                                 "current_node",
                                 "node_history",
                                 "node_history_ref",
-                                "sequence"));
+                                "sequence",
+                                "terminal_reason",
+                                "budget"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -343,6 +402,15 @@ public class ProcessState {
         if (jsonObj.get("node_history_ref") != null
                 && !jsonObj.get("node_history_ref").isJsonNull()) {
             ProcessHistoryRef.validateJsonElement(jsonObj.get("node_history_ref"));
+        }
+        // validate the optional field `terminal_reason`
+        if (jsonObj.get("terminal_reason") != null
+                && !jsonObj.get("terminal_reason").isJsonNull()) {
+            ProcessTerminalReason.validateJsonElement(jsonObj.get("terminal_reason"));
+        }
+        // validate the optional field `budget`
+        if (jsonObj.get("budget") != null && !jsonObj.get("budget").isJsonNull()) {
+            ProcessBudgetState.validateJsonElement(jsonObj.get("budget"));
         }
     }
 

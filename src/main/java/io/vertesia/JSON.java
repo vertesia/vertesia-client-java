@@ -969,6 +969,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AgentArtifactUrlResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AgentBudgetConfiguration.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AgentCheckpointConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AgentEventDeliveryTarget.CustomTypeAdapterFactory());
@@ -1022,6 +1024,8 @@ public class JSON {
                 new io.vertesia.model.AgenticViewSearchConfiguration.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AggregatedTool.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AllocateAgentRunBudgetPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AlterTableOperation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -2184,6 +2188,10 @@ public class JSON {
                 new io.vertesia.model.ProcessAgentToolInputContains.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ProcessAgentToolPhase.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessBudgetState.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ProcessBudgetSummary.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ProcessContextDefinition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

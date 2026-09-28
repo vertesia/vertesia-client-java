@@ -63,6 +63,11 @@ public class ProcessRunConfig {
     @SerializedName(SERIALIZED_NAME_USER_MESSAGE)
     @jakarta.annotation.Nullable private String userMessage;
 
+    public static final String SERIALIZED_NAME_BUDGET = "budget";
+
+    @SerializedName(SERIALIZED_NAME_BUDGET)
+    @jakarta.annotation.Nullable private AgentBudgetConfiguration budget;
+
     public static final String SERIALIZED_NAME_PROCESS_WORKSTREAM_MONITOR =
             "process_workstream_monitor";
 
@@ -156,6 +161,23 @@ public class ProcessRunConfig {
         this.userMessage = userMessage;
     }
 
+    public ProcessRunConfig budget(@jakarta.annotation.Nullable AgentBudgetConfiguration budget) {
+        this.budget = budget;
+        return this;
+    }
+
+    /**
+     * Token budget shared by the whole run: agent nodes, interaction nodes, nested processes and, when the run is managed by an agent run, that agent run. Agent nodes and nested processes start with what is left of it. When it runs out the process stops scheduling nodes and lets running agent nodes write a final summary. A run managed by an interactive agent run then pauses (&#x60;budget.awaiting_allocation&#x60;) until more budget is added through that agent run, and retries the interrupted node; any other run ends failed with &#x60;terminal_reason&#x60; &#x60;token_budget_exhausted&#x60;. This is a soft limit, not a spending cap.
+     * @return budget
+     */
+    @jakarta.annotation.Nullable public AgentBudgetConfiguration getBudget() {
+        return budget;
+    }
+
+    public void setBudget(@jakarta.annotation.Nullable AgentBudgetConfiguration budget) {
+        this.budget = budget;
+    }
+
     public ProcessRunConfig processWorkstreamMonitor(
             @jakarta.annotation.Nullable ProcessRunConfigProcessWorkstreamMonitor processWorkstreamMonitor) {
         this.processWorkstreamMonitor = processWorkstreamMonitor;
@@ -234,6 +256,7 @@ public class ProcessRunConfig {
                 && Objects.equals(this.model, processRunConfig.model)
                 && Objects.equals(this.modelOptions, processRunConfig.modelOptions)
                 && Objects.equals(this.userMessage, processRunConfig.userMessage)
+                && Objects.equals(this.budget, processRunConfig.budget)
                 && Objects.equals(
                         this.processWorkstreamMonitor, processRunConfig.processWorkstreamMonitor)
                 && Objects.equals(this.additionalProperties, processRunConfig.additionalProperties);
@@ -256,6 +279,7 @@ public class ProcessRunConfig {
                 model,
                 modelOptions,
                 userMessage,
+                budget,
                 processWorkstreamMonitor,
                 additionalProperties);
     }
@@ -276,6 +300,7 @@ public class ProcessRunConfig {
         sb.append("    model: ").append(toIndentedString(model)).append("\n");
         sb.append("    modelOptions: ").append(toIndentedString(modelOptions)).append("\n");
         sb.append("    userMessage: ").append(toIndentedString(userMessage)).append("\n");
+        sb.append("    budget: ").append(toIndentedString(budget)).append("\n");
         sb.append("    processWorkstreamMonitor: ")
                 .append(toIndentedString(processWorkstreamMonitor))
                 .append("\n");
@@ -307,6 +332,7 @@ public class ProcessRunConfig {
                                 "model",
                                 "model_options",
                                 "user_message",
+                                "budget",
                                 "process_workstream_monitor"));
 
         // a set of required properties/fields (JSON key names)
@@ -367,6 +393,10 @@ public class ProcessRunConfig {
                             java.util.Locale.ROOT,
                             "Expected the field `user_message` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("user_message").toString()));
+        }
+        // validate the optional field `budget`
+        if (jsonObj.get("budget") != null && !jsonObj.get("budget").isJsonNull()) {
+            AgentBudgetConfiguration.validateJsonElement(jsonObj.get("budget"));
         }
         // validate the optional field `process_workstream_monitor`
         if (jsonObj.get("process_workstream_monitor") != null

@@ -102,6 +102,11 @@ public class AgentProjectConfiguration {
     @SerializedName(SERIALIZED_NAME_CHECKPOINT)
     @jakarta.annotation.Nullable private AgentCheckpointConfiguration checkpoint;
 
+    public static final String SERIALIZED_NAME_BUDGET = "budget";
+
+    @SerializedName(SERIALIZED_NAME_BUDGET)
+    @jakarta.annotation.Nullable private AgentBudgetConfiguration budget;
+
     public AgentProjectConfiguration() {}
 
     public AgentProjectConfiguration evaluationPolicy(
@@ -142,6 +147,24 @@ public class AgentProjectConfiguration {
         this.checkpoint = checkpoint;
     }
 
+    public AgentProjectConfiguration budget(
+            @jakarta.annotation.Nullable AgentBudgetConfiguration budget) {
+        this.budget = budget;
+        return this;
+    }
+
+    /**
+     * Default token budget for agent runs in this project. Field-wise overridden by the interaction&#39;s &#x60;agent_runner_options.budget&#x60; and the per-run &#x60;budget&#x60;.
+     * @return budget
+     */
+    @jakarta.annotation.Nullable public AgentBudgetConfiguration getBudget() {
+        return budget;
+    }
+
+    public void setBudget(@jakarta.annotation.Nullable AgentBudgetConfiguration budget) {
+        this.budget = budget;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -152,12 +175,13 @@ public class AgentProjectConfiguration {
         }
         AgentProjectConfiguration agentProjectConfiguration = (AgentProjectConfiguration) o;
         return Objects.equals(this.evaluationPolicy, agentProjectConfiguration.evaluationPolicy)
-                && Objects.equals(this.checkpoint, agentProjectConfiguration.checkpoint);
+                && Objects.equals(this.checkpoint, agentProjectConfiguration.checkpoint)
+                && Objects.equals(this.budget, agentProjectConfiguration.budget);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(evaluationPolicy, checkpoint);
+        return Objects.hash(evaluationPolicy, checkpoint, budget);
     }
 
     @Override
@@ -166,6 +190,7 @@ public class AgentProjectConfiguration {
         sb.append("class AgentProjectConfiguration {\n");
         sb.append("    evaluationPolicy: ").append(toIndentedString(evaluationPolicy)).append("\n");
         sb.append("    checkpoint: ").append(toIndentedString(checkpoint)).append("\n");
+        sb.append("    budget: ").append(toIndentedString(budget)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -183,7 +208,8 @@ public class AgentProjectConfiguration {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("evaluation_policy", "checkpoint"));
+        openapiFields =
+                new HashSet<String>(Arrays.asList("evaluation_policy", "checkpoint", "budget"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -224,6 +250,10 @@ public class AgentProjectConfiguration {
         // validate the optional field `checkpoint`
         if (jsonObj.get("checkpoint") != null && !jsonObj.get("checkpoint").isJsonNull()) {
             AgentCheckpointConfiguration.validateJsonElement(jsonObj.get("checkpoint"));
+        }
+        // validate the optional field `budget`
+        if (jsonObj.get("budget") != null && !jsonObj.get("budget").isJsonNull()) {
+            AgentBudgetConfiguration.validateJsonElement(jsonObj.get("budget"));
         }
     }
 

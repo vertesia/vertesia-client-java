@@ -27,6 +27,7 @@ import io.vertesia.model.AgentRunFeedbackPayload;
 import io.vertesia.model.AgentRunFeedbackResponse;
 import io.vertesia.model.AgentRunResponse;
 import io.vertesia.model.AgentRunUpdatesResponse;
+import io.vertesia.model.AllocateAgentRunBudgetPayload;
 import io.vertesia.model.AnswerProcessTaskPayload;
 import io.vertesia.model.CreateRunPayload;
 import io.vertesia.model.ListAgentRunsResponse;
@@ -262,6 +263,187 @@ public class AgentRunsApi {
 
         okhttp3.Call localVarCall =
                 advanceProcessRunValidateBeforeCall(agentRunId, advanceProcessPayload, _callback);
+        Type localVarReturnType = new TypeToken<SignalAgentResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for allocateAgentRunBudget
+     * @param agentRunId  (required)
+     * @param allocateAgentRunBudgetPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Allocation delivered to the run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call allocateAgentRunBudgetCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull AllocateAgentRunBudgetPayload allocateAgentRunBudgetPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = allocateAgentRunBudgetPayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/agents/{agentRunId}/budget"
+                        .replace(
+                                "{" + "agentRunId" + "}",
+                                localVarApiClient.escapeString(agentRunId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call allocateAgentRunBudgetValidateBeforeCall(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull AllocateAgentRunBudgetPayload allocateAgentRunBudgetPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'agentRunId' is set
+        if (agentRunId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'agentRunId' when calling allocateAgentRunBudget(Async)");
+        }
+
+        // verify the required parameter 'allocateAgentRunBudgetPayload' is set
+        if (allocateAgentRunBudgetPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'allocateAgentRunBudgetPayload' when calling allocateAgentRunBudget(Async)");
+        }
+
+        return allocateAgentRunBudgetCall(agentRunId, allocateAgentRunBudgetPayload, _callback);
+    }
+
+    /**
+     * Add token budget to a paused run
+     * Adds token budget to a run paused because its budget ran out; the run resumes from where it stopped. Interactive agent runs pause when their budget runs out, and so do process runs managed by one; other runs end instead. The amount is added to the limit the run was granted, so usage past that limit is paid out of it. Sent to a run that is not paused yet, it is applied when the budget runs out.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param allocateAgentRunBudgetPayload  (required)
+     * @return SignalAgentResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Allocation delivered to the run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public SignalAgentResponse allocateAgentRunBudget(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull AllocateAgentRunBudgetPayload allocateAgentRunBudgetPayload)
+            throws ApiException {
+        ApiResponse<SignalAgentResponse> localVarResp =
+                allocateAgentRunBudgetWithHttpInfo(agentRunId, allocateAgentRunBudgetPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Add token budget to a paused run
+     * Adds token budget to a run paused because its budget ran out; the run resumes from where it stopped. Interactive agent runs pause when their budget runs out, and so do process runs managed by one; other runs end instead. The amount is added to the limit the run was granted, so usage past that limit is paid out of it. Sent to a run that is not paused yet, it is applied when the budget runs out.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param allocateAgentRunBudgetPayload  (required)
+     * @return ApiResponse&lt;SignalAgentResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Allocation delivered to the run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<SignalAgentResponse> allocateAgentRunBudgetWithHttpInfo(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull AllocateAgentRunBudgetPayload allocateAgentRunBudgetPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                allocateAgentRunBudgetValidateBeforeCall(
+                        agentRunId, allocateAgentRunBudgetPayload, null);
+        Type localVarReturnType = new TypeToken<SignalAgentResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Add token budget to a paused run (asynchronously)
+     * Adds token budget to a run paused because its budget ran out; the run resumes from where it stopped. Interactive agent runs pause when their budget runs out, and so do process runs managed by one; other runs end instead. The amount is added to the limit the run was granted, so usage past that limit is paid out of it. Sent to a run that is not paused yet, it is applied when the budget runs out.  **Required permissions:** &#x60;workflow:run&#x60;
+     * @param agentRunId  (required)
+     * @param allocateAgentRunBudgetPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Allocation delivered to the run. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call allocateAgentRunBudgetAsync(
+            @jakarta.annotation.Nonnull String agentRunId,
+            @jakarta.annotation.Nonnull AllocateAgentRunBudgetPayload allocateAgentRunBudgetPayload,
+            final ApiCallback<SignalAgentResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                allocateAgentRunBudgetValidateBeforeCall(
+                        agentRunId, allocateAgentRunBudgetPayload, _callback);
         Type localVarReturnType = new TypeToken<SignalAgentResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

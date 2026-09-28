@@ -89,6 +89,7 @@ src/main/java/io/vertesia/model/ActivityTask.java
 src/main/java/io/vertesia/model/AdvanceProcessPayload.java
 src/main/java/io/vertesia/model/AgentArtifactContentResponse.java
 src/main/java/io/vertesia/model/AgentArtifactUrlResponse.java
+src/main/java/io/vertesia/model/AgentBudgetConfiguration.java
 src/main/java/io/vertesia/model/AgentCheckpointConfiguration.java
 src/main/java/io/vertesia/model/AgentDeliveryMatchMode.java
 src/main/java/io/vertesia/model/AgentEventDeliveryTarget.java
@@ -131,6 +132,7 @@ src/main/java/io/vertesia/model/AgentToolDefinition.java
 src/main/java/io/vertesia/model/AgenticViewRerankConfiguration.java
 src/main/java/io/vertesia/model/AgenticViewSearchConfiguration.java
 src/main/java/io/vertesia/model/AggregatedTool.java
+src/main/java/io/vertesia/model/AllocateAgentRunBudgetPayload.java
 src/main/java/io/vertesia/model/AlterTableOperation.java
 src/main/java/io/vertesia/model/AlterTableOperationOneOf.java
 src/main/java/io/vertesia/model/AlterTableOperationOneOf1.java
@@ -785,6 +787,8 @@ src/main/java/io/vertesia/model/ProcessAgentExecutionPolicy.java
 src/main/java/io/vertesia/model/ProcessAgentPhaseReset.java
 src/main/java/io/vertesia/model/ProcessAgentToolInputContains.java
 src/main/java/io/vertesia/model/ProcessAgentToolPhase.java
+src/main/java/io/vertesia/model/ProcessBudgetState.java
+src/main/java/io/vertesia/model/ProcessBudgetSummary.java
 src/main/java/io/vertesia/model/ProcessContextDefinition.java
 src/main/java/io/vertesia/model/ProcessContextResponse.java
 src/main/java/io/vertesia/model/ProcessDefinition.java
@@ -807,6 +811,7 @@ src/main/java/io/vertesia/model/ProcessScriptInlineSource.java
 src/main/java/io/vertesia/model/ProcessScriptLanguage.java
 src/main/java/io/vertesia/model/ProcessScriptResource.java
 src/main/java/io/vertesia/model/ProcessState.java
+src/main/java/io/vertesia/model/ProcessTerminalReason.java
 src/main/java/io/vertesia/model/ProcessTestActorDecision.java
 src/main/java/io/vertesia/model/ProcessTestAssertionResult.java
 src/main/java/io/vertesia/model/ProcessTestAssertions.java

@@ -274,6 +274,11 @@ public class AsyncConversationExecutionPayload {
     @SerializedName(SERIALIZED_NAME_CHECKPOINT)
     @jakarta.annotation.Nullable private AgentCheckpointConfiguration checkpoint;
 
+    public static final String SERIALIZED_NAME_BUDGET = "budget";
+
+    @SerializedName(SERIALIZED_NAME_BUDGET)
+    @jakarta.annotation.Nullable private AgentBudgetConfiguration budget;
+
     public static final String SERIALIZED_NAME_STRIP_OPTIONS = "strip_options";
 
     @SerializedName(SERIALIZED_NAME_STRIP_OPTIONS)
@@ -1054,6 +1059,24 @@ public class AsyncConversationExecutionPayload {
         this.checkpoint = checkpoint;
     }
 
+    public AsyncConversationExecutionPayload budget(
+            @jakarta.annotation.Nullable AgentBudgetConfiguration budget) {
+        this.budget = budget;
+        return this;
+    }
+
+    /**
+     * Per-run token budget override. Field-wise it takes precedence over the interaction&#39;s &#x60;agent_runner_options.budget&#x60; and the project&#39;s &#x60;configuration.agent.budget&#x60;. Subagent workstreams receive the remaining budget of their parent here.
+     * @return budget
+     */
+    @jakarta.annotation.Nullable public AgentBudgetConfiguration getBudget() {
+        return budget;
+    }
+
+    public void setBudget(@jakarta.annotation.Nullable AgentBudgetConfiguration budget) {
+        this.budget = budget;
+    }
+
     public AsyncConversationExecutionPayload stripOptions(
             @jakarta.annotation.Nullable ConversationStripOptions stripOptions) {
         this.stripOptions = stripOptions;
@@ -1403,6 +1426,7 @@ public class AsyncConversationExecutionPayload {
                 && Objects.equals(
                         this.checkpointTokens, asyncConversationExecutionPayload.checkpointTokens)
                 && Objects.equals(this.checkpoint, asyncConversationExecutionPayload.checkpoint)
+                && Objects.equals(this.budget, asyncConversationExecutionPayload.budget)
                 && Objects.equals(this.stripOptions, asyncConversationExecutionPayload.stripOptions)
                 && Objects.equals(this.taskId, asyncConversationExecutionPayload.taskId)
                 && Objects.equals(this.launchId, asyncConversationExecutionPayload.launchId)
@@ -1478,6 +1502,7 @@ public class AsyncConversationExecutionPayload {
                 disabledMcpCollections,
                 checkpointTokens,
                 checkpoint,
+                budget,
                 stripOptions,
                 taskId,
                 launchId,
@@ -1544,6 +1569,7 @@ public class AsyncConversationExecutionPayload {
                 .append("\n");
         sb.append("    checkpointTokens: ").append(toIndentedString(checkpointTokens)).append("\n");
         sb.append("    checkpoint: ").append(toIndentedString(checkpoint)).append("\n");
+        sb.append("    budget: ").append(toIndentedString(budget)).append("\n");
         sb.append("    stripOptions: ").append(toIndentedString(stripOptions)).append("\n");
         sb.append("    taskId: ").append(toIndentedString(taskId)).append("\n");
         sb.append("    launchId: ").append(toIndentedString(launchId)).append("\n");
@@ -1625,6 +1651,7 @@ public class AsyncConversationExecutionPayload {
                                 "disabled_mcp_collections",
                                 "checkpoint_tokens",
                                 "checkpoint",
+                                "budget",
                                 "strip_options",
                                 "task_id",
                                 "launch_id",
@@ -1886,6 +1913,10 @@ public class AsyncConversationExecutionPayload {
         // validate the optional field `checkpoint`
         if (jsonObj.get("checkpoint") != null && !jsonObj.get("checkpoint").isJsonNull()) {
             AgentCheckpointConfiguration.validateJsonElement(jsonObj.get("checkpoint"));
+        }
+        // validate the optional field `budget`
+        if (jsonObj.get("budget") != null && !jsonObj.get("budget").isJsonNull()) {
+            AgentBudgetConfiguration.validateJsonElement(jsonObj.get("budget"));
         }
         // validate the optional field `strip_options`
         if (jsonObj.get("strip_options") != null && !jsonObj.get("strip_options").isJsonNull()) {

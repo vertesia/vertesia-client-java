@@ -87,6 +87,11 @@ public class AgentRunnerOptions {
     @SerializedName(SERIALIZED_NAME_CHECKPOINT)
     @jakarta.annotation.Nullable private AgentCheckpointConfiguration checkpoint;
 
+    public static final String SERIALIZED_NAME_BUDGET = "budget";
+
+    @SerializedName(SERIALIZED_NAME_BUDGET)
+    @jakarta.annotation.Nullable private AgentBudgetConfiguration budget;
+
     public AgentRunnerOptions() {}
 
     public AgentRunnerOptions isAgent(@jakarta.annotation.Nullable Boolean isAgent) {
@@ -272,6 +277,23 @@ public class AgentRunnerOptions {
         this.checkpoint = checkpoint;
     }
 
+    public AgentRunnerOptions budget(@jakarta.annotation.Nullable AgentBudgetConfiguration budget) {
+        this.budget = budget;
+        return this;
+    }
+
+    /**
+     * Per-agent token budget. Field-wise it overrides the project&#39;s &#x60;configuration.agent.budget&#x60;; the per-run &#x60;budget&#x60; wins over both.
+     * @return budget
+     */
+    @jakarta.annotation.Nullable public AgentBudgetConfiguration getBudget() {
+        return budget;
+    }
+
+    public void setBudget(@jakarta.annotation.Nullable AgentBudgetConfiguration budget) {
+        this.budget = budget;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -290,7 +312,8 @@ public class AgentRunnerOptions {
                 && Objects.equals(this.searchScope, agentRunnerOptions.searchScope)
                 && Objects.equals(this.collectionId, agentRunnerOptions.collectionId)
                 && Objects.equals(this.requestTemplate, agentRunnerOptions.requestTemplate)
-                && Objects.equals(this.checkpoint, agentRunnerOptions.checkpoint);
+                && Objects.equals(this.checkpoint, agentRunnerOptions.checkpoint)
+                && Objects.equals(this.budget, agentRunnerOptions.budget);
     }
 
     @Override
@@ -305,7 +328,8 @@ public class AgentRunnerOptions {
                 searchScope,
                 collectionId,
                 requestTemplate,
-                checkpoint);
+                checkpoint,
+                budget);
     }
 
     @Override
@@ -322,6 +346,7 @@ public class AgentRunnerOptions {
         sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
         sb.append("    requestTemplate: ").append(toIndentedString(requestTemplate)).append("\n");
         sb.append("    checkpoint: ").append(toIndentedString(checkpoint)).append("\n");
+        sb.append("    budget: ").append(toIndentedString(budget)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -351,7 +376,8 @@ public class AgentRunnerOptions {
                                 "search_scope",
                                 "collection_id",
                                 "request_template",
-                                "checkpoint"));
+                                "checkpoint",
+                                "budget"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -414,6 +440,10 @@ public class AgentRunnerOptions {
         // validate the optional field `checkpoint`
         if (jsonObj.get("checkpoint") != null && !jsonObj.get("checkpoint").isJsonNull()) {
             AgentCheckpointConfiguration.validateJsonElement(jsonObj.get("checkpoint"));
+        }
+        // validate the optional field `budget`
+        if (jsonObj.get("budget") != null && !jsonObj.get("budget").isJsonNull()) {
+            AgentBudgetConfiguration.validateJsonElement(jsonObj.get("budget"));
         }
     }
 

@@ -188,6 +188,11 @@ public class CreateAgentRunPayload {
     @SerializedName(SERIALIZED_NAME_CHECKPOINT)
     @jakarta.annotation.Nullable private AgentCheckpointConfiguration checkpoint;
 
+    public static final String SERIALIZED_NAME_BUDGET = "budget";
+
+    @SerializedName(SERIALIZED_NAME_BUDGET)
+    @jakarta.annotation.Nullable private AgentBudgetConfiguration budget;
+
     public static final String SERIALIZED_NAME_MAX_ITERATIONS = "max_iterations";
 
     @SerializedName(SERIALIZED_NAME_MAX_ITERATIONS)
@@ -811,6 +816,24 @@ public class CreateAgentRunPayload {
         this.checkpoint = checkpoint;
     }
 
+    public CreateAgentRunPayload budget(
+            @jakarta.annotation.Nullable AgentBudgetConfiguration budget) {
+        this.budget = budget;
+        return this;
+    }
+
+    /**
+     * Token budget for this run and its subagent workstreams. Field-wise it takes precedence over the interaction&#39;s &#x60;agent_runner_options.budget&#x60; and the project&#39;s &#x60;configuration.agent.budget&#x60;.
+     * @return budget
+     */
+    @jakarta.annotation.Nullable public AgentBudgetConfiguration getBudget() {
+        return budget;
+    }
+
+    public void setBudget(@jakarta.annotation.Nullable AgentBudgetConfiguration budget) {
+        this.budget = budget;
+    }
+
     public CreateAgentRunPayload maxIterations(
             @jakarta.annotation.Nullable BigDecimal maxIterations) {
         this.maxIterations = maxIterations;
@@ -991,6 +1014,7 @@ public class CreateAgentRunPayload {
                 && Objects.equals(this.userChannels, createAgentRunPayload.userChannels)
                 && Objects.equals(this.checkpointTokens, createAgentRunPayload.checkpointTokens)
                 && Objects.equals(this.checkpoint, createAgentRunPayload.checkpoint)
+                && Objects.equals(this.budget, createAgentRunPayload.budget)
                 && Objects.equals(this.maxIterations, createAgentRunPayload.maxIterations)
                 && Objects.equals(this.finalVerification, createAgentRunPayload.finalVerification)
                 && Objects.equals(this.notifyEndpoints, createAgentRunPayload.notifyEndpoints)
@@ -1032,6 +1056,7 @@ public class CreateAgentRunPayload {
                 userChannels,
                 checkpointTokens,
                 checkpoint,
+                budget,
                 maxIterations,
                 finalVerification,
                 notifyEndpoints,
@@ -1075,6 +1100,7 @@ public class CreateAgentRunPayload {
         sb.append("    userChannels: ").append(toIndentedString(userChannels)).append("\n");
         sb.append("    checkpointTokens: ").append(toIndentedString(checkpointTokens)).append("\n");
         sb.append("    checkpoint: ").append(toIndentedString(checkpoint)).append("\n");
+        sb.append("    budget: ").append(toIndentedString(budget)).append("\n");
         sb.append("    maxIterations: ").append(toIndentedString(maxIterations)).append("\n");
         sb.append("    finalVerification: ")
                 .append(toIndentedString(finalVerification))
@@ -1134,6 +1160,7 @@ public class CreateAgentRunPayload {
                                 "user_channels",
                                 "checkpoint_tokens",
                                 "checkpoint",
+                                "budget",
                                 "max_iterations",
                                 "final_verification",
                                 "notify_endpoints",
@@ -1348,6 +1375,10 @@ public class CreateAgentRunPayload {
         // validate the optional field `checkpoint`
         if (jsonObj.get("checkpoint") != null && !jsonObj.get("checkpoint").isJsonNull()) {
             AgentCheckpointConfiguration.validateJsonElement(jsonObj.get("checkpoint"));
+        }
+        // validate the optional field `budget`
+        if (jsonObj.get("budget") != null && !jsonObj.get("budget").isJsonNull()) {
+            AgentBudgetConfiguration.validateJsonElement(jsonObj.get("budget"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("notify_endpoints") != null
