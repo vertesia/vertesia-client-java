@@ -4230,6 +4230,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The agent run has ended and can no longer receive signals; restart it to continue. Also returned while a new run is not ready yet, which is retryable. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -4334,6 +4335,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The agent run has ended and can no longer receive signals; restart it to continue. Also returned while a new run is not ready yet, which is retryable. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -4361,6 +4363,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The agent run has ended and can no longer receive signals; restart it to continue. Also returned while a new run is not ready yet, which is retryable. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -4390,6 +4393,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Agent signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The agent run has ended and can no longer receive signals; restart it to continue. Also returned while a new run is not ready yet, which is retryable. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
