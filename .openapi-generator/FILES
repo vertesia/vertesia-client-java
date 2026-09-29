@@ -24,6 +24,7 @@ src/main/java/io/vertesia/api/ContentObjectTypesApi.java
 src/main/java/io/vertesia/api/ContentQueryApi.java
 src/main/java/io/vertesia/api/CostsApi.java
 src/main/java/io/vertesia/api/DataApi.java
+src/main/java/io/vertesia/api/DefaultApi.java
 src/main/java/io/vertesia/api/DelegationGrantsApi.java
 src/main/java/io/vertesia/api/EmailApi.java
 src/main/java/io/vertesia/api/EnvironmentsApi.java
@@ -31,8 +32,10 @@ src/main/java/io/vertesia/api/EventIngestChannelsApi.java
 src/main/java/io/vertesia/api/EventSubscriptionsApi.java
 src/main/java/io/vertesia/api/EventsApi.java
 src/main/java/io/vertesia/api/FilesApi.java
+src/main/java/io/vertesia/api/InferenceProfilesApi.java
 src/main/java/io/vertesia/api/InteractionRunsApi.java
 src/main/java/io/vertesia/api/InteractionsApi.java
+src/main/java/io/vertesia/api/OAuthApi.java
 src/main/java/io/vertesia/api/OAuthClientsApi.java
 src/main/java/io/vertesia/api/OAuthGrantsApi.java
 src/main/java/io/vertesia/api/OAuthProvidersApi.java
@@ -59,6 +62,10 @@ src/main/java/io/vertesia/auth/ApiKeyAuth.java
 src/main/java/io/vertesia/auth/Authentication.java
 src/main/java/io/vertesia/auth/HttpBasicAuth.java
 src/main/java/io/vertesia/auth/HttpBearerAuth.java
+src/main/java/io/vertesia/auth/OAuth.java
+src/main/java/io/vertesia/auth/OAuthFlow.java
+src/main/java/io/vertesia/auth/OAuthOkHttpClient.java
+src/main/java/io/vertesia/auth/RetryingOAuth.java
 src/main/java/io/vertesia/model/ACECreatePayload.java
 src/main/java/io/vertesia/model/ACEUpdatePayload.java
 src/main/java/io/vertesia/model/AIModel.java
@@ -69,6 +76,8 @@ src/main/java/io/vertesia/model/AccessControlEntry.java
 src/main/java/io/vertesia/model/AccessControlPrincipalType.java
 src/main/java/io/vertesia/model/AccessControlResourceType.java
 src/main/java/io/vertesia/model/Account.java
+src/main/java/io/vertesia/model/AccountApiKey.java
+src/main/java/io/vertesia/model/AccountApiKeyWithValue.java
 src/main/java/io/vertesia/model/AccountBilling.java
 src/main/java/io/vertesia/model/AccountOnboarding.java
 src/main/java/io/vertesia/model/AccountProjectsResponse.java
@@ -80,6 +89,7 @@ src/main/java/io/vertesia/model/ActivityTask.java
 src/main/java/io/vertesia/model/AdvanceProcessPayload.java
 src/main/java/io/vertesia/model/AgentArtifactContentResponse.java
 src/main/java/io/vertesia/model/AgentArtifactUrlResponse.java
+src/main/java/io/vertesia/model/AgentBudgetConfiguration.java
 src/main/java/io/vertesia/model/AgentCheckpointConfiguration.java
 src/main/java/io/vertesia/model/AgentDeliveryMatchMode.java
 src/main/java/io/vertesia/model/AgentEventDeliveryTarget.java
@@ -103,7 +113,7 @@ src/main/java/io/vertesia/model/AgentRunFeedbackRating.java
 src/main/java/io/vertesia/model/AgentRunFeedbackReasonCode.java
 src/main/java/io/vertesia/model/AgentRunFeedbackResponse.java
 src/main/java/io/vertesia/model/AgentRunFeedbackStatus.java
-src/main/java/io/vertesia/model/AgentRunJudgeResult.java
+src/main/java/io/vertesia/model/AgentRunLlmEvaluationResult.java
 src/main/java/io/vertesia/model/AgentRunResponse.java
 src/main/java/io/vertesia/model/AgentRunSearchHit.java
 src/main/java/io/vertesia/model/AgentRunStatus.java
@@ -122,6 +132,7 @@ src/main/java/io/vertesia/model/AgentToolDefinition.java
 src/main/java/io/vertesia/model/AgenticViewRerankConfiguration.java
 src/main/java/io/vertesia/model/AgenticViewSearchConfiguration.java
 src/main/java/io/vertesia/model/AggregatedTool.java
+src/main/java/io/vertesia/model/AllocateAgentRunBudgetPayload.java
 src/main/java/io/vertesia/model/AlterTableOperation.java
 src/main/java/io/vertesia/model/AlterTableOperationOneOf.java
 src/main/java/io/vertesia/model/AlterTableOperationOneOf1.java
@@ -130,6 +141,7 @@ src/main/java/io/vertesia/model/AlterTableOperationOneOf3.java
 src/main/java/io/vertesia/model/AlterTablePayload.java
 src/main/java/io/vertesia/model/AnalyticsAxis.java
 src/main/java/io/vertesia/model/AnswerProcessTaskPayload.java
+src/main/java/io/vertesia/model/AnthropicClaudeOptions.java
 src/main/java/io/vertesia/model/ApiKey.java
 src/main/java/io/vertesia/model/ApiKeyReadResponse.java
 src/main/java/io/vertesia/model/ApiKeyTokenRequest.java
@@ -156,6 +168,7 @@ src/main/java/io/vertesia/model/AppInspectionResult.java
 src/main/java/io/vertesia/model/AppInstallation.java
 src/main/java/io/vertesia/model/AppInstallationListEntry.java
 src/main/java/io/vertesia/model/AppInstallationOAuthBinding.java
+src/main/java/io/vertesia/model/AppInstallationOauthApproval.java
 src/main/java/io/vertesia/model/AppInstallationPayload.java
 src/main/java/io/vertesia/model/AppInstallationProviderBinding.java
 src/main/java/io/vertesia/model/AppInstallationWithManifest.java
@@ -179,6 +192,8 @@ src/main/java/io/vertesia/model/AppRepoTreeEntry.java
 src/main/java/io/vertesia/model/AppScaffoldModule.java
 src/main/java/io/vertesia/model/AppScaffoldProgress.java
 src/main/java/io/vertesia/model/AppScaffoldProgressStatus.java
+src/main/java/io/vertesia/model/AppSessionTokenRequest.java
+src/main/java/io/vertesia/model/AppSessionTokenResponse.java
 src/main/java/io/vertesia/model/AppSourceConfig.java
 src/main/java/io/vertesia/model/AppToolCollection.java
 src/main/java/io/vertesia/model/AppUIConfig.java
@@ -201,6 +216,7 @@ src/main/java/io/vertesia/model/AsyncConversationExecutionPayloadResultSchema.ja
 src/main/java/io/vertesia/model/AsyncExecutionPayload.java
 src/main/java/io/vertesia/model/AsyncExecutionResult.java
 src/main/java/io/vertesia/model/AsyncInteractionExecutionPayload.java
+src/main/java/io/vertesia/model/AudioResult.java
 src/main/java/io/vertesia/model/AuditAction.java
 src/main/java/io/vertesia/model/AuditAggregationDetailField.java
 src/main/java/io/vertesia/model/AuditAggregationDetailFilter.java
@@ -349,6 +365,7 @@ src/main/java/io/vertesia/model/CopyFileResponse.java
 src/main/java/io/vertesia/model/CostAnalyticsQuery.java
 src/main/java/io/vertesia/model/CostAnalyticsResponse.java
 src/main/java/io/vertesia/model/CostAnalyticsResponsePricingCoverage.java
+src/main/java/io/vertesia/model/CostAnalyticsResponsePricingCoverageCostBySource.java
 src/main/java/io/vertesia/model/CostAnalyticsResponsePricingCoverageUnpricedInner.java
 src/main/java/io/vertesia/model/CostAnalyticsResponseQueryRange.java
 src/main/java/io/vertesia/model/CostByDimension.java
@@ -359,6 +376,7 @@ src/main/java/io/vertesia/model/CostRunPriceResponse.java
 src/main/java/io/vertesia/model/CostSummary.java
 src/main/java/io/vertesia/model/CostTimeSeriesPoint.java
 src/main/java/io/vertesia/model/CountResult.java
+src/main/java/io/vertesia/model/CreateAccountApiKeyPayload.java
 src/main/java/io/vertesia/model/CreateAgentRunPayload.java
 src/main/java/io/vertesia/model/CreateApiKeyPayload.java
 src/main/java/io/vertesia/model/CreateCollectionPayload.java
@@ -373,6 +391,7 @@ src/main/java/io/vertesia/model/CreateEmailRouteRequest.java
 src/main/java/io/vertesia/model/CreateEmailRouteResponse.java
 src/main/java/io/vertesia/model/CreateEventIngestChannelPayload.java
 src/main/java/io/vertesia/model/CreateEventSubscriptionPayload.java
+src/main/java/io/vertesia/model/CreateInferenceProfilePayload.java
 src/main/java/io/vertesia/model/CreateOAuthClientPayload.java
 src/main/java/io/vertesia/model/CreateOAuthProviderPayload.java
 src/main/java/io/vertesia/model/CreateProcessDefinitionPayload.java
@@ -474,6 +493,7 @@ src/main/java/io/vertesia/model/ElasticsearchBackend.java
 src/main/java/io/vertesia/model/EmailChannel.java
 src/main/java/io/vertesia/model/EmailRouteResponse.java
 src/main/java/io/vertesia/model/Embedding.java
+src/main/java/io/vertesia/model/EmbeddingBatchRunSummary.java
 src/main/java/io/vertesia/model/EmbeddingOutput.java
 src/main/java/io/vertesia/model/EmbeddingResultItem.java
 src/main/java/io/vertesia/model/EmbeddingTaskType.java
@@ -492,7 +512,10 @@ src/main/java/io/vertesia/model/EmbeddingsTokenUsage.java
 src/main/java/io/vertesia/model/EnableEnvironmentModelPayload.java
 src/main/java/io/vertesia/model/EnvironmentTokenRequest.java
 src/main/java/io/vertesia/model/ErrorResponse.java
+src/main/java/io/vertesia/model/EvaluationGateReason.java
+src/main/java/io/vertesia/model/EvaluationOutcome.java
 src/main/java/io/vertesia/model/EvaluationSeverity.java
+src/main/java/io/vertesia/model/EvaluationVerdict.java
 src/main/java/io/vertesia/model/EventCategory.java
 src/main/java/io/vertesia/model/EventDeliveryIntentStatus.java
 src/main/java/io/vertesia/model/EventDeliveryIntentSummary.java
@@ -608,6 +631,11 @@ src/main/java/io/vertesia/model/InCodeViewDefinition.java
 src/main/java/io/vertesia/model/IndexingStatusResponse.java
 src/main/java/io/vertesia/model/IndexingStatusResponseIndex.java
 src/main/java/io/vertesia/model/IndexingStatusResponseReindexProgress.java
+src/main/java/io/vertesia/model/InferenceProfile.java
+src/main/java/io/vertesia/model/InferenceProfileRecord.java
+src/main/java/io/vertesia/model/InferenceProfileSnapshot.java
+src/main/java/io/vertesia/model/InferenceProfileUsage.java
+src/main/java/io/vertesia/model/InferenceProfileUsageEntry.java
 src/main/java/io/vertesia/model/InheritedPropertyMetadata.java
 src/main/java/io/vertesia/model/InitialToolCall.java
 src/main/java/io/vertesia/model/IntakePageScope.java
@@ -615,6 +643,8 @@ src/main/java/io/vertesia/model/IntakeVisionDetail.java
 src/main/java/io/vertesia/model/IntakeVisionProfileSettingsMap.java
 src/main/java/io/vertesia/model/IntakeVisionProfileSettingsUpdate.java
 src/main/java/io/vertesia/model/Interaction.java
+src/main/java/io/vertesia/model/InteractionConfigurationRecord.java
+src/main/java/io/vertesia/model/InteractionConfigurationResult.java
 src/main/java/io/vertesia/model/InteractionCreatePayload.java
 src/main/java/io/vertesia/model/InteractionEndpoint.java
 src/main/java/io/vertesia/model/InteractionEndpointQuery.java
@@ -653,9 +683,6 @@ src/main/java/io/vertesia/model/IssueTokenUnavailableResponse.java
 src/main/java/io/vertesia/model/JSONSchema.java
 src/main/java/io/vertesia/model/JSONSchemaAdditionalProperties.java
 src/main/java/io/vertesia/model/JsonResult.java
-src/main/java/io/vertesia/model/JudgeGateReason.java
-src/main/java/io/vertesia/model/JudgeOutcome.java
-src/main/java/io/vertesia/model/JudgeVerdict.java
 src/main/java/io/vertesia/model/KnownAuditAction.java
 src/main/java/io/vertesia/model/LinkupConfiguration.java
 src/main/java/io/vertesia/model/LinkupConfigurationInput.java
@@ -716,6 +743,9 @@ src/main/java/io/vertesia/model/OAuthGrantSortField.java
 src/main/java/io/vertesia/model/OAuthGrantSortOrder.java
 src/main/java/io/vertesia/model/OAuthGrantStatus.java
 src/main/java/io/vertesia/model/OAuthGrantType.java
+src/main/java/io/vertesia/model/OAuthLoginDecisionResponse.java
+src/main/java/io/vertesia/model/OAuthLoginPayload.java
+src/main/java/io/vertesia/model/OAuthLoginUserNotFoundResponse.java
 src/main/java/io/vertesia/model/OAuthMetadataResponse.java
 src/main/java/io/vertesia/model/OAuthProjectBindingMode.java
 src/main/java/io/vertesia/model/OAuthProvider.java
@@ -728,10 +758,13 @@ src/main/java/io/vertesia/model/OAuthResponseType.java
 src/main/java/io/vertesia/model/OAuthTokenEndpointAuthMethod.java
 src/main/java/io/vertesia/model/ObjectSearchResponse.java
 src/main/java/io/vertesia/model/OnboardingProgress.java
+src/main/java/io/vertesia/model/OpenAiAudioOptions.java
 src/main/java/io/vertesia/model/OpenAiDalleOptions.java
 src/main/java/io/vertesia/model/OpenAiGptImageOptions.java
+src/main/java/io/vertesia/model/OpenAiSpeechOptions.java
 src/main/java/io/vertesia/model/OpenAiTextOptions.java
 src/main/java/io/vertesia/model/OpenAiThinkingOptions.java
+src/main/java/io/vertesia/model/OpenAiTranscriptionOptions.java
 src/main/java/io/vertesia/model/OpenRouterTextOptions.java
 src/main/java/io/vertesia/model/ParallelCollectDefinition.java
 src/main/java/io/vertesia/model/ParallelCollectField.java
@@ -754,6 +787,8 @@ src/main/java/io/vertesia/model/ProcessAgentExecutionPolicy.java
 src/main/java/io/vertesia/model/ProcessAgentPhaseReset.java
 src/main/java/io/vertesia/model/ProcessAgentToolInputContains.java
 src/main/java/io/vertesia/model/ProcessAgentToolPhase.java
+src/main/java/io/vertesia/model/ProcessBudgetState.java
+src/main/java/io/vertesia/model/ProcessBudgetSummary.java
 src/main/java/io/vertesia/model/ProcessContextDefinition.java
 src/main/java/io/vertesia/model/ProcessContextResponse.java
 src/main/java/io/vertesia/model/ProcessDefinition.java
@@ -776,6 +811,7 @@ src/main/java/io/vertesia/model/ProcessScriptInlineSource.java
 src/main/java/io/vertesia/model/ProcessScriptLanguage.java
 src/main/java/io/vertesia/model/ProcessScriptResource.java
 src/main/java/io/vertesia/model/ProcessState.java
+src/main/java/io/vertesia/model/ProcessTerminalReason.java
 src/main/java/io/vertesia/model/ProcessTestActorDecision.java
 src/main/java/io/vertesia/model/ProcessTestAssertionResult.java
 src/main/java/io/vertesia/model/ProcessTestAssertions.java
@@ -807,7 +843,11 @@ src/main/java/io/vertesia/model/ProjectConfiguration.java
 src/main/java/io/vertesia/model/ProjectConfigurationEmbedding.java
 src/main/java/io/vertesia/model/ProjectConfigurationEmbeddingEnablePayload.java
 src/main/java/io/vertesia/model/ProjectConfigurationEmbeddings.java
+src/main/java/io/vertesia/model/ProjectConfigurationOauthClients.java
 src/main/java/io/vertesia/model/ProjectIndexingConfiguration.java
+src/main/java/io/vertesia/model/ProjectInferenceProfiles.java
+src/main/java/io/vertesia/model/ProjectInferenceProfilesModality.java
+src/main/java/io/vertesia/model/ProjectInferenceProfilesSystem.java
 src/main/java/io/vertesia/model/ProjectIntakeConfiguration.java
 src/main/java/io/vertesia/model/ProjectIntakeSniffConfiguration.java
 src/main/java/io/vertesia/model/ProjectIntegrationConfigRequest.java
@@ -1009,10 +1049,12 @@ src/main/java/io/vertesia/model/TransitionTrigger.java
 src/main/java/io/vertesia/model/TurnEvaluationFlag.java
 src/main/java/io/vertesia/model/TurnTerminalType.java
 src/main/java/io/vertesia/model/TwelvelabsPegasusOptions.java
+src/main/java/io/vertesia/model/UpdateAccountApiKeyPayload.java
 src/main/java/io/vertesia/model/UpdateAccountPayload.java
 src/main/java/io/vertesia/model/UpdateAgentArtifactContentPayload.java
 src/main/java/io/vertesia/model/UpdateAgentArtifactContentResponse.java
 src/main/java/io/vertesia/model/UpdateApiKeyPayload.java
+src/main/java/io/vertesia/model/UpdateAppInstallationOAuthApprovalPayload.java
 src/main/java/io/vertesia/model/UpdateAppInstallationToolAllowlistPayload.java
 src/main/java/io/vertesia/model/UpdateAppPayload.java
 src/main/java/io/vertesia/model/UpdateCollectionPayload.java
@@ -1024,6 +1066,8 @@ src/main/java/io/vertesia/model/UpdateEmailRouteResponse.java
 src/main/java/io/vertesia/model/UpdateEventIngestChannelPayload.java
 src/main/java/io/vertesia/model/UpdateEventSubscriptionPayload.java
 src/main/java/io/vertesia/model/UpdateExecutionRunPayload.java
+src/main/java/io/vertesia/model/UpdateInferenceProfilePayload.java
+src/main/java/io/vertesia/model/UpdateInteractionConfigurationPayload.java
 src/main/java/io/vertesia/model/UpdateOAuthClientPayload.java
 src/main/java/io/vertesia/model/UpdateOAuthProviderPayload.java
 src/main/java/io/vertesia/model/UpdateProcessDefinitionPayload.java
