@@ -121,6 +121,66 @@ public class BedrockClaudeOptions {
     @SerializedName(SERIALIZED_NAME_TOP_K)
     @jakarta.annotation.Nullable private BigDecimal topK;
 
+    /**
+     * Thinking mode override. Sonnet 5.5 supports between_tools at low, medium, or high effort. It omits display and budget fields; keep effort fixed during the conversation. When unset, existing model-specific thinking behavior is preserved.
+     */
+    @JsonAdapter(ThinkingModeEnum.Adapter.class)
+    public enum ThinkingModeEnum {
+        ADAPTIVE("adaptive"),
+
+        BETWEEN_TOOLS("between_tools"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        ThinkingModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ThinkingModeEnum fromValue(String value) {
+            for (ThinkingModeEnum b : ThinkingModeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<ThinkingModeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ThinkingModeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ThinkingModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ThinkingModeEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            ThinkingModeEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_THINKING_MODE = "thinking_mode";
+
+    @SerializedName(SERIALIZED_NAME_THINKING_MODE)
+    @jakarta.annotation.Nullable private ThinkingModeEnum thinkingMode;
+
     public static final String SERIALIZED_NAME_THINKING_BUDGET_TOKENS = "thinking_budget_tokens";
 
     @SerializedName(SERIALIZED_NAME_THINKING_BUDGET_TOKENS)
@@ -380,6 +440,24 @@ public class BedrockClaudeOptions {
         this.topK = topK;
     }
 
+    public BedrockClaudeOptions thinkingMode(
+            @jakarta.annotation.Nullable ThinkingModeEnum thinkingMode) {
+        this.thinkingMode = thinkingMode;
+        return this;
+    }
+
+    /**
+     * Thinking mode override. Sonnet 5.5 supports between_tools at low, medium, or high effort. It omits display and budget fields; keep effort fixed during the conversation. When unset, existing model-specific thinking behavior is preserved.
+     * @return thinkingMode
+     */
+    @jakarta.annotation.Nullable public ThinkingModeEnum getThinkingMode() {
+        return thinkingMode;
+    }
+
+    public void setThinkingMode(@jakarta.annotation.Nullable ThinkingModeEnum thinkingMode) {
+        this.thinkingMode = thinkingMode;
+    }
+
     public BedrockClaudeOptions thinkingBudgetTokens(
             @jakarta.annotation.Nullable BigDecimal thinkingBudgetTokens) {
         this.thinkingBudgetTokens = thinkingBudgetTokens;
@@ -500,6 +578,7 @@ public class BedrockClaudeOptions {
                 && Objects.equals(this.topP, bedrockClaudeOptions.topP)
                 && Objects.equals(this.stopSequence, bedrockClaudeOptions.stopSequence)
                 && Objects.equals(this.topK, bedrockClaudeOptions.topK)
+                && Objects.equals(this.thinkingMode, bedrockClaudeOptions.thinkingMode)
                 && Objects.equals(
                         this.thinkingBudgetTokens, bedrockClaudeOptions.thinkingBudgetTokens)
                 && Objects.equals(this.includeThoughts, bedrockClaudeOptions.includeThoughts)
@@ -518,6 +597,7 @@ public class BedrockClaudeOptions {
                 topP,
                 stopSequence,
                 topK,
+                thinkingMode,
                 thinkingBudgetTokens,
                 includeThoughts,
                 effort,
@@ -536,6 +616,7 @@ public class BedrockClaudeOptions {
         sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
         sb.append("    topK: ").append(toIndentedString(topK)).append("\n");
+        sb.append("    thinkingMode: ").append(toIndentedString(thinkingMode)).append("\n");
         sb.append("    thinkingBudgetTokens: ")
                 .append(toIndentedString(thinkingBudgetTokens))
                 .append("\n");
@@ -570,6 +651,7 @@ public class BedrockClaudeOptions {
                                 "top_p",
                                 "stop_sequence",
                                 "top_k",
+                                "thinking_mode",
                                 "thinking_budget_tokens",
                                 "include_thoughts",
                                 "effort",
@@ -620,6 +702,18 @@ public class BedrockClaudeOptions {
                             java.util.Locale.ROOT,
                             "Expected the field `stop_sequence` to be an array in the JSON string but got `%s`",
                             jsonObj.get("stop_sequence").toString()));
+        }
+        if ((jsonObj.get("thinking_mode") != null && !jsonObj.get("thinking_mode").isJsonNull())
+                && !jsonObj.get("thinking_mode").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `thinking_mode` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("thinking_mode").toString()));
+        }
+        // validate the optional field `thinking_mode`
+        if (jsonObj.get("thinking_mode") != null && !jsonObj.get("thinking_mode").isJsonNull()) {
+            ThinkingModeEnum.validateJsonElement(jsonObj.get("thinking_mode"));
         }
         if ((jsonObj.get("effort") != null && !jsonObj.get("effort").isJsonNull())
                 && !jsonObj.get("effort").isJsonPrimitive()) {
