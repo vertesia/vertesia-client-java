@@ -12,8 +12,11 @@ nameMappings:
   additionalProperties: schemaAdditionalProperties
 
 schemaMappings:
+  ConversationTimestamp: String
+  ConversationJsonObject: JsonElement
   ConversationJsonValue: JsonElement
   ConversationToolInputSchema: JsonElement
+  ExperimentalCanonicalInteractionResultSchemaInput: JsonElement
 
 importMappings:
   JsonElement: com.google.gson.JsonElement

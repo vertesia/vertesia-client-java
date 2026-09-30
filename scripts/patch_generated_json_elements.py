@@ -21,7 +21,11 @@ from collections.abc import Mapping
 PACKAGE_ROOT = pathlib.Path("src/main/java/io/vertesia")
 MODEL_ROOT = PACKAGE_ROOT / "model"
 SPEC_PATH = pathlib.Path("spec/vertesia-openapi.json")
-CANONICAL_ROOT_SCHEMA = "RunConversationResponse"
+CANONICAL_ROOT_SCHEMAS = (
+    "RunConversationResponse",
+    "ExperimentalCanonicalInteractionExecutionRequest",
+    "ExperimentalCanonicalNamedInteractionExecutionRequest",
+)
 JSON_ELEMENT_FIELD = re.compile(
     r"^(?P<indent>\s*)private JsonElement (?P<name>[A-Za-z_$][\w$]*)(?P<suffix>[^;]*);\s*$"
 )
@@ -53,6 +57,13 @@ UNION_TREE_WRITER = re.compile(
 NULLABLE_CONTAINER_DEFAULT = re.compile(
     r"(@jakarta\.annotation\.Nullable\s+private\s+[^;=\n]+)\s*=\s*"
     r"new\s+(?:ArrayList|HashMap|HashSet)(?:<[^;\n]*>)?\(\);"
+)
+MAPPED_OBJECT_SCHEMAS = {
+    "ConversationJsonObject": False,
+    "ExperimentalCanonicalInteractionResultSchemaInput": True,
+}
+INVALID_JSON_ELEMENT_VALIDATION = re.compile(
+    r'^\s*JsonElement\.validateJsonElement\(jsonObj\.get\("[^"]+"\)\);\s*$', re.MULTILINE
 )
 
 
@@ -144,25 +155,84 @@ def patch_nullable_container_defaults(path: pathlib.Path) -> int:
     return changed
 
 
+def mapped_object_fields(document: Mapping[str, object], schema_name: str) -> dict[str, bool]:
+    schemas = document.get("components", {}).get("schemas", {})
+    if not isinstance(schemas, Mapping):
+        return {}
+    schema = schemas.get(schema_name)
+    if not isinstance(schema, Mapping):
+        return {}
+    properties = schema.get("properties")
+    if not isinstance(properties, Mapping):
+        return {}
+    fields: dict[str, bool] = {}
+    for wire_name, property_schema in properties.items():
+        if not isinstance(wire_name, str) or not isinstance(property_schema, Mapping):
+            continue
+        reference = property_schema.get("$ref")
+        if not isinstance(reference, str) or not reference.startswith("#/components/schemas/"):
+            continue
+        referenced_name = reference.rsplit("/", 1)[-1]
+        nullable = MAPPED_OBJECT_SCHEMAS.get(referenced_name)
+        if nullable is not None:
+            fields[wire_name] = nullable
+    return fields
+
+
+def patch_mapped_object_validation(path: pathlib.Path, fields: Mapping[str, bool]) -> int:
+    """Restore object-root validation lost when named free-form schemas map to JsonElement."""
+
+    if not fields:
+        return 0
+    source = path.read_text()
+    source, invalid_calls = INVALID_JSON_ELEMENT_VALIDATION.subn("", source)
+    anchor = "JsonObject jsonObj = jsonElement.getAsJsonObject();"
+    if source.count(anchor) != 1:
+        raise ValueError(f"expected one generated validation anchor in {path}")
+
+    guards: list[str] = []
+    for wire_name, nullable in sorted(fields.items()):
+        non_null = f' && !jsonObj.get("{wire_name}").isJsonNull()' if nullable else ""
+        guards.append(
+            f'''\n      if (jsonObj.has("{wire_name}"){non_null} && !jsonObj.get("{wire_name}").isJsonObject()) {{
+        throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "Expected the field `{wire_name}` to be an object in the JSON string but got `%s`", jsonObj.get("{wire_name}").toString()));
+      }}'''
+        )
+    guard_source = "".join(guards)
+    first_guard = f'if (jsonObj.has("{sorted(fields)[0]}")'
+    added = 0
+    if first_guard not in source:
+        source = source.replace(anchor, anchor + guard_source)
+        added = len(fields)
+    if invalid_calls or added:
+        path.write_text(source)
+    return added
+
+
 def main() -> None:
     paths = list(MODEL_ROOT.glob("*.java"))
     changed_fields = sum(patch_model(path) for path in paths)
     document = json.loads(SPEC_PATH.read_text())
-    canonical_schemas = referenced_schemas(document, CANONICAL_ROOT_SCHEMA)
+    canonical_schemas: set[str] = set()
+    for root in CANONICAL_ROOT_SCHEMAS:
+        canonical_schemas.update(referenced_schemas(document, root))
     simple_writers = 0
     union_writers = 0
     nullable_containers = 0
+    object_guards = 0
     for schema_name in canonical_schemas:
         path = MODEL_ROOT / f"{schema_name}.java"
         if path.is_file():
             nullable_containers += patch_nullable_container_defaults(path)
+            object_guards += patch_mapped_object_validation(path, mapped_object_fields(document, schema_name))
             simple, union = patch_streaming_writers(path)
             simple_writers += simple
             union_writers += union
     print(
         "Configured null-preserving adapters on "
         f"{changed_fields} generated JsonElement fields/maps; cleared {nullable_containers} optional container defaults "
-        f"and streamed {simple_writers} object and {union_writers} union writers in the canonical response closure."
+        f"and added {object_guards} mapped-object root guards; streamed {simple_writers} object and "
+        f"{union_writers} union writers in the canonical contract closure."
     )
 
 

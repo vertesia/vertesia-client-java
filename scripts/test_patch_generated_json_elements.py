@@ -10,7 +10,9 @@ import unittest
 from patch_generated_json_elements import (
     ADAPTER_ANNOTATION,
     MAP_ADAPTER_ANNOTATION,
+    mapped_object_fields,
     patch_nullable_container_defaults,
+    patch_mapped_object_validation,
     patch_model,
     patch_streaming_writers,
     referenced_schemas,
@@ -112,6 +114,51 @@ private List<String> required = new ArrayList<>();
         self.assertIn("@jakarta.annotation.Nullable private List<String> optional;", patched)
         self.assertIn("private List<String> required = new ArrayList<>();", patched)
         self.assertIn("@jakarta.annotation.Nullable private Map<String, JsonElement> metadata;", patched)
+
+    def test_replaces_impossible_json_element_validation_with_object_guards(self) -> None:
+        source = """\
+JsonObject jsonObj = jsonElement.getAsJsonObject();
+if (jsonObj.get("result_schema") != null && !jsonObj.get("result_schema").isJsonNull()) {
+  JsonElement.validateJsonElement(jsonObj.get("result_schema"));
+}
+"""
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "Example.java"
+            path.write_text(source)
+
+            fields = {"data": False, "result_schema": True}
+            self.assertEqual(2, patch_mapped_object_validation(path, fields))
+            self.assertEqual(0, patch_mapped_object_validation(path, fields))
+            patched = path.read_text()
+
+        self.assertNotIn("JsonElement.validateJsonElement", patched)
+        self.assertIn(
+            'jsonObj.has("data") && !jsonObj.get("data").isJsonObject()', patched
+        )
+        self.assertIn(
+            'jsonObj.has("result_schema") && !jsonObj.get("result_schema").isJsonNull()', patched
+        )
+
+    def test_finds_only_named_object_mappings_and_nullability(self) -> None:
+        document = {
+            "components": {
+                "schemas": {
+                    "Request": {
+                        "properties": {
+                            "data": {"$ref": "#/components/schemas/ConversationJsonObject"},
+                            "result_schema": {
+                                "$ref": "#/components/schemas/ExperimentalCanonicalInteractionResultSchemaInput"
+                            },
+                            "value": {"$ref": "#/components/schemas/ConversationJsonValue"},
+                        }
+                    }
+                }
+            }
+        }
+
+        self.assertEqual(
+            {"data": False, "result_schema": True}, mapped_object_fields(document, "Request")
+        )
 
 
 if __name__ == "__main__":
