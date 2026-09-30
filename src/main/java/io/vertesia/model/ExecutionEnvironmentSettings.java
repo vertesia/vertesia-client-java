@@ -37,36 +37,12 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ExecutionEnvironmentSettings {
-    public static final String SERIALIZED_NAME_BUCKET_ACCESS_PRINCIPAL = "bucket_access_principal";
-
-    @SerializedName(SERIALIZED_NAME_BUCKET_ACCESS_PRINCIPAL)
-    @jakarta.annotation.Nullable private String bucketAccessPrincipal;
-
     public static final String SERIALIZED_NAME_DEFAULT_HEADERS = "default_headers";
 
     @SerializedName(SERIALIZED_NAME_DEFAULT_HEADERS)
     @jakarta.annotation.Nullable private Map<String, String> defaultHeaders;
 
     public ExecutionEnvironmentSettings() {}
-
-    public ExecutionEnvironmentSettings bucketAccessPrincipal(
-            @jakarta.annotation.Nullable String bucketAccessPrincipal) {
-        this.bucketAccessPrincipal = bucketAccessPrincipal;
-        return this;
-    }
-
-    /**
-     * Get bucketAccessPrincipal
-     * @return bucketAccessPrincipal
-     */
-    @jakarta.annotation.Nullable public String getBucketAccessPrincipal() {
-        return bucketAccessPrincipal;
-    }
-
-    public void setBucketAccessPrincipal(
-            @jakarta.annotation.Nullable String bucketAccessPrincipal) {
-        this.bucketAccessPrincipal = bucketAccessPrincipal;
-    }
 
     public ExecutionEnvironmentSettings defaultHeaders(
             @jakarta.annotation.Nullable Map<String, String> defaultHeaders) {
@@ -150,10 +126,7 @@ public class ExecutionEnvironmentSettings {
         }
         ExecutionEnvironmentSettings executionEnvironmentSettings =
                 (ExecutionEnvironmentSettings) o;
-        return Objects.equals(
-                        this.bucketAccessPrincipal,
-                        executionEnvironmentSettings.bucketAccessPrincipal)
-                && Objects.equals(this.defaultHeaders, executionEnvironmentSettings.defaultHeaders)
+        return Objects.equals(this.defaultHeaders, executionEnvironmentSettings.defaultHeaders)
                 && Objects.equals(
                         this.additionalProperties,
                         executionEnvironmentSettings.additionalProperties);
@@ -161,16 +134,13 @@ public class ExecutionEnvironmentSettings {
 
     @Override
     public int hashCode() {
-        return Objects.hash(bucketAccessPrincipal, defaultHeaders, additionalProperties);
+        return Objects.hash(defaultHeaders, additionalProperties);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ExecutionEnvironmentSettings {\n");
-        sb.append("    bucketAccessPrincipal: ")
-                .append(toIndentedString(bucketAccessPrincipal))
-                .append("\n");
         sb.append("    defaultHeaders: ").append(toIndentedString(defaultHeaders)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
@@ -192,8 +162,7 @@ public class ExecutionEnvironmentSettings {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields =
-                new HashSet<String>(Arrays.asList("bucket_access_principal", "default_headers"));
+        openapiFields = new HashSet<String>(Arrays.asList("default_headers"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -217,15 +186,6 @@ public class ExecutionEnvironmentSettings {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if ((jsonObj.get("bucket_access_principal") != null
-                        && !jsonObj.get("bucket_access_principal").isJsonNull())
-                && !jsonObj.get("bucket_access_principal").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `bucket_access_principal` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("bucket_access_principal").toString()));
-        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
