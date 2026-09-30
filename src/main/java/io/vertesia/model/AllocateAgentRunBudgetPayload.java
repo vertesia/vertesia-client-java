@@ -14,133 +14,25 @@ package io.vertesia.model;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
-import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-/**
- * Budget to add to a run paused because its token budget ran out. The run resumes from where it stopped.
- */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class AllocateAgentRunBudgetPayload {
-    public static final String SERIALIZED_NAME_ADDITIONAL_TOKENS = "additional_tokens";
-
-    @SerializedName(SERIALIZED_NAME_ADDITIONAL_TOKENS)
-    @jakarta.annotation.Nonnull
-    private Integer additionalTokens;
-
-    public AllocateAgentRunBudgetPayload() {}
-
-    public AllocateAgentRunBudgetPayload additionalTokens(
-            @jakarta.annotation.Nonnull Integer additionalTokens) {
-        this.additionalTokens = additionalTokens;
-        return this;
-    }
-
-    /**
-     * Weighted tokens to add. They are added to the limit the run was granted, so usage past that limit is paid out of them.
-     * minimum: 0
-     * maximum: 9007199254740991
-     * @return additionalTokens
-     */
-    @jakarta.annotation.Nonnull
-    public Integer getAdditionalTokens() {
-        return additionalTokens;
-    }
-
-    public void setAdditionalTokens(@jakarta.annotation.Nonnull Integer additionalTokens) {
-        this.additionalTokens = additionalTokens;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        AllocateAgentRunBudgetPayload allocateAgentRunBudgetPayload =
-                (AllocateAgentRunBudgetPayload) o;
-        return Objects.equals(
-                this.additionalTokens, allocateAgentRunBudgetPayload.additionalTokens);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(additionalTokens);
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("class AllocateAgentRunBudgetPayload {\n");
-        sb.append("    additionalTokens: ").append(toIndentedString(additionalTokens)).append("\n");
-        sb.append("}");
-        return sb.toString();
-    }
-
-    /**
-     * Convert the given object to string with each line indented by 4 spaces
-     * (except the first line).
-     */
-    private String toIndentedString(Object o) {
-        return o == null ? "null" : o.toString().replace("\n", "\n    ");
-    }
-
-    public static HashSet<String> openapiFields;
-    public static HashSet<String> openapiRequiredFields;
-
-    static {
-        // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("additional_tokens"));
-
-        // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(Arrays.asList("additional_tokens"));
-    }
-
-    /**
-     * Validates the JSON Element and throws an exception if issues found
-     *
-     * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to AllocateAgentRunBudgetPayload
-     */
-    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-        if (jsonElement == null) {
-            if (!AllocateAgentRunBudgetPayload.openapiRequiredFields
-                    .isEmpty()) { // has required fields but JSON element is null
-                throw new IllegalArgumentException(
-                        String.format(
-                                java.util.Locale.ROOT,
-                                "The required field(s) %s in AllocateAgentRunBudgetPayload is not found in the empty JSON string",
-                                AllocateAgentRunBudgetPayload.openapiRequiredFields.toString()));
-            }
-        }
-
-        // check to make sure all required properties/fields are present in the JSON string
-        for (String requiredField : AllocateAgentRunBudgetPayload.openapiRequiredFields) {
-            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
-                throw new IllegalArgumentException(
-                        String.format(
-                                java.util.Locale.ROOT,
-                                "The required field `%s` is not found in the JSON string: %s",
-                                requiredField,
-                                jsonElement.toString()));
-            }
-        }
-        JsonObject jsonObj = jsonElement.getAsJsonObject();
-    }
+public class AllocateAgentRunBudgetPayload extends AbstractOpenApiSchema {
+    private static final Logger log =
+            Logger.getLogger(AllocateAgentRunBudgetPayload.class.getName());
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
@@ -151,28 +43,236 @@ public class AllocateAgentRunBudgetPayload {
                 // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<AllocateAgentRunBudgetPayload> thisAdapter =
-                    gson.getDelegateAdapter(
-                            this, TypeToken.get(AllocateAgentRunBudgetPayload.class));
+            final TypeAdapter<AllocateAgentRunBudgetPayloadAnyOf>
+                    adapterAllocateAgentRunBudgetPayloadAnyOf =
+                            gson.getDelegateAdapter(
+                                    this, TypeToken.get(AllocateAgentRunBudgetPayloadAnyOf.class));
+            final TypeAdapter<AllocateAgentRunBudgetPayloadAnyOf1>
+                    adapterAllocateAgentRunBudgetPayloadAnyOf1 =
+                            gson.getDelegateAdapter(
+                                    this, TypeToken.get(AllocateAgentRunBudgetPayloadAnyOf1.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<AllocateAgentRunBudgetPayload>() {
                         @Override
                         public void write(JsonWriter out, AllocateAgentRunBudgetPayload value)
                                 throws IOException {
-                            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-                            elementAdapter.write(out, obj);
+                            if (value == null || value.getActualInstance() == null) {
+                                elementAdapter.write(out, null);
+                                return;
+                            }
+
+                            // check if the actual instance is of the type
+                            // `AllocateAgentRunBudgetPayloadAnyOf`
+                            if (value.getActualInstance()
+                                    instanceof AllocateAgentRunBudgetPayloadAnyOf) {
+                                JsonElement element =
+                                        adapterAllocateAgentRunBudgetPayloadAnyOf.toJsonTree(
+                                                (AllocateAgentRunBudgetPayloadAnyOf)
+                                                        value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type
+                            // `AllocateAgentRunBudgetPayloadAnyOf1`
+                            if (value.getActualInstance()
+                                    instanceof AllocateAgentRunBudgetPayloadAnyOf1) {
+                                JsonElement element =
+                                        adapterAllocateAgentRunBudgetPayloadAnyOf1.toJsonTree(
+                                                (AllocateAgentRunBudgetPayloadAnyOf1)
+                                                        value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            throw new IOException(
+                                    "Failed to serialize as the type doesn't match anyOf schemas: AllocateAgentRunBudgetPayloadAnyOf, AllocateAgentRunBudgetPayloadAnyOf1");
                         }
 
                         @Override
                         public AllocateAgentRunBudgetPayload read(JsonReader in)
                                 throws IOException {
+                            Object deserialized = null;
                             JsonElement jsonElement = elementAdapter.read(in);
-                            validateJsonElement(jsonElement);
-                            return thisAdapter.fromJsonTree(jsonElement);
+
+                            ArrayList<String> errorMessages = new ArrayList<>();
+                            TypeAdapter actualAdapter = elementAdapter;
+
+                            // deserialize AllocateAgentRunBudgetPayloadAnyOf
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                AllocateAgentRunBudgetPayloadAnyOf.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAllocateAgentRunBudgetPayloadAnyOf;
+                                AllocateAgentRunBudgetPayload ret =
+                                        new AllocateAgentRunBudgetPayload();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for AllocateAgentRunBudgetPayloadAnyOf failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'AllocateAgentRunBudgetPayloadAnyOf'",
+                                        e);
+                            }
+                            // deserialize AllocateAgentRunBudgetPayloadAnyOf1
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                AllocateAgentRunBudgetPayloadAnyOf1.validateJsonElement(
+                                        jsonElement);
+                                actualAdapter = adapterAllocateAgentRunBudgetPayloadAnyOf1;
+                                AllocateAgentRunBudgetPayload ret =
+                                        new AllocateAgentRunBudgetPayload();
+                                ret.setActualInstance(actualAdapter.fromJsonTree(jsonElement));
+                                return ret;
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for AllocateAgentRunBudgetPayloadAnyOf1 failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'AllocateAgentRunBudgetPayloadAnyOf1'",
+                                        e);
+                            }
+
+                            throw new IOException(
+                                    String.format(
+                                            java.util.Locale.ROOT,
+                                            "Failed deserialization for AllocateAgentRunBudgetPayload: no class matches result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
+                                            errorMessages,
+                                            jsonElement.toString()));
                         }
                     }.nullSafe();
         }
+    }
+
+    // store a list of schema names defined in anyOf
+    public static final Map<String, Class<?>> schemas = new HashMap<String, Class<?>>();
+
+    public AllocateAgentRunBudgetPayload() {
+        super("anyOf", Boolean.FALSE);
+    }
+
+    public AllocateAgentRunBudgetPayload(Object o) {
+        super("anyOf", Boolean.FALSE);
+        setActualInstance(o);
+    }
+
+    static {
+        schemas.put("AllocateAgentRunBudgetPayloadAnyOf", AllocateAgentRunBudgetPayloadAnyOf.class);
+        schemas.put(
+                "AllocateAgentRunBudgetPayloadAnyOf1", AllocateAgentRunBudgetPayloadAnyOf1.class);
+    }
+
+    @Override
+    public Map<String, Class<?>> getSchemas() {
+        return AllocateAgentRunBudgetPayload.schemas;
+    }
+
+    /**
+     * Set the instance that matches the anyOf child schema, check
+     * the instance parameter is valid against the anyOf child schemas:
+     * AllocateAgentRunBudgetPayloadAnyOf, AllocateAgentRunBudgetPayloadAnyOf1
+     *
+     * It could be an instance of the 'anyOf' schemas.
+     */
+    @Override
+    public void setActualInstance(Object instance) {
+        if (instance instanceof AllocateAgentRunBudgetPayloadAnyOf) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof AllocateAgentRunBudgetPayloadAnyOf1) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        throw new RuntimeException(
+                "Invalid instance type. Must be AllocateAgentRunBudgetPayloadAnyOf, AllocateAgentRunBudgetPayloadAnyOf1");
+    }
+
+    /**
+     * Get the actual instance, which can be the following:
+     * AllocateAgentRunBudgetPayloadAnyOf, AllocateAgentRunBudgetPayloadAnyOf1
+     *
+     * @return The actual instance (AllocateAgentRunBudgetPayloadAnyOf, AllocateAgentRunBudgetPayloadAnyOf1)
+     */
+    @SuppressWarnings("unchecked")
+    @Override
+    public Object getActualInstance() {
+        return super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `AllocateAgentRunBudgetPayloadAnyOf`. If the actual instance is not `AllocateAgentRunBudgetPayloadAnyOf`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AllocateAgentRunBudgetPayloadAnyOf`
+     * @throws ClassCastException if the instance is not `AllocateAgentRunBudgetPayloadAnyOf`
+     */
+    public AllocateAgentRunBudgetPayloadAnyOf getAllocateAgentRunBudgetPayloadAnyOf()
+            throws ClassCastException {
+        return (AllocateAgentRunBudgetPayloadAnyOf) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `AllocateAgentRunBudgetPayloadAnyOf1`. If the actual instance is not `AllocateAgentRunBudgetPayloadAnyOf1`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AllocateAgentRunBudgetPayloadAnyOf1`
+     * @throws ClassCastException if the instance is not `AllocateAgentRunBudgetPayloadAnyOf1`
+     */
+    public AllocateAgentRunBudgetPayloadAnyOf1 getAllocateAgentRunBudgetPayloadAnyOf1()
+            throws ClassCastException {
+        return (AllocateAgentRunBudgetPayloadAnyOf1) super.getActualInstance();
+    }
+
+    /**
+     * Validates the JSON Element and throws an exception if issues found
+     *
+     * @param jsonElement JSON Element
+     * @throws IOException if the JSON Element is invalid with respect to AllocateAgentRunBudgetPayload
+     */
+    public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+        // validate anyOf schemas one by one
+        ArrayList<String> errorMessages = new ArrayList<>();
+        // validate the json string with AllocateAgentRunBudgetPayloadAnyOf
+        try {
+            AllocateAgentRunBudgetPayloadAnyOf.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for AllocateAgentRunBudgetPayloadAnyOf failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with AllocateAgentRunBudgetPayloadAnyOf1
+        try {
+            AllocateAgentRunBudgetPayloadAnyOf1.validateJsonElement(jsonElement);
+            return;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for AllocateAgentRunBudgetPayloadAnyOf1 failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        throw new IOException(
+                String.format(
+                        java.util.Locale.ROOT,
+                        "The JSON string is invalid for AllocateAgentRunBudgetPayload with anyOf schemas: AllocateAgentRunBudgetPayloadAnyOf, AllocateAgentRunBudgetPayloadAnyOf1. no class match the result, expected at least 1. Detailed failure message for anyOf schemas: %s. JSON: %s",
+                        errorMessages,
+                        jsonElement.toString()));
     }
 
     /**

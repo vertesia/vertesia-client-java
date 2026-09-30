@@ -18,6 +18,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -38,6 +39,146 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ProcessBudgetState {
+    /**
+     * Absent on historical token-only status.
+     */
+    @JsonAdapter(ModeEnum.Adapter.class)
+    public enum ModeEnum {
+        TOKEN("token"),
+
+        DOLLAR("dollar"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        ModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ModeEnum fromValue(String value) {
+            for (ModeEnum b : ModeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<ModeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ModeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ModeEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            ModeEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_MODE = "mode";
+
+    @SerializedName(SERIALIZED_NAME_MODE)
+    @jakarta.annotation.Nullable private ModeEnum mode;
+
+    public static final String SERIALIZED_NAME_LIMIT_USD = "limit_usd";
+
+    @SerializedName(SERIALIZED_NAME_LIMIT_USD)
+    @jakarta.annotation.Nullable private BigDecimal limitUsd;
+
+    public static final String SERIALIZED_NAME_REPORTED_USD = "reported_usd";
+
+    @SerializedName(SERIALIZED_NAME_REPORTED_USD)
+    @jakarta.annotation.Nullable private BigDecimal reportedUsd;
+
+    public static final String SERIALIZED_NAME_ESTIMATED_USD = "estimated_usd";
+
+    @SerializedName(SERIALIZED_NAME_ESTIMATED_USD)
+    @jakarta.annotation.Nullable private BigDecimal estimatedUsd;
+
+    /**
+     * Gets or Sets accountingStatus
+     */
+    @JsonAdapter(AccountingStatusEnum.Adapter.class)
+    public enum AccountingStatusEnum {
+        CURRENT("current"),
+
+        INCOMPLETE("incomplete"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        AccountingStatusEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static AccountingStatusEnum fromValue(String value) {
+            for (AccountingStatusEnum b : AccountingStatusEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<AccountingStatusEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final AccountingStatusEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public AccountingStatusEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return AccountingStatusEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            AccountingStatusEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_ACCOUNTING_STATUS = "accounting_status";
+
+    @SerializedName(SERIALIZED_NAME_ACCOUNTING_STATUS)
+    @jakarta.annotation.Nullable private AccountingStatusEnum accountingStatus;
+
+    public static final String SERIALIZED_NAME_UNMEASURED_CALLS = "unmeasured_calls";
+
+    @SerializedName(SERIALIZED_NAME_UNMEASURED_CALLS)
+    @jakarta.annotation.Nullable private Integer unmeasuredCalls;
+
     public static final String SERIALIZED_NAME_LIMIT_TOKENS = "limit_tokens";
 
     @SerializedName(SERIALIZED_NAME_LIMIT_TOKENS)
@@ -67,6 +208,116 @@ public class ProcessBudgetState {
     @jakarta.annotation.Nullable private List<ProcessBudgetSummary> summaries = new ArrayList<>();
 
     public ProcessBudgetState() {}
+
+    public ProcessBudgetState mode(@jakarta.annotation.Nullable ModeEnum mode) {
+        this.mode = mode;
+        return this;
+    }
+
+    /**
+     * Absent on historical token-only status.
+     * @return mode
+     */
+    @jakarta.annotation.Nullable public ModeEnum getMode() {
+        return mode;
+    }
+
+    public void setMode(@jakarta.annotation.Nullable ModeEnum mode) {
+        this.mode = mode;
+    }
+
+    public ProcessBudgetState limitUsd(@jakarta.annotation.Nullable BigDecimal limitUsd) {
+        this.limitUsd = limitUsd;
+        return this;
+    }
+
+    /**
+     * Get limitUsd
+     * minimum: 0
+     * @return limitUsd
+     */
+    @jakarta.annotation.Nullable public BigDecimal getLimitUsd() {
+        return limitUsd;
+    }
+
+    public void setLimitUsd(@jakarta.annotation.Nullable BigDecimal limitUsd) {
+        this.limitUsd = limitUsd;
+    }
+
+    public ProcessBudgetState reportedUsd(@jakarta.annotation.Nullable BigDecimal reportedUsd) {
+        this.reportedUsd = reportedUsd;
+        return this;
+    }
+
+    /**
+     * Get reportedUsd
+     * minimum: 0
+     * @return reportedUsd
+     */
+    @jakarta.annotation.Nullable public BigDecimal getReportedUsd() {
+        return reportedUsd;
+    }
+
+    public void setReportedUsd(@jakarta.annotation.Nullable BigDecimal reportedUsd) {
+        this.reportedUsd = reportedUsd;
+    }
+
+    public ProcessBudgetState estimatedUsd(@jakarta.annotation.Nullable BigDecimal estimatedUsd) {
+        this.estimatedUsd = estimatedUsd;
+        return this;
+    }
+
+    /**
+     * Get estimatedUsd
+     * minimum: 0
+     * @return estimatedUsd
+     */
+    @jakarta.annotation.Nullable public BigDecimal getEstimatedUsd() {
+        return estimatedUsd;
+    }
+
+    public void setEstimatedUsd(@jakarta.annotation.Nullable BigDecimal estimatedUsd) {
+        this.estimatedUsd = estimatedUsd;
+    }
+
+    public ProcessBudgetState accountingStatus(
+            @jakarta.annotation.Nullable AccountingStatusEnum accountingStatus) {
+        this.accountingStatus = accountingStatus;
+        return this;
+    }
+
+    /**
+     * Get accountingStatus
+     * @return accountingStatus
+     */
+    @jakarta.annotation.Nullable public AccountingStatusEnum getAccountingStatus() {
+        return accountingStatus;
+    }
+
+    public void setAccountingStatus(
+            @jakarta.annotation.Nullable AccountingStatusEnum accountingStatus) {
+        this.accountingStatus = accountingStatus;
+    }
+
+    public ProcessBudgetState unmeasuredCalls(
+            @jakarta.annotation.Nullable Integer unmeasuredCalls) {
+        this.unmeasuredCalls = unmeasuredCalls;
+        return this;
+    }
+
+    /**
+     * Get unmeasuredCalls
+     * minimum: 0
+     * maximum: 9007199254740991
+     * @return unmeasuredCalls
+     */
+    @jakarta.annotation.Nullable public Integer getUnmeasuredCalls() {
+        return unmeasuredCalls;
+    }
+
+    public void setUnmeasuredCalls(@jakarta.annotation.Nullable Integer unmeasuredCalls) {
+        this.unmeasuredCalls = unmeasuredCalls;
+    }
 
     public ProcessBudgetState limitTokens(@jakarta.annotation.Nonnull BigDecimal limitTokens) {
         this.limitTokens = limitTokens;
@@ -175,7 +426,13 @@ public class ProcessBudgetState {
             return false;
         }
         ProcessBudgetState processBudgetState = (ProcessBudgetState) o;
-        return Objects.equals(this.limitTokens, processBudgetState.limitTokens)
+        return Objects.equals(this.mode, processBudgetState.mode)
+                && Objects.equals(this.limitUsd, processBudgetState.limitUsd)
+                && Objects.equals(this.reportedUsd, processBudgetState.reportedUsd)
+                && Objects.equals(this.estimatedUsd, processBudgetState.estimatedUsd)
+                && Objects.equals(this.accountingStatus, processBudgetState.accountingStatus)
+                && Objects.equals(this.unmeasuredCalls, processBudgetState.unmeasuredCalls)
+                && Objects.equals(this.limitTokens, processBudgetState.limitTokens)
                 && Objects.equals(this.usedUnits, processBudgetState.usedUnits)
                 && Objects.equals(this.exhausted, processBudgetState.exhausted)
                 && Objects.equals(this.awaitingAllocation, processBudgetState.awaitingAllocation)
@@ -184,13 +441,30 @@ public class ProcessBudgetState {
 
     @Override
     public int hashCode() {
-        return Objects.hash(limitTokens, usedUnits, exhausted, awaitingAllocation, summaries);
+        return Objects.hash(
+                mode,
+                limitUsd,
+                reportedUsd,
+                estimatedUsd,
+                accountingStatus,
+                unmeasuredCalls,
+                limitTokens,
+                usedUnits,
+                exhausted,
+                awaitingAllocation,
+                summaries);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ProcessBudgetState {\n");
+        sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+        sb.append("    limitUsd: ").append(toIndentedString(limitUsd)).append("\n");
+        sb.append("    reportedUsd: ").append(toIndentedString(reportedUsd)).append("\n");
+        sb.append("    estimatedUsd: ").append(toIndentedString(estimatedUsd)).append("\n");
+        sb.append("    accountingStatus: ").append(toIndentedString(accountingStatus)).append("\n");
+        sb.append("    unmeasuredCalls: ").append(toIndentedString(unmeasuredCalls)).append("\n");
         sb.append("    limitTokens: ").append(toIndentedString(limitTokens)).append("\n");
         sb.append("    usedUnits: ").append(toIndentedString(usedUnits)).append("\n");
         sb.append("    exhausted: ").append(toIndentedString(exhausted)).append("\n");
@@ -218,6 +492,12 @@ public class ProcessBudgetState {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "mode",
+                                "limit_usd",
+                                "reported_usd",
+                                "estimated_usd",
+                                "accounting_status",
+                                "unmeasured_calls",
                                 "limit_tokens",
                                 "used_units",
                                 "exhausted",
@@ -259,6 +539,32 @@ public class ProcessBudgetState {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if ((jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull())
+                && !jsonObj.get("mode").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `mode` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("mode").toString()));
+        }
+        // validate the optional field `mode`
+        if (jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull()) {
+            ModeEnum.validateJsonElement(jsonObj.get("mode"));
+        }
+        if ((jsonObj.get("accounting_status") != null
+                        && !jsonObj.get("accounting_status").isJsonNull())
+                && !jsonObj.get("accounting_status").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `accounting_status` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("accounting_status").toString()));
+        }
+        // validate the optional field `accounting_status`
+        if (jsonObj.get("accounting_status") != null
+                && !jsonObj.get("accounting_status").isJsonNull()) {
+            AccountingStatusEnum.validateJsonElement(jsonObj.get("accounting_status"));
+        }
         if (jsonObj.get("summaries") != null && !jsonObj.get("summaries").isJsonNull()) {
             JsonArray jsonArraysummaries = jsonObj.getAsJsonArray("summaries");
             if (jsonArraysummaries != null) {

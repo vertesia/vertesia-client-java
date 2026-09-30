@@ -1027,6 +1027,12 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AllocateAgentRunBudgetPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AllocateAgentRunBudgetPayloadAnyOf
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AllocateAgentRunBudgetPayloadAnyOf1
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AlterTableOperation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AlterTableOperationOneOf.CustomTypeAdapterFactory());
@@ -2457,6 +2463,8 @@ public class JSON {
                 new io.vertesia.model.RunAnalyticsResult.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.RunAnalyticsResultExecutionTime.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.RunBudgetCapability.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.RunCreatePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

@@ -133,6 +133,8 @@ src/main/java/io/vertesia/model/AgenticViewRerankConfiguration.java
 src/main/java/io/vertesia/model/AgenticViewSearchConfiguration.java
 src/main/java/io/vertesia/model/AggregatedTool.java
 src/main/java/io/vertesia/model/AllocateAgentRunBudgetPayload.java
+src/main/java/io/vertesia/model/AllocateAgentRunBudgetPayloadAnyOf.java
+src/main/java/io/vertesia/model/AllocateAgentRunBudgetPayloadAnyOf1.java
 src/main/java/io/vertesia/model/AlterTableOperation.java
 src/main/java/io/vertesia/model/AlterTableOperationOneOf.java
 src/main/java/io/vertesia/model/AlterTableOperationOneOf1.java
@@ -939,6 +941,7 @@ src/main/java/io/vertesia/model/RunAnalyticsGroupBy.java
 src/main/java/io/vertesia/model/RunAnalyticsQuery.java
 src/main/java/io/vertesia/model/RunAnalyticsResult.java
 src/main/java/io/vertesia/model/RunAnalyticsResultExecutionTime.java
+src/main/java/io/vertesia/model/RunBudgetCapability.java
 src/main/java/io/vertesia/model/RunCreatePayload.java
 src/main/java/io/vertesia/model/RunDataStorageLevel.java
 src/main/java/io/vertesia/model/RunKind.java

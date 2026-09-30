@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
+import org.openapitools.jackson.nullable.JsonNullable;
 
 /**
  * UpdateInteractionConfigurationPayload
@@ -38,6 +39,11 @@ public class UpdateInteractionConfigurationPayload {
 
     @SerializedName(SERIALIZED_NAME_INFERENCE_PROFILE)
     @jakarta.annotation.Nullable private String inferenceProfile;
+
+    public static final String SERIALIZED_NAME_BUDGET = "budget";
+
+    @SerializedName(SERIALIZED_NAME_BUDGET)
+    @jakarta.annotation.Nullable private AgentBudgetConfiguration budget;
 
     public UpdateInteractionConfigurationPayload() {}
 
@@ -59,6 +65,24 @@ public class UpdateInteractionConfigurationPayload {
         this.inferenceProfile = inferenceProfile;
     }
 
+    public UpdateInteractionConfigurationPayload budget(
+            @jakarta.annotation.Nullable AgentBudgetConfiguration budget) {
+        this.budget = budget;
+        return this;
+    }
+
+    /**
+     * Project-scoped agent budget override. Null restores the code-defined or project default; omission preserves the saved budget.
+     * @return budget
+     */
+    @jakarta.annotation.Nullable public AgentBudgetConfiguration getBudget() {
+        return budget;
+    }
+
+    public void setBudget(@jakarta.annotation.Nullable AgentBudgetConfiguration budget) {
+        this.budget = budget;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -70,12 +94,30 @@ public class UpdateInteractionConfigurationPayload {
         UpdateInteractionConfigurationPayload updateInteractionConfigurationPayload =
                 (UpdateInteractionConfigurationPayload) o;
         return Objects.equals(
-                this.inferenceProfile, updateInteractionConfigurationPayload.inferenceProfile);
+                        this.inferenceProfile,
+                        updateInteractionConfigurationPayload.inferenceProfile)
+                && Objects.equals(this.budget, updateInteractionConfigurationPayload.budget);
+    }
+
+    private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+        return a == b
+                || (a != null
+                        && b != null
+                        && a.isPresent()
+                        && b.isPresent()
+                        && Objects.deepEquals(a.get(), b.get()));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(inferenceProfile);
+        return Objects.hash(inferenceProfile, budget);
+    }
+
+    private static <T> int hashCodeNullable(JsonNullable<T> a) {
+        if (a == null) {
+            return 1;
+        }
+        return a.isPresent() ? Arrays.deepHashCode(new Object[] {a.get()}) : 31;
     }
 
     @Override
@@ -83,6 +125,7 @@ public class UpdateInteractionConfigurationPayload {
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdateInteractionConfigurationPayload {\n");
         sb.append("    inferenceProfile: ").append(toIndentedString(inferenceProfile)).append("\n");
+        sb.append("    budget: ").append(toIndentedString(budget)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,7 +143,7 @@ public class UpdateInteractionConfigurationPayload {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("inference_profile"));
+        openapiFields = new HashSet<String>(Arrays.asList("inference_profile", "budget"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("inference_profile"));
@@ -145,6 +188,10 @@ public class UpdateInteractionConfigurationPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `inference_profile` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("inference_profile").toString()));
+        }
+        // validate the optional field `budget`
+        if (jsonObj.get("budget") != null && !jsonObj.get("budget").isJsonNull()) {
+            AgentBudgetConfiguration.validateJsonElement(jsonObj.get("budget"));
         }
     }
 
