@@ -106,6 +106,11 @@ public class UpdateCollectionPayload {
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
     @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_SHARED_ROOT = "shared_root";
+
+    @SerializedName(SERIALIZED_NAME_SHARED_ROOT)
+    @jakarta.annotation.Nullable private Boolean sharedRoot;
+
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -401,6 +406,23 @@ public class UpdateCollectionPayload {
         this.compartments = compartments;
     }
 
+    public UpdateCollectionPayload sharedRoot(@jakarta.annotation.Nullable Boolean sharedRoot) {
+        this.sharedRoot = sharedRoot;
+        return this;
+    }
+
+    /**
+     * Explicitly share this collection as a root of the project shared space (listable/readable by non-members via matching shared-content ABAC rules). This is the explicit API share flag — the sync never sets it.
+     * @return sharedRoot
+     */
+    @jakarta.annotation.Nullable public Boolean getSharedRoot() {
+        return sharedRoot;
+    }
+
+    public void setSharedRoot(@jakarta.annotation.Nullable Boolean sharedRoot) {
+        this.sharedRoot = sharedRoot;
+    }
+
     public UpdateCollectionPayload name(@jakarta.annotation.Nullable String name) {
         this.name = name;
         return this;
@@ -502,6 +524,7 @@ public class UpdateCollectionPayload {
                 && Objects.equals(this.sharedProperties, updateCollectionPayload.sharedProperties)
                 && Objects.equals(this.sensitivity, updateCollectionPayload.sensitivity)
                 && Objects.equals(this.compartments, updateCollectionPayload.compartments)
+                && Objects.equals(this.sharedRoot, updateCollectionPayload.sharedRoot)
                 && Objects.equals(this.name, updateCollectionPayload.name)
                 && Objects.equals(this.dynamic, updateCollectionPayload.dynamic)
                 && Objects.equals(
@@ -533,6 +556,7 @@ public class UpdateCollectionPayload {
                 sharedProperties,
                 sensitivity,
                 compartments,
+                sharedRoot,
                 name,
                 dynamic,
                 additionalProperties);
@@ -562,6 +586,7 @@ public class UpdateCollectionPayload {
         sb.append("    sharedProperties: ").append(toIndentedString(sharedProperties)).append("\n");
         sb.append("    sensitivity: ").append(toIndentedString(sensitivity)).append("\n");
         sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
+        sb.append("    sharedRoot: ").append(toIndentedString(sharedRoot)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    dynamic: ").append(toIndentedString(dynamic)).append("\n");
         sb.append("    additionalProperties: ")
@@ -600,6 +625,7 @@ public class UpdateCollectionPayload {
                                 "shared_properties",
                                 "sensitivity",
                                 "compartments",
+                                "shared_root",
                                 "name",
                                 "dynamic"));
 

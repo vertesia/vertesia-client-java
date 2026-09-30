@@ -85,6 +85,11 @@ public class UpdateContentObjectPayload {
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
     @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_SHARED_ROOT = "shared_root";
+
+    @SerializedName(SERIALIZED_NAME_SHARED_ROOT)
+    @jakarta.annotation.Nullable private Boolean sharedRoot;
+
     public static final String SERIALIZED_NAME_INHERITED_PROPERTIES = "inherited_properties";
 
     @SerializedName(SERIALIZED_NAME_INHERITED_PROPERTIES)
@@ -377,6 +382,23 @@ public class UpdateContentObjectPayload {
 
     public void setCompartments(@jakarta.annotation.Nullable List<String> compartments) {
         this.compartments = compartments;
+    }
+
+    public UpdateContentObjectPayload sharedRoot(@jakarta.annotation.Nullable Boolean sharedRoot) {
+        this.sharedRoot = sharedRoot;
+        return this;
+    }
+
+    /**
+     * Explicitly share this document as a root of the project shared space (readable by non-members via matching shared-content ABAC rules). This is the explicit API share flag — the sync never sets it.
+     * @return sharedRoot
+     */
+    @jakarta.annotation.Nullable public Boolean getSharedRoot() {
+        return sharedRoot;
+    }
+
+    public void setSharedRoot(@jakarta.annotation.Nullable Boolean sharedRoot) {
+        this.sharedRoot = sharedRoot;
     }
 
     public UpdateContentObjectPayload inheritedProperties(
@@ -814,6 +836,7 @@ public class UpdateContentObjectPayload {
                 && Objects.equals(this.security, updateContentObjectPayload.security)
                 && Objects.equals(this.sensitivity, updateContentObjectPayload.sensitivity)
                 && Objects.equals(this.compartments, updateContentObjectPayload.compartments)
+                && Objects.equals(this.sharedRoot, updateContentObjectPayload.sharedRoot)
                 && Objects.equals(
                         this.inheritedProperties, updateContentObjectPayload.inheritedProperties)
                 && Objects.equals(this.parent, updateContentObjectPayload.parent)
@@ -852,6 +875,7 @@ public class UpdateContentObjectPayload {
                 security,
                 sensitivity,
                 compartments,
+                sharedRoot,
                 inheritedProperties,
                 parent,
                 location,
@@ -889,6 +913,7 @@ public class UpdateContentObjectPayload {
         sb.append("    security: ").append(toIndentedString(security)).append("\n");
         sb.append("    sensitivity: ").append(toIndentedString(sensitivity)).append("\n");
         sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
+        sb.append("    sharedRoot: ").append(toIndentedString(sharedRoot)).append("\n");
         sb.append("    inheritedProperties: ")
                 .append(toIndentedString(inheritedProperties))
                 .append("\n");
@@ -944,6 +969,7 @@ public class UpdateContentObjectPayload {
                                 "security",
                                 "sensitivity",
                                 "compartments",
+                                "shared_root",
                                 "inherited_properties",
                                 "parent",
                                 "location",

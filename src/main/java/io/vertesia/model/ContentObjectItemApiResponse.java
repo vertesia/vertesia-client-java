@@ -212,6 +212,16 @@ public class ContentObjectItemApiResponse {
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
     @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_SHARED = "shared";
+
+    @SerializedName(SERIALIZED_NAME_SHARED)
+    @jakarta.annotation.Nullable private Boolean shared;
+
+    public static final String SERIALIZED_NAME_SHARED_ROOT = "shared_root";
+
+    @SerializedName(SERIALIZED_NAME_SHARED_ROOT)
+    @jakarta.annotation.Nullable private Boolean sharedRoot;
+
     public static final String SERIALIZED_NAME_INHERITED_PROPERTIES = "inherited_properties";
 
     @SerializedName(SERIALIZED_NAME_INHERITED_PROPERTIES)
@@ -863,6 +873,41 @@ public class ContentObjectItemApiResponse {
         this.compartments = compartments;
     }
 
+    public ContentObjectItemApiResponse shared(@jakarta.annotation.Nullable Boolean shared) {
+        this.shared = shared;
+        return this;
+    }
+
+    /**
+     * Get shared
+     * @return shared
+     */
+    @jakarta.annotation.Nullable public Boolean getShared() {
+        return shared;
+    }
+
+    public void setShared(@jakarta.annotation.Nullable Boolean shared) {
+        this.shared = shared;
+    }
+
+    public ContentObjectItemApiResponse sharedRoot(
+            @jakarta.annotation.Nullable Boolean sharedRoot) {
+        this.sharedRoot = sharedRoot;
+        return this;
+    }
+
+    /**
+     * Get sharedRoot
+     * @return sharedRoot
+     */
+    @jakarta.annotation.Nullable public Boolean getSharedRoot() {
+        return sharedRoot;
+    }
+
+    public void setSharedRoot(@jakarta.annotation.Nullable Boolean sharedRoot) {
+        this.sharedRoot = sharedRoot;
+    }
+
     public ContentObjectItemApiResponse inheritedProperties(
             @jakarta.annotation.Nullable List<InheritedPropertyMetadata> inheritedProperties) {
         this.inheritedProperties = inheritedProperties;
@@ -980,6 +1025,8 @@ public class ContentObjectItemApiResponse {
                 && Objects.equals(this.security, contentObjectItemApiResponse.security)
                 && Objects.equals(this.sensitivity, contentObjectItemApiResponse.sensitivity)
                 && Objects.equals(this.compartments, contentObjectItemApiResponse.compartments)
+                && Objects.equals(this.shared, contentObjectItemApiResponse.shared)
+                && Objects.equals(this.sharedRoot, contentObjectItemApiResponse.sharedRoot)
                 && Objects.equals(
                         this.inheritedProperties, contentObjectItemApiResponse.inheritedProperties)
                 && Objects.equals(
@@ -1031,6 +1078,8 @@ public class ContentObjectItemApiResponse {
                 security,
                 sensitivity,
                 compartments,
+                shared,
+                sharedRoot,
                 inheritedProperties,
                 additionalProperties);
     }
@@ -1078,6 +1127,8 @@ public class ContentObjectItemApiResponse {
         sb.append("    security: ").append(toIndentedString(security)).append("\n");
         sb.append("    sensitivity: ").append(toIndentedString(sensitivity)).append("\n");
         sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
+        sb.append("    shared: ").append(toIndentedString(shared)).append("\n");
+        sb.append("    sharedRoot: ").append(toIndentedString(sharedRoot)).append("\n");
         sb.append("    inheritedProperties: ")
                 .append(toIndentedString(inheritedProperties))
                 .append("\n");
@@ -1136,6 +1187,8 @@ public class ContentObjectItemApiResponse {
                                 "security",
                                 "sensitivity",
                                 "compartments",
+                                "shared",
+                                "shared_root",
                                 "inherited_properties"));
 
         // a set of required properties/fields (JSON key names)
