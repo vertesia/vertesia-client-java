@@ -98,6 +98,11 @@ public class OpenAiTextOptions {
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
     @jakarta.annotation.Nullable private OptionIdEnum optionId;
 
+    public static final String SERIALIZED_NAME_IMAGE_GENERATION = "image_generation";
+
+    @SerializedName(SERIALIZED_NAME_IMAGE_GENERATION)
+    @jakarta.annotation.Nullable private OpenAiImageGenerationOptions imageGeneration;
+
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
@@ -232,6 +237,25 @@ public class OpenAiTextOptions {
 
     public void setOptionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
         this.optionId = optionId;
+    }
+
+    public OpenAiTextOptions imageGeneration(
+            @jakarta.annotation.Nullable OpenAiImageGenerationOptions imageGeneration) {
+        this.imageGeneration = imageGeneration;
+        return this;
+    }
+
+    /**
+     * Get imageGeneration
+     * @return imageGeneration
+     */
+    @jakarta.annotation.Nullable public OpenAiImageGenerationOptions getImageGeneration() {
+        return imageGeneration;
+    }
+
+    public void setImageGeneration(
+            @jakarta.annotation.Nullable OpenAiImageGenerationOptions imageGeneration) {
+        this.imageGeneration = imageGeneration;
     }
 
     public OpenAiTextOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
@@ -467,6 +491,7 @@ public class OpenAiTextOptions {
         }
         OpenAiTextOptions openAiTextOptions = (OpenAiTextOptions) o;
         return Objects.equals(this.optionId, openAiTextOptions.optionId)
+                && Objects.equals(this.imageGeneration, openAiTextOptions.imageGeneration)
                 && Objects.equals(this.maxTokens, openAiTextOptions.maxTokens)
                 && Objects.equals(this.effort, openAiTextOptions.effort)
                 && Objects.equals(this.reasoningEffort, openAiTextOptions.reasoningEffort)
@@ -485,6 +510,7 @@ public class OpenAiTextOptions {
     public int hashCode() {
         return Objects.hash(
                 optionId,
+                imageGeneration,
                 maxTokens,
                 effort,
                 reasoningEffort,
@@ -504,6 +530,7 @@ public class OpenAiTextOptions {
         StringBuilder sb = new StringBuilder();
         sb.append("class OpenAiTextOptions {\n");
         sb.append("    optionId: ").append(toIndentedString(optionId)).append("\n");
+        sb.append("    imageGeneration: ").append(toIndentedString(imageGeneration)).append("\n");
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
         sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
         sb.append("    reasoningEffort: ").append(toIndentedString(reasoningEffort)).append("\n");
@@ -537,6 +564,7 @@ public class OpenAiTextOptions {
                 new HashSet<String>(
                         Arrays.asList(
                                 "_option_id",
+                                "image_generation",
                                 "max_tokens",
                                 "effort",
                                 "reasoning_effort",
@@ -583,6 +611,11 @@ public class OpenAiTextOptions {
         // validate the optional field `_option_id`
         if (jsonObj.get("_option_id") != null && !jsonObj.get("_option_id").isJsonNull()) {
             OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        }
+        // validate the optional field `image_generation`
+        if (jsonObj.get("image_generation") != null
+                && !jsonObj.get("image_generation").isJsonNull()) {
+            OpenAiImageGenerationOptions.validateJsonElement(jsonObj.get("image_generation"));
         }
         // validate the optional field `effort`
         if (jsonObj.get("effort") != null && !jsonObj.get("effort").isJsonNull()) {
