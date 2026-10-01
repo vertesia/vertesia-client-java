@@ -23,6 +23,8 @@ MODEL_ROOT = PACKAGE_ROOT / "model"
 SPEC_PATH = pathlib.Path("spec/vertesia-openapi.json")
 CANONICAL_ROOT_SCHEMAS = (
     "RunConversationResponse",
+    "ExperimentalCanonicalUserMessagePayload",
+    "ExperimentalCanonicalToolResultsPayload",
     "ExperimentalCanonicalInteractionExecutionRequest",
     "ExperimentalCanonicalNamedInteractionExecutionRequest",
     "AppendRunConversationProgramTurnPayload",
@@ -182,14 +184,21 @@ def generated_inline_models(document: Mapping[str, object], root: str) -> dict[s
             for wire_name, property_schema in properties.items():
                 if not isinstance(wire_name, str) or not isinstance(property_schema, Mapping):
                     continue
-                reference = property_schema.get("$ref")
-                if isinstance(reference, str) and reference.startswith("#/components/schemas/"):
-                    referenced_name = reference.rsplit("/", 1)[-1]
-                    referenced_schema = schemas.get(referenced_name)
-                    if isinstance(referenced_schema, Mapping):
-                        visit(referenced_name, referenced_schema)
-                elif isinstance(property_schema.get("oneOf"), list):
-                    visit(f"{model_name}{property_suffix(wire_name)}", property_schema)
+                visit_property(f"{model_name}{property_suffix(wire_name)}", property_schema)
+
+    def visit_property(model_name: str, schema: Mapping[str, object]) -> None:
+        reference = schema.get("$ref")
+        if isinstance(reference, str) and reference.startswith("#/components/schemas/"):
+            referenced_name = reference.rsplit("/", 1)[-1]
+            referenced_schema = schemas.get(referenced_name)
+            if isinstance(referenced_schema, Mapping):
+                visit(referenced_name, referenced_schema)
+        elif schema.get("type") == "array":
+            items = schema.get("items")
+            if isinstance(items, Mapping):
+                visit_property(f"{model_name}Inner", items)
+        elif isinstance(schema.get("properties"), Mapping) or isinstance(schema.get("oneOf"), list):
+            visit(model_name, schema)
 
     visit(root, root_schema)
     return found
@@ -266,6 +275,27 @@ def patch_streaming_writers(path: pathlib.Path) -> tuple[int, int]:
         return f"{match.group('adapter')}.write(out, {match.group('argument')});"
 
     patched, union_writers = UNION_TREE_WRITER.subn(stream_union, patched)
+    # Generated additional-properties writers must flatten their map through a tree. Build that
+    # tree with optional Java nulls omitted, then preserve the explicit JSON nulls retained by the
+    # field adapters when writing it. TypeAdapter.toJsonTree uses an unconfigured tree writer and
+    # the final default elementAdapter write otherwise drops nested required JSON null values.
+    tree_source = "JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();"
+    if tree_source in patched and 'obj.remove("additionalProperties")' in patched:
+        if patched.count(tree_source) != 1 or patched.count("elementAdapter.write(out, obj);") != 1:
+            raise ValueError(f"additional-properties generated writer changed in {path}")
+        patched = patched.replace(tree_source, """com.google.gson.internal.bind.JsonTreeWriter canonicalTreeWriter =
+                new com.google.gson.internal.bind.JsonTreeWriter();
+            canonicalTreeWriter.setSerializeNulls(false);
+            thisAdapter.write(canonicalTreeWriter, value);
+            JsonObject obj = canonicalTreeWriter.get().getAsJsonObject();""")
+        patched = patched.replace("elementAdapter.write(out, obj);", """boolean canonicalSerializeNulls = out.getSerializeNulls();
+            out.setSerializeNulls(true);
+            try {
+                elementAdapter.write(out, obj);
+            } finally {
+                out.setSerializeNulls(canonicalSerializeNulls);
+            }""")
+        simple_writers += 1
     if simple_writers or union_writers:
         path.write_text(patched)
     return simple_writers, union_writers
@@ -313,7 +343,19 @@ def patch_mapped_object_validation(path: pathlib.Path, fields: Mapping[str, bool
     source = path.read_text()
     source, invalid_calls = INVALID_JSON_ELEMENT_VALIDATION.subn("", source)
     anchor = "JsonObject jsonObj = jsonElement.getAsJsonObject();"
-    if source.count(anchor) != 1:
+    # Some inline resume objects retain additional-properties adapters with a second jsonObj
+    # declaration in read(). Restore validation only in the static validator, not that decoder.
+    start = source.find("public static void validateJsonElement(")
+    if start < 0:
+        start = 0
+        end = len(source)
+    else:
+        adapter = re.search(r"\n\s*public static class CustomTypeAdapterFactory", source[start:])
+        if adapter is None:
+            raise ValueError(f"expected generated adapter boundary in {path}")
+        end = start + adapter.start()
+    validator = source[start:end]
+    if validator.count(anchor) != 1:
         raise ValueError(f"expected one generated validation anchor in {path}")
 
     guards: list[str] = []
@@ -327,8 +369,8 @@ def patch_mapped_object_validation(path: pathlib.Path, fields: Mapping[str, bool
     guard_source = "".join(guards)
     first_guard = f'if (jsonObj.has("{sorted(fields)[0]}")'
     added = 0
-    if first_guard not in source:
-        source = source.replace(anchor, anchor + guard_source)
+    if first_guard not in validator:
+        source = source[:start] + validator.replace(anchor, anchor + guard_source) + source[end:]
         added = len(fields)
     if invalid_calls or added:
         path.write_text(source)

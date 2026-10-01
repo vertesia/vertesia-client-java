@@ -9,6 +9,7 @@ import unittest
 
 from patch_generated_json_elements import (
     ADAPTER_ANNOTATION,
+    CANONICAL_ROOT_SCHEMAS,
     MAP_ADAPTER_ANNOTATION,
     generated_inline_models,
     mapped_object_fields,
@@ -124,6 +125,26 @@ elementAdapter.write(out, element);
         self.assertIn("thisAdapter.write(out, value);", patched)
         self.assertIn("adapterBranch.write(out, (Branch) value.getActualInstance());", patched)
 
+    def test_additional_properties_tree_retains_explicit_null_without_optional_nulls(self) -> None:
+        source = """\
+JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+obj.remove("additionalProperties");
+if (value.getAdditionalProperties() != null) { /* generated flattening */ }
+elementAdapter.write(out, obj);
+"""
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "Resume.java"
+            path.write_text(source)
+            self.assertEqual((1, 0), patch_streaming_writers(path))
+            self.assertEqual((0, 0), patch_streaming_writers(path))
+            patched = path.read_text()
+        self.assertIn("canonicalTreeWriter.setSerializeNulls(false)", patched)
+        self.assertIn("thisAdapter.write(canonicalTreeWriter, value)", patched)
+        self.assertIn('obj.remove("additionalProperties")', patched)
+        self.assertIn("out.setSerializeNulls(true)", patched)
+        self.assertIn("finally {", patched)
+        self.assertIn("out.setSerializeNulls(canonicalSerializeNulls)", patched)
+
     def test_finds_transitive_schema_closure(self) -> None:
         document = {
             "components": {
@@ -184,6 +205,31 @@ elementAdapter.write(out, element);
             set(generated_inline_models(document, "AppendRunConversationProgramTurnPayload")),
         )
 
+    def test_native_resume_closure_reaches_inline_objects_and_array_items(self) -> None:
+        for root in ("ExperimentalCanonicalUserMessagePayload", "ExperimentalCanonicalToolResultsPayload"):
+            self.assertIn(root, CANONICAL_ROOT_SCHEMAS)
+            document = {"components": {"schemas": {
+                root: {"properties": {
+                    "result_schema": {"$ref": "#/components/schemas/ExperimentalCanonicalInteractionResultSchemaInput"},
+                    "input_append": {"type": "object", "properties": {
+                        "records": {"type": "object", "properties": {
+                            "turns": {"type": "array", "items": {"type": "object", "properties": {
+                                "kind": {"const": "user"},
+                                "blocks": {"type": "array", "items": {"$ref": "#/components/schemas/ConversationJsonBlock"}},
+                            }}},
+                        }},
+                    }},
+                }},
+                "ExperimentalCanonicalInteractionResultSchemaInput": {},
+                "ConversationJsonBlock": {"properties": {"value": {"$ref": "#/components/schemas/ConversationJsonValue"}}},
+                "ConversationJsonValue": {},
+            }}}
+            closure = generated_inline_models(document, root)
+            self.assertIn(root + "InputAppendRecordsTurnsInner", closure)
+            self.assertIn("ConversationJsonBlock", closure)
+            self.assertIn("ConversationJsonValue", closure)
+            self.assertEqual({"result_schema": True}, mapped_object_fields(document, root))
+
     def test_clears_only_nullable_container_defaults(self) -> None:
         source = """\
 @jakarta.annotation.Nullable private List<String> optional = new ArrayList<>();
@@ -226,6 +272,29 @@ if (jsonObj.get("result_schema") != null && !jsonObj.get("result_schema").isJson
         self.assertIn(
             'jsonObj.has("result_schema") && !jsonObj.get("result_schema").isJsonNull()', patched
         )
+
+    def test_object_guards_do_not_modify_additional_properties_reader(self) -> None:
+        source = """\
+public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    JsonElement.validateJsonElement(jsonObj.get("result_schema"));
+}
+public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
+    public Object read(JsonElement jsonElement) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+    }
+}
+"""
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "Resume.java"
+            path.write_text(source)
+            self.assertEqual(1, patch_mapped_object_validation(path, {"result_schema": True}))
+            self.assertEqual(0, patch_mapped_object_validation(path, {"result_schema": True}))
+            patched = path.read_text()
+        validator, reader = patched.split("public static class CustomTypeAdapterFactory", 1)
+        self.assertIn('if (jsonObj.has("result_schema")', validator)
+        self.assertNotIn('if (jsonObj.has("result_schema")', reader)
+        self.assertNotIn("JsonElement.validateJsonElement", patched)
 
     def test_finds_only_named_object_mappings_and_nullability(self) -> None:
         document = {

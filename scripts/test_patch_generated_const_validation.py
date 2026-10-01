@@ -73,6 +73,32 @@ class PatchGeneratedConstValidationTest(unittest.TestCase):
             ),
         )
 
+    def test_native_resume_inline_constants_are_strict(self) -> None:
+        user_root = "ExperimentalCanonicalUserMessagePayload"
+        tool_root = "ExperimentalCanonicalToolResultsPayload"
+        document = {"components": {"schemas": {
+            user_root: {"properties": {"input_append": {"type": "object", "properties": {
+                "records": {"type": "object", "properties": {
+                    "turns": {"type": "array", "items": {"type": "object", "properties": {
+                        "kind": {"type": "string", "const": "user"},
+                        "authority": {"type": "string", "const": "ordinary"},
+                    }, "required": ["kind", "authority"]}},
+                }},
+            }}}},
+            tool_root: {"properties": {"asyncCompletion": {"type": "object", "properties": {
+                "canonical_output_reference": {"type": "string", "const": "conversation_output_authority_v1"},
+            }, "required": ["canonical_output_reference"]}}},
+        }}}
+        models = const_model_schemas(document)
+        self.assertEqual(
+            [("kind", "user", True), ("authority", "ordinary", True)],
+            string_constants(models[user_root + "InputAppendRecordsTurnsInner"]),
+        )
+        self.assertEqual(
+            [("canonical_output_reference", "conversation_output_authority_v1", True)],
+            string_constants(models[tool_root + "AsyncCompletion"]),
+        )
+
     def test_injects_exact_check_idempotently(self) -> None:
         source = """\
 public class Example {

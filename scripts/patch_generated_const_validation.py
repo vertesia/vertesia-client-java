@@ -23,6 +23,8 @@ MODEL_ROOT = pathlib.Path("src/main/java/io/vertesia/model")
 JSON_OBJECT_DECLARATION = "        JsonObject jsonObj = jsonElement.getAsJsonObject();\n"
 MARKER = "        // Enforce OpenAPI const values independently of enum unknown-default handling.\n"
 INLINE_CONST_ROOT_SCHEMAS = (
+    "ExperimentalCanonicalUserMessagePayload",
+    "ExperimentalCanonicalToolResultsPayload",
     "AppendRunConversationProgramTurnPayload",
     "ImportAgentRunConversationArchivePayload",
     "ImportAgentRunConversationArchiveResponse",
