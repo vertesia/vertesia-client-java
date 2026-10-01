@@ -25,6 +25,7 @@ CANONICAL_ROOT_SCHEMAS = (
     "RunConversationResponse",
     "ExperimentalCanonicalInteractionExecutionRequest",
     "ExperimentalCanonicalNamedInteractionExecutionRequest",
+    "AppendRunConversationProgramTurnPayload",
 )
 JSON_ELEMENT_FIELD = re.compile(
     r"^(?P<indent>\s*)private JsonElement (?P<name>[A-Za-z_$][\w$]*)(?P<suffix>[^;]*);\s*$"
@@ -132,6 +133,66 @@ def referenced_schemas(document: Mapping[str, object], root: str) -> set[str]:
     return found
 
 
+def generated_inline_models(document: Mapping[str, object], root: str) -> dict[str, Mapping[str, object]]:
+    """Return the Java model names OpenAPI Generator derives for inline object/union schemas."""
+
+    schemas = document.get("components", {}).get("schemas", {})
+    if not isinstance(schemas, Mapping):
+        return {}
+    root_schema = schemas.get(root)
+    if not isinstance(root_schema, Mapping):
+        return {}
+
+    found: dict[str, Mapping[str, object]] = {}
+
+    def property_suffix(wire_name: str) -> str:
+        parts = re.split(r"[^A-Za-z0-9]+", wire_name)
+        suffix = "".join(part[:1].upper() + part[1:] for part in parts if part)
+        if not suffix:
+            raise ValueError(f"Cannot derive generated Java property model name from {wire_name!r}")
+        return suffix
+
+    def visit(model_name: str, schema: Mapping[str, object]) -> None:
+        prior = found.get(model_name)
+        if prior is not None:
+            if prior != schema:
+                raise ValueError(f"Conflicting generated inline schema name {model_name}")
+            return
+        found[model_name] = schema
+
+        one_of = schema.get("oneOf")
+        if isinstance(one_of, list):
+            for index, branch in enumerate(one_of):
+                if not isinstance(branch, Mapping):
+                    raise ValueError(f"{model_name} oneOf branch {index} is not an object")
+                reference = branch.get("$ref")
+                if isinstance(reference, str) and reference.startswith("#/components/schemas/"):
+                    referenced_name = reference.rsplit("/", 1)[-1]
+                    referenced_schema = schemas.get(referenced_name)
+                    if isinstance(referenced_schema, Mapping):
+                        visit(referenced_name, referenced_schema)
+                else:
+                    suffix = str(index) if index else ""
+                    visit(f"{model_name}OneOf{suffix}", branch)
+
+        properties = schema.get("properties")
+        if isinstance(properties, Mapping):
+            for wire_name, property_schema in properties.items():
+                if not isinstance(wire_name, str) or not isinstance(property_schema, Mapping):
+                    continue
+                reference = property_schema.get("$ref")
+                if isinstance(reference, str) and reference.startswith("#/components/schemas/"):
+                    referenced_name = reference.rsplit("/", 1)[-1]
+                    referenced_schema = schemas.get(referenced_name)
+                    if isinstance(referenced_schema, Mapping):
+                        visit(referenced_name, referenced_schema)
+                elif isinstance(property_schema.get("oneOf"), list):
+                    visit(f"{model_name}{property_suffix(wire_name)}", property_schema)
+
+    visit(root, root_schema)
+    return found
+
+
 def patch_streaming_writers(path: pathlib.Path) -> tuple[int, int]:
     source = path.read_text()
     patched, simple_writers = SIMPLE_OBJECT_TREE_WRITER.subn("thisAdapter.write(out, value);", source)
@@ -216,6 +277,7 @@ def main() -> None:
     canonical_schemas: set[str] = set()
     for root in CANONICAL_ROOT_SCHEMAS:
         canonical_schemas.update(referenced_schemas(document, root))
+        canonical_schemas.update(generated_inline_models(document, root))
     simple_writers = 0
     union_writers = 0
     nullable_containers = 0

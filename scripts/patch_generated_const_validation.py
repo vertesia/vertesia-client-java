@@ -15,11 +15,14 @@ import json
 import pathlib
 from collections.abc import Mapping
 
+from patch_generated_json_elements import generated_inline_models
+
 
 SPEC_PATH = pathlib.Path("spec/vertesia-openapi.json")
 MODEL_ROOT = pathlib.Path("src/main/java/io/vertesia/model")
 JSON_OBJECT_DECLARATION = "        JsonObject jsonObj = jsonElement.getAsJsonObject();\n"
 MARKER = "        // Enforce OpenAPI const values independently of enum unknown-default handling.\n"
+INLINE_CONST_ROOT_SCHEMAS = ("AppendRunConversationProgramTurnPayload",)
 
 
 def string_constants(schema: Mapping[str, object]) -> list[tuple[str, str, bool]]:
@@ -35,6 +38,20 @@ def string_constants(schema: Mapping[str, object]) -> list[tuple[str, str, bool]
             if isinstance(constant, str):
                 constants.append((property_name, constant, property_name in required))
     return constants
+
+
+def const_model_schemas(document: Mapping[str, object]) -> dict[str, Mapping[str, object]]:
+    schemas = document.get("components", {}).get("schemas", {})
+    if not isinstance(schemas, Mapping):
+        return {}
+    model_schemas = {
+        name: schema
+        for name, schema in schemas.items()
+        if isinstance(name, str) and isinstance(schema, Mapping)
+    }
+    for root in INLINE_CONST_ROOT_SCHEMAS:
+        model_schemas.update(generated_inline_models(document, root))
+    return model_schemas
 
 
 def patch_model(path: pathlib.Path, constants: list[tuple[str, str, bool]]) -> bool:
@@ -80,11 +97,8 @@ def patch_model(path: pathlib.Path, constants: list[tuple[str, str, bool]]) -> b
 
 def main() -> None:
     document = json.loads(SPEC_PATH.read_text())
-    schemas = document.get("components", {}).get("schemas", {})
     changed = 0
-    for schema_name, schema in schemas.items():
-        if not isinstance(schema_name, str) or not isinstance(schema, Mapping):
-            continue
+    for schema_name, schema in const_model_schemas(document).items():
         constants = string_constants(schema)
         path = MODEL_ROOT / f"{schema_name}.java"
         if constants and path.is_file() and patch_model(path, constants):

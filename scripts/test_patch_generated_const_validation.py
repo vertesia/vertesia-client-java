@@ -7,7 +7,12 @@ import pathlib
 import tempfile
 import unittest
 
-from patch_generated_const_validation import MARKER, patch_model, string_constants
+from patch_generated_const_validation import (
+    MARKER,
+    const_model_schemas,
+    patch_model,
+    string_constants,
+)
 
 
 class PatchGeneratedConstValidationTest(unittest.TestCase):
@@ -21,6 +26,52 @@ class PatchGeneratedConstValidationTest(unittest.TestCase):
         }
 
         self.assertEqual([("kind", "user", False)], string_constants(schema))
+
+    def test_discovers_constants_in_nested_terminal_inline_models(self) -> None:
+        document = {
+            "components": {
+                "schemas": {
+                    "AppendRunConversationProgramTurnPayload": {
+                        "oneOf": [
+                            {
+                                "properties": {"purpose": {"const": "controller_corrective"}},
+                                "required": ["purpose"],
+                            },
+                            {
+                                "properties": {
+                                    "purpose": {"const": "terminal_result"},
+                                    "result": {
+                                        "oneOf": [
+                                            {
+                                                "properties": {"type": {"const": "text"}},
+                                                "required": ["type"],
+                                            },
+                                            {
+                                                "properties": {"type": {"const": "json"}},
+                                                "required": ["type"],
+                                            },
+                                        ]
+                                    },
+                                },
+                                "required": ["purpose", "result"],
+                            },
+                        ]
+                    }
+                }
+            }
+        }
+
+        model_schemas = const_model_schemas(document)
+        self.assertEqual(
+            [("purpose", "terminal_result", True)],
+            string_constants(model_schemas["AppendRunConversationProgramTurnPayloadOneOf1"]),
+        )
+        self.assertEqual(
+            [("type", "json", True)],
+            string_constants(
+                model_schemas["AppendRunConversationProgramTurnPayloadOneOf1ResultOneOf1"]
+            ),
+        )
 
     def test_injects_exact_check_idempotently(self) -> None:
         source = """\

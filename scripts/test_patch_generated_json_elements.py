@@ -10,6 +10,7 @@ import unittest
 from patch_generated_json_elements import (
     ADAPTER_ANNOTATION,
     MAP_ADAPTER_ANNOTATION,
+    generated_inline_models,
     mapped_object_fields,
     patch_nullable_container_defaults,
     patch_mapped_object_validation,
@@ -95,6 +96,52 @@ elementAdapter.write(out, element);
         }
 
         self.assertEqual({"Root", "Branch", "Leaf"}, referenced_schemas(document, "Root"))
+
+    def test_derives_nested_inline_union_model_names(self) -> None:
+        document = {
+            "components": {
+                "schemas": {
+                    "AppendRunConversationProgramTurnPayload": {
+                        "oneOf": [
+                            {"type": "object", "properties": {"purpose": {"const": "controller"}}},
+                            {
+                                "type": "object",
+                                "properties": {
+                                    "purpose": {"const": "terminal"},
+                                    "result": {
+                                        "oneOf": [
+                                            {"properties": {"type": {"const": "text"}}},
+                                            {
+                                                "properties": {
+                                                    "type": {"const": "json"},
+                                                    "value": {
+                                                        "$ref": "#/components/schemas/ConversationJsonValue"
+                                                    },
+                                                }
+                                            },
+                                        ]
+                                    },
+                                },
+                            },
+                        ]
+                    },
+                    "ConversationJsonValue": {},
+                }
+            }
+        }
+
+        self.assertEqual(
+            {
+                "AppendRunConversationProgramTurnPayload",
+                "AppendRunConversationProgramTurnPayloadOneOf",
+                "AppendRunConversationProgramTurnPayloadOneOf1",
+                "AppendRunConversationProgramTurnPayloadOneOf1Result",
+                "AppendRunConversationProgramTurnPayloadOneOf1ResultOneOf",
+                "AppendRunConversationProgramTurnPayloadOneOf1ResultOneOf1",
+                "ConversationJsonValue",
+            },
+            set(generated_inline_models(document, "AppendRunConversationProgramTurnPayload")),
+        )
 
     def test_clears_only_nullable_container_defaults(self) -> None:
         source = """\
