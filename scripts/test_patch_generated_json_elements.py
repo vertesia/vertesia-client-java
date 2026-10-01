@@ -15,12 +15,53 @@ from patch_generated_json_elements import (
     patch_nullable_container_defaults,
     patch_mapped_object_validation,
     patch_model,
+    patch_required_nullable_fields,
     patch_streaming_writers,
     referenced_schemas,
+    required_nullable_fields,
 )
 
 
 class PatchGeneratedJsonElementsTest(unittest.TestCase):
+    def test_required_nullable_fields_are_schema_derived(self) -> None:
+        self.assertEqual({"model", "version"}, required_nullable_fields({
+            "properties": {
+                "model": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+                "version": {"type": ["string", "null"]},
+                "optional": {"type": ["string", "null"]},
+                "name": {"type": "string"},
+            },
+            "required": ["model", "version", "name"],
+        }))
+
+    def test_required_nullable_field_patch_is_scoped_and_idempotent(self) -> None:
+        source = '\n'.join([
+            'public static final String SERIALIZED_NAME_MODEL = "model";',
+            '@SerializedName(SERIALIZED_NAME_MODEL)',
+            '@jakarta.annotation.Nullable',
+            'private String model;',
+            'public static final String SERIALIZED_NAME_OPTIONAL = "optional";',
+            '@SerializedName(SERIALIZED_NAME_OPTIONAL)',
+            'private String optional;',
+        ])
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "Example.java"
+            path.write_text(source)
+            self.assertEqual(1, patch_required_nullable_fields(path, {"model"}))
+            self.assertEqual(0, patch_required_nullable_fields(path, {"model"}))
+            formatted = path.read_text().replace(
+                'SERIALIZED_NAME_MODEL = "model";',
+                'SERIALIZED_NAME_MODEL =\n        "model";',
+            ).replace(
+                '@com.google.gson.annotations.JsonAdapter(value = ',
+                '@com.google.gson.annotations.JsonAdapter(\n        value = ',
+            ).replace(', nullSafe = false)', ',\n        nullSafe = false)')
+            path.write_text(formatted)
+            self.assertEqual(0, patch_required_nullable_fields(path, {"model"}))
+            self.assertEqual(1, path.read_text().count("RequiredNullableTypeAdapterFactory.class"))
+            with self.assertRaisesRegex(ValueError, "missing"):
+                patch_required_nullable_fields(path, {"unknown"})
+
     def test_annotates_direct_json_element_fields_idempotently(self) -> None:
         source = """\
 package io.vertesia.model;

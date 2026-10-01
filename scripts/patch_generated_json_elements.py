@@ -26,6 +26,8 @@ CANONICAL_ROOT_SCHEMAS = (
     "ExperimentalCanonicalInteractionExecutionRequest",
     "ExperimentalCanonicalNamedInteractionExecutionRequest",
     "AppendRunConversationProgramTurnPayload",
+    "ImportAgentRunConversationArchivePayload",
+    "ImportAgentRunConversationArchiveResponse",
 )
 JSON_ELEMENT_FIELD = re.compile(
     r"^(?P<indent>\s*)private JsonElement (?P<name>[A-Za-z_$][\w$]*)(?P<suffix>[^;]*);\s*$"
@@ -193,6 +195,69 @@ def generated_inline_models(document: Mapping[str, object], root: str) -> dict[s
     return found
 
 
+def required_nullable_fields(schema: Mapping[str, object]) -> set[str]:
+    properties = schema.get("properties", {})
+    required = schema.get("required", [])
+    if not isinstance(properties, Mapping) or not isinstance(required, list):
+        return set()
+    fields: set[str] = set()
+    for name in required:
+        value = properties.get(name)
+        if not isinstance(name, str) or not isinstance(value, Mapping):
+            continue
+        types = value.get("type")
+        alternatives = value.get("anyOf", value.get("oneOf", []))
+        if (
+            value.get("nullable") is True
+            or (isinstance(types, list) and "null" in types)
+            or (
+                isinstance(alternatives, list)
+                and any(
+                    isinstance(branch, Mapping) and branch.get("type") == "null"
+                    for branch in alternatives
+                )
+            )
+        ):
+            fields.add(name)
+    return fields
+
+
+def patch_required_nullable_fields(path: pathlib.Path, fields: set[str]) -> int:
+    """Preserve explicit null only for schema-required nullable properties."""
+    if not fields:
+        return 0
+    source = path.read_text()
+    constants = dict(
+        re.findall(r'public static final String (SERIALIZED_NAME_\w+)\s*=\s*"([^"]+)";', source)
+    )
+    annotation = (
+        "@com.google.gson.annotations.JsonAdapter("
+        "value = io.vertesia.gson.RequiredNullableTypeAdapterFactory.class, nullSafe = false)"
+    )
+    lines: list[str] = []
+    current_field = None
+    found: set[str] = set()
+    changed = 0
+    for line in source.splitlines(keepends=True):
+        serialized = re.search(r'@SerializedName\((SERIALIZED_NAME_\w+)\)', line)
+        if serialized:
+            current_field = constants.get(serialized.group(1))
+        if re.match(r"\s*private\s+", line):
+            if current_field in fields:
+                found.add(current_field)
+                if "RequiredNullableTypeAdapterFactory.class" not in "".join(lines[-5:]):
+                    indent = re.match(r"\s*", line).group(0)
+                    lines.append(f"{indent}{annotation}\n")
+                    changed += 1
+            current_field = None
+        lines.append(line)
+    if found != fields:
+        raise ValueError(f"Required nullable generated fields missing in {path}: {fields - found}")
+    if changed:
+        path.write_text("".join(lines))
+    return changed
+
+
 def patch_streaming_writers(path: pathlib.Path) -> tuple[int, int]:
     source = path.read_text()
     patched, simple_writers = SIMPLE_OBJECT_TREE_WRITER.subn("thisAdapter.write(out, value);", source)
@@ -275,16 +340,23 @@ def main() -> None:
     changed_fields = sum(patch_model(path) for path in paths)
     document = json.loads(SPEC_PATH.read_text())
     canonical_schemas: set[str] = set()
+    model_schemas = dict(document.get("components", {}).get("schemas", {}))
     for root in CANONICAL_ROOT_SCHEMAS:
         canonical_schemas.update(referenced_schemas(document, root))
-        canonical_schemas.update(generated_inline_models(document, root))
+        inline = generated_inline_models(document, root)
+        canonical_schemas.update(inline)
+        model_schemas.update(inline)
     simple_writers = 0
     union_writers = 0
     nullable_containers = 0
     object_guards = 0
+    required_nulls = 0
     for schema_name in canonical_schemas:
         path = MODEL_ROOT / f"{schema_name}.java"
         if path.is_file():
+            required_nulls += patch_required_nullable_fields(
+                path, required_nullable_fields(model_schemas.get(schema_name, {}))
+            )
             nullable_containers += patch_nullable_container_defaults(path)
             object_guards += patch_mapped_object_validation(path, mapped_object_fields(document, schema_name))
             simple, union = patch_streaming_writers(path)
@@ -293,7 +365,8 @@ def main() -> None:
     print(
         "Configured null-preserving adapters on "
         f"{changed_fields} generated JsonElement fields/maps; cleared {nullable_containers} optional container defaults "
-        f"and added {object_guards} mapped-object root guards; streamed {simple_writers} object and "
+        f"and preserved {required_nulls} required nullable fields; added {object_guards} mapped-object root guards; "
+        f"streamed {simple_writers} object and "
         f"{union_writers} union writers in the canonical contract closure."
     )
 

@@ -22,7 +22,11 @@ SPEC_PATH = pathlib.Path("spec/vertesia-openapi.json")
 MODEL_ROOT = pathlib.Path("src/main/java/io/vertesia/model")
 JSON_OBJECT_DECLARATION = "        JsonObject jsonObj = jsonElement.getAsJsonObject();\n"
 MARKER = "        // Enforce OpenAPI const values independently of enum unknown-default handling.\n"
-INLINE_CONST_ROOT_SCHEMAS = ("AppendRunConversationProgramTurnPayload",)
+INLINE_CONST_ROOT_SCHEMAS = (
+    "AppendRunConversationProgramTurnPayload",
+    "ImportAgentRunConversationArchivePayload",
+    "ImportAgentRunConversationArchiveResponse",
+)
 
 
 def string_constants(schema: Mapping[str, object]) -> list[tuple[str, str, bool]]:
