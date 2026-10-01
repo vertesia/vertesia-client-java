@@ -30,24 +30,39 @@ import java.util.HashSet;
 import java.util.Objects;
 
 /**
- * OpenAiGptImageOptions
+ * OpenAiImageGenerationOptions
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
-public class OpenAiGptImageOptions {
+public class OpenAiImageGenerationOptions {
+    public static final String SERIALIZED_NAME_MODEL = "model";
+
+    @SerializedName(SERIALIZED_NAME_MODEL)
+    @jakarta.annotation.Nonnull
+    private String model;
+
+    public static final String SERIALIZED_NAME_FORCE = "force";
+
+    @SerializedName(SERIALIZED_NAME_FORCE)
+    @jakarta.annotation.Nullable private Boolean force;
+
     /**
-     * Gets or Sets optionId
+     * Gets or Sets action
      */
-    @JsonAdapter(OptionIdEnum.Adapter.class)
-    public enum OptionIdEnum {
-        OPENAI_GPT_IMAGE("openai-gpt-image"),
+    @JsonAdapter(ActionEnum.Adapter.class)
+    public enum ActionEnum {
+        AUTO("auto"),
+
+        GENERATE("generate"),
+
+        EDIT("edit"),
 
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
         private String value;
 
-        OptionIdEnum(String value) {
+        ActionEnum(String value) {
             this.value = value;
         }
 
@@ -60,8 +75,8 @@ public class OpenAiGptImageOptions {
             return String.valueOf(value);
         }
 
-        public static OptionIdEnum fromValue(String value) {
-            for (OptionIdEnum b : OptionIdEnum.values()) {
+        public static ActionEnum fromValue(String value) {
+            for (ActionEnum b : ActionEnum.values()) {
                 if (b.value.equals(value)) {
                     return b;
                 }
@@ -69,51 +84,43 @@ public class OpenAiGptImageOptions {
             return UNKNOWN_DEFAULT_OPEN_API;
         }
 
-        public static class Adapter extends TypeAdapter<OptionIdEnum> {
+        public static class Adapter extends TypeAdapter<ActionEnum> {
             @Override
-            public void write(final JsonWriter jsonWriter, final OptionIdEnum enumeration)
+            public void write(final JsonWriter jsonWriter, final ActionEnum enumeration)
                     throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public OptionIdEnum read(final JsonReader jsonReader) throws IOException {
+            public ActionEnum read(final JsonReader jsonReader) throws IOException {
                 String value = jsonReader.nextString();
-                return OptionIdEnum.fromValue(value);
+                return ActionEnum.fromValue(value);
             }
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
             String value = jsonElement.getAsString();
-            OptionIdEnum.fromValue(value);
+            ActionEnum.fromValue(value);
         }
     }
 
-    public static final String SERIALIZED_NAME_OPTION_ID = "_option_id";
+    public static final String SERIALIZED_NAME_ACTION = "action";
 
-    @SerializedName(SERIALIZED_NAME_OPTION_ID)
-    @jakarta.annotation.Nullable private OptionIdEnum optionId;
+    @SerializedName(SERIALIZED_NAME_ACTION)
+    @jakarta.annotation.Nullable private ActionEnum action;
 
     public static final String SERIALIZED_NAME_SIZE = "size";
 
     @SerializedName(SERIALIZED_NAME_SIZE)
     @jakarta.annotation.Nullable private String size;
 
-    public static final String SERIALIZED_NAME_WIDTH = "width";
-
-    @SerializedName(SERIALIZED_NAME_WIDTH)
-    @jakarta.annotation.Nullable private BigDecimal width;
-
-    public static final String SERIALIZED_NAME_HEIGHT = "height";
-
-    @SerializedName(SERIALIZED_NAME_HEIGHT)
-    @jakarta.annotation.Nullable private BigDecimal height;
-
     /**
-     * Gets or Sets imageQuality
+     * Gets or Sets quality
      */
-    @JsonAdapter(ImageQualityEnum.Adapter.class)
-    public enum ImageQualityEnum {
+    @JsonAdapter(QualityEnum.Adapter.class)
+    public enum QualityEnum {
+        AUTO("auto"),
+
         LOW("low"),
 
         MEDIUM("medium"),
@@ -124,13 +131,11 @@ public class OpenAiGptImageOptions {
 
         MAX("max"),
 
-        AUTO("auto"),
-
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
         private String value;
 
-        ImageQualityEnum(String value) {
+        QualityEnum(String value) {
             this.value = value;
         }
 
@@ -143,8 +148,8 @@ public class OpenAiGptImageOptions {
             return String.valueOf(value);
         }
 
-        public static ImageQualityEnum fromValue(String value) {
-            for (ImageQualityEnum b : ImageQualityEnum.values()) {
+        public static QualityEnum fromValue(String value) {
+            for (QualityEnum b : QualityEnum.values()) {
                 if (b.value.equals(value)) {
                     return b;
                 }
@@ -152,41 +157,41 @@ public class OpenAiGptImageOptions {
             return UNKNOWN_DEFAULT_OPEN_API;
         }
 
-        public static class Adapter extends TypeAdapter<ImageQualityEnum> {
+        public static class Adapter extends TypeAdapter<QualityEnum> {
             @Override
-            public void write(final JsonWriter jsonWriter, final ImageQualityEnum enumeration)
+            public void write(final JsonWriter jsonWriter, final QualityEnum enumeration)
                     throws IOException {
                 jsonWriter.value(enumeration.getValue());
             }
 
             @Override
-            public ImageQualityEnum read(final JsonReader jsonReader) throws IOException {
+            public QualityEnum read(final JsonReader jsonReader) throws IOException {
                 String value = jsonReader.nextString();
-                return ImageQualityEnum.fromValue(value);
+                return QualityEnum.fromValue(value);
             }
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
             String value = jsonElement.getAsString();
-            ImageQualityEnum.fromValue(value);
+            QualityEnum.fromValue(value);
         }
     }
 
-    public static final String SERIALIZED_NAME_IMAGE_QUALITY = "image_quality";
+    public static final String SERIALIZED_NAME_QUALITY = "quality";
 
-    @SerializedName(SERIALIZED_NAME_IMAGE_QUALITY)
-    @jakarta.annotation.Nullable private ImageQualityEnum imageQuality;
+    @SerializedName(SERIALIZED_NAME_QUALITY)
+    @jakarta.annotation.Nullable private QualityEnum quality;
 
     /**
      * Gets or Sets background
      */
     @JsonAdapter(BackgroundEnum.Adapter.class)
     public enum BackgroundEnum {
-        TRANSPARENT("transparent"),
+        AUTO("auto"),
 
         OPAQUE("opaque"),
 
-        AUTO("auto"),
+        TRANSPARENT("transparent"),
 
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
@@ -246,9 +251,9 @@ public class OpenAiGptImageOptions {
     public enum OutputFormatEnum {
         PNG("png"),
 
-        WEBP("webp"),
-
         JPEG("jpeg"),
+
+        WEBP("webp"),
 
         UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
@@ -300,11 +305,6 @@ public class OpenAiGptImageOptions {
 
     @SerializedName(SERIALIZED_NAME_OUTPUT_FORMAT)
     @jakarta.annotation.Nullable private OutputFormatEnum outputFormat;
-
-    public static final String SERIALIZED_NAME_N = "n";
-
-    @SerializedName(SERIALIZED_NAME_N)
-    @jakarta.annotation.Nullable private BigDecimal n;
 
     public static final String SERIALIZED_NAME_OUTPUT_COMPRESSION = "output_compression";
 
@@ -436,26 +436,66 @@ public class OpenAiGptImageOptions {
     @SerializedName(SERIALIZED_NAME_PARTIAL_IMAGES)
     @jakarta.annotation.Nullable private BigDecimal partialImages;
 
-    public OpenAiGptImageOptions() {}
+    public static final String SERIALIZED_NAME_INPUT_IMAGE_MASK = "input_image_mask";
 
-    public OpenAiGptImageOptions optionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
-        this.optionId = optionId;
+    @SerializedName(SERIALIZED_NAME_INPUT_IMAGE_MASK)
+    @jakarta.annotation.Nullable private OpenAiImageGenerationMask inputImageMask;
+
+    public OpenAiImageGenerationOptions() {}
+
+    public OpenAiImageGenerationOptions model(@jakarta.annotation.Nonnull String model) {
+        this.model = model;
         return this;
     }
 
     /**
-     * Get optionId
-     * @return optionId
+     * Get model
+     * @return model
      */
-    @jakarta.annotation.Nullable public OptionIdEnum getOptionId() {
-        return optionId;
+    @jakarta.annotation.Nonnull
+    public String getModel() {
+        return model;
     }
 
-    public void setOptionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
-        this.optionId = optionId;
+    public void setModel(@jakarta.annotation.Nonnull String model) {
+        this.model = model;
     }
 
-    public OpenAiGptImageOptions size(@jakarta.annotation.Nullable String size) {
+    public OpenAiImageGenerationOptions force(@jakarta.annotation.Nullable Boolean force) {
+        this.force = force;
+        return this;
+    }
+
+    /**
+     * Get force
+     * @return force
+     */
+    @jakarta.annotation.Nullable public Boolean getForce() {
+        return force;
+    }
+
+    public void setForce(@jakarta.annotation.Nullable Boolean force) {
+        this.force = force;
+    }
+
+    public OpenAiImageGenerationOptions action(@jakarta.annotation.Nullable ActionEnum action) {
+        this.action = action;
+        return this;
+    }
+
+    /**
+     * Get action
+     * @return action
+     */
+    @jakarta.annotation.Nullable public ActionEnum getAction() {
+        return action;
+    }
+
+    public void setAction(@jakarta.annotation.Nullable ActionEnum action) {
+        this.action = action;
+    }
+
+    public OpenAiImageGenerationOptions size(@jakarta.annotation.Nullable String size) {
         this.size = size;
         return this;
     }
@@ -472,59 +512,24 @@ public class OpenAiGptImageOptions {
         this.size = size;
     }
 
-    public OpenAiGptImageOptions width(@jakarta.annotation.Nullable BigDecimal width) {
-        this.width = width;
+    public OpenAiImageGenerationOptions quality(@jakarta.annotation.Nullable QualityEnum quality) {
+        this.quality = quality;
         return this;
     }
 
     /**
-     * Get width
-     * @return width
+     * Get quality
+     * @return quality
      */
-    @jakarta.annotation.Nullable public BigDecimal getWidth() {
-        return width;
+    @jakarta.annotation.Nullable public QualityEnum getQuality() {
+        return quality;
     }
 
-    public void setWidth(@jakarta.annotation.Nullable BigDecimal width) {
-        this.width = width;
+    public void setQuality(@jakarta.annotation.Nullable QualityEnum quality) {
+        this.quality = quality;
     }
 
-    public OpenAiGptImageOptions height(@jakarta.annotation.Nullable BigDecimal height) {
-        this.height = height;
-        return this;
-    }
-
-    /**
-     * Get height
-     * @return height
-     */
-    @jakarta.annotation.Nullable public BigDecimal getHeight() {
-        return height;
-    }
-
-    public void setHeight(@jakarta.annotation.Nullable BigDecimal height) {
-        this.height = height;
-    }
-
-    public OpenAiGptImageOptions imageQuality(
-            @jakarta.annotation.Nullable ImageQualityEnum imageQuality) {
-        this.imageQuality = imageQuality;
-        return this;
-    }
-
-    /**
-     * Get imageQuality
-     * @return imageQuality
-     */
-    @jakarta.annotation.Nullable public ImageQualityEnum getImageQuality() {
-        return imageQuality;
-    }
-
-    public void setImageQuality(@jakarta.annotation.Nullable ImageQualityEnum imageQuality) {
-        this.imageQuality = imageQuality;
-    }
-
-    public OpenAiGptImageOptions background(
+    public OpenAiImageGenerationOptions background(
             @jakarta.annotation.Nullable BackgroundEnum background) {
         this.background = background;
         return this;
@@ -542,7 +547,7 @@ public class OpenAiGptImageOptions {
         this.background = background;
     }
 
-    public OpenAiGptImageOptions outputFormat(
+    public OpenAiImageGenerationOptions outputFormat(
             @jakarta.annotation.Nullable OutputFormatEnum outputFormat) {
         this.outputFormat = outputFormat;
         return this;
@@ -560,24 +565,7 @@ public class OpenAiGptImageOptions {
         this.outputFormat = outputFormat;
     }
 
-    public OpenAiGptImageOptions n(@jakarta.annotation.Nullable BigDecimal n) {
-        this.n = n;
-        return this;
-    }
-
-    /**
-     * Get n
-     * @return n
-     */
-    @jakarta.annotation.Nullable public BigDecimal getN() {
-        return n;
-    }
-
-    public void setN(@jakarta.annotation.Nullable BigDecimal n) {
-        this.n = n;
-    }
-
-    public OpenAiGptImageOptions outputCompression(
+    public OpenAiImageGenerationOptions outputCompression(
             @jakarta.annotation.Nullable Integer outputCompression) {
         this.outputCompression = outputCompression;
         return this;
@@ -597,7 +585,7 @@ public class OpenAiGptImageOptions {
         this.outputCompression = outputCompression;
     }
 
-    public OpenAiGptImageOptions moderation(
+    public OpenAiImageGenerationOptions moderation(
             @jakarta.annotation.Nullable ModerationEnum moderation) {
         this.moderation = moderation;
         return this;
@@ -615,7 +603,7 @@ public class OpenAiGptImageOptions {
         this.moderation = moderation;
     }
 
-    public OpenAiGptImageOptions inputFidelity(
+    public OpenAiImageGenerationOptions inputFidelity(
             @jakarta.annotation.Nullable InputFidelityEnum inputFidelity) {
         this.inputFidelity = inputFidelity;
         return this;
@@ -633,7 +621,7 @@ public class OpenAiGptImageOptions {
         this.inputFidelity = inputFidelity;
     }
 
-    public OpenAiGptImageOptions partialImages(
+    public OpenAiImageGenerationOptions partialImages(
             @jakarta.annotation.Nullable BigDecimal partialImages) {
         this.partialImages = partialImages;
         return this;
@@ -651,6 +639,25 @@ public class OpenAiGptImageOptions {
         this.partialImages = partialImages;
     }
 
+    public OpenAiImageGenerationOptions inputImageMask(
+            @jakarta.annotation.Nullable OpenAiImageGenerationMask inputImageMask) {
+        this.inputImageMask = inputImageMask;
+        return this;
+    }
+
+    /**
+     * Get inputImageMask
+     * @return inputImageMask
+     */
+    @jakarta.annotation.Nullable public OpenAiImageGenerationMask getInputImageMask() {
+        return inputImageMask;
+    }
+
+    public void setInputImageMask(
+            @jakarta.annotation.Nullable OpenAiImageGenerationMask inputImageMask) {
+        this.inputImageMask = inputImageMask;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -659,56 +666,58 @@ public class OpenAiGptImageOptions {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        OpenAiGptImageOptions openAiGptImageOptions = (OpenAiGptImageOptions) o;
-        return Objects.equals(this.optionId, openAiGptImageOptions.optionId)
-                && Objects.equals(this.size, openAiGptImageOptions.size)
-                && Objects.equals(this.width, openAiGptImageOptions.width)
-                && Objects.equals(this.height, openAiGptImageOptions.height)
-                && Objects.equals(this.imageQuality, openAiGptImageOptions.imageQuality)
-                && Objects.equals(this.background, openAiGptImageOptions.background)
-                && Objects.equals(this.outputFormat, openAiGptImageOptions.outputFormat)
-                && Objects.equals(this.n, openAiGptImageOptions.n)
-                && Objects.equals(this.outputCompression, openAiGptImageOptions.outputCompression)
-                && Objects.equals(this.moderation, openAiGptImageOptions.moderation)
-                && Objects.equals(this.inputFidelity, openAiGptImageOptions.inputFidelity)
-                && Objects.equals(this.partialImages, openAiGptImageOptions.partialImages);
+        OpenAiImageGenerationOptions openAiImageGenerationOptions =
+                (OpenAiImageGenerationOptions) o;
+        return Objects.equals(this.model, openAiImageGenerationOptions.model)
+                && Objects.equals(this.force, openAiImageGenerationOptions.force)
+                && Objects.equals(this.action, openAiImageGenerationOptions.action)
+                && Objects.equals(this.size, openAiImageGenerationOptions.size)
+                && Objects.equals(this.quality, openAiImageGenerationOptions.quality)
+                && Objects.equals(this.background, openAiImageGenerationOptions.background)
+                && Objects.equals(this.outputFormat, openAiImageGenerationOptions.outputFormat)
+                && Objects.equals(
+                        this.outputCompression, openAiImageGenerationOptions.outputCompression)
+                && Objects.equals(this.moderation, openAiImageGenerationOptions.moderation)
+                && Objects.equals(this.inputFidelity, openAiImageGenerationOptions.inputFidelity)
+                && Objects.equals(this.partialImages, openAiImageGenerationOptions.partialImages)
+                && Objects.equals(this.inputImageMask, openAiImageGenerationOptions.inputImageMask);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                optionId,
+                model,
+                force,
+                action,
                 size,
-                width,
-                height,
-                imageQuality,
+                quality,
                 background,
                 outputFormat,
-                n,
                 outputCompression,
                 moderation,
                 inputFidelity,
-                partialImages);
+                partialImages,
+                inputImageMask);
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("class OpenAiGptImageOptions {\n");
-        sb.append("    optionId: ").append(toIndentedString(optionId)).append("\n");
+        sb.append("class OpenAiImageGenerationOptions {\n");
+        sb.append("    model: ").append(toIndentedString(model)).append("\n");
+        sb.append("    force: ").append(toIndentedString(force)).append("\n");
+        sb.append("    action: ").append(toIndentedString(action)).append("\n");
         sb.append("    size: ").append(toIndentedString(size)).append("\n");
-        sb.append("    width: ").append(toIndentedString(width)).append("\n");
-        sb.append("    height: ").append(toIndentedString(height)).append("\n");
-        sb.append("    imageQuality: ").append(toIndentedString(imageQuality)).append("\n");
+        sb.append("    quality: ").append(toIndentedString(quality)).append("\n");
         sb.append("    background: ").append(toIndentedString(background)).append("\n");
         sb.append("    outputFormat: ").append(toIndentedString(outputFormat)).append("\n");
-        sb.append("    n: ").append(toIndentedString(n)).append("\n");
         sb.append("    outputCompression: ")
                 .append(toIndentedString(outputCompression))
                 .append("\n");
         sb.append("    moderation: ").append(toIndentedString(moderation)).append("\n");
         sb.append("    inputFidelity: ").append(toIndentedString(inputFidelity)).append("\n");
         sb.append("    partialImages: ").append(toIndentedString(partialImages)).append("\n");
+        sb.append("    inputImageMask: ").append(toIndentedString(inputImageMask)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -729,52 +738,71 @@ public class OpenAiGptImageOptions {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
-                                "_option_id",
+                                "model",
+                                "force",
+                                "action",
                                 "size",
-                                "width",
-                                "height",
-                                "image_quality",
+                                "quality",
                                 "background",
                                 "output_format",
-                                "n",
                                 "output_compression",
                                 "moderation",
                                 "input_fidelity",
-                                "partial_images"));
+                                "partial_images",
+                                "input_image_mask"));
 
         // a set of required properties/fields (JSON key names)
-        openapiRequiredFields = new HashSet<String>(0);
+        openapiRequiredFields = new HashSet<String>(Arrays.asList("model"));
     }
 
     /**
      * Validates the JSON Element and throws an exception if issues found
      *
      * @param jsonElement JSON Element
-     * @throws IOException if the JSON Element is invalid with respect to OpenAiGptImageOptions
+     * @throws IOException if the JSON Element is invalid with respect to OpenAiImageGenerationOptions
      */
     public static void validateJsonElement(JsonElement jsonElement) throws IOException {
         if (jsonElement == null) {
-            if (!OpenAiGptImageOptions.openapiRequiredFields
+            if (!OpenAiImageGenerationOptions.openapiRequiredFields
                     .isEmpty()) { // has required fields but JSON element is null
                 throw new IllegalArgumentException(
                         String.format(
                                 java.util.Locale.ROOT,
-                                "The required field(s) %s in OpenAiGptImageOptions is not found in the empty JSON string",
-                                OpenAiGptImageOptions.openapiRequiredFields.toString()));
+                                "The required field(s) %s in OpenAiImageGenerationOptions is not found in the empty JSON string",
+                                OpenAiImageGenerationOptions.openapiRequiredFields.toString()));
+            }
+        }
+
+        // check to make sure all required properties/fields are present in the JSON string
+        for (String requiredField : OpenAiImageGenerationOptions.openapiRequiredFields) {
+            if (jsonElement.getAsJsonObject().get(requiredField) == null) {
+                throw new IllegalArgumentException(
+                        String.format(
+                                java.util.Locale.ROOT,
+                                "The required field `%s` is not found in the JSON string: %s",
+                                requiredField,
+                                jsonElement.toString()));
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-        if ((jsonObj.get("_option_id") != null && !jsonObj.get("_option_id").isJsonNull())
-                && !jsonObj.get("_option_id").isJsonPrimitive()) {
+        if (!jsonObj.get("model").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `_option_id` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("_option_id").toString()));
+                            "Expected the field `model` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("model").toString()));
         }
-        // validate the optional field `_option_id`
-        if (jsonObj.get("_option_id") != null && !jsonObj.get("_option_id").isJsonNull()) {
-            OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        if ((jsonObj.get("action") != null && !jsonObj.get("action").isJsonNull())
+                && !jsonObj.get("action").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `action` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("action").toString()));
+        }
+        // validate the optional field `action`
+        if (jsonObj.get("action") != null && !jsonObj.get("action").isJsonNull()) {
+            ActionEnum.validateJsonElement(jsonObj.get("action"));
         }
         if ((jsonObj.get("size") != null && !jsonObj.get("size").isJsonNull())
                 && !jsonObj.get("size").isJsonPrimitive()) {
@@ -784,17 +812,17 @@ public class OpenAiGptImageOptions {
                             "Expected the field `size` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("size").toString()));
         }
-        if ((jsonObj.get("image_quality") != null && !jsonObj.get("image_quality").isJsonNull())
-                && !jsonObj.get("image_quality").isJsonPrimitive()) {
+        if ((jsonObj.get("quality") != null && !jsonObj.get("quality").isJsonNull())
+                && !jsonObj.get("quality").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "Expected the field `image_quality` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("image_quality").toString()));
+                            "Expected the field `quality` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("quality").toString()));
         }
-        // validate the optional field `image_quality`
-        if (jsonObj.get("image_quality") != null && !jsonObj.get("image_quality").isJsonNull()) {
-            ImageQualityEnum.validateJsonElement(jsonObj.get("image_quality"));
+        // validate the optional field `quality`
+        if (jsonObj.get("quality") != null && !jsonObj.get("quality").isJsonNull()) {
+            QualityEnum.validateJsonElement(jsonObj.get("quality"));
         }
         if ((jsonObj.get("background") != null && !jsonObj.get("background").isJsonNull())
                 && !jsonObj.get("background").isJsonPrimitive()) {
@@ -844,30 +872,37 @@ public class OpenAiGptImageOptions {
         if (jsonObj.get("input_fidelity") != null && !jsonObj.get("input_fidelity").isJsonNull()) {
             InputFidelityEnum.validateJsonElement(jsonObj.get("input_fidelity"));
         }
+        // validate the optional field `input_image_mask`
+        if (jsonObj.get("input_image_mask") != null
+                && !jsonObj.get("input_image_mask").isJsonNull()) {
+            OpenAiImageGenerationMask.validateJsonElement(jsonObj.get("input_image_mask"));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")
         @Override
         public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-            if (!OpenAiGptImageOptions.class.isAssignableFrom(type.getRawType())) {
-                return null; // this class only serializes 'OpenAiGptImageOptions' and its subtypes
+            if (!OpenAiImageGenerationOptions.class.isAssignableFrom(type.getRawType())) {
+                return null; // this class only serializes 'OpenAiImageGenerationOptions' and its
+                // subtypes
             }
             final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-            final TypeAdapter<OpenAiGptImageOptions> thisAdapter =
-                    gson.getDelegateAdapter(this, TypeToken.get(OpenAiGptImageOptions.class));
+            final TypeAdapter<OpenAiImageGenerationOptions> thisAdapter =
+                    gson.getDelegateAdapter(
+                            this, TypeToken.get(OpenAiImageGenerationOptions.class));
 
             return (TypeAdapter<T>)
-                    new TypeAdapter<OpenAiGptImageOptions>() {
+                    new TypeAdapter<OpenAiImageGenerationOptions>() {
                         @Override
-                        public void write(JsonWriter out, OpenAiGptImageOptions value)
+                        public void write(JsonWriter out, OpenAiImageGenerationOptions value)
                                 throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
                             elementAdapter.write(out, obj);
                         }
 
                         @Override
-                        public OpenAiGptImageOptions read(JsonReader in) throws IOException {
+                        public OpenAiImageGenerationOptions read(JsonReader in) throws IOException {
                             JsonElement jsonElement = elementAdapter.read(in);
                             validateJsonElement(jsonElement);
                             return thisAdapter.fromJsonTree(jsonElement);
@@ -877,18 +912,18 @@ public class OpenAiGptImageOptions {
     }
 
     /**
-     * Create an instance of OpenAiGptImageOptions given an JSON string
+     * Create an instance of OpenAiImageGenerationOptions given an JSON string
      *
      * @param jsonString JSON string
-     * @return An instance of OpenAiGptImageOptions
-     * @throws IOException if the JSON string is invalid with respect to OpenAiGptImageOptions
+     * @return An instance of OpenAiImageGenerationOptions
+     * @throws IOException if the JSON string is invalid with respect to OpenAiImageGenerationOptions
      */
-    public static OpenAiGptImageOptions fromJson(String jsonString) throws IOException {
-        return JSON.getGson().fromJson(jsonString, OpenAiGptImageOptions.class);
+    public static OpenAiImageGenerationOptions fromJson(String jsonString) throws IOException {
+        return JSON.getGson().fromJson(jsonString, OpenAiImageGenerationOptions.class);
     }
 
     /**
-     * Convert an instance of OpenAiGptImageOptions to an JSON string
+     * Convert an instance of OpenAiImageGenerationOptions to an JSON string
      *
      * @return JSON string
      */
