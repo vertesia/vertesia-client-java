@@ -253,6 +253,21 @@ def patch_canonical_shape(path: pathlib.Path, schema: Mapping[str, object], sche
         reference = value.get("$ref")
         if isinstance(reference, str):
             value = schemas.get(reference.rsplit("/", 1)[-1], {})
+        field_type = value.get("type")
+        string_type = field_type == "string" or (
+            isinstance(field_type, list)
+            and "string" in field_type
+            and set(field_type).issubset({"string", "null"})
+        )
+        if string_type:
+            literal = json.dumps(field)
+            checks.extend([
+                f"        if (jsonObj.get({literal}) != null && !jsonObj.get({literal}).isJsonNull()\n",
+                f"                && (!jsonObj.get({literal}).isJsonPrimitive()\n",
+                f"                    || !jsonObj.get({literal}).getAsJsonPrimitive().isString())) {{\n",
+                f"            throw new IllegalArgumentException({json.dumps('Invalid canonical string type: ' + field)});\n",
+                "        }\n",
+            ])
         pattern = value.get("pattern")
         if value.get("type") == "string" and isinstance(pattern, str):
             literal = json.dumps(field)

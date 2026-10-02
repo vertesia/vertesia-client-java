@@ -288,6 +288,30 @@ public class Example {
             self.assertIn('java.util.Arrays.asList("pointer")', path.read_text())
             self.assertIn('Pattern.compile("^/$")', path.read_text())
 
+    def test_ordinary_string_enums_reject_json_type_coercion_without_closing_values(self):
+        schema = {"type": "object", "properties": {
+            "policy": {"$ref": "#/components/schemas/Policy"},
+            "nullable_policy": {"type": ["string", "null"], "enum": ["exact", None]},
+            "mixed": {"type": ["string", "integer"]},
+        }}
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "Example.java"
+            path.write_text("        JsonObject jsonObj = jsonElement.getAsJsonObject();\n")
+            self.assertTrue(patch_canonical_shape(path, schema, {
+                "Policy": {"type": "string", "enum": ["exact", "identified_estimate"]},
+            }))
+            patched = path.read_text()
+            self.assertIn('Invalid canonical string type: policy', patched)
+            self.assertIn('jsonObj.get("policy").getAsJsonPrimitive().isString()', patched)
+            self.assertIn('jsonObj.get("nullable_policy").getAsJsonPrimitive().isString()', patched)
+            self.assertIn('!jsonObj.get("nullable_policy").isJsonNull()', patched)
+            self.assertNotIn('Invalid canonical string type: mixed', patched)
+            # Type checking must not change ordinary unknown-string enum compatibility.
+            self.assertNotIn('"exact"', patched)
+            self.assertNotIn('"identified_estimate"', patched)
+            self.assertFalse(patch_canonical_shape(path, schema, {}))
+            self.assertEqual(patched, path.read_text())
+
     def test_inline_selector_literal_mappings_are_exact_and_idempotent(self):
         schema = {"oneOf": [{"properties": {"kind": {"const": "a"}}, "required": ["kind"]},
                             {"properties": {"kind": {"enum": ["b", "c"]}}, "required": ["kind"]}],
