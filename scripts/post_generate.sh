@@ -6,6 +6,8 @@ python3 scripts/test_patch_generated_const_validation.py
 python3 scripts/patch_generated_const_validation.py
 python3 scripts/test_patch_generated_json_elements.py
 python3 scripts/patch_generated_json_elements.py
+python3 scripts/test_patch_routing_nullable_effort.py
+python3 scripts/patch_routing_nullable_effort.py
 python3 scripts/patch_generated_security.py
 python3 scripts/patch_generated_jakarta_annotations.py
 mvn -B spotless:apply
