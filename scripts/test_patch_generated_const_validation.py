@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import pathlib
 import tempfile
+import subprocess
 import unittest
 
 from patch_generated_const_validation import (
@@ -287,6 +288,72 @@ public class Example {
             self.assertFalse(patch_canonical_shape(path, schema, {}))
             self.assertIn('java.util.Arrays.asList("pointer")', path.read_text())
             self.assertIn('Pattern.compile("^/$")', path.read_text())
+
+    def test_canonical_scalar_bounds_use_exact_numbers_and_unicode_code_points(self):
+        schema = {"type": "object", "additionalProperties": False, "properties": {
+            "occurrence": {"type": "integer", "minimum": 0, "maximum": 255},
+            "large": {"type": "integer", "minimum": 9007199254740992, "maximum": 9007199254740994},
+            "label": {"type": "string", "minLength": 1, "maxLength": 2},
+            "optional_nullable": {"type": ["string", "null"], "minLength": 1, "maxLength": 2},
+        }}
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "Bounded.java"
+            # Compile the emitted predicate against a minimal JSON-value surface. Java's actual
+            # BigDecimal/codePointCount implementations execute; no generated-model hand patch.
+            template = r"""import java.math.BigDecimal;
+import java.util.HashMap;
+public class Bounded {
+    static class Element {
+        final Object value;
+        Element(Object value) { this.value = value; }
+        boolean isJsonNull() { return value == null; }
+        boolean isJsonPrimitive() { return value != null; }
+        Element getAsJsonPrimitive() { return this; }
+        boolean isString() { return value instanceof String; }
+        boolean isNumber() { return value instanceof BigDecimal; }
+        String getAsString() { return value.toString(); }
+        BigDecimal getAsBigDecimal() { return (BigDecimal) value; }
+        JsonObject getAsJsonObject() { return (JsonObject) value; }
+    }
+    static class JsonObject extends HashMap<String, Element> {}
+    static void validate(Element jsonElement) {
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
+    }
+    static void check(Object occurrence, Object large, String label, boolean valid) {
+        JsonObject input = new JsonObject();
+        input.put("occurrence", new Element(occurrence));
+        input.put("large", new Element(large));
+        input.put("label", new Element(label));
+        input.put("optional_nullable", new Element(null));
+        try {
+            validate(new Element(input));
+            if (!valid) throw new AssertionError("invalid value accepted: " + input);
+        } catch (IllegalArgumentException error) {
+            if (valid) throw new AssertionError("valid value rejected", error);
+        }
+    }
+    public static void main(String[] arguments) {
+        BigDecimal large = new BigDecimal("9007199254740993");
+        for (String number : new String[]{"0", "255", "1.0", "1e0", "-0"}) {
+            check(new BigDecimal(number), large, "\uD83D\uDE00", true);
+            check(new BigDecimal(number), large, "e\u0301", true);
+        }
+        for (String number : new String[]{"-1", "256", "0.5", "255.0000000000000000000001"})
+            check(new BigDecimal(number), large, "a", false);
+        check("1", large, "a", false);
+        check(new BigDecimal("1"), new BigDecimal("9007199254740991.999999999999"), "a", false);
+        check(new BigDecimal("1"), new BigDecimal("9007199254740994.000000000001"), "a", false);
+        check(new BigDecimal("1"), large, "", false);
+        check(new BigDecimal("1"), large, "\uD83D\uDE00\uD83D\uDE00", true);
+        check(new BigDecimal("1"), large, "\uD83D\uDE00\uD83D\uDE00\uD83D\uDE00", false);
+    }
+}
+"""
+            path.write_text(template)
+            self.assertTrue(patch_canonical_shape(path, schema, {}))
+            self.assertFalse(patch_canonical_shape(path, schema, {}))
+            subprocess.run(["javac", str(path)], check=True, capture_output=True, text=True)
+            subprocess.run(["java", "-cp", directory, "Bounded"], check=True, capture_output=True, text=True)
 
     def test_ordinary_string_enums_reject_json_type_coercion_without_closing_values(self):
         schema = {"type": "object", "properties": {

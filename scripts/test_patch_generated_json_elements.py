@@ -99,6 +99,26 @@ class PatchGeneratedJsonElementsTest(unittest.TestCase):
             self.assertIn(root, CANONICAL_ROOT_SCHEMAS)
             self.assertEqual(set(), optional_nonnullable_fields(models[root], document))
 
+    def test_execution_result_reaches_optional_winner_without_closing_legacy(self) -> None:
+        result_name = "ExperimentalCanonicalInteractionExecutionResult"
+        binding_name = "ExperimentalCanonicalVirtualGenerationBinding"
+        source_name = "WinnerSource"
+        document = {"components": {"schemas": {
+            result_name: {"type": "object", "additionalProperties": False,
+                          "properties": {"virtual_generation": {"$ref": "#/components/schemas/" + binding_name}}},
+            binding_name: {"type": "object", "additionalProperties": False,
+                           "required": ["version", "source"], "properties": {
+                               "version": {"const": 1},
+                               "source": {"$ref": "#/components/schemas/" + source_name}}},
+            source_name: {"type": "object", "additionalProperties": False,
+                          "required": ["revision"], "properties": {"revision": {"type": "integer"}}},
+            "UnrelatedLegacyResult": {"type": "object", "properties": {"id": {"type": "string"}}},
+        }}}
+        models = canonical_model_schemas(document)
+        self.assertEqual({result_name, binding_name, source_name}, set(models))
+        self.assertEqual({"virtual_generation"}, optional_nonnullable_fields(models[result_name], document))
+        self.assertFalse(schema_accepts_null(models[binding_name], document["components"]["schemas"]))
+
     def test_optional_nullability_resolves_refs_unions_and_free_json_without_changing_requiredness(self) -> None:
         document = {"components": {"schemas": {
             "Measurement": {"type": "object", "properties": {"tokens": {"type": "integer"}}},

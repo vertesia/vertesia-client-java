@@ -268,6 +268,53 @@ def patch_canonical_shape(path: pathlib.Path, schema: Mapping[str, object], sche
                 f"            throw new IllegalArgumentException({json.dumps('Invalid canonical string type: ' + field)});\n",
                 "        }\n",
             ])
+        if string_type:
+            for keyword, comparison in (("minLength", "<"), ("maxLength", ">")):
+                bound = value.get(keyword)
+                if bound is None:
+                    continue
+                if isinstance(bound, bool) or not isinstance(bound, int) or bound < 0:
+                    raise ValueError(f"Invalid {keyword} for {path.name}.{field}")
+                checks.extend([
+                    f"        if (jsonObj.get({literal}) != null && !jsonObj.get({literal}).isJsonNull()) {{\n",
+                    f"            String canonicalString = jsonObj.get({literal}).getAsString();\n",
+                    f"            if (canonicalString.codePointCount(0, canonicalString.length()) {comparison} {bound}) {{\n",
+                    f"                throw new IllegalArgumentException({json.dumps('Invalid canonical string length: ' + field)});\n",
+                    "            }\n        }\n",
+                ])
+        numeric_type = field_type if field_type in ("integer", "number") else None
+        if isinstance(field_type, list) and "null" in field_type:
+            nonnull_types = set(field_type) - {"null"}
+            if nonnull_types in ({"integer"}, {"number"}):
+                numeric_type = next(iter(nonnull_types))
+        if numeric_type is not None:
+            literal = json.dumps(field)
+            checks.extend([
+                f"        if (jsonObj.get({literal}) != null && !jsonObj.get({literal}).isJsonNull()) {{\n",
+                f"            if (!jsonObj.get({literal}).isJsonPrimitive()\n",
+                f"                    || !jsonObj.get({literal}).getAsJsonPrimitive().isNumber()) {{\n",
+                f"                throw new IllegalArgumentException({json.dumps('Invalid canonical numeric type: ' + field)});\n",
+                "            }\n",
+                f"            java.math.BigDecimal canonicalNumber = jsonObj.get({literal}).getAsBigDecimal();\n",
+            ])
+            if numeric_type == "integer":
+                checks.extend([
+                    "            if (canonicalNumber.stripTrailingZeros().scale() > 0) {\n",
+                    f"                throw new IllegalArgumentException({json.dumps('Invalid canonical integer: ' + field)});\n",
+                    "            }\n",
+                ])
+            for keyword, comparison in (("minimum", "<"), ("maximum", ">")):
+                bound = value.get(keyword)
+                if bound is None:
+                    continue
+                if isinstance(bound, bool) or not isinstance(bound, (int, float)) or not math.isfinite(bound):
+                    raise ValueError(f"Invalid {keyword} for {path.name}.{field}")
+                checks.extend([
+                    f"            if (canonicalNumber.compareTo(new java.math.BigDecimal({json.dumps(str(bound))})) {comparison} 0) {{\n",
+                    f"                throw new IllegalArgumentException({json.dumps('Invalid canonical numeric bound: ' + field)});\n",
+                    "            }\n",
+                ])
+            checks.append("        }\n")
         pattern = value.get("pattern")
         if value.get("type") == "string" and isinstance(pattern, str):
             literal = json.dumps(field)
