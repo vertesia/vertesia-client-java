@@ -6,9 +6,11 @@ from __future__ import annotations
 import pathlib
 import tempfile
 import unittest
+from patch_forward_compat_validation import patch_validation
 
 from patch_generated_json_elements import (
     ADAPTER_ANNOTATION,
+    canonical_model_schemas,
     CANONICAL_ROOT_SCHEMAS,
     MAP_ADAPTER_ANNOTATION,
     generated_inline_models,
@@ -316,6 +318,37 @@ public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
         self.assertEqual(
             {"data": False, "result_schema": True}, mapped_object_fields(document, "Request")
         )
+
+    def test_explicit_canonical_closure_excludes_legacy_prefix_models(self):
+        schemas = {"ConversationDocument": {"anyOf": [{"$ref": "#/components/schemas/ConversationSourceBlockSlice"},
+                                                       {"properties": {"nested": {"oneOf": [{"properties": {"value": {}}}]}}}]},
+                   "ConversationSourceBlockSlice": {"type": "object", "additionalProperties": False},
+                   "ConversationFile": {"type": "object", "additionalProperties": False},
+                   "ConversationState": {"type": "object", "additionalProperties": False}}
+        models = canonical_model_schemas({"components": {"schemas": schemas}})
+        self.assertIn("ConversationSourceBlockSlice", models)
+        self.assertIn("ConversationDocumentAnyOf1NestedOneOf", models)
+        self.assertNotIn("ConversationFile", models)
+        self.assertNotIn("ConversationState", models)
+
+    def test_legacy_prefix_model_keeps_permissive_unknown_fields(self):
+        document = {"components": {"schemas": {
+            "ConversationDocument": {"properties": {"slice": {"$ref": "#/components/schemas/ConversationSourceBlockSlice"}}},
+            "ConversationSourceBlockSlice": {"additionalProperties": False},
+            "ConversationFile": {"additionalProperties": False},
+        }}}
+        closure = canonical_model_schemas(document)
+        def validator(name):
+            return (f"\n      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();\n"
+                    "      // check to see if the JSON string contains additional fields\n"
+                    "      for (Map.Entry<String, JsonElement> entry : entries) {\n"
+                    f"        if (!{name}.openapiFields.contains(entry.getKey())) {{\n"
+                    f'          throw new IllegalArgumentException(String.format(java.util.Locale.ROOT, "The field `%s` in the JSON string is not defined in the `{name}` properties. JSON: %s", entry.getKey(), jsonElement.toString()));\n'
+                    "        }\n      }\n")
+        canonical = validator("ConversationSourceBlockSlice")
+        self.assertEqual(canonical, patch_validation(canonical, closure.get("ConversationSourceBlockSlice")))
+        legacy = validator("ConversationFile")
+        self.assertNotIn("throw", patch_validation(legacy, closure.get("ConversationFile")))
 
 
 if __name__ == "__main__":

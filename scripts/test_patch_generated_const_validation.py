@@ -9,15 +9,18 @@ import unittest
 
 from patch_generated_const_validation import (
     MARKER,
+    patch_canonical_shape,
+    patch_nested_union_adapters,
+    patch_union_selectors,
     const_model_schemas,
     patch_model,
-    string_constants,
+    scalar_constants,
     union_discriminator_values,
 )
 
 
 class PatchGeneratedConstValidationTest(unittest.TestCase):
-    def test_discovers_only_string_constants(self) -> None:
+    def test_discovers_only_scalar_constants(self) -> None:
         schema = {
             "properties": {
                 "kind": {"type": "string", "const": "user"},
@@ -26,7 +29,7 @@ class PatchGeneratedConstValidationTest(unittest.TestCase):
             }
         }
 
-        self.assertEqual([("kind", "user", False)], string_constants(schema))
+        self.assertEqual([("kind", "user", False), ("count", 1, False)], scalar_constants(schema))
 
     def test_discovers_constants_in_nested_terminal_inline_models(self) -> None:
         document = {
@@ -65,11 +68,11 @@ class PatchGeneratedConstValidationTest(unittest.TestCase):
         model_schemas = const_model_schemas(document)
         self.assertEqual(
             [("purpose", "terminal_result", True)],
-            string_constants(model_schemas["AppendRunConversationProgramTurnPayloadOneOf1"]),
+            scalar_constants(model_schemas["AppendRunConversationProgramTurnPayloadOneOf1"]),
         )
         self.assertEqual(
             [("type", "json", True)],
-            string_constants(
+            scalar_constants(
                 model_schemas["AppendRunConversationProgramTurnPayloadOneOf1ResultOneOf1"]
             ),
         )
@@ -93,11 +96,11 @@ class PatchGeneratedConstValidationTest(unittest.TestCase):
         models = const_model_schemas(document)
         self.assertEqual(
             [("kind", "user", True), ("authority", "ordinary", True)],
-            string_constants(models[user_root + "InputAppendRecordsTurnsInner"]),
+            scalar_constants(models[user_root + "InputAppendRecordsTurnsInner"]),
         )
         self.assertEqual(
             [("canonical_output_reference", "conversation_output_authority_v1", True)],
-            string_constants(models[tool_root + "AsyncCompletion"]),
+            scalar_constants(models[tool_root + "AsyncCompletion"]),
         )
 
     def test_discovers_edit_and_processing_union_constants(self) -> None:
@@ -116,12 +119,13 @@ class PatchGeneratedConstValidationTest(unittest.TestCase):
             ]}
             for name, kinds in branches.items()
         }
+        schemas["ConversationDocument"] = {"properties": {name: {"$ref": "#/components/schemas/" + name} for name in schemas}}
         models = const_model_schemas({"components": {"schemas": schemas}})
         for name, kinds in branches.items():
             for index, kind in enumerate(kinds):
                 with self.subTest(component=name, kind=kind):
                     generated_name = name + "OneOf" + (str(index) if index else "")
-                    self.assertEqual([("kind", kind, True)], string_constants(models[generated_name]))
+                    self.assertEqual([("kind", kind, True)], scalar_constants(models[generated_name]))
 
     def test_union_discriminator_enum_is_exact_but_ordinary_enum_is_not(self) -> None:
         document = {"components": {"schemas": {
@@ -136,6 +140,7 @@ class PatchGeneratedConstValidationTest(unittest.TestCase):
                 "phase": {"type": "string", "enum": ["policy", "output"]},
             }},
         }}}
+        document['components']['schemas']['ConversationDocument'] = {'properties': {'output': {'$ref': '#/components/schemas/ConversationProcessingOutputReceipt'}}}
         values = union_discriminator_values(document)
         self.assertEqual({"ConversationProcessingOutputReceiptOneOf": [
             ("kind", ["failed", "unknown_outcome"], True)
@@ -166,6 +171,7 @@ class PatchGeneratedConstValidationTest(unittest.TestCase):
                 "kind": {"type": "string", "enum": ["failed", "unknown_outcome"]},
             }, "required": ["kind"]},
         }}}
+        document['components']['schemas']['ConversationDocument'] = {'properties': {'output': {'$ref': '#/components/schemas/ConversationProcessingOutputReceipt'}}}
         self.assertEqual({"SharedOutput": [("kind", ["failed", "unknown_outcome"], True)]},
                          union_discriminator_values(document))
 
@@ -184,6 +190,7 @@ class PatchGeneratedConstValidationTest(unittest.TestCase):
                 "status": {"type": "string", "enum": ["exclude", "replace_with_compaction"]},
             }, "required": ["kind", "status"]},
         }}}
+        document['components']['schemas']['ConversationDocument'] = {'properties': {'output': {'$ref': '#/components/schemas/ConversationProcessingOutputReceipt'}}}
         with self.assertRaisesRegex(ValueError, "Conflicting discriminator enum in shared model"):
             union_discriminator_values(document)
 
@@ -194,6 +201,7 @@ class PatchGeneratedConstValidationTest(unittest.TestCase):
                 "oneOf": [{"properties": {"kind": {"enum": ["failed", "unknown_outcome"]}}}],
             },
         }}}
+        document['components']['schemas']['ConversationDocument'] = {'properties': {'output': {'$ref': '#/components/schemas/ConversationProcessingOutputReceipt'}}}
         with self.assertRaisesRegex(ValueError, "discriminator must be required"):
             union_discriminator_values(document)
 
@@ -237,6 +245,66 @@ public class Example {
         self.assertIn('!"100% say \\"hello\\"".equals', patched)
         self.assertIn('equal `100% say \\"hello\\"`', patched)
         self.assertNotIn("String.format", patched)
+
+    def test_numeric_and_boolean_constants_use_exact_primitive_types(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "Example.java"
+            path.write_text("        JsonObject jsonObj = jsonElement.getAsJsonObject();\n")
+            patch_model(path, [("version", 2, True), ("enabled", False, True)])
+            source = path.read_text()
+            self.assertIn("isNumber()", source)
+            self.assertIn('new java.math.BigDecimal("2").compareTo', source)
+            self.assertIn("isBoolean()", source)
+            self.assertNotIn("getAsDouble", source)
+
+    def test_nested_union_adapter_uses_exact_child_factory_and_is_idempotent(self):
+        schemas = {"Child": {"oneOf": [{"type": "string"}, {"type": "number"}]},
+                   "Second": {"anyOf": [{"type": "string"}, {"type": "boolean"}]},
+                   "Plain": {"type": "object"}}
+        parent = {"anyOf": [{"$ref": "#/components/schemas/Child"},
+                             {"$ref": "#/components/schemas/Second"},
+                             {"$ref": "#/components/schemas/Plain"}]}
+        source = "\n".join(f"gson.getDelegateAdapter(this, TypeToken.get({name}.class));"
+                           for name in schemas)
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "Parent.java"
+            path.write_text(source)
+            self.assertTrue(patch_nested_union_adapters(path, parent, schemas))
+            self.assertFalse(patch_nested_union_adapters(path, parent, schemas))
+            text = path.read_text()
+            for name in ("Child", "Second"):
+                self.assertIn(f"new {name}.CustomTypeAdapterFactory().create", text)
+            self.assertIn("gson.getDelegateAdapter(this, TypeToken.get(Plain.class))", text)
+            self.assertNotIn("setActualInstance", text)
+
+    def test_closed_object_and_primitive_reference_patterns_are_schema_derived(self):
+        schema = {"type": "object", "additionalProperties": False,
+                  "properties": {"pointer": {"$ref": "#/components/schemas/Pointer"}}}
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "Example.java"
+            path.write_text("        JsonObject jsonObj = jsonElement.getAsJsonObject();\n")
+            self.assertTrue(patch_canonical_shape(path, schema, {"Pointer": {"type": "string", "pattern": "^/$"}}))
+            self.assertFalse(patch_canonical_shape(path, schema, {}))
+            self.assertIn('java.util.Arrays.asList("pointer")', path.read_text())
+            self.assertIn('Pattern.compile("^/$")', path.read_text())
+
+    def test_inline_selector_literal_mappings_are_exact_and_idempotent(self):
+        schema = {"oneOf": [{"properties": {"kind": {"const": "a"}}, "required": ["kind"]},
+                            {"properties": {"kind": {"enum": ["b", "c"]}}, "required": ["kind"]}],
+                  "discriminator": {"propertyName": "kind"}}
+        document = {"components": {"schemas": {"ConversationContextChangeProposal": schema}}}
+        source = (".registerTypeSelector(io.vertesia.model.ConversationContextChangeProposal.class,\n"
+                  "return getClassByDiscriminator();")
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "JSON.java"
+            path.write_text(source)
+            self.assertEqual(1, patch_union_selectors(path, document))
+            self.assertEqual(0, patch_union_selectors(path, document))
+            self.assertIn('put("a", io.vertesia.model.ConversationContextChangeProposalOneOf.class)', path.read_text())
+            self.assertIn('put("c", io.vertesia.model.ConversationContextChangeProposalOneOf1.class)', path.read_text())
+            schema['oneOf'][1]['properties']['kind']['enum'].append('a')
+            with self.assertRaisesRegex(ValueError, "Ambiguous"):
+                patch_union_selectors(path, document)
 
 
 if __name__ == "__main__":

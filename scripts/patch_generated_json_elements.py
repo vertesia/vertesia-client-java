@@ -22,6 +22,10 @@ PACKAGE_ROOT = pathlib.Path("src/main/java/io/vertesia")
 MODEL_ROOT = PACKAGE_ROOT / "model"
 SPEC_PATH = pathlib.Path("spec/vertesia-openapi.json")
 CANONICAL_ROOT_SCHEMAS = (
+    "ConversationDocument",
+    "ConversationChange",
+    "ConversationContextChangeRequest",
+    "ConversationContextChangeProposal",
     "RunConversationResponse",
     "ExperimentalCanonicalUserMessagePayload",
     "ExperimentalCanonicalToolResultsPayload",
@@ -164,11 +168,13 @@ def generated_inline_models(document: Mapping[str, object], root: str) -> dict[s
             return
         found[model_name] = schema
 
-        one_of = schema.get("oneOf")
-        if isinstance(one_of, list):
-            for index, branch in enumerate(one_of):
+        for keyword, generated_suffix in (("oneOf", "OneOf"), ("anyOf", "AnyOf")):
+            branches = schema.get(keyword)
+            if not isinstance(branches, list):
+                continue
+            for index, branch in enumerate(branches):
                 if not isinstance(branch, Mapping):
-                    raise ValueError(f"{model_name} oneOf branch {index} is not an object")
+                    raise ValueError(f"{model_name} {keyword} branch {index} is not an object")
                 reference = branch.get("$ref")
                 if isinstance(reference, str) and reference.startswith("#/components/schemas/"):
                     referenced_name = reference.rsplit("/", 1)[-1]
@@ -177,7 +183,11 @@ def generated_inline_models(document: Mapping[str, object], root: str) -> dict[s
                         visit(referenced_name, referenced_schema)
                 else:
                     suffix = str(index) if index else ""
-                    visit(f"{model_name}OneOf{suffix}", branch)
+                    visit(f"{model_name}{generated_suffix}{suffix}", branch)
+
+        additional = schema.get("additionalProperties")
+        if isinstance(additional, Mapping):
+            visit_property(f"{model_name}Value", additional)
 
         properties = schema.get("properties")
         if isinstance(properties, Mapping):
@@ -193,15 +203,33 @@ def generated_inline_models(document: Mapping[str, object], root: str) -> dict[s
             referenced_schema = schemas.get(referenced_name)
             if isinstance(referenced_schema, Mapping):
                 visit(referenced_name, referenced_schema)
+        elif isinstance(schema.get("additionalProperties"), Mapping):
+            visit_property(f"{model_name}Value", schema["additionalProperties"])
         elif schema.get("type") == "array":
             items = schema.get("items")
             if isinstance(items, Mapping):
                 visit_property(f"{model_name}Inner", items)
-        elif isinstance(schema.get("properties"), Mapping) or isinstance(schema.get("oneOf"), list):
+        elif (isinstance(schema.get("properties"), Mapping)
+              or isinstance(schema.get("oneOf"), list) or isinstance(schema.get("anyOf"), list)):
             visit(model_name, schema)
 
     visit(root, root_schema)
     return found
+
+
+def canonical_model_schemas(document: Mapping[str, object]) -> dict[str, Mapping[str, object]]:
+    """Named and inline generated models in the explicit canonical reference closure."""
+    schemas = document.get("components", {}).get("schemas", {})
+    if not isinstance(schemas, Mapping):
+        return {}
+    roots = set(CANONICAL_ROOT_SCHEMAS)
+    result: dict[str, Mapping[str, object]] = {}
+    for root in sorted(roots):
+        for name, schema in generated_inline_models(document, root).items():
+            if name in result and result[name] != schema:
+                raise ValueError(f"Conflicting canonical generated model {name}")
+            result[name] = schema
+    return result
 
 
 def required_nullable_fields(schema: Mapping[str, object]) -> set[str]:
@@ -381,13 +409,8 @@ def main() -> None:
     paths = list(MODEL_ROOT.glob("*.java"))
     changed_fields = sum(patch_model(path) for path in paths)
     document = json.loads(SPEC_PATH.read_text())
-    canonical_schemas: set[str] = set()
-    model_schemas = dict(document.get("components", {}).get("schemas", {}))
-    for root in CANONICAL_ROOT_SCHEMAS:
-        canonical_schemas.update(referenced_schemas(document, root))
-        inline = generated_inline_models(document, root)
-        canonical_schemas.update(inline)
-        model_schemas.update(inline)
+    model_schemas = canonical_model_schemas(document)
+    canonical_schemas = set(model_schemas)
     simple_writers = 0
     union_writers = 0
     nullable_containers = 0
