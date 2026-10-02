@@ -29,6 +29,23 @@ from patch_generated_json_elements import (
 
 
 class PatchGeneratedJsonElementsTest(unittest.TestCase):
+    def test_asset_publication_keeps_its_json_metadata_in_the_canonical_closure(self) -> None:
+        document = {"components": {"schemas": {
+            "ExperimentalPublishAgentAssetPayload": {"type": "object", "properties": {
+                "operation_id": {"type": "string"}}},
+            "ExperimentalAgentAssetPublication": {"type": "object", "properties": {
+                "asset": {"$ref": "#/components/schemas/ExperimentalPublishedAgentAsset"}}},
+            "ExperimentalPublishedAgentAsset": {"type": "object", "properties": {
+                "metadata": {"$ref": "#/components/schemas/ConversationJsonObject"}}},
+            "ConversationJsonObject": {"type": "object", "additionalProperties": True},
+            "UnrelatedLegacyAsset": {"type": "object"},
+        }}}
+        models = canonical_model_schemas(document)
+        self.assertEqual({
+            "ExperimentalPublishAgentAssetPayload", "ExperimentalAgentAssetPublication",
+            "ExperimentalPublishedAgentAsset", "ConversationJsonObject",
+        }, set(models))
+
     def test_optional_nullability_resolves_refs_unions_and_free_json_without_changing_requiredness(self) -> None:
         document = {"components": {"schemas": {
             "Measurement": {"type": "object", "properties": {"tokens": {"type": "integer"}}},

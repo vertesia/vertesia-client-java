@@ -29,6 +29,8 @@ CANONICAL_ROOT_SCHEMAS = (
     "RunConversationResponse",
     "ExperimentalCanonicalUserMessagePayload",
     "ExperimentalCanonicalToolResultsPayload",
+    "ExperimentalPublishAgentAssetPayload",
+    "ExperimentalAgentAssetPublication",
     "ExperimentalCanonicalInteractionExecutionRequest",
     "ExperimentalCanonicalNamedInteractionExecutionRequest",
     "AppendRunConversationProgramTurnPayload",
