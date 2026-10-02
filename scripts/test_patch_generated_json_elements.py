@@ -46,6 +46,42 @@ class PatchGeneratedJsonElementsTest(unittest.TestCase):
             "ExperimentalPublishedAgentAsset", "ConversationJsonObject",
         }, set(models))
 
+    def test_extraction_closure_preserves_nested_publication_json_through_derivation_and_union(self) -> None:
+        document = {"components": {"schemas": {
+            "ExperimentalExtractAgentAssetPayload": {"type": "object", "properties": {
+                "transform": {"const": "document_text/v1"}}},
+            "ExperimentalAgentAssetExtraction": {"oneOf": [
+                {"$ref": "#/components/schemas/ExperimentalAgentAssetExtractionAvailable"},
+                {"$ref": "#/components/schemas/ExperimentalAgentAssetExtractionPending"}]},
+            "ExperimentalAgentAssetExtractionAvailable": {"type": "object", "properties": {
+                "derivation": {"$ref": "#/components/schemas/ExperimentalAgentAssetDerivation"}}},
+            "ExperimentalAgentAssetExtractionPending": {"type": "object"},
+            "ExperimentalAgentAssetDerivation": {"type": "object", "properties": {
+                "output": {"$ref": "#/components/schemas/ExperimentalAgentAssetPublication"}}},
+            "ExperimentalAgentAssetPublication": {"type": "object", "properties": {
+                "asset": {"$ref": "#/components/schemas/ExperimentalPublishedAgentAsset"}}},
+            "ExperimentalPublishedAgentAsset": {"type": "object", "properties": {
+                "metadata": {"$ref": "#/components/schemas/ConversationJsonObject"}}},
+            "ConversationJsonObject": {"type": "object", "additionalProperties": True},
+            "UnrelatedLegacyAsset": {"type": "object"},
+        }}}
+        models = canonical_model_schemas(document)
+        self.assertEqual(set(document["components"]["schemas"]) - {"UnrelatedLegacyAsset"}, set(models))
+        source = """public void write(JsonWriter out, ExperimentalAgentAssetDerivation value) {
+            JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
+            obj.remove("additionalProperties");
+            if (value.getAdditionalProperties() != null) { /* generated flattening */ }
+            elementAdapter.write(out, obj);
+        }
+        """
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "ExperimentalAgentAssetDerivation.java"
+            path.write_text(source)
+            self.assertEqual((1, 0), patch_streaming_writers(path))
+            self.assertEqual((0, 0), patch_streaming_writers(path))
+            self.assertIn("out.setSerializeNulls(true)", path.read_text())
+            self.assertIn("out.setSerializeNulls(canonicalSerializeNulls)", path.read_text())
+
     def test_optional_nullability_resolves_refs_unions_and_free_json_without_changing_requiredness(self) -> None:
         document = {"components": {"schemas": {
             "Measurement": {"type": "object", "properties": {"tokens": {"type": "integer"}}},
