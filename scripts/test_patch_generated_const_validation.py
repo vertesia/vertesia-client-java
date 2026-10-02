@@ -12,6 +12,7 @@ from patch_generated_const_validation import (
     const_model_schemas,
     patch_model,
     string_constants,
+    union_discriminator_values,
 )
 
 
@@ -98,6 +99,103 @@ class PatchGeneratedConstValidationTest(unittest.TestCase):
             [("canonical_output_reference", "conversation_output_authority_v1", True)],
             string_constants(models[tool_root + "AsyncCompletion"]),
         )
+
+    def test_discovers_edit_and_processing_union_constants(self) -> None:
+        branches = {
+            "ConversationEditAnchor": ("before_entry", "after_entry", "head", "tail"),
+            "ConversationEditOperation": ("protect", "insert", "replace"),
+            "ConversationAcceptedToolSelection": ("unchanged", "replace"),
+            "ConversationContextChangeProposal": ("exclude", "replace_with_compaction"),
+            "ConversationProcessingJobSelection": ("entries", "predecessor_output"),
+            "ConversationProcessingOutputReceipt": ("proposal", "no_op", "failed", "unknown_outcome"),
+        }
+        schemas = {
+            name: {"oneOf": [
+                {"properties": {"kind": {"type": "string", "const": kind}}, "required": ["kind"]}
+                for kind in kinds
+            ]}
+            for name, kinds in branches.items()
+        }
+        models = const_model_schemas({"components": {"schemas": schemas}})
+        for name, kinds in branches.items():
+            for index, kind in enumerate(kinds):
+                with self.subTest(component=name, kind=kind):
+                    generated_name = name + "OneOf" + (str(index) if index else "")
+                    self.assertEqual([("kind", kind, True)], string_constants(models[generated_name]))
+
+    def test_union_discriminator_enum_is_exact_but_ordinary_enum_is_not(self) -> None:
+        document = {"components": {"schemas": {
+            "ConversationProcessingOutputReceipt": {
+                "discriminator": {"propertyName": "kind"},
+                "oneOf": [{"properties": {
+                    "kind": {"type": "string", "enum": ["failed", "unknown_outcome"]},
+                    "phase": {"type": "string", "enum": ["policy", "output"]},
+                }, "required": ["kind"]}],
+            },
+            "ConversationProcessingOperation": {"properties": {
+                "phase": {"type": "string", "enum": ["policy", "output"]},
+            }},
+        }}}
+        values = union_discriminator_values(document)
+        self.assertEqual({"ConversationProcessingOutputReceiptOneOf": [
+            ("kind", ["failed", "unknown_outcome"], True)
+        ]}, values)
+        source = (
+            "public static void validateJsonElement(JsonElement jsonElement) {\n"
+            "        JsonObject jsonObj = jsonElement.getAsJsonObject();\n}\n"
+        )
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "Example.java"
+            path.write_text(source)
+            self.assertTrue(patch_model(path, [], values["ConversationProcessingOutputReceiptOneOf"]))
+            self.assertFalse(patch_model(path, [], values["ConversationProcessingOutputReceiptOneOf"]))
+            patched = path.read_text()
+        self.assertIn('!"failed".equals(jsonObj.get("kind").getAsString())', patched)
+        self.assertIn('!"unknown_outcome".equals(jsonObj.get("kind").getAsString())', patched)
+        self.assertNotIn('jsonObj.get("phase")', patched)
+
+    def test_referenced_union_branch_reuses_exact_shared_values(self) -> None:
+        union = {
+            "discriminator": {"propertyName": "kind"},
+            "oneOf": [{"$ref": "#/components/schemas/SharedOutput"}],
+        }
+        document = {"components": {"schemas": {
+            "ConversationProcessingOutputReceipt": union,
+            "ConversationContextChangeProposal": union,
+            "SharedOutput": {"properties": {
+                "kind": {"type": "string", "enum": ["failed", "unknown_outcome"]},
+            }, "required": ["kind"]},
+        }}}
+        self.assertEqual({"SharedOutput": [("kind", ["failed", "unknown_outcome"], True)]},
+                         union_discriminator_values(document))
+
+    def test_referenced_shared_model_conflict_fails_closed(self) -> None:
+        document = {"components": {"schemas": {
+            "ConversationProcessingOutputReceipt": {
+                "discriminator": {"propertyName": "kind"},
+                "oneOf": [{"$ref": "#/components/schemas/SharedOutput"}],
+            },
+            "ConversationContextChangeProposal": {
+                "discriminator": {"propertyName": "status"},
+                "oneOf": [{"$ref": "#/components/schemas/SharedOutput"}],
+            },
+            "SharedOutput": {"properties": {
+                "kind": {"type": "string", "enum": ["failed", "unknown_outcome"]},
+                "status": {"type": "string", "enum": ["exclude", "replace_with_compaction"]},
+            }, "required": ["kind", "status"]},
+        }}}
+        with self.assertRaisesRegex(ValueError, "Conflicting discriminator enum in shared model"):
+            union_discriminator_values(document)
+
+    def test_rejects_optional_discriminator_provenance(self) -> None:
+        document = {"components": {"schemas": {
+            "ConversationProcessingOutputReceipt": {
+                "discriminator": {"propertyName": "kind"},
+                "oneOf": [{"properties": {"kind": {"enum": ["failed", "unknown_outcome"]}}}],
+            },
+        }}}
+        with self.assertRaisesRegex(ValueError, "discriminator must be required"):
+            union_discriminator_values(document)
 
     def test_injects_exact_check_idempotently(self) -> None:
         source = """\

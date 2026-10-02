@@ -5,8 +5,8 @@
 generator also represents string ``const`` properties as enums. Its generated
 validator accepts the synthetic unknown value for those properties, which can
 make several discriminated-union branches match the same payload. Inject an
-exact check into object-model validators while retaining unknown-enum handling
-for fields that are not constants.
+exact check into object-model validators and parent-union discriminator enums,
+while retaining unknown-enum handling for ordinary enum fields.
 """
 
 from __future__ import annotations
@@ -28,6 +28,12 @@ INLINE_CONST_ROOT_SCHEMAS = (
     "AppendRunConversationProgramTurnPayload",
     "ImportAgentRunConversationArchivePayload",
     "ImportAgentRunConversationArchiveResponse",
+    "ConversationEditAnchor",
+    "ConversationEditOperation",
+    "ConversationAcceptedToolSelection",
+    "ConversationContextChangeProposal",
+    "ConversationProcessingJobSelection",
+    "ConversationProcessingOutputReceipt",
 )
 
 
@@ -60,7 +66,52 @@ def const_model_schemas(document: Mapping[str, object]) -> dict[str, Mapping[str
     return model_schemas
 
 
-def patch_model(path: pathlib.Path, constants: list[tuple[str, str, bool]]) -> bool:
+def union_discriminator_values(document: Mapping[str, object]) -> dict[str, list[tuple[str, list[str], bool]]]:
+    """Only union branch discriminator enums are exact; ordinary enums stay forward compatible."""
+    schemas = document.get("components", {}).get("schemas", {})
+    result: dict[str, list[tuple[str, list[str], bool]]] = {}
+    for root in INLINE_CONST_ROOT_SCHEMAS:
+        schema = schemas.get(root)
+        if not isinstance(schema, Mapping):
+            continue
+        discriminator = schema.get("discriminator")
+        if not isinstance(discriminator, Mapping):
+            continue
+        field = discriminator.get("propertyName")
+        branches = schema.get("oneOf")
+        if not isinstance(field, str) or not isinstance(branches, list):
+            continue
+        for index, branch in enumerate(branches):
+            if not isinstance(branch, Mapping):
+                raise ValueError(f"Invalid discriminator branch {root} {index}")
+            reference = branch.get("$ref")
+            if isinstance(reference, str):
+                name = reference.rsplit("/", 1)[-1]
+                branch = schemas.get(name)
+            else:
+                name = root + "OneOf" + (str(index) if index else "")
+            if not isinstance(branch, Mapping):
+                raise ValueError(f"Missing discriminator branch {root} {index}")
+            property_schema = branch.get("properties", {}).get(field)
+            if not isinstance(property_schema, Mapping) or "enum" not in property_schema:
+                continue
+            allowed = property_schema["enum"]
+            if not isinstance(allowed, list) or not allowed or not all(isinstance(value, str) for value in allowed):
+                raise ValueError(f"Invalid discriminator enum {name}.{field}")
+            if field not in branch.get("required", []):
+                raise ValueError(f"Union discriminator must be required: {name}.{field}")
+            values = [(field, allowed, True)]
+            if name in result and result[name] != values:
+                raise ValueError(f"Conflicting discriminator enum in shared model {name}")
+            result[name] = values
+    return result
+
+
+def patch_model(
+    path: pathlib.Path,
+    constants: list[tuple[str, str, bool]],
+    discriminator_values: list[tuple[str, list[str], bool]] | None = None,
+) -> bool:
     source = path.read_text()
     if MARKER in source:
         return False
@@ -96,6 +147,26 @@ def patch_model(path: pathlib.Path, constants: list[tuple[str, str, bool]]) -> b
                 "        }\n",
             ]
         )
+    for field, allowed, required in discriminator_values or []:
+        literal = json.dumps(field)
+        alternatives = " && ".join(
+            f"!{json.dumps(value)}.equals(jsonObj.get({literal}).getAsString())"
+            for value in allowed
+        )
+        invalid = (
+            f"(!jsonObj.get({literal}).isJsonPrimitive() || "
+            f"!jsonObj.get({literal}).getAsJsonPrimitive().isString() || ({alternatives}))"
+        )
+        condition = (
+            f"jsonObj.get({literal}) == null || {invalid}"
+            if required
+            else f"jsonObj.get({literal}) != null && {invalid}"
+        )
+        checks.extend([
+            f"        if ({condition}) {{\n",
+            f"            throw new IllegalArgumentException({json.dumps('Unknown union discriminator ' + field)});\n",
+            "        }\n",
+        ])
     source = source.replace(JSON_OBJECT_DECLARATION, JSON_OBJECT_DECLARATION + "".join(checks), 1)
     path.write_text(source)
     return True
@@ -104,10 +175,12 @@ def patch_model(path: pathlib.Path, constants: list[tuple[str, str, bool]]) -> b
 def main() -> None:
     document = json.loads(SPEC_PATH.read_text())
     changed = 0
+    discriminator_models = union_discriminator_values(document)
     for schema_name, schema in const_model_schemas(document).items():
         constants = string_constants(schema)
         path = MODEL_ROOT / f"{schema_name}.java"
-        if constants and path.is_file() and patch_model(path, constants):
+        discriminators = discriminator_models.get(schema_name, [])
+        if (constants or discriminators) and path.is_file() and patch_model(path, constants, discriminators):
             changed += 1
     print(f"Patched exact const validation in {changed} generated Java model files.")
 
