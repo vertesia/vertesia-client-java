@@ -33,6 +33,8 @@ CANONICAL_ROOT_SCHEMAS = (
     "ExperimentalAgentAssetPublication",
     "ExperimentalExtractAgentAssetPayload",
     "ExperimentalAgentAssetExtraction",
+    "ExperimentalClaimAgentAssetExtractionPayload",
+    "ExperimentalAgentAssetExtractionClaim",
     "ExperimentalCanonicalInteractionExecutionRequest",
     "ExperimentalCanonicalNamedInteractionExecutionRequest",
     "AppendRunConversationProgramTurnPayload",

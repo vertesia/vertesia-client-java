@@ -82,6 +82,23 @@ class PatchGeneratedJsonElementsTest(unittest.TestCase):
             self.assertIn("out.setSerializeNulls(true)", path.read_text())
             self.assertIn("out.setSerializeNulls(canonicalSerializeNulls)", path.read_text())
 
+    def test_standalone_extraction_claim_roots_are_strict_without_reaching_legacy_models(self) -> None:
+        roots = ("ExperimentalClaimAgentAssetExtractionPayload", "ExperimentalAgentAssetExtractionClaim")
+        schemas = {
+            roots[0]: {"type": "object", "additionalProperties": False,
+                       "properties": {"expected_run_id": {"type": "string"}}, "required": ["expected_run_id"]},
+            roots[1]: {"type": "object", "additionalProperties": False,
+                       "properties": {"api_version": {"const": "=20260930"},
+                                      "run_id": {"type": "string"}}, "required": ["api_version", "run_id"]},
+            "UnrelatedLegacyClaim": {"type": "object", "properties": {"run_id": {"type": "string"}}},
+        }
+        document = {"components": {"schemas": schemas}}
+        models = canonical_model_schemas(document)
+        self.assertEqual(set(roots), set(models))
+        for root in roots:
+            self.assertIn(root, CANONICAL_ROOT_SCHEMAS)
+            self.assertEqual(set(), optional_nonnullable_fields(models[root], document))
+
     def test_optional_nullability_resolves_refs_unions_and_free_json_without_changing_requiredness(self) -> None:
         document = {"components": {"schemas": {
             "Measurement": {"type": "object", "properties": {"tokens": {"type": "integer"}}},
