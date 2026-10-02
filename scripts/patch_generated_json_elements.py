@@ -259,6 +259,96 @@ def required_nullable_fields(schema: Mapping[str, object]) -> set[str]:
     return fields
 
 
+def schema_accepts_null(
+    schema: object,
+    components: Mapping[str, object],
+    visiting: frozenset[str] = frozenset(),
+) -> bool:
+    """Evaluate the literal JSON null against schema constraints; unresolved cycles stay permissive."""
+    if isinstance(schema, bool):
+        return schema
+    if not isinstance(schema, Mapping):
+        raise ValueError("Nullability requires a schema object or boolean")
+    if schema.get("nullable") is True:
+        return True
+    types = schema.get("type")
+    if isinstance(types, str) and types != "null":
+        return False
+    if isinstance(types, list) and "null" not in types:
+        return False
+    if "const" in schema and schema["const"] is not None:
+        return False
+    values = schema.get("enum")
+    if isinstance(values, list) and None not in values:
+        return False
+    reference = schema.get("$ref")
+    if isinstance(reference, str) and reference.startswith("#/components/schemas/"):
+        name = reference.rsplit("/", 1)[-1]
+        if name not in components:
+            raise ValueError(f"Missing nullable schema reference {reference}")
+        if name not in visiting and not schema_accepts_null(components[name], components, visiting | {name}):
+            return False
+    for keyword in ("allOf", "anyOf", "oneOf"):
+        branches = schema.get(keyword)
+        if not isinstance(branches, list):
+            continue
+        accepted = [schema_accepts_null(branch, components, visiting) for branch in branches]
+        if keyword == "allOf" and not all(accepted):
+            return False
+        if keyword == "anyOf" and not any(accepted):
+            return False
+        if keyword == "oneOf" and sum(accepted) != 1:
+            return False
+    return True
+
+
+def optional_nonnullable_fields(schema: Mapping[str, object], document: Mapping[str, object]) -> set[str]:
+    properties = schema.get("properties", {})
+    required = schema.get("required", [])
+    components = document.get("components", {}).get("schemas", {})
+    if not isinstance(properties, Mapping) or not isinstance(required, list) or not isinstance(components, Mapping):
+        return set()
+    return {
+        name for name, value in properties.items()
+        if isinstance(name, str) and name not in required and not schema_accepts_null(value, components)
+    }
+
+
+def patch_optional_nonnullable_fields(path: pathlib.Path, fields: set[str]) -> int:
+    """Reject present null without changing optional absence or nullable decoding."""
+    if not fields:
+        return 0
+    source = path.read_text()
+    start = source.find("public static void validateJsonElement(")
+    if start < 0:
+        raise ValueError(f"Missing canonical static validator in {path}")
+    adapter = re.search(r"\n\s*public static class CustomTypeAdapterFactory", source[start:])
+    if adapter is None:
+        raise ValueError(f"Missing canonical adapter boundary in {path}")
+    end = start + adapter.start()
+    validator = source[start:end]
+    anchor = "JsonObject jsonObj = jsonElement.getAsJsonObject();"
+    if validator.count(anchor) != 1:
+        raise ValueError(f"Expected one canonical optional-null anchor in {path}")
+    marker = "// Reject explicit null on schema-optional nonnullable canonical fields."
+    guards = []
+    for field in sorted(fields):
+        literal = json.dumps(field)
+        message = json.dumps(f"Field `{field}` must be omitted or non-null")
+        guards.append(
+            f"\n      if (jsonObj.has({literal}) && jsonObj.get({literal}).isJsonNull()) {{\n"
+            f"        throw new IllegalArgumentException({message});\n      }}"
+        )
+    if marker in validator:
+        normalized = re.sub(r"\s+", "", validator)
+        if any(re.sub(r"\s+", "", guard) not in normalized for guard in guards):
+            raise ValueError(f"Conflicting canonical optional-null guards in {path}")
+        return 0
+    injected = "\n      " + marker + "".join(guards)
+    path.write_text(source[:start] + validator.replace(anchor, anchor + injected) + source[end:])
+    return len(fields)
+
+
 def patch_required_nullable_fields(path: pathlib.Path, fields: set[str]) -> int:
     """Preserve explicit null only for schema-required nullable properties."""
     if not fields:
@@ -416,11 +506,15 @@ def main() -> None:
     nullable_containers = 0
     object_guards = 0
     required_nulls = 0
+    optional_null_guards = 0
     for schema_name in canonical_schemas:
         path = MODEL_ROOT / f"{schema_name}.java"
         if path.is_file():
             required_nulls += patch_required_nullable_fields(
                 path, required_nullable_fields(model_schemas.get(schema_name, {}))
+            )
+            optional_null_guards += patch_optional_nonnullable_fields(
+                path, optional_nonnullable_fields(model_schemas[schema_name], document)
             )
             nullable_containers += patch_nullable_container_defaults(path)
             object_guards += patch_mapped_object_validation(path, mapped_object_fields(document, schema_name))
@@ -430,7 +524,8 @@ def main() -> None:
     print(
         "Configured null-preserving adapters on "
         f"{changed_fields} generated JsonElement fields/maps; cleared {nullable_containers} optional container defaults "
-        f"and preserved {required_nulls} required nullable fields; added {object_guards} mapped-object root guards; "
+        f"and preserved {required_nulls} required nullable fields; rejected null on {optional_null_guards} "
+        f"optional nonnullable fields; added {object_guards} mapped-object root guards; "
         f"streamed {simple_writers} object and "
         f"{union_writers} union writers in the canonical contract closure."
     )

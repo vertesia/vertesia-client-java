@@ -19,6 +19,9 @@ from patch_generated_json_elements import (
     patch_mapped_object_validation,
     patch_model,
     patch_required_nullable_fields,
+    optional_nonnullable_fields,
+    patch_optional_nonnullable_fields,
+    schema_accepts_null,
     patch_streaming_writers,
     referenced_schemas,
     required_nullable_fields,
@@ -26,6 +29,70 @@ from patch_generated_json_elements import (
 
 
 class PatchGeneratedJsonElementsTest(unittest.TestCase):
+    def test_optional_nullability_resolves_refs_unions_and_free_json_without_changing_requiredness(self) -> None:
+        document = {"components": {"schemas": {
+            "Measurement": {"type": "object", "properties": {"tokens": {"type": "integer"}}},
+            "FreeJson": {"oneOf": [{"type": "null"}, {"type": "object"}, {"type": "string"}]},
+            "Cycle": {"$ref": "#/components/schemas/Cycle"},
+        }}}
+        schema = {"properties": {
+            "measurement": {"$ref": "#/components/schemas/Measurement"},
+            "nullable": {"anyOf": [{"$ref": "#/components/schemas/Measurement"}, {"type": "null"}]},
+            "effort": {"type": ["string", "null"]},
+            "free": {"$ref": "#/components/schemas/FreeJson"},
+            "unconstrained": {},
+            "cycle": {"$ref": "#/components/schemas/Cycle"},
+            "required": {"type": "string"},
+        }, "required": ["required"]}
+        self.assertEqual({"measurement"}, optional_nonnullable_fields(schema, document))
+        components = document["components"]["schemas"]
+        self.assertFalse(schema_accepts_null({"allOf": [{}, {"type": "string"}]}, components))
+        self.assertTrue(schema_accepts_null({"oneOf": [{"type": "null"}, {"type": "string"}]}, components))
+        self.assertFalse(schema_accepts_null({"oneOf": [{}, {"type": "null"}]}, components))
+        self.assertTrue(schema_accepts_null({"enum": [None, "ordinary"]}, components))
+        self.assertFalse(schema_accepts_null({"enum": ["ordinary"]}, components))
+        self.assertTrue(schema_accepts_null({"type": "string", "nullable": True}, components))
+        with self.assertRaisesRegex(ValueError, "Missing nullable schema"):
+            schema_accepts_null({"$ref": "#/components/schemas/Missing"}, components)
+
+    def test_canonical_closed_ref_backed_optional_model_is_scoped_away_from_legacy(self) -> None:
+        measurement = {"type": "object", "additionalProperties": False,
+                       "properties": {"input_tokens": {"type": "integer"}}, "required": ["input_tokens"]}
+        leaf = {"type": "object", "additionalProperties": False, "required": ["kind"],
+                "properties": {"kind": {"const": "json_minification_no_op"},
+                               "measurement": {"$ref": "#/components/schemas/ConversationJsonMinificationMeasurement"}}}
+        document = {"components": {"schemas": {
+            "ConversationDocument": {"type": "object", "properties": {
+                "output": {"$ref": "#/components/schemas/ConversationProcessingOutputReceipt"}}},
+            "ConversationProcessingOutputReceipt": {"oneOf": [leaf]},
+            "ConversationJsonMinificationMeasurement": measurement,
+            "UnrelatedLegacyObject": {"type": "object", "properties": {"value": {"type": "string"}}},
+        }}}
+        models = canonical_model_schemas(document)
+        self.assertNotIn("UnrelatedLegacyObject", models)
+        self.assertEqual({"measurement"}, optional_nonnullable_fields(
+            models["ConversationProcessingOutputReceiptOneOf"], document))
+
+    def test_optional_nonnullable_patch_checks_presence_and_is_repeatable_after_formatting(self) -> None:
+        source = """public static void validateJsonElement(JsonElement jsonElement) {
+            JsonObject jsonObj = jsonElement.getAsJsonObject();
+        }
+        public static class CustomTypeAdapterFactory { }
+        """
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / "Canonical.java"
+            path.write_text(source)
+            self.assertEqual(1, patch_optional_nonnullable_fields(path, {"measurement"}))
+            patched = path.read_text()
+            self.assertIn('jsonObj.has("measurement") && jsonObj.get("measurement").isJsonNull()', patched)
+            self.assertEqual(0, patch_optional_nonnullable_fields(path, {"measurement"}))
+            path.write_text(patched.replace(' && ', ' &&\n        '))
+            self.assertEqual(0, patch_optional_nonnullable_fields(path, {"measurement"}))
+            self.assertEqual(1, path.read_text().count("Reject explicit null"))
+            with self.assertRaisesRegex(ValueError, "Conflicting"):
+                patch_optional_nonnullable_fields(path, {"measurement", "other"})
+            self.assertEqual(0, patch_optional_nonnullable_fields(path, set()))
+
     def test_required_nullable_fields_are_schema_derived(self) -> None:
         self.assertEqual({"model", "version"}, required_nullable_fields({
             "properties": {
