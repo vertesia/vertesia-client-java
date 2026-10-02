@@ -17,6 +17,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
@@ -37,6 +38,77 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AgentBudgetConfiguration {
+    /**
+     * Run budget mode. An omitted mode preserves weighted-token budgeting.
+     */
+    @JsonAdapter(ModeEnum.Adapter.class)
+    public enum ModeEnum {
+        TOKEN("token"),
+
+        DOLLAR("dollar"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        ModeEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static ModeEnum fromValue(String value) {
+            for (ModeEnum b : ModeEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<ModeEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final ModeEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public ModeEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return ModeEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            ModeEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_MODE = "mode";
+
+    @SerializedName(SERIALIZED_NAME_MODE)
+    @jakarta.annotation.Nullable private ModeEnum mode;
+
+    public static final String SERIALIZED_NAME_LIMIT_USD = "limit_usd";
+
+    @SerializedName(SERIALIZED_NAME_LIMIT_USD)
+    @jakarta.annotation.Nullable private BigDecimal limitUsd;
+
+    public static final String SERIALIZED_NAME_REMINDER_AT_REMAINING_FRACTIONS =
+            "reminder_at_remaining_fractions";
+
+    @SerializedName(SERIALIZED_NAME_REMINDER_AT_REMAINING_FRACTIONS)
+    @jakarta.annotation.Nullable private List<BigDecimal> reminderAtRemainingFractions = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_LIMIT_TOKENS = "limit_tokens";
 
     @SerializedName(SERIALIZED_NAME_LIMIT_TOKENS)
@@ -65,6 +137,70 @@ public class AgentBudgetConfiguration {
     @jakarta.annotation.Nullable private BigDecimal cachedInputTokenWeight;
 
     public AgentBudgetConfiguration() {}
+
+    public AgentBudgetConfiguration mode(@jakarta.annotation.Nullable ModeEnum mode) {
+        this.mode = mode;
+        return this;
+    }
+
+    /**
+     * Run budget mode. An omitted mode preserves weighted-token budgeting.
+     * @return mode
+     */
+    @jakarta.annotation.Nullable public ModeEnum getMode() {
+        return mode;
+    }
+
+    public void setMode(@jakarta.annotation.Nullable ModeEnum mode) {
+        this.mode = mode;
+    }
+
+    public AgentBudgetConfiguration limitUsd(@jakarta.annotation.Nullable BigDecimal limitUsd) {
+        this.limitUsd = limitUsd;
+        return this;
+    }
+
+    /**
+     * Soft USD allowance for priced model calls; dollar mode also requires limit_tokens for unpriced calls.
+     * minimum: 0
+     * maximum: 9007199.25474099
+     * @return limitUsd
+     */
+    @jakarta.annotation.Nullable public BigDecimal getLimitUsd() {
+        return limitUsd;
+    }
+
+    public void setLimitUsd(@jakarta.annotation.Nullable BigDecimal limitUsd) {
+        this.limitUsd = limitUsd;
+    }
+
+    public AgentBudgetConfiguration reminderAtRemainingFractions(
+            @jakarta.annotation.Nullable List<BigDecimal> reminderAtRemainingFractions) {
+        this.reminderAtRemainingFractions = reminderAtRemainingFractions;
+        return this;
+    }
+
+    public AgentBudgetConfiguration addReminderAtRemainingFractionsItem(
+            BigDecimal reminderAtRemainingFractionsItem) {
+        if (this.reminderAtRemainingFractions == null) {
+            this.reminderAtRemainingFractions = new ArrayList<>();
+        }
+        this.reminderAtRemainingFractions.add(reminderAtRemainingFractionsItem);
+        return this;
+    }
+
+    /**
+     * Get reminderAtRemainingFractions
+     * @return reminderAtRemainingFractions
+     */
+    @jakarta.annotation.Nullable public List<BigDecimal> getReminderAtRemainingFractions() {
+        return reminderAtRemainingFractions;
+    }
+
+    public void setReminderAtRemainingFractions(
+            @jakarta.annotation.Nullable List<BigDecimal> reminderAtRemainingFractions) {
+        this.reminderAtRemainingFractions = reminderAtRemainingFractions;
+    }
 
     public AgentBudgetConfiguration limitTokens(
             @jakarta.annotation.Nullable BigDecimal limitTokens) {
@@ -179,7 +315,12 @@ public class AgentBudgetConfiguration {
             return false;
         }
         AgentBudgetConfiguration agentBudgetConfiguration = (AgentBudgetConfiguration) o;
-        return Objects.equals(this.limitTokens, agentBudgetConfiguration.limitTokens)
+        return Objects.equals(this.mode, agentBudgetConfiguration.mode)
+                && Objects.equals(this.limitUsd, agentBudgetConfiguration.limitUsd)
+                && Objects.equals(
+                        this.reminderAtRemainingFractions,
+                        agentBudgetConfiguration.reminderAtRemainingFractions)
+                && Objects.equals(this.limitTokens, agentBudgetConfiguration.limitTokens)
                 && Objects.equals(
                         this.reminderAtRemainingTokens,
                         agentBudgetConfiguration.reminderAtRemainingTokens)
@@ -194,6 +335,9 @@ public class AgentBudgetConfiguration {
     @Override
     public int hashCode() {
         return Objects.hash(
+                mode,
+                limitUsd,
+                reminderAtRemainingFractions,
                 limitTokens,
                 reminderAtRemainingTokens,
                 outputTokenWeight,
@@ -205,6 +349,11 @@ public class AgentBudgetConfiguration {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AgentBudgetConfiguration {\n");
+        sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
+        sb.append("    limitUsd: ").append(toIndentedString(limitUsd)).append("\n");
+        sb.append("    reminderAtRemainingFractions: ")
+                .append(toIndentedString(reminderAtRemainingFractions))
+                .append("\n");
         sb.append("    limitTokens: ").append(toIndentedString(limitTokens)).append("\n");
         sb.append("    reminderAtRemainingTokens: ")
                 .append(toIndentedString(reminderAtRemainingTokens))
@@ -236,6 +385,9 @@ public class AgentBudgetConfiguration {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "mode",
+                                "limit_usd",
+                                "reminder_at_remaining_fractions",
                                 "limit_tokens",
                                 "reminder_at_remaining_tokens",
                                 "output_token_weight",
@@ -264,6 +416,28 @@ public class AgentBudgetConfiguration {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if ((jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull())
+                && !jsonObj.get("mode").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `mode` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("mode").toString()));
+        }
+        // validate the optional field `mode`
+        if (jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull()) {
+            ModeEnum.validateJsonElement(jsonObj.get("mode"));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("reminder_at_remaining_fractions") != null
+                && !jsonObj.get("reminder_at_remaining_fractions").isJsonNull()
+                && !jsonObj.get("reminder_at_remaining_fractions").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `reminder_at_remaining_fractions` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("reminder_at_remaining_fractions").toString()));
+        }
         // ensure the optional json data is an array if present
         if (jsonObj.get("reminder_at_remaining_tokens") != null
                 && !jsonObj.get("reminder_at_remaining_tokens").isJsonNull()

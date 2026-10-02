@@ -57,6 +57,11 @@ public class AuditAggregationFilter {
     @SerializedName(SERIALIZED_NAME_PROVIDERS)
     @jakarta.annotation.Nullable private List<String> providers = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_PRINCIPAL_TYPES = "principalTypes";
+
+    @SerializedName(SERIALIZED_NAME_PRINCIPAL_TYPES)
+    @jakarta.annotation.Nullable private List<String> principalTypes = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_SUCCESS = "success";
 
     @SerializedName(SERIALIZED_NAME_SUCCESS)
@@ -172,6 +177,32 @@ public class AuditAggregationFilter {
         this.providers = providers;
     }
 
+    public AuditAggregationFilter principalTypes(
+            @jakarta.annotation.Nullable List<String> principalTypes) {
+        this.principalTypes = principalTypes;
+        return this;
+    }
+
+    public AuditAggregationFilter addPrincipalTypesItem(String principalTypesItem) {
+        if (this.principalTypes == null) {
+            this.principalTypes = new ArrayList<>();
+        }
+        this.principalTypes.add(principalTypesItem);
+        return this;
+    }
+
+    /**
+     * Restrict events to top-level actor categories such as user or apikey.
+     * @return principalTypes
+     */
+    @jakarta.annotation.Nullable public List<String> getPrincipalTypes() {
+        return principalTypes;
+    }
+
+    public void setPrincipalTypes(@jakarta.annotation.Nullable List<String> principalTypes) {
+        this.principalTypes = principalTypes;
+    }
+
     public AuditAggregationFilter success(@jakarta.annotation.Nullable Boolean success) {
         this.success = success;
         return this;
@@ -229,13 +260,21 @@ public class AuditAggregationFilter {
                 && Objects.equals(this.resourceTypes, auditAggregationFilter.resourceTypes)
                 && Objects.equals(this.eventCategories, auditAggregationFilter.eventCategories)
                 && Objects.equals(this.providers, auditAggregationFilter.providers)
+                && Objects.equals(this.principalTypes, auditAggregationFilter.principalTypes)
                 && Objects.equals(this.success, auditAggregationFilter.success)
                 && Objects.equals(this.details, auditAggregationFilter.details);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(actions, resourceTypes, eventCategories, providers, success, details);
+        return Objects.hash(
+                actions,
+                resourceTypes,
+                eventCategories,
+                providers,
+                principalTypes,
+                success,
+                details);
     }
 
     @Override
@@ -246,6 +285,7 @@ public class AuditAggregationFilter {
         sb.append("    resourceTypes: ").append(toIndentedString(resourceTypes)).append("\n");
         sb.append("    eventCategories: ").append(toIndentedString(eventCategories)).append("\n");
         sb.append("    providers: ").append(toIndentedString(providers)).append("\n");
+        sb.append("    principalTypes: ").append(toIndentedString(principalTypes)).append("\n");
         sb.append("    success: ").append(toIndentedString(success)).append("\n");
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
         sb.append("}");
@@ -272,6 +312,7 @@ public class AuditAggregationFilter {
                                 "resourceTypes",
                                 "eventCategories",
                                 "providers",
+                                "principalTypes",
                                 "success",
                                 "details"));
 
@@ -345,6 +386,16 @@ public class AuditAggregationFilter {
                             java.util.Locale.ROOT,
                             "Expected the field `providers` to be an array in the JSON string but got `%s`",
                             jsonObj.get("providers").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("principalTypes") != null
+                && !jsonObj.get("principalTypes").isJsonNull()
+                && !jsonObj.get("principalTypes").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `principalTypes` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("principalTypes").toString()));
         }
         if (jsonObj.get("details") != null && !jsonObj.get("details").isJsonNull()) {
             JsonArray jsonArraydetails = jsonObj.getAsJsonArray("details");

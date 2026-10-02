@@ -30,6 +30,8 @@ public enum RoleDomain {
 
     AGENT_RUNS("agent_runs"),
 
+    SHARED_CONTENT("shared_content"),
+
     TASKS("tasks"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");

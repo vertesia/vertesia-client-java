@@ -98,6 +98,11 @@ public class OpenAiThinkingOptions {
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
     @jakarta.annotation.Nullable private OptionIdEnum optionId;
 
+    public static final String SERIALIZED_NAME_IMAGE_GENERATION = "image_generation";
+
+    @SerializedName(SERIALIZED_NAME_IMAGE_GENERATION)
+    @jakarta.annotation.Nullable private OpenAiImageGenerationOptions imageGeneration;
+
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
@@ -338,6 +343,25 @@ public class OpenAiThinkingOptions {
 
     public void setOptionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
         this.optionId = optionId;
+    }
+
+    public OpenAiThinkingOptions imageGeneration(
+            @jakarta.annotation.Nullable OpenAiImageGenerationOptions imageGeneration) {
+        this.imageGeneration = imageGeneration;
+        return this;
+    }
+
+    /**
+     * Get imageGeneration
+     * @return imageGeneration
+     */
+    @jakarta.annotation.Nullable public OpenAiImageGenerationOptions getImageGeneration() {
+        return imageGeneration;
+    }
+
+    public void setImageGeneration(
+            @jakarta.annotation.Nullable OpenAiImageGenerationOptions imageGeneration) {
+        this.imageGeneration = imageGeneration;
     }
 
     public OpenAiThinkingOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
@@ -589,6 +613,7 @@ public class OpenAiThinkingOptions {
         }
         OpenAiThinkingOptions openAiThinkingOptions = (OpenAiThinkingOptions) o;
         return Objects.equals(this.optionId, openAiThinkingOptions.optionId)
+                && Objects.equals(this.imageGeneration, openAiThinkingOptions.imageGeneration)
                 && Objects.equals(this.maxTokens, openAiThinkingOptions.maxTokens)
                 && Objects.equals(this.toolChoice, openAiThinkingOptions.toolChoice)
                 && Objects.equals(this.stopSequence, openAiThinkingOptions.stopSequence)
@@ -607,6 +632,7 @@ public class OpenAiThinkingOptions {
     public int hashCode() {
         return Objects.hash(
                 optionId,
+                imageGeneration,
                 maxTokens,
                 toolChoice,
                 stopSequence,
@@ -625,6 +651,7 @@ public class OpenAiThinkingOptions {
         StringBuilder sb = new StringBuilder();
         sb.append("class OpenAiThinkingOptions {\n");
         sb.append("    optionId: ").append(toIndentedString(optionId)).append("\n");
+        sb.append("    imageGeneration: ").append(toIndentedString(imageGeneration)).append("\n");
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
         sb.append("    toolChoice: ").append(toIndentedString(toolChoice)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
@@ -659,6 +686,7 @@ public class OpenAiThinkingOptions {
                 new HashSet<String>(
                         Arrays.asList(
                                 "_option_id",
+                                "image_generation",
                                 "max_tokens",
                                 "tool_choice",
                                 "stop_sequence",
@@ -703,6 +731,11 @@ public class OpenAiThinkingOptions {
         // validate the optional field `_option_id`
         if (jsonObj.get("_option_id") != null && !jsonObj.get("_option_id").isJsonNull()) {
             OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        }
+        // validate the optional field `image_generation`
+        if (jsonObj.get("image_generation") != null
+                && !jsonObj.get("image_generation").isJsonNull()) {
+            OpenAiImageGenerationOptions.validateJsonElement(jsonObj.get("image_generation"));
         }
         if ((jsonObj.get("tool_choice") != null && !jsonObj.get("tool_choice").isJsonNull())
                 && !jsonObj.get("tool_choice").isJsonPrimitive()) {

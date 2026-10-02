@@ -211,7 +211,7 @@ public class ProcessState {
     }
 
     /**
-     * Token budget of the run, present when the run has one.
+     * Run budget status, including dollar consumption when configured.
      * @return budget
      */
     @jakarta.annotation.Nullable public ProcessBudgetState getBudget() {

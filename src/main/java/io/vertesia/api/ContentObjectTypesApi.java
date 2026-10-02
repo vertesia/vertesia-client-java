@@ -80,6 +80,7 @@ public class ContentObjectTypesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The created content object type. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> A content type with this name already exists in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -167,6 +168,7 @@ public class ContentObjectTypesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The created content object type. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> A content type with this name already exists in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -191,6 +193,7 @@ public class ContentObjectTypesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The created content object type. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> A content type with this name already exists in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -217,6 +220,7 @@ public class ContentObjectTypesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The created content object type. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> A content type with this name already exists in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1955,7 +1959,7 @@ public class ContentObjectTypesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated content object type. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The content type was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The content type changed after the caller read it, or its new name is already taken. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -2056,7 +2060,7 @@ public class ContentObjectTypesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated content object type. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The content type was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The content type changed after the caller read it, or its new name is already taken. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -2083,7 +2087,7 @@ public class ContentObjectTypesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated content object type. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The content type was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The content type changed after the caller read it, or its new name is already taken. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -2113,7 +2117,7 @@ public class ContentObjectTypesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated content object type. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The content type was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The content type changed after the caller read it, or its new name is already taken. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>

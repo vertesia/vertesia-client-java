@@ -212,6 +212,16 @@ public class ContentObjectApiResponse {
     @SerializedName(SERIALIZED_NAME_COMPARTMENTS)
     @jakarta.annotation.Nullable private List<String> compartments = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_SHARED = "shared";
+
+    @SerializedName(SERIALIZED_NAME_SHARED)
+    @jakarta.annotation.Nullable private Boolean shared;
+
+    public static final String SERIALIZED_NAME_SHARED_ROOT = "shared_root";
+
+    @SerializedName(SERIALIZED_NAME_SHARED_ROOT)
+    @jakarta.annotation.Nullable private Boolean sharedRoot;
+
     public static final String SERIALIZED_NAME_INHERITED_PROPERTIES = "inherited_properties";
 
     @SerializedName(SERIALIZED_NAME_INHERITED_PROPERTIES)
@@ -859,6 +869,40 @@ public class ContentObjectApiResponse {
         this.compartments = compartments;
     }
 
+    public ContentObjectApiResponse shared(@jakarta.annotation.Nullable Boolean shared) {
+        this.shared = shared;
+        return this;
+    }
+
+    /**
+     * Effective shared state: true iff the document is a member of an effectively-shared collection (inherited; sync-managed). Combine with shared_root for full readability.
+     * @return shared
+     */
+    @jakarta.annotation.Nullable public Boolean getShared() {
+        return shared;
+    }
+
+    public void setShared(@jakarta.annotation.Nullable Boolean shared) {
+        this.shared = shared;
+    }
+
+    public ContentObjectApiResponse sharedRoot(@jakarta.annotation.Nullable Boolean sharedRoot) {
+        this.sharedRoot = sharedRoot;
+        return this;
+    }
+
+    /**
+     * True iff the document was explicitly shared via the API (a root of the project shared space). Never set by the sync.
+     * @return sharedRoot
+     */
+    @jakarta.annotation.Nullable public Boolean getSharedRoot() {
+        return sharedRoot;
+    }
+
+    public void setSharedRoot(@jakarta.annotation.Nullable Boolean sharedRoot) {
+        this.sharedRoot = sharedRoot;
+    }
+
     public ContentObjectApiResponse inheritedProperties(
             @jakarta.annotation.Nullable List<InheritedPropertyMetadata> inheritedProperties) {
         this.inheritedProperties = inheritedProperties;
@@ -973,6 +1017,8 @@ public class ContentObjectApiResponse {
                 && Objects.equals(this.security, contentObjectApiResponse.security)
                 && Objects.equals(this.sensitivity, contentObjectApiResponse.sensitivity)
                 && Objects.equals(this.compartments, contentObjectApiResponse.compartments)
+                && Objects.equals(this.shared, contentObjectApiResponse.shared)
+                && Objects.equals(this.sharedRoot, contentObjectApiResponse.sharedRoot)
                 && Objects.equals(
                         this.inheritedProperties, contentObjectApiResponse.inheritedProperties)
                 && Objects.equals(
@@ -1023,6 +1069,8 @@ public class ContentObjectApiResponse {
                 security,
                 sensitivity,
                 compartments,
+                shared,
+                sharedRoot,
                 inheritedProperties,
                 additionalProperties);
     }
@@ -1070,6 +1118,8 @@ public class ContentObjectApiResponse {
         sb.append("    security: ").append(toIndentedString(security)).append("\n");
         sb.append("    sensitivity: ").append(toIndentedString(sensitivity)).append("\n");
         sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
+        sb.append("    shared: ").append(toIndentedString(shared)).append("\n");
+        sb.append("    sharedRoot: ").append(toIndentedString(sharedRoot)).append("\n");
         sb.append("    inheritedProperties: ")
                 .append(toIndentedString(inheritedProperties))
                 .append("\n");
@@ -1128,6 +1178,8 @@ public class ContentObjectApiResponse {
                                 "security",
                                 "sensitivity",
                                 "compartments",
+                                "shared",
+                                "shared_root",
                                 "inherited_properties"));
 
         // a set of required properties/fields (JSON key names)

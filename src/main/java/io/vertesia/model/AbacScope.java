@@ -30,6 +30,8 @@ public enum AbacScope {
 
     AGENT_RUN("agent_run"),
 
+    SHARED_CONTENT("shared_content"),
+
     TASK("task"),
 
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");

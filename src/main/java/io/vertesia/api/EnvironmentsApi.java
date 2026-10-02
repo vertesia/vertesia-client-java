@@ -30,6 +30,7 @@ import io.vertesia.model.ExecutionEnvironmentCreatePayload;
 import io.vertesia.model.ExecutionEnvironmentUpdatePayload;
 import io.vertesia.model.RunAnalyticsQuery;
 import io.vertesia.model.RunAnalyticsResult;
+import io.vertesia.model.RunBudgetCapability;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -1265,6 +1266,219 @@ public class EnvironmentsApi {
         okhttp3.Call localVarCall =
                 getEnvironmentAnalyticsValidateBeforeCall(envId, runAnalyticsQuery, _callback);
         Type localVarReturnType = new TypeToken<List<RunAnalyticsResult>>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getRunBudgetCapability
+     * @param envId  (required)
+     * @param model  (required)
+     * @param checkModel False checks only whether estimates are enabled, without consulting model prices. (optional)
+     * @param serviceTier  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Pricing availability; no billing access required. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getRunBudgetCapabilityCall(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String model,
+            @jakarta.annotation.Nullable Boolean checkModel,
+            @jakarta.annotation.Nullable String serviceTier,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/environments/{envId}/run-budget-capability"
+                        .replace(
+                                "{" + "envId" + "}",
+                                localVarApiClient.escapeString(envId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (checkModel != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("check_model", checkModel));
+        }
+
+        if (model != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("model", model));
+        }
+
+        if (serviceTier != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("service_tier", serviceTier));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getRunBudgetCapabilityValidateBeforeCall(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String model,
+            @jakarta.annotation.Nullable Boolean checkModel,
+            @jakarta.annotation.Nullable String serviceTier,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'envId' is set
+        if (envId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'envId' when calling getRunBudgetCapability(Async)");
+        }
+
+        // verify the required parameter 'model' is set
+        if (model == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'model' when calling getRunBudgetCapability(Async)");
+        }
+
+        return getRunBudgetCapabilityCall(envId, model, checkModel, serviceTier, _callback);
+    }
+
+    /**
+     * Check run budget pricing availability for a selected model
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @param envId  (required)
+     * @param model  (required)
+     * @param checkModel False checks only whether estimates are enabled, without consulting model prices. (optional)
+     * @param serviceTier  (optional)
+     * @return RunBudgetCapability
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Pricing availability; no billing access required. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public RunBudgetCapability getRunBudgetCapability(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String model,
+            @jakarta.annotation.Nullable Boolean checkModel,
+            @jakarta.annotation.Nullable String serviceTier)
+            throws ApiException {
+        ApiResponse<RunBudgetCapability> localVarResp =
+                getRunBudgetCapabilityWithHttpInfo(envId, model, checkModel, serviceTier);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Check run budget pricing availability for a selected model
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @param envId  (required)
+     * @param model  (required)
+     * @param checkModel False checks only whether estimates are enabled, without consulting model prices. (optional)
+     * @param serviceTier  (optional)
+     * @return ApiResponse&lt;RunBudgetCapability&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Pricing availability; no billing access required. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<RunBudgetCapability> getRunBudgetCapabilityWithHttpInfo(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String model,
+            @jakarta.annotation.Nullable Boolean checkModel,
+            @jakarta.annotation.Nullable String serviceTier)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                getRunBudgetCapabilityValidateBeforeCall(
+                        envId, model, checkModel, serviceTier, null);
+        Type localVarReturnType = new TypeToken<RunBudgetCapability>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Check run budget pricing availability for a selected model (asynchronously)
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @param envId  (required)
+     * @param model  (required)
+     * @param checkModel False checks only whether estimates are enabled, without consulting model prices. (optional)
+     * @param serviceTier  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Pricing availability; no billing access required. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getRunBudgetCapabilityAsync(
+            @jakarta.annotation.Nonnull String envId,
+            @jakarta.annotation.Nonnull String model,
+            @jakarta.annotation.Nullable Boolean checkModel,
+            @jakarta.annotation.Nullable String serviceTier,
+            final ApiCallback<RunBudgetCapability> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getRunBudgetCapabilityValidateBeforeCall(
+                        envId, model, checkModel, serviceTier, _callback);
+        Type localVarReturnType = new TypeToken<RunBudgetCapability>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
