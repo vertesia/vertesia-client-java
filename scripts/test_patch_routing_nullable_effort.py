@@ -70,6 +70,13 @@ TypeAdapter<ProfileBranch> adapterProfileBranch = gson.getDelegateAdapter(this, 
                 first = path.read_text()
                 routing.patch_routing_union_adapters(path)
                 self.assertEqual(first, path.read_text())
+                path.write_text(first.replace(
+                    "gson.getAdapter(TypeToken.get(",
+                    "gson.getAdapter(\n    TypeToken.get(",
+                ))
+                formatted = path.read_text()
+                routing.patch_routing_union_adapters(path)
+                self.assertEqual(formatted, path.read_text())
         self.assertIn("gson.getAdapter(TypeToken.get(ModelBranch.class))", first)
         self.assertIn('routeFields.has("model") && routeFields.has("inference_profile")', first)
         self.assertIn("ModelBranch.validateJsonElement(jsonElement);", first)

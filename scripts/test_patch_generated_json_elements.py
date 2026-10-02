@@ -369,6 +369,35 @@ elementAdapter.write(out, obj);
             self.assertIn("ConversationJsonValue", closure)
             self.assertEqual({"result_schema": True}, mapped_object_fields(document, root))
 
+    def test_generation_admission_request_and_receipt_enter_null_preserving_closure(self) -> None:
+        document = {"components": {"schemas": {
+            "ExperimentalAdmitAgentGenerationPayload": {"oneOf": [
+                {"$ref": "#/components/schemas/ExperimentalAdmitAgentGenerationUserPayload"}
+            ]},
+            "ExperimentalAdmitAgentGenerationUserPayload": {"properties": {
+                "request": {"$ref": "#/components/schemas/ExperimentalCanonicalUserMessagePayload"}
+            }},
+            "ExperimentalCanonicalUserMessagePayload": {"properties": {
+                "value": {"$ref": "#/components/schemas/ConversationJsonValue"}
+            }},
+            "ExperimentalAgentGenerationAdmissionReceipt": {"properties": {
+                "routing_control": {"$ref": "#/components/schemas/ExperimentalAgentRoutingControlReceipt"}
+            }},
+            "ExperimentalAgentRoutingControlReceipt": {"oneOf": [
+                {"$ref": "#/components/schemas/ExperimentalAgentRoutingInitialReceipt"}
+            ]},
+            "ExperimentalAgentRoutingInitialReceipt": {"properties": {
+                "intent": {"$ref": "#/components/schemas/ExperimentalAgentRoutingIntent"}
+            }},
+            "ExperimentalAgentRoutingIntent": {},
+            "ConversationJsonValue": {},
+        }}}
+        closure = canonical_model_schemas(document)
+        self.assertIn("ExperimentalAdmitAgentGenerationPayload", closure)
+        self.assertIn("ExperimentalCanonicalUserMessagePayload", closure)
+        self.assertIn("ExperimentalAgentGenerationAdmissionReceipt", closure)
+        self.assertIn("ExperimentalAgentRoutingIntent", closure)
+
     def test_clears_only_nullable_container_defaults(self) -> None:
         source = """\
 @jakarta.annotation.Nullable private List<String> optional = new ArrayList<>();

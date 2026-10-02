@@ -120,7 +120,7 @@ def patch_routing_union_adapters(path: pathlib.Path) -> None:
     source = path.read_text()
     original = "gson.getDelegateAdapter(this, TypeToken.get("
     if original not in source:
-        if "gson.getAdapter(TypeToken.get(" in source and "// Select routing anyOf by its route key." in source:
+        if re.search(r"gson\s*\.\s*getAdapter\s*\(\s*TypeToken\s*\.\s*get\s*\(", source) and "// Select routing anyOf by its route key." in source:
             return
         raise ValueError(f"Generated routing union leaf adapters changed in {path}")
     # The generated union's delegate lookup bypasses the leaf adapter that remembers whether
