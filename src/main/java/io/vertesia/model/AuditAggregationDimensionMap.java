@@ -65,6 +65,16 @@ public class AuditAggregationDimensionMap {
     @SerializedName(SERIALIZED_NAME_PROJECT_ID)
     @jakarta.annotation.Nullable private String projectId;
 
+    public static final String SERIALIZED_NAME_PRINCIPAL_ID = "principal_id";
+
+    @SerializedName(SERIALIZED_NAME_PRINCIPAL_ID)
+    @jakarta.annotation.Nullable private String principalId;
+
+    public static final String SERIALIZED_NAME_ACTOR_ID = "actor_id";
+
+    @SerializedName(SERIALIZED_NAME_ACTOR_ID)
+    @jakarta.annotation.Nullable private String actorId;
+
     public static final String SERIALIZED_NAME_DETAILS_PIPELINE = "details.pipeline";
 
     @SerializedName(SERIALIZED_NAME_DETAILS_PIPELINE)
@@ -196,6 +206,41 @@ public class AuditAggregationDimensionMap {
         this.projectId = projectId;
     }
 
+    public AuditAggregationDimensionMap principalId(
+            @jakarta.annotation.Nullable String principalId) {
+        this.principalId = principalId;
+        return this;
+    }
+
+    /**
+     * Get principalId
+     * @return principalId
+     */
+    @jakarta.annotation.Nullable public String getPrincipalId() {
+        return principalId;
+    }
+
+    public void setPrincipalId(@jakarta.annotation.Nullable String principalId) {
+        this.principalId = principalId;
+    }
+
+    public AuditAggregationDimensionMap actorId(@jakarta.annotation.Nullable String actorId) {
+        this.actorId = actorId;
+        return this;
+    }
+
+    /**
+     * Get actorId
+     * @return actorId
+     */
+    @jakarta.annotation.Nullable public String getActorId() {
+        return actorId;
+    }
+
+    public void setActorId(@jakarta.annotation.Nullable String actorId) {
+        this.actorId = actorId;
+    }
+
     public AuditAggregationDimensionMap detailsPipeline(
             @jakarta.annotation.Nullable String detailsPipeline) {
         this.detailsPipeline = detailsPipeline;
@@ -301,6 +346,8 @@ public class AuditAggregationDimensionMap {
                 && Objects.equals(this.eventCategory, auditAggregationDimensionMap.eventCategory)
                 && Objects.equals(this.provider, auditAggregationDimensionMap.provider)
                 && Objects.equals(this.projectId, auditAggregationDimensionMap.projectId)
+                && Objects.equals(this.principalId, auditAggregationDimensionMap.principalId)
+                && Objects.equals(this.actorId, auditAggregationDimensionMap.actorId)
                 && Objects.equals(
                         this.detailsPipeline, auditAggregationDimensionMap.detailsPipeline)
                 && Objects.equals(this.detailsVerdict, auditAggregationDimensionMap.detailsVerdict)
@@ -328,6 +375,8 @@ public class AuditAggregationDimensionMap {
                 eventCategory,
                 provider,
                 projectId,
+                principalId,
+                actorId,
                 detailsPipeline,
                 detailsVerdict,
                 detailsWorkflowType,
@@ -352,6 +401,8 @@ public class AuditAggregationDimensionMap {
         sb.append("    eventCategory: ").append(toIndentedString(eventCategory)).append("\n");
         sb.append("    provider: ").append(toIndentedString(provider)).append("\n");
         sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
+        sb.append("    principalId: ").append(toIndentedString(principalId)).append("\n");
+        sb.append("    actorId: ").append(toIndentedString(actorId)).append("\n");
         sb.append("    detailsPipeline: ").append(toIndentedString(detailsPipeline)).append("\n");
         sb.append("    detailsVerdict: ").append(toIndentedString(detailsVerdict)).append("\n");
         sb.append("    detailsWorkflowType: ")
@@ -385,6 +436,8 @@ public class AuditAggregationDimensionMap {
                                 "event_category",
                                 "provider",
                                 "project_id",
+                                "principal_id",
+                                "actor_id",
                                 "details.pipeline",
                                 "details.verdict",
                                 "details.workflow_type",
@@ -460,6 +513,22 @@ public class AuditAggregationDimensionMap {
                             java.util.Locale.ROOT,
                             "Expected the field `project_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("project_id").toString()));
+        }
+        if ((jsonObj.get("principal_id") != null && !jsonObj.get("principal_id").isJsonNull())
+                && !jsonObj.get("principal_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `principal_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("principal_id").toString()));
+        }
+        if ((jsonObj.get("actor_id") != null && !jsonObj.get("actor_id").isJsonNull())
+                && !jsonObj.get("actor_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `actor_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("actor_id").toString()));
         }
         if ((jsonObj.get("details.pipeline") != null
                         && !jsonObj.get("details.pipeline").isJsonNull())

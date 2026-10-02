@@ -28,6 +28,10 @@ public enum AuditAggregationDistinctField {
 
     REQUEST_ID("request_id"),
 
+    PRINCIPAL_ID("principal_id"),
+
+    ACTOR_ID("actor_id"),
+
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
