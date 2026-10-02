@@ -86,6 +86,16 @@ public class Project {
     @jakarta.annotation.Nonnull
     private List<String> plugins = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_ANNOTATIONS = "annotations";
+
+    @SerializedName(SERIALIZED_NAME_ANNOTATIONS)
+    @jakarta.annotation.Nullable private List<String> annotations = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_LAST_ACTIVITY_AT = "last_activity_at";
+
+    @SerializedName(SERIALIZED_NAME_LAST_ACTIVITY_AT)
+    @jakarta.annotation.Nullable private OffsetDateTime lastActivityAt;
+
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
@@ -270,6 +280,48 @@ public class Project {
         this.plugins = plugins;
     }
 
+    public Project annotations(@jakarta.annotation.Nullable List<String> annotations) {
+        this.annotations = annotations;
+        return this;
+    }
+
+    public Project addAnnotationsItem(String annotationsItem) {
+        if (this.annotations == null) {
+            this.annotations = new ArrayList<>();
+        }
+        this.annotations.add(annotationsItem);
+        return this;
+    }
+
+    /**
+     * Classification annotations
+     * @return annotations
+     */
+    @jakarta.annotation.Nullable public List<String> getAnnotations() {
+        return annotations;
+    }
+
+    public void setAnnotations(@jakarta.annotation.Nullable List<String> annotations) {
+        this.annotations = annotations;
+    }
+
+    public Project lastActivityAt(@jakarta.annotation.Nullable OffsetDateTime lastActivityAt) {
+        this.lastActivityAt = lastActivityAt;
+        return this;
+    }
+
+    /**
+     * When the project last saw activity. Not yet populated.
+     * @return lastActivityAt
+     */
+    @jakarta.annotation.Nullable public OffsetDateTime getLastActivityAt() {
+        return lastActivityAt;
+    }
+
+    public void setLastActivityAt(@jakarta.annotation.Nullable OffsetDateTime lastActivityAt) {
+        this.lastActivityAt = lastActivityAt;
+    }
+
     public Project createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
@@ -404,6 +456,8 @@ public class Project {
                 && Objects.equals(this._configuration, project._configuration)
                 && Objects.equals(this.integrations, project.integrations)
                 && Objects.equals(this.plugins, project.plugins)
+                && Objects.equals(this.annotations, project.annotations)
+                && Objects.equals(this.lastActivityAt, project.lastActivityAt)
                 && Objects.equals(this.createdBy, project.createdBy)
                 && Objects.equals(this.updatedBy, project.updatedBy)
                 && Objects.equals(this.createdAt, project.createdAt)
@@ -431,6 +485,8 @@ public class Project {
                 _configuration,
                 integrations,
                 plugins,
+                annotations,
+                lastActivityAt,
                 createdBy,
                 updatedBy,
                 createdAt,
@@ -457,6 +513,8 @@ public class Project {
         sb.append("    _configuration: ").append(toIndentedString(_configuration)).append("\n");
         sb.append("    integrations: ").append(toIndentedString(integrations)).append("\n");
         sb.append("    plugins: ").append(toIndentedString(plugins)).append("\n");
+        sb.append("    annotations: ").append(toIndentedString(annotations)).append("\n");
+        sb.append("    lastActivityAt: ").append(toIndentedString(lastActivityAt)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -492,6 +550,8 @@ public class Project {
                                 "configuration",
                                 "integrations",
                                 "plugins",
+                                "annotations",
+                                "last_activity_at",
                                 "created_by",
                                 "updated_by",
                                 "created_at",
@@ -591,6 +651,16 @@ public class Project {
                             java.util.Locale.ROOT,
                             "Expected the field `plugins` to be an array in the JSON string but got `%s`",
                             jsonObj.get("plugins").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("annotations") != null
+                && !jsonObj.get("annotations").isJsonNull()
+                && !jsonObj.get("annotations").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `annotations` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("annotations").toString()));
         }
         if (!jsonObj.get("created_by").isJsonPrimitive()) {
             throw new IllegalArgumentException(
