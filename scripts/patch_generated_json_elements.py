@@ -39,6 +39,7 @@ CANONICAL_ROOT_SCHEMAS = (
     "ExperimentalAgentAssetExtractionClaim",
     "ExperimentalCanonicalInteractionExecutionRequest",
     "ExperimentalCanonicalNamedInteractionExecutionRequest",
+    "ExperimentalCanonicalInitialAgentStreamRequest",
     "ExperimentalCanonicalInteractionExecutionResult",
     "AppendRunConversationProgramTurnPayload",
     "ImportAgentRunConversationArchivePayload",
@@ -177,10 +178,11 @@ def generated_inline_models(document: Mapping[str, object], root: str) -> dict[s
             return
         found[model_name] = schema
 
-        for keyword, generated_suffix in (("oneOf", "OneOf"), ("anyOf", "AnyOf")):
+        for keyword, generated_suffix in (("oneOf", "OneOf"), ("anyOf", "AnyOf"), ("allOf", "AllOf")):
             branches = schema.get(keyword)
             if not isinstance(branches, list):
                 continue
+            inline_index = 0
             for index, branch in enumerate(branches):
                 if not isinstance(branch, Mapping):
                     raise ValueError(f"{model_name} {keyword} branch {index} is not an object")
@@ -191,8 +193,15 @@ def generated_inline_models(document: Mapping[str, object], root: str) -> dict[s
                     if isinstance(referenced_schema, Mapping):
                         visit(referenced_name, referenced_schema)
                 else:
-                    suffix = str(index) if index else ""
+                    if keyword == "allOf" and not any(
+                        key in branch for key in ("properties", "oneOf", "anyOf", "allOf")
+                    ):
+                        continue
+                    suffix = str(inline_index) if keyword == "allOf" and inline_index else (
+                        str(index) if keyword != "allOf" and index else ""
+                    )
                     visit(f"{model_name}{generated_suffix}{suffix}", branch)
+                    inline_index += 1
 
         additional = schema.get("additionalProperties")
         if isinstance(additional, Mapping):
@@ -219,7 +228,8 @@ def generated_inline_models(document: Mapping[str, object], root: str) -> dict[s
             if isinstance(items, Mapping):
                 visit_property(f"{model_name}Inner", items)
         elif (isinstance(schema.get("properties"), Mapping)
-              or isinstance(schema.get("oneOf"), list) or isinstance(schema.get("anyOf"), list)):
+              or isinstance(schema.get("oneOf"), list) or isinstance(schema.get("anyOf"), list)
+              or isinstance(schema.get("allOf"), list)):
             visit(model_name, schema)
 
     visit(root, root_schema)
@@ -442,23 +452,40 @@ def mapped_object_fields(document: Mapping[str, object], schema_name: str) -> di
     schemas = document.get("components", {}).get("schemas", {})
     if not isinstance(schemas, Mapping):
         return {}
-    schema = schemas.get(schema_name)
-    if not isinstance(schema, Mapping):
-        return {}
-    properties = schema.get("properties")
-    if not isinstance(properties, Mapping):
-        return {}
     fields: dict[str, bool] = {}
-    for wire_name, property_schema in properties.items():
-        if not isinstance(wire_name, str) or not isinstance(property_schema, Mapping):
-            continue
-        reference = property_schema.get("$ref")
-        if not isinstance(reference, str) or not reference.startswith("#/components/schemas/"):
-            continue
-        referenced_name = reference.rsplit("/", 1)[-1]
-        nullable = MAPPED_OBJECT_SCHEMAS.get(referenced_name)
-        if nullable is not None:
-            fields[wire_name] = nullable
+
+    def collect(schema: Mapping[str, object], visited: set[str]) -> None:
+        properties = schema.get("properties")
+        if isinstance(properties, Mapping):
+            for wire_name, property_schema in properties.items():
+                if not isinstance(wire_name, str) or not isinstance(property_schema, Mapping):
+                    continue
+                reference = property_schema.get("$ref")
+                if not isinstance(reference, str) or not reference.startswith("#/components/schemas/"):
+                    continue
+                nullable = MAPPED_OBJECT_SCHEMAS.get(reference.rsplit("/", 1)[-1])
+                if nullable is not None:
+                    fields[wire_name] = nullable
+        branches = schema.get("allOf")
+        if not isinstance(branches, list):
+            return
+        for branch in branches:
+            if not isinstance(branch, Mapping):
+                continue
+            reference = branch.get("$ref")
+            if isinstance(reference, str) and reference.startswith("#/components/schemas/"):
+                name = reference.rsplit("/", 1)[-1]
+                if name in visited:
+                    continue
+                referenced = schemas.get(name)
+                if isinstance(referenced, Mapping):
+                    collect(referenced, visited | {name})
+            else:
+                collect(branch, visited)
+
+    schema = schemas.get(schema_name)
+    if isinstance(schema, Mapping):
+        collect(schema, {schema_name})
     return fields
 
 
@@ -510,6 +537,11 @@ def main() -> None:
     document = json.loads(SPEC_PATH.read_text())
     model_schemas = canonical_model_schemas(document)
     canonical_schemas = set(model_schemas)
+    closure_document = {**document, "components": {
+        **document["components"], "schemas": {
+            **document["components"]["schemas"], **model_schemas
+        }
+    }}
     simple_writers = 0
     union_writers = 0
     nullable_containers = 0
@@ -526,7 +558,7 @@ def main() -> None:
                 path, optional_nonnullable_fields(model_schemas[schema_name], document)
             )
             nullable_containers += patch_nullable_container_defaults(path)
-            object_guards += patch_mapped_object_validation(path, mapped_object_fields(document, schema_name))
+            object_guards += patch_mapped_object_validation(path, mapped_object_fields(closure_document, schema_name))
             simple, union = patch_streaming_writers(path)
             simple_writers += simple
             union_writers += union

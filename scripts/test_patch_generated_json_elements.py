@@ -418,6 +418,47 @@ elementAdapter.write(out, obj);
         self.assertIn("ExperimentalAgentGenerationAdmissionReceipt", closure)
         self.assertIn("ExperimentalAgentRoutingIntent", closure)
 
+    def test_initial_agent_allof_request_keeps_mapped_object_validation(self) -> None:
+        root = "ExperimentalCanonicalInitialAgentStreamRequest"
+        request = root + "Request"
+        document = {"components": {"schemas": {
+            root: {"properties": {"request": {"allOf": [
+                {"$ref": "#/components/schemas/ExperimentalCanonicalNamedInteractionExecutionRequest"},
+                {"type": "object", "properties": {
+                    "initial_state": {"type": "object", "properties": {"type": {"type": "string"}}},
+                    "return_policy": {"type": "object", "properties": {"history": {"type": "string"}}},
+                }},
+            ]}}},
+            "ExperimentalCanonicalNamedInteractionExecutionRequest": {"properties": {
+                "result_schema": {"$ref": "#/components/schemas/ExperimentalCanonicalInteractionResultSchemaInput"},
+            }},
+            "ExperimentalCanonicalInteractionResultSchemaInput": {},
+        }}}
+        self.assertIn(root, CANONICAL_ROOT_SCHEMAS)
+        closure = canonical_model_schemas(document)
+        self.assertIn(request, closure)
+        self.assertIn(request + "AllOfInitialState", closure)
+        self.assertIn(request + "AllOfReturnPolicy", closure)
+        enriched = {"components": {"schemas": {**document["components"]["schemas"], **closure}}}
+        fields = mapped_object_fields(enriched, request)
+        self.assertEqual({"result_schema": True}, fields)
+
+        source = """\
+public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+    JsonObject jsonObj = jsonElement.getAsJsonObject();
+    JsonElement.validateJsonElement(jsonObj.get("result_schema"));
+}
+public static class CustomTypeAdapterFactory implements TypeAdapterFactory {}
+"""
+        with tempfile.TemporaryDirectory() as directory:
+            path = pathlib.Path(directory) / f"{request}.java"
+            path.write_text(source)
+            self.assertEqual(1, patch_mapped_object_validation(path, fields))
+            self.assertEqual(0, patch_mapped_object_validation(path, fields))
+            patched = path.read_text()
+        self.assertNotIn("JsonElement.validateJsonElement", patched)
+        self.assertIn('jsonObj.has("result_schema") && !jsonObj.get("result_schema").isJsonNull()', patched)
+
     def test_clears_only_nullable_container_defaults(self) -> None:
         source = """\
 @jakarta.annotation.Nullable private List<String> optional = new ArrayList<>();
