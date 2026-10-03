@@ -10,6 +10,7 @@ import unittest
 
 from patch_generated_const_validation import (
     MARKER,
+    canonical_model_schemas,
     patch_canonical_shape,
     patch_nested_union_adapters,
     patch_union_selectors,
@@ -21,6 +22,50 @@ from patch_generated_const_validation import (
 
 
 class PatchGeneratedConstValidationTest(unittest.TestCase):
+    def test_inspection_closure_patches_all_named_status_branches_and_closedness(self) -> None:
+        statuses = {
+            "AvailableInitialAuthoringView": "available",
+            "UnavailableInitialAuthoringView": "unavailable",
+            "AvailableCanonicalIngestionPreparationView": "preparation_available",
+            "UnavailableCanonicalIngestionPreparationView": "preparation_unavailable",
+            "AvailableCanonicalIngestionRecoveryView": "recovery_available",
+            "UnavailableCanonicalIngestionRecoveryView": "recovery_unavailable",
+        }
+        schemas = {
+            name: {"type": "object", "additionalProperties": False,
+                   "properties": {"status": {"type": "string", "const": status},
+                                  "reason": {"type": "string"}},
+                   "required": ["status", "reason"]}
+            for name, status in statuses.items()
+        }
+        roots = {
+            "ExperimentalRunConversationInspectionResponse": list(statuses),
+            "ExperimentalInitialAuthoringViewResponse": list(statuses)[:2],
+            "ExperimentalCanonicalIngestionPreparationViewResponse": list(statuses)[2:4],
+            "ExperimentalCanonicalIngestionRecoveryViewResponse": list(statuses)[4:],
+        }
+        for root, names in roots.items():
+            schemas[root] = {"oneOf": [{"$ref": "#/components/schemas/" + name} for name in names],
+                             "discriminator": {"propertyName": "status", "mapping": {
+                                 statuses[name]: "#/components/schemas/" + name for name in names}}}
+        schemas["LegacyInspection"] = {"type": "object", "additionalProperties": True}
+        document = {"components": {"schemas": schemas}}
+        models = canonical_model_schemas(document)
+        self.assertEqual(set(statuses) | set(roots), set(models))
+        with tempfile.TemporaryDirectory() as directory:
+            for name, status in statuses.items():
+                with self.subTest(status=status):
+                    path = pathlib.Path(directory) / (name + ".java")
+                    path.write_text("        JsonObject jsonObj = jsonElement.getAsJsonObject();\n")
+                    self.assertTrue(patch_canonical_shape(path, models[name], schemas))
+                    self.assertTrue(patch_model(path, scalar_constants(models[name])))
+                    self.assertFalse(patch_canonical_shape(path, models[name], schemas))
+                    self.assertFalse(patch_model(path, scalar_constants(models[name])))
+                    patched = path.read_text()
+                    self.assertIn('java.util.Arrays.asList("status", "reason").contains(canonicalKey)', patched)
+                    self.assertIn('Unknown canonical field', patched)
+                    self.assertIn('!"' + status + '".equals(jsonObj.get("status").getAsString())', patched)
+
     def test_discovers_only_scalar_constants(self) -> None:
         schema = {
             "properties": {
