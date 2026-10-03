@@ -5,15 +5,19 @@ OpenAPI Generator's Gson Java client validates response payloads before
 deserialization. Some generated validators reject any future response field,
 which is too strict for a public client talking to a newer Vertesia server.
 
-This patch keeps required-field and type validation, but removes the generated
+Canonical closed-object schemas retain their exact wire contract. For ordinary
+forward-compatible models this patch keeps required-field and type validation, but removes the generated
 block that throws only because a JSON object contains fields unknown to this
 client version.
 """
 
 from __future__ import annotations
 
+import json
 import pathlib
 import re
+
+from patch_generated_json_elements import canonical_model_schemas
 
 
 ROOT = pathlib.Path("src/main/java/io/vertesia/model")
@@ -31,11 +35,19 @@ UNKNOWN_FIELD_BLOCK = re.compile(
 )
 
 
+def patch_validation(source: str, schema: dict | None) -> str:
+    if schema is not None and schema.get("additionalProperties") is False:
+        return source
+    return UNKNOWN_FIELD_BLOCK.sub("\n", source)
+
+
 def main() -> None:
+    document = json.loads(pathlib.Path("spec/vertesia-openapi.json").read_text())
+    canonical = canonical_model_schemas(document)
     changed = 0
     for path in ROOT.glob("*.java"):
         text = path.read_text()
-        patched = UNKNOWN_FIELD_BLOCK.sub("\n", text)
+        patched = patch_validation(text, canonical.get(path.stem))
         if patched != text:
             path.write_text(patched)
             changed += 1
