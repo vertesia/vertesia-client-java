@@ -50,6 +50,10 @@ public enum KnownAuditAction {
 
     UNPUBLISH("unpublish"),
 
+    SEARCH("search"),
+
+    READ("read"),
+
     INFERENCE("inference"),
 
     EMBEDDING("embedding"),

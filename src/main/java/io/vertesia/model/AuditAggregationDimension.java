@@ -40,6 +40,8 @@ public enum AuditAggregationDimension {
 
     ACTOR_ID("actor_id"),
 
+    USER_ID("user_id"),
+
     DETAILS_PIPELINE("details.pipeline"),
 
     DETAILS_VERDICT("details.verdict"),

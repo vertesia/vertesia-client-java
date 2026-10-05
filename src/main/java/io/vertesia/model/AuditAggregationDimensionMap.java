@@ -75,6 +75,11 @@ public class AuditAggregationDimensionMap {
     @SerializedName(SERIALIZED_NAME_ACTOR_ID)
     @jakarta.annotation.Nullable private String actorId;
 
+    public static final String SERIALIZED_NAME_USER_ID = "user_id";
+
+    @SerializedName(SERIALIZED_NAME_USER_ID)
+    @jakarta.annotation.Nullable private String userId;
+
     public static final String SERIALIZED_NAME_DETAILS_PIPELINE = "details.pipeline";
 
     @SerializedName(SERIALIZED_NAME_DETAILS_PIPELINE)
@@ -241,6 +246,23 @@ public class AuditAggregationDimensionMap {
         this.actorId = actorId;
     }
 
+    public AuditAggregationDimensionMap userId(@jakarta.annotation.Nullable String userId) {
+        this.userId = userId;
+        return this;
+    }
+
+    /**
+     * Originating user identity, including delegated and scheduled activity with a recorded user owner. Non-user principals without a user origin are excluded.
+     * @return userId
+     */
+    @jakarta.annotation.Nullable public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(@jakarta.annotation.Nullable String userId) {
+        this.userId = userId;
+    }
+
     public AuditAggregationDimensionMap detailsPipeline(
             @jakarta.annotation.Nullable String detailsPipeline) {
         this.detailsPipeline = detailsPipeline;
@@ -348,6 +370,7 @@ public class AuditAggregationDimensionMap {
                 && Objects.equals(this.projectId, auditAggregationDimensionMap.projectId)
                 && Objects.equals(this.principalId, auditAggregationDimensionMap.principalId)
                 && Objects.equals(this.actorId, auditAggregationDimensionMap.actorId)
+                && Objects.equals(this.userId, auditAggregationDimensionMap.userId)
                 && Objects.equals(
                         this.detailsPipeline, auditAggregationDimensionMap.detailsPipeline)
                 && Objects.equals(this.detailsVerdict, auditAggregationDimensionMap.detailsVerdict)
@@ -377,6 +400,7 @@ public class AuditAggregationDimensionMap {
                 projectId,
                 principalId,
                 actorId,
+                userId,
                 detailsPipeline,
                 detailsVerdict,
                 detailsWorkflowType,
@@ -403,6 +427,7 @@ public class AuditAggregationDimensionMap {
         sb.append("    projectId: ").append(toIndentedString(projectId)).append("\n");
         sb.append("    principalId: ").append(toIndentedString(principalId)).append("\n");
         sb.append("    actorId: ").append(toIndentedString(actorId)).append("\n");
+        sb.append("    userId: ").append(toIndentedString(userId)).append("\n");
         sb.append("    detailsPipeline: ").append(toIndentedString(detailsPipeline)).append("\n");
         sb.append("    detailsVerdict: ").append(toIndentedString(detailsVerdict)).append("\n");
         sb.append("    detailsWorkflowType: ")
@@ -438,6 +463,7 @@ public class AuditAggregationDimensionMap {
                                 "project_id",
                                 "principal_id",
                                 "actor_id",
+                                "user_id",
                                 "details.pipeline",
                                 "details.verdict",
                                 "details.workflow_type",
@@ -529,6 +555,14 @@ public class AuditAggregationDimensionMap {
                             java.util.Locale.ROOT,
                             "Expected the field `actor_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("actor_id").toString()));
+        }
+        if ((jsonObj.get("user_id") != null && !jsonObj.get("user_id").isJsonNull())
+                && !jsonObj.get("user_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `user_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("user_id").toString()));
         }
         if ((jsonObj.get("details.pipeline") != null
                         && !jsonObj.get("details.pipeline").isJsonNull())
