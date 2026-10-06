@@ -220,6 +220,14 @@ src/main/java/io/vertesia/model/AsyncExecutionResult.java
 src/main/java/io/vertesia/model/AsyncInteractionExecutionPayload.java
 src/main/java/io/vertesia/model/AudioResult.java
 src/main/java/io/vertesia/model/AuditAction.java
+src/main/java/io/vertesia/model/AuditAdoptionActiveDays.java
+src/main/java/io/vertesia/model/AuditAdoptionBucket.java
+src/main/java/io/vertesia/model/AuditAdoptionFilter.java
+src/main/java/io/vertesia/model/AuditAdoptionHistory.java
+src/main/java/io/vertesia/model/AuditAdoptionPeriod.java
+src/main/java/io/vertesia/model/AuditAdoptionProject.java
+src/main/java/io/vertesia/model/AuditAdoptionQuery.java
+src/main/java/io/vertesia/model/AuditAdoptionResponse.java
 src/main/java/io/vertesia/model/AuditAggregationDetailField.java
 src/main/java/io/vertesia/model/AuditAggregationDetailFilter.java
 src/main/java/io/vertesia/model/AuditAggregationDimension.java
@@ -236,6 +244,10 @@ src/main/java/io/vertesia/model/AuditAggregationRow.java
 src/main/java/io/vertesia/model/AuditMeter.java
 src/main/java/io/vertesia/model/AuditTrailEvent.java
 src/main/java/io/vertesia/model/AuditTrailResponse.java
+src/main/java/io/vertesia/model/AuditUsageBucket.java
+src/main/java/io/vertesia/model/AuditUsageCounts.java
+src/main/java/io/vertesia/model/AuditUsageQuery.java
+src/main/java/io/vertesia/model/AuditUsageResponse.java
 src/main/java/io/vertesia/model/AuthTokenResponse.java
 src/main/java/io/vertesia/model/AutonomousRunResponse.java
 src/main/java/io/vertesia/model/AwsConfiguration.java
