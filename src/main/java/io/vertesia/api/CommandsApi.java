@@ -1497,7 +1497,7 @@ public class CommandsApi {
 
     /**
      * List content migrations
-     * Lists the available synchronous content migrations that can be executed by an authenticated admin API key.
+     * Lists the available synchronous content migrations that Vertesia staff can execute.
      * @return MigrationListResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1516,7 +1516,7 @@ public class CommandsApi {
 
     /**
      * List content migrations
-     * Lists the available synchronous content migrations that can be executed by an authenticated admin API key.
+     * Lists the available synchronous content migrations that Vertesia staff can execute.
      * @return ApiResponse&lt;MigrationListResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1536,7 +1536,7 @@ public class CommandsApi {
 
     /**
      * List content migrations (asynchronously)
-     * Lists the available synchronous content migrations that can be executed by an authenticated admin API key.
+     * Lists the available synchronous content migrations that Vertesia staff can execute.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2002,7 +2002,7 @@ public class CommandsApi {
 
     /**
      * Run a content migration
-     * Executes a named synchronous migration. This endpoint requires an authenticated admin API key. &#x60;params&#x60; is passed through to the migration and its shape is the migration&#39;s own.
+     * Executes a named synchronous migration. Only Vertesia staff can run migrations. &#x60;params&#x60; is passed through to the migration and its shape is the migration&#39;s own.
      * @param name  (required)
      * @param runMigrationPayload  (required)
      * @return RunMigrationResponse
@@ -2027,7 +2027,7 @@ public class CommandsApi {
 
     /**
      * Run a content migration
-     * Executes a named synchronous migration. This endpoint requires an authenticated admin API key. &#x60;params&#x60; is passed through to the migration and its shape is the migration&#39;s own.
+     * Executes a named synchronous migration. Only Vertesia staff can run migrations. &#x60;params&#x60; is passed through to the migration and its shape is the migration&#39;s own.
      * @param name  (required)
      * @param runMigrationPayload  (required)
      * @return ApiResponse&lt;RunMigrationResponse&gt;
@@ -2053,7 +2053,7 @@ public class CommandsApi {
 
     /**
      * Run a content migration (asynchronously)
-     * Executes a named synchronous migration. This endpoint requires an authenticated admin API key. &#x60;params&#x60; is passed through to the migration and its shape is the migration&#39;s own.
+     * Executes a named synchronous migration. Only Vertesia staff can run migrations. &#x60;params&#x60; is passed through to the migration and its shape is the migration&#39;s own.
      * @param name  (required)
      * @param runMigrationPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
