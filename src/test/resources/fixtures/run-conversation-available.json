@@ -1,0 +1,273 @@
+{
+    "status": "available",
+    "conversation": {
+        "format": "llumiverse.conversation",
+        "schema_version": 0,
+        "experimental_revision": "2026-09-11.ingestion.1",
+        "id": "conversation-1",
+        "revision": 3,
+        "created_at": "2026-09-11T10:00:00Z",
+        "updated_at": "2026-09-11T10:01:00Z",
+        "turns": [
+            {
+                "id": "turn-user-1",
+                "status": "completed",
+                "timestamps": {
+                    "recorded_at": "2026-09-11T10:00:00Z"
+                },
+                "model_visibility": "include",
+                "kind": "user",
+                "authority": "ordinary",
+                "blocks": [
+                    {
+                        "id": "block-user-text",
+                        "type": "text",
+                        "text": "Show the image details.",
+                        "format": "plain"
+                    }
+                ],
+                "provenance": {
+                    "type": "received"
+                }
+            },
+            {
+                "id": "turn-agent-1",
+                "status": "completed",
+                "timestamps": {
+                    "recorded_at": "2026-09-11T10:01:00Z"
+                },
+                "model_visibility": "include",
+                "kind": "agent",
+                "authority": "ordinary",
+                "blocks": [
+                    {
+                        "id": "block-agent-text",
+                        "type": "text",
+                        "text": "Here are the details.",
+                        "format": "markdown"
+                    },
+                    {
+                        "id": "block-agent-json",
+                        "type": "json",
+                        "value": {
+                            "width": 640,
+                            "labels": [
+                                "diagram",
+                                true
+                            ],
+                            "note": null
+                        }
+                    },
+                    {
+                        "id": "block-agent-image",
+                        "type": "image",
+                        "asset_id": "asset-image-1",
+                        "caption": "Architecture"
+                    },
+                    {
+                        "id": "block-agent-tool",
+                        "type": "tool_call",
+                        "call_id": "call-1",
+                        "tool_name": "inspect_image",
+                        "definition_id": "tool-inspect-image-v1",
+                        "executor": "application",
+                        "arguments": {
+                            "type": "json",
+                            "value": {
+                                "asset_id": "asset-image-1",
+                                "regions": [
+                                    1,
+                                    2
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "provenance": {
+                    "type": "generated"
+                },
+                "generation_id": "generation-1"
+            }
+        ],
+        "generations": {
+            "generation-1": {
+                "id": "generation-1",
+                "record_source": "executed",
+                "request_id": "request-1",
+                "attempt_id": "attempt-1",
+                "provider_response_id": "response-1",
+                "purpose": "interaction",
+                "requested_model": "claude-sonnet",
+                "resolved_model": "claude-sonnet",
+                "provider": "anthropic",
+                "protocol": "claude-messages",
+                "adapter_version": "1",
+                "status": "completed",
+                "finish_reason": "tool_use",
+                "timestamps": {
+                    "recorded_at": "2026-09-11T10:01:00Z",
+                    "started_at": "2026-09-11T10:00:30Z",
+                    "completed_at": "2026-09-11T10:01:00Z"
+                },
+                "source": {
+                    "conversation_id": "conversation-1",
+                    "revision": 1
+                },
+                "request_receipt": {
+                    "id": "request-receipt-1",
+                    "request_id": "request-1",
+                    "attempt_id": "attempt-1",
+                    "source": {
+                        "conversation_id": "conversation-1",
+                        "revision": 1
+                    },
+                    "source_tail_turn_id": "turn-user-1",
+                    "context_fingerprint": "sha256:context-1",
+                    "tool_set_fingerprint": "sha256:tools-1",
+                    "request_fingerprint": "sha256:request-1",
+                    "target": {
+                        "provider": "anthropic",
+                        "protocol": "claude-messages",
+                        "model": "claude-sonnet",
+                        "adapter_version": "1"
+                    },
+                    "tool_definition_ids": [
+                        "tool-inspect-image-v1"
+                    ],
+                    "asset_versions": [
+                        {
+                            "asset_id": "asset-image-1",
+                            "content_hash": "sha256:image-1"
+                        }
+                    ],
+                    "item_mappings": [],
+                    "recorded_at": "2026-09-11T10:00:30Z"
+                },
+                "model_options": {
+                    "optional_setting": null,
+                    "nested": {
+                        "value": null
+                    }
+                }
+            }
+        },
+        "operation_receipts": {
+            "operation-response-1": {
+                "id": "operation-response-1",
+                "conversation_id": "conversation-1",
+                "payload_fingerprint": "sha256:response-1",
+                "base_revision": 1,
+                "result_revision": 3,
+                "recorded_at": "2026-09-11T10:01:00Z",
+                "accepted_turn_ids": [
+                    "turn-agent-1"
+                ],
+                "accepted_generation_ids": [
+                    "generation-1"
+                ],
+                "accepted_asset_ids": [
+                    "asset-image-1"
+                ],
+                "accepted_tool_definition_ids": [
+                    "tool-inspect-image-v1"
+                ],
+                "accepted_context_entry_ids": [
+                    "context-user-1",
+                    "context-agent-1"
+                ]
+            }
+        },
+        "execution_receipts": {},
+        "assets": {
+            "asset-image-1": {
+                "id": "asset-image-1",
+                "kind": "image",
+                "mime_type": "image/png",
+                "storage": {
+                    "type": "inline_base64",
+                    "data": "iVBORw=="
+                },
+                "provenance": {
+                    "type": "generated",
+                    "generation_id": "generation-1",
+                    "source_turn_id": "turn-agent-1"
+                },
+                "byte_length": 4,
+                "content_hash": "sha256:image-1",
+                "media": {
+                    "width": 640,
+                    "height": 480
+                },
+                "created_at": "2026-09-11T10:01:00Z"
+            }
+        },
+        "tool_definitions": {
+            "tool-inspect-image-v1": {
+                "id": "tool-inspect-image-v1",
+                "name": "inspect_image",
+                "version": "1",
+                "description": "Inspect regions in an image asset.",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "asset_id": {
+                            "type": "string"
+                        },
+                        "regions": {
+                            "type": "array",
+                            "items": {
+                                "type": "number"
+                            }
+                        }
+                    },
+                    "required": [
+                        "asset_id"
+                    ]
+                },
+                "result_capabilities": [
+                    "text",
+                    "json",
+                    "image"
+                ]
+            }
+        },
+        "context": {
+            "revision": 3,
+            "entries": [
+                {
+                    "id": "context-user-1",
+                    "type": "source_turn",
+                    "turn_id": "turn-user-1"
+                },
+                {
+                    "id": "context-agent-1",
+                    "type": "source_turn",
+                    "turn_id": "turn-agent-1"
+                }
+            ],
+            "active_tool_definition_ids": [
+                "tool-inspect-image-v1"
+            ],
+            "protected_entry_ids": [],
+            "retrieval_requirements": []
+        },
+        "compactions": {},
+        "processing": {
+            "enabled": false,
+            "policy_revision": 0,
+            "processors": []
+        },
+        "metadata": {
+            "optional_value": null,
+            "nested": {
+                "value": null
+            },
+            "items": [
+                null,
+                {
+                    "value": null
+                }
+            ]
+        }
+    }
+}
