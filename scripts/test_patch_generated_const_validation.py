@@ -22,6 +22,48 @@ from patch_generated_const_validation import (
 
 
 class PatchGeneratedConstValidationTest(unittest.TestCase):
+
+    def test_upgrade_inline_branches_receive_exact_discriminator_and_closed_shape_guards(self) -> None:
+        contracts = {
+            "ExperimentalAgentConversationUpgradePayload": ("action", ["begin", "advance", "finish"]),
+            "ExperimentalAgentConversationUpgradeResponse": ("status", ["pending", "ready_to_finish", "completed"]),
+        }
+        schemas = {}
+        for name, (field, values) in contracts.items():
+            schemas[name] = {
+                "type": "object", "required": [field], "additionalProperties": True,
+                "discriminator": {"propertyName": field},
+                "oneOf": [{"type": "object", "additionalProperties": False,
+                           "properties": {field: {"type": "string", "enum": [value]},
+                                          "operation_id": {"type": "string"}},
+                           "required": [field, "operation_id"]} for value in values],
+            }
+        schemas["UnrelatedForwardCompatibleEnum"] = {
+            "type": "object", "properties": {"status": {"type": "string", "enum": ["known"]}},
+        }
+        document = {"components": {"schemas": schemas}}
+        models = canonical_model_schemas(document)
+        discriminator_values = union_discriminator_values(document)
+        self.assertNotIn("UnrelatedForwardCompatibleEnum", models)
+        self.assertNotIn("UnrelatedForwardCompatibleEnum", discriminator_values)
+        with tempfile.TemporaryDirectory() as directory:
+            for name, (field, values) in contracts.items():
+                self.assertIn(name, models)
+                for index, value in enumerate(values):
+                    branch = name + "OneOf" + (str(index) if index else "")
+                    self.assertEqual([(field, [value], True)], discriminator_values[branch])
+                    path = pathlib.Path(directory) / (branch + ".java")
+                    path.write_text("public static void validateJsonElement(JsonElement jsonElement) {\n"
+                                    "        JsonObject jsonObj = jsonElement.getAsJsonObject();\n}\n")
+                    self.assertTrue(patch_model(path, [], discriminator_values[branch]))
+                    self.assertFalse(patch_model(path, [], discriminator_values[branch]))
+                    self.assertIn("Unknown union discriminator " + field, path.read_text())
+                    self.assertIn('"' + value + '"', path.read_text())
+                    self.assertTrue(patch_canonical_shape(path, models[branch], schemas))
+                    self.assertFalse(patch_canonical_shape(path, models[branch], schemas))
+                    self.assertIn("operation_id", path.read_text())
+
+
     def test_inspection_closure_patches_all_named_status_branches_and_closedness(self) -> None:
         statuses = {
             "AvailableInitialAuthoringView": "available",

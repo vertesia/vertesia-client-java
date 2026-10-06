@@ -27,6 +27,8 @@ CANONICAL_ROOT_SCHEMAS = (
     "ConversationContextChangeRequest",
     "ConversationContextChangeProposal",
     "RunConversationResponse",
+    "ExperimentalAgentConversationUpgradePayload",
+    "ExperimentalAgentConversationUpgradeResponse",
     "ExperimentalRunConversationInspectionResponse",
     "ExperimentalInitialAuthoringViewResponse",
     "ExperimentalCanonicalIngestionPreparationViewResponse",
