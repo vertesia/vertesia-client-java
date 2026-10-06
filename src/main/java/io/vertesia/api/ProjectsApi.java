@@ -329,7 +329,7 @@ public class ProjectsApi {
 
     /**
      * Delete a project
-     * Deletes a project.
+     * Deletes a project.  **Required permissions:** &#x60;account:admin&#x60;
      * @param projectId  (required)
      * @return DeleteByIdResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -350,7 +350,7 @@ public class ProjectsApi {
 
     /**
      * Delete a project
-     * Deletes a project.
+     * Deletes a project.  **Required permissions:** &#x60;account:admin&#x60;
      * @param projectId  (required)
      * @return ApiResponse&lt;DeleteByIdResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -372,7 +372,7 @@ public class ProjectsApi {
 
     /**
      * Delete a project (asynchronously)
-     * Deletes a project.
+     * Deletes a project.  **Required permissions:** &#x60;account:admin&#x60;
      * @param projectId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
