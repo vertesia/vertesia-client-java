@@ -111,6 +111,11 @@ public class UserGroup {
     @SerializedName(SERIALIZED_NAME_ALLOWED_PROJECTS)
     @jakarta.annotation.Nullable private List<String> allowedProjects = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_MEMBER_COUNT = "member_count";
+
+    @SerializedName(SERIALIZED_NAME_MEMBER_COUNT)
+    @jakarta.annotation.Nullable private Integer memberCount;
+
     public UserGroup() {}
 
     public UserGroup id(@jakarta.annotation.Nonnull String id) {
@@ -372,6 +377,25 @@ public class UserGroup {
         this.allowedProjects = allowedProjects;
     }
 
+    public UserGroup memberCount(@jakarta.annotation.Nullable Integer memberCount) {
+        this.memberCount = memberCount;
+        return this;
+    }
+
+    /**
+     * Number of users in the group. Returned by the group listing only.
+     * minimum: -9007199254740991
+     * maximum: 9007199254740991
+     * @return memberCount
+     */
+    @jakarta.annotation.Nullable public Integer getMemberCount() {
+        return memberCount;
+    }
+
+    public void setMemberCount(@jakarta.annotation.Nullable Integer memberCount) {
+        this.memberCount = memberCount;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -439,6 +463,7 @@ public class UserGroup {
                 && Objects.equals(this.clearance, userGroup.clearance)
                 && Objects.equals(this.compartments, userGroup.compartments)
                 && Objects.equals(this.allowedProjects, userGroup.allowedProjects)
+                && Objects.equals(this.memberCount, userGroup.memberCount)
                 && Objects.equals(this.additionalProperties, userGroup.additionalProperties);
     }
 
@@ -458,6 +483,7 @@ public class UserGroup {
                 clearance,
                 compartments,
                 allowedProjects,
+                memberCount,
                 additionalProperties);
     }
 
@@ -478,6 +504,7 @@ public class UserGroup {
         sb.append("    clearance: ").append(toIndentedString(clearance)).append("\n");
         sb.append("    compartments: ").append(toIndentedString(compartments)).append("\n");
         sb.append("    allowedProjects: ").append(toIndentedString(allowedProjects)).append("\n");
+        sb.append("    memberCount: ").append(toIndentedString(memberCount)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -513,7 +540,8 @@ public class UserGroup {
                                 "properties",
                                 "clearance",
                                 "compartments",
-                                "allowed_projects"));
+                                "allowed_projects",
+                                "member_count"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
