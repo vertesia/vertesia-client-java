@@ -48,6 +48,10 @@ public enum TurnEvaluationFlag {
 
     CIRCUIT_BREAKER("circuit_breaker"),
 
+    NO_VISIBLE_ANSWER("no_visible_answer"),
+
+    ANSWER_IN_TOOL_PREAMBLE("answer_in_tool_preamble"),
+
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
