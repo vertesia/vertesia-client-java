@@ -118,6 +118,8 @@ src/main/java/io/vertesia/model/AlterTableOperationOneOf.java
 src/main/java/io/vertesia/model/AlterTableOperationOneOf1.java
 src/main/java/io/vertesia/model/AlterTableOperationOneOf2.java
 src/main/java/io/vertesia/model/AlterTableOperationOneOf3.java
+src/main/java/io/vertesia/model/AlterTableOperationOneOf4.java
+src/main/java/io/vertesia/model/AlterTableOperationOneOf5.java
 src/main/java/io/vertesia/model/AlterTablePayload.java
 src/main/java/io/vertesia/model/AnalyticsAxis.java
 src/main/java/io/vertesia/model/AnswerProcessTaskPayload.java

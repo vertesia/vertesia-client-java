@@ -105,6 +105,12 @@ public class JSON {
                                                 "AlterTableOperation_oneOf_3",
                                                 io.vertesia.model.AlterTableOperationOneOf3.class);
                                         classByDiscriminatorValue.put(
+                                                "AlterTableOperation_oneOf_4",
+                                                io.vertesia.model.AlterTableOperationOneOf4.class);
+                                        classByDiscriminatorValue.put(
+                                                "AlterTableOperation_oneOf_5",
+                                                io.vertesia.model.AlterTableOperationOneOf5.class);
+                                        classByDiscriminatorValue.put(
                                                 "AlterTableOperation",
                                                 io.vertesia.model.AlterTableOperation.class);
                                         return getClassByDiscriminator(
@@ -1010,6 +1016,10 @@ public class JSON {
                 new io.vertesia.model.AlterTableOperationOneOf2.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AlterTableOperationOneOf3.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AlterTableOperationOneOf4.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AlterTableOperationOneOf5.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AlterTablePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

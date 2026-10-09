@@ -49,6 +49,10 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                     gson.getDelegateAdapter(this, TypeToken.get(AlterTableOperationOneOf2.class));
             final TypeAdapter<AlterTableOperationOneOf3> adapterAlterTableOperationOneOf3 =
                     gson.getDelegateAdapter(this, TypeToken.get(AlterTableOperationOneOf3.class));
+            final TypeAdapter<AlterTableOperationOneOf4> adapterAlterTableOperationOneOf4 =
+                    gson.getDelegateAdapter(this, TypeToken.get(AlterTableOperationOneOf4.class));
+            final TypeAdapter<AlterTableOperationOneOf5> adapterAlterTableOperationOneOf5 =
+                    gson.getDelegateAdapter(this, TypeToken.get(AlterTableOperationOneOf5.class));
 
             return (TypeAdapter<T>)
                     new TypeAdapter<AlterTableOperation>() {
@@ -100,8 +104,28 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                                 elementAdapter.write(out, element);
                                 return;
                             }
+                            // check if the actual instance is of the type
+                            // `AlterTableOperationOneOf4`
+                            if (value.getActualInstance() instanceof AlterTableOperationOneOf4) {
+                                JsonElement element =
+                                        adapterAlterTableOperationOneOf4.toJsonTree(
+                                                (AlterTableOperationOneOf4)
+                                                        value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
+                            // check if the actual instance is of the type
+                            // `AlterTableOperationOneOf5`
+                            if (value.getActualInstance() instanceof AlterTableOperationOneOf5) {
+                                JsonElement element =
+                                        adapterAlterTableOperationOneOf5.toJsonTree(
+                                                (AlterTableOperationOneOf5)
+                                                        value.getActualInstance());
+                                elementAdapter.write(out, element);
+                                return;
+                            }
                             throw new IOException(
-                                    "Failed to serialize as the type doesn't match oneOf schemas: AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3");
+                                    "Failed to serialize as the type doesn't match oneOf schemas: AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3, AlterTableOperationOneOf4, AlterTableOperationOneOf5");
                         }
 
                         @Override
@@ -197,6 +221,48 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                                         "Input data does not match schema 'AlterTableOperationOneOf3'",
                                         e);
                             }
+                            // deserialize AlterTableOperationOneOf4
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                AlterTableOperationOneOf4.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAlterTableOperationOneOf4;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'AlterTableOperationOneOf4'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for AlterTableOperationOneOf4 failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'AlterTableOperationOneOf4'",
+                                        e);
+                            }
+                            // deserialize AlterTableOperationOneOf5
+                            try {
+                                // validate the JSON object to see if any exception is thrown
+                                AlterTableOperationOneOf5.validateJsonElement(jsonElement);
+                                actualAdapter = adapterAlterTableOperationOneOf5;
+                                match++;
+                                log.log(
+                                        Level.FINER,
+                                        "Input data matches schema 'AlterTableOperationOneOf5'");
+                            } catch (Exception e) {
+                                // deserialization failed, continue
+                                errorMessages.add(
+                                        String.format(
+                                                java.util.Locale.ROOT,
+                                                "Deserialization for AlterTableOperationOneOf5 failed with `%s`.",
+                                                e.getMessage()));
+                                log.log(
+                                        Level.FINER,
+                                        "Input data does not match schema 'AlterTableOperationOneOf5'",
+                                        e);
+                            }
 
                             if (match == 1) {
                                 AlterTableOperation ret = new AlterTableOperation();
@@ -233,6 +299,8 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
         schemas.put("AlterTableOperationOneOf1", AlterTableOperationOneOf1.class);
         schemas.put("AlterTableOperationOneOf2", AlterTableOperationOneOf2.class);
         schemas.put("AlterTableOperationOneOf3", AlterTableOperationOneOf3.class);
+        schemas.put("AlterTableOperationOneOf4", AlterTableOperationOneOf4.class);
+        schemas.put("AlterTableOperationOneOf5", AlterTableOperationOneOf5.class);
     }
 
     @Override
@@ -243,7 +311,7 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
     /**
      * Set the instance that matches the oneOf child schema, check
      * the instance parameter is valid against the oneOf child schemas:
-     * AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3
+     * AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3, AlterTableOperationOneOf4, AlterTableOperationOneOf5
      *
      * It could be an instance of the 'oneOf' schemas.
      */
@@ -269,15 +337,25 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
             return;
         }
 
+        if (instance instanceof AlterTableOperationOneOf4) {
+            super.setActualInstance(instance);
+            return;
+        }
+
+        if (instance instanceof AlterTableOperationOneOf5) {
+            super.setActualInstance(instance);
+            return;
+        }
+
         throw new RuntimeException(
-                "Invalid instance type. Must be AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3");
+                "Invalid instance type. Must be AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3, AlterTableOperationOneOf4, AlterTableOperationOneOf5");
     }
 
     /**
      * Get the actual instance, which can be the following:
-     * AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3
+     * AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3, AlterTableOperationOneOf4, AlterTableOperationOneOf5
      *
-     * @return The actual instance (AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3)
+     * @return The actual instance (AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3, AlterTableOperationOneOf4, AlterTableOperationOneOf5)
      */
     @SuppressWarnings("unchecked")
     @Override
@@ -331,6 +409,30 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
     @SuppressWarnings("unchecked")
     public AlterTableOperationOneOf3 getAlterTableOperationOneOf3() throws ClassCastException {
         return (AlterTableOperationOneOf3) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `AlterTableOperationOneOf4`. If the actual instance is not `AlterTableOperationOneOf4`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AlterTableOperationOneOf4`
+     * @throws ClassCastException if the instance is not `AlterTableOperationOneOf4`
+     */
+    @SuppressWarnings("unchecked")
+    public AlterTableOperationOneOf4 getAlterTableOperationOneOf4() throws ClassCastException {
+        return (AlterTableOperationOneOf4) super.getActualInstance();
+    }
+
+    /**
+     * Get the actual instance of `AlterTableOperationOneOf5`. If the actual instance is not `AlterTableOperationOneOf5`,
+     * the ClassCastException will be thrown.
+     *
+     * @return The actual instance of `AlterTableOperationOneOf5`
+     * @throws ClassCastException if the instance is not `AlterTableOperationOneOf5`
+     */
+    @SuppressWarnings("unchecked")
+    public AlterTableOperationOneOf5 getAlterTableOperationOneOf5() throws ClassCastException {
+        return (AlterTableOperationOneOf5) super.getActualInstance();
     }
 
     /**
@@ -391,11 +493,35 @@ public class AlterTableOperation extends AbstractOpenApiSchema {
                             e.getMessage()));
             // continue to the next one
         }
+        // validate the json string with AlterTableOperationOneOf4
+        try {
+            AlterTableOperationOneOf4.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for AlterTableOperationOneOf4 failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
+        // validate the json string with AlterTableOperationOneOf5
+        try {
+            AlterTableOperationOneOf5.validateJsonElement(jsonElement);
+            validCount++;
+        } catch (Exception e) {
+            errorMessages.add(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Deserialization for AlterTableOperationOneOf5 failed with `%s`.",
+                            e.getMessage()));
+            // continue to the next one
+        }
         if (validCount != 1) {
             throw new IOException(
                     String.format(
                             java.util.Locale.ROOT,
-                            "The JSON string is invalid for AlterTableOperation with oneOf schemas: AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
+                            "The JSON string is invalid for AlterTableOperation with oneOf schemas: AlterTableOperationOneOf, AlterTableOperationOneOf1, AlterTableOperationOneOf2, AlterTableOperationOneOf3, AlterTableOperationOneOf4, AlterTableOperationOneOf5. %d class(es) match the result, expected 1. Detailed failure message for oneOf schemas: %s. JSON: %s",
                             validCount,
                             errorMessages,
                             jsonElement.toString()));
