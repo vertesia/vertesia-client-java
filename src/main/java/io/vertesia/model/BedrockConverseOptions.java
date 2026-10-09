@@ -116,6 +116,78 @@ public class BedrockConverseOptions {
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
     @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_EFFORT = "effort";
+
+    @SerializedName(SERIALIZED_NAME_EFFORT)
+    @jakarta.annotation.Nullable private ReasoningEffort effort;
+
+    public static final String SERIALIZED_NAME_REASONING_EFFORT = "reasoning_effort";
+
+    @SerializedName(SERIALIZED_NAME_REASONING_EFFORT)
+    @jakarta.annotation.Nullable private ReasoningEffort reasoningEffort;
+
+    /**
+     * Gets or Sets verbosity
+     */
+    @JsonAdapter(VerbosityEnum.Adapter.class)
+    public enum VerbosityEnum {
+        LOW("low"),
+
+        MEDIUM("medium"),
+
+        HIGH("high"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        VerbosityEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static VerbosityEnum fromValue(String value) {
+            for (VerbosityEnum b : VerbosityEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<VerbosityEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final VerbosityEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public VerbosityEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return VerbosityEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            VerbosityEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_VERBOSITY = "verbosity";
+
+    @SerializedName(SERIALIZED_NAME_VERBOSITY)
+    @jakarta.annotation.Nullable private VerbosityEnum verbosity;
+
     public static final String SERIALIZED_NAME_INCLUDE_THOUGHTS = "include_thoughts";
 
     @SerializedName(SERIALIZED_NAME_INCLUDE_THOUGHTS)
@@ -222,6 +294,58 @@ public class BedrockConverseOptions {
         this.stopSequence = stopSequence;
     }
 
+    public BedrockConverseOptions effort(@jakarta.annotation.Nullable ReasoningEffort effort) {
+        this.effort = effort;
+        return this;
+    }
+
+    /**
+     * Get effort
+     * @return effort
+     */
+    @jakarta.annotation.Nullable public ReasoningEffort getEffort() {
+        return effort;
+    }
+
+    public void setEffort(@jakarta.annotation.Nullable ReasoningEffort effort) {
+        this.effort = effort;
+    }
+
+    public BedrockConverseOptions reasoningEffort(
+            @jakarta.annotation.Nullable ReasoningEffort reasoningEffort) {
+        this.reasoningEffort = reasoningEffort;
+        return this;
+    }
+
+    /**
+     * Get reasoningEffort
+     * @return reasoningEffort
+     */
+    @jakarta.annotation.Nullable public ReasoningEffort getReasoningEffort() {
+        return reasoningEffort;
+    }
+
+    public void setReasoningEffort(@jakarta.annotation.Nullable ReasoningEffort reasoningEffort) {
+        this.reasoningEffort = reasoningEffort;
+    }
+
+    public BedrockConverseOptions verbosity(@jakarta.annotation.Nullable VerbosityEnum verbosity) {
+        this.verbosity = verbosity;
+        return this;
+    }
+
+    /**
+     * Get verbosity
+     * @return verbosity
+     */
+    @jakarta.annotation.Nullable public VerbosityEnum getVerbosity() {
+        return verbosity;
+    }
+
+    public void setVerbosity(@jakarta.annotation.Nullable VerbosityEnum verbosity) {
+        this.verbosity = verbosity;
+    }
+
     public BedrockConverseOptions includeThoughts(
             @jakarta.annotation.Nullable Boolean includeThoughts) {
         this.includeThoughts = includeThoughts;
@@ -271,6 +395,9 @@ public class BedrockConverseOptions {
                 && Objects.equals(this.temperature, bedrockConverseOptions.temperature)
                 && Objects.equals(this.topP, bedrockConverseOptions.topP)
                 && Objects.equals(this.stopSequence, bedrockConverseOptions.stopSequence)
+                && Objects.equals(this.effort, bedrockConverseOptions.effort)
+                && Objects.equals(this.reasoningEffort, bedrockConverseOptions.reasoningEffort)
+                && Objects.equals(this.verbosity, bedrockConverseOptions.verbosity)
                 && Objects.equals(this.includeThoughts, bedrockConverseOptions.includeThoughts)
                 && Objects.equals(this.serviceTier, bedrockConverseOptions.serviceTier);
     }
@@ -278,7 +405,16 @@ public class BedrockConverseOptions {
     @Override
     public int hashCode() {
         return Objects.hash(
-                optionId, maxTokens, temperature, topP, stopSequence, includeThoughts, serviceTier);
+                optionId,
+                maxTokens,
+                temperature,
+                topP,
+                stopSequence,
+                effort,
+                reasoningEffort,
+                verbosity,
+                includeThoughts,
+                serviceTier);
     }
 
     @Override
@@ -290,6 +426,9 @@ public class BedrockConverseOptions {
         sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
         sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
         sb.append("    stopSequence: ").append(toIndentedString(stopSequence)).append("\n");
+        sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
+        sb.append("    reasoningEffort: ").append(toIndentedString(reasoningEffort)).append("\n");
+        sb.append("    verbosity: ").append(toIndentedString(verbosity)).append("\n");
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
         sb.append("}");
@@ -317,6 +456,9 @@ public class BedrockConverseOptions {
                                 "temperature",
                                 "top_p",
                                 "stop_sequence",
+                                "effort",
+                                "reasoning_effort",
+                                "verbosity",
                                 "include_thoughts",
                                 "service_tier"));
 
@@ -363,6 +505,27 @@ public class BedrockConverseOptions {
                             java.util.Locale.ROOT,
                             "Expected the field `stop_sequence` to be an array in the JSON string but got `%s`",
                             jsonObj.get("stop_sequence").toString()));
+        }
+        // validate the optional field `effort`
+        if (jsonObj.get("effort") != null && !jsonObj.get("effort").isJsonNull()) {
+            ReasoningEffort.validateJsonElement(jsonObj.get("effort"));
+        }
+        // validate the optional field `reasoning_effort`
+        if (jsonObj.get("reasoning_effort") != null
+                && !jsonObj.get("reasoning_effort").isJsonNull()) {
+            ReasoningEffort.validateJsonElement(jsonObj.get("reasoning_effort"));
+        }
+        if ((jsonObj.get("verbosity") != null && !jsonObj.get("verbosity").isJsonNull())
+                && !jsonObj.get("verbosity").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `verbosity` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("verbosity").toString()));
+        }
+        // validate the optional field `verbosity`
+        if (jsonObj.get("verbosity") != null && !jsonObj.get("verbosity").isJsonNull()) {
+            VerbosityEnum.validateJsonElement(jsonObj.get("verbosity"));
         }
         if ((jsonObj.get("service_tier") != null && !jsonObj.get("service_tier").isJsonNull())
                 && !jsonObj.get("service_tier").isJsonPrimitive()) {
