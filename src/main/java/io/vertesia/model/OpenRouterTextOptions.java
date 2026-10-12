@@ -38,6 +38,11 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OpenRouterTextOptions {
+    public static final String SERIALIZED_NAME_SEED = "seed";
+
+    @SerializedName(SERIALIZED_NAME_SEED)
+    @jakarta.annotation.Nullable private BigDecimal seed;
+
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
@@ -513,6 +518,23 @@ public class OpenRouterTextOptions {
 
     public OpenRouterTextOptions() {}
 
+    public OpenRouterTextOptions seed(@jakarta.annotation.Nullable BigDecimal seed) {
+        this.seed = seed;
+        return this;
+    }
+
+    /**
+     * Get seed
+     * @return seed
+     */
+    @jakarta.annotation.Nullable public BigDecimal getSeed() {
+        return seed;
+    }
+
+    public void setSeed(@jakarta.annotation.Nullable BigDecimal seed) {
+        this.seed = seed;
+    }
+
     public OpenRouterTextOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
         this.maxTokens = maxTokens;
         return this;
@@ -956,7 +978,8 @@ public class OpenRouterTextOptions {
             return false;
         }
         OpenRouterTextOptions openRouterTextOptions = (OpenRouterTextOptions) o;
-        return Objects.equals(this.maxTokens, openRouterTextOptions.maxTokens)
+        return Objects.equals(this.seed, openRouterTextOptions.seed)
+                && Objects.equals(this.maxTokens, openRouterTextOptions.maxTokens)
                 && Objects.equals(this.toolChoice, openRouterTextOptions.toolChoice)
                 && Objects.equals(this.effort, openRouterTextOptions.effort)
                 && Objects.equals(this.reasoningEffort, openRouterTextOptions.reasoningEffort)
@@ -988,6 +1011,7 @@ public class OpenRouterTextOptions {
     @Override
     public int hashCode() {
         return Objects.hash(
+                seed,
                 maxTokens,
                 toolChoice,
                 effort,
@@ -1016,6 +1040,7 @@ public class OpenRouterTextOptions {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OpenRouterTextOptions {\n");
+        sb.append("    seed: ").append(toIndentedString(seed)).append("\n");
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
         sb.append("    toolChoice: ").append(toIndentedString(toolChoice)).append("\n");
         sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
@@ -1066,6 +1091,7 @@ public class OpenRouterTextOptions {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "seed",
                                 "max_tokens",
                                 "tool_choice",
                                 "effort",

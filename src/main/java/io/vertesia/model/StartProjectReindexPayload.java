@@ -24,6 +24,7 @@ import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.OffsetDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Objects;
@@ -59,6 +60,11 @@ public class StartProjectReindexPayload {
 
     @SerializedName(SERIALIZED_NAME_BULK_CONCURRENCY)
     @jakarta.annotation.Nullable private BigDecimal bulkConcurrency;
+
+    public static final String SERIALIZED_NAME_MODIFIED_SINCE = "modified_since";
+
+    @SerializedName(SERIALIZED_NAME_MODIFIED_SINCE)
+    @jakarta.annotation.Nullable private OffsetDateTime modifiedSince;
 
     public StartProjectReindexPayload() {}
 
@@ -151,6 +157,24 @@ public class StartProjectReindexPayload {
         this.bulkConcurrency = bulkConcurrency;
     }
 
+    public StartProjectReindexPayload modifiedSince(
+            @jakarta.annotation.Nullable OffsetDateTime modifiedSince) {
+        this.modifiedSince = modifiedSince;
+        return this;
+    }
+
+    /**
+     * When set, reindex only documents whose updated_at is at or after this RFC3339/ISO-8601 datetime. Writes in-place into the live index (no new versioned target, no alias swap). Omit for a full reindex into a fresh versioned target.
+     * @return modifiedSince
+     */
+    @jakarta.annotation.Nullable public OffsetDateTime getModifiedSince() {
+        return modifiedSince;
+    }
+
+    public void setModifiedSince(@jakarta.annotation.Nullable OffsetDateTime modifiedSince) {
+        this.modifiedSince = modifiedSince;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -165,13 +189,19 @@ public class StartProjectReindexPayload {
                         this.parallelShardCount, startProjectReindexPayload.parallelShardCount)
                 && Objects.equals(this.concurrency, startProjectReindexPayload.concurrency)
                 && Objects.equals(this.bulkSizeBytes, startProjectReindexPayload.bulkSizeBytes)
-                && Objects.equals(this.bulkConcurrency, startProjectReindexPayload.bulkConcurrency);
+                && Objects.equals(this.bulkConcurrency, startProjectReindexPayload.bulkConcurrency)
+                && Objects.equals(this.modifiedSince, startProjectReindexPayload.modifiedSince);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(
-                shardSize, parallelShardCount, concurrency, bulkSizeBytes, bulkConcurrency);
+                shardSize,
+                parallelShardCount,
+                concurrency,
+                bulkSizeBytes,
+                bulkConcurrency,
+                modifiedSince);
     }
 
     @Override
@@ -185,6 +215,7 @@ public class StartProjectReindexPayload {
         sb.append("    concurrency: ").append(toIndentedString(concurrency)).append("\n");
         sb.append("    bulkSizeBytes: ").append(toIndentedString(bulkSizeBytes)).append("\n");
         sb.append("    bulkConcurrency: ").append(toIndentedString(bulkConcurrency)).append("\n");
+        sb.append("    modifiedSince: ").append(toIndentedString(modifiedSince)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -209,7 +240,8 @@ public class StartProjectReindexPayload {
                                 "parallel_shard_count",
                                 "concurrency",
                                 "bulk_size_bytes",
-                                "bulk_concurrency"));
+                                "bulk_concurrency",
+                                "modified_since"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);

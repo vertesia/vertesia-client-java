@@ -987,6 +987,7 @@ src/main/java/io/vertesia/model/ServiceAccountTokenRequest.java
 src/main/java/io/vertesia/model/SetFileMetadataPayload.java
 src/main/java/io/vertesia/model/SetMcpApiKeyRequest.java
 src/main/java/io/vertesia/model/SetObjectEmbeddingsResponse.java
+src/main/java/io/vertesia/model/SetObjectTextPayload.java
 src/main/java/io/vertesia/model/SignalAgentResponse.java
 src/main/java/io/vertesia/model/SignalEventProperties.java
 src/main/java/io/vertesia/model/SignalEventPropertiesSender.java

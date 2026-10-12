@@ -966,7 +966,7 @@ public class InteractionRunsApi {
 
     /**
      * Search runs
-     * Searches execution runs with a structured query body. Filters can include name, status, interaction, environment, model, tags, full-text query, parent runs, linked object, creation range, finish reason, creator, workflow IDs, run IDs, and agent-run status.  **Required permissions:** &#x60;run:read&#x60;
+     * Searches execution runs with a structured query body. Filters can include name, status, interaction, environment, model, tags, parent runs, creation range, finish reason, creator, workflow IDs, run IDs, and agent-run status.  **Required permissions:** &#x60;run:read&#x60;
      * @param runSearchPayload  (required)
      * @return List&lt;ExecutionRunRef&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -987,7 +987,7 @@ public class InteractionRunsApi {
 
     /**
      * Search runs
-     * Searches execution runs with a structured query body. Filters can include name, status, interaction, environment, model, tags, full-text query, parent runs, linked object, creation range, finish reason, creator, workflow IDs, run IDs, and agent-run status.  **Required permissions:** &#x60;run:read&#x60;
+     * Searches execution runs with a structured query body. Filters can include name, status, interaction, environment, model, tags, parent runs, creation range, finish reason, creator, workflow IDs, run IDs, and agent-run status.  **Required permissions:** &#x60;run:read&#x60;
      * @param runSearchPayload  (required)
      * @return ApiResponse&lt;List&lt;ExecutionRunRef&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1009,7 +1009,7 @@ public class InteractionRunsApi {
 
     /**
      * Search runs (asynchronously)
-     * Searches execution runs with a structured query body. Filters can include name, status, interaction, environment, model, tags, full-text query, parent runs, linked object, creation range, finish reason, creator, workflow IDs, run IDs, and agent-run status.  **Required permissions:** &#x60;run:read&#x60;
+     * Searches execution runs with a structured query body. Filters can include name, status, interaction, environment, model, tags, parent runs, creation range, finish reason, creator, workflow IDs, run IDs, and agent-run status.  **Required permissions:** &#x60;run:read&#x60;
      * @param runSearchPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

@@ -96,6 +96,11 @@ public class BedrockNovaOptions {
     @SerializedName(SERIALIZED_NAME_OPTION_ID)
     @jakarta.annotation.Nullable private OptionIdEnum optionId;
 
+    public static final String SERIALIZED_NAME_EFFORT = "effort";
+
+    @SerializedName(SERIALIZED_NAME_EFFORT)
+    @jakarta.annotation.Nullable private ReasoningEffort effort;
+
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
@@ -148,6 +153,23 @@ public class BedrockNovaOptions {
 
     public void setOptionId(@jakarta.annotation.Nullable OptionIdEnum optionId) {
         this.optionId = optionId;
+    }
+
+    public BedrockNovaOptions effort(@jakarta.annotation.Nullable ReasoningEffort effort) {
+        this.effort = effort;
+        return this;
+    }
+
+    /**
+     * Get effort
+     * @return effort
+     */
+    @jakarta.annotation.Nullable public ReasoningEffort getEffort() {
+        return effort;
+    }
+
+    public void setEffort(@jakarta.annotation.Nullable ReasoningEffort effort) {
+        this.effort = effort;
     }
 
     public BedrockNovaOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
@@ -288,6 +310,7 @@ public class BedrockNovaOptions {
         }
         BedrockNovaOptions bedrockNovaOptions = (BedrockNovaOptions) o;
         return Objects.equals(this.optionId, bedrockNovaOptions.optionId)
+                && Objects.equals(this.effort, bedrockNovaOptions.effort)
                 && Objects.equals(this.maxTokens, bedrockNovaOptions.maxTokens)
                 && Objects.equals(this.temperature, bedrockNovaOptions.temperature)
                 && Objects.equals(this.topP, bedrockNovaOptions.topP)
@@ -301,6 +324,7 @@ public class BedrockNovaOptions {
     public int hashCode() {
         return Objects.hash(
                 optionId,
+                effort,
                 maxTokens,
                 temperature,
                 topP,
@@ -315,6 +339,7 @@ public class BedrockNovaOptions {
         StringBuilder sb = new StringBuilder();
         sb.append("class BedrockNovaOptions {\n");
         sb.append("    optionId: ").append(toIndentedString(optionId)).append("\n");
+        sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
         sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
         sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
@@ -343,6 +368,7 @@ public class BedrockNovaOptions {
                 new HashSet<String>(
                         Arrays.asList(
                                 "_option_id",
+                                "effort",
                                 "max_tokens",
                                 "temperature",
                                 "top_p",
@@ -384,6 +410,10 @@ public class BedrockNovaOptions {
         // validate the optional field `_option_id`
         if (jsonObj.get("_option_id") != null && !jsonObj.get("_option_id").isJsonNull()) {
             OptionIdEnum.validateJsonElement(jsonObj.get("_option_id"));
+        }
+        // validate the optional field `effort`
+        if (jsonObj.get("effort") != null && !jsonObj.get("effort").isJsonNull()) {
+            ReasoningEffort.validateJsonElement(jsonObj.get("effort"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("stop_sequence") != null

@@ -51,6 +51,7 @@ import io.vertesia.model.ListWorkflowRunsResponse;
 import io.vertesia.model.ObjectSearchResponse;
 import io.vertesia.model.ProjectedContentObjectApiResponse;
 import io.vertesia.model.SetObjectEmbeddingsResponse;
+import io.vertesia.model.SetObjectTextPayload;
 import io.vertesia.model.StartContentObjectExportRequest;
 import io.vertesia.model.StartContentObjectExportResponse;
 import io.vertesia.model.UpdateContentObjectPayload;
@@ -2620,6 +2621,184 @@ public class ObjectsApi {
     }
 
     /**
+     * Build call for getObjectEmbeddings
+     * @param objectId  (required)
+     * @param type  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The stored embedding value. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getObjectEmbeddingsCall(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String type,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/objects/{objectId}/embeddings/{type}"
+                        .replace(
+                                "{" + "objectId" + "}",
+                                localVarApiClient.escapeString(objectId.toString()))
+                        .replace(
+                                "{" + "type" + "}",
+                                localVarApiClient.escapeString(type.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getObjectEmbeddingsValidateBeforeCall(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String type,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'objectId' is set
+        if (objectId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'objectId' when calling getObjectEmbeddings(Async)");
+        }
+
+        // verify the required parameter 'type' is set
+        if (type == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'type' when calling getObjectEmbeddings(Async)");
+        }
+
+        return getObjectEmbeddingsCall(objectId, type, _callback);
+    }
+
+    /**
+     * Get content object embeddings
+     * Returns the stored embedding for a specific embedding type: GCS embeddings artifact first, with legacy inline database embeddings as fallback.  **Required permissions:** &#x60;content:read&#x60;
+     * @param objectId  (required)
+     * @param type  (required)
+     * @return Embedding
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The stored embedding value. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public Embedding getObjectEmbeddings(
+            @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nonnull String type)
+            throws ApiException {
+        ApiResponse<Embedding> localVarResp = getObjectEmbeddingsWithHttpInfo(objectId, type);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get content object embeddings
+     * Returns the stored embedding for a specific embedding type: GCS embeddings artifact first, with legacy inline database embeddings as fallback.  **Required permissions:** &#x60;content:read&#x60;
+     * @param objectId  (required)
+     * @param type  (required)
+     * @return ApiResponse&lt;Embedding&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The stored embedding value. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<Embedding> getObjectEmbeddingsWithHttpInfo(
+            @jakarta.annotation.Nonnull String objectId, @jakarta.annotation.Nonnull String type)
+            throws ApiException {
+        okhttp3.Call localVarCall = getObjectEmbeddingsValidateBeforeCall(objectId, type, null);
+        Type localVarReturnType = new TypeToken<Embedding>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get content object embeddings (asynchronously)
+     * Returns the stored embedding for a specific embedding type: GCS embeddings artifact first, with legacy inline database embeddings as fallback.  **Required permissions:** &#x60;content:read&#x60;
+     * @param objectId  (required)
+     * @param type  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The stored embedding value. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getObjectEmbeddingsAsync(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull String type,
+            final ApiCallback<Embedding> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getObjectEmbeddingsValidateBeforeCall(objectId, type, _callback);
+        Type localVarReturnType = new TypeToken<Embedding>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for getObjectRendition
      * @param objectId  (required)
      * @param format  (required)
@@ -4000,6 +4179,185 @@ public class ObjectsApi {
         okhttp3.Call localVarCall =
                 setObjectEmbeddingsValidateBeforeCall(objectId, type, embedding, _callback);
         Type localVarReturnType = new TypeToken<SetObjectEmbeddingsResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for setObjectText
+     * @param objectId  (required)
+     * @param setObjectTextPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The stored text. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call setObjectTextCall(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull SetObjectTextPayload setObjectTextPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = setObjectTextPayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/objects/{objectId}/text"
+                        .replace(
+                                "{" + "objectId" + "}",
+                                localVarApiClient.escapeString(objectId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "PUT",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call setObjectTextValidateBeforeCall(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull SetObjectTextPayload setObjectTextPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'objectId' is set
+        if (objectId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'objectId' when calling setObjectText(Async)");
+        }
+
+        // verify the required parameter 'setObjectTextPayload' is set
+        if (setObjectTextPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'setObjectTextPayload' when calling setObjectText(Async)");
+        }
+
+        return setObjectTextCall(objectId, setObjectTextPayload, _callback);
+    }
+
+    /**
+     * Set content object text
+     * Stores the extracted text of a content object as a GCS text artifact. The text is never stored inline in the database; a legacy inline copy is removed. When an etag is provided it is recorded as the object text_etag so extraction can be skipped while the content is unchanged.  **Required permissions:** &#x60;content:write&#x60;
+     * @param objectId  (required)
+     * @param setObjectTextPayload  (required)
+     * @return ContentObjectTextResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The stored text. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ContentObjectTextResponse setObjectText(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull SetObjectTextPayload setObjectTextPayload)
+            throws ApiException {
+        ApiResponse<ContentObjectTextResponse> localVarResp =
+                setObjectTextWithHttpInfo(objectId, setObjectTextPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Set content object text
+     * Stores the extracted text of a content object as a GCS text artifact. The text is never stored inline in the database; a legacy inline copy is removed. When an etag is provided it is recorded as the object text_etag so extraction can be skipped while the content is unchanged.  **Required permissions:** &#x60;content:write&#x60;
+     * @param objectId  (required)
+     * @param setObjectTextPayload  (required)
+     * @return ApiResponse&lt;ContentObjectTextResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The stored text. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ContentObjectTextResponse> setObjectTextWithHttpInfo(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull SetObjectTextPayload setObjectTextPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                setObjectTextValidateBeforeCall(objectId, setObjectTextPayload, null);
+        Type localVarReturnType = new TypeToken<ContentObjectTextResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Set content object text (asynchronously)
+     * Stores the extracted text of a content object as a GCS text artifact. The text is never stored inline in the database; a legacy inline copy is removed. When an etag is provided it is recorded as the object text_etag so extraction can be skipped while the content is unchanged.  **Required permissions:** &#x60;content:write&#x60;
+     * @param objectId  (required)
+     * @param setObjectTextPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The stored text. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call setObjectTextAsync(
+            @jakarta.annotation.Nonnull String objectId,
+            @jakarta.annotation.Nonnull SetObjectTextPayload setObjectTextPayload,
+            final ApiCallback<ContentObjectTextResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                setObjectTextValidateBeforeCall(objectId, setObjectTextPayload, _callback);
+        Type localVarReturnType = new TypeToken<ContentObjectTextResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
