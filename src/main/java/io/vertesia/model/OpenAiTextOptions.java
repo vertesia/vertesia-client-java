@@ -103,6 +103,11 @@ public class OpenAiTextOptions {
     @SerializedName(SERIALIZED_NAME_IMAGE_GENERATION)
     @jakarta.annotation.Nullable private OpenAiImageGenerationOptions imageGeneration;
 
+    public static final String SERIALIZED_NAME_SEED = "seed";
+
+    @SerializedName(SERIALIZED_NAME_SEED)
+    @jakarta.annotation.Nullable private BigDecimal seed;
+
     public static final String SERIALIZED_NAME_MAX_TOKENS = "max_tokens";
 
     @SerializedName(SERIALIZED_NAME_MAX_TOKENS)
@@ -256,6 +261,23 @@ public class OpenAiTextOptions {
     public void setImageGeneration(
             @jakarta.annotation.Nullable OpenAiImageGenerationOptions imageGeneration) {
         this.imageGeneration = imageGeneration;
+    }
+
+    public OpenAiTextOptions seed(@jakarta.annotation.Nullable BigDecimal seed) {
+        this.seed = seed;
+        return this;
+    }
+
+    /**
+     * Get seed
+     * @return seed
+     */
+    @jakarta.annotation.Nullable public BigDecimal getSeed() {
+        return seed;
+    }
+
+    public void setSeed(@jakarta.annotation.Nullable BigDecimal seed) {
+        this.seed = seed;
     }
 
     public OpenAiTextOptions maxTokens(@jakarta.annotation.Nullable BigDecimal maxTokens) {
@@ -492,6 +514,7 @@ public class OpenAiTextOptions {
         OpenAiTextOptions openAiTextOptions = (OpenAiTextOptions) o;
         return Objects.equals(this.optionId, openAiTextOptions.optionId)
                 && Objects.equals(this.imageGeneration, openAiTextOptions.imageGeneration)
+                && Objects.equals(this.seed, openAiTextOptions.seed)
                 && Objects.equals(this.maxTokens, openAiTextOptions.maxTokens)
                 && Objects.equals(this.effort, openAiTextOptions.effort)
                 && Objects.equals(this.reasoningEffort, openAiTextOptions.reasoningEffort)
@@ -511,6 +534,7 @@ public class OpenAiTextOptions {
         return Objects.hash(
                 optionId,
                 imageGeneration,
+                seed,
                 maxTokens,
                 effort,
                 reasoningEffort,
@@ -531,6 +555,7 @@ public class OpenAiTextOptions {
         sb.append("class OpenAiTextOptions {\n");
         sb.append("    optionId: ").append(toIndentedString(optionId)).append("\n");
         sb.append("    imageGeneration: ").append(toIndentedString(imageGeneration)).append("\n");
+        sb.append("    seed: ").append(toIndentedString(seed)).append("\n");
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
         sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
         sb.append("    reasoningEffort: ").append(toIndentedString(reasoningEffort)).append("\n");
@@ -565,6 +590,7 @@ public class OpenAiTextOptions {
                         Arrays.asList(
                                 "_option_id",
                                 "image_generation",
+                                "seed",
                                 "max_tokens",
                                 "effort",
                                 "reasoning_effort",
