@@ -49,6 +49,11 @@ public class SubmitProcessTestRunPayload {
     @jakarta.annotation.Nonnull
     private List<ProcessTestScenario> scenarios = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_IDEMPOTENCY_KEY = "idempotency_key";
+
+    @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_KEY)
+    @jakarta.annotation.Nullable private String idempotencyKey;
+
     public SubmitProcessTestRunPayload() {}
 
     public SubmitProcessTestRunPayload process(
@@ -97,6 +102,24 @@ public class SubmitProcessTestRunPayload {
         this.scenarios = scenarios;
     }
 
+    public SubmitProcessTestRunPayload idempotencyKey(
+            @jakarta.annotation.Nullable String idempotencyKey) {
+        this.idempotencyKey = idempotencyKey;
+        return this;
+    }
+
+    /**
+     * Client-chosen key, unique per intended run, that makes this request safe to retry. A repeat of the request with the same key and the same body returns the run the first request started instead of starting another. Reusing a key with a different body is rejected with 409. Keys are scoped to the project and stay bound to their run for as long as it exists; once the run is deleted, the same key starts a new one.
+     * @return idempotencyKey
+     */
+    @jakarta.annotation.Nullable public String getIdempotencyKey() {
+        return idempotencyKey;
+    }
+
+    public void setIdempotencyKey(@jakarta.annotation.Nullable String idempotencyKey) {
+        this.idempotencyKey = idempotencyKey;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -107,12 +130,13 @@ public class SubmitProcessTestRunPayload {
         }
         SubmitProcessTestRunPayload submitProcessTestRunPayload = (SubmitProcessTestRunPayload) o;
         return Objects.equals(this.process, submitProcessTestRunPayload.process)
-                && Objects.equals(this.scenarios, submitProcessTestRunPayload.scenarios);
+                && Objects.equals(this.scenarios, submitProcessTestRunPayload.scenarios)
+                && Objects.equals(this.idempotencyKey, submitProcessTestRunPayload.idempotencyKey);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(process, scenarios);
+        return Objects.hash(process, scenarios, idempotencyKey);
     }
 
     @Override
@@ -121,6 +145,7 @@ public class SubmitProcessTestRunPayload {
         sb.append("class SubmitProcessTestRunPayload {\n");
         sb.append("    process: ").append(toIndentedString(process)).append("\n");
         sb.append("    scenarios: ").append(toIndentedString(scenarios)).append("\n");
+        sb.append("    idempotencyKey: ").append(toIndentedString(idempotencyKey)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -138,7 +163,8 @@ public class SubmitProcessTestRunPayload {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("process", "scenarios"));
+        openapiFields =
+                new HashSet<String>(Arrays.asList("process", "scenarios", "idempotency_key"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("process", "scenarios"));
@@ -189,6 +215,14 @@ public class SubmitProcessTestRunPayload {
             for (int i = 0; i < jsonArrayscenarios.size(); i++) {
                 ProcessTestScenario.validateJsonElement(jsonArrayscenarios.get(i));
             }
+        }
+        if ((jsonObj.get("idempotency_key") != null && !jsonObj.get("idempotency_key").isJsonNull())
+                && !jsonObj.get("idempotency_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `idempotency_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("idempotency_key").toString()));
         }
     }
 

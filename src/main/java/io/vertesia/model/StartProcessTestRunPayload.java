@@ -53,6 +53,11 @@ public class StartProcessTestRunPayload {
     @SerializedName(SERIALIZED_NAME_SCENARIO_IDS)
     @jakarta.annotation.Nullable private List<String> scenarioIds = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_IDEMPOTENCY_KEY = "idempotency_key";
+
+    @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_KEY)
+    @jakarta.annotation.Nullable private String idempotencyKey;
+
     public StartProcessTestRunPayload() {}
 
     public StartProcessTestRunPayload suiteId(@jakarta.annotation.Nonnull String suiteId) {
@@ -118,6 +123,24 @@ public class StartProcessTestRunPayload {
         this.scenarioIds = scenarioIds;
     }
 
+    public StartProcessTestRunPayload idempotencyKey(
+            @jakarta.annotation.Nullable String idempotencyKey) {
+        this.idempotencyKey = idempotencyKey;
+        return this;
+    }
+
+    /**
+     * Client-chosen key, unique per intended run, that makes this request safe to retry. A repeat of the request with the same key and the same body returns the run the first request started instead of starting another. Reusing a key with a different body is rejected with 409. Keys are scoped to the project and stay bound to their run for as long as it exists; once the run is deleted, the same key starts a new one.
+     * @return idempotencyKey
+     */
+    @jakarta.annotation.Nullable public String getIdempotencyKey() {
+        return idempotencyKey;
+    }
+
+    public void setIdempotencyKey(@jakarta.annotation.Nullable String idempotencyKey) {
+        this.idempotencyKey = idempotencyKey;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -130,12 +153,13 @@ public class StartProcessTestRunPayload {
         return Objects.equals(this.suiteId, startProcessTestRunPayload.suiteId)
                 && Objects.equals(
                         this.processRevisionId, startProcessTestRunPayload.processRevisionId)
-                && Objects.equals(this.scenarioIds, startProcessTestRunPayload.scenarioIds);
+                && Objects.equals(this.scenarioIds, startProcessTestRunPayload.scenarioIds)
+                && Objects.equals(this.idempotencyKey, startProcessTestRunPayload.idempotencyKey);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(suiteId, processRevisionId, scenarioIds);
+        return Objects.hash(suiteId, processRevisionId, scenarioIds, idempotencyKey);
     }
 
     @Override
@@ -147,6 +171,7 @@ public class StartProcessTestRunPayload {
                 .append(toIndentedString(processRevisionId))
                 .append("\n");
         sb.append("    scenarioIds: ").append(toIndentedString(scenarioIds)).append("\n");
+        sb.append("    idempotencyKey: ").append(toIndentedString(idempotencyKey)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -166,7 +191,11 @@ public class StartProcessTestRunPayload {
         // a set of all properties/fields (JSON key names)
         openapiFields =
                 new HashSet<String>(
-                        Arrays.asList("suite_id", "process_revision_id", "scenario_ids"));
+                        Arrays.asList(
+                                "suite_id",
+                                "process_revision_id",
+                                "scenario_ids",
+                                "idempotency_key"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields =
@@ -226,6 +255,14 @@ public class StartProcessTestRunPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `scenario_ids` to be an array in the JSON string but got `%s`",
                             jsonObj.get("scenario_ids").toString()));
+        }
+        if ((jsonObj.get("idempotency_key") != null && !jsonObj.get("idempotency_key").isJsonNull())
+                && !jsonObj.get("idempotency_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `idempotency_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("idempotency_key").toString()));
         }
     }
 
