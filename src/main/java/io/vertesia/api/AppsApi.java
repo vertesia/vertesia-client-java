@@ -2173,7 +2173,7 @@ public class AppsApi {
 
     /**
      * Read a file from the app git repository
-     * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone.  **Required permissions:** &#x60;account:member&#x60;
+     * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Served as an attachment to prevent active content rendering on the API origin.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2193,7 +2193,7 @@ public class AppsApi {
 
     /**
      * Read a file from the app git repository
-     * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone.  **Required permissions:** &#x60;account:member&#x60;
+     * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Served as an attachment to prevent active content rendering on the API origin.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2215,7 +2215,7 @@ public class AppsApi {
 
     /**
      * Read a file from the app git repository (asynchronously)
-     * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone.  **Required permissions:** &#x60;account:member&#x60;
+     * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Served as an attachment to prevent active content rendering on the API origin.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
