@@ -126,65 +126,10 @@ public class MistralTextOptions {
     @SerializedName(SERIALIZED_NAME_STOP_SEQUENCE)
     @jakarta.annotation.Nullable private List<String> stopSequence = new ArrayList<>();
 
-    /**
-     * Gets or Sets effort
-     */
-    @JsonAdapter(EffortEnum.Adapter.class)
-    public enum EffortEnum {
-        NONE("none"),
-
-        HIGH("high"),
-
-        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
-
-        private String value;
-
-        EffortEnum(String value) {
-            this.value = value;
-        }
-
-        public String getValue() {
-            return value;
-        }
-
-        @Override
-        public String toString() {
-            return String.valueOf(value);
-        }
-
-        public static EffortEnum fromValue(String value) {
-            for (EffortEnum b : EffortEnum.values()) {
-                if (b.value.equals(value)) {
-                    return b;
-                }
-            }
-            return UNKNOWN_DEFAULT_OPEN_API;
-        }
-
-        public static class Adapter extends TypeAdapter<EffortEnum> {
-            @Override
-            public void write(final JsonWriter jsonWriter, final EffortEnum enumeration)
-                    throws IOException {
-                jsonWriter.value(enumeration.getValue());
-            }
-
-            @Override
-            public EffortEnum read(final JsonReader jsonReader) throws IOException {
-                String value = jsonReader.nextString();
-                return EffortEnum.fromValue(value);
-            }
-        }
-
-        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            EffortEnum.fromValue(value);
-        }
-    }
-
     public static final String SERIALIZED_NAME_EFFORT = "effort";
 
     @SerializedName(SERIALIZED_NAME_EFFORT)
-    @jakarta.annotation.Nullable private EffortEnum effort;
+    @jakarta.annotation.Nullable private ReasoningEffort effort;
 
     public static final String SERIALIZED_NAME_RANDOM_SEED = "random_seed";
 
@@ -459,7 +404,7 @@ public class MistralTextOptions {
         this.stopSequence = stopSequence;
     }
 
-    public MistralTextOptions effort(@jakarta.annotation.Nullable EffortEnum effort) {
+    public MistralTextOptions effort(@jakarta.annotation.Nullable ReasoningEffort effort) {
         this.effort = effort;
         return this;
     }
@@ -468,11 +413,11 @@ public class MistralTextOptions {
      * Get effort
      * @return effort
      */
-    @jakarta.annotation.Nullable public EffortEnum getEffort() {
+    @jakarta.annotation.Nullable public ReasoningEffort getEffort() {
         return effort;
     }
 
-    public void setEffort(@jakarta.annotation.Nullable EffortEnum effort) {
+    public void setEffort(@jakarta.annotation.Nullable ReasoningEffort effort) {
         this.effort = effort;
     }
 
@@ -725,17 +670,9 @@ public class MistralTextOptions {
                             "Expected the field `stop_sequence` to be an array in the JSON string but got `%s`",
                             jsonObj.get("stop_sequence").toString()));
         }
-        if ((jsonObj.get("effort") != null && !jsonObj.get("effort").isJsonNull())
-                && !jsonObj.get("effort").isJsonPrimitive()) {
-            throw new IllegalArgumentException(
-                    String.format(
-                            java.util.Locale.ROOT,
-                            "Expected the field `effort` to be a primitive type in the JSON string but got `%s`",
-                            jsonObj.get("effort").toString()));
-        }
         // validate the optional field `effort`
         if (jsonObj.get("effort") != null && !jsonObj.get("effort").isJsonNull()) {
-            EffortEnum.validateJsonElement(jsonObj.get("effort"));
+            ReasoningEffort.validateJsonElement(jsonObj.get("effort"));
         }
         if ((jsonObj.get("tool_choice") != null && !jsonObj.get("tool_choice").isJsonNull())
                 && !jsonObj.get("tool_choice").isJsonPrimitive()) {
