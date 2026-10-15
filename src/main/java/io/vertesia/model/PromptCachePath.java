@@ -52,6 +52,8 @@ public enum PromptCachePath {
 
     UNUSABLE_RESOURCE_RECREATED("unusable_resource_recreated"),
 
+    UNSUPPORTED_MODEL("unsupported_model"),
+
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;
