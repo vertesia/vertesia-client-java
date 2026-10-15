@@ -404,6 +404,7 @@ public class PromptTemplatesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Prompt deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> An interaction in the project still references the prompt. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -482,7 +483,7 @@ public class PromptTemplatesApi {
 
     /**
      * Delete a prompt
-     * Deletes a prompt template from the current project.  **Required permissions:** &#x60;interaction:write&#x60;
+     * Deletes a prompt template from the current project. A prompt that an interaction still references cannot be deleted; detach it from those interactions first.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param ptId  (required)
      * @return DeleteByIdResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -491,6 +492,7 @@ public class PromptTemplatesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Prompt deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> An interaction in the project still references the prompt. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -503,7 +505,7 @@ public class PromptTemplatesApi {
 
     /**
      * Delete a prompt
-     * Deletes a prompt template from the current project.  **Required permissions:** &#x60;interaction:write&#x60;
+     * Deletes a prompt template from the current project. A prompt that an interaction still references cannot be deleted; detach it from those interactions first.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param ptId  (required)
      * @return ApiResponse&lt;DeleteByIdResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -512,6 +514,7 @@ public class PromptTemplatesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Prompt deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> An interaction in the project still references the prompt. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -525,7 +528,7 @@ public class PromptTemplatesApi {
 
     /**
      * Delete a prompt (asynchronously)
-     * Deletes a prompt template from the current project.  **Required permissions:** &#x60;interaction:write&#x60;
+     * Deletes a prompt template from the current project. A prompt that an interaction still references cannot be deleted; detach it from those interactions first.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param ptId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -535,6 +538,7 @@ public class PromptTemplatesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Prompt deletion result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> An interaction in the project still references the prompt. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
