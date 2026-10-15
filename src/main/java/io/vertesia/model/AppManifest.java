@@ -45,6 +45,11 @@ public class AppManifest {
     @SerializedName(SERIALIZED_NAME_OAUTH_SCOPES)
     @jakarta.annotation.Nullable private List<String> oauthScopes = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_OAUTH_CLIENT = "oauth_client";
+
+    @SerializedName(SERIALIZED_NAME_OAUTH_CLIENT)
+    @jakarta.annotation.Nullable private AppOAuthClientConfig oauthClient;
+
     public static final String SERIALIZED_NAME_EDIT_REVISION = "edit_revision";
 
     @SerializedName(SERIALIZED_NAME_EDIT_REVISION)
@@ -325,6 +330,23 @@ public class AppManifest {
 
     public void setOauthScopes(@jakarta.annotation.Nullable List<String> oauthScopes) {
         this.oauthScopes = oauthScopes;
+    }
+
+    public AppManifest oauthClient(@jakarta.annotation.Nullable AppOAuthClientConfig oauthClient) {
+        this.oauthClient = oauthClient;
+        return this;
+    }
+
+    /**
+     * Get oauthClient
+     * @return oauthClient
+     */
+    @jakarta.annotation.Nullable public AppOAuthClientConfig getOauthClient() {
+        return oauthClient;
+    }
+
+    public void setOauthClient(@jakarta.annotation.Nullable AppOAuthClientConfig oauthClient) {
+        this.oauthClient = oauthClient;
     }
 
     public AppManifest editRevision(@jakarta.annotation.Nonnull Integer editRevision) {
@@ -889,6 +911,7 @@ public class AppManifest {
         }
         AppManifest appManifest = (AppManifest) o;
         return Objects.equals(this.oauthScopes, appManifest.oauthScopes)
+                && Objects.equals(this.oauthClient, appManifest.oauthClient)
                 && Objects.equals(this.editRevision, appManifest.editRevision)
                 && Objects.equals(this.name, appManifest.name)
                 && Objects.equals(this.visibility, appManifest.visibility)
@@ -922,6 +945,7 @@ public class AppManifest {
     public int hashCode() {
         return Objects.hash(
                 oauthScopes,
+                oauthClient,
                 editRevision,
                 name,
                 visibility,
@@ -956,6 +980,7 @@ public class AppManifest {
         StringBuilder sb = new StringBuilder();
         sb.append("class AppManifest {\n");
         sb.append("    oauthScopes: ").append(toIndentedString(oauthScopes)).append("\n");
+        sb.append("    oauthClient: ").append(toIndentedString(oauthClient)).append("\n");
         sb.append("    editRevision: ").append(toIndentedString(editRevision)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
@@ -1010,6 +1035,7 @@ public class AppManifest {
                 new HashSet<String>(
                         Arrays.asList(
                                 "oauth_scopes",
+                                "oauth_client",
                                 "edit_revision",
                                 "name",
                                 "visibility",
@@ -1092,6 +1118,10 @@ public class AppManifest {
                             java.util.Locale.ROOT,
                             "Expected the field `oauth_scopes` to be an array in the JSON string but got `%s`",
                             jsonObj.get("oauth_scopes").toString()));
+        }
+        // validate the optional field `oauth_client`
+        if (jsonObj.get("oauth_client") != null && !jsonObj.get("oauth_client").isJsonNull()) {
+            AppOAuthClientConfig.validateJsonElement(jsonObj.get("oauth_client"));
         }
         if (!jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(

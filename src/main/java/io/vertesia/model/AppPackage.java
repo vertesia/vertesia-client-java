@@ -39,6 +39,11 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AppPackage {
+    public static final String SERIALIZED_NAME_OAUTH_CLIENT = "oauth_client";
+
+    @SerializedName(SERIALIZED_NAME_OAUTH_CLIENT)
+    @jakarta.annotation.Nullable private AppOAuthClientConfig oauthClient;
+
     public static final String SERIALIZED_NAME_OAUTH_SCOPES = "oauth_scopes";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_SCOPES)
@@ -115,6 +120,23 @@ public class AppPackage {
     @jakarta.annotation.Nullable private List<AppEventSubscriptionDefinition> subscriptions = new ArrayList<>();
 
     public AppPackage() {}
+
+    public AppPackage oauthClient(@jakarta.annotation.Nullable AppOAuthClientConfig oauthClient) {
+        this.oauthClient = oauthClient;
+        return this;
+    }
+
+    /**
+     * Get oauthClient
+     * @return oauthClient
+     */
+    @jakarta.annotation.Nullable public AppOAuthClientConfig getOauthClient() {
+        return oauthClient;
+    }
+
+    public void setOauthClient(@jakarta.annotation.Nullable AppOAuthClientConfig oauthClient) {
+        this.oauthClient = oauthClient;
+    }
 
     public AppPackage oauthScopes(@jakarta.annotation.Nullable List<String> oauthScopes) {
         this.oauthScopes = oauthScopes;
@@ -487,7 +509,8 @@ public class AppPackage {
             return false;
         }
         AppPackage appPackage = (AppPackage) o;
-        return Objects.equals(this.oauthScopes, appPackage.oauthScopes)
+        return Objects.equals(this.oauthClient, appPackage.oauthClient)
+                && Objects.equals(this.oauthScopes, appPackage.oauthScopes)
                 && Objects.equals(this.ui, appPackage.ui)
                 && Objects.equals(this.tools, appPackage.tools)
                 && Objects.equals(this.skills, appPackage.skills)
@@ -507,6 +530,7 @@ public class AppPackage {
     @Override
     public int hashCode() {
         return Objects.hash(
+                oauthClient,
                 oauthScopes,
                 ui,
                 tools,
@@ -528,6 +552,7 @@ public class AppPackage {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AppPackage {\n");
+        sb.append("    oauthClient: ").append(toIndentedString(oauthClient)).append("\n");
         sb.append("    oauthScopes: ").append(toIndentedString(oauthScopes)).append("\n");
         sb.append("    ui: ").append(toIndentedString(ui)).append("\n");
         sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
@@ -563,6 +588,7 @@ public class AppPackage {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "oauth_client",
                                 "oauth_scopes",
                                 "ui",
                                 "tools",
@@ -601,6 +627,10 @@ public class AppPackage {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the optional field `oauth_client`
+        if (jsonObj.get("oauth_client") != null && !jsonObj.get("oauth_client").isJsonNull()) {
+            AppOAuthClientConfig.validateJsonElement(jsonObj.get("oauth_client"));
+        }
         // ensure the optional json data is an array if present
         if (jsonObj.get("oauth_scopes") != null
                 && !jsonObj.get("oauth_scopes").isJsonNull()

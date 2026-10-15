@@ -45,6 +45,11 @@ public class UpdateAppPayload {
     @SerializedName(SERIALIZED_NAME_OAUTH_SCOPES)
     @jakarta.annotation.Nullable private List<String> oauthScopes = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_OAUTH_CLIENT = "oauth_client";
+
+    @SerializedName(SERIALIZED_NAME_OAUTH_CLIENT)
+    @jakarta.annotation.Nullable private AppOAuthClientConfig oauthClient;
+
     public static final String SERIALIZED_NAME_NAME = "name";
 
     @SerializedName(SERIALIZED_NAME_NAME)
@@ -301,6 +306,24 @@ public class UpdateAppPayload {
 
     public void setOauthScopes(@jakarta.annotation.Nullable List<String> oauthScopes) {
         this.oauthScopes = oauthScopes;
+    }
+
+    public UpdateAppPayload oauthClient(
+            @jakarta.annotation.Nullable AppOAuthClientConfig oauthClient) {
+        this.oauthClient = oauthClient;
+        return this;
+    }
+
+    /**
+     * Get oauthClient
+     * @return oauthClient
+     */
+    @jakarta.annotation.Nullable public AppOAuthClientConfig getOauthClient() {
+        return oauthClient;
+    }
+
+    public void setOauthClient(@jakarta.annotation.Nullable AppOAuthClientConfig oauthClient) {
+        this.oauthClient = oauthClient;
     }
 
     public UpdateAppPayload name(@jakarta.annotation.Nonnull String name) {
@@ -795,6 +818,7 @@ public class UpdateAppPayload {
         }
         UpdateAppPayload updateAppPayload = (UpdateAppPayload) o;
         return Objects.equals(this.oauthScopes, updateAppPayload.oauthScopes)
+                && Objects.equals(this.oauthClient, updateAppPayload.oauthClient)
                 && Objects.equals(this.name, updateAppPayload.name)
                 && Objects.equals(this.visibility, updateAppPayload.visibility)
                 && Objects.equals(this.title, updateAppPayload.title)
@@ -824,6 +848,7 @@ public class UpdateAppPayload {
     public int hashCode() {
         return Objects.hash(
                 oauthScopes,
+                oauthClient,
                 name,
                 visibility,
                 title,
@@ -854,6 +879,7 @@ public class UpdateAppPayload {
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdateAppPayload {\n");
         sb.append("    oauthScopes: ").append(toIndentedString(oauthScopes)).append("\n");
+        sb.append("    oauthClient: ").append(toIndentedString(oauthClient)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
         sb.append("    title: ").append(toIndentedString(title)).append("\n");
@@ -906,6 +932,7 @@ public class UpdateAppPayload {
                 new HashSet<String>(
                         Arrays.asList(
                                 "oauth_scopes",
+                                "oauth_client",
                                 "name",
                                 "visibility",
                                 "title",
@@ -980,6 +1007,10 @@ public class UpdateAppPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `oauth_scopes` to be an array in the JSON string but got `%s`",
                             jsonObj.get("oauth_scopes").toString()));
+        }
+        // validate the optional field `oauth_client`
+        if (jsonObj.get("oauth_client") != null && !jsonObj.get("oauth_client").isJsonNull()) {
+            AppOAuthClientConfig.validateJsonElement(jsonObj.get("oauth_client"));
         }
         if (!jsonObj.get("name").isJsonPrimitive()) {
             throw new IllegalArgumentException(

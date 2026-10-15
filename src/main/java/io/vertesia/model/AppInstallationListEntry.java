@@ -57,6 +57,11 @@ public class AppInstallationListEntry {
     @SerializedName(SERIALIZED_NAME_OAUTH_APPROVAL)
     @jakarta.annotation.Nullable private AppInstallationOauthApproval oauthApproval;
 
+    public static final String SERIALIZED_NAME_OAUTH_CLIENT_ID = "oauth_client_id";
+
+    @SerializedName(SERIALIZED_NAME_OAUTH_CLIENT_ID)
+    @jakarta.annotation.Nullable private String oauthClientId;
+
     public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
     @SerializedName(SERIALIZED_NAME_SETTINGS)
@@ -159,6 +164,24 @@ public class AppInstallationListEntry {
     public void setOauthApproval(
             @jakarta.annotation.Nullable AppInstallationOauthApproval oauthApproval) {
         this.oauthApproval = oauthApproval;
+    }
+
+    public AppInstallationListEntry oauthClientId(
+            @jakarta.annotation.Nullable String oauthClientId) {
+        this.oauthClientId = oauthClientId;
+        return this;
+    }
+
+    /**
+     * Get oauthClientId
+     * @return oauthClientId
+     */
+    @jakarta.annotation.Nullable public String getOauthClientId() {
+        return oauthClientId;
+    }
+
+    public void setOauthClientId(@jakarta.annotation.Nullable String oauthClientId) {
+        this.oauthClientId = oauthClientId;
     }
 
     public AppInstallationListEntry settings(
@@ -424,6 +447,7 @@ public class AppInstallationListEntry {
         return Objects.equals(this.id, appInstallationListEntry.id)
                 && Objects.equals(this.project, appInstallationListEntry.project)
                 && Objects.equals(this.oauthApproval, appInstallationListEntry.oauthApproval)
+                && Objects.equals(this.oauthClientId, appInstallationListEntry.oauthClientId)
                 && Objects.equals(this.settings, appInstallationListEntry.settings)
                 && Objects.equals(this.toolAllowlist, appInstallationListEntry.toolAllowlist)
                 && Objects.equals(this.oauthBindings, appInstallationListEntry.oauthBindings)
@@ -453,6 +477,7 @@ public class AppInstallationListEntry {
                 id,
                 project,
                 oauthApproval,
+                oauthClientId,
                 settings,
                 toolAllowlist,
                 oauthBindings,
@@ -479,6 +504,7 @@ public class AppInstallationListEntry {
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    project: ").append(toIndentedString(project)).append("\n");
         sb.append("    oauthApproval: ").append(toIndentedString(oauthApproval)).append("\n");
+        sb.append("    oauthClientId: ").append(toIndentedString(oauthClientId)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
         sb.append("    toolAllowlist: ").append(toIndentedString(toolAllowlist)).append("\n");
         sb.append("    oauthBindings: ").append(toIndentedString(oauthBindings)).append("\n");
@@ -516,6 +542,7 @@ public class AppInstallationListEntry {
                                 "id",
                                 "project",
                                 "oauth_approval",
+                                "oauth_client_id",
                                 "settings",
                                 "tool_allowlist",
                                 "oauth_bindings",
@@ -579,6 +606,14 @@ public class AppInstallationListEntry {
         // validate the optional field `oauth_approval`
         if (jsonObj.get("oauth_approval") != null && !jsonObj.get("oauth_approval").isJsonNull()) {
             AppInstallationOauthApproval.validateJsonElement(jsonObj.get("oauth_approval"));
+        }
+        if ((jsonObj.get("oauth_client_id") != null && !jsonObj.get("oauth_client_id").isJsonNull())
+                && !jsonObj.get("oauth_client_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `oauth_client_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("oauth_client_id").toString()));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("tool_allowlist") != null

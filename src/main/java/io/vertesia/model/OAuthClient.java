@@ -39,6 +39,11 @@ import org.openapitools.jackson.nullable.JsonNullable;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class OAuthClient {
+    public static final String SERIALIZED_NAME_APP_ID = "app_id";
+
+    @SerializedName(SERIALIZED_NAME_APP_ID)
+    @jakarta.annotation.Nullable private String appId;
+
     public static final String SERIALIZED_NAME_CLIENT_NAME = "client_name";
 
     @SerializedName(SERIALIZED_NAME_CLIENT_NAME)
@@ -151,6 +156,23 @@ public class OAuthClient {
     private String clientId;
 
     public OAuthClient() {}
+
+    public OAuthClient appId(@jakarta.annotation.Nullable String appId) {
+        this.appId = appId;
+        return this;
+    }
+
+    /**
+     * App associated with this client. Authorization requires an installation explicitly enabling this client and current user app access.
+     * @return appId
+     */
+    @jakarta.annotation.Nullable public String getAppId() {
+        return appId;
+    }
+
+    public void setAppId(@jakarta.annotation.Nullable String appId) {
+        this.appId = appId;
+    }
 
     public OAuthClient clientName(@jakarta.annotation.Nonnull String clientName) {
         this.clientName = clientName;
@@ -602,7 +624,8 @@ public class OAuthClient {
             return false;
         }
         OAuthClient oauthClient = (OAuthClient) o;
-        return Objects.equals(this.clientName, oauthClient.clientName)
+        return Objects.equals(this.appId, oauthClient.appId)
+                && Objects.equals(this.clientName, oauthClient.clientName)
                 && Objects.equals(this.clientType, oauthClient.clientType)
                 && Objects.equals(this.redirectUris, oauthClient.redirectUris)
                 && Objects.equals(this.grantTypes, oauthClient.grantTypes)
@@ -636,6 +659,7 @@ public class OAuthClient {
     @Override
     public int hashCode() {
         return Objects.hash(
+                appId,
                 clientName,
                 clientType,
                 redirectUris,
@@ -669,6 +693,7 @@ public class OAuthClient {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class OAuthClient {\n");
+        sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
         sb.append("    clientName: ").append(toIndentedString(clientName)).append("\n");
         sb.append("    clientType: ").append(toIndentedString(clientType)).append("\n");
         sb.append("    redirectUris: ").append(toIndentedString(redirectUris)).append("\n");
@@ -721,6 +746,7 @@ public class OAuthClient {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "app_id",
                                 "client_name",
                                 "client_type",
                                 "redirect_uris",
@@ -790,6 +816,14 @@ public class OAuthClient {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if ((jsonObj.get("app_id") != null && !jsonObj.get("app_id").isJsonNull())
+                && !jsonObj.get("app_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `app_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("app_id").toString()));
+        }
         if (!jsonObj.get("client_name").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(
