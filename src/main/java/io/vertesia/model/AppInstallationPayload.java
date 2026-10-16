@@ -44,6 +44,18 @@ public class AppInstallationPayload {
     @jakarta.annotation.Nonnull
     private String appId;
 
+    public static final String SERIALIZED_NAME_MCP_SHARED_PARAMETERS = "mcp_shared_parameters";
+
+    @SerializedName(SERIALIZED_NAME_MCP_SHARED_PARAMETERS)
+    @jakarta.annotation.Nullable private Map<String, AppInstallationPayloadMcpSharedParametersValue> mcpSharedParameters =
+            new HashMap<>();
+
+    public static final String SERIALIZED_NAME_MCP_PARAMETERS = "mcp_parameters";
+
+    @SerializedName(SERIALIZED_NAME_MCP_PARAMETERS)
+    @jakarta.annotation.Nullable private Map<String, Map<String, AppInstallationPayloadMcpSharedParametersValue>> mcpParameters =
+            new HashMap<>();
+
     public static final String SERIALIZED_NAME_SETTINGS = "settings";
 
     @SerializedName(SERIALIZED_NAME_SETTINGS)
@@ -87,6 +99,68 @@ public class AppInstallationPayload {
 
     public void setAppId(@jakarta.annotation.Nonnull String appId) {
         this.appId = appId;
+    }
+
+    public AppInstallationPayload mcpSharedParameters(
+            @jakarta.annotation.Nullable Map<String, AppInstallationPayloadMcpSharedParametersValue>
+                            mcpSharedParameters) {
+        this.mcpSharedParameters = mcpSharedParameters;
+        return this;
+    }
+
+    public AppInstallationPayload putMcpSharedParametersItem(
+            String key, AppInstallationPayloadMcpSharedParametersValue mcpSharedParametersItem) {
+        if (this.mcpSharedParameters == null) {
+            this.mcpSharedParameters = new HashMap<>();
+        }
+        this.mcpSharedParameters.put(key, mcpSharedParametersItem);
+        return this;
+    }
+
+    /**
+     * Shared MCP parameter overrides. Omitted values are retained; null clears an override or restores its default.
+     * @return mcpSharedParameters
+     */
+    @jakarta.annotation.Nullable public Map<String, AppInstallationPayloadMcpSharedParametersValue> getMcpSharedParameters() {
+        return mcpSharedParameters;
+    }
+
+    public void setMcpSharedParameters(
+            @jakarta.annotation.Nullable Map<String, AppInstallationPayloadMcpSharedParametersValue>
+                            mcpSharedParameters) {
+        this.mcpSharedParameters = mcpSharedParameters;
+    }
+
+    public AppInstallationPayload mcpParameters(
+            @jakarta.annotation.Nullable Map<String, Map<String, AppInstallationPayloadMcpSharedParametersValue>>
+                            mcpParameters) {
+        this.mcpParameters = mcpParameters;
+        return this;
+    }
+
+    public AppInstallationPayload putMcpParametersItem(
+            String key,
+            Map<String, AppInstallationPayloadMcpSharedParametersValue> mcpParametersItem) {
+        if (this.mcpParameters == null) {
+            this.mcpParameters = new HashMap<>();
+        }
+        this.mcpParameters.put(key, mcpParametersItem);
+        return this;
+    }
+
+    /**
+     * Installation parameter overrides by MCP collection id. Omit to preserve; null clears an override. Secret inputs are write-only.
+     * @return mcpParameters
+     */
+    @jakarta.annotation.Nullable public Map<String, Map<String, AppInstallationPayloadMcpSharedParametersValue>>
+            getMcpParameters() {
+        return mcpParameters;
+    }
+
+    public void setMcpParameters(
+            @jakarta.annotation.Nullable Map<String, Map<String, AppInstallationPayloadMcpSharedParametersValue>>
+                            mcpParameters) {
+        this.mcpParameters = mcpParameters;
     }
 
     public AppInstallationPayload settings(
@@ -272,6 +346,9 @@ public class AppInstallationPayload {
         }
         AppInstallationPayload appInstallationPayload = (AppInstallationPayload) o;
         return Objects.equals(this.appId, appInstallationPayload.appId)
+                && Objects.equals(
+                        this.mcpSharedParameters, appInstallationPayload.mcpSharedParameters)
+                && Objects.equals(this.mcpParameters, appInstallationPayload.mcpParameters)
                 && Objects.equals(this.settings, appInstallationPayload.settings)
                 && Objects.equals(this.accessControl, appInstallationPayload.accessControl)
                 && Objects.equals(this.oauthParams, appInstallationPayload.oauthParams)
@@ -295,6 +372,8 @@ public class AppInstallationPayload {
     public int hashCode() {
         return Objects.hash(
                 appId,
+                mcpSharedParameters,
+                mcpParameters,
                 settings,
                 accessControl,
                 oauthParams,
@@ -315,6 +394,10 @@ public class AppInstallationPayload {
         StringBuilder sb = new StringBuilder();
         sb.append("class AppInstallationPayload {\n");
         sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
+        sb.append("    mcpSharedParameters: ")
+                .append(toIndentedString(mcpSharedParameters))
+                .append("\n");
+        sb.append("    mcpParameters: ").append(toIndentedString(mcpParameters)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
         sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
         sb.append("    oauthParams: ").append(toIndentedString(oauthParams)).append("\n");
@@ -346,6 +429,8 @@ public class AppInstallationPayload {
                 new HashSet<String>(
                         Arrays.asList(
                                 "app_id",
+                                "mcp_shared_parameters",
+                                "mcp_parameters",
                                 "settings",
                                 "access_control",
                                 "oauth_params",

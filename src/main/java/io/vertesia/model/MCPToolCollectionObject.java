@@ -26,8 +26,10 @@ import io.vertesia.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -106,6 +108,16 @@ public class MCPToolCollectionObject {
     @SerializedName(SERIALIZED_NAME_TYPE)
     @jakarta.annotation.Nonnull
     private TypeEnum type;
+
+    public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
+
+    @SerializedName(SERIALIZED_NAME_PARAMETERS)
+    @jakarta.annotation.Nullable private Map<String, McpConnectionParameter> parameters = new HashMap<>();
+
+    public static final String SERIALIZED_NAME_HEADERS = "headers";
+
+    @SerializedName(SERIALIZED_NAME_HEADERS)
+    @jakarta.annotation.Nullable private Map<String, String> headers = new HashMap<>();
 
     public static final String SERIALIZED_NAME_ID = "id";
 
@@ -209,6 +221,60 @@ public class MCPToolCollectionObject {
 
     public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
         this.type = type;
+    }
+
+    public MCPToolCollectionObject parameters(
+            @jakarta.annotation.Nullable Map<String, McpConnectionParameter> parameters) {
+        this.parameters = parameters;
+        return this;
+    }
+
+    public MCPToolCollectionObject putParametersItem(
+            String key, McpConnectionParameter parametersItem) {
+        if (this.parameters == null) {
+            this.parameters = new HashMap<>();
+        }
+        this.parameters.put(key, parametersItem);
+        return this;
+    }
+
+    /**
+     * Get parameters
+     * @return parameters
+     */
+    @jakarta.annotation.Nullable public Map<String, McpConnectionParameter> getParameters() {
+        return parameters;
+    }
+
+    public void setParameters(
+            @jakarta.annotation.Nullable Map<String, McpConnectionParameter> parameters) {
+        this.parameters = parameters;
+    }
+
+    public MCPToolCollectionObject headers(
+            @jakarta.annotation.Nullable Map<String, String> headers) {
+        this.headers = headers;
+        return this;
+    }
+
+    public MCPToolCollectionObject putHeadersItem(String key, String headersItem) {
+        if (this.headers == null) {
+            this.headers = new HashMap<>();
+        }
+        this.headers.put(key, headersItem);
+        return this;
+    }
+
+    /**
+     * HTTP header templates. Reference declared installation parameters with {{name}}. Never embed secrets.
+     * @return headers
+     */
+    @jakarta.annotation.Nullable public Map<String, String> getHeaders() {
+        return headers;
+    }
+
+    public void setHeaders(@jakarta.annotation.Nullable Map<String, String> headers) {
+        this.headers = headers;
     }
 
     public MCPToolCollectionObject id(@jakarta.annotation.Nonnull String id) {
@@ -392,6 +458,8 @@ public class MCPToolCollectionObject {
         return Objects.equals(this.url, mcPToolCollectionObject.url)
                 && Objects.equals(this.auth, mcPToolCollectionObject.auth)
                 && Objects.equals(this.type, mcPToolCollectionObject.type)
+                && Objects.equals(this.parameters, mcPToolCollectionObject.parameters)
+                && Objects.equals(this.headers, mcPToolCollectionObject.headers)
                 && Objects.equals(this.id, mcPToolCollectionObject.id)
                 && Objects.equals(this.name, mcPToolCollectionObject.name)
                 && Objects.equals(this.description, mcPToolCollectionObject.description)
@@ -409,6 +477,8 @@ public class MCPToolCollectionObject {
                 url,
                 auth,
                 type,
+                parameters,
+                headers,
                 id,
                 name,
                 description,
@@ -427,6 +497,8 @@ public class MCPToolCollectionObject {
         sb.append("    url: ").append(toIndentedString(url)).append("\n");
         sb.append("    auth: ").append(toIndentedString(auth)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
+        sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+        sb.append("    headers: ").append(toIndentedString(headers)).append("\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
@@ -459,6 +531,8 @@ public class MCPToolCollectionObject {
                                 "url",
                                 "auth",
                                 "type",
+                                "parameters",
+                                "headers",
                                 "id",
                                 "name",
                                 "description",

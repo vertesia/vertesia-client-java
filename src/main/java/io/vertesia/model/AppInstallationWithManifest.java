@@ -52,6 +52,11 @@ public class AppInstallationWithManifest {
     @jakarta.annotation.Nonnull
     private String project;
 
+    public static final String SERIALIZED_NAME_MCP_CONFIGURATION = "mcp_configuration";
+
+    @SerializedName(SERIALIZED_NAME_MCP_CONFIGURATION)
+    @jakarta.annotation.Nullable private AppInstallationMcpConfiguration mcpConfiguration;
+
     public static final String SERIALIZED_NAME_OAUTH_APPROVAL = "oauth_approval";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_APPROVAL)
@@ -146,6 +151,25 @@ public class AppInstallationWithManifest {
 
     public void setProject(@jakarta.annotation.Nonnull String project) {
         this.project = project;
+    }
+
+    public AppInstallationWithManifest mcpConfiguration(
+            @jakarta.annotation.Nullable AppInstallationMcpConfiguration mcpConfiguration) {
+        this.mcpConfiguration = mcpConfiguration;
+        return this;
+    }
+
+    /**
+     * Get mcpConfiguration
+     * @return mcpConfiguration
+     */
+    @jakarta.annotation.Nullable public AppInstallationMcpConfiguration getMcpConfiguration() {
+        return mcpConfiguration;
+    }
+
+    public void setMcpConfiguration(
+            @jakarta.annotation.Nullable AppInstallationMcpConfiguration mcpConfiguration) {
+        this.mcpConfiguration = mcpConfiguration;
     }
 
     public AppInstallationWithManifest oauthApproval(
@@ -448,6 +472,8 @@ public class AppInstallationWithManifest {
         AppInstallationWithManifest appInstallationWithManifest = (AppInstallationWithManifest) o;
         return Objects.equals(this.id, appInstallationWithManifest.id)
                 && Objects.equals(this.project, appInstallationWithManifest.project)
+                && Objects.equals(
+                        this.mcpConfiguration, appInstallationWithManifest.mcpConfiguration)
                 && Objects.equals(this.oauthApproval, appInstallationWithManifest.oauthApproval)
                 && Objects.equals(this.oauthClientId, appInstallationWithManifest.oauthClientId)
                 && Objects.equals(this.settings, appInstallationWithManifest.settings)
@@ -480,6 +506,7 @@ public class AppInstallationWithManifest {
         return Objects.hash(
                 id,
                 project,
+                mcpConfiguration,
                 oauthApproval,
                 oauthClientId,
                 settings,
@@ -507,6 +534,7 @@ public class AppInstallationWithManifest {
         sb.append("class AppInstallationWithManifest {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    project: ").append(toIndentedString(project)).append("\n");
+        sb.append("    mcpConfiguration: ").append(toIndentedString(mcpConfiguration)).append("\n");
         sb.append("    oauthApproval: ").append(toIndentedString(oauthApproval)).append("\n");
         sb.append("    oauthClientId: ").append(toIndentedString(oauthClientId)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
@@ -545,6 +573,7 @@ public class AppInstallationWithManifest {
                         Arrays.asList(
                                 "id",
                                 "project",
+                                "mcp_configuration",
                                 "oauth_approval",
                                 "oauth_client_id",
                                 "settings",
@@ -606,6 +635,11 @@ public class AppInstallationWithManifest {
                             java.util.Locale.ROOT,
                             "Expected the field `project` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("project").toString()));
+        }
+        // validate the optional field `mcp_configuration`
+        if (jsonObj.get("mcp_configuration") != null
+                && !jsonObj.get("mcp_configuration").isJsonNull()) {
+            AppInstallationMcpConfiguration.validateJsonElement(jsonObj.get("mcp_configuration"));
         }
         // validate the optional field `oauth_approval`
         if (jsonObj.get("oauth_approval") != null && !jsonObj.get("oauth_approval").isJsonNull()) {

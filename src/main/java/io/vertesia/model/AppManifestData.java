@@ -40,6 +40,11 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class AppManifestData {
+    public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
+
+    @SerializedName(SERIALIZED_NAME_PARAMETERS)
+    @jakarta.annotation.Nullable private Map<String, McpConnectionParameter> parameters = new HashMap<>();
+
     public static final String SERIALIZED_NAME_OAUTH_SCOPES = "oauth_scopes";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_SCOPES)
@@ -277,6 +282,33 @@ public class AppManifestData {
     @jakarta.annotation.Nullable private AppAccessControl accessControl;
 
     public AppManifestData() {}
+
+    public AppManifestData parameters(
+            @jakarta.annotation.Nullable Map<String, McpConnectionParameter> parameters) {
+        this.parameters = parameters;
+        return this;
+    }
+
+    public AppManifestData putParametersItem(String key, McpConnectionParameter parametersItem) {
+        if (this.parameters == null) {
+            this.parameters = new HashMap<>();
+        }
+        this.parameters.put(key, parametersItem);
+        return this;
+    }
+
+    /**
+     * Shared MCP installation parameters available to every collection. Collection-local names must not overlap.
+     * @return parameters
+     */
+    @jakarta.annotation.Nullable public Map<String, McpConnectionParameter> getParameters() {
+        return parameters;
+    }
+
+    public void setParameters(
+            @jakarta.annotation.Nullable Map<String, McpConnectionParameter> parameters) {
+        this.parameters = parameters;
+    }
 
     public AppManifestData oauthScopes(@jakarta.annotation.Nullable List<String> oauthScopes) {
         this.oauthScopes = oauthScopes;
@@ -792,7 +824,8 @@ public class AppManifestData {
             return false;
         }
         AppManifestData appManifestData = (AppManifestData) o;
-        return Objects.equals(this.oauthScopes, appManifestData.oauthScopes)
+        return Objects.equals(this.parameters, appManifestData.parameters)
+                && Objects.equals(this.oauthScopes, appManifestData.oauthScopes)
                 && Objects.equals(this.oauthClient, appManifestData.oauthClient)
                 && Objects.equals(this.name, appManifestData.name)
                 && Objects.equals(this.visibility, appManifestData.visibility)
@@ -821,6 +854,7 @@ public class AppManifestData {
     @Override
     public int hashCode() {
         return Objects.hash(
+                parameters,
                 oauthScopes,
                 oauthClient,
                 name,
@@ -851,6 +885,7 @@ public class AppManifestData {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class AppManifestData {\n");
+        sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
         sb.append("    oauthScopes: ").append(toIndentedString(oauthScopes)).append("\n");
         sb.append("    oauthClient: ").append(toIndentedString(oauthClient)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -901,6 +936,7 @@ public class AppManifestData {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "parameters",
                                 "oauth_scopes",
                                 "oauth_client",
                                 "name",

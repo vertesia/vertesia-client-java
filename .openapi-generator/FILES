@@ -171,9 +171,11 @@ src/main/java/io/vertesia/model/AppInspectionIssue.java
 src/main/java/io/vertesia/model/AppInspectionResult.java
 src/main/java/io/vertesia/model/AppInstallation.java
 src/main/java/io/vertesia/model/AppInstallationListEntry.java
+src/main/java/io/vertesia/model/AppInstallationMcpConfiguration.java
 src/main/java/io/vertesia/model/AppInstallationOAuthBinding.java
 src/main/java/io/vertesia/model/AppInstallationOauthApproval.java
 src/main/java/io/vertesia/model/AppInstallationPayload.java
+src/main/java/io/vertesia/model/AppInstallationPayloadMcpSharedParametersValue.java
 src/main/java/io/vertesia/model/AppInstallationProviderBinding.java
 src/main/java/io/vertesia/model/AppInstallationWithManifest.java
 src/main/java/io/vertesia/model/AppManifest.java
@@ -722,10 +724,13 @@ src/main/java/io/vertesia/model/MagicPdfConfiguration.java
 src/main/java/io/vertesia/model/MarkdownRenditionFormat.java
 src/main/java/io/vertesia/model/McpApiKeyCredential.java
 src/main/java/io/vertesia/model/McpApiKeyStatus.java
+src/main/java/io/vertesia/model/McpConnectionParameter.java
 src/main/java/io/vertesia/model/McpOAuthConnectResponse.java
 src/main/java/io/vertesia/model/McpOAuthDisconnectResponse.java
 src/main/java/io/vertesia/model/McpOAuthTokenRequest.java
 src/main/java/io/vertesia/model/McpOAuthTokenResponse.java
+src/main/java/io/vertesia/model/McpPublicParameter.java
+src/main/java/io/vertesia/model/McpSecretParameter.java
 src/main/java/io/vertesia/model/MediatorEnvConfig.java
 src/main/java/io/vertesia/model/MigrationListResponse.java
 src/main/java/io/vertesia/model/MigrationListResponseMigrationsInner.java

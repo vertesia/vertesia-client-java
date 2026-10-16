@@ -58,6 +58,11 @@ public class AppInstallation {
     @jakarta.annotation.Nonnull
     private String manifest;
 
+    public static final String SERIALIZED_NAME_MCP_CONFIGURATION = "mcp_configuration";
+
+    @SerializedName(SERIALIZED_NAME_MCP_CONFIGURATION)
+    @jakarta.annotation.Nullable private AppInstallationMcpConfiguration mcpConfiguration;
+
     public static final String SERIALIZED_NAME_OAUTH_APPROVAL = "oauth_approval";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_APPROVAL)
@@ -159,6 +164,25 @@ public class AppInstallation {
 
     public void setManifest(@jakarta.annotation.Nonnull String manifest) {
         this.manifest = manifest;
+    }
+
+    public AppInstallation mcpConfiguration(
+            @jakarta.annotation.Nullable AppInstallationMcpConfiguration mcpConfiguration) {
+        this.mcpConfiguration = mcpConfiguration;
+        return this;
+    }
+
+    /**
+     * Get mcpConfiguration
+     * @return mcpConfiguration
+     */
+    @jakarta.annotation.Nullable public AppInstallationMcpConfiguration getMcpConfiguration() {
+        return mcpConfiguration;
+    }
+
+    public void setMcpConfiguration(
+            @jakarta.annotation.Nullable AppInstallationMcpConfiguration mcpConfiguration) {
+        this.mcpConfiguration = mcpConfiguration;
     }
 
     public AppInstallation oauthApproval(
@@ -413,6 +437,7 @@ public class AppInstallation {
         return Objects.equals(this.id, appInstallation.id)
                 && Objects.equals(this.project, appInstallation.project)
                 && Objects.equals(this.manifest, appInstallation.manifest)
+                && Objects.equals(this.mcpConfiguration, appInstallation.mcpConfiguration)
                 && Objects.equals(this.oauthApproval, appInstallation.oauthApproval)
                 && Objects.equals(this.oauthClientId, appInstallation.oauthClientId)
                 && Objects.equals(this.settings, appInstallation.settings)
@@ -440,6 +465,7 @@ public class AppInstallation {
                 id,
                 project,
                 manifest,
+                mcpConfiguration,
                 oauthApproval,
                 oauthClientId,
                 settings,
@@ -466,6 +492,7 @@ public class AppInstallation {
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    project: ").append(toIndentedString(project)).append("\n");
         sb.append("    manifest: ").append(toIndentedString(manifest)).append("\n");
+        sb.append("    mcpConfiguration: ").append(toIndentedString(mcpConfiguration)).append("\n");
         sb.append("    oauthApproval: ").append(toIndentedString(oauthApproval)).append("\n");
         sb.append("    oauthClientId: ").append(toIndentedString(oauthClientId)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
@@ -501,6 +528,7 @@ public class AppInstallation {
                                 "id",
                                 "project",
                                 "manifest",
+                                "mcp_configuration",
                                 "oauth_approval",
                                 "oauth_client_id",
                                 "settings",
@@ -567,6 +595,11 @@ public class AppInstallation {
                             java.util.Locale.ROOT,
                             "Expected the field `manifest` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("manifest").toString()));
+        }
+        // validate the optional field `mcp_configuration`
+        if (jsonObj.get("mcp_configuration") != null
+                && !jsonObj.get("mcp_configuration").isJsonNull()) {
+            AppInstallationMcpConfiguration.validateJsonElement(jsonObj.get("mcp_configuration"));
         }
         // validate the optional field `oauth_approval`
         if (jsonObj.get("oauth_approval") != null && !jsonObj.get("oauth_approval").isJsonNull()) {

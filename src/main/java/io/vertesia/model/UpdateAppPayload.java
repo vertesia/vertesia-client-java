@@ -40,6 +40,11 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class UpdateAppPayload {
+    public static final String SERIALIZED_NAME_PARAMETERS = "parameters";
+
+    @SerializedName(SERIALIZED_NAME_PARAMETERS)
+    @jakarta.annotation.Nullable private Map<String, McpConnectionParameter> parameters = new HashMap<>();
+
     public static final String SERIALIZED_NAME_OAUTH_SCOPES = "oauth_scopes";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_SCOPES)
@@ -282,6 +287,33 @@ public class UpdateAppPayload {
     @jakarta.annotation.Nullable private Integer expectedEditRevision;
 
     public UpdateAppPayload() {}
+
+    public UpdateAppPayload parameters(
+            @jakarta.annotation.Nullable Map<String, McpConnectionParameter> parameters) {
+        this.parameters = parameters;
+        return this;
+    }
+
+    public UpdateAppPayload putParametersItem(String key, McpConnectionParameter parametersItem) {
+        if (this.parameters == null) {
+            this.parameters = new HashMap<>();
+        }
+        this.parameters.put(key, parametersItem);
+        return this;
+    }
+
+    /**
+     * Shared MCP installation parameters available to every collection. Collection-local names must not overlap.
+     * @return parameters
+     */
+    @jakarta.annotation.Nullable public Map<String, McpConnectionParameter> getParameters() {
+        return parameters;
+    }
+
+    public void setParameters(
+            @jakarta.annotation.Nullable Map<String, McpConnectionParameter> parameters) {
+        this.parameters = parameters;
+    }
 
     public UpdateAppPayload oauthScopes(@jakarta.annotation.Nullable List<String> oauthScopes) {
         this.oauthScopes = oauthScopes;
@@ -817,7 +849,8 @@ public class UpdateAppPayload {
             return false;
         }
         UpdateAppPayload updateAppPayload = (UpdateAppPayload) o;
-        return Objects.equals(this.oauthScopes, updateAppPayload.oauthScopes)
+        return Objects.equals(this.parameters, updateAppPayload.parameters)
+                && Objects.equals(this.oauthScopes, updateAppPayload.oauthScopes)
                 && Objects.equals(this.oauthClient, updateAppPayload.oauthClient)
                 && Objects.equals(this.name, updateAppPayload.name)
                 && Objects.equals(this.visibility, updateAppPayload.visibility)
@@ -847,6 +880,7 @@ public class UpdateAppPayload {
     @Override
     public int hashCode() {
         return Objects.hash(
+                parameters,
                 oauthScopes,
                 oauthClient,
                 name,
@@ -878,6 +912,7 @@ public class UpdateAppPayload {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class UpdateAppPayload {\n");
+        sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
         sb.append("    oauthScopes: ").append(toIndentedString(oauthScopes)).append("\n");
         sb.append("    oauthClient: ").append(toIndentedString(oauthClient)).append("\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
@@ -931,6 +966,7 @@ public class UpdateAppPayload {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "parameters",
                                 "oauth_scopes",
                                 "oauth_client",
                                 "name",
