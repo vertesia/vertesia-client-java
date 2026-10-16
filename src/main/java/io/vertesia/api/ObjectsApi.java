@@ -4283,7 +4283,7 @@ public class ObjectsApi {
 
     /**
      * Set content object text
-     * Stores the extracted text of a content object as a GCS text artifact. The text is never stored inline in the database; a legacy inline copy is removed. When an etag is provided it is recorded as the object text_etag so extraction can be skipped while the content is unchanged.  **Required permissions:** &#x60;content:write&#x60;
+     * Stores the extracted text of a content object as a GCS text artifact. Text larger than 10 MiB is truncated and ends with an explicit truncation marker. The text is never stored inline in the database; a legacy inline copy is removed. When an etag is provided it is recorded as the object text_etag so extraction can be skipped while the content is unchanged.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
      * @param setObjectTextPayload  (required)
      * @return ContentObjectTextResponse
@@ -4308,7 +4308,7 @@ public class ObjectsApi {
 
     /**
      * Set content object text
-     * Stores the extracted text of a content object as a GCS text artifact. The text is never stored inline in the database; a legacy inline copy is removed. When an etag is provided it is recorded as the object text_etag so extraction can be skipped while the content is unchanged.  **Required permissions:** &#x60;content:write&#x60;
+     * Stores the extracted text of a content object as a GCS text artifact. Text larger than 10 MiB is truncated and ends with an explicit truncation marker. The text is never stored inline in the database; a legacy inline copy is removed. When an etag is provided it is recorded as the object text_etag so extraction can be skipped while the content is unchanged.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
      * @param setObjectTextPayload  (required)
      * @return ApiResponse&lt;ContentObjectTextResponse&gt;
@@ -4334,7 +4334,7 @@ public class ObjectsApi {
 
     /**
      * Set content object text (asynchronously)
-     * Stores the extracted text of a content object as a GCS text artifact. The text is never stored inline in the database; a legacy inline copy is removed. When an etag is provided it is recorded as the object text_etag so extraction can be skipped while the content is unchanged.  **Required permissions:** &#x60;content:write&#x60;
+     * Stores the extracted text of a content object as a GCS text artifact. Text larger than 10 MiB is truncated and ends with an explicit truncation marker. The text is never stored inline in the database; a legacy inline copy is removed. When an etag is provided it is recorded as the object text_etag so extraction can be skipped while the content is unchanged.  **Required permissions:** &#x60;content:write&#x60;
      * @param objectId  (required)
      * @param setObjectTextPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
