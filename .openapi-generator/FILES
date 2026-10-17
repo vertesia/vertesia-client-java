@@ -40,6 +40,7 @@ src/main/java/io/vertesia/api/OAuthClientsApi.java
 src/main/java/io/vertesia/api/OAuthGrantsApi.java
 src/main/java/io/vertesia/api/OAuthProvidersApi.java
 src/main/java/io/vertesia/api/ObjectsApi.java
+src/main/java/io/vertesia/api/OidcFederationApi.java
 src/main/java/io/vertesia/api/PendingAsksApi.java
 src/main/java/io/vertesia/api/ProcessesApi.java
 src/main/java/io/vertesia/api/ProjectsApi.java
@@ -779,6 +780,8 @@ src/main/java/io/vertesia/model/OAuthRegistrationSource.java
 src/main/java/io/vertesia/model/OAuthResponseType.java
 src/main/java/io/vertesia/model/OAuthTokenEndpointAuthMethod.java
 src/main/java/io/vertesia/model/ObjectSearchResponse.java
+src/main/java/io/vertesia/model/OidcFederationConnection.java
+src/main/java/io/vertesia/model/OidcFederationConnectionPayload.java
 src/main/java/io/vertesia/model/OnboardingProgress.java
 src/main/java/io/vertesia/model/OpenAiAudioOptions.java
 src/main/java/io/vertesia/model/OpenAiDalleOptions.java

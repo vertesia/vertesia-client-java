@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -71,6 +72,11 @@ public class CreateOAuthClientPayload {
 
     @SerializedName(SERIALIZED_NAME_TOKEN_ENDPOINT_AUTH_METHOD)
     @jakarta.annotation.Nullable private OAuthTokenEndpointAuthMethod tokenEndpointAuthMethod;
+
+    public static final String SERIALIZED_NAME_JWKS_URI = "jwks_uri";
+
+    @SerializedName(SERIALIZED_NAME_JWKS_URI)
+    @jakarta.annotation.Nullable private URI jwksUri;
 
     public static final String SERIALIZED_NAME_ALLOWED_SCOPES = "allowed_scopes";
 
@@ -243,6 +249,23 @@ public class CreateOAuthClientPayload {
     public void setTokenEndpointAuthMethod(
             @jakarta.annotation.Nullable OAuthTokenEndpointAuthMethod tokenEndpointAuthMethod) {
         this.tokenEndpointAuthMethod = tokenEndpointAuthMethod;
+    }
+
+    public CreateOAuthClientPayload jwksUri(@jakarta.annotation.Nullable URI jwksUri) {
+        this.jwksUri = jwksUri;
+        return this;
+    }
+
+    /**
+     * Get jwksUri
+     * @return jwksUri
+     */
+    @jakarta.annotation.Nullable public URI getJwksUri() {
+        return jwksUri;
+    }
+
+    public void setJwksUri(@jakarta.annotation.Nullable URI jwksUri) {
+        this.jwksUri = jwksUri;
     }
 
     public CreateOAuthClientPayload allowedScopes(
@@ -458,6 +481,7 @@ public class CreateOAuthClientPayload {
                 && Objects.equals(
                         this.tokenEndpointAuthMethod,
                         createOAuthClientPayload.tokenEndpointAuthMethod)
+                && Objects.equals(this.jwksUri, createOAuthClientPayload.jwksUri)
                 && Objects.equals(this.allowedScopes, createOAuthClientPayload.allowedScopes)
                 && Objects.equals(this.defaultScopes, createOAuthClientPayload.defaultScopes)
                 && Objects.equals(
@@ -490,6 +514,7 @@ public class CreateOAuthClientPayload {
                 grantTypes,
                 responseTypes,
                 tokenEndpointAuthMethod,
+                jwksUri,
                 allowedScopes,
                 defaultScopes,
                 projectBindingMode,
@@ -519,6 +544,7 @@ public class CreateOAuthClientPayload {
         sb.append("    tokenEndpointAuthMethod: ")
                 .append(toIndentedString(tokenEndpointAuthMethod))
                 .append("\n");
+        sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
         sb.append("    allowedScopes: ").append(toIndentedString(allowedScopes)).append("\n");
         sb.append("    defaultScopes: ").append(toIndentedString(defaultScopes)).append("\n");
         sb.append("    projectBindingMode: ")
@@ -559,6 +585,7 @@ public class CreateOAuthClientPayload {
                                 "grant_types",
                                 "response_types",
                                 "token_endpoint_auth_method",
+                                "jwks_uri",
                                 "allowed_scopes",
                                 "default_scopes",
                                 "project_binding_mode",
@@ -648,6 +675,14 @@ public class CreateOAuthClientPayload {
                 && !jsonObj.get("token_endpoint_auth_method").isJsonNull()) {
             OAuthTokenEndpointAuthMethod.validateJsonElement(
                     jsonObj.get("token_endpoint_auth_method"));
+        }
+        if ((jsonObj.get("jwks_uri") != null && !jsonObj.get("jwks_uri").isJsonNull())
+                && !jsonObj.get("jwks_uri").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `jwks_uri` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("jwks_uri").toString()));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("allowed_scopes") != null

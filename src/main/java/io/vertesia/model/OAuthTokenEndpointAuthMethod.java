@@ -30,6 +30,8 @@ public enum OAuthTokenEndpointAuthMethod {
 
     CLIENT_SECRET_BASIC("client_secret_basic"),
 
+    PRIVATE_KEY_JWT("private_key_jwt"),
+
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;

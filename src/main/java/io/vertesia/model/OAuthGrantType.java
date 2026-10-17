@@ -30,6 +30,9 @@ public enum OAuthGrantType {
 
     URN_IETF_PARAMS_OAUTH_GRANT_TYPE_DEVICE_CODE("urn:ietf:params:oauth:grant-type:device_code"),
 
+    URN_IETF_PARAMS_OAUTH_GRANT_TYPE_TOKEN_EXCHANGE(
+            "urn:ietf:params:oauth:grant-type:token-exchange"),
+
     UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
 
     private String value;

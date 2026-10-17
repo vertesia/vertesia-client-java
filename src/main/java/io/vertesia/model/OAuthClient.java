@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -80,6 +81,11 @@ public class OAuthClient {
     @SerializedName(SERIALIZED_NAME_TOKEN_ENDPOINT_AUTH_METHOD)
     @jakarta.annotation.Nonnull
     private OAuthTokenEndpointAuthMethod tokenEndpointAuthMethod;
+
+    public static final String SERIALIZED_NAME_JWKS_URI = "jwks_uri";
+
+    @SerializedName(SERIALIZED_NAME_JWKS_URI)
+    @jakarta.annotation.Nullable private URI jwksUri;
 
     public static final String SERIALIZED_NAME_ALLOWED_SCOPES = "allowed_scopes";
 
@@ -308,6 +314,23 @@ public class OAuthClient {
     public void setTokenEndpointAuthMethod(
             @jakarta.annotation.Nonnull OAuthTokenEndpointAuthMethod tokenEndpointAuthMethod) {
         this.tokenEndpointAuthMethod = tokenEndpointAuthMethod;
+    }
+
+    public OAuthClient jwksUri(@jakarta.annotation.Nullable URI jwksUri) {
+        this.jwksUri = jwksUri;
+        return this;
+    }
+
+    /**
+     * Get jwksUri
+     * @return jwksUri
+     */
+    @jakarta.annotation.Nullable public URI getJwksUri() {
+        return jwksUri;
+    }
+
+    public void setJwksUri(@jakarta.annotation.Nullable URI jwksUri) {
+        this.jwksUri = jwksUri;
     }
 
     public OAuthClient allowedScopes(@jakarta.annotation.Nonnull List<String> allowedScopes) {
@@ -631,6 +654,7 @@ public class OAuthClient {
                 && Objects.equals(this.grantTypes, oauthClient.grantTypes)
                 && Objects.equals(this.responseTypes, oauthClient.responseTypes)
                 && Objects.equals(this.tokenEndpointAuthMethod, oauthClient.tokenEndpointAuthMethod)
+                && Objects.equals(this.jwksUri, oauthClient.jwksUri)
                 && Objects.equals(this.allowedScopes, oauthClient.allowedScopes)
                 && Objects.equals(this.defaultScopes, oauthClient.defaultScopes)
                 && Objects.equals(this.registrationSource, oauthClient.registrationSource)
@@ -666,6 +690,7 @@ public class OAuthClient {
                 grantTypes,
                 responseTypes,
                 tokenEndpointAuthMethod,
+                jwksUri,
                 allowedScopes,
                 defaultScopes,
                 registrationSource,
@@ -702,6 +727,7 @@ public class OAuthClient {
         sb.append("    tokenEndpointAuthMethod: ")
                 .append(toIndentedString(tokenEndpointAuthMethod))
                 .append("\n");
+        sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
         sb.append("    allowedScopes: ").append(toIndentedString(allowedScopes)).append("\n");
         sb.append("    defaultScopes: ").append(toIndentedString(defaultScopes)).append("\n");
         sb.append("    registrationSource: ")
@@ -753,6 +779,7 @@ public class OAuthClient {
                                 "grant_types",
                                 "response_types",
                                 "token_endpoint_auth_method",
+                                "jwks_uri",
                                 "allowed_scopes",
                                 "default_scopes",
                                 "registration_source",
@@ -868,6 +895,14 @@ public class OAuthClient {
         }
         // validate the required field `token_endpoint_auth_method`
         OAuthTokenEndpointAuthMethod.validateJsonElement(jsonObj.get("token_endpoint_auth_method"));
+        if ((jsonObj.get("jwks_uri") != null && !jsonObj.get("jwks_uri").isJsonNull())
+                && !jsonObj.get("jwks_uri").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `jwks_uri` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("jwks_uri").toString()));
+        }
         // ensure the required json array is present
         if (jsonObj.get("allowed_scopes") == null) {
             throw new IllegalArgumentException(

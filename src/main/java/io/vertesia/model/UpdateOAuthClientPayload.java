@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -65,6 +66,11 @@ public class UpdateOAuthClientPayload {
     @SerializedName(SERIALIZED_NAME_TOKEN_ENDPOINT_AUTH_METHOD)
     @jakarta.annotation.Nullable private OAuthTokenEndpointAuthMethod tokenEndpointAuthMethod;
 
+    public static final String SERIALIZED_NAME_JWKS_URI = "jwks_uri";
+
+    @SerializedName(SERIALIZED_NAME_JWKS_URI)
+    @jakarta.annotation.Nullable private URI jwksUri;
+
     public static final String SERIALIZED_NAME_ALLOWED_SCOPES = "allowed_scopes";
 
     @SerializedName(SERIALIZED_NAME_ALLOWED_SCOPES)
@@ -79,6 +85,12 @@ public class UpdateOAuthClientPayload {
 
     @SerializedName(SERIALIZED_NAME_STATUS)
     @jakarta.annotation.Nullable private OAuthClientStatus status;
+
+    public static final String SERIALIZED_NAME_REVOKE_PREVIOUS_CLIENT_SECRET =
+            "revoke_previous_client_secret";
+
+    @SerializedName(SERIALIZED_NAME_REVOKE_PREVIOUS_CLIENT_SECRET)
+    @jakarta.annotation.Nullable private Boolean revokePreviousClientSecret;
 
     public static final String SERIALIZED_NAME_PROJECT_BINDING_MODE = "project_binding_mode";
 
@@ -223,6 +235,23 @@ public class UpdateOAuthClientPayload {
         this.tokenEndpointAuthMethod = tokenEndpointAuthMethod;
     }
 
+    public UpdateOAuthClientPayload jwksUri(@jakarta.annotation.Nullable URI jwksUri) {
+        this.jwksUri = jwksUri;
+        return this;
+    }
+
+    /**
+     * Get jwksUri
+     * @return jwksUri
+     */
+    @jakarta.annotation.Nullable public URI getJwksUri() {
+        return jwksUri;
+    }
+
+    public void setJwksUri(@jakarta.annotation.Nullable URI jwksUri) {
+        this.jwksUri = jwksUri;
+    }
+
     public UpdateOAuthClientPayload allowedScopes(
             @jakarta.annotation.Nullable List<String> allowedScopes) {
         this.allowedScopes = allowedScopes;
@@ -290,6 +319,25 @@ public class UpdateOAuthClientPayload {
 
     public void setStatus(@jakarta.annotation.Nullable OAuthClientStatus status) {
         this.status = status;
+    }
+
+    public UpdateOAuthClientPayload revokePreviousClientSecret(
+            @jakarta.annotation.Nullable Boolean revokePreviousClientSecret) {
+        this.revokePreviousClientSecret = revokePreviousClientSecret;
+        return this;
+    }
+
+    /**
+     * Immediately revoke the previous rotation secret while retaining the current secret.
+     * @return revokePreviousClientSecret
+     */
+    @jakarta.annotation.Nullable public Boolean getRevokePreviousClientSecret() {
+        return revokePreviousClientSecret;
+    }
+
+    public void setRevokePreviousClientSecret(
+            @jakarta.annotation.Nullable Boolean revokePreviousClientSecret) {
+        this.revokePreviousClientSecret = revokePreviousClientSecret;
     }
 
     public UpdateOAuthClientPayload projectBindingMode(
@@ -452,9 +500,13 @@ public class UpdateOAuthClientPayload {
                 && Objects.equals(
                         this.tokenEndpointAuthMethod,
                         updateOAuthClientPayload.tokenEndpointAuthMethod)
+                && Objects.equals(this.jwksUri, updateOAuthClientPayload.jwksUri)
                 && Objects.equals(this.allowedScopes, updateOAuthClientPayload.allowedScopes)
                 && Objects.equals(this.defaultScopes, updateOAuthClientPayload.defaultScopes)
                 && Objects.equals(this.status, updateOAuthClientPayload.status)
+                && Objects.equals(
+                        this.revokePreviousClientSecret,
+                        updateOAuthClientPayload.revokePreviousClientSecret)
                 && Objects.equals(
                         this.projectBindingMode, updateOAuthClientPayload.projectBindingMode)
                 && Objects.equals(this.fixedProjectId, updateOAuthClientPayload.fixedProjectId)
@@ -484,9 +536,11 @@ public class UpdateOAuthClientPayload {
                 grantTypes,
                 responseTypes,
                 tokenEndpointAuthMethod,
+                jwksUri,
                 allowedScopes,
                 defaultScopes,
                 status,
+                revokePreviousClientSecret,
                 projectBindingMode,
                 fixedProjectId,
                 restrictToOwnerAccount,
@@ -513,9 +567,13 @@ public class UpdateOAuthClientPayload {
         sb.append("    tokenEndpointAuthMethod: ")
                 .append(toIndentedString(tokenEndpointAuthMethod))
                 .append("\n");
+        sb.append("    jwksUri: ").append(toIndentedString(jwksUri)).append("\n");
         sb.append("    allowedScopes: ").append(toIndentedString(allowedScopes)).append("\n");
         sb.append("    defaultScopes: ").append(toIndentedString(defaultScopes)).append("\n");
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
+        sb.append("    revokePreviousClientSecret: ")
+                .append(toIndentedString(revokePreviousClientSecret))
+                .append("\n");
         sb.append("    projectBindingMode: ")
                 .append(toIndentedString(projectBindingMode))
                 .append("\n");
@@ -553,9 +611,11 @@ public class UpdateOAuthClientPayload {
                                 "grant_types",
                                 "response_types",
                                 "token_endpoint_auth_method",
+                                "jwks_uri",
                                 "allowed_scopes",
                                 "default_scopes",
                                 "status",
+                                "revoke_previous_client_secret",
                                 "project_binding_mode",
                                 "fixed_project_id",
                                 "restrict_to_owner_account",
@@ -627,6 +687,14 @@ public class UpdateOAuthClientPayload {
                 && !jsonObj.get("token_endpoint_auth_method").isJsonNull()) {
             OAuthTokenEndpointAuthMethod.validateJsonElement(
                     jsonObj.get("token_endpoint_auth_method"));
+        }
+        if ((jsonObj.get("jwks_uri") != null && !jsonObj.get("jwks_uri").isJsonNull())
+                && !jsonObj.get("jwks_uri").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `jwks_uri` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("jwks_uri").toString()));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("allowed_scopes") != null
