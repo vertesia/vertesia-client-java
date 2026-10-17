@@ -6,6 +6,18 @@ import okhttp3.OkHttpClient;
  * Options for the high-level Vertesia SDK client.
  */
 public class ClientOptions {
+    private FederationOptions federation;
+
+    /** Configure automatic IdP token exchange, mutually exclusive with apiKey and token. */
+    public ClientOptions setFederation(FederationOptions value) {
+        this.federation = value;
+        return this;
+    }
+
+    public FederationOptions getFederation() {
+        return federation;
+    }
+
     private String region;
     private boolean preview;
     private String site;
