@@ -198,3 +198,41 @@ MAVEN_GPG_PASSPHRASE
 ```
 
 By default, the workflow uploads and waits for Central validation, but leaves the deployment unpublished for manual review in the Central Portal. Set `maven_central_auto_publish` when dispatching the workflow to publish automatically after validation.
+
+## OIDC federation for provisioned users
+
+Use one facade per user/project/resource/scope combination. The user must already be provisioned
+through SCIM and the organization must configure a federation trust policy. No user creation occurs.
+
+```java
+FederationOptions policy = new FederationOptions(
+    "connection-id", "project-id", "https://api.us1.vertesia.io",
+    () -> getFreshIdpToken());
+// policy = policy.withScope("content:read"); // omit for current delegable permissions
+ClientOptions options = new ClientOptions().setRegion("us1").setFederation(policy);
+VertesiaClient client = new VertesiaClient(options);
+// Use client.projects, client.objects, etc. as usual.
+
+// One-shot exchange; caller manages the lifetime:
+FederationToken issued = VertesiaClient.exchangeFederationToken(options, policy, idpAssertion);
+// issued.accessToken(), issued.expiresIn(), issued.scope()
+```
+
+The first authenticated request exchanges an assertion. The facade shares its cached token between
+Studio and Store, obtaining a fresh assertion after 90% of the token lifetime on the next request.
+Renewal is synchronized across threads. There is no refresh token, background worker or automatic
+replay of API writes on a 401. A failed renewal fails the request without sending expired credentials.
+The provider must obtain a currently valid IdP token whenever called. Federation, `apiKey` and
+`token` options are mutually exclusive.
+
+Subject assertions default to `urn:ietf:params:oauth:token-type:jwt`; the full record constructor
+also accepts ID/access token types. The endpoint defaults to resolved STS plus `/oauth/token`;
+use `policy.withTokenEndpoint(...)` for the complete tenant endpoint, or explicit `tokenServerUrl`
+for custom split URLs. HTTPS is required except loopback HTTP, and redirects are rejected.
+
+Optional middleware authentication uses `policy.withClientSecret(id, secret)` for
+`client_secret_post`, `withClientSecretBasic(id, secret)` for Basic, or
+`withClientAssertion(id, supplier)` for `private_key_jwt`. The supplier must mint a fresh short-lived
+assertion with a unique `jti` on each exchange, with a single-string `aud` equal to the Vertesia
+authorization-server issuer from discovery (including the tenant). Secrets and tokens are redacted
+from the new record representations and exchange errors.
