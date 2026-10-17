@@ -20,8 +20,8 @@ import org.junit.jupiter.api.Test;
 class FederationTest {
     private HttpServer server;
     private String base;
-    private String response;
-    private int status;
+    private volatile String response;
+    private volatile int status;
     private final List<String> forms = java.util.Collections.synchronizedList(new ArrayList<>());
     private final List<String> headers = java.util.Collections.synchronizedList(new ArrayList<>());
     private final List<String> stsHeaders =
@@ -128,7 +128,7 @@ class FederationTest {
                         .withClientSecret("m", "a+b%secret");
         var result = VertesiaClient.exchangeFederationToken(options, f, "idp+token");
         assertEquals("delegated", result.accessToken());
-        assertEquals(30, result.expiresIn());
+        assertTrue(result.expiresIn() >= 28 && result.expiresIn() <= 30);
         assertEquals(0, providers.get());
         assertTrue(forms.get(0).contains("client_secret=a+b%secret"));
         assertFalse(f.toString().contains("a+b%secret"));
@@ -225,9 +225,95 @@ class FederationTest {
         var source =
                 new FederationTokenSource(
                         slow, base + "/oauth/token", new OkHttpClient(), clock::get);
-        assertTrue(
-                assertThrows(VertesiaClientException.class, source::get)
-                        .getMessage()
-                        .contains("expired during exchange"));
+        assertEquals("delegated", source.get());
+    }
+
+    @Test
+    void customStsMustBeExplicit() {
+        for (String host :
+                List.of(
+                        "api.example.com",
+                        "api.vertesia.io.attacker.test",
+                        "api.evilvertesia.io")) {
+            var opts =
+                    new ClientOptions()
+                            .setServerUrl("https://" + host)
+                            .setStoreUrl("https://store.example.com")
+                            .setFederation(federation);
+            assertThrows(VertesiaClientException.class, () -> new VertesiaClient(opts));
+            assertThrows(
+                    VertesiaClientException.class,
+                    () -> VertesiaClient.exchangeFederationToken(opts, federation, "idp"));
+            assertDoesNotThrow(() -> new VertesiaClient(opts.setTokenServerUrl(base)));
+            opts.setTokenServerUrl(null)
+                    .setFederation(federation.withTokenEndpoint(base + "/tenant/token"));
+            assertDoesNotThrow(() -> new VertesiaClient(opts));
+        }
+        assertDoesNotThrow(() -> new VertesiaClient(new ClientOptions().setFederation(federation)));
+        assertDoesNotThrow(
+                () ->
+                        new VertesiaClient(
+                                new ClientOptions()
+                                        .setRegion("us1")
+                                        .setPreview(true)
+                                        .setFederation(federation)));
+        assertDoesNotThrow(
+                () ->
+                        new VertesiaClient(
+                                new ClientOptions()
+                                        .setSite("api.us1.harness.vertesia.io")
+                                        .setFederation(federation)));
+        assertEquals(0, forms.size());
+        assertEquals(0, providers.get());
+    }
+
+    @Test
+    void sharedExchangeExcludesProvidersAndAccountsForTransit() {
+        AtomicLong clock = new AtomicLong();
+        AtomicLong delay = new AtomicLong(TimeUnit.SECONDS.toNanos(2));
+        var http =
+                new OkHttpClient.Builder()
+                        .addInterceptor(
+                                chain -> {
+                                    var response = chain.proceed(chain.request());
+                                    clock.addAndGet(delay.get());
+                                    return response;
+                                })
+                        .build();
+        var f =
+                federation.withClientAssertion(
+                        "middleware",
+                        () -> {
+                            clock.addAndGet(TimeUnit.MINUTES.toNanos(1));
+                            return "proof";
+                        });
+        response = VALID.replace("Bearer", "bearer");
+        var issued =
+                FederationTokenSource.exchange(f, base + "/oauth/token", http, "idp", clock::get);
+        assertEquals(28, issued.expiresIn());
+        delay.set(TimeUnit.SECONDS.toNanos(31));
+        assertThrows(
+                VertesiaClientException.class,
+                () ->
+                        FederationTokenSource.exchange(
+                                f, base + "/oauth/token", http, "idp", clock::get));
+    }
+
+    @Test
+    void rejectsInvalidBearerSyntaxBeforeReturningOrCaching() {
+        for (String token :
+                List.of("bad\\ntoken", "contains space", "bad:token", "middle=padding")) {
+            response = VALID.replace("delegated", token);
+            assertThrows(
+                    VertesiaClientException.class,
+                    () -> VertesiaClient.exchangeFederationToken(options, federation, "idp"));
+            var source =
+                    new FederationTokenSource(
+                            federation,
+                            base + "/oauth/token",
+                            new OkHttpClient(),
+                            System::nanoTime);
+            assertThrows(VertesiaClientException.class, source::get);
+        }
     }
 }

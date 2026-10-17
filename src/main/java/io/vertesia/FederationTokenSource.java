@@ -29,6 +29,15 @@ final class FederationTokenSource implements TokenSource {
         this.clock = clock;
     }
 
+    static boolean hostedSts(String raw) {
+        URI uri = URI.create(raw);
+        String host = uri.getHost() == null ? "" : uri.getHost().toLowerCase(java.util.Locale.ROOT);
+        return "https".equals(uri.getScheme())
+                && (uri.getPort() == -1 || uri.getPort() == 443)
+                && (host.equals("sts.vertesia.io")
+                        || (host.startsWith("sts.") && host.endsWith(".vertesia.io")));
+    }
+
     static String endpoint(FederationOptions f, String base, boolean safeBase) {
         if (empty(f.connectionId()) || empty(f.projectId()) || empty(f.resource()))
             throw new VertesiaClientException(
@@ -64,6 +73,15 @@ final class FederationTokenSource implements TokenSource {
 
     static FederationToken exchange(
             FederationOptions f, String endpoint, OkHttpClient base, String assertion) {
+        return exchange(f, endpoint, base, assertion, System::nanoTime);
+    }
+
+    static FederationToken exchange(
+            FederationOptions f,
+            String endpoint,
+            OkHttpClient base,
+            String assertion,
+            LongSupplier clock) {
         if (empty(assertion)) throw new VertesiaClientException("empty IdP assertion");
         FormBody.Builder form =
                 new FormBody.Builder()
@@ -121,6 +139,7 @@ final class FederationTokenSource implements TokenSource {
                         .followSslRedirects(false)
                         .callTimeout(60, TimeUnit.SECONDS)
                         .build();
+        long started = clock.getAsLong();
         try (Response response = client.newCall(request).execute()) {
             if (response.code() != 200)
                 throw new VertesiaClientException(
@@ -136,18 +155,24 @@ final class FederationTokenSource implements TokenSource {
                                         new String(bytes, java.nio.charset.StandardCharsets.UTF_8))
                                 .getAsJsonObject();
                 if (!json.getAsJsonPrimitive("access_token").isString()
-                        || empty(json.get("access_token").getAsString())
+                        || !json.get("access_token").getAsString().matches("[A-Za-z0-9._~+/-]+=*")
                         || !json.getAsJsonPrimitive("expires_in").isNumber()
-                        || !"Bearer".equals(json.get("token_type").getAsString())
+                        || !"Bearer".equalsIgnoreCase(json.get("token_type").getAsString())
                         || !"urn:ietf:params:oauth:token-type:access_token"
                                 .equals(json.get("issued_token_type").getAsString()))
                     throw new IllegalArgumentException();
                 int ttl = json.get("expires_in").getAsBigDecimal().intValueExact();
                 if (ttl < 1 || ttl > 300) throw new IllegalArgumentException();
+                long elapsed = Math.max(0L, clock.getAsLong() - started);
+                int remaining = ttl - (int) Math.ceil(elapsed / 1_000_000_000.0);
+                if (remaining < 1)
+                    throw new VertesiaClientException("federation token expired during exchange");
                 return new FederationToken(
                         json.get("access_token").getAsString(),
-                        ttl,
+                        remaining,
                         json.has("scope") ? json.get("scope").getAsString() : null);
+            } catch (VertesiaClientException e) {
+                throw e;
             } catch (RuntimeException e) {
                 throw new VertesiaClientException("invalid federation token response");
             }
@@ -166,9 +191,9 @@ final class FederationTokenSource implements TokenSource {
         } catch (RuntimeException e) {
             throw new VertesiaClientException("IdP token provider failed");
         }
-        FederationToken issued = exchange(options, endpoint, client, assertion);
+        FederationToken issued = exchange(options, endpoint, client, assertion, clock);
         long ttl = TimeUnit.SECONDS.toNanos(issued.expiresIn());
-        long next = now + ttl - ttl / 10;
+        long next = clock.getAsLong() + ttl - ttl / 10;
         if (clock.getAsLong() >= next)
             throw new VertesiaClientException("federation token expired during exchange");
         token = issued.accessToken();

@@ -236,3 +236,9 @@ Optional middleware authentication uses `policy.withClientSecret(id, secret)` fo
 assertion with a unique `jti` on each exchange, with a single-string `aud` equal to the Vertesia
 authorization-server issuer from discovery (including the tenant). Secrets and tokens are redacted
 from the new record representations and exchange errors.
+
+Exchange results report conservative remaining `expires_in` seconds after subtracting the STS
+round trip (rounded up). Time spent obtaining IdP/client assertions does not consume the delegated
+token's lifetime. Already-expired results are rejected in both one-shot and automatic modes.
+Implicit STS routing is limited to recognized Vertesia STS domains; custom `api*` hostnames require
+an explicit STS URL or complete token endpoint, even when their names resemble hosted endpoints.

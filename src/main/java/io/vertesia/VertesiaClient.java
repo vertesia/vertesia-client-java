@@ -299,7 +299,10 @@ public class VertesiaClient {
                 FederationTokenSource.endpoint(
                         federation,
                         endpoints.tokenServerUrl,
-                        endpoints.tokenServerUrlExplicit || endpoints.tokenServerUrlSafelyDerived);
+                        endpoints.tokenServerUrlExplicit
+                                || (endpoints.tokenServerUrlSafelyDerived
+                                        && FederationTokenSource.hostedSts(
+                                                endpoints.tokenServerUrl)));
         OkHttpClient httpClient =
                 options.getHttpClient() == null ? new OkHttpClient() : options.getHttpClient();
         return FederationTokenSource.exchange(federation, endpoint, httpClient, assertion);
@@ -319,7 +322,9 @@ public class VertesiaClient {
                             options.getFederation(),
                             endpoints.tokenServerUrl,
                             endpoints.tokenServerUrlExplicit
-                                    || endpoints.tokenServerUrlSafelyDerived);
+                                    || (endpoints.tokenServerUrlSafelyDerived
+                                            && FederationTokenSource.hostedSts(
+                                                    endpoints.tokenServerUrl)));
             return new FederationTokenSource(
                     options.getFederation(), endpoint, httpClient, System::nanoTime);
         }
