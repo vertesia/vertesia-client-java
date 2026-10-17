@@ -57,6 +57,12 @@ import okhttp3.Response;
  * High-level Vertesia SDK facade over the generated OpenAPI client.
  */
 public class VertesiaClient {
+    private static final OkHttpClient DEFAULT_HTTP_CLIENT =
+            new OkHttpClient.Builder()
+                    .connectTimeout(30, TimeUnit.SECONDS)
+                    .readTimeout(180, TimeUnit.SECONDS)
+                    .writeTimeout(180, TimeUnit.SECONDS)
+                    .build();
     public static final String DEFAULT_SITE = "api.vertesia.io";
     public static final String DEFAULT_TOKEN_URL = "https://sts.vertesia.io";
     public static final String DEFAULT_API_VERSION = "20260803";
@@ -116,11 +122,7 @@ public class VertesiaClient {
         this.apiVersion = nonEmpty(effectiveOptions.getApiVersion(), DEFAULT_API_VERSION);
         OkHttpClient httpClient =
                 effectiveOptions.getHttpClient() == null
-                        ? new OkHttpClient.Builder()
-                                .connectTimeout(30, TimeUnit.SECONDS)
-                                .readTimeout(180, TimeUnit.SECONDS)
-                                .writeTimeout(180, TimeUnit.SECONDS)
-                                .build()
+                        ? DEFAULT_HTTP_CLIENT
                         : effectiveOptions.getHttpClient();
         TokenSource tokenSource =
                 newTokenSource(effectiveOptions, endpoints, apiVersion, httpClient);
@@ -269,6 +271,22 @@ public class VertesiaClient {
 
     private static ApiClient newApiClient(
             String baseUrl, TokenSource tokenSource, String apiVersion, OkHttpClient httpClient) {
+        if (tokenSource instanceof FederationTokenSource federation) {
+            httpClient =
+                    httpClient
+                            .newBuilder()
+                            .addInterceptor(
+                                    chain -> {
+                                        Response response = chain.proceed(chain.request());
+                                        String bearer = response.request().header("Authorization");
+                                        if (response.code() == 401
+                                                && bearer != null
+                                                && bearer.startsWith("Bearer "))
+                                            federation.invalidate(bearer.substring(7));
+                                        return response;
+                                    })
+                            .build();
+        }
         ApiClient client =
                 new ApiClient(httpClient) {
                     {
@@ -304,7 +322,7 @@ public class VertesiaClient {
                                         && FederationTokenSource.hostedSts(
                                                 endpoints.tokenServerUrl)));
         OkHttpClient httpClient =
-                options.getHttpClient() == null ? new OkHttpClient() : options.getHttpClient();
+                options.getHttpClient() == null ? DEFAULT_HTTP_CLIENT : options.getHttpClient();
         return FederationTokenSource.exchange(federation, endpoint, httpClient, assertion);
     }
 

@@ -18,6 +18,10 @@ final class FederationTokenSource implements TokenSource {
     private final LongSupplier clock;
     private String token = "";
     private long renewAt;
+    private final java.util.concurrent.locks.ReentrantLock lock =
+            new java.util.concurrent.locks.ReentrantLock();
+    private VertesiaClientException failure;
+    private long retryAt;
 
     FederationTokenSource(
             FederationOptions options, String endpoint, OkHttpClient client, LongSupplier clock) {
@@ -141,12 +145,14 @@ final class FederationTokenSource implements TokenSource {
                         .build();
         long started = clock.getAsLong();
         try (Response response = client.newCall(request).execute()) {
-            if (response.code() != 200)
-                throw new VertesiaClientException(
-                        "federation exchange failed: HTTP " + response.code());
+
             if (response.body() == null)
                 throw new VertesiaClientException("invalid federation response");
             byte[] bytes = response.body().byteStream().readNBytes(65537);
+            if (response.code() != 200) {
+                throw new FederationExchangeException(
+                        response.code(), bytes.length <= 65536 ? oauthError(bytes) : null);
+            }
             if (bytes.length > 65536)
                 throw new VertesiaClientException("invalid federation response");
             try {
@@ -161,10 +167,11 @@ final class FederationTokenSource implements TokenSource {
                         || !"urn:ietf:params:oauth:token-type:access_token"
                                 .equals(json.get("issued_token_type").getAsString()))
                     throw new IllegalArgumentException();
-                int ttl = json.get("expires_in").getAsBigDecimal().intValueExact();
-                if (ttl < 1 || ttl > 300) throw new IllegalArgumentException();
+                double ttl = json.get("expires_in").getAsDouble();
+                if (!Double.isFinite(ttl) || ttl < 1 || ttl > 86400)
+                    throw new IllegalArgumentException();
                 long elapsed = Math.max(0L, clock.getAsLong() - started);
-                int remaining = ttl - (int) Math.ceil(elapsed / 1_000_000_000.0);
+                int remaining = (int) Math.floor(ttl - elapsed / 1_000_000_000.0);
                 if (remaining < 1)
                     throw new VertesiaClientException("federation token expired during exchange");
                 return new FederationToken(
@@ -181,24 +188,72 @@ final class FederationTokenSource implements TokenSource {
         }
     }
 
-    @Override
-    public synchronized String get() {
-        long now = clock.getAsLong();
-        if (!token.isEmpty() && now < renewAt) return token;
-        String assertion;
+    private static String oauthError(byte[] bytes) {
         try {
-            assertion = options.subjectTokenProvider().get();
-        } catch (RuntimeException e) {
-            throw new VertesiaClientException("IdP token provider failed");
+            var error =
+                    JsonParser.parseString(
+                                    new String(bytes, java.nio.charset.StandardCharsets.UTF_8))
+                            .getAsJsonObject()
+                            .getAsJsonPrimitive("error");
+            if (!error.isString()) return null;
+            String value = error.getAsString();
+            return java.util.Set.of(
+                                    "invalid_grant",
+                                    "invalid_client",
+                                    "invalid_scope",
+                                    "unauthorized_client",
+                                    "invalid_target",
+                                    "invalid_request",
+                                    "temporarily_unavailable")
+                            .contains(value)
+                    ? value
+                    : null;
+        } catch (RuntimeException error) {
+            return null;
         }
-        FederationToken issued = exchange(options, endpoint, client, assertion, clock);
-        long ttl = TimeUnit.SECONDS.toNanos(issued.expiresIn());
-        long next = clock.getAsLong() + ttl - ttl / 10;
-        if (clock.getAsLong() >= next)
-            throw new VertesiaClientException("federation token expired during exchange");
-        token = issued.accessToken();
-        renewAt = next;
-        return token;
+    }
+
+    @Override
+    public String get() {
+        lock.lock();
+        try {
+            long now = clock.getAsLong();
+            if (!token.isEmpty() && now < renewAt) return token;
+            if (failure != null && now < retryAt) throw failure;
+            FederationToken issued;
+            try {
+                String assertion;
+                try {
+                    assertion = options.subjectTokenProvider().get();
+                } catch (RuntimeException error) {
+                    throw new VertesiaClientException("IdP token provider failed");
+                }
+                issued = exchange(options, endpoint, client, assertion, clock);
+            } catch (VertesiaClientException error) {
+                failure = error;
+                retryAt = clock.getAsLong() + TimeUnit.SECONDS.toNanos(1);
+                throw error;
+            }
+            failure = null;
+            long ttl = TimeUnit.SECONDS.toNanos(issued.expiresIn());
+            token = issued.accessToken();
+            renewAt = clock.getAsLong() + ttl - ttl / 10;
+            return token;
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    void invalidate(String rejectedToken) {
+        lock.lock();
+        try {
+            if (token.equals(rejectedToken)) {
+                token = "";
+                failure = null;
+            }
+        } finally {
+            lock.unlock();
+        }
     }
 
     private static boolean empty(String value) {

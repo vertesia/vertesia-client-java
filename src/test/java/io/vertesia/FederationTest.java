@@ -22,6 +22,8 @@ class FederationTest {
     private String base;
     private volatile String response;
     private volatile int status;
+    private volatile int apiStatus = 200;
+    private final List<Integer> ports = new ArrayList<>();
     private final List<String> forms = java.util.Collections.synchronizedList(new ArrayList<>());
     private final List<String> headers = java.util.Collections.synchronizedList(new ArrayList<>());
     private final List<String> stsHeaders =
@@ -46,6 +48,7 @@ class FederationTest {
                     byte[] data;
                     if (exchange.getRequestMethod().equals("POST")) {
                         stsHeaders.add(exchange.getRequestHeaders().getFirst("Authorization"));
+                        ports.add(exchange.getRemoteAddress().getPort());
                         forms.add(
                                 URLDecoder.decode(
                                         new String(
@@ -60,7 +63,7 @@ class FederationTest {
                         headers.add(exchange.getRequestHeaders().getFirst("Authorization"));
                         data = "[]".getBytes(StandardCharsets.UTF_8);
                         exchange.getResponseHeaders().set("Content-Type", "application/json");
-                        exchange.sendResponseHeaders(200, data.length);
+                        exchange.sendResponseHeaders(apiStatus, data.length);
                     }
                     exchange.getResponseBody().write(data);
                     exchange.close();
@@ -150,9 +153,8 @@ class FederationTest {
                         "{}",
                         "not-json",
                         VALID.replace("30", "0"),
-                        VALID.replace("30", "301"),
+                        VALID.replace("30", "86401"),
                         VALID.replace("30", "\"30\""),
-                        VALID.replace("30", "1.5"),
                         VALID.replace("Bearer", "Other"),
                         VALID.replace("delegated", ""),
                         "x".repeat(65537))) {
@@ -315,5 +317,85 @@ class FederationTest {
                             System::nanoTime);
             assertThrows(VertesiaClientException.class, source::get);
         }
+    }
+
+    @Test
+    void oauthErrorsExposeOnlyAllowlistedMetadata() {
+        status = 400;
+        for (String code :
+                List.of(
+                        "invalid_grant",
+                        "invalid_client",
+                        "invalid_scope",
+                        "unauthorized_client",
+                        "invalid_target",
+                        "invalid_request",
+                        "temporarily_unavailable")) {
+            response = "{\"error\":\"" + code + "\",\"error_description\":\"secret-idp-token\"}";
+            var error =
+                    assertThrows(
+                            FederationExchangeException.class,
+                            () ->
+                                    VertesiaClient.exchangeFederationToken(
+                                            options, federation, "idp"));
+            assertEquals(400, error.getStatusCode());
+            assertEquals(code, error.getErrorCode());
+            assertFalse(error.getMessage().contains("secret-idp-token"));
+        }
+        status = 503;
+        response = "{\"error\":\"secret-idp-token\"}";
+        var error =
+                assertThrows(
+                        FederationExchangeException.class,
+                        () -> VertesiaClient.exchangeFederationToken(options, federation, "idp"));
+        assertEquals(503, error.getStatusCode());
+        assertNull(error.getErrorCode());
+        assertFalse(error.getMessage().contains("secret-idp-token"));
+    }
+
+    @Test
+    void rejectedTokenIsInvalidatedWithoutReplayAndFailuresBackOff() throws Exception {
+        var client = new VertesiaClient(options.setFederation(federation));
+        apiStatus = 401;
+        assertThrows(ApiException.class, () -> client.projects.listProjects(null));
+        assertEquals(1, forms.size());
+        assertEquals(1, headers.size());
+        apiStatus = 200;
+        client.store.projects.listProjects(null);
+        assertEquals(2, forms.size());
+        assertEquals(2, headers.size());
+        AtomicLong clock = new AtomicLong();
+        var source =
+                new FederationTokenSource(
+                        federation, base + "/oauth/token", new OkHttpClient(), clock::get);
+        status = 429;
+        int initial = forms.size();
+        for (int i = 0; i < 10; i++) assertThrows(FederationExchangeException.class, source::get);
+        assertEquals(initial + 1, forms.size());
+        clock.addAndGet(TimeUnit.SECONDS.toNanos(2));
+        assertThrows(FederationExchangeException.class, source::get);
+        assertEquals(initial + 2, forms.size());
+        clock.addAndGet(TimeUnit.SECONDS.toNanos(2));
+        status = 200;
+        response = VALID.replace("delegated", "new-token");
+        assertEquals("new-token", source.get());
+        int exchanges = forms.size();
+        source.invalidate("old-token");
+        assertEquals("new-token", source.get());
+        assertEquals(exchanges, forms.size());
+    }
+
+    @Test
+    void raisedFractionalLifetimesAndSharedOneShotConnections() {
+        response = VALID.replace("30", "600.75");
+        var token =
+                FederationTokenSource.exchange(
+                        federation, base + "/oauth/token", new OkHttpClient(), "idp", () -> 0L);
+        assertEquals(600, token.expiresIn());
+        ports.clear();
+        VertesiaClient.exchangeFederationToken(options, federation, "idp");
+        VertesiaClient.exchangeFederationToken(options, federation, "idp");
+        assertEquals(2, ports.size());
+        assertEquals(ports.get(0), ports.get(1));
     }
 }
