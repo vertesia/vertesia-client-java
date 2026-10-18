@@ -179,6 +179,7 @@ src/main/java/io/vertesia/model/AppInstallationPayload.java
 src/main/java/io/vertesia/model/AppInstallationPayloadMcpSharedParametersValue.java
 src/main/java/io/vertesia/model/AppInstallationProviderBinding.java
 src/main/java/io/vertesia/model/AppInstallationWithManifest.java
+src/main/java/io/vertesia/model/AppInstanceAvailability.java
 src/main/java/io/vertesia/model/AppManifest.java
 src/main/java/io/vertesia/model/AppManifestData.java
 src/main/java/io/vertesia/model/AppManifestPreviewScreenshot.java

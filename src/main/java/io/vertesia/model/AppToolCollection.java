@@ -43,6 +43,11 @@ public class AppToolCollection {
     @jakarta.annotation.Nonnull
     private String name;
 
+    public static final String SERIALIZED_NAME_COLLECTION_ID = "collection_id";
+
+    @SerializedName(SERIALIZED_NAME_COLLECTION_ID)
+    @jakarta.annotation.Nullable private String collectionId;
+
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -72,6 +77,23 @@ public class AppToolCollection {
 
     public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
+    }
+
+    public AppToolCollection collectionId(@jakarta.annotation.Nullable String collectionId) {
+        this.collectionId = collectionId;
+        return this;
+    }
+
+    /**
+     * Get collectionId
+     * @return collectionId
+     */
+    @jakarta.annotation.Nullable public String getCollectionId() {
+        return collectionId;
+    }
+
+    public void setCollectionId(@jakarta.annotation.Nullable String collectionId) {
+        this.collectionId = collectionId;
     }
 
     public AppToolCollection description(@jakarta.annotation.Nullable String description) {
@@ -127,13 +149,14 @@ public class AppToolCollection {
         }
         AppToolCollection appToolCollection = (AppToolCollection) o;
         return Objects.equals(this.name, appToolCollection.name)
+                && Objects.equals(this.collectionId, appToolCollection.collectionId)
                 && Objects.equals(this.description, appToolCollection.description)
                 && Objects.equals(this.tools, appToolCollection.tools);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, tools);
+        return Objects.hash(name, collectionId, description, tools);
     }
 
     @Override
@@ -141,6 +164,7 @@ public class AppToolCollection {
         StringBuilder sb = new StringBuilder();
         sb.append("class AppToolCollection {\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    collectionId: ").append(toIndentedString(collectionId)).append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    tools: ").append(toIndentedString(tools)).append("\n");
         sb.append("}");
@@ -160,7 +184,8 @@ public class AppToolCollection {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("name", "description", "tools"));
+        openapiFields =
+                new HashSet<String>(Arrays.asList("name", "collection_id", "description", "tools"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("name", "tools"));
@@ -202,6 +227,14 @@ public class AppToolCollection {
                             java.util.Locale.ROOT,
                             "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("name").toString()));
+        }
+        if ((jsonObj.get("collection_id") != null && !jsonObj.get("collection_id").isJsonNull())
+                && !jsonObj.get("collection_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `collection_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("collection_id").toString()));
         }
         if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
                 && !jsonObj.get("description").isJsonPrimitive()) {

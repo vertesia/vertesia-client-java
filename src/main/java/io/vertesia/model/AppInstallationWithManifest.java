@@ -18,12 +18,14 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.TypeAdapter;
 import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -51,6 +53,90 @@ public class AppInstallationWithManifest {
     @SerializedName(SERIALIZED_NAME_PROJECT)
     @jakarta.annotation.Nonnull
     private String project;
+
+    public static final String SERIALIZED_NAME_INSTANCE_KEY = "instance_key";
+
+    @SerializedName(SERIALIZED_NAME_INSTANCE_KEY)
+    @jakarta.annotation.Nullable private String instanceKey;
+
+    public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
+
+    @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
+    @jakarta.annotation.Nullable private String displayName;
+
+    /**
+     * Gets or Sets installationVersion
+     */
+    @JsonAdapter(InstallationVersionEnum.Adapter.class)
+    public enum InstallationVersionEnum {
+        NUMBER_1(new BigDecimal("1")),
+
+        NUMBER_unknown_default_open_api(new BigDecimal("11184809"));
+
+        private BigDecimal value;
+
+        InstallationVersionEnum(BigDecimal value) {
+            this.value = value;
+        }
+
+        public BigDecimal getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static InstallationVersionEnum fromValue(BigDecimal value) {
+            for (InstallationVersionEnum b : InstallationVersionEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return NUMBER_unknown_default_open_api;
+        }
+
+        public static class Adapter extends TypeAdapter<InstallationVersionEnum> {
+            @Override
+            public void write(
+                    final JsonWriter jsonWriter, final InstallationVersionEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public InstallationVersionEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return InstallationVersionEnum.fromValue(new BigDecimal(value));
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            InstallationVersionEnum.fromValue(new BigDecimal(value));
+        }
+    }
+
+    public static final String SERIALIZED_NAME_INSTALLATION_VERSION = "installation_version";
+
+    @SerializedName(SERIALIZED_NAME_INSTALLATION_VERSION)
+    @jakarta.annotation.Nullable private InstallationVersionEnum installationVersion;
+
+    public static final String SERIALIZED_NAME_NAMESPACE_OVERRIDES = "namespace_overrides";
+
+    @SerializedName(SERIALIZED_NAME_NAMESPACE_OVERRIDES)
+    @jakarta.annotation.Nullable private Map<String, String> namespaceOverrides = new HashMap<>();
+
+    public static final String SERIALIZED_NAME_RESERVED_NAMESPACES = "reserved_namespaces";
+
+    @SerializedName(SERIALIZED_NAME_RESERVED_NAMESPACES)
+    @jakarta.annotation.Nullable private List<String> reservedNamespaces = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_NAMESPACE_CONFLICTS = "namespace_conflicts";
+
+    @SerializedName(SERIALIZED_NAME_NAMESPACE_CONFLICTS)
+    @jakarta.annotation.Nullable private List<String> namespaceConflicts = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_MCP_CONFIGURATION = "mcp_configuration";
 
@@ -151,6 +237,143 @@ public class AppInstallationWithManifest {
 
     public void setProject(@jakarta.annotation.Nonnull String project) {
         this.project = project;
+    }
+
+    public AppInstallationWithManifest instanceKey(
+            @jakarta.annotation.Nullable String instanceKey) {
+        this.instanceKey = instanceKey;
+        return this;
+    }
+
+    /**
+     * Get instanceKey
+     * @return instanceKey
+     */
+    @jakarta.annotation.Nullable public String getInstanceKey() {
+        return instanceKey;
+    }
+
+    public void setInstanceKey(@jakarta.annotation.Nullable String instanceKey) {
+        this.instanceKey = instanceKey;
+    }
+
+    public AppInstallationWithManifest displayName(
+            @jakarta.annotation.Nullable String displayName) {
+        this.displayName = displayName;
+        return this;
+    }
+
+    /**
+     * Get displayName
+     * @return displayName
+     */
+    @jakarta.annotation.Nullable public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(@jakarta.annotation.Nullable String displayName) {
+        this.displayName = displayName;
+    }
+
+    public AppInstallationWithManifest installationVersion(
+            @jakarta.annotation.Nullable InstallationVersionEnum installationVersion) {
+        this.installationVersion = installationVersion;
+        return this;
+    }
+
+    /**
+     * Get installationVersion
+     * @return installationVersion
+     */
+    @jakarta.annotation.Nullable public InstallationVersionEnum getInstallationVersion() {
+        return installationVersion;
+    }
+
+    public void setInstallationVersion(
+            @jakarta.annotation.Nullable InstallationVersionEnum installationVersion) {
+        this.installationVersion = installationVersion;
+    }
+
+    public AppInstallationWithManifest namespaceOverrides(
+            @jakarta.annotation.Nullable Map<String, String> namespaceOverrides) {
+        this.namespaceOverrides = namespaceOverrides;
+        return this;
+    }
+
+    public AppInstallationWithManifest putNamespaceOverridesItem(
+            String key, String namespaceOverridesItem) {
+        if (this.namespaceOverrides == null) {
+            this.namespaceOverrides = new HashMap<>();
+        }
+        this.namespaceOverrides.put(key, namespaceOverridesItem);
+        return this;
+    }
+
+    /**
+     * Get namespaceOverrides
+     * @return namespaceOverrides
+     */
+    @jakarta.annotation.Nullable public Map<String, String> getNamespaceOverrides() {
+        return namespaceOverrides;
+    }
+
+    public void setNamespaceOverrides(
+            @jakarta.annotation.Nullable Map<String, String> namespaceOverrides) {
+        this.namespaceOverrides = namespaceOverrides;
+    }
+
+    public AppInstallationWithManifest reservedNamespaces(
+            @jakarta.annotation.Nullable List<String> reservedNamespaces) {
+        this.reservedNamespaces = reservedNamespaces;
+        return this;
+    }
+
+    public AppInstallationWithManifest addReservedNamespacesItem(String reservedNamespacesItem) {
+        if (this.reservedNamespaces == null) {
+            this.reservedNamespaces = new ArrayList<>();
+        }
+        this.reservedNamespaces.add(reservedNamespacesItem);
+        return this;
+    }
+
+    /**
+     * Get reservedNamespaces
+     * @return reservedNamespaces
+     */
+    @jakarta.annotation.Nullable public List<String> getReservedNamespaces() {
+        return reservedNamespaces;
+    }
+
+    public void setReservedNamespaces(
+            @jakarta.annotation.Nullable List<String> reservedNamespaces) {
+        this.reservedNamespaces = reservedNamespaces;
+    }
+
+    public AppInstallationWithManifest namespaceConflicts(
+            @jakarta.annotation.Nullable List<String> namespaceConflicts) {
+        this.namespaceConflicts = namespaceConflicts;
+        return this;
+    }
+
+    public AppInstallationWithManifest addNamespaceConflictsItem(String namespaceConflictsItem) {
+        if (this.namespaceConflicts == null) {
+            this.namespaceConflicts = new ArrayList<>();
+        }
+        this.namespaceConflicts.add(namespaceConflictsItem);
+        return this;
+    }
+
+    /**
+     * Get namespaceConflicts
+     * @return namespaceConflicts
+     */
+    @jakarta.annotation.Nullable public List<String> getNamespaceConflicts() {
+        return namespaceConflicts;
+    }
+
+    public void setNamespaceConflicts(
+            @jakarta.annotation.Nullable List<String> namespaceConflicts) {
+        this.namespaceConflicts = namespaceConflicts;
     }
 
     public AppInstallationWithManifest mcpConfiguration(
@@ -472,6 +695,16 @@ public class AppInstallationWithManifest {
         AppInstallationWithManifest appInstallationWithManifest = (AppInstallationWithManifest) o;
         return Objects.equals(this.id, appInstallationWithManifest.id)
                 && Objects.equals(this.project, appInstallationWithManifest.project)
+                && Objects.equals(this.instanceKey, appInstallationWithManifest.instanceKey)
+                && Objects.equals(this.displayName, appInstallationWithManifest.displayName)
+                && Objects.equals(
+                        this.installationVersion, appInstallationWithManifest.installationVersion)
+                && Objects.equals(
+                        this.namespaceOverrides, appInstallationWithManifest.namespaceOverrides)
+                && Objects.equals(
+                        this.reservedNamespaces, appInstallationWithManifest.reservedNamespaces)
+                && Objects.equals(
+                        this.namespaceConflicts, appInstallationWithManifest.namespaceConflicts)
                 && Objects.equals(
                         this.mcpConfiguration, appInstallationWithManifest.mcpConfiguration)
                 && Objects.equals(this.oauthApproval, appInstallationWithManifest.oauthApproval)
@@ -506,6 +739,12 @@ public class AppInstallationWithManifest {
         return Objects.hash(
                 id,
                 project,
+                instanceKey,
+                displayName,
+                installationVersion,
+                namespaceOverrides,
+                reservedNamespaces,
+                namespaceConflicts,
                 mcpConfiguration,
                 oauthApproval,
                 oauthClientId,
@@ -534,6 +773,20 @@ public class AppInstallationWithManifest {
         sb.append("class AppInstallationWithManifest {\n");
         sb.append("    id: ").append(toIndentedString(id)).append("\n");
         sb.append("    project: ").append(toIndentedString(project)).append("\n");
+        sb.append("    instanceKey: ").append(toIndentedString(instanceKey)).append("\n");
+        sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+        sb.append("    installationVersion: ")
+                .append(toIndentedString(installationVersion))
+                .append("\n");
+        sb.append("    namespaceOverrides: ")
+                .append(toIndentedString(namespaceOverrides))
+                .append("\n");
+        sb.append("    reservedNamespaces: ")
+                .append(toIndentedString(reservedNamespaces))
+                .append("\n");
+        sb.append("    namespaceConflicts: ")
+                .append(toIndentedString(namespaceConflicts))
+                .append("\n");
         sb.append("    mcpConfiguration: ").append(toIndentedString(mcpConfiguration)).append("\n");
         sb.append("    oauthApproval: ").append(toIndentedString(oauthApproval)).append("\n");
         sb.append("    oauthClientId: ").append(toIndentedString(oauthClientId)).append("\n");
@@ -573,6 +826,12 @@ public class AppInstallationWithManifest {
                         Arrays.asList(
                                 "id",
                                 "project",
+                                "instance_key",
+                                "display_name",
+                                "installation_version",
+                                "namespace_overrides",
+                                "reserved_namespaces",
+                                "namespace_conflicts",
                                 "mcp_configuration",
                                 "oauth_approval",
                                 "oauth_client_id",
@@ -635,6 +894,47 @@ public class AppInstallationWithManifest {
                             java.util.Locale.ROOT,
                             "Expected the field `project` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("project").toString()));
+        }
+        if ((jsonObj.get("instance_key") != null && !jsonObj.get("instance_key").isJsonNull())
+                && !jsonObj.get("instance_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `instance_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("instance_key").toString()));
+        }
+        if ((jsonObj.get("display_name") != null && !jsonObj.get("display_name").isJsonNull())
+                && !jsonObj.get("display_name").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `display_name` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("display_name").toString()));
+        }
+        // validate the optional field `installation_version`
+        if (jsonObj.get("installation_version") != null
+                && !jsonObj.get("installation_version").isJsonNull()) {
+            InstallationVersionEnum.validateJsonElement(jsonObj.get("installation_version"));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("reserved_namespaces") != null
+                && !jsonObj.get("reserved_namespaces").isJsonNull()
+                && !jsonObj.get("reserved_namespaces").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `reserved_namespaces` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("reserved_namespaces").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("namespace_conflicts") != null
+                && !jsonObj.get("namespace_conflicts").isJsonNull()
+                && !jsonObj.get("namespace_conflicts").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `namespace_conflicts` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("namespace_conflicts").toString()));
         }
         // validate the optional field `mcp_configuration`
         if (jsonObj.get("mcp_configuration") != null

@@ -29,6 +29,7 @@ import io.vertesia.model.AppInstallation;
 import io.vertesia.model.AppInstallationListEntry;
 import io.vertesia.model.AppInstallationPayload;
 import io.vertesia.model.AppInstallationWithManifest;
+import io.vertesia.model.AppInstanceAvailability;
 import io.vertesia.model.AppManifest;
 import io.vertesia.model.AppManifestData;
 import io.vertesia.model.AppPackage;
@@ -874,6 +875,188 @@ public class AppsApi {
     }
 
     /**
+     * Build call for deleteInstallationMcpApiKey
+     * @param installId  (required)
+     * @param collectionId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteInstallationMcpApiKeyCall(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/apps/installations/{installId}/collections/{collectionId}/api-key"
+                        .replace(
+                                "{" + "installId" + "}",
+                                localVarApiClient.escapeString(installId.toString()))
+                        .replace(
+                                "{" + "collectionId" + "}",
+                                localVarApiClient.escapeString(collectionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteInstallationMcpApiKeyValidateBeforeCall(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'installId' is set
+        if (installId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'installId' when calling deleteInstallationMcpApiKey(Async)");
+        }
+
+        // verify the required parameter 'collectionId' is set
+        if (collectionId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'collectionId' when calling deleteInstallationMcpApiKey(Async)");
+        }
+
+        return deleteInstallationMcpApiKeyCall(installId, collectionId, _callback);
+    }
+
+    /**
+     * Delete an installation MCP API key
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param installId  (required)
+     * @param collectionId  (required)
+     * @return McpApiKeyStatus
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public McpApiKeyStatus deleteInstallationMcpApiKey(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId)
+            throws ApiException {
+        ApiResponse<McpApiKeyStatus> localVarResp =
+                deleteInstallationMcpApiKeyWithHttpInfo(installId, collectionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete an installation MCP API key
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param installId  (required)
+     * @param collectionId  (required)
+     * @return ApiResponse&lt;McpApiKeyStatus&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<McpApiKeyStatus> deleteInstallationMcpApiKeyWithHttpInfo(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                deleteInstallationMcpApiKeyValidateBeforeCall(installId, collectionId, null);
+        Type localVarReturnType = new TypeToken<McpApiKeyStatus>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete an installation MCP API key (asynchronously)
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param installId  (required)
+     * @param collectionId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteInstallationMcpApiKeyAsync(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId,
+            final ApiCallback<McpApiKeyStatus> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                deleteInstallationMcpApiKeyValidateBeforeCall(installId, collectionId, _callback);
+        Type localVarReturnType = new TypeToken<McpApiKeyStatus>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for deleteMcpCollectionApiKey
      * @param id  (required)
      * @param collectionId  (required)
@@ -1426,6 +1609,164 @@ public class AppsApi {
     }
 
     /**
+     * Build call for getAppInstallation
+     * @param installId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The app installation. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getAppInstallationCall(
+            @jakarta.annotation.Nonnull String installId, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/apps/installations/id/{installId}"
+                        .replace(
+                                "{" + "installId" + "}",
+                                localVarApiClient.escapeString(installId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAppInstallationValidateBeforeCall(
+            @jakarta.annotation.Nonnull String installId, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'installId' is set
+        if (installId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'installId' when calling getAppInstallation(Async)");
+        }
+
+        return getAppInstallationCall(installId, _callback);
+    }
+
+    /**
+     * Retrieve an authorized app installation by ID
+     *
+     * @param installId  (required)
+     * @return AppInstallationWithManifest
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The app installation. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public AppInstallationWithManifest getAppInstallation(
+            @jakarta.annotation.Nonnull String installId) throws ApiException {
+        ApiResponse<AppInstallationWithManifest> localVarResp =
+                getAppInstallationWithHttpInfo(installId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Retrieve an authorized app installation by ID
+     *
+     * @param installId  (required)
+     * @return ApiResponse&lt;AppInstallationWithManifest&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The app installation. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AppInstallationWithManifest> getAppInstallationWithHttpInfo(
+            @jakarta.annotation.Nonnull String installId) throws ApiException {
+        okhttp3.Call localVarCall = getAppInstallationValidateBeforeCall(installId, null);
+        Type localVarReturnType = new TypeToken<AppInstallationWithManifest>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Retrieve an authorized app installation by ID (asynchronously)
+     *
+     * @param installId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The app installation. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getAppInstallationAsync(
+            @jakarta.annotation.Nonnull String installId,
+            final ApiCallback<AppInstallationWithManifest> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = getAppInstallationValidateBeforeCall(installId, _callback);
+        Type localVarReturnType = new TypeToken<AppInstallationWithManifest>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for getAppInstallationByName
      * @param name  (required)
      * @param _callback Callback for upload/download progress
@@ -1757,6 +2098,145 @@ public class AppsApi {
         okhttp3.Call localVarCall =
                 getAppInstallationPackageValidateBeforeCall(installId, scope, _callback);
         Type localVarReturnType = new TypeToken<AppPackage>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getAppInstanceAvailability
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Project rollout availability. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getAppInstanceAvailabilityCall(final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apps/instance-availability";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAppInstanceAvailabilityValidateBeforeCall(final ApiCallback _callback)
+            throws ApiException {
+        return getAppInstanceAvailabilityCall(_callback);
+    }
+
+    /**
+     * Check whether additional MCP app instances are enabled for this project
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @return AppInstanceAvailability
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Project rollout availability. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public AppInstanceAvailability getAppInstanceAvailability() throws ApiException {
+        ApiResponse<AppInstanceAvailability> localVarResp =
+                getAppInstanceAvailabilityWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Check whether additional MCP app instances are enabled for this project
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @return ApiResponse&lt;AppInstanceAvailability&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Project rollout availability. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AppInstanceAvailability> getAppInstanceAvailabilityWithHttpInfo()
+            throws ApiException {
+        okhttp3.Call localVarCall = getAppInstanceAvailabilityValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<AppInstanceAvailability>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Check whether additional MCP app instances are enabled for this project (asynchronously)
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Project rollout availability. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getAppInstanceAvailabilityAsync(
+            final ApiCallback<AppInstanceAvailability> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAppInstanceAvailabilityValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<AppInstanceAvailability>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2875,6 +3355,189 @@ public class AppsApi {
 
         okhttp3.Call localVarCall = getAppVersionValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<AppVersionRecord>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getInstallationMcpApiKeyStatus
+     * @param installId  (required)
+     * @param collectionId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getInstallationMcpApiKeyStatusCall(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/apps/installations/{installId}/collections/{collectionId}/api-key"
+                        .replace(
+                                "{" + "installId" + "}",
+                                localVarApiClient.escapeString(installId.toString()))
+                        .replace(
+                                "{" + "collectionId" + "}",
+                                localVarApiClient.escapeString(collectionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getInstallationMcpApiKeyStatusValidateBeforeCall(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'installId' is set
+        if (installId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'installId' when calling getInstallationMcpApiKeyStatus(Async)");
+        }
+
+        // verify the required parameter 'collectionId' is set
+        if (collectionId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'collectionId' when calling getInstallationMcpApiKeyStatus(Async)");
+        }
+
+        return getInstallationMcpApiKeyStatusCall(installId, collectionId, _callback);
+    }
+
+    /**
+     * Read an installation MCP API key status
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param installId  (required)
+     * @param collectionId  (required)
+     * @return McpApiKeyStatus
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public McpApiKeyStatus getInstallationMcpApiKeyStatus(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId)
+            throws ApiException {
+        ApiResponse<McpApiKeyStatus> localVarResp =
+                getInstallationMcpApiKeyStatusWithHttpInfo(installId, collectionId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Read an installation MCP API key status
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param installId  (required)
+     * @param collectionId  (required)
+     * @return ApiResponse&lt;McpApiKeyStatus&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<McpApiKeyStatus> getInstallationMcpApiKeyStatusWithHttpInfo(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                getInstallationMcpApiKeyStatusValidateBeforeCall(installId, collectionId, null);
+        Type localVarReturnType = new TypeToken<McpApiKeyStatus>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Read an installation MCP API key status (asynchronously)
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param installId  (required)
+     * @param collectionId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getInstallationMcpApiKeyStatusAsync(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId,
+            final ApiCallback<McpApiKeyStatus> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getInstallationMcpApiKeyStatusValidateBeforeCall(
+                        installId, collectionId, _callback);
+        Type localVarReturnType = new TypeToken<McpApiKeyStatus>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -5050,6 +5713,206 @@ public class AppsApi {
 
         okhttp3.Call localVarCall = rebuildAppVersionValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<StartAppBuildResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for setInstallationMcpApiKey
+     * @param installId  (required)
+     * @param collectionId  (required)
+     * @param setMcpApiKeyRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call setInstallationMcpApiKeyCall(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = setMcpApiKeyRequest;
+
+        // create path and map variables
+        String localVarPath =
+                "/apps/installations/{installId}/collections/{collectionId}/api-key"
+                        .replace(
+                                "{" + "installId" + "}",
+                                localVarApiClient.escapeString(installId.toString()))
+                        .replace(
+                                "{" + "collectionId" + "}",
+                                localVarApiClient.escapeString(collectionId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "PUT",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call setInstallationMcpApiKeyValidateBeforeCall(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'installId' is set
+        if (installId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'installId' when calling setInstallationMcpApiKey(Async)");
+        }
+
+        // verify the required parameter 'collectionId' is set
+        if (collectionId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'collectionId' when calling setInstallationMcpApiKey(Async)");
+        }
+
+        // verify the required parameter 'setMcpApiKeyRequest' is set
+        if (setMcpApiKeyRequest == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'setMcpApiKeyRequest' when calling setInstallationMcpApiKey(Async)");
+        }
+
+        return setInstallationMcpApiKeyCall(
+                installId, collectionId, setMcpApiKeyRequest, _callback);
+    }
+
+    /**
+     * Set an installation MCP API key
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param installId  (required)
+     * @param collectionId  (required)
+     * @param setMcpApiKeyRequest  (required)
+     * @return McpApiKeyStatus
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public McpApiKeyStatus setInstallationMcpApiKey(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest)
+            throws ApiException {
+        ApiResponse<McpApiKeyStatus> localVarResp =
+                setInstallationMcpApiKeyWithHttpInfo(installId, collectionId, setMcpApiKeyRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Set an installation MCP API key
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param installId  (required)
+     * @param collectionId  (required)
+     * @param setMcpApiKeyRequest  (required)
+     * @return ApiResponse&lt;McpApiKeyStatus&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<McpApiKeyStatus> setInstallationMcpApiKeyWithHttpInfo(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                setInstallationMcpApiKeyValidateBeforeCall(
+                        installId, collectionId, setMcpApiKeyRequest, null);
+        Type localVarReturnType = new TypeToken<McpApiKeyStatus>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Set an installation MCP API key (asynchronously)
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param installId  (required)
+     * @param collectionId  (required)
+     * @param setMcpApiKeyRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Installation API key status. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call setInstallationMcpApiKeyAsync(
+            @jakarta.annotation.Nonnull String installId,
+            @jakarta.annotation.Nonnull String collectionId,
+            @jakarta.annotation.Nonnull SetMcpApiKeyRequest setMcpApiKeyRequest,
+            final ApiCallback<McpApiKeyStatus> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                setInstallationMcpApiKeyValidateBeforeCall(
+                        installId, collectionId, setMcpApiKeyRequest, _callback);
+        Type localVarReturnType = new TypeToken<McpApiKeyStatus>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

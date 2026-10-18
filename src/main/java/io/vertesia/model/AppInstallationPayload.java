@@ -44,6 +44,21 @@ public class AppInstallationPayload {
     @jakarta.annotation.Nonnull
     private String appId;
 
+    public static final String SERIALIZED_NAME_INSTANCE_KEY = "instance_key";
+
+    @SerializedName(SERIALIZED_NAME_INSTANCE_KEY)
+    @jakarta.annotation.Nullable private String instanceKey;
+
+    public static final String SERIALIZED_NAME_DISPLAY_NAME = "display_name";
+
+    @SerializedName(SERIALIZED_NAME_DISPLAY_NAME)
+    @jakarta.annotation.Nullable private String displayName;
+
+    public static final String SERIALIZED_NAME_NAMESPACE_OVERRIDES = "namespace_overrides";
+
+    @SerializedName(SERIALIZED_NAME_NAMESPACE_OVERRIDES)
+    @jakarta.annotation.Nullable private Map<String, String> namespaceOverrides = new HashMap<>();
+
     public static final String SERIALIZED_NAME_MCP_SHARED_PARAMETERS = "mcp_shared_parameters";
 
     @SerializedName(SERIALIZED_NAME_MCP_SHARED_PARAMETERS)
@@ -99,6 +114,68 @@ public class AppInstallationPayload {
 
     public void setAppId(@jakarta.annotation.Nonnull String appId) {
         this.appId = appId;
+    }
+
+    public AppInstallationPayload instanceKey(@jakarta.annotation.Nullable String instanceKey) {
+        this.instanceKey = instanceKey;
+        return this;
+    }
+
+    /**
+     * Get instanceKey
+     * @return instanceKey
+     */
+    @jakarta.annotation.Nullable public String getInstanceKey() {
+        return instanceKey;
+    }
+
+    public void setInstanceKey(@jakarta.annotation.Nullable String instanceKey) {
+        this.instanceKey = instanceKey;
+    }
+
+    public AppInstallationPayload displayName(@jakarta.annotation.Nullable String displayName) {
+        this.displayName = displayName;
+        return this;
+    }
+
+    /**
+     * Optional instance label. Send an empty string to clear the saved label; omit to preserve it.
+     * @return displayName
+     */
+    @jakarta.annotation.Nullable public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(@jakarta.annotation.Nullable String displayName) {
+        this.displayName = displayName;
+    }
+
+    public AppInstallationPayload namespaceOverrides(
+            @jakarta.annotation.Nullable Map<String, String> namespaceOverrides) {
+        this.namespaceOverrides = namespaceOverrides;
+        return this;
+    }
+
+    public AppInstallationPayload putNamespaceOverridesItem(
+            String key, String namespaceOverridesItem) {
+        if (this.namespaceOverrides == null) {
+            this.namespaceOverrides = new HashMap<>();
+        }
+        this.namespaceOverrides.put(key, namespaceOverridesItem);
+        return this;
+    }
+
+    /**
+     * Get namespaceOverrides
+     * @return namespaceOverrides
+     */
+    @jakarta.annotation.Nullable public Map<String, String> getNamespaceOverrides() {
+        return namespaceOverrides;
+    }
+
+    public void setNamespaceOverrides(
+            @jakarta.annotation.Nullable Map<String, String> namespaceOverrides) {
+        this.namespaceOverrides = namespaceOverrides;
     }
 
     public AppInstallationPayload mcpSharedParameters(
@@ -346,6 +423,10 @@ public class AppInstallationPayload {
         }
         AppInstallationPayload appInstallationPayload = (AppInstallationPayload) o;
         return Objects.equals(this.appId, appInstallationPayload.appId)
+                && Objects.equals(this.instanceKey, appInstallationPayload.instanceKey)
+                && Objects.equals(this.displayName, appInstallationPayload.displayName)
+                && Objects.equals(
+                        this.namespaceOverrides, appInstallationPayload.namespaceOverrides)
                 && Objects.equals(
                         this.mcpSharedParameters, appInstallationPayload.mcpSharedParameters)
                 && Objects.equals(this.mcpParameters, appInstallationPayload.mcpParameters)
@@ -372,6 +453,9 @@ public class AppInstallationPayload {
     public int hashCode() {
         return Objects.hash(
                 appId,
+                instanceKey,
+                displayName,
+                namespaceOverrides,
                 mcpSharedParameters,
                 mcpParameters,
                 settings,
@@ -394,6 +478,11 @@ public class AppInstallationPayload {
         StringBuilder sb = new StringBuilder();
         sb.append("class AppInstallationPayload {\n");
         sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
+        sb.append("    instanceKey: ").append(toIndentedString(instanceKey)).append("\n");
+        sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
+        sb.append("    namespaceOverrides: ")
+                .append(toIndentedString(namespaceOverrides))
+                .append("\n");
         sb.append("    mcpSharedParameters: ")
                 .append(toIndentedString(mcpSharedParameters))
                 .append("\n");
@@ -429,6 +518,9 @@ public class AppInstallationPayload {
                 new HashSet<String>(
                         Arrays.asList(
                                 "app_id",
+                                "instance_key",
+                                "display_name",
+                                "namespace_overrides",
                                 "mcp_shared_parameters",
                                 "mcp_parameters",
                                 "settings",
@@ -477,6 +569,22 @@ public class AppInstallationPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `app_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("app_id").toString()));
+        }
+        if ((jsonObj.get("instance_key") != null && !jsonObj.get("instance_key").isJsonNull())
+                && !jsonObj.get("instance_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `instance_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("instance_key").toString()));
+        }
+        if ((jsonObj.get("display_name") != null && !jsonObj.get("display_name").isJsonNull())
+                && !jsonObj.get("display_name").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `display_name` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("display_name").toString()));
         }
         // validate the optional field `access_control`
         if (jsonObj.get("access_control") != null && !jsonObj.get("access_control").isJsonNull()) {
