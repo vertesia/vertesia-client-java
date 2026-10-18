@@ -17,6 +17,8 @@ public class ClientOptions {
     private String apiVersion;
     private OkHttpClient httpClient;
 
+    private FederationOptions federation;
+
     public String getRegion() {
         return region;
     }
@@ -105,5 +107,15 @@ public class ClientOptions {
     public ClientOptions setHttpClient(OkHttpClient httpClient) {
         this.httpClient = httpClient;
         return this;
+    }
+
+    /** Configure automatic IdP token exchange, mutually exclusive with apiKey and token. */
+    public ClientOptions setFederation(FederationOptions value) {
+        this.federation = value;
+        return this;
+    }
+
+    public FederationOptions getFederation() {
+        return federation;
     }
 }
