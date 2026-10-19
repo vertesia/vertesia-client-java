@@ -20,7 +20,6 @@ import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
 import io.vertesia.model.ApiKey;
-import io.vertesia.model.ApiKeyReadResponse;
 import io.vertesia.model.ApiKeyWithValue;
 import io.vertesia.model.AuthTokenResponse;
 import io.vertesia.model.CreateApiKeyPayload;
@@ -386,7 +385,6 @@ public class ApiKeysApi {
     /**
      * Build call for getApiKey
      * @param keyId  (required)
-     * @param withValue  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -400,9 +398,7 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call getApiKeyCall(
-            @jakarta.annotation.Nonnull String keyId,
-            @jakarta.annotation.Nullable Boolean withValue,
-            final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -431,10 +427,6 @@ public class ApiKeysApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (withValue != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("withValue", withValue));
-        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -466,9 +458,7 @@ public class ApiKeysApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getApiKeyValidateBeforeCall(
-            @jakarta.annotation.Nonnull String keyId,
-            @jakarta.annotation.Nullable Boolean withValue,
-            final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String keyId, final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'keyId' is set
         if (keyId == null) {
@@ -476,15 +466,14 @@ public class ApiKeysApi {
                     "Missing the required parameter 'keyId' when calling getApiKey(Async)");
         }
 
-        return getApiKeyCall(keyId, withValue, _callback);
+        return getApiKeyCall(keyId, _callback);
     }
 
     /**
      * Retrieve an API key
-     * Retrieves API key metadata and optionally the raw key value when it is still retrievable.  **Required permissions:** &#x60;api_key:read&#x60;
+     * Retrieves API key metadata. The raw key value is returned only once, on creation.  **Required permissions:** &#x60;api_key:read&#x60;
      * @param keyId  (required)
-     * @param withValue  (optional)
-     * @return ApiKeyReadResponse
+     * @return ApiKey
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -495,20 +484,16 @@ public class ApiKeysApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiKeyReadResponse getApiKey(
-            @jakarta.annotation.Nonnull String keyId,
-            @jakarta.annotation.Nullable Boolean withValue)
-            throws ApiException {
-        ApiResponse<ApiKeyReadResponse> localVarResp = getApiKeyWithHttpInfo(keyId, withValue);
+    public ApiKey getApiKey(@jakarta.annotation.Nonnull String keyId) throws ApiException {
+        ApiResponse<ApiKey> localVarResp = getApiKeyWithHttpInfo(keyId);
         return localVarResp.getData();
     }
 
     /**
      * Retrieve an API key
-     * Retrieves API key metadata and optionally the raw key value when it is still retrievable.  **Required permissions:** &#x60;api_key:read&#x60;
+     * Retrieves API key metadata. The raw key value is returned only once, on creation.  **Required permissions:** &#x60;api_key:read&#x60;
      * @param keyId  (required)
-     * @param withValue  (optional)
-     * @return ApiResponse&lt;ApiKeyReadResponse&gt;
+     * @return ApiResponse&lt;ApiKey&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      * <table border="1">
@@ -519,20 +504,17 @@ public class ApiKeysApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<ApiKeyReadResponse> getApiKeyWithHttpInfo(
-            @jakarta.annotation.Nonnull String keyId,
-            @jakarta.annotation.Nullable Boolean withValue)
+    public ApiResponse<ApiKey> getApiKeyWithHttpInfo(@jakarta.annotation.Nonnull String keyId)
             throws ApiException {
-        okhttp3.Call localVarCall = getApiKeyValidateBeforeCall(keyId, withValue, null);
-        Type localVarReturnType = new TypeToken<ApiKeyReadResponse>() {}.getType();
+        okhttp3.Call localVarCall = getApiKeyValidateBeforeCall(keyId, null);
+        Type localVarReturnType = new TypeToken<ApiKey>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
     /**
      * Retrieve an API key (asynchronously)
-     * Retrieves API key metadata and optionally the raw key value when it is still retrievable.  **Required permissions:** &#x60;api_key:read&#x60;
+     * Retrieves API key metadata. The raw key value is returned only once, on creation.  **Required permissions:** &#x60;api_key:read&#x60;
      * @param keyId  (required)
-     * @param withValue  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -546,13 +528,11 @@ public class ApiKeysApi {
      * </table>
      */
     public okhttp3.Call getApiKeyAsync(
-            @jakarta.annotation.Nonnull String keyId,
-            @jakarta.annotation.Nullable Boolean withValue,
-            final ApiCallback<ApiKeyReadResponse> _callback)
+            @jakarta.annotation.Nonnull String keyId, final ApiCallback<ApiKey> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = getApiKeyValidateBeforeCall(keyId, withValue, _callback);
-        Type localVarReturnType = new TypeToken<ApiKeyReadResponse>() {}.getType();
+        okhttp3.Call localVarCall = getApiKeyValidateBeforeCall(keyId, _callback);
+        Type localVarReturnType = new TypeToken<ApiKey>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

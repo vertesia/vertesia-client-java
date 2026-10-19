@@ -1063,8 +1063,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ApiKey.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.ApiKeyReadResponse.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ApiKeyTokenRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ApiKeyWithValue.CustomTypeAdapterFactory());
