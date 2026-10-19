@@ -1309,7 +1309,8 @@ public class AgentRunsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Artifact download URL metadata, or streamed file content. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Signed download URL metadata with &#x60;url&#x3D;1&#x60;, otherwise the artifact bytes. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The agent run or the artifact does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1366,7 +1367,7 @@ public class AgentRunsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("filename", filename));
         }
 
-        final String[] localVarAccepts = {"application/json"};
+        final String[] localVarAccepts = {"application/json", "application/octet-stream"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
         if (localVarAccept != null) {
             localVarHeaderParams.put("Accept", localVarAccept);
@@ -1420,7 +1421,7 @@ public class AgentRunsApi {
 
     /**
      * Get an agent run artifact
-     * Downloads an artifact or returns a signed download URL when &#x60;url&#x3D;1&#x60; is supplied.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * Returns a signed download URL as JSON when &#x60;url&#x3D;1&#x60; is supplied, and otherwise streams the artifact bytes as &#x60;application/octet-stream&#x60;. Prefer &#x60;url&#x3D;1&#x60; and download from the signed URL.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param path  (required)
      * @param url  (optional)
@@ -1432,7 +1433,8 @@ public class AgentRunsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Artifact download URL metadata, or streamed file content. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Signed download URL metadata with &#x60;url&#x3D;1&#x60;, otherwise the artifact bytes. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The agent run or the artifact does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1451,7 +1453,7 @@ public class AgentRunsApi {
 
     /**
      * Get an agent run artifact
-     * Downloads an artifact or returns a signed download URL when &#x60;url&#x3D;1&#x60; is supplied.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * Returns a signed download URL as JSON when &#x60;url&#x3D;1&#x60; is supplied, and otherwise streams the artifact bytes as &#x60;application/octet-stream&#x60;. Prefer &#x60;url&#x3D;1&#x60; and download from the signed URL.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param path  (required)
      * @param url  (optional)
@@ -1463,7 +1465,8 @@ public class AgentRunsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Artifact download URL metadata, or streamed file content. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Signed download URL metadata with &#x60;url&#x3D;1&#x60;, otherwise the artifact bytes. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The agent run or the artifact does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1484,7 +1487,7 @@ public class AgentRunsApi {
 
     /**
      * Get an agent run artifact (asynchronously)
-     * Downloads an artifact or returns a signed download URL when &#x60;url&#x3D;1&#x60; is supplied.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
+     * Returns a signed download URL as JSON when &#x60;url&#x3D;1&#x60; is supplied, and otherwise streams the artifact bytes as &#x60;application/octet-stream&#x60;. Prefer &#x60;url&#x3D;1&#x60; and download from the signed URL.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
      * @param agentRunId  (required)
      * @param path  (required)
      * @param url  (optional)
@@ -1497,7 +1500,8 @@ public class AgentRunsApi {
      * <table border="1">
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-     * <tr><td> 200 </td><td> Artifact download URL metadata, or streamed file content. </td><td>  -  </td></tr>
+     * <tr><td> 200 </td><td> Signed download URL metadata with &#x60;url&#x3D;1&#x60;, otherwise the artifact bytes. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The agent run or the artifact does not exist. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
