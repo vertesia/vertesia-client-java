@@ -56,6 +56,11 @@ public class ErrorResponse {
     @SerializedName(SERIALIZED_NAME_DETAILS)
     @jakarta.annotation.Nullable private String details;
 
+    public static final String SERIALIZED_NAME_ERROR_CODE = "errorCode";
+
+    @SerializedName(SERIALIZED_NAME_ERROR_CODE)
+    @jakarta.annotation.Nullable private String errorCode;
+
     public ErrorResponse() {}
 
     public ErrorResponse error(@jakarta.annotation.Nonnull String error) {
@@ -130,6 +135,23 @@ public class ErrorResponse {
         this.details = details;
     }
 
+    public ErrorResponse errorCode(@jakarta.annotation.Nullable String errorCode) {
+        this.errorCode = errorCode;
+        return this;
+    }
+
+    /**
+     * Machine-readable code for the specific failure, present when the error carries one, so clients can branch on it without parsing &#x60;message&#x60;.
+     * @return errorCode
+     */
+    @jakarta.annotation.Nullable public String getErrorCode() {
+        return errorCode;
+    }
+
+    public void setErrorCode(@jakarta.annotation.Nullable String errorCode) {
+        this.errorCode = errorCode;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -142,12 +164,13 @@ public class ErrorResponse {
         return Objects.equals(this.error, errorResponse.error)
                 && Objects.equals(this.status, errorResponse.status)
                 && Objects.equals(this.message, errorResponse.message)
-                && Objects.equals(this.details, errorResponse.details);
+                && Objects.equals(this.details, errorResponse.details)
+                && Objects.equals(this.errorCode, errorResponse.errorCode);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(error, status, message, details);
+        return Objects.hash(error, status, message, details, errorCode);
     }
 
     @Override
@@ -158,6 +181,7 @@ public class ErrorResponse {
         sb.append("    status: ").append(toIndentedString(status)).append("\n");
         sb.append("    message: ").append(toIndentedString(message)).append("\n");
         sb.append("    details: ").append(toIndentedString(details)).append("\n");
+        sb.append("    errorCode: ").append(toIndentedString(errorCode)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -175,7 +199,9 @@ public class ErrorResponse {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("error", "status", "message", "details"));
+        openapiFields =
+                new HashSet<String>(
+                        Arrays.asList("error", "status", "message", "details", "errorCode"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("error", "status"));
@@ -233,6 +259,14 @@ public class ErrorResponse {
                             java.util.Locale.ROOT,
                             "Expected the field `details` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("details").toString()));
+        }
+        if ((jsonObj.get("errorCode") != null && !jsonObj.get("errorCode").isJsonNull())
+                && !jsonObj.get("errorCode").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `errorCode` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("errorCode").toString()));
         }
     }
 
