@@ -57,6 +57,11 @@ public class PublishProcessDefinitionPayload {
     @SerializedName(SERIALIZED_NAME_COMMENT)
     @jakarta.annotation.Nullable private String comment;
 
+    public static final String SERIALIZED_NAME_IDEMPOTENCY_KEY = "idempotency_key";
+
+    @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_KEY)
+    @jakarta.annotation.Nullable private String idempotencyKey;
+
     public PublishProcessDefinitionPayload() {}
 
     public PublishProcessDefinitionPayload confirmed(
@@ -137,6 +142,24 @@ public class PublishProcessDefinitionPayload {
         this.comment = comment;
     }
 
+    public PublishProcessDefinitionPayload idempotencyKey(
+            @jakarta.annotation.Nullable String idempotencyKey) {
+        this.idempotencyKey = idempotencyKey;
+        return this;
+    }
+
+    /**
+     * Client-chosen key that makes this request safe to retry. Publishing is otherwise not idempotent: a repeat of a publish that already succeeded is rejected because the revision is no longer a draft. When the revision was published by a request with the same key and the same body, the repeat returns that revision instead. Reusing the key with a different body is rejected with 409. The key is bound to the revision it published.
+     * @return idempotencyKey
+     */
+    @jakarta.annotation.Nullable public String getIdempotencyKey() {
+        return idempotencyKey;
+    }
+
+    public void setIdempotencyKey(@jakarta.annotation.Nullable String idempotencyKey) {
+        this.idempotencyKey = idempotencyKey;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -150,12 +173,14 @@ public class PublishProcessDefinitionPayload {
         return Objects.equals(this.confirmed, publishProcessDefinitionPayload.confirmed)
                 && Objects.equals(this.tags, publishProcessDefinitionPayload.tags)
                 && Objects.equals(this.label, publishProcessDefinitionPayload.label)
-                && Objects.equals(this.comment, publishProcessDefinitionPayload.comment);
+                && Objects.equals(this.comment, publishProcessDefinitionPayload.comment)
+                && Objects.equals(
+                        this.idempotencyKey, publishProcessDefinitionPayload.idempotencyKey);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(confirmed, tags, label, comment);
+        return Objects.hash(confirmed, tags, label, comment, idempotencyKey);
     }
 
     @Override
@@ -166,6 +191,7 @@ public class PublishProcessDefinitionPayload {
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
         sb.append("    label: ").append(toIndentedString(label)).append("\n");
         sb.append("    comment: ").append(toIndentedString(comment)).append("\n");
+        sb.append("    idempotencyKey: ").append(toIndentedString(idempotencyKey)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -183,7 +209,9 @@ public class PublishProcessDefinitionPayload {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("confirmed", "tags", "label", "comment"));
+        openapiFields =
+                new HashSet<String>(
+                        Arrays.asList("confirmed", "tags", "label", "comment", "idempotency_key"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("confirmed"));
@@ -244,6 +272,14 @@ public class PublishProcessDefinitionPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `comment` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("comment").toString()));
+        }
+        if ((jsonObj.get("idempotency_key") != null && !jsonObj.get("idempotency_key").isJsonNull())
+                && !jsonObj.get("idempotency_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `idempotency_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("idempotency_key").toString()));
         }
     }
 

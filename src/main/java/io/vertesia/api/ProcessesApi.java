@@ -2464,7 +2464,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being published, or the idempotency key was reused with a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -2555,7 +2555,7 @@ public class ProcessesApi {
 
     /**
      * Publish a process definition
-     * Publishes the latest draft revision for a process definition, optionally attaching tags and a revision label. &#x60;confirmed&#x3D;true&#x60; is required, and the endpoint rejects non-head or non-draft revisions.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Publishes the latest draft revision for a process definition, optionally attaching tags and a revision label. &#x60;confirmed&#x3D;true&#x60; is required, and the endpoint rejects non-head or non-draft revisions. With an &#x60;idempotency_key&#x60;, a repeat of the request that published the revision returns that revision instead of being rejected.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param processId  (required)
      * @param publishProcessDefinitionPayload  (required)
      * @return ProcessDefinition
@@ -2565,7 +2565,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being published, or the idempotency key was reused with a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -2582,7 +2582,7 @@ public class ProcessesApi {
 
     /**
      * Publish a process definition
-     * Publishes the latest draft revision for a process definition, optionally attaching tags and a revision label. &#x60;confirmed&#x3D;true&#x60; is required, and the endpoint rejects non-head or non-draft revisions.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Publishes the latest draft revision for a process definition, optionally attaching tags and a revision label. &#x60;confirmed&#x3D;true&#x60; is required, and the endpoint rejects non-head or non-draft revisions. With an &#x60;idempotency_key&#x60;, a repeat of the request that published the revision returns that revision instead of being rejected.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param processId  (required)
      * @param publishProcessDefinitionPayload  (required)
      * @return ApiResponse&lt;ProcessDefinition&gt;
@@ -2592,7 +2592,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being published, or the idempotency key was reused with a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -2611,7 +2611,7 @@ public class ProcessesApi {
 
     /**
      * Publish a process definition (asynchronously)
-     * Publishes the latest draft revision for a process definition, optionally attaching tags and a revision label. &#x60;confirmed&#x3D;true&#x60; is required, and the endpoint rejects non-head or non-draft revisions.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Publishes the latest draft revision for a process definition, optionally attaching tags and a revision label. &#x60;confirmed&#x3D;true&#x60; is required, and the endpoint rejects non-head or non-draft revisions. With an &#x60;idempotency_key&#x60;, a repeat of the request that published the revision returns that revision instead of being rejected.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param processId  (required)
      * @param publishProcessDefinitionPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -2622,7 +2622,7 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being published, or the idempotency key was reused with a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
