@@ -24,6 +24,9 @@ import io.vertesia.model.AppBuildProgress;
 import io.vertesia.model.AppDeleteSummary;
 import io.vertesia.model.AppDevelopmentTaskDetails;
 import io.vertesia.model.AppDevelopmentTaskList;
+import io.vertesia.model.AppGithubConfiguration;
+import io.vertesia.model.AppGithubRepositoryList;
+import io.vertesia.model.AppGithubRepositorySetup;
 import io.vertesia.model.AppInspectionResult;
 import io.vertesia.model.AppInstallation;
 import io.vertesia.model.AppInstallationListEntry;
@@ -43,6 +46,8 @@ import io.vertesia.model.AppToolCollection;
 import io.vertesia.model.AppVersionRecord;
 import io.vertesia.model.CountResult;
 import io.vertesia.model.DeleteAppVersionResponse;
+import io.vertesia.model.ExchangeAppGithubAuthorizationRequest;
+import io.vertesia.model.ExchangeAppGithubAuthorizationResponse;
 import io.vertesia.model.McpApiKeyStatus;
 import io.vertesia.model.ProjectRef;
 import io.vertesia.model.PromoteAppVersionResponse;
@@ -50,6 +55,7 @@ import io.vertesia.model.SetMcpApiKeyRequest;
 import io.vertesia.model.StartAppBuildRequest;
 import io.vertesia.model.StartAppBuildResponse;
 import io.vertesia.model.StartAppDevelopmentTaskRequest;
+import io.vertesia.model.StartAppGithubAuthorizationResponse;
 import io.vertesia.model.StartAppScaffoldRequest;
 import io.vertesia.model.StartAppScaffoldResponse;
 import io.vertesia.model.UpdateAppInstallationOAuthApprovalPayload;
@@ -1235,6 +1241,177 @@ public class AppsApi {
     }
 
     /**
+     * Build call for exchangeAppGithubAuthorization
+     * @param exchangeAppGithubAuthorizationRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Verified GitHub installations. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call exchangeAppGithubAuthorizationCall(
+            @jakarta.annotation.Nonnull
+                    ExchangeAppGithubAuthorizationRequest exchangeAppGithubAuthorizationRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = exchangeAppGithubAuthorizationRequest;
+
+        // create path and map variables
+        String localVarPath = "/apps/source-providers/github/exchange";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call exchangeAppGithubAuthorizationValidateBeforeCall(
+            @jakarta.annotation.Nonnull
+                    ExchangeAppGithubAuthorizationRequest exchangeAppGithubAuthorizationRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'exchangeAppGithubAuthorizationRequest' is set
+        if (exchangeAppGithubAuthorizationRequest == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'exchangeAppGithubAuthorizationRequest' when calling exchangeAppGithubAuthorization(Async)");
+        }
+
+        return exchangeAppGithubAuthorizationCall(exchangeAppGithubAuthorizationRequest, _callback);
+    }
+
+    /**
+     * Verify GitHub App installations visible to the current user
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param exchangeAppGithubAuthorizationRequest  (required)
+     * @return ExchangeAppGithubAuthorizationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Verified GitHub installations. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ExchangeAppGithubAuthorizationResponse exchangeAppGithubAuthorization(
+            @jakarta.annotation.Nonnull
+                    ExchangeAppGithubAuthorizationRequest exchangeAppGithubAuthorizationRequest)
+            throws ApiException {
+        ApiResponse<ExchangeAppGithubAuthorizationResponse> localVarResp =
+                exchangeAppGithubAuthorizationWithHttpInfo(exchangeAppGithubAuthorizationRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Verify GitHub App installations visible to the current user
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param exchangeAppGithubAuthorizationRequest  (required)
+     * @return ApiResponse&lt;ExchangeAppGithubAuthorizationResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Verified GitHub installations. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<ExchangeAppGithubAuthorizationResponse>
+            exchangeAppGithubAuthorizationWithHttpInfo(
+                    @jakarta.annotation.Nonnull
+                            ExchangeAppGithubAuthorizationRequest
+                                    exchangeAppGithubAuthorizationRequest)
+                    throws ApiException {
+        okhttp3.Call localVarCall =
+                exchangeAppGithubAuthorizationValidateBeforeCall(
+                        exchangeAppGithubAuthorizationRequest, null);
+        Type localVarReturnType =
+                new TypeToken<ExchangeAppGithubAuthorizationResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Verify GitHub App installations visible to the current user (asynchronously)
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param exchangeAppGithubAuthorizationRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Verified GitHub installations. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call exchangeAppGithubAuthorizationAsync(
+            @jakarta.annotation.Nonnull
+                    ExchangeAppGithubAuthorizationRequest exchangeAppGithubAuthorizationRequest,
+            final ApiCallback<ExchangeAppGithubAuthorizationResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                exchangeAppGithubAuthorizationValidateBeforeCall(
+                        exchangeAppGithubAuthorizationRequest, _callback);
+        Type localVarReturnType =
+                new TypeToken<ExchangeAppGithubAuthorizationResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for getAppBuildProgress
      * @param id  (required)
      * @param workflowId  (required)
@@ -1604,6 +1781,371 @@ public class AppsApi {
 
         okhttp3.Call localVarCall = getAppDevelopmentTaskValidateBeforeCall(id, taskId, _callback);
         Type localVarReturnType = new TypeToken<AppDevelopmentTaskDetails>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getAppGithubConfiguration
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> GitHub provider availability. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getAppGithubConfigurationCall(final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apps/source-providers/github";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAppGithubConfigurationValidateBeforeCall(final ApiCallback _callback)
+            throws ApiException {
+        return getAppGithubConfigurationCall(_callback);
+    }
+
+    /**
+     * Get App Builder GitHub provider configuration
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @return AppGithubConfiguration
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> GitHub provider availability. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public AppGithubConfiguration getAppGithubConfiguration() throws ApiException {
+        ApiResponse<AppGithubConfiguration> localVarResp = getAppGithubConfigurationWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get App Builder GitHub provider configuration
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @return ApiResponse&lt;AppGithubConfiguration&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> GitHub provider availability. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AppGithubConfiguration> getAppGithubConfigurationWithHttpInfo()
+            throws ApiException {
+        okhttp3.Call localVarCall = getAppGithubConfigurationValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<AppGithubConfiguration>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get App Builder GitHub provider configuration (asynchronously)
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> GitHub provider availability. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getAppGithubConfigurationAsync(
+            final ApiCallback<AppGithubConfiguration> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getAppGithubConfigurationValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<AppGithubConfiguration>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getAppGithubRepositorySetup
+     * @param connectionId  (required)
+     * @param installationId  (required)
+     * @param repository  (required)
+     * @param branch  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> GitHub repository branch setup state. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getAppGithubRepositorySetupCall(
+            @jakarta.annotation.Nonnull String connectionId,
+            @jakarta.annotation.Nonnull String installationId,
+            @jakarta.annotation.Nonnull String repository,
+            @jakarta.annotation.Nonnull String branch,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apps/source-providers/github/repository-setup";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (connectionId != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("connection_id", connectionId));
+        }
+
+        if (installationId != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("installation_id", installationId));
+        }
+
+        if (repository != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("repository", repository));
+        }
+
+        if (branch != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("branch", branch));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAppGithubRepositorySetupValidateBeforeCall(
+            @jakarta.annotation.Nonnull String connectionId,
+            @jakarta.annotation.Nonnull String installationId,
+            @jakarta.annotation.Nonnull String repository,
+            @jakarta.annotation.Nonnull String branch,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'connectionId' is set
+        if (connectionId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'connectionId' when calling getAppGithubRepositorySetup(Async)");
+        }
+
+        // verify the required parameter 'installationId' is set
+        if (installationId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'installationId' when calling getAppGithubRepositorySetup(Async)");
+        }
+
+        // verify the required parameter 'repository' is set
+        if (repository == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'repository' when calling getAppGithubRepositorySetup(Async)");
+        }
+
+        // verify the required parameter 'branch' is set
+        if (branch == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'branch' when calling getAppGithubRepositorySetup(Async)");
+        }
+
+        return getAppGithubRepositorySetupCall(
+                connectionId, installationId, repository, branch, _callback);
+    }
+
+    /**
+     * Inspect branches in a verified GitHub repository
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param connectionId  (required)
+     * @param installationId  (required)
+     * @param repository  (required)
+     * @param branch  (required)
+     * @return AppGithubRepositorySetup
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> GitHub repository branch setup state. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public AppGithubRepositorySetup getAppGithubRepositorySetup(
+            @jakarta.annotation.Nonnull String connectionId,
+            @jakarta.annotation.Nonnull String installationId,
+            @jakarta.annotation.Nonnull String repository,
+            @jakarta.annotation.Nonnull String branch)
+            throws ApiException {
+        ApiResponse<AppGithubRepositorySetup> localVarResp =
+                getAppGithubRepositorySetupWithHttpInfo(
+                        connectionId, installationId, repository, branch);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Inspect branches in a verified GitHub repository
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param connectionId  (required)
+     * @param installationId  (required)
+     * @param repository  (required)
+     * @param branch  (required)
+     * @return ApiResponse&lt;AppGithubRepositorySetup&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> GitHub repository branch setup state. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AppGithubRepositorySetup> getAppGithubRepositorySetupWithHttpInfo(
+            @jakarta.annotation.Nonnull String connectionId,
+            @jakarta.annotation.Nonnull String installationId,
+            @jakarta.annotation.Nonnull String repository,
+            @jakarta.annotation.Nonnull String branch)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                getAppGithubRepositorySetupValidateBeforeCall(
+                        connectionId, installationId, repository, branch, null);
+        Type localVarReturnType = new TypeToken<AppGithubRepositorySetup>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Inspect branches in a verified GitHub repository (asynchronously)
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param connectionId  (required)
+     * @param installationId  (required)
+     * @param repository  (required)
+     * @param branch  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> GitHub repository branch setup state. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getAppGithubRepositorySetupAsync(
+            @jakarta.annotation.Nonnull String connectionId,
+            @jakarta.annotation.Nonnull String installationId,
+            @jakarta.annotation.Nonnull String repository,
+            @jakarta.annotation.Nonnull String branch,
+            final ApiCallback<AppGithubRepositorySetup> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getAppGithubRepositorySetupValidateBeforeCall(
+                        connectionId, installationId, repository, branch, _callback);
+        Type localVarReturnType = new TypeToken<AppGithubRepositorySetup>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -4485,6 +5027,192 @@ public class AppsApi {
     }
 
     /**
+     * Build call for listAppGithubRepositories
+     * @param connectionId  (required)
+     * @param installationId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Accessible GitHub repositories. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listAppGithubRepositoriesCall(
+            @jakarta.annotation.Nonnull String connectionId,
+            @jakarta.annotation.Nonnull String installationId,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apps/source-providers/github/repositories";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (connectionId != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("connection_id", connectionId));
+        }
+
+        if (installationId != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("installation_id", installationId));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listAppGithubRepositoriesValidateBeforeCall(
+            @jakarta.annotation.Nonnull String connectionId,
+            @jakarta.annotation.Nonnull String installationId,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'connectionId' is set
+        if (connectionId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'connectionId' when calling listAppGithubRepositories(Async)");
+        }
+
+        // verify the required parameter 'installationId' is set
+        if (installationId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'installationId' when calling listAppGithubRepositories(Async)");
+        }
+
+        return listAppGithubRepositoriesCall(connectionId, installationId, _callback);
+    }
+
+    /**
+     * List repositories accessible to a verified GitHub App installation
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param connectionId  (required)
+     * @param installationId  (required)
+     * @return AppGithubRepositoryList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Accessible GitHub repositories. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public AppGithubRepositoryList listAppGithubRepositories(
+            @jakarta.annotation.Nonnull String connectionId,
+            @jakarta.annotation.Nonnull String installationId)
+            throws ApiException {
+        ApiResponse<AppGithubRepositoryList> localVarResp =
+                listAppGithubRepositoriesWithHttpInfo(connectionId, installationId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List repositories accessible to a verified GitHub App installation
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param connectionId  (required)
+     * @param installationId  (required)
+     * @return ApiResponse&lt;AppGithubRepositoryList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Accessible GitHub repositories. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AppGithubRepositoryList> listAppGithubRepositoriesWithHttpInfo(
+            @jakarta.annotation.Nonnull String connectionId,
+            @jakarta.annotation.Nonnull String installationId)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                listAppGithubRepositoriesValidateBeforeCall(connectionId, installationId, null);
+        Type localVarReturnType = new TypeToken<AppGithubRepositoryList>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List repositories accessible to a verified GitHub App installation (asynchronously)
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param connectionId  (required)
+     * @param installationId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Accessible GitHub repositories. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listAppGithubRepositoriesAsync(
+            @jakarta.annotation.Nonnull String connectionId,
+            @jakarta.annotation.Nonnull String installationId,
+            final ApiCallback<AppGithubRepositoryList> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                listAppGithubRepositoriesValidateBeforeCall(
+                        connectionId, installationId, _callback);
+        Type localVarReturnType = new TypeToken<AppGithubRepositoryList>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for listAppInstallationProjects
      * @param name App manifest name. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
      * @param id App manifest id. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
@@ -6493,6 +7221,145 @@ public class AppsApi {
     }
 
     /**
+     * Build call for startAppGithubAuthorization
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> GitHub authorization URL. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call startAppGithubAuthorizationCall(final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/apps/source-providers/github/authorize";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call startAppGithubAuthorizationValidateBeforeCall(final ApiCallback _callback)
+            throws ApiException {
+        return startAppGithubAuthorizationCall(_callback);
+    }
+
+    /**
+     * Start GitHub authorization for an App Builder source
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @return StartAppGithubAuthorizationResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> GitHub authorization URL. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public StartAppGithubAuthorizationResponse startAppGithubAuthorization() throws ApiException {
+        ApiResponse<StartAppGithubAuthorizationResponse> localVarResp =
+                startAppGithubAuthorizationWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * Start GitHub authorization for an App Builder source
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @return ApiResponse&lt;StartAppGithubAuthorizationResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> GitHub authorization URL. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<StartAppGithubAuthorizationResponse>
+            startAppGithubAuthorizationWithHttpInfo() throws ApiException {
+        okhttp3.Call localVarCall = startAppGithubAuthorizationValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<StartAppGithubAuthorizationResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Start GitHub authorization for an App Builder source (asynchronously)
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> GitHub authorization URL. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call startAppGithubAuthorizationAsync(
+            final ApiCallback<StartAppGithubAuthorizationResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = startAppGithubAuthorizationValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<StartAppGithubAuthorizationResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for startAppScaffold
      * @param startAppScaffoldRequest  (required)
      * @param _callback Callback for upload/download progress
@@ -6579,7 +7446,7 @@ public class AppsApi {
 
     /**
      * Start an app scaffold
-     * Starts a Temporal workflow that creates a source-backed Vertesia app, scaffolds selected template modules, pushes the source to Vertesia git, and optionally starts an initial version build.  **Required permissions:** &#x60;app:manage&#x60;
+     * Starts a Temporal workflow that creates a source-backed Vertesia app, prepares the selected source repository, and optionally starts an initial version build.  **Required permissions:** &#x60;app:manage&#x60;
      * @param startAppScaffoldRequest  (required)
      * @return StartAppScaffoldResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6602,7 +7469,7 @@ public class AppsApi {
 
     /**
      * Start an app scaffold
-     * Starts a Temporal workflow that creates a source-backed Vertesia app, scaffolds selected template modules, pushes the source to Vertesia git, and optionally starts an initial version build.  **Required permissions:** &#x60;app:manage&#x60;
+     * Starts a Temporal workflow that creates a source-backed Vertesia app, prepares the selected source repository, and optionally starts an initial version build.  **Required permissions:** &#x60;app:manage&#x60;
      * @param startAppScaffoldRequest  (required)
      * @return ApiResponse&lt;StartAppScaffoldResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6626,7 +7493,7 @@ public class AppsApi {
 
     /**
      * Start an app scaffold (asynchronously)
-     * Starts a Temporal workflow that creates a source-backed Vertesia app, scaffolds selected template modules, pushes the source to Vertesia git, and optionally starts an initial version build.  **Required permissions:** &#x60;app:manage&#x60;
+     * Starts a Temporal workflow that creates a source-backed Vertesia app, prepares the selected source repository, and optionally starts an initial version build.  **Required permissions:** &#x60;app:manage&#x60;
      * @param startAppScaffoldRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

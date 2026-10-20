@@ -167,7 +167,14 @@ src/main/java/io/vertesia/model/AppEventDeliveryTargetInput.java
 src/main/java/io/vertesia/model/AppEventSubscriptionDefinition.java
 src/main/java/io/vertesia/model/AppGitSourceConfig.java
 src/main/java/io/vertesia/model/AppGitSourceProvider.java
+src/main/java/io/vertesia/model/AppGithubAccount.java
+src/main/java/io/vertesia/model/AppGithubBranchState.java
+src/main/java/io/vertesia/model/AppGithubConfiguration.java
+src/main/java/io/vertesia/model/AppGithubInstallation.java
+src/main/java/io/vertesia/model/AppGithubRepository.java
 src/main/java/io/vertesia/model/AppGithubRepositoryCreation.java
+src/main/java/io/vertesia/model/AppGithubRepositoryList.java
+src/main/java/io/vertesia/model/AppGithubRepositorySetup.java
 src/main/java/io/vertesia/model/AppInspectionCapabilityReport.java
 src/main/java/io/vertesia/model/AppInspectionIssue.java
 src/main/java/io/vertesia/model/AppInspectionResult.java
@@ -569,6 +576,8 @@ src/main/java/io/vertesia/model/EventSubscriptionFilter.java
 src/main/java/io/vertesia/model/EventSubscriptionMutationResponse.java
 src/main/java/io/vertesia/model/ExaConfiguration.java
 src/main/java/io/vertesia/model/ExaConfigurationInput.java
+src/main/java/io/vertesia/model/ExchangeAppGithubAuthorizationRequest.java
+src/main/java/io/vertesia/model/ExchangeAppGithubAuthorizationResponse.java
 src/main/java/io/vertesia/model/ExecuteViewRequest.java
 src/main/java/io/vertesia/model/ExecuteWorkflowPayload.java
 src/main/java/io/vertesia/model/ExecutionEnvironment.java
@@ -1011,6 +1020,7 @@ src/main/java/io/vertesia/model/SortOrder.java
 src/main/java/io/vertesia/model/StartAppBuildRequest.java
 src/main/java/io/vertesia/model/StartAppBuildResponse.java
 src/main/java/io/vertesia/model/StartAppDevelopmentTaskRequest.java
+src/main/java/io/vertesia/model/StartAppGithubAuthorizationResponse.java
 src/main/java/io/vertesia/model/StartAppScaffoldRequest.java
 src/main/java/io/vertesia/model/StartAppScaffoldResponse.java
 src/main/java/io/vertesia/model/StartContentObjectExportRequest.java
