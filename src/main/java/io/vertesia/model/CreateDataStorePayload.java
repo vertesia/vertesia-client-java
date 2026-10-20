@@ -60,7 +60,7 @@ public class CreateDataStorePayload {
     }
 
     /**
-     * Store name (unique within project)
+     * Store name (unique within project). 1 to 128 characters; must not contain &#x60;/&#x60;, &#x60;\\&#x60; or control characters, start with a dot, or start or end with a space.
      * @return name
      */
     @jakarta.annotation.Nonnull
