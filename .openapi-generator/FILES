@@ -166,6 +166,8 @@ src/main/java/io/vertesia/model/AppEventDeliveryTarget.java
 src/main/java/io/vertesia/model/AppEventDeliveryTargetInput.java
 src/main/java/io/vertesia/model/AppEventSubscriptionDefinition.java
 src/main/java/io/vertesia/model/AppGitSourceConfig.java
+src/main/java/io/vertesia/model/AppGitSourceProvider.java
+src/main/java/io/vertesia/model/AppGithubRepositoryCreation.java
 src/main/java/io/vertesia/model/AppInspectionCapabilityReport.java
 src/main/java/io/vertesia/model/AppInspectionIssue.java
 src/main/java/io/vertesia/model/AppInspectionResult.java
@@ -200,6 +202,7 @@ src/main/java/io/vertesia/model/AppRepoTreeEntry.java
 src/main/java/io/vertesia/model/AppScaffoldModule.java
 src/main/java/io/vertesia/model/AppScaffoldProgress.java
 src/main/java/io/vertesia/model/AppScaffoldProgressStatus.java
+src/main/java/io/vertesia/model/AppScaffoldSourceMode.java
 src/main/java/io/vertesia/model/AppSessionTokenRequest.java
 src/main/java/io/vertesia/model/AppSessionTokenResponse.java
 src/main/java/io/vertesia/model/AppSourceConfig.java
