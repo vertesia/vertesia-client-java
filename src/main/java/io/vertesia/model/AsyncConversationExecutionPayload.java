@@ -187,6 +187,11 @@ public class AsyncConversationExecutionPayload {
     @SerializedName(SERIALIZED_NAME_NOTIFY_ENDPOINTS)
     @jakarta.annotation.Nullable private List<String> notifyEndpoints = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_IDEMPOTENCY_KEY = "idempotency_key";
+
+    @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_KEY)
+    @jakarta.annotation.Nullable private String idempotencyKey;
+
     public static final String SERIALIZED_NAME_TASK_QUEUE = "task_queue";
 
     @SerializedName(SERIALIZED_NAME_TASK_QUEUE)
@@ -694,6 +699,24 @@ public class AsyncConversationExecutionPayload {
 
     public void setNotifyEndpoints(@jakarta.annotation.Nullable List<String> notifyEndpoints) {
         this.notifyEndpoints = notifyEndpoints;
+    }
+
+    public AsyncConversationExecutionPayload idempotencyKey(
+            @jakarta.annotation.Nullable String idempotencyKey) {
+        this.idempotencyKey = idempotencyKey;
+        return this;
+    }
+
+    /**
+     * Client-chosen key, unique per intended run, that makes this request safe to retry. A repeat of the request with the same key and the same body returns the agent run the first request started instead of starting another. Reusing a key with a different body is rejected with 409, and a repeat that arrives while the first request is still starting the run may be answered with 503 and &#x60;Retry-After&#x60;. Keys are scoped to the project and stay bound to their run for as long as it exists; once the run is deleted, the same key starts a new one.
+     * @return idempotencyKey
+     */
+    @jakarta.annotation.Nullable public String getIdempotencyKey() {
+        return idempotencyKey;
+    }
+
+    public void setIdempotencyKey(@jakarta.annotation.Nullable String idempotencyKey) {
+        this.idempotencyKey = idempotencyKey;
     }
 
     public AsyncConversationExecutionPayload taskQueue(
@@ -1399,6 +1422,8 @@ public class AsyncConversationExecutionPayload {
                 && Objects.equals(this.type, asyncConversationExecutionPayload.type)
                 && Objects.equals(
                         this.notifyEndpoints, asyncConversationExecutionPayload.notifyEndpoints)
+                && Objects.equals(
+                        this.idempotencyKey, asyncConversationExecutionPayload.idempotencyKey)
                 && Objects.equals(this.taskQueue, asyncConversationExecutionPayload.taskQueue)
                 && Objects.equals(
                         this.toolApprovalMode, asyncConversationExecutionPayload.toolApprovalMode)
@@ -1485,6 +1510,7 @@ public class AsyncConversationExecutionPayload {
                 asyncCompletion,
                 type,
                 notifyEndpoints,
+                idempotencyKey,
                 taskQueue,
                 toolApprovalMode,
                 visibility,
@@ -1548,6 +1574,7 @@ public class AsyncConversationExecutionPayload {
         sb.append("    asyncCompletion: ").append(toIndentedString(asyncCompletion)).append("\n");
         sb.append("    type: ").append(toIndentedString(type)).append("\n");
         sb.append("    notifyEndpoints: ").append(toIndentedString(notifyEndpoints)).append("\n");
+        sb.append("    idempotencyKey: ").append(toIndentedString(idempotencyKey)).append("\n");
         sb.append("    taskQueue: ").append(toIndentedString(taskQueue)).append("\n");
         sb.append("    toolApprovalMode: ").append(toIndentedString(toolApprovalMode)).append("\n");
         sb.append("    visibility: ").append(toIndentedString(visibility)).append("\n");
@@ -1634,6 +1661,7 @@ public class AsyncConversationExecutionPayload {
                                 "asyncCompletion",
                                 "type",
                                 "notify_endpoints",
+                                "idempotency_key",
                                 "task_queue",
                                 "tool_approval_mode",
                                 "visibility",
@@ -1797,6 +1825,14 @@ public class AsyncConversationExecutionPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `notify_endpoints` to be an array in the JSON string but got `%s`",
                             jsonObj.get("notify_endpoints").toString()));
+        }
+        if ((jsonObj.get("idempotency_key") != null && !jsonObj.get("idempotency_key").isJsonNull())
+                && !jsonObj.get("idempotency_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `idempotency_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("idempotency_key").toString()));
         }
         if ((jsonObj.get("task_queue") != null && !jsonObj.get("task_queue").isJsonNull())
                 && !jsonObj.get("task_queue").isJsonPrimitive()) {

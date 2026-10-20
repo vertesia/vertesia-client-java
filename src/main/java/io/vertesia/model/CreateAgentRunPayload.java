@@ -218,6 +218,11 @@ public class CreateAgentRunPayload {
     @SerializedName(SERIALIZED_NAME_STARTED_BY)
     @jakarta.annotation.Nullable private String startedBy;
 
+    public static final String SERIALIZED_NAME_IDEMPOTENCY_KEY = "idempotency_key";
+
+    @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_KEY)
+    @jakarta.annotation.Nullable private String idempotencyKey;
+
     public CreateAgentRunPayload() {}
 
     public CreateAgentRunPayload interaction(@jakarta.annotation.Nonnull String interaction) {
@@ -930,6 +935,24 @@ public class CreateAgentRunPayload {
         this.startedBy = startedBy;
     }
 
+    public CreateAgentRunPayload idempotencyKey(
+            @jakarta.annotation.Nullable String idempotencyKey) {
+        this.idempotencyKey = idempotencyKey;
+        return this;
+    }
+
+    /**
+     * Client-chosen key, unique per intended run, that makes this request safe to retry. A repeat of the request with the same key and the same body returns the agent run the first request started instead of starting another. Reusing a key with a different body is rejected with 409, and a repeat that arrives while the first request is still starting the run may be answered with 503 and &#x60;Retry-After&#x60;. Keys are scoped to the project and stay bound to their run for as long as it exists; once the run is deleted, the same key starts a new one.
+     * @return idempotencyKey
+     */
+    @jakarta.annotation.Nullable public String getIdempotencyKey() {
+        return idempotencyKey;
+    }
+
+    public void setIdempotencyKey(@jakarta.annotation.Nullable String idempotencyKey) {
+        this.idempotencyKey = idempotencyKey;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -1020,6 +1043,7 @@ public class CreateAgentRunPayload {
                 && Objects.equals(this.notifyEndpoints, createAgentRunPayload.notifyEndpoints)
                 && Objects.equals(this.debugMode, createAgentRunPayload.debugMode)
                 && Objects.equals(this.startedBy, createAgentRunPayload.startedBy)
+                && Objects.equals(this.idempotencyKey, createAgentRunPayload.idempotencyKey)
                 && Objects.equals(
                         this.additionalProperties, createAgentRunPayload.additionalProperties);
     }
@@ -1062,6 +1086,7 @@ public class CreateAgentRunPayload {
                 notifyEndpoints,
                 debugMode,
                 startedBy,
+                idempotencyKey,
                 additionalProperties);
     }
 
@@ -1108,6 +1133,7 @@ public class CreateAgentRunPayload {
         sb.append("    notifyEndpoints: ").append(toIndentedString(notifyEndpoints)).append("\n");
         sb.append("    debugMode: ").append(toIndentedString(debugMode)).append("\n");
         sb.append("    startedBy: ").append(toIndentedString(startedBy)).append("\n");
+        sb.append("    idempotencyKey: ").append(toIndentedString(idempotencyKey)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -1165,7 +1191,8 @@ public class CreateAgentRunPayload {
                                 "final_verification",
                                 "notify_endpoints",
                                 "debug_mode",
-                                "started_by"));
+                                "started_by",
+                                "idempotency_key"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("interaction"));
@@ -1397,6 +1424,14 @@ public class CreateAgentRunPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `started_by` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("started_by").toString()));
+        }
+        if ((jsonObj.get("idempotency_key") != null && !jsonObj.get("idempotency_key").isJsonNull())
+                && !jsonObj.get("idempotency_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `idempotency_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("idempotency_key").toString()));
         }
     }
 
