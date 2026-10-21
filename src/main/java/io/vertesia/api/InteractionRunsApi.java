@@ -383,6 +383,7 @@ public class InteractionRunsApi {
     /**
      * Build call for getRun
      * @param runId  (required)
+     * @param includePrompt Whether the run includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined), and it is then not loaded from storage. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -396,7 +397,9 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call getRunCall(
-            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable Boolean includePrompt,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -425,6 +428,11 @@ public class InteractionRunsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (includePrompt != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("include_prompt", includePrompt));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -456,7 +464,9 @@ public class InteractionRunsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getRunValidateBeforeCall(
-            @jakarta.annotation.Nonnull String runId, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable Boolean includePrompt,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'runId' is set
         if (runId == null) {
@@ -464,13 +474,14 @@ public class InteractionRunsApi {
                     "Missing the required parameter 'runId' when calling getRun(Async)");
         }
 
-        return getRunCall(runId, _callback);
+        return getRunCall(runId, includePrompt, _callback);
     }
 
     /**
      * Retrieve a run
      * Retrieves a single execution run by ID, including populated interaction and environment references, execution parameters, output, status, timing, token usage, and source metadata.  **Required permissions:** &#x60;run:read&#x60;
      * @param runId  (required)
+     * @param includePrompt Whether the run includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined), and it is then not loaded from storage. (optional)
      * @return ExecutionRunRef
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -482,8 +493,11 @@ public class InteractionRunsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ExecutionRunRef getRun(@jakarta.annotation.Nonnull String runId) throws ApiException {
-        ApiResponse<ExecutionRunRef> localVarResp = getRunWithHttpInfo(runId);
+    public ExecutionRunRef getRun(
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable Boolean includePrompt)
+            throws ApiException {
+        ApiResponse<ExecutionRunRef> localVarResp = getRunWithHttpInfo(runId, includePrompt);
         return localVarResp.getData();
     }
 
@@ -491,6 +505,7 @@ public class InteractionRunsApi {
      * Retrieve a run
      * Retrieves a single execution run by ID, including populated interaction and environment references, execution parameters, output, status, timing, token usage, and source metadata.  **Required permissions:** &#x60;run:read&#x60;
      * @param runId  (required)
+     * @param includePrompt Whether the run includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined), and it is then not loaded from storage. (optional)
      * @return ApiResponse&lt;ExecutionRunRef&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -502,9 +517,11 @@ public class InteractionRunsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<ExecutionRunRef> getRunWithHttpInfo(@jakarta.annotation.Nonnull String runId)
+    public ApiResponse<ExecutionRunRef> getRunWithHttpInfo(
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable Boolean includePrompt)
             throws ApiException {
-        okhttp3.Call localVarCall = getRunValidateBeforeCall(runId, null);
+        okhttp3.Call localVarCall = getRunValidateBeforeCall(runId, includePrompt, null);
         Type localVarReturnType = new TypeToken<ExecutionRunRef>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -513,6 +530,7 @@ public class InteractionRunsApi {
      * Retrieve a run (asynchronously)
      * Retrieves a single execution run by ID, including populated interaction and environment references, execution parameters, output, status, timing, token usage, and source metadata.  **Required permissions:** &#x60;run:read&#x60;
      * @param runId  (required)
+     * @param includePrompt Whether the run includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined), and it is then not loaded from storage. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -526,10 +544,12 @@ public class InteractionRunsApi {
      * </table>
      */
     public okhttp3.Call getRunAsync(
-            @jakarta.annotation.Nonnull String runId, final ApiCallback<ExecutionRunRef> _callback)
+            @jakarta.annotation.Nonnull String runId,
+            @jakarta.annotation.Nullable Boolean includePrompt,
+            final ApiCallback<ExecutionRunRef> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = getRunValidateBeforeCall(runId, _callback);
+        okhttp3.Call localVarCall = getRunValidateBeforeCall(runId, includePrompt, _callback);
         Type localVarReturnType = new TypeToken<ExecutionRunRef>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

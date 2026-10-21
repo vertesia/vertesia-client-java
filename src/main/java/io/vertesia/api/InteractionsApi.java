@@ -1089,6 +1089,7 @@ public class InteractionsApi {
      * @param endpoint  (required)
      * @param interactionExecutionPayload  (required)
      * @param tag  (optional)
+     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
      * @param xInteractionTag  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1106,6 +1107,7 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String endpoint,
             @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
             @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean includePrompt,
             @jakarta.annotation.Nullable String xInteractionTag,
             final ApiCallback _callback)
             throws ApiException {
@@ -1139,6 +1141,11 @@ public class InteractionsApi {
 
         if (tag != null) {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("tag", tag));
+        }
+
+        if (includePrompt != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("include_prompt", includePrompt));
         }
 
         final String[] localVarAccepts = {"application/json"};
@@ -1179,6 +1186,7 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String endpoint,
             @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
             @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean includePrompt,
             @jakarta.annotation.Nullable String xInteractionTag,
             final ApiCallback _callback)
             throws ApiException {
@@ -1195,7 +1203,12 @@ public class InteractionsApi {
         }
 
         return executeInteractionByEndpointCall(
-                endpoint, interactionExecutionPayload, tag, xInteractionTag, _callback);
+                endpoint,
+                interactionExecutionPayload,
+                tag,
+                includePrompt,
+                xInteractionTag,
+                _callback);
     }
 
     /**
@@ -1204,6 +1217,7 @@ public class InteractionsApi {
      * @param endpoint  (required)
      * @param interactionExecutionPayload  (required)
      * @param tag  (optional)
+     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
      * @param xInteractionTag  (optional)
      * @return InteractionExecutionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1220,11 +1234,12 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String endpoint,
             @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
             @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean includePrompt,
             @jakarta.annotation.Nullable String xInteractionTag)
             throws ApiException {
         ApiResponse<InteractionExecutionResult> localVarResp =
                 executeInteractionByEndpointWithHttpInfo(
-                        endpoint, interactionExecutionPayload, tag, xInteractionTag);
+                        endpoint, interactionExecutionPayload, tag, includePrompt, xInteractionTag);
         return localVarResp.getData();
     }
 
@@ -1234,6 +1249,7 @@ public class InteractionsApi {
      * @param endpoint  (required)
      * @param interactionExecutionPayload  (required)
      * @param tag  (optional)
+     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
      * @param xInteractionTag  (optional)
      * @return ApiResponse&lt;InteractionExecutionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1250,11 +1266,17 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String endpoint,
             @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
             @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean includePrompt,
             @jakarta.annotation.Nullable String xInteractionTag)
             throws ApiException {
         okhttp3.Call localVarCall =
                 executeInteractionByEndpointValidateBeforeCall(
-                        endpoint, interactionExecutionPayload, tag, xInteractionTag, null);
+                        endpoint,
+                        interactionExecutionPayload,
+                        tag,
+                        includePrompt,
+                        xInteractionTag,
+                        null);
         Type localVarReturnType = new TypeToken<InteractionExecutionResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1265,6 +1287,7 @@ public class InteractionsApi {
      * @param endpoint  (required)
      * @param interactionExecutionPayload  (required)
      * @param tag  (optional)
+     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
      * @param xInteractionTag  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1282,13 +1305,19 @@ public class InteractionsApi {
             @jakarta.annotation.Nonnull String endpoint,
             @jakarta.annotation.Nonnull InteractionExecutionPayload interactionExecutionPayload,
             @jakarta.annotation.Nullable String tag,
+            @jakarta.annotation.Nullable Boolean includePrompt,
             @jakarta.annotation.Nullable String xInteractionTag,
             final ApiCallback<InteractionExecutionResult> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 executeInteractionByEndpointValidateBeforeCall(
-                        endpoint, interactionExecutionPayload, tag, xInteractionTag, _callback);
+                        endpoint,
+                        interactionExecutionPayload,
+                        tag,
+                        includePrompt,
+                        xInteractionTag,
+                        _callback);
         Type localVarReturnType = new TypeToken<InteractionExecutionResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1297,6 +1326,7 @@ public class InteractionsApi {
     /**
      * Build call for executeNamedInteraction
      * @param namedInteractionExecutionPayload  (required)
+     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1312,6 +1342,7 @@ public class InteractionsApi {
     public okhttp3.Call executeNamedInteractionCall(
             @jakarta.annotation.Nonnull
                     NamedInteractionExecutionPayload namedInteractionExecutionPayload,
+            @jakarta.annotation.Nullable Boolean includePrompt,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -1337,6 +1368,11 @@ public class InteractionsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (includePrompt != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("include_prompt", includePrompt));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -1370,6 +1406,7 @@ public class InteractionsApi {
     private okhttp3.Call executeNamedInteractionValidateBeforeCall(
             @jakarta.annotation.Nonnull
                     NamedInteractionExecutionPayload namedInteractionExecutionPayload,
+            @jakarta.annotation.Nullable Boolean includePrompt,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'namedInteractionExecutionPayload' is set
@@ -1378,13 +1415,15 @@ public class InteractionsApi {
                     "Missing the required parameter 'namedInteractionExecutionPayload' when calling executeNamedInteraction(Async)");
         }
 
-        return executeNamedInteractionCall(namedInteractionExecutionPayload, _callback);
+        return executeNamedInteractionCall(
+                namedInteractionExecutionPayload, includePrompt, _callback);
     }
 
     /**
      * Execute an interaction by selector
      * Executes an interaction selected by name, tag, or version and returns the interaction run result.  **Required permissions:** &#x60;interaction:execute&#x60;
      * @param namedInteractionExecutionPayload  (required)
+     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
      * @return InteractionExecutionResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1398,10 +1437,12 @@ public class InteractionsApi {
      */
     public InteractionExecutionResult executeNamedInteraction(
             @jakarta.annotation.Nonnull
-                    NamedInteractionExecutionPayload namedInteractionExecutionPayload)
+                    NamedInteractionExecutionPayload namedInteractionExecutionPayload,
+            @jakarta.annotation.Nullable Boolean includePrompt)
             throws ApiException {
         ApiResponse<InteractionExecutionResult> localVarResp =
-                executeNamedInteractionWithHttpInfo(namedInteractionExecutionPayload);
+                executeNamedInteractionWithHttpInfo(
+                        namedInteractionExecutionPayload, includePrompt);
         return localVarResp.getData();
     }
 
@@ -1409,6 +1450,7 @@ public class InteractionsApi {
      * Execute an interaction by selector
      * Executes an interaction selected by name, tag, or version and returns the interaction run result.  **Required permissions:** &#x60;interaction:execute&#x60;
      * @param namedInteractionExecutionPayload  (required)
+     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
      * @return ApiResponse&lt;InteractionExecutionResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1422,10 +1464,12 @@ public class InteractionsApi {
      */
     public ApiResponse<InteractionExecutionResult> executeNamedInteractionWithHttpInfo(
             @jakarta.annotation.Nonnull
-                    NamedInteractionExecutionPayload namedInteractionExecutionPayload)
+                    NamedInteractionExecutionPayload namedInteractionExecutionPayload,
+            @jakarta.annotation.Nullable Boolean includePrompt)
             throws ApiException {
         okhttp3.Call localVarCall =
-                executeNamedInteractionValidateBeforeCall(namedInteractionExecutionPayload, null);
+                executeNamedInteractionValidateBeforeCall(
+                        namedInteractionExecutionPayload, includePrompt, null);
         Type localVarReturnType = new TypeToken<InteractionExecutionResult>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1434,6 +1478,7 @@ public class InteractionsApi {
      * Execute an interaction by selector (asynchronously)
      * Executes an interaction selected by name, tag, or version and returns the interaction run result.  **Required permissions:** &#x60;interaction:execute&#x60;
      * @param namedInteractionExecutionPayload  (required)
+     * @param includePrompt Whether the synchronous execution result includes the rendered &#x60;prompt&#x60; sent to the model. Defaults to true. Pass false when the caller does not read the prompt: it can be large (for example when media is inlined). It is still stored with the run unless run data storage is restricted. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1449,12 +1494,13 @@ public class InteractionsApi {
     public okhttp3.Call executeNamedInteractionAsync(
             @jakarta.annotation.Nonnull
                     NamedInteractionExecutionPayload namedInteractionExecutionPayload,
+            @jakarta.annotation.Nullable Boolean includePrompt,
             final ApiCallback<InteractionExecutionResult> _callback)
             throws ApiException {
 
         okhttp3.Call localVarCall =
                 executeNamedInteractionValidateBeforeCall(
-                        namedInteractionExecutionPayload, _callback);
+                        namedInteractionExecutionPayload, includePrompt, _callback);
         Type localVarReturnType = new TypeToken<InteractionExecutionResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
