@@ -44,16 +44,21 @@ def patch_schema_constants(text: str, schema: dict) -> str:
         if enum_start == -1:
             continue
         start = text.find("public static void validateJsonElement", enum_start)
-        end = text.find("\n        }", start)
-        if start == -1 or end == -1:
+        if start == -1:
+            continue
+        # The script runs on raw generator output (before Spotless) and on formatted sources, so
+        # find the method's closing brace from the indentation of its own declaration line.
+        indent = text[text.rfind("\n", 0, start) + 1 : start]
+        end = text.find("\n" + indent + "}", start)
+        if indent.strip() or end == -1:
             continue
         value = json.dumps(definition["const"])
         message = json.dumps(f"Expected {field} to be {definition['const']}")
         method = (
             "public static void validateJsonElement(JsonElement jsonElement) throws IOException {\n"
-            f"            if (!{value}.equals(jsonElement.getAsString())) {{\n"
-            f"                throw new IOException({message});\n"
-            "            }"
+            f"{indent}    if (!{value}.equals(jsonElement.getAsString())) {{\n"
+            f"{indent}        throw new IOException({message});\n"
+            f"{indent}    }}"
         )
         text = text[:start] + method + text[end:]
     return text
