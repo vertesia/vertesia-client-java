@@ -36,3 +36,6 @@ jobs:
       - run: python3 scripts/patch_forward_compat_validation.py
 
       - run: mvn -B test
+
+      - name: Test release contract
+        run: python3 -m unittest discover -s scripts -p test_release_cohort.py

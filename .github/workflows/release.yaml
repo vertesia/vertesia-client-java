@@ -1,141 +1,96 @@
 name: Release
+run-name: ${{ inputs.request_id || github.workflow }}
 
 on:
   workflow_dispatch:
     inputs:
       version:
-        description: Release version, for example v1.2.3
+        description: vX.Y.Z or vX.Y.Z-dev.YYYYMMDD.HHMMSSZ
         required: true
         type: string
-      development_version:
-        description: Next development version, for example 1.2.4-SNAPSHOT
-        required: true
+      source_sha:
+        description: Optional immutable synchronized source commit
         type: string
+        default: ""
+      request_id:
+        description: Optional caller correlation ID
+        type: string
+        default: ""
+      dry_run:
+        description: Validate, test and build without creating tags or publishing
+        type: boolean
+        default: true
       prerelease:
-        description: Mark the GitHub Release as a prerelease
-        required: false
+        description: Mark the GitHub release as a prerelease; dev versions always are
         type: boolean
         default: false
       publish_maven_central:
-        description: Upload release artifacts to Maven Central Portal
-        required: false
+        description: Publish to Maven Central
         type: boolean
         default: true
       maven_central_auto_publish:
         description: Automatically publish the validated Maven Central deployment
-        required: false
         type: boolean
-        default: false
+        default: true
 
 concurrency:
-  group: ${{ github.workflow }}
+  group: release-${{ github.ref }}
   cancel-in-progress: false
 
 permissions: {}
 
+env:
+  RELEASE_VERSION: ${{ inputs.version }}
+  SOURCE_SHA: ${{ inputs.source_sha || github.sha }}
+  MARK_PRERELEASE: ${{ inputs.prerelease }}
+  VERTESIA_LIVE_TESTS: "0"
+
 jobs:
   release:
-    name: Release
+    name: Release SDK
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 40
     environment: release
     permissions:
-      contents: write # Push release commits/tags and create the GitHub Release.
-    env:
-      VERTESIA_LIVE_TESTS: "0"
+      contents: write # Create or verify the immutable source tag and GitHub release.
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          ref: ${{ env.SOURCE_SHA }}
           fetch-depth: 0
           persist-credentials: false
-
-      - name: Validate version
-        id: version
-        env:
-          INPUT_DEVELOPMENT_VERSION: ${{ inputs.development_version }}
-          INPUT_VERSION: ${{ inputs.version }}
-        shell: bash
-        run: |
-          version="$INPUT_VERSION"
-          if [[ ! "$version" =~ ^v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
-            echo "Version must be semver with a leading v, for example v1.2.3" >&2
-            exit 1
-          fi
-          development_version="$INPUT_DEVELOPMENT_VERSION"
-          if [[ ! "$development_version" =~ ^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?-SNAPSHOT$ ]]; then
-            echo "development_version must be semver ending in -SNAPSHOT, for example 1.2.4-SNAPSHOT" >&2
-            exit 1
-          fi
-          if git rev-parse "$version" >/dev/null 2>&1; then
-            echo "Tag $version already exists" >&2
-            exit 1
-          fi
-          package_version="${version#v}"
-          spec_version="$(python3 -c 'import json; print(json.load(open("spec/vertesia-openapi.json"))["info"]["version"])')"
-          if [[ "$spec_version" != "$package_version" ]]; then
-            echo "OpenAPI spec info.version is $spec_version, want $package_version" >&2
-            exit 1
-          fi
-          configured_version="$(awk -F': ' '/artifactVersion:/ {print $2}' openapi-generator-config.yaml | tr -d '\"')"
-          if [[ "$configured_version" != "$package_version" ]]; then
-            echo "openapi-generator-config.yaml artifactVersion is $configured_version, want $package_version" >&2
-            exit 1
-          fi
-          pom_version="$(python3 -c 'import xml.etree.ElementTree as ET; root=ET.parse("pom.xml").getroot(); ns={"m":"http://maven.apache.org/POM/4.0.0"}; print(root.find("m:version", ns).text)')"
-          expected_pom_version="${package_version}-SNAPSHOT"
-          if [[ "$pom_version" != "$expected_pom_version" ]]; then
-            echo "pom.xml version is $pom_version, want $expected_pom_version" >&2
-            exit 1
-          fi
-          echo "tag=$version" >> "$GITHUB_OUTPUT"
-          echo "package_version=$package_version" >> "$GITHUB_OUTPUT"
-
       - uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
         with:
           distribution: temurin
           java-version: "17"
           cache: maven
-
-      - name: Prepare Maven release
+      - name: Test release contract
+        run: python3 -m unittest discover -s scripts -p test_release_cohort.py
+      - name: Validate synchronized source
+        run: python3 scripts/release_cohort.py validate --lang java
+      - name: Apply generation patches
+        run: scripts/post_generate.sh
+      - name: Stamp artifact version in the build workspace
+        run: python3 scripts/release_cohort.py stamp --lang java
+      - name: Test and package SDK
+        run: mvn -B verify
+      - name: Check prior publication
+        id: registry
+        if: inputs.dry_run == false && inputs.publish_maven_central
+        run: python3 scripts/release_cohort.py registry --lang java
+      - name: Validate Maven Central credentials
+        if: inputs.dry_run == false && inputs.publish_maven_central && steps.registry.outputs.published != 'true'
         env:
-          DEVELOPMENT_VERSION: ${{ inputs.development_version }}
-          GH_TOKEN: ${{ github.token }}
-          RELEASE_TAG: ${{ steps.version.outputs.tag }}
-          RELEASE_VERSION: ${{ steps.version.outputs.package_version }}
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          gh auth setup-git
-          mvn -B release:prepare \
-            -DreleaseVersion="$RELEASE_VERSION" \
-            -DdevelopmentVersion="$DEVELOPMENT_VERSION" \
-            -Dtag="$RELEASE_TAG" \
-            -DpreparationGoals=validate
-
-      - name: Validate Maven Central secrets
-        if: ${{ inputs.publish_maven_central }}
-        env:
-          MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
           MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
           MAVEN_GPG_PRIVATE_KEY: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
-        shell: bash
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
         run: |
-          missing=()
-          for name in MAVEN_CENTRAL_USERNAME MAVEN_CENTRAL_PASSWORD MAVEN_GPG_PRIVATE_KEY MAVEN_GPG_PASSPHRASE; do
-            if [[ -z "${!name}" ]]; then
-              missing+=("$name")
-            fi
+          for key in MAVEN_CENTRAL_USERNAME MAVEN_CENTRAL_PASSWORD MAVEN_GPG_PRIVATE_KEY MAVEN_GPG_PASSPHRASE; do
+            if [[ -z "${!key}" ]]; then echo "Missing $key" >&2; exit 1; fi
           done
-
-          if (( ${#missing[@]} > 0 )); then
-            printf 'Missing required Maven Central secret(s): %s\n' "${missing[*]}" >&2
-            exit 1
-          fi
-
       - name: Configure Maven Central credentials
-        if: ${{ inputs.publish_maven_central }}
+        if: inputs.dry_run == false && inputs.publish_maven_central && steps.registry.outputs.published != 'true'
         uses: actions/setup-java@de7274f081f381c8f8158605e0321c36c376e2e6 # v6.0.1
         with:
           distribution: temurin
@@ -146,40 +101,24 @@ jobs:
           server-password: MAVEN_CENTRAL_PASSWORD
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
-        env:
-          MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
-          MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-
-      - name: Publish Maven Central deployment
-        if: ${{ inputs.publish_maven_central }}
-        env:
-          MAVEN_CENTRAL_AUTO_PUBLISH: ${{ inputs.maven_central_auto_publish }}
-          MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
-          MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
-          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
-        shell: bash
-        run: |
-          central_wait_until="validated"
-          if [[ "$MAVEN_CENTRAL_AUTO_PUBLISH" == "true" ]]; then
-            central_wait_until="published"
-          fi
-
-          mvn -B release:perform \
-            -Darguments="-Pcentral,signed -Dcentral.autoPublish=$MAVEN_CENTRAL_AUTO_PUBLISH -Dcentral.waitUntil=$central_wait_until"
-
-      - name: Create GitHub Release
+      - name: Create immutable source tag
+        if: inputs.dry_run == false
         env:
           GH_TOKEN: ${{ github.token }}
-          PRERELEASE: ${{ inputs.prerelease }}
-          RELEASE_TAG: ${{ steps.version.outputs.tag }}
-        shell: bash
+        run: python3 scripts/release_cohort.py tag --lang java
+      - name: Publish Maven Central deployment
+        if: inputs.dry_run == false && inputs.publish_maven_central && steps.registry.outputs.published != 'true'
+        env:
+          MAVEN_CENTRAL_USERNAME: ${{ secrets.MAVEN_CENTRAL_USERNAME }}
+          MAVEN_CENTRAL_PASSWORD: ${{ secrets.MAVEN_CENTRAL_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          AUTO_PUBLISH: ${{ inputs.maven_central_auto_publish }}
         run: |
-          prerelease_args=()
-          if [[ "$PRERELEASE" == "true" ]]; then
-            prerelease_args=(--prerelease)
-          fi
-          gh release create "$RELEASE_TAG" \
-            --title "$RELEASE_TAG" \
-            --generate-notes \
-            "${prerelease_args[@]}"
+          wait_until=validated
+          if [[ "$AUTO_PUBLISH" == "true" ]]; then wait_until=published; fi
+          mvn -B -Pcentral,signed deploy             -Dcentral.autoPublish="$AUTO_PUBLISH" -Dcentral.waitUntil="$wait_until"
+      - name: Create or resume GitHub release
+        if: inputs.dry_run == false
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/release_cohort.py release --lang java

@@ -29,3 +29,7 @@ dependency-reduced-pom.xml
 # Virtual machine crash logs
 hs_err_pid*
 replay_pid*
+
+# Python release tooling
+__pycache__/
+*.pyc
