@@ -83,8 +83,9 @@ public class ProjectTokenRequest {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            TypeEnum.fromValue(value);
+            if (!"project".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected type to be project");
+            }
         }
     }
 

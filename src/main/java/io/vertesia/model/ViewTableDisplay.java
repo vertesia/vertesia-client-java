@@ -109,8 +109,9 @@ public class ViewTableDisplay {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            TypeEnum.fromValue(value);
+            if (!"table".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected type to be table");
+            }
         }
     }
 

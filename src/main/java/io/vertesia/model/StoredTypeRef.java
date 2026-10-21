@@ -83,8 +83,9 @@ public class StoredTypeRef {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            RefTypeEnum.fromValue(value);
+            if (!"stored".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected ref_type to be stored");
+            }
         }
     }
 

@@ -83,8 +83,9 @@ public class DashboardStoreElasticsearchDataSource {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            KindEnum.fromValue(value);
+            if (!"store_es_dsl".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected kind to be store_es_dsl");
+            }
         }
     }
 

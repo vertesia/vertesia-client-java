@@ -140,8 +140,9 @@ public class AsyncInteractionExecutionPayload {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            TypeEnum.fromValue(value);
+            if (!"interaction".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected type to be interaction");
+            }
         }
     }
 

@@ -87,8 +87,9 @@ public class ProgrammaticRunResponse {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            RunTypeEnum.fromValue(value);
+            if (!"programmatic".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected run_type to be programmatic");
+            }
         }
     }
 

@@ -178,8 +178,9 @@ public class ViewHierarchyNavigation {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            SourceEnum.fromValue(value);
+            if (!"hierarchy".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected source to be hierarchy");
+            }
         }
     }
 

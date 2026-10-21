@@ -87,8 +87,9 @@ public class SupervisedRunResponse {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            RunTypeEnum.fromValue(value);
+            if (!"supervised".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected run_type to be supervised");
+            }
         }
     }
 

@@ -268,8 +268,9 @@ public class AutonomousRunResponse {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            RunTypeEnum.fromValue(value);
+            if (!"autonomous".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected run_type to be autonomous");
+            }
         }
     }
 

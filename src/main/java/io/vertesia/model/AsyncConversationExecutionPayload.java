@@ -171,8 +171,9 @@ public class AsyncConversationExecutionPayload {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            TypeEnum.fromValue(value);
+            if (!"conversation".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected type to be conversation");
+            }
         }
     }
 

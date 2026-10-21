@@ -177,8 +177,9 @@ public class ViewCollectionNavigation {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            SourceEnum.fromValue(value);
+            if (!"collection".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected source to be collection");
+            }
         }
     }
 

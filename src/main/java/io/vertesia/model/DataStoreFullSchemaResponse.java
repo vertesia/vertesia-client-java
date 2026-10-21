@@ -120,8 +120,9 @@ public class DataStoreFullSchemaResponse {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            SchemaFormatEnum.fromValue(value);
+            if (!"full".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected schema_format to be full");
+            }
         }
     }
 

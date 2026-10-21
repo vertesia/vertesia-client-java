@@ -83,8 +83,9 @@ public class EmbeddingsApiImageInput {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            TypeEnum.fromValue(value);
+            if (!"image".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected type to be image");
+            }
         }
     }
 

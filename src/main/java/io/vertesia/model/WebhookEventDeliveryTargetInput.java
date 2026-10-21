@@ -93,8 +93,9 @@ public class WebhookEventDeliveryTargetInput {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            TypeEnum.fromValue(value);
+            if (!"webhook".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected type to be webhook");
+            }
         }
     }
 

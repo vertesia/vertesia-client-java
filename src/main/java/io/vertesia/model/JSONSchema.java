@@ -263,7 +263,7 @@ public class JSONSchema {
      * This is a holder for any undeclared properties as specified with
      * the 'additionalProperties' keyword in the OAS document.
      */
-    private Map<String, Object> additionalProperties;
+    private transient Map<String, Object> additionalProperties;
 
     /**
      * Set the additional (undeclared) property with the specified name and value.
@@ -479,7 +479,6 @@ public class JSONSchema {
                         @Override
                         public void write(JsonWriter out, JSONSchema value) throws IOException {
                             JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
-                            obj.remove("additionalProperties");
                             // serialize additional properties
                             if (value.getAdditionalProperties() != null) {
                                 for (Map.Entry<String, Object> entry :

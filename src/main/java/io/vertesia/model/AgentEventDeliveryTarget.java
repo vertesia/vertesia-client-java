@@ -88,8 +88,9 @@ public class AgentEventDeliveryTarget {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            TypeEnum.fromValue(value);
+            if (!"agent".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected type to be agent");
+            }
         }
     }
 

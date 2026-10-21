@@ -83,8 +83,9 @@ public class BulkOperationResult {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            OperationEnum.fromValue(value);
+            if (!"generic".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected operation to be generic");
+            }
         }
     }
 

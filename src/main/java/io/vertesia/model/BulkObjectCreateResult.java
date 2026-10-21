@@ -89,8 +89,9 @@ public class BulkObjectCreateResult {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            OperationEnum.fromValue(value);
+            if (!"create".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected operation to be create");
+            }
         }
     }
 

@@ -83,8 +83,9 @@ public class StripeBillingDisabled {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            StatusEnum.fromValue(value);
+            if (!"disabled".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected status to be disabled");
+            }
         }
     }
 

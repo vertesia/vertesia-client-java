@@ -83,8 +83,9 @@ public class InCodeTypeRef {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            RefTypeEnum.fromValue(value);
+            if (!"incode".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected ref_type to be incode");
+            }
         }
     }
 

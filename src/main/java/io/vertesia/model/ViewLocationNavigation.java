@@ -177,8 +177,9 @@ public class ViewLocationNavigation {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            SourceEnum.fromValue(value);
+            if (!"location".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected source to be location");
+            }
         }
     }
 

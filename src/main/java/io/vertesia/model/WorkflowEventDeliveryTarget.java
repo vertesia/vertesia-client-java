@@ -87,8 +87,9 @@ public class WorkflowEventDeliveryTarget {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            TypeEnum.fromValue(value);
+            if (!"workflow".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected type to be workflow");
+            }
         }
     }
 

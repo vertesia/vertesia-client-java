@@ -86,8 +86,9 @@ public class DashboardSqlDataSource {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            KindEnum.fromValue(value);
+            if (!"data_sql".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected kind to be data_sql");
+            }
         }
     }
 

@@ -85,8 +85,9 @@ public class ServiceAccountTokenRequest {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            TypeEnum.fromValue(value);
+            if (!"service_account".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected type to be service_account");
+            }
         }
     }
 

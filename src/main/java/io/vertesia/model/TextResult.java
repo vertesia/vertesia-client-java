@@ -83,8 +83,9 @@ public class TextResult {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            TypeEnum.fromValue(value);
+            if (!"text".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected type to be text");
+            }
         }
     }
 

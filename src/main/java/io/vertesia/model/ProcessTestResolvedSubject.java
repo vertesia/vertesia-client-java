@@ -83,8 +83,9 @@ public class ProcessTestResolvedSubject {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            KindEnum.fromValue(value);
+            if (!"resolved".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected kind to be resolved");
+            }
         }
     }
 

@@ -141,8 +141,9 @@ public class UpdateWorkflowDefinitionPayloadWithActivities {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            SpecFormatEnum.fromValue(value);
+            if (!"activities".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected spec_format to be activities");
+            }
         }
     }
 

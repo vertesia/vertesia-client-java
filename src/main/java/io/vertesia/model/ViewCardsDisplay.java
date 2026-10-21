@@ -109,8 +109,9 @@ public class ViewCardsDisplay {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            TypeEnum.fromValue(value);
+            if (!"cards".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected type to be cards");
+            }
         }
     }
 

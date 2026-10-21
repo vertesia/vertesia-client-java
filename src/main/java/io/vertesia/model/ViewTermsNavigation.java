@@ -175,8 +175,9 @@ public class ViewTermsNavigation {
         }
 
         public static void validateJsonElement(JsonElement jsonElement) throws IOException {
-            String value = jsonElement.getAsString();
-            SourceEnum.fromValue(value);
+            if (!"terms".equals(jsonElement.getAsString())) {
+                throw new IOException("Expected source to be terms");
+            }
         }
     }
 
