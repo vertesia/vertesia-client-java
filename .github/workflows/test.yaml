@@ -29,4 +29,7 @@ jobs:
           java-version: "17"
           cache: maven
 
+      # Exercise patch changes before the next generated client refresh.
+      - run: python3 scripts/patch_forward_compat_validation.py
+
       - run: mvn -B test
