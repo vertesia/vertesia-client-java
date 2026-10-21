@@ -164,29 +164,20 @@ The public CI test workflow runs offline tests. The integration workflow resolve
 
 ## Release
 
-Releases are manual. The release workflow verifies the requested version against `pom.xml`, `openapi-generator-config.yaml`, and `spec/vertesia-openapi.json`, creates an annotated git tag, and publishes a GitHub Release.
+Use the Release workflow on `main` for timestamped dev cohorts or `release/X.Y`
+for stable releases. `version` is the synchronized spec version with a leading
+`v`; optional `source_sha` pins the tested commit. `dry_run=true` validates and
+packages without tags or uploads.
 
-The checked-in Maven project version should be the release version with a `-SNAPSHOT` suffix. For example, releasing `v1.2.0` starts from `1.2.0-SNAPSHOT` in `pom.xml`.
+The checked-in POM remains `<base>-SNAPSHOT`. The publisher stamps the artifact
+version only in its build workspace, runs `mvn -B verify`, and tags the original
+source commit. It does not push version-bump commits to the source branch.
+For example, `v1.6.0-dev.20261021.123456Z` publishes Maven artifact version
+`1.6.0-alpha.20261021.123456Z`; Maven's `alpha` qualifier sorts before the final
+release. Dev GitHub releases are marked as prereleases.
 
-Maven releases can be prepared locally with the Maven Release Plugin. Run a dry run before creating tags or changing versions:
-
-```sh
-mvn -B release:prepare -DdryRun=true
-```
-
-Prepare the release tag and next development version:
-
-```sh
-mvn -B release:prepare
-```
-
-Deploy the tagged release:
-
-```sh
-mvn -B release:perform
-```
-
-`release:prepare` runs `clean verify`, which includes the Spotless and Enforcer checks. `release:perform` runs `deploy`, so Maven repository credentials and deployment configuration must be available before publishing.
+Retries accept an existing tag only at the same source commit. An already
+published Maven version is reused only when its matching source tag exists.
 
 The release workflow can upload release artifacts to Maven Central Portal. It requires these GitHub secrets:
 
@@ -197,7 +188,9 @@ MAVEN_GPG_PRIVATE_KEY
 MAVEN_GPG_PASSPHRASE
 ```
 
-By default, the workflow uploads and waits for Central validation, but leaves the deployment unpublished for manual review in the Central Portal. Set `maven_central_auto_publish` when dispatching the workflow to publish automatically after validation.
+By default, the workflow publishes to Maven Central and waits for availability. Set
+`maven_central_auto_publish=false` to leave the validated deployment for manual
+publication in the Central Portal. Coordinated cohorts use automatic publication.
 
 ## OIDC federation for provisioned users
 
