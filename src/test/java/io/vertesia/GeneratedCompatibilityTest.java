@@ -93,4 +93,46 @@ class GeneratedCompatibilityTest {
         assertNotNull(response);
         assertTrue(response.getActualInstance() instanceof DataStoreFullSchemaResponse);
     }
+
+    @Test
+    void contentTypeReferenceLiteralsSelectOneBranch() {
+        io.vertesia.model.ContentObjectTypeRef stored =
+                JSON.deserialize(
+                        "{\"ref_type\":\"stored\",\"id\":\"type-1\",\"name\":\"Test\",\"future\":true}",
+                        io.vertesia.model.ContentObjectTypeRef.class);
+        assertTrue(stored.getActualInstance() instanceof io.vertesia.model.StoredTypeRef);
+        io.vertesia.model.ContentObjectTypeRef incode =
+                JSON.deserialize(
+                        "{\"ref_type\":\"incode\",\"id\":\"sys:Test\",\"name\":\"Test\",\"future\":true}",
+                        io.vertesia.model.ContentObjectTypeRef.class);
+        assertTrue(incode.getActualInstance() instanceof io.vertesia.model.InCodeTypeRef);
+        assertThrows(
+                com.google.gson.JsonSyntaxException.class,
+                () ->
+                        JSON.deserialize(
+                                "{\"ref_type\":\"unknown\",\"id\":\"type-1\",\"name\":\"Test\"}",
+                                io.vertesia.model.ContentObjectTypeRef.class));
+    }
+
+    @Test
+    void bulkOperationLiteralSelectsUpdateBranch() {
+        io.vertesia.model.BulkOperationResponse result =
+                JSON.deserialize(
+                        "{\"operation\":\"update\",\"status\":\"completed\",\"updated\":0,\"failed\":[]}",
+                        io.vertesia.model.BulkOperationResponse.class);
+        assertTrue(result.getActualInstance() instanceof io.vertesia.model.BulkObjectUpdateResult);
+    }
+
+    @Test
+    void jsonSchemaAdditionalPropertiesDoesNotCollideWithExtraFieldMap() {
+        var schema =
+                JSON.deserialize(
+                        "{\"type\":\"object\",\"additionalProperties\":false,\"future_field\":\"kept\"}",
+                        io.vertesia.model.JSONSchema.class);
+        var serialized =
+                com.google.gson.JsonParser.parseString(JSON.serialize(schema)).getAsJsonObject();
+        assertEquals(false, serialized.get("additionalProperties").getAsBoolean());
+        assertEquals("kept", serialized.get("future_field").getAsString());
+        assertNotNull(JSON.serialize(new io.vertesia.model.PromptTemplateCreatePayload()));
+    }
 }
