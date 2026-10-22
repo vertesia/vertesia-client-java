@@ -131,4 +131,14 @@ jobs:
         if: inputs.dry_run == false
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python3 scripts/release_cohort.py release --lang java
+        run: |
+          # The source tag was created/verified before publishing. Fetch and recheck it on retries.
+          git fetch origin "refs/tags/${RELEASE_VERSION}:refs/tags/${RELEASE_VERSION}"
+          [[ "$(git rev-parse "${RELEASE_VERSION}^{commit}")" == "$SOURCE_SHA" ]]
+          release_args=(--verify-tag --title "$RELEASE_VERSION" --generate-notes)
+          if [[ "$RELEASE_VERSION" == *-dev.* || "$MARK_PRERELEASE" == "true" ]]; then
+            release_args+=(--prerelease)
+          fi
+          if ! gh release view "$RELEASE_VERSION" >/dev/null; then
+            gh release create "$RELEASE_VERSION" "${release_args[@]}"
+          fi

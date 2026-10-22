@@ -1,6 +1,7 @@
 import importlib.util
 import io
 import os
+import json
 import subprocess
 import tempfile
 import unittest
@@ -65,6 +66,47 @@ class ReleaseCohortTest(unittest.TestCase):
         self.assertIn("1.6.0-dev.20261021.123456Z", Path("pom.xml").read_text())
         self.assertIn("1.6.0.dev20261021123456", Path("pyproject.toml").read_text())
         self.assertEqual(module.run("git", "rev-parse", "HEAD").stdout.strip(), self.source)
+
+    def test_github_release_uses_only_the_verified_source_tag(self):
+        workflow = (Path(__file__).resolve().parents[1] / ".github/workflows/release.yaml").read_text()
+        block = workflow.split("      - name: Create or resume GitHub release", 1)[1].split("        run: |\n", 1)[1]
+        command = "\n".join(line[10:] for line in block.splitlines())
+        remote = Path(self.directory.name) / "remote.git"
+        module.run("git", "init", "--bare", "-q", str(remote))
+        module.run("git", "remote", "add", "origin", str(remote))
+        tag = "v1.6.0-dev.20261021.123456Z"
+        module.run("git", "tag", "-a", "-m", "Release", tag)
+        module.run("git", "push", "-q", "origin", "refs/tags/" + tag)
+        binary = Path(self.directory.name) / "bin"
+        binary.mkdir()
+        executable = binary / "gh"
+        executable.write_text(
+            "#!/usr/bin/env python3\n"
+            "import json, os, pathlib, sys\n"
+            "args = sys.argv[1:]\n"
+            "if args[:2] == ['release', 'view']: sys.exit(0 if os.environ.get('EXISTING_RELEASE') else 1)\n"
+            "assert args[:2] == ['release', 'create']\n"
+            "pathlib.Path('github-release-args.json').write_text(json.dumps(args))\n"
+        )
+        executable.chmod(0o755)
+        env = dict(os.environ, PATH=str(binary) + os.pathsep + os.environ["PATH"],
+                   RELEASE_VERSION=tag, SOURCE_SHA=self.source, MARK_PRERELEASE="false")
+        subprocess.run(["bash", "-e", "-o", "pipefail", "-c", command], env=env, check=True,
+                       capture_output=True, text=True)
+        args = json.loads(Path("github-release-args.json").read_text())
+        self.assertIn("--verify-tag", args)
+        self.assertIn("--prerelease", args)
+        self.assertNotIn("--target", args)
+        Path("github-release-args.json").unlink()
+        env["EXISTING_RELEASE"] = "true"
+        subprocess.run(["bash", "-e", "-o", "pipefail", "-c", command], env=env, check=True,
+                       capture_output=True, text=True)
+        self.assertFalse(Path("github-release-args.json").exists())
+        env["SOURCE_SHA"] = "b" * 40
+        result = subprocess.run(["bash", "-e", "-o", "pipefail", "-c", command], env=env,
+                                capture_output=True, text=True)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse(Path("github-release-args.json").exists())
 
     def test_registry_version_cannot_be_claimed_without_source_tag(self):
         with patch.object(module, "urlopen", side_effect=lambda *_args, **_kwargs: io.BytesIO(b"{}")):
