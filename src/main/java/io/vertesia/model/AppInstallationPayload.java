@@ -44,6 +44,11 @@ public class AppInstallationPayload {
     @jakarta.annotation.Nonnull
     private String appId;
 
+    public static final String SERIALIZED_NAME_DEPLOYMENT_ALIAS = "deployment_alias";
+
+    @SerializedName(SERIALIZED_NAME_DEPLOYMENT_ALIAS)
+    @jakarta.annotation.Nullable private String deploymentAlias;
+
     public static final String SERIALIZED_NAME_INSTANCE_KEY = "instance_key";
 
     @SerializedName(SERIALIZED_NAME_INSTANCE_KEY)
@@ -114,6 +119,24 @@ public class AppInstallationPayload {
 
     public void setAppId(@jakarta.annotation.Nonnull String appId) {
         this.appId = appId;
+    }
+
+    public AppInstallationPayload deploymentAlias(
+            @jakarta.annotation.Nullable String deploymentAlias) {
+        this.deploymentAlias = deploymentAlias;
+        return this;
+    }
+
+    /**
+     * Optional stable deployment alias to follow for this installation instead of the app&#39;s promoted version.
+     * @return deploymentAlias
+     */
+    @jakarta.annotation.Nullable public String getDeploymentAlias() {
+        return deploymentAlias;
+    }
+
+    public void setDeploymentAlias(@jakarta.annotation.Nullable String deploymentAlias) {
+        this.deploymentAlias = deploymentAlias;
     }
 
     public AppInstallationPayload instanceKey(@jakarta.annotation.Nullable String instanceKey) {
@@ -423,6 +446,7 @@ public class AppInstallationPayload {
         }
         AppInstallationPayload appInstallationPayload = (AppInstallationPayload) o;
         return Objects.equals(this.appId, appInstallationPayload.appId)
+                && Objects.equals(this.deploymentAlias, appInstallationPayload.deploymentAlias)
                 && Objects.equals(this.instanceKey, appInstallationPayload.instanceKey)
                 && Objects.equals(this.displayName, appInstallationPayload.displayName)
                 && Objects.equals(
@@ -453,6 +477,7 @@ public class AppInstallationPayload {
     public int hashCode() {
         return Objects.hash(
                 appId,
+                deploymentAlias,
                 instanceKey,
                 displayName,
                 namespaceOverrides,
@@ -478,6 +503,7 @@ public class AppInstallationPayload {
         StringBuilder sb = new StringBuilder();
         sb.append("class AppInstallationPayload {\n");
         sb.append("    appId: ").append(toIndentedString(appId)).append("\n");
+        sb.append("    deploymentAlias: ").append(toIndentedString(deploymentAlias)).append("\n");
         sb.append("    instanceKey: ").append(toIndentedString(instanceKey)).append("\n");
         sb.append("    displayName: ").append(toIndentedString(displayName)).append("\n");
         sb.append("    namespaceOverrides: ")
@@ -518,6 +544,7 @@ public class AppInstallationPayload {
                 new HashSet<String>(
                         Arrays.asList(
                                 "app_id",
+                                "deployment_alias",
                                 "instance_key",
                                 "display_name",
                                 "namespace_overrides",
@@ -569,6 +596,15 @@ public class AppInstallationPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `app_id` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("app_id").toString()));
+        }
+        if ((jsonObj.get("deployment_alias") != null
+                        && !jsonObj.get("deployment_alias").isJsonNull())
+                && !jsonObj.get("deployment_alias").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `deployment_alias` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("deployment_alias").toString()));
         }
         if ((jsonObj.get("instance_key") != null && !jsonObj.get("instance_key").isJsonNull())
                 && !jsonObj.get("instance_key").isJsonPrimitive()) {

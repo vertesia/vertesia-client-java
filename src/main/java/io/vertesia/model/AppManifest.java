@@ -272,6 +272,11 @@ public class AppManifest {
     @SerializedName(SERIALIZED_NAME_VERSION)
     @jakarta.annotation.Nullable private String version;
 
+    public static final String SERIALIZED_NAME_DEPLOYMENT_ALIASES = "deployment_aliases";
+
+    @SerializedName(SERIALIZED_NAME_DEPLOYMENT_ALIASES)
+    @jakarta.annotation.Nullable private Map<String, AppDeploymentAliasTarget> deploymentAliases = new HashMap<>();
+
     public static final String SERIALIZED_NAME_SOURCE = "source";
 
     @SerializedName(SERIALIZED_NAME_SOURCE)
@@ -758,6 +763,34 @@ public class AppManifest {
         this.version = version;
     }
 
+    public AppManifest deploymentAliases(
+            @jakarta.annotation.Nullable Map<String, AppDeploymentAliasTarget> deploymentAliases) {
+        this.deploymentAliases = deploymentAliases;
+        return this;
+    }
+
+    public AppManifest putDeploymentAliasesItem(
+            String key, AppDeploymentAliasTarget deploymentAliasesItem) {
+        if (this.deploymentAliases == null) {
+            this.deploymentAliases = new HashMap<>();
+        }
+        this.deploymentAliases.put(key, deploymentAliasesItem);
+        return this;
+    }
+
+    /**
+     * Vertesia-managed mapping from stable deployment aliases to immutable AppGen versions.
+     * @return deploymentAliases
+     */
+    @jakarta.annotation.Nullable public Map<String, AppDeploymentAliasTarget> getDeploymentAliases() {
+        return deploymentAliases;
+    }
+
+    public void setDeploymentAliases(
+            @jakarta.annotation.Nullable Map<String, AppDeploymentAliasTarget> deploymentAliases) {
+        this.deploymentAliases = deploymentAliases;
+    }
+
     public AppManifest source(@jakarta.annotation.Nullable AppManifestSource source) {
         this.source = source;
         return this;
@@ -964,6 +997,7 @@ public class AppManifest {
                 && Objects.equals(this.endpoint, appManifest.endpoint)
                 && Objects.equals(this.endpointOverrides, appManifest.endpointOverrides)
                 && Objects.equals(this.version, appManifest.version)
+                && Objects.equals(this.deploymentAliases, appManifest.deploymentAliases)
                 && Objects.equals(this.source, appManifest.source)
                 && Objects.equals(this.tags, appManifest.tags)
                 && Objects.equals(this.accessControl, appManifest.accessControl)
@@ -999,6 +1033,7 @@ public class AppManifest {
                 endpoint,
                 endpointOverrides,
                 version,
+                deploymentAliases,
                 source,
                 tags,
                 accessControl,
@@ -1039,6 +1074,9 @@ public class AppManifest {
                 .append(toIndentedString(endpointOverrides))
                 .append("\n");
         sb.append("    version: ").append(toIndentedString(version)).append("\n");
+        sb.append("    deploymentAliases: ")
+                .append(toIndentedString(deploymentAliases))
+                .append("\n");
         sb.append("    source: ").append(toIndentedString(source)).append("\n");
         sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
         sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
@@ -1091,6 +1129,7 @@ public class AppManifest {
                                 "endpoint",
                                 "endpoint_overrides",
                                 "version",
+                                "deployment_aliases",
                                 "source",
                                 "tags",
                                 "access_control",

@@ -138,6 +138,11 @@ public class AppInstallationWithManifest {
     @SerializedName(SERIALIZED_NAME_NAMESPACE_CONFLICTS)
     @jakarta.annotation.Nullable private List<String> namespaceConflicts = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_DEPLOYMENT_ALIAS = "deployment_alias";
+
+    @SerializedName(SERIALIZED_NAME_DEPLOYMENT_ALIAS)
+    @jakarta.annotation.Nullable private String deploymentAlias;
+
     public static final String SERIALIZED_NAME_MCP_CONFIGURATION = "mcp_configuration";
 
     @SerializedName(SERIALIZED_NAME_MCP_CONFIGURATION)
@@ -374,6 +379,24 @@ public class AppInstallationWithManifest {
     public void setNamespaceConflicts(
             @jakarta.annotation.Nullable List<String> namespaceConflicts) {
         this.namespaceConflicts = namespaceConflicts;
+    }
+
+    public AppInstallationWithManifest deploymentAlias(
+            @jakarta.annotation.Nullable String deploymentAlias) {
+        this.deploymentAlias = deploymentAlias;
+        return this;
+    }
+
+    /**
+     * Stable deployment alias selected for this installation. The alias is resolved to its current immutable app version at request time.
+     * @return deploymentAlias
+     */
+    @jakarta.annotation.Nullable public String getDeploymentAlias() {
+        return deploymentAlias;
+    }
+
+    public void setDeploymentAlias(@jakarta.annotation.Nullable String deploymentAlias) {
+        this.deploymentAlias = deploymentAlias;
     }
 
     public AppInstallationWithManifest mcpConfiguration(
@@ -705,6 +728,7 @@ public class AppInstallationWithManifest {
                         this.reservedNamespaces, appInstallationWithManifest.reservedNamespaces)
                 && Objects.equals(
                         this.namespaceConflicts, appInstallationWithManifest.namespaceConflicts)
+                && Objects.equals(this.deploymentAlias, appInstallationWithManifest.deploymentAlias)
                 && Objects.equals(
                         this.mcpConfiguration, appInstallationWithManifest.mcpConfiguration)
                 && Objects.equals(this.oauthApproval, appInstallationWithManifest.oauthApproval)
@@ -745,6 +769,7 @@ public class AppInstallationWithManifest {
                 namespaceOverrides,
                 reservedNamespaces,
                 namespaceConflicts,
+                deploymentAlias,
                 mcpConfiguration,
                 oauthApproval,
                 oauthClientId,
@@ -787,6 +812,7 @@ public class AppInstallationWithManifest {
         sb.append("    namespaceConflicts: ")
                 .append(toIndentedString(namespaceConflicts))
                 .append("\n");
+        sb.append("    deploymentAlias: ").append(toIndentedString(deploymentAlias)).append("\n");
         sb.append("    mcpConfiguration: ").append(toIndentedString(mcpConfiguration)).append("\n");
         sb.append("    oauthApproval: ").append(toIndentedString(oauthApproval)).append("\n");
         sb.append("    oauthClientId: ").append(toIndentedString(oauthClientId)).append("\n");
@@ -832,6 +858,7 @@ public class AppInstallationWithManifest {
                                 "namespace_overrides",
                                 "reserved_namespaces",
                                 "namespace_conflicts",
+                                "deployment_alias",
                                 "mcp_configuration",
                                 "oauth_approval",
                                 "oauth_client_id",
@@ -935,6 +962,15 @@ public class AppInstallationWithManifest {
                             java.util.Locale.ROOT,
                             "Expected the field `namespace_conflicts` to be an array in the JSON string but got `%s`",
                             jsonObj.get("namespace_conflicts").toString()));
+        }
+        if ((jsonObj.get("deployment_alias") != null
+                        && !jsonObj.get("deployment_alias").isJsonNull())
+                && !jsonObj.get("deployment_alias").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `deployment_alias` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("deployment_alias").toString()));
         }
         // validate the optional field `mcp_configuration`
         if (jsonObj.get("mcp_configuration") != null

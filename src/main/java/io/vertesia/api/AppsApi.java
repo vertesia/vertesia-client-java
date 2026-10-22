@@ -43,8 +43,11 @@ import io.vertesia.model.AppRepoRefs;
 import io.vertesia.model.AppRepoTree;
 import io.vertesia.model.AppScaffoldProgress;
 import io.vertesia.model.AppToolCollection;
+import io.vertesia.model.AppVersionLaunchTarget;
 import io.vertesia.model.AppVersionRecord;
 import io.vertesia.model.CountResult;
+import io.vertesia.model.CreateAppVersionLaunchRequest;
+import io.vertesia.model.CreateAppVersionLaunchResponse;
 import io.vertesia.model.DeleteAppVersionResponse;
 import io.vertesia.model.ExchangeAppGithubAuthorizationRequest;
 import io.vertesia.model.ExchangeAppGithubAuthorizationResponse;
@@ -106,6 +109,181 @@ public class AppsApi {
 
     public void setCustomBaseUrl(String customBaseUrl) {
         this.localCustomBaseUrl = customBaseUrl;
+    }
+
+    /**
+     * Build call for assignAppVersionAlias
+     * @param id  (required)
+     * @param alias  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The aliased app version. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call assignAppVersionAliasCall(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String alias,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/apps/versions/{id}/aliases/{alias}"
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()))
+                        .replace(
+                                "{" + "alias" + "}",
+                                localVarApiClient.escapeString(alias.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "PUT",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call assignAppVersionAliasValidateBeforeCall(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String alias,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'id' when calling assignAppVersionAlias(Async)");
+        }
+
+        // verify the required parameter 'alias' is set
+        if (alias == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'alias' when calling assignAppVersionAlias(Async)");
+        }
+
+        return assignAppVersionAliasCall(id, alias, _callback);
+    }
+
+    /**
+     * Assign a deployment alias to an app version
+     * Atomically assigns or moves one stable deployment alias to this immutable app version. This does not change the promoted version.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param alias  (required)
+     * @return AppVersionRecord
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The aliased app version. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public AppVersionRecord assignAppVersionAlias(
+            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String alias)
+            throws ApiException {
+        ApiResponse<AppVersionRecord> localVarResp = assignAppVersionAliasWithHttpInfo(id, alias);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Assign a deployment alias to an app version
+     * Atomically assigns or moves one stable deployment alias to this immutable app version. This does not change the promoted version.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param alias  (required)
+     * @return ApiResponse&lt;AppVersionRecord&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The aliased app version. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AppVersionRecord> assignAppVersionAliasWithHttpInfo(
+            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String alias)
+            throws ApiException {
+        okhttp3.Call localVarCall = assignAppVersionAliasValidateBeforeCall(id, alias, null);
+        Type localVarReturnType = new TypeToken<AppVersionRecord>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Assign a deployment alias to an app version (asynchronously)
+     * Atomically assigns or moves one stable deployment alias to this immutable app version. This does not change the promoted version.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param alias  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The aliased app version. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call assignAppVersionAliasAsync(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String alias,
+            final ApiCallback<AppVersionRecord> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = assignAppVersionAliasValidateBeforeCall(id, alias, _callback);
+        Type localVarReturnType = new TypeToken<AppVersionRecord>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
     /**
@@ -573,6 +751,184 @@ public class AppsApi {
     }
 
     /**
+     * Build call for createAppVersionLaunch
+     * @param id  (required)
+     * @param createAppVersionLaunchRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The temporary version launch. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createAppVersionLaunchCall(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull CreateAppVersionLaunchRequest createAppVersionLaunchRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createAppVersionLaunchRequest;
+
+        // create path and map variables
+        String localVarPath =
+                "/apps/versions/{id}/launches"
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createAppVersionLaunchValidateBeforeCall(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull CreateAppVersionLaunchRequest createAppVersionLaunchRequest,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'id' when calling createAppVersionLaunch(Async)");
+        }
+
+        // verify the required parameter 'createAppVersionLaunchRequest' is set
+        if (createAppVersionLaunchRequest == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'createAppVersionLaunchRequest' when calling createAppVersionLaunch(Async)");
+        }
+
+        return createAppVersionLaunchCall(id, createAppVersionLaunchRequest, _callback);
+    }
+
+    /**
+     * Create an advanced app version launch
+     * Creates a short-lived launch selector for an immutable app version. Temporary settings override the selected project installation only for requests carrying that selector.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param createAppVersionLaunchRequest  (required)
+     * @return CreateAppVersionLaunchResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The temporary version launch. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public CreateAppVersionLaunchResponse createAppVersionLaunch(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull CreateAppVersionLaunchRequest createAppVersionLaunchRequest)
+            throws ApiException {
+        ApiResponse<CreateAppVersionLaunchResponse> localVarResp =
+                createAppVersionLaunchWithHttpInfo(id, createAppVersionLaunchRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create an advanced app version launch
+     * Creates a short-lived launch selector for an immutable app version. Temporary settings override the selected project installation only for requests carrying that selector.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param createAppVersionLaunchRequest  (required)
+     * @return ApiResponse&lt;CreateAppVersionLaunchResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The temporary version launch. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<CreateAppVersionLaunchResponse> createAppVersionLaunchWithHttpInfo(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull CreateAppVersionLaunchRequest createAppVersionLaunchRequest)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                createAppVersionLaunchValidateBeforeCall(id, createAppVersionLaunchRequest, null);
+        Type localVarReturnType = new TypeToken<CreateAppVersionLaunchResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create an advanced app version launch (asynchronously)
+     * Creates a short-lived launch selector for an immutable app version. Temporary settings override the selected project installation only for requests carrying that selector.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param createAppVersionLaunchRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The temporary version launch. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createAppVersionLaunchAsync(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull CreateAppVersionLaunchRequest createAppVersionLaunchRequest,
+            final ApiCallback<CreateAppVersionLaunchResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                createAppVersionLaunchValidateBeforeCall(
+                        id, createAppVersionLaunchRequest, _callback);
+        Type localVarReturnType = new TypeToken<CreateAppVersionLaunchResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for deleteApp
      * @param id  (required)
      * @param _callback Callback for upload/download progress
@@ -812,7 +1168,7 @@ public class AppsApi {
 
     /**
      * Delete an app version
-     * Deletes an unpromoted app version and its stored build artifacts.  **Required permissions:** &#x60;app:manage&#x60;
+     * Deletes an unpromoted, unaliased app version and its stored build artifacts.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
      * @return DeleteAppVersionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -833,7 +1189,7 @@ public class AppsApi {
 
     /**
      * Delete an app version
-     * Deletes an unpromoted app version and its stored build artifacts.  **Required permissions:** &#x60;app:manage&#x60;
+     * Deletes an unpromoted, unaliased app version and its stored build artifacts.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
      * @return ApiResponse&lt;DeleteAppVersionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -855,7 +1211,7 @@ public class AppsApi {
 
     /**
      * Delete an app version (asynchronously)
-     * Deletes an unpromoted app version and its stored build artifacts.  **Required permissions:** &#x60;app:manage&#x60;
+     * Deletes an unpromoted, unaliased app version and its stored build artifacts.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2787,6 +3143,7 @@ public class AppsApi {
      * Build call for getAppPackage
      * @param id  (required)
      * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
+     * @param deploymentAlias Resolve the package from this named deployment. Used before installation to load the selected deployment configuration. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2802,6 +3159,7 @@ public class AppsApi {
     public okhttp3.Call getAppPackageCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nullable List<String> scope,
+            @jakarta.annotation.Nullable String deploymentAlias,
             final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -2833,6 +3191,11 @@ public class AppsApi {
         if (scope != null) {
             localVarCollectionQueryParams.addAll(
                     localVarApiClient.parameterToPairs("multi", "scope", scope));
+        }
+
+        if (deploymentAlias != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("deployment_alias", deploymentAlias));
         }
 
         final String[] localVarAccepts = {"application/json"};
@@ -2867,6 +3230,7 @@ public class AppsApi {
     private okhttp3.Call getAppPackageValidateBeforeCall(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nullable List<String> scope,
+            @jakarta.annotation.Nullable String deploymentAlias,
             final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'id' is set
@@ -2875,7 +3239,7 @@ public class AppsApi {
                     "Missing the required parameter 'id' when calling getAppPackage(Async)");
         }
 
-        return getAppPackageCall(id, scope, _callback);
+        return getAppPackageCall(id, scope, deploymentAlias, _callback);
     }
 
     /**
@@ -2883,6 +3247,7 @@ public class AppsApi {
      * Returns the promoted package an app exposes, filtered by scope(s). App-owned (in-code) artifacts are package-resolved — there is no per-id route — so this is how a client reads the full definition (type schema, interaction prompt, process definition, dashboard spec) to visualize it.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
      * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
+     * @param deploymentAlias Resolve the package from this named deployment. Used before installation to load the selected deployment configuration. (optional)
      * @return AppPackage
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2895,9 +3260,12 @@ public class AppsApi {
      * </table>
      */
     public AppPackage getAppPackage(
-            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable List<String> scope)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable List<String> scope,
+            @jakarta.annotation.Nullable String deploymentAlias)
             throws ApiException {
-        ApiResponse<AppPackage> localVarResp = getAppPackageWithHttpInfo(id, scope);
+        ApiResponse<AppPackage> localVarResp =
+                getAppPackageWithHttpInfo(id, scope, deploymentAlias);
         return localVarResp.getData();
     }
 
@@ -2906,6 +3274,7 @@ public class AppsApi {
      * Returns the promoted package an app exposes, filtered by scope(s). App-owned (in-code) artifacts are package-resolved — there is no per-id route — so this is how a client reads the full definition (type schema, interaction prompt, process definition, dashboard spec) to visualize it.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
      * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
+     * @param deploymentAlias Resolve the package from this named deployment. Used before installation to load the selected deployment configuration. (optional)
      * @return ApiResponse&lt;AppPackage&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2918,9 +3287,12 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppPackage> getAppPackageWithHttpInfo(
-            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nullable List<String> scope)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable List<String> scope,
+            @jakarta.annotation.Nullable String deploymentAlias)
             throws ApiException {
-        okhttp3.Call localVarCall = getAppPackageValidateBeforeCall(id, scope, null);
+        okhttp3.Call localVarCall =
+                getAppPackageValidateBeforeCall(id, scope, deploymentAlias, null);
         Type localVarReturnType = new TypeToken<AppPackage>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2930,6 +3302,7 @@ public class AppsApi {
      * Returns the promoted package an app exposes, filtered by scope(s). App-owned (in-code) artifacts are package-resolved — there is no per-id route — so this is how a client reads the full definition (type schema, interaction prompt, process definition, dashboard spec) to visualize it.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
      * @param scope Which capabilities to include in the returned package. Defaults to &#x60;all&#x60;. Comma-joined (&#x60;?scope&#x3D;ui,tools&#x60;) or repeated. (optional)
+     * @param deploymentAlias Resolve the package from this named deployment. Used before installation to load the selected deployment configuration. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2945,10 +3318,12 @@ public class AppsApi {
     public okhttp3.Call getAppPackageAsync(
             @jakarta.annotation.Nonnull String id,
             @jakarta.annotation.Nullable List<String> scope,
+            @jakarta.annotation.Nullable String deploymentAlias,
             final ApiCallback<AppPackage> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = getAppPackageValidateBeforeCall(id, scope, _callback);
+        okhttp3.Call localVarCall =
+                getAppPackageValidateBeforeCall(id, scope, deploymentAlias, _callback);
         Type localVarReturnType = new TypeToken<AppPackage>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -5849,6 +6224,162 @@ public class AppsApi {
     }
 
     /**
+     * Build call for listAppVersionLaunchTargets
+     * @param id  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Eligible launch targets. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listAppVersionLaunchTargetsCall(
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/apps/versions/{id}/launch-targets"
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listAppVersionLaunchTargetsValidateBeforeCall(
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'id' when calling listAppVersionLaunchTargets(Async)");
+        }
+
+        return listAppVersionLaunchTargetsCall(id, _callback);
+    }
+
+    /**
+     * List projects available for an advanced app version launch
+     * Returns projects in the current account that the caller can access and where this application is already installed.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @return List&lt;AppVersionLaunchTarget&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Eligible launch targets. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public List<AppVersionLaunchTarget> listAppVersionLaunchTargets(
+            @jakarta.annotation.Nonnull String id) throws ApiException {
+        ApiResponse<List<AppVersionLaunchTarget>> localVarResp =
+                listAppVersionLaunchTargetsWithHttpInfo(id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * List projects available for an advanced app version launch
+     * Returns projects in the current account that the caller can access and where this application is already installed.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @return ApiResponse&lt;List&lt;AppVersionLaunchTarget&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Eligible launch targets. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<List<AppVersionLaunchTarget>> listAppVersionLaunchTargetsWithHttpInfo(
+            @jakarta.annotation.Nonnull String id) throws ApiException {
+        okhttp3.Call localVarCall = listAppVersionLaunchTargetsValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<List<AppVersionLaunchTarget>>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List projects available for an advanced app version launch (asynchronously)
+     * Returns projects in the current account that the caller can access and where this application is already installed.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Eligible launch targets. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listAppVersionLaunchTargetsAsync(
+            @jakarta.annotation.Nonnull String id,
+            final ApiCallback<List<AppVersionLaunchTarget>> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = listAppVersionLaunchTargetsValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<List<AppVersionLaunchTarget>>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for listAppVersions
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -6441,6 +6972,185 @@ public class AppsApi {
 
         okhttp3.Call localVarCall = rebuildAppVersionValidateBeforeCall(id, _callback);
         Type localVarReturnType = new TypeToken<StartAppBuildResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for removeAppVersionAlias
+     * @param id  (required)
+     * @param alias  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The app version after removing the alias. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The alias moved to another version or is still used by an app installation. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call removeAppVersionAliasCall(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String alias,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/apps/versions/{id}/aliases/{alias}"
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()))
+                        .replace(
+                                "{" + "alias" + "}",
+                                localVarApiClient.escapeString(alias.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call removeAppVersionAliasValidateBeforeCall(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String alias,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'id' when calling removeAppVersionAlias(Async)");
+        }
+
+        // verify the required parameter 'alias' is set
+        if (alias == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'alias' when calling removeAppVersionAlias(Async)");
+        }
+
+        return removeAppVersionAliasCall(id, alias, _callback);
+    }
+
+    /**
+     * Remove a deployment alias from an app version
+     * Removes the alias only if it still points to this version, so a stale client cannot remove an alias that was reassigned elsewhere.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param alias  (required)
+     * @return AppVersionRecord
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The app version after removing the alias. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The alias moved to another version or is still used by an app installation. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public AppVersionRecord removeAppVersionAlias(
+            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String alias)
+            throws ApiException {
+        ApiResponse<AppVersionRecord> localVarResp = removeAppVersionAliasWithHttpInfo(id, alias);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Remove a deployment alias from an app version
+     * Removes the alias only if it still points to this version, so a stale client cannot remove an alias that was reassigned elsewhere.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param alias  (required)
+     * @return ApiResponse&lt;AppVersionRecord&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The app version after removing the alias. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The alias moved to another version or is still used by an app installation. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AppVersionRecord> removeAppVersionAliasWithHttpInfo(
+            @jakarta.annotation.Nonnull String id, @jakarta.annotation.Nonnull String alias)
+            throws ApiException {
+        okhttp3.Call localVarCall = removeAppVersionAliasValidateBeforeCall(id, alias, null);
+        Type localVarReturnType = new TypeToken<AppVersionRecord>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Remove a deployment alias from an app version (asynchronously)
+     * Removes the alias only if it still points to this version, so a stale client cannot remove an alias that was reassigned elsewhere.  **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param alias  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The app version after removing the alias. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The alias moved to another version or is still used by an app installation. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call removeAppVersionAliasAsync(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String alias,
+            final ApiCallback<AppVersionRecord> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = removeAppVersionAliasValidateBeforeCall(id, alias, _callback);
+        Type localVarReturnType = new TypeToken<AppVersionRecord>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

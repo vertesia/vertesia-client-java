@@ -98,6 +98,11 @@ public class AppVersionRecord {
     @SerializedName(SERIALIZED_NAME_PROMOTED)
     @jakarta.annotation.Nullable private Boolean promoted;
 
+    public static final String SERIALIZED_NAME_ALIASES = "aliases";
+
+    @SerializedName(SERIALIZED_NAME_ALIASES)
+    @jakarta.annotation.Nullable private List<String> aliases = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_TARGET = "target";
 
     @SerializedName(SERIALIZED_NAME_TARGET)
@@ -393,6 +398,31 @@ public class AppVersionRecord {
 
     public void setPromoted(@jakarta.annotation.Nullable Boolean promoted) {
         this.promoted = promoted;
+    }
+
+    public AppVersionRecord aliases(@jakarta.annotation.Nullable List<String> aliases) {
+        this.aliases = aliases;
+        return this;
+    }
+
+    public AppVersionRecord addAliasesItem(String aliasesItem) {
+        if (this.aliases == null) {
+            this.aliases = new ArrayList<>();
+        }
+        this.aliases.add(aliasesItem);
+        return this;
+    }
+
+    /**
+     * Deployment aliases that currently resolve to this immutable version.
+     * @return aliases
+     */
+    @jakarta.annotation.Nullable public List<String> getAliases() {
+        return aliases;
+    }
+
+    public void setAliases(@jakarta.annotation.Nullable List<String> aliases) {
+        this.aliases = aliases;
     }
 
     public AppVersionRecord target(@jakarta.annotation.Nullable AppVersionTarget target) {
@@ -880,6 +910,7 @@ public class AppVersionRecord {
                 && Objects.equals(this.kind, appVersionRecord.kind)
                 && Objects.equals(this.state, appVersionRecord.state)
                 && Objects.equals(this.promoted, appVersionRecord.promoted)
+                && Objects.equals(this.aliases, appVersionRecord.aliases)
                 && Objects.equals(this.target, appVersionRecord.target)
                 && Objects.equals(this.agentRunId, appVersionRecord.agentRunId)
                 && Objects.equals(this.developmentTaskId, appVersionRecord.developmentTaskId)
@@ -928,6 +959,7 @@ public class AppVersionRecord {
                 kind,
                 state,
                 promoted,
+                aliases,
                 target,
                 agentRunId,
                 developmentTaskId,
@@ -975,6 +1007,7 @@ public class AppVersionRecord {
         sb.append("    kind: ").append(toIndentedString(kind)).append("\n");
         sb.append("    state: ").append(toIndentedString(state)).append("\n");
         sb.append("    promoted: ").append(toIndentedString(promoted)).append("\n");
+        sb.append("    aliases: ").append(toIndentedString(aliases)).append("\n");
         sb.append("    target: ").append(toIndentedString(target)).append("\n");
         sb.append("    agentRunId: ").append(toIndentedString(agentRunId)).append("\n");
         sb.append("    developmentTaskId: ")
@@ -1037,6 +1070,7 @@ public class AppVersionRecord {
                                 "kind",
                                 "state",
                                 "promoted",
+                                "aliases",
                                 "target",
                                 "agent_run_id",
                                 "development_task_id",
@@ -1161,6 +1195,16 @@ public class AppVersionRecord {
         AppVersionKind.validateJsonElement(jsonObj.get("kind"));
         // validate the required field `state`
         AppVersionState.validateJsonElement(jsonObj.get("state"));
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("aliases") != null
+                && !jsonObj.get("aliases").isJsonNull()
+                && !jsonObj.get("aliases").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `aliases` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("aliases").toString()));
+        }
         // validate the optional field `target`
         if (jsonObj.get("target") != null && !jsonObj.get("target").isJsonNull()) {
             AppVersionTarget.validateJsonElement(jsonObj.get("target"));

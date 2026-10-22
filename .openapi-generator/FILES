@@ -159,6 +159,7 @@ src/main/java/io/vertesia/model/AppBuildTrigger.java
 src/main/java/io/vertesia/model/AppCapabilities.java
 src/main/java/io/vertesia/model/AppDashboardDefinition.java
 src/main/java/io/vertesia/model/AppDeleteSummary.java
+src/main/java/io/vertesia/model/AppDeploymentAliasTarget.java
 src/main/java/io/vertesia/model/AppDevelopmentTask.java
 src/main/java/io/vertesia/model/AppDevelopmentTaskDetails.java
 src/main/java/io/vertesia/model/AppDevelopmentTaskList.java
@@ -219,6 +220,7 @@ src/main/java/io/vertesia/model/AppUINavItem.java
 src/main/java/io/vertesia/model/AppVersionGitRefType.java
 src/main/java/io/vertesia/model/AppVersionGitSource.java
 src/main/java/io/vertesia/model/AppVersionKind.java
+src/main/java/io/vertesia/model/AppVersionLaunchTarget.java
 src/main/java/io/vertesia/model/AppVersionRecord.java
 src/main/java/io/vertesia/model/AppVersionState.java
 src/main/java/io/vertesia/model/AppVersionStorage.java
@@ -409,6 +411,8 @@ src/main/java/io/vertesia/model/CountResult.java
 src/main/java/io/vertesia/model/CreateAccountApiKeyPayload.java
 src/main/java/io/vertesia/model/CreateAgentRunPayload.java
 src/main/java/io/vertesia/model/CreateApiKeyPayload.java
+src/main/java/io/vertesia/model/CreateAppVersionLaunchRequest.java
+src/main/java/io/vertesia/model/CreateAppVersionLaunchResponse.java
 src/main/java/io/vertesia/model/CreateCollectionPayload.java
 src/main/java/io/vertesia/model/CreateContentObjectPayload.java
 src/main/java/io/vertesia/model/CreateContentObjectPayloadTokens.java
