@@ -82,9 +82,9 @@ class ReleaseCohortTest(unittest.TestCase):
         executable = binary / "gh"
         executable.write_text(
             "#!/usr/bin/env python3\n"
-            "import json, pathlib, sys\n"
+            "import json, os, pathlib, sys\n"
             "args = sys.argv[1:]\n"
-            "if args[:2] == ['release', 'view']: sys.exit(1)\n"
+            "if args[:2] == ['release', 'view']: sys.exit(0 if os.environ.get('EXISTING_RELEASE') else 1)\n"
             "assert args[:2] == ['release', 'create']\n"
             "pathlib.Path('github-release-args.json').write_text(json.dumps(args))\n"
         )
@@ -98,6 +98,10 @@ class ReleaseCohortTest(unittest.TestCase):
         self.assertIn("--prerelease", args)
         self.assertNotIn("--target", args)
         Path("github-release-args.json").unlink()
+        env["EXISTING_RELEASE"] = "true"
+        subprocess.run(["bash", "-e", "-o", "pipefail", "-c", command], env=env, check=True,
+                       capture_output=True, text=True)
+        self.assertFalse(Path("github-release-args.json").exists())
         env["SOURCE_SHA"] = "b" * 40
         result = subprocess.run(["bash", "-e", "-o", "pipefail", "-c", command], env=env,
                                 capture_output=True, text=True)
