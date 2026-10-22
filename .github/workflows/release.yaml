@@ -116,7 +116,17 @@ jobs:
         run: |
           wait_until=validated
           if [[ "$AUTO_PUBLISH" == "true" ]]; then wait_until=published; fi
-          mvn -B -Pcentral,signed deploy             -Dcentral.autoPublish="$AUTO_PUBLISH" -Dcentral.waitUntil="$wait_until"
+          # Older pinned SDK sources also need the Maven 3.10 staging metadata fix.
+          publisher_version="$(python3 - <<'PYTHON'
+          import xml.etree.ElementTree as ET
+          version = ET.parse("pom.xml").findtext("./{*}properties/{*}central-publishing-maven-plugin.version")
+          parts = tuple(int(part) for part in version.split("-")[0].split("."))
+          print("0.12.0" if parts < (0, 12, 0) else version)
+          PYTHON
+          )"
+          mvn -B -Pcentral,signed deploy \
+            -Dcentral-publishing-maven-plugin.version="$publisher_version" \
+            -Dcentral.autoPublish="$AUTO_PUBLISH" -Dcentral.waitUntil="$wait_until"
       - name: Create or resume GitHub release
         if: inputs.dry_run == false
         env:

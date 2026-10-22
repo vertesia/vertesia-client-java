@@ -35,7 +35,31 @@ jobs:
       # Exercise patch changes before the next generated client refresh.
       - run: python3 scripts/patch_forward_compat_validation.py
 
-      - run: mvn -B test
+      - run: mvn -B verify
 
       - name: Test release contract
         run: python3 -m unittest discover -s scripts -p test_release_cohort.py
+
+      - name: Verify Maven Central bundle without uploading
+        run: |
+          python3 - <<'PYTHON'
+          from pathlib import Path
+          import runpy
+          import xml.etree.ElementTree as ET
+          version = ET.parse("pom.xml").findtext("./{*}version").removesuffix("-SNAPSHOT") + "-ci"
+          runpy.run_path("scripts/release_cohort.py")["stamp"](version, "java")
+          Path("target/central-ci-version").write_text(version)
+          PYTHON
+          mvn -B -Pcentral deploy -DskipUpload=true
+          python3 - <<'PYTHON'
+          from pathlib import Path
+          from zipfile import ZipFile
+          version = Path("target/central-ci-version").read_text()
+          prefix = "io/vertesia/vertesia-client/" + version + "/"
+          with ZipFile("target/central-publishing/central-bundle.zip") as archive:
+              files = [name for name in archive.namelist() if not name.endswith("/")]
+          assert files and all(name.startswith(prefix) for name in files), files
+          for suffix in (".pom", ".jar", "-sources.jar", "-javadoc.jar"):
+              assert prefix + "vertesia-client-" + version + suffix in files, suffix
+          print("Central bundle contains all required artifacts without staging metadata")
+          PYTHON
