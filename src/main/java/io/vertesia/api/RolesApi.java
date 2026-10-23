@@ -275,7 +275,7 @@ public class RolesApi {
 
     /**
      * List system roles
-     * Lists system-domain roles only. Permissions are &#x60;Permission&#x60; enum values — suited for client-side permission gating (button visibility, route guards). ABAC roles are excluded and must be consumed via the JWT &#x60;content_security&#x60; claim at the data layer.
+     * Lists system-domain roles only. Permissions are &#x60;Permission&#x60; enum values — suited for client-side permission gating (button visibility, route guards). ABAC roles are excluded and must be consumed via the JWT &#x60;abac&#x60; claim at the data layer.
      * @return List&lt;SystemRoleDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -294,7 +294,7 @@ public class RolesApi {
 
     /**
      * List system roles
-     * Lists system-domain roles only. Permissions are &#x60;Permission&#x60; enum values — suited for client-side permission gating (button visibility, route guards). ABAC roles are excluded and must be consumed via the JWT &#x60;content_security&#x60; claim at the data layer.
+     * Lists system-domain roles only. Permissions are &#x60;Permission&#x60; enum values — suited for client-side permission gating (button visibility, route guards). ABAC roles are excluded and must be consumed via the JWT &#x60;abac&#x60; claim at the data layer.
      * @return ApiResponse&lt;List&lt;SystemRoleDefinition&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -315,7 +315,7 @@ public class RolesApi {
 
     /**
      * List system roles (asynchronously)
-     * Lists system-domain roles only. Permissions are &#x60;Permission&#x60; enum values — suited for client-side permission gating (button visibility, route guards). ABAC roles are excluded and must be consumed via the JWT &#x60;content_security&#x60; claim at the data layer.
+     * Lists system-domain roles only. Permissions are &#x60;Permission&#x60; enum values — suited for client-side permission gating (button visibility, route guards). ABAC roles are excluded and must be consumed via the JWT &#x60;abac&#x60; claim at the data layer.
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
