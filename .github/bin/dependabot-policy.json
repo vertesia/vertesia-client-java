@@ -1,0 +1,7 @@
+{
+    "group": "maven-minor-patch",
+    "ecosystem": "maven",
+    "files": [
+        "pom.xml"
+    ]
+}
