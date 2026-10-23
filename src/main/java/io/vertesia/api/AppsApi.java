@@ -52,6 +52,7 @@ import io.vertesia.model.DeleteAppVersionResponse;
 import io.vertesia.model.ExchangeAppGithubAuthorizationRequest;
 import io.vertesia.model.ExchangeAppGithubAuthorizationResponse;
 import io.vertesia.model.McpApiKeyStatus;
+import io.vertesia.model.OAuthClient;
 import io.vertesia.model.ProjectRef;
 import io.vertesia.model.PromoteAppVersionResponse;
 import io.vertesia.model.SetMcpApiKeyRequest;
@@ -3135,6 +3136,160 @@ public class AppsApi {
 
         okhttp3.Call localVarCall = getAppInstanceAvailabilityValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<AppInstanceAvailability>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getAppOAuthClient
+     * @param id  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The shared app registration. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getAppOAuthClientCall(
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/apps/{id}/oauth-client"
+                        .replace("{" + "id" + "}", localVarApiClient.escapeString(id.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getAppOAuthClientValidateBeforeCall(
+            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'id' is set
+        if (id == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'id' when calling getAppOAuthClient(Async)");
+        }
+
+        return getAppOAuthClientCall(id, _callback);
+    }
+
+    /**
+     * Get the publisher-managed OAuth client for an app
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @return OAuthClient
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The shared app registration. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public OAuthClient getAppOAuthClient(@jakarta.annotation.Nonnull String id)
+            throws ApiException {
+        ApiResponse<OAuthClient> localVarResp = getAppOAuthClientWithHttpInfo(id);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the publisher-managed OAuth client for an app
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @return ApiResponse&lt;OAuthClient&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The shared app registration. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<OAuthClient> getAppOAuthClientWithHttpInfo(
+            @jakarta.annotation.Nonnull String id) throws ApiException {
+        okhttp3.Call localVarCall = getAppOAuthClientValidateBeforeCall(id, null);
+        Type localVarReturnType = new TypeToken<OAuthClient>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the publisher-managed OAuth client for an app (asynchronously)
+     * **Required permissions:** &#x60;app:manage&#x60;
+     * @param id  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The shared app registration. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getAppOAuthClientAsync(
+            @jakarta.annotation.Nonnull String id, final ApiCallback<OAuthClient> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = getAppOAuthClientValidateBeforeCall(id, _callback);
+        Type localVarReturnType = new TypeToken<OAuthClient>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

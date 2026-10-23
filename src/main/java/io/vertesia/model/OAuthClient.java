@@ -169,7 +169,7 @@ public class OAuthClient {
     }
 
     /**
-     * App associated with this client. Authorization requires an installation explicitly enabling this client and current user app access.
+     * App managing this client. Generic updates and deletion are prohibited; configure it through the app. Authorization requires a current installation and user app access.
      * @return appId
      */
     @jakarta.annotation.Nullable public String getAppId() {

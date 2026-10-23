@@ -152,7 +152,7 @@ public class AppPackage {
     }
 
     /**
-     * OAuth scopes requested by the app. Users must consent to project permissions.
+     * Scopes requested by app code. These do not replace the publisher-managed permission ceiling in the app manifest.
      * @return oauthScopes
      */
     @jakarta.annotation.Nullable public List<String> getOauthScopes() {

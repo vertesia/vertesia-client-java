@@ -1115,6 +1115,7 @@ src/main/java/io/vertesia/model/UpdateExecutionRunPayload.java
 src/main/java/io/vertesia/model/UpdateInferenceProfilePayload.java
 src/main/java/io/vertesia/model/UpdateInteractionConfigurationPayload.java
 src/main/java/io/vertesia/model/UpdateOAuthClientPayload.java
+src/main/java/io/vertesia/model/UpdateOAuthClientStatusPayload.java
 src/main/java/io/vertesia/model/UpdateOAuthProviderPayload.java
 src/main/java/io/vertesia/model/UpdateProcessDefinitionPayload.java
 src/main/java/io/vertesia/model/UpdateProcessTestSuitePayload.java

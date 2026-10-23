@@ -329,7 +329,7 @@ public class UpdateAppPayload {
     }
 
     /**
-     * Get oauthScopes
+     * Publisher-managed maximum OAuth scopes this app may request. App code and version promotion cannot expand this permission ceiling.
      * @return oauthScopes
      */
     @jakarta.annotation.Nullable public List<String> getOauthScopes() {

@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Standalone public PKCE OAuth. Installation automatically provisions an app client with these exact callback URLs.
+ * Standalone public PKCE OAuth. The publisher manifest provisions one app-managed registration with these exact callback URLs.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -42,6 +42,11 @@ public class AppOAuthClientConfig {
     @SerializedName(SERIALIZED_NAME_REDIRECT_URIS)
     @jakarta.annotation.Nonnull
     private List<URI> redirectUris = new ArrayList<>();
+
+    public static final String SERIALIZED_NAME_REQUIRE_CONSENT = "require_consent";
+
+    @SerializedName(SERIALIZED_NAME_REQUIRE_CONSENT)
+    @jakarta.annotation.Nullable private Boolean requireConsent;
 
     public AppOAuthClientConfig() {}
 
@@ -71,6 +76,24 @@ public class AppOAuthClientConfig {
         this.redirectUris = redirectUris;
     }
 
+    public AppOAuthClientConfig requireConsent(
+            @jakarta.annotation.Nullable Boolean requireConsent) {
+        this.requireConsent = requireConsent;
+        return this;
+    }
+
+    /**
+     * Show user consent before authorizing this app. Defaults to true. Disabling the prompt applies only within the publisher organization. Other organizations and loopback callbacks always require consent. Installation, app access, scope and project-policy enforcement are preserved.
+     * @return requireConsent
+     */
+    @jakarta.annotation.Nullable public Boolean getRequireConsent() {
+        return requireConsent;
+    }
+
+    public void setRequireConsent(@jakarta.annotation.Nullable Boolean requireConsent) {
+        this.requireConsent = requireConsent;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -80,12 +103,13 @@ public class AppOAuthClientConfig {
             return false;
         }
         AppOAuthClientConfig appOAuthClientConfig = (AppOAuthClientConfig) o;
-        return Objects.equals(this.redirectUris, appOAuthClientConfig.redirectUris);
+        return Objects.equals(this.redirectUris, appOAuthClientConfig.redirectUris)
+                && Objects.equals(this.requireConsent, appOAuthClientConfig.requireConsent);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(redirectUris);
+        return Objects.hash(redirectUris, requireConsent);
     }
 
     @Override
@@ -93,6 +117,7 @@ public class AppOAuthClientConfig {
         StringBuilder sb = new StringBuilder();
         sb.append("class AppOAuthClientConfig {\n");
         sb.append("    redirectUris: ").append(toIndentedString(redirectUris)).append("\n");
+        sb.append("    requireConsent: ").append(toIndentedString(requireConsent)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -110,7 +135,7 @@ public class AppOAuthClientConfig {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("redirect_uris"));
+        openapiFields = new HashSet<String>(Arrays.asList("redirect_uris", "require_consent"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("redirect_uris"));
