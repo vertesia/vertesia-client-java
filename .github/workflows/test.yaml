@@ -35,7 +35,8 @@ jobs:
       # Exercise patch changes before the next generated client refresh.
       - run: python3 scripts/patch_forward_compat_validation.py
 
-      - run: mvn -B verify
+      - name: Run Maven verification
+        run: mvn -B verify
 
       - name: Test release contract
         run: python3 -m unittest discover -s scripts -p test_release_cohort.py
