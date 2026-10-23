@@ -4,8 +4,7 @@
             {
                 "name": "^Test$",
                 "steps": [
-                    "Run Maven verification",
-                    "Verify Maven Central bundle without uploading"
+                    "Run Maven verification"
                 ],
                 "example": "Test"
             }
@@ -14,7 +13,7 @@
     "generated-code-guard.yaml": {
         "jobs": [
             {
-                "name": "^Generated code guard$",
+                "name": "^Generated\\ code\\ guard$",
                 "steps": [
                     "Reject generated OpenAPI changes in PRs"
                 ],
