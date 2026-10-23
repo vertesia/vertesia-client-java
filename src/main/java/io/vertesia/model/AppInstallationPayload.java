@@ -23,6 +23,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.vertesia.JSON;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -85,6 +86,11 @@ public class AppInstallationPayload {
 
     @SerializedName(SERIALIZED_NAME_ACCESS_CONTROL)
     @jakarta.annotation.Nullable private AppAccessControl accessControl;
+
+    public static final String SERIALIZED_NAME_APPROVED_SCOPES = "approved_scopes";
+
+    @SerializedName(SERIALIZED_NAME_APPROVED_SCOPES)
+    @jakarta.annotation.Nullable private List<String> approvedScopes = new ArrayList<>();
 
     public static final String SERIALIZED_NAME_OAUTH_PARAMS = "oauth_params";
 
@@ -307,6 +313,32 @@ public class AppInstallationPayload {
         this.accessControl = accessControl;
     }
 
+    public AppInstallationPayload approvedScopes(
+            @jakarta.annotation.Nullable List<String> approvedScopes) {
+        this.approvedScopes = approvedScopes;
+        return this;
+    }
+
+    public AppInstallationPayload addApprovedScopesItem(String approvedScopesItem) {
+        if (this.approvedScopes == null) {
+            this.approvedScopes = new ArrayList<>();
+        }
+        this.approvedScopes.add(approvedScopesItem);
+        return this;
+    }
+
+    /**
+     * OAuth scopes approved by the project manager during installation. The server records the approving user and timestamp; omitted defaults to all scopes requested by the selected deployment.
+     * @return approvedScopes
+     */
+    @jakarta.annotation.Nullable public List<String> getApprovedScopes() {
+        return approvedScopes;
+    }
+
+    public void setApprovedScopes(@jakarta.annotation.Nullable List<String> approvedScopes) {
+        this.approvedScopes = approvedScopes;
+    }
+
     public AppInstallationPayload oauthParams(
             @jakarta.annotation.Nullable Map<String, OAuthClientCredentials> oauthParams) {
         this.oauthParams = oauthParams;
@@ -456,6 +488,7 @@ public class AppInstallationPayload {
                 && Objects.equals(this.mcpParameters, appInstallationPayload.mcpParameters)
                 && Objects.equals(this.settings, appInstallationPayload.settings)
                 && Objects.equals(this.accessControl, appInstallationPayload.accessControl)
+                && Objects.equals(this.approvedScopes, appInstallationPayload.approvedScopes)
                 && Objects.equals(this.oauthParams, appInstallationPayload.oauthParams)
                 && Objects.equals(
                         this.oauthProviderParams, appInstallationPayload.oauthProviderParams)
@@ -485,6 +518,7 @@ public class AppInstallationPayload {
                 mcpParameters,
                 settings,
                 accessControl,
+                approvedScopes,
                 oauthParams,
                 oauthProviderParams,
                 apiKeyParams,
@@ -515,6 +549,7 @@ public class AppInstallationPayload {
         sb.append("    mcpParameters: ").append(toIndentedString(mcpParameters)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
         sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
+        sb.append("    approvedScopes: ").append(toIndentedString(approvedScopes)).append("\n");
         sb.append("    oauthParams: ").append(toIndentedString(oauthParams)).append("\n");
         sb.append("    oauthProviderParams: ")
                 .append(toIndentedString(oauthProviderParams))
@@ -552,6 +587,7 @@ public class AppInstallationPayload {
                                 "mcp_parameters",
                                 "settings",
                                 "access_control",
+                                "approved_scopes",
                                 "oauth_params",
                                 "oauth_provider_params",
                                 "api_key_params"));
@@ -625,6 +661,16 @@ public class AppInstallationPayload {
         // validate the optional field `access_control`
         if (jsonObj.get("access_control") != null && !jsonObj.get("access_control").isJsonNull()) {
             AppAccessControl.validateJsonElement(jsonObj.get("access_control"));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("approved_scopes") != null
+                && !jsonObj.get("approved_scopes").isJsonNull()
+                && !jsonObj.get("approved_scopes").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `approved_scopes` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("approved_scopes").toString()));
         }
     }
 
