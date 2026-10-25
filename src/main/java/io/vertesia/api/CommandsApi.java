@@ -1829,7 +1829,7 @@ public class CommandsApi {
 
     /**
      * Reindex agent runs
-     * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default this recreates the stable agent-runs index before indexing.  **Required permissions:** &#x60;content:admin&#x60;
+     * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default it rebuilds into a new index and swaps searches to it once filled, so searches keep working during the rebuild.  **Required permissions:** &#x60;content:admin&#x60;
      * @param reindexAgentRunsPayload  (optional)
      * @return ReindexAgentRunsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1852,7 +1852,7 @@ public class CommandsApi {
 
     /**
      * Reindex agent runs
-     * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default this recreates the stable agent-runs index before indexing.  **Required permissions:** &#x60;content:admin&#x60;
+     * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default it rebuilds into a new index and swaps searches to it once filled, so searches keep working during the rebuild.  **Required permissions:** &#x60;content:admin&#x60;
      * @param reindexAgentRunsPayload  (optional)
      * @return ApiResponse&lt;ReindexAgentRunsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1876,7 +1876,7 @@ public class CommandsApi {
 
     /**
      * Reindex agent runs (asynchronously)
-     * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default this recreates the stable agent-runs index before indexing.  **Required permissions:** &#x60;content:admin&#x60;
+     * Rebuilds the current project agent-run Elasticsearch index directly from MongoDB. By default it rebuilds into a new index and swaps searches to it once filled, so searches keep working during the rebuild.  **Required permissions:** &#x60;content:admin&#x60;
      * @param reindexAgentRunsPayload  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
