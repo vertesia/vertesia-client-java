@@ -59,7 +59,7 @@ public class ReindexAgentRunsPayload {
     }
 
     /**
-     * Drop any existing agent-runs index/alias family and recreate the stable concrete index before indexing. Defaults to true.
+     * Rebuild into a new index and switch searches to it once it is filled, so searches keep working during the rebuild; when false, index into the current index in place. Defaults to true.
      * @return recreateIndex
      */
     @jakarta.annotation.Nullable public Boolean getRecreateIndex() {
