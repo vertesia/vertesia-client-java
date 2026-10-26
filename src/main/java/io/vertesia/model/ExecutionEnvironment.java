@@ -107,6 +107,11 @@ public class ExecutionEnvironment {
     @SerializedName(SERIALIZED_NAME_ALLOWED_PROJECTS)
     @jakarta.annotation.Nullable private List<String> allowedProjects = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_MANAGED = "managed";
+
+    @SerializedName(SERIALIZED_NAME_MANAGED)
+    @jakarta.annotation.Nullable private Boolean managed;
+
     public static final String SERIALIZED_NAME_CREATED_BY = "created_by";
 
     @SerializedName(SERIALIZED_NAME_CREATED_BY)
@@ -377,6 +382,23 @@ public class ExecutionEnvironment {
         this.allowedProjects = allowedProjects;
     }
 
+    public ExecutionEnvironment managed(@jakarta.annotation.Nullable Boolean managed) {
+        this.managed = managed;
+        return this;
+    }
+
+    /**
+     * True when Vertesia manages this environment and supplies its inference credential. Only Vertesia staff can change its name, description, provider, endpoint or credential, or delete it, and its configuration and settings are locked; account administrators can still change its default model, enabled models and allowed projects. Absent on every other environment.
+     * @return managed
+     */
+    @jakarta.annotation.Nullable public Boolean getManaged() {
+        return managed;
+    }
+
+    public void setManaged(@jakarta.annotation.Nullable Boolean managed) {
+        this.managed = managed;
+    }
+
     public ExecutionEnvironment createdBy(@jakarta.annotation.Nonnull String createdBy) {
         this.createdBy = createdBy;
         return this;
@@ -471,6 +493,7 @@ public class ExecutionEnvironment {
                 && Objects.equals(this.settings, executionEnvironment.settings)
                 && Objects.equals(this.account, executionEnvironment.account)
                 && Objects.equals(this.allowedProjects, executionEnvironment.allowedProjects)
+                && Objects.equals(this.managed, executionEnvironment.managed)
                 && Objects.equals(this.createdBy, executionEnvironment.createdBy)
                 && Objects.equals(this.updatedBy, executionEnvironment.updatedBy)
                 && Objects.equals(this.createdAt, executionEnvironment.createdAt)
@@ -502,6 +525,7 @@ public class ExecutionEnvironment {
                 settings,
                 account,
                 allowedProjects,
+                managed,
                 createdBy,
                 updatedBy,
                 createdAt,
@@ -532,6 +556,7 @@ public class ExecutionEnvironment {
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
         sb.append("    account: ").append(toIndentedString(account)).append("\n");
         sb.append("    allowedProjects: ").append(toIndentedString(allowedProjects)).append("\n");
+        sb.append("    managed: ").append(toIndentedString(managed)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
         sb.append("    createdAt: ").append(toIndentedString(createdAt)).append("\n");
@@ -569,6 +594,7 @@ public class ExecutionEnvironment {
                                 "settings",
                                 "account",
                                 "allowed_projects",
+                                "managed",
                                 "created_by",
                                 "updated_by",
                                 "created_at",

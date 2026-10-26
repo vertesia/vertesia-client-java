@@ -75,6 +75,11 @@ public class ExecutionEnvironmentRef {
     @SerializedName(SERIALIZED_NAME_ALLOWED_PROJECTS)
     @jakarta.annotation.Nullable private List<String> allowedProjects = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_MANAGED = "managed";
+
+    @SerializedName(SERIALIZED_NAME_MANAGED)
+    @jakarta.annotation.Nullable private Boolean managed;
+
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
     @SerializedName(SERIALIZED_NAME_ACCOUNT)
@@ -248,6 +253,23 @@ public class ExecutionEnvironmentRef {
         this.allowedProjects = allowedProjects;
     }
 
+    public ExecutionEnvironmentRef managed(@jakarta.annotation.Nullable Boolean managed) {
+        this.managed = managed;
+        return this;
+    }
+
+    /**
+     * True when Vertesia manages this environment and supplies its inference credential. Only Vertesia staff can change its name, description, provider, endpoint or credential, or delete it, and its configuration and settings are locked; account administrators can still change its default model, enabled models and allowed projects. Absent on every other environment.
+     * @return managed
+     */
+    @jakarta.annotation.Nullable public Boolean getManaged() {
+        return managed;
+    }
+
+    public void setManaged(@jakarta.annotation.Nullable Boolean managed) {
+        this.managed = managed;
+    }
+
     public ExecutionEnvironmentRef account(@jakarta.annotation.Nonnull String account) {
         this.account = account;
         return this;
@@ -354,6 +376,7 @@ public class ExecutionEnvironmentRef {
                 && Objects.equals(this.defaultModel, executionEnvironmentRef.defaultModel)
                 && Objects.equals(this.endpointUrl, executionEnvironmentRef.endpointUrl)
                 && Objects.equals(this.allowedProjects, executionEnvironmentRef.allowedProjects)
+                && Objects.equals(this.managed, executionEnvironmentRef.managed)
                 && Objects.equals(this.account, executionEnvironmentRef.account)
                 && Objects.equals(this.createdBy, executionEnvironmentRef.createdBy)
                 && Objects.equals(this.updatedBy, executionEnvironmentRef.updatedBy)
@@ -371,6 +394,7 @@ public class ExecutionEnvironmentRef {
                 defaultModel,
                 endpointUrl,
                 allowedProjects,
+                managed,
                 account,
                 createdBy,
                 updatedBy,
@@ -389,6 +413,7 @@ public class ExecutionEnvironmentRef {
         sb.append("    defaultModel: ").append(toIndentedString(defaultModel)).append("\n");
         sb.append("    endpointUrl: ").append(toIndentedString(endpointUrl)).append("\n");
         sb.append("    allowedProjects: ").append(toIndentedString(allowedProjects)).append("\n");
+        sb.append("    managed: ").append(toIndentedString(managed)).append("\n");
         sb.append("    account: ").append(toIndentedString(account)).append("\n");
         sb.append("    createdBy: ").append(toIndentedString(createdBy)).append("\n");
         sb.append("    updatedBy: ").append(toIndentedString(updatedBy)).append("\n");
@@ -421,6 +446,7 @@ public class ExecutionEnvironmentRef {
                                 "default_model",
                                 "endpoint_url",
                                 "allowed_projects",
+                                "managed",
                                 "account",
                                 "created_by",
                                 "updated_by",
