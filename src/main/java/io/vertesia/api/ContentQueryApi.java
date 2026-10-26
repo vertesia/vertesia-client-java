@@ -151,7 +151,7 @@ public class ContentQueryApi {
 
     /**
      * Execute a SQL, ES|QL, or Elasticsearch DSL content query
-     * Execute a query against the project&#39;s Elasticsearch index  Security filtering is automatically applied based on the authenticated user&#39;s principals. For SQL/ES|QL, a WHERE clause is injected. For DSL, a filter clause is added.  **Required permissions:** &#x60;content:read&#x60;
+     * Execute a query against the project&#39;s Elasticsearch index  Security filtering is automatically applied based on the authenticated user&#39;s principals. SQL and ES|QL may only read the project index (&#x60;FROM content&#x60;). For DSL, a filter clause is added.  **Required permissions:** &#x60;content:read&#x60;
      * @param contentQueryPayload  (required)
      * @return ContentQueryResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -174,7 +174,7 @@ public class ContentQueryApi {
 
     /**
      * Execute a SQL, ES|QL, or Elasticsearch DSL content query
-     * Execute a query against the project&#39;s Elasticsearch index  Security filtering is automatically applied based on the authenticated user&#39;s principals. For SQL/ES|QL, a WHERE clause is injected. For DSL, a filter clause is added.  **Required permissions:** &#x60;content:read&#x60;
+     * Execute a query against the project&#39;s Elasticsearch index  Security filtering is automatically applied based on the authenticated user&#39;s principals. SQL and ES|QL may only read the project index (&#x60;FROM content&#x60;). For DSL, a filter clause is added.  **Required permissions:** &#x60;content:read&#x60;
      * @param contentQueryPayload  (required)
      * @return ApiResponse&lt;ContentQueryResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -198,7 +198,7 @@ public class ContentQueryApi {
 
     /**
      * Execute a SQL, ES|QL, or Elasticsearch DSL content query (asynchronously)
-     * Execute a query against the project&#39;s Elasticsearch index  Security filtering is automatically applied based on the authenticated user&#39;s principals. For SQL/ES|QL, a WHERE clause is injected. For DSL, a filter clause is added.  **Required permissions:** &#x60;content:read&#x60;
+     * Execute a query against the project&#39;s Elasticsearch index  Security filtering is automatically applied based on the authenticated user&#39;s principals. SQL and ES|QL may only read the project index (&#x60;FROM content&#x60;). For DSL, a filter clause is added.  **Required permissions:** &#x60;content:read&#x60;
      * @param contentQueryPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
