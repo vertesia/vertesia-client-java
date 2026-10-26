@@ -461,6 +461,9 @@ src/main/java/io/vertesia/model/DashboardElasticsearchDsl.java
 src/main/java/io/vertesia/model/DashboardElasticsearchResultMapping.java
 src/main/java/io/vertesia/model/DashboardElasticsearchResultMappingOneOf.java
 src/main/java/io/vertesia/model/DashboardElasticsearchResultMappingOneOf1.java
+src/main/java/io/vertesia/model/DashboardExport.java
+src/main/java/io/vertesia/model/DashboardExportError.java
+src/main/java/io/vertesia/model/DashboardExportStatus.java
 src/main/java/io/vertesia/model/DashboardItem.java
 src/main/java/io/vertesia/model/DashboardLayout.java
 src/main/java/io/vertesia/model/DashboardPanel.java
@@ -603,6 +606,8 @@ src/main/java/io/vertesia/model/ExecutionRunWorkflow.java
 src/main/java/io/vertesia/model/ExecutionTokenUsage.java
 src/main/java/io/vertesia/model/ExportContentObjectsFilter.java
 src/main/java/io/vertesia/model/ExportContentObjectsIncludeOptions.java
+src/main/java/io/vertesia/model/ExportDashboardPayload.java
+src/main/java/io/vertesia/model/ExportDashboardPreviewPayload.java
 src/main/java/io/vertesia/model/ExportPropertiesPayload.java
 src/main/java/io/vertesia/model/ExportPropertiesResponse.java
 src/main/java/io/vertesia/model/ExportedPromptTemplateRef.java

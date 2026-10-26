@@ -1640,6 +1640,10 @@ public class JSON {
                 new io.vertesia.model.DashboardElasticsearchResultMappingOneOf1
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.DashboardExport.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.DashboardExportError.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.DashboardItem.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.DashboardLayout.CustomTypeAdapterFactory());
@@ -1884,6 +1888,10 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ExportContentObjectsIncludeOptions
                         .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ExportDashboardPayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.ExportDashboardPreviewPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ExportPropertiesPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(

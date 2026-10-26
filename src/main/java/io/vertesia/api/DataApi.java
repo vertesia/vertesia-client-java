@@ -31,6 +31,7 @@ import io.vertesia.model.Dashboard;
 import io.vertesia.model.DashboardArchiveResult;
 import io.vertesia.model.DashboardBulkArchiveResult;
 import io.vertesia.model.DashboardBulkDeleteResult;
+import io.vertesia.model.DashboardExport;
 import io.vertesia.model.DashboardItem;
 import io.vertesia.model.DashboardVersion;
 import io.vertesia.model.DashboardVersionItem;
@@ -48,6 +49,8 @@ import io.vertesia.model.DataStoreTableDropResult;
 import io.vertesia.model.DataStoreVersion;
 import io.vertesia.model.DataTable;
 import io.vertesia.model.DataTableSummary;
+import io.vertesia.model.ExportDashboardPayload;
+import io.vertesia.model.ExportDashboardPreviewPayload;
 import io.vertesia.model.ImportDataPayload;
 import io.vertesia.model.ImportJob;
 import io.vertesia.model.PromoteDashboardVersionPayload;
@@ -2045,6 +2048,402 @@ public class DataApi {
     }
 
     /**
+     * Build call for exportDashboard
+     * @param storeId  (required)
+     * @param dashboardId  (required)
+     * @param exportDashboardPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call exportDashboardCall(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull ExportDashboardPayload exportDashboardPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = exportDashboardPayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/data/{storeId}/dashboards/{dashboardId}/export"
+                        .replace(
+                                "{" + "storeId" + "}",
+                                localVarApiClient.escapeString(storeId.toString()))
+                        .replace(
+                                "{" + "dashboardId" + "}",
+                                localVarApiClient.escapeString(dashboardId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call exportDashboardValidateBeforeCall(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull ExportDashboardPayload exportDashboardPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'storeId' is set
+        if (storeId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'storeId' when calling exportDashboard(Async)");
+        }
+
+        // verify the required parameter 'dashboardId' is set
+        if (dashboardId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'dashboardId' when calling exportDashboard(Async)");
+        }
+
+        // verify the required parameter 'exportDashboardPayload' is set
+        if (exportDashboardPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'exportDashboardPayload' when calling exportDashboard(Async)");
+        }
+
+        return exportDashboardCall(storeId, dashboardId, exportDashboardPayload, _callback);
+    }
+
+    /**
+     * Export a dashboard as an image
+     * Starts rendering the saved dashboard to PNG with fresh query results, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60; or &#x60;failed&#x60;. Every export creates a new image, so earlier URLs keep showing what they were issued for. The dashboard&#39;s &#x60;last_rendered_at&#x60; is set once the image is uploaded.  **Required permissions:** &#x60;content:read&#x60;
+     * @param storeId  (required)
+     * @param dashboardId  (required)
+     * @param exportDashboardPayload  (required)
+     * @return DashboardExport
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public DashboardExport exportDashboard(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull ExportDashboardPayload exportDashboardPayload)
+            throws ApiException {
+        ApiResponse<DashboardExport> localVarResp =
+                exportDashboardWithHttpInfo(storeId, dashboardId, exportDashboardPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Export a dashboard as an image
+     * Starts rendering the saved dashboard to PNG with fresh query results, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60; or &#x60;failed&#x60;. Every export creates a new image, so earlier URLs keep showing what they were issued for. The dashboard&#39;s &#x60;last_rendered_at&#x60; is set once the image is uploaded.  **Required permissions:** &#x60;content:read&#x60;
+     * @param storeId  (required)
+     * @param dashboardId  (required)
+     * @param exportDashboardPayload  (required)
+     * @return ApiResponse&lt;DashboardExport&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<DashboardExport> exportDashboardWithHttpInfo(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull ExportDashboardPayload exportDashboardPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                exportDashboardValidateBeforeCall(
+                        storeId, dashboardId, exportDashboardPayload, null);
+        Type localVarReturnType = new TypeToken<DashboardExport>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Export a dashboard as an image (asynchronously)
+     * Starts rendering the saved dashboard to PNG with fresh query results, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60; or &#x60;failed&#x60;. Every export creates a new image, so earlier URLs keep showing what they were issued for. The dashboard&#39;s &#x60;last_rendered_at&#x60; is set once the image is uploaded.  **Required permissions:** &#x60;content:read&#x60;
+     * @param storeId  (required)
+     * @param dashboardId  (required)
+     * @param exportDashboardPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The data store or the dashboard does not exist. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The dashboard has nothing to render. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call exportDashboardAsync(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String dashboardId,
+            @jakarta.annotation.Nonnull ExportDashboardPayload exportDashboardPayload,
+            final ApiCallback<DashboardExport> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                exportDashboardValidateBeforeCall(
+                        storeId, dashboardId, exportDashboardPayload, _callback);
+        Type localVarReturnType = new TypeToken<DashboardExport>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for exportDashboardPreview
+     * @param storeId  (required)
+     * @param exportDashboardPreviewPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call exportDashboardPreviewCall(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull ExportDashboardPreviewPayload exportDashboardPreviewPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = exportDashboardPreviewPayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/data/{storeId}/dashboards/export"
+                        .replace(
+                                "{" + "storeId" + "}",
+                                localVarApiClient.escapeString(storeId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call exportDashboardPreviewValidateBeforeCall(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull ExportDashboardPreviewPayload exportDashboardPreviewPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'storeId' is set
+        if (storeId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'storeId' when calling exportDashboardPreview(Async)");
+        }
+
+        // verify the required parameter 'exportDashboardPreviewPayload' is set
+        if (exportDashboardPreviewPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'exportDashboardPreviewPayload' when calling exportDashboardPreview(Async)");
+        }
+
+        return exportDashboardPreviewCall(storeId, exportDashboardPreviewPayload, _callback);
+    }
+
+    /**
+     * Export an unsaved dashboard as an image
+     * Starts rendering the rows of a SQL query with a Vega-Lite spec as a PNG, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60;, with a signed URL to the image, or &#x60;failed&#x60;, with the reason. Nothing is saved: use it to check a dashboard before creating it.  **Required permissions:** &#x60;content:read&#x60;
+     * @param storeId  (required)
+     * @param exportDashboardPreviewPayload  (required)
+     * @return DashboardExport
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public DashboardExport exportDashboardPreview(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull ExportDashboardPreviewPayload exportDashboardPreviewPayload)
+            throws ApiException {
+        ApiResponse<DashboardExport> localVarResp =
+                exportDashboardPreviewWithHttpInfo(storeId, exportDashboardPreviewPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Export an unsaved dashboard as an image
+     * Starts rendering the rows of a SQL query with a Vega-Lite spec as a PNG, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60;, with a signed URL to the image, or &#x60;failed&#x60;, with the reason. Nothing is saved: use it to check a dashboard before creating it.  **Required permissions:** &#x60;content:read&#x60;
+     * @param storeId  (required)
+     * @param exportDashboardPreviewPayload  (required)
+     * @return ApiResponse&lt;DashboardExport&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<DashboardExport> exportDashboardPreviewWithHttpInfo(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull ExportDashboardPreviewPayload exportDashboardPreviewPayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                exportDashboardPreviewValidateBeforeCall(
+                        storeId, exportDashboardPreviewPayload, null);
+        Type localVarReturnType = new TypeToken<DashboardExport>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Export an unsaved dashboard as an image (asynchronously)
+     * Starts rendering the rows of a SQL query with a Vega-Lite spec as a PNG, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60;, with a signed URL to the image, or &#x60;failed&#x60;, with the reason. Nothing is saved: use it to check a dashboard before creating it.  **Required permissions:** &#x60;content:read&#x60;
+     * @param storeId  (required)
+     * @param exportDashboardPreviewPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 202 </td><td> The export started; poll it until it completes. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> Rendering is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call exportDashboardPreviewAsync(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull ExportDashboardPreviewPayload exportDashboardPreviewPayload,
+            final ApiCallback<DashboardExport> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                exportDashboardPreviewValidateBeforeCall(
+                        storeId, exportDashboardPreviewPayload, _callback);
+        Type localVarReturnType = new TypeToken<DashboardExport>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for getDashboard
      * @param storeId  (required)
      * @param dashboardId  (required)
@@ -2219,6 +2618,193 @@ public class DataApi {
 
         okhttp3.Call localVarCall = getDashboardValidateBeforeCall(storeId, dashboardId, _callback);
         Type localVarReturnType = new TypeToken<Dashboard>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getDashboardExport
+     * @param storeId  (required)
+     * @param exportId  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The export. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> No export with this ID was started on this data store, or it is no longer retained. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> The export status is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getDashboardExportCall(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String exportId,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/data/{storeId}/dashboards/exports/{exportId}"
+                        .replace(
+                                "{" + "storeId" + "}",
+                                localVarApiClient.escapeString(storeId.toString()))
+                        .replace(
+                                "{" + "exportId" + "}",
+                                localVarApiClient.escapeString(exportId.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getDashboardExportValidateBeforeCall(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String exportId,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'storeId' is set
+        if (storeId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'storeId' when calling getDashboardExport(Async)");
+        }
+
+        // verify the required parameter 'exportId' is set
+        if (exportId == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'exportId' when calling getDashboardExport(Async)");
+        }
+
+        return getDashboardExportCall(storeId, exportId, _callback);
+    }
+
+    /**
+     * Get a dashboard export
+     * Returns the status of an export. A &#x60;completed&#x60; export carries a freshly signed URL to the image; a &#x60;failed&#x60; one carries the reason and whether starting it again may succeed.  **Required permissions:** &#x60;content:read&#x60;
+     * @param storeId  (required)
+     * @param exportId  (required)
+     * @return DashboardExport
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The export. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> No export with this ID was started on this data store, or it is no longer retained. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> The export status is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public DashboardExport getDashboardExport(
+            @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nonnull String exportId)
+            throws ApiException {
+        ApiResponse<DashboardExport> localVarResp =
+                getDashboardExportWithHttpInfo(storeId, exportId);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get a dashboard export
+     * Returns the status of an export. A &#x60;completed&#x60; export carries a freshly signed URL to the image; a &#x60;failed&#x60; one carries the reason and whether starting it again may succeed.  **Required permissions:** &#x60;content:read&#x60;
+     * @param storeId  (required)
+     * @param exportId  (required)
+     * @return ApiResponse&lt;DashboardExport&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The export. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> No export with this ID was started on this data store, or it is no longer retained. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> The export status is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<DashboardExport> getDashboardExportWithHttpInfo(
+            @jakarta.annotation.Nonnull String storeId, @jakarta.annotation.Nonnull String exportId)
+            throws ApiException {
+        okhttp3.Call localVarCall = getDashboardExportValidateBeforeCall(storeId, exportId, null);
+        Type localVarReturnType = new TypeToken<DashboardExport>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get a dashboard export (asynchronously)
+     * Returns the status of an export. A &#x60;completed&#x60; export carries a freshly signed URL to the image; a &#x60;failed&#x60; one carries the reason and whether starting it again may succeed.  **Required permissions:** &#x60;content:read&#x60;
+     * @param storeId  (required)
+     * @param exportId  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> The export. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> No export with this ID was started on this data store, or it is no longer retained. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 503 </td><td> The export status is temporarily unavailable; retry after the Retry-After delay. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getDashboardExportAsync(
+            @jakarta.annotation.Nonnull String storeId,
+            @jakarta.annotation.Nonnull String exportId,
+            final ApiCallback<DashboardExport> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                getDashboardExportValidateBeforeCall(storeId, exportId, _callback);
+        Type localVarReturnType = new TypeToken<DashboardExport>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
