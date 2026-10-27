@@ -200,6 +200,11 @@ public class CreateContentObjectPayload {
     @SerializedName(SERIALIZED_NAME_GENERATION_RUN_INFO)
     @jakarta.annotation.Nullable private GenerationRunMetadata generationRunInfo;
 
+    public static final String SERIALIZED_NAME_IDEMPOTENCY_KEY = "idempotency_key";
+
+    @SerializedName(SERIALIZED_NAME_IDEMPOTENCY_KEY)
+    @jakarta.annotation.Nullable private String idempotencyKey;
+
     public CreateContentObjectPayload() {}
 
     public CreateContentObjectPayload text(@jakarta.annotation.Nullable String text) {
@@ -818,6 +823,24 @@ public class CreateContentObjectPayload {
         this.generationRunInfo = generationRunInfo;
     }
 
+    public CreateContentObjectPayload idempotencyKey(
+            @jakarta.annotation.Nullable String idempotencyKey) {
+        this.idempotencyKey = idempotencyKey;
+        return this;
+    }
+
+    /**
+     * Client-chosen key, unique per intended object, that makes this request safe to retry. A repeat of the request with the same key, body, collection and processing priority returns the object the first request created instead of creating another. Reusing a key with different input is rejected with 409. Keys are scoped to the project and stay bound to their object for as long as it exists.
+     * @return idempotencyKey
+     */
+    @jakarta.annotation.Nullable public String getIdempotencyKey() {
+        return idempotencyKey;
+    }
+
+    public void setIdempotencyKey(@jakarta.annotation.Nullable String idempotencyKey) {
+        this.idempotencyKey = idempotencyKey;
+    }
+
     /**
      * A container for additional, undeclared properties.
      * This is a holder for any undeclared properties as specified with
@@ -906,6 +929,7 @@ public class CreateContentObjectPayload {
                 && Objects.equals(this.type, createContentObjectPayload.type)
                 && Objects.equals(
                         this.generationRunInfo, createContentObjectPayload.generationRunInfo)
+                && Objects.equals(this.idempotencyKey, createContentObjectPayload.idempotencyKey)
                 && Objects.equals(
                         this.additionalProperties, createContentObjectPayload.additionalProperties);
     }
@@ -945,6 +969,7 @@ public class CreateContentObjectPayload {
                 id,
                 type,
                 generationRunInfo,
+                idempotencyKey,
                 additionalProperties);
     }
 
@@ -988,6 +1013,7 @@ public class CreateContentObjectPayload {
         sb.append("    generationRunInfo: ")
                 .append(toIndentedString(generationRunInfo))
                 .append("\n");
+        sb.append("    idempotencyKey: ").append(toIndentedString(idempotencyKey)).append("\n");
         sb.append("    additionalProperties: ")
                 .append(toIndentedString(additionalProperties))
                 .append("\n");
@@ -1042,7 +1068,8 @@ public class CreateContentObjectPayload {
                                 "created_by",
                                 "id",
                                 "type",
-                                "generation_run_info"));
+                                "generation_run_info",
+                                "idempotency_key"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(0);
@@ -1246,6 +1273,14 @@ public class CreateContentObjectPayload {
         if (jsonObj.get("generation_run_info") != null
                 && !jsonObj.get("generation_run_info").isJsonNull()) {
             GenerationRunMetadata.validateJsonElement(jsonObj.get("generation_run_info"));
+        }
+        if ((jsonObj.get("idempotency_key") != null && !jsonObj.get("idempotency_key").isJsonNull())
+                && !jsonObj.get("idempotency_key").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `idempotency_key` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("idempotency_key").toString()));
         }
     }
 

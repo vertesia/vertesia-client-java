@@ -149,7 +149,7 @@ public class PublishProcessDefinitionPayload {
     }
 
     /**
-     * Client-chosen key that makes this request safe to retry. Publishing is otherwise not idempotent: a repeat of a publish that already succeeded is rejected because the revision is no longer a draft. When the revision was published by a request with the same key and the same body, the repeat returns that revision instead. Reusing the key with a different body is rejected with 409. The key is bound to the revision it published.
+     * Client-chosen key that makes this request safe to retry. Publishing is otherwise not idempotent: a repeat of a publish that already succeeded is rejected because the revision is no longer a draft. When the revision was published by a request with the same key and the same body, the repeat returns that revision instead. Reusing the key with a different body is rejected with 422. The key is bound to the revision it published.
      * @return idempotencyKey
      */
     @jakarta.annotation.Nullable public String getIdempotencyKey() {

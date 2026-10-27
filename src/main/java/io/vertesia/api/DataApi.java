@@ -3709,6 +3709,8 @@ public class DataApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
      * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The import ID is unknown and too old or in the future to start a new import. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The import ID was already used for a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -3808,6 +3810,8 @@ public class DataApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
      * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The import ID is unknown and too old or in the future to start a new import. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The import ID was already used for a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -3834,6 +3838,8 @@ public class DataApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
      * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The import ID is unknown and too old or in the future to start a new import. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The import ID was already used for a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -3862,6 +3868,8 @@ public class DataApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Import job record. </td><td>  -  </td></tr>
      * <tr><td> 202 </td><td> Durably accepted import; poll its status. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The import ID is unknown and too old or in the future to start a new import. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The import ID was already used for a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>

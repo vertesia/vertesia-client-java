@@ -2464,7 +2464,8 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being published, or the idempotency key was reused with a different request. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -2565,7 +2566,8 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being published, or the idempotency key was reused with a different request. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -2592,7 +2594,8 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being published, or the idempotency key was reused with a different request. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -2622,7 +2625,8 @@ public class ProcessesApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The published process definition. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The process definition changed while it was being published, or the idempotency key was reused with a different request. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process definition changed while it was being published. </td><td>  -  </td></tr>
+     * <tr><td> 422 </td><td> The idempotency key was already used for a different request. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
