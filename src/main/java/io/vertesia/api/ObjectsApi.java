@@ -3999,6 +3999,7 @@ public class ObjectsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Stored embedding value. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The embedding&#39;s etag no longer matches the object&#39;s current source for this type: the source changed after the embedding was computed. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -4109,6 +4110,7 @@ public class ObjectsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Stored embedding value. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The embedding&#39;s etag no longer matches the object&#39;s current source for this type: the source changed after the embedding was computed. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -4136,6 +4138,7 @@ public class ObjectsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Stored embedding value. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The embedding&#39;s etag no longer matches the object&#39;s current source for this type: the source changed after the embedding was computed. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -4165,6 +4168,7 @@ public class ObjectsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Stored embedding value. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The embedding&#39;s etag no longer matches the object&#39;s current source for this type: the source changed after the embedding was computed. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
