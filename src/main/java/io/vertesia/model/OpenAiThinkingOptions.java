@@ -186,6 +186,68 @@ public class OpenAiThinkingOptions {
     @jakarta.annotation.Nullable private ReasoningContextEnum reasoningContext;
 
     /**
+     * Gets or Sets verbosity
+     */
+    @JsonAdapter(VerbosityEnum.Adapter.class)
+    public enum VerbosityEnum {
+        LOW("low"),
+
+        MEDIUM("medium"),
+
+        HIGH("high"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        VerbosityEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static VerbosityEnum fromValue(String value) {
+            for (VerbosityEnum b : VerbosityEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<VerbosityEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final VerbosityEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public VerbosityEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return VerbosityEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            VerbosityEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_VERBOSITY = "verbosity";
+
+    @SerializedName(SERIALIZED_NAME_VERBOSITY)
+    @jakarta.annotation.Nullable private VerbosityEnum verbosity;
+
+    /**
      * Gets or Sets imageDetail
      */
     @JsonAdapter(ImageDetailEnum.Adapter.class)
@@ -397,6 +459,23 @@ public class OpenAiThinkingOptions {
         this.reasoningContext = reasoningContext;
     }
 
+    public OpenAiThinkingOptions verbosity(@jakarta.annotation.Nullable VerbosityEnum verbosity) {
+        this.verbosity = verbosity;
+        return this;
+    }
+
+    /**
+     * Get verbosity
+     * @return verbosity
+     */
+    @jakarta.annotation.Nullable public VerbosityEnum getVerbosity() {
+        return verbosity;
+    }
+
+    public void setVerbosity(@jakarta.annotation.Nullable VerbosityEnum verbosity) {
+        this.verbosity = verbosity;
+    }
+
     public OpenAiThinkingOptions imageDetail(
             @jakarta.annotation.Nullable ImageDetailEnum imageDetail) {
         this.imageDetail = imageDetail;
@@ -537,6 +616,7 @@ public class OpenAiThinkingOptions {
                 && Objects.equals(this.effort, openAiThinkingOptions.effort)
                 && Objects.equals(this.reasoningEffort, openAiThinkingOptions.reasoningEffort)
                 && Objects.equals(this.reasoningContext, openAiThinkingOptions.reasoningContext)
+                && Objects.equals(this.verbosity, openAiThinkingOptions.verbosity)
                 && Objects.equals(this.imageDetail, openAiThinkingOptions.imageDetail)
                 && Objects.equals(this.includeThoughts, openAiThinkingOptions.includeThoughts)
                 && Objects.equals(this.serviceTier, openAiThinkingOptions.serviceTier)
@@ -555,6 +635,7 @@ public class OpenAiThinkingOptions {
                 effort,
                 reasoningEffort,
                 reasoningContext,
+                verbosity,
                 imageDetail,
                 includeThoughts,
                 serviceTier,
@@ -573,6 +654,7 @@ public class OpenAiThinkingOptions {
         sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
         sb.append("    reasoningEffort: ").append(toIndentedString(reasoningEffort)).append("\n");
         sb.append("    reasoningContext: ").append(toIndentedString(reasoningContext)).append("\n");
+        sb.append("    verbosity: ").append(toIndentedString(verbosity)).append("\n");
         sb.append("    imageDetail: ").append(toIndentedString(imageDetail)).append("\n");
         sb.append("    includeThoughts: ").append(toIndentedString(includeThoughts)).append("\n");
         sb.append("    serviceTier: ").append(toIndentedString(serviceTier)).append("\n");
@@ -607,6 +689,7 @@ public class OpenAiThinkingOptions {
                                 "effort",
                                 "reasoning_effort",
                                 "reasoning_context",
+                                "verbosity",
                                 "image_detail",
                                 "include_thoughts",
                                 "service_tier",
@@ -683,6 +766,18 @@ public class OpenAiThinkingOptions {
         if (jsonObj.get("reasoning_context") != null
                 && !jsonObj.get("reasoning_context").isJsonNull()) {
             ReasoningContextEnum.validateJsonElement(jsonObj.get("reasoning_context"));
+        }
+        if ((jsonObj.get("verbosity") != null && !jsonObj.get("verbosity").isJsonNull())
+                && !jsonObj.get("verbosity").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `verbosity` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("verbosity").toString()));
+        }
+        // validate the optional field `verbosity`
+        if (jsonObj.get("verbosity") != null && !jsonObj.get("verbosity").isJsonNull()) {
+            VerbosityEnum.validateJsonElement(jsonObj.get("verbosity"));
         }
         if ((jsonObj.get("image_detail") != null && !jsonObj.get("image_detail").isJsonNull())
                 && !jsonObj.get("image_detail").isJsonPrimitive()) {

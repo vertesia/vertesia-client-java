@@ -123,6 +123,68 @@ public class OpenAiTextOptions {
     @SerializedName(SERIALIZED_NAME_REASONING_EFFORT)
     @jakarta.annotation.Nullable private ReasoningEffort reasoningEffort;
 
+    /**
+     * Gets or Sets verbosity
+     */
+    @JsonAdapter(VerbosityEnum.Adapter.class)
+    public enum VerbosityEnum {
+        LOW("low"),
+
+        MEDIUM("medium"),
+
+        HIGH("high"),
+
+        UNKNOWN_DEFAULT_OPEN_API("unknown_default_open_api");
+
+        private String value;
+
+        VerbosityEnum(String value) {
+            this.value = value;
+        }
+
+        public String getValue() {
+            return value;
+        }
+
+        @Override
+        public String toString() {
+            return String.valueOf(value);
+        }
+
+        public static VerbosityEnum fromValue(String value) {
+            for (VerbosityEnum b : VerbosityEnum.values()) {
+                if (b.value.equals(value)) {
+                    return b;
+                }
+            }
+            return UNKNOWN_DEFAULT_OPEN_API;
+        }
+
+        public static class Adapter extends TypeAdapter<VerbosityEnum> {
+            @Override
+            public void write(final JsonWriter jsonWriter, final VerbosityEnum enumeration)
+                    throws IOException {
+                jsonWriter.value(enumeration.getValue());
+            }
+
+            @Override
+            public VerbosityEnum read(final JsonReader jsonReader) throws IOException {
+                String value = jsonReader.nextString();
+                return VerbosityEnum.fromValue(value);
+            }
+        }
+
+        public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+            String value = jsonElement.getAsString();
+            VerbosityEnum.fromValue(value);
+        }
+    }
+
+    public static final String SERIALIZED_NAME_VERBOSITY = "verbosity";
+
+    @SerializedName(SERIALIZED_NAME_VERBOSITY)
+    @jakarta.annotation.Nullable private VerbosityEnum verbosity;
+
     public static final String SERIALIZED_NAME_TEMPERATURE = "temperature";
 
     @SerializedName(SERIALIZED_NAME_TEMPERATURE)
@@ -332,6 +394,23 @@ public class OpenAiTextOptions {
         this.reasoningEffort = reasoningEffort;
     }
 
+    public OpenAiTextOptions verbosity(@jakarta.annotation.Nullable VerbosityEnum verbosity) {
+        this.verbosity = verbosity;
+        return this;
+    }
+
+    /**
+     * Get verbosity
+     * @return verbosity
+     */
+    @jakarta.annotation.Nullable public VerbosityEnum getVerbosity() {
+        return verbosity;
+    }
+
+    public void setVerbosity(@jakarta.annotation.Nullable VerbosityEnum verbosity) {
+        this.verbosity = verbosity;
+    }
+
     public OpenAiTextOptions temperature(@jakarta.annotation.Nullable BigDecimal temperature) {
         this.temperature = temperature;
         return this;
@@ -518,6 +597,7 @@ public class OpenAiTextOptions {
                 && Objects.equals(this.maxTokens, openAiTextOptions.maxTokens)
                 && Objects.equals(this.effort, openAiTextOptions.effort)
                 && Objects.equals(this.reasoningEffort, openAiTextOptions.reasoningEffort)
+                && Objects.equals(this.verbosity, openAiTextOptions.verbosity)
                 && Objects.equals(this.temperature, openAiTextOptions.temperature)
                 && Objects.equals(this.topP, openAiTextOptions.topP)
                 && Objects.equals(this.presencePenalty, openAiTextOptions.presencePenalty)
@@ -538,6 +618,7 @@ public class OpenAiTextOptions {
                 maxTokens,
                 effort,
                 reasoningEffort,
+                verbosity,
                 temperature,
                 topP,
                 presencePenalty,
@@ -559,6 +640,7 @@ public class OpenAiTextOptions {
         sb.append("    maxTokens: ").append(toIndentedString(maxTokens)).append("\n");
         sb.append("    effort: ").append(toIndentedString(effort)).append("\n");
         sb.append("    reasoningEffort: ").append(toIndentedString(reasoningEffort)).append("\n");
+        sb.append("    verbosity: ").append(toIndentedString(verbosity)).append("\n");
         sb.append("    temperature: ").append(toIndentedString(temperature)).append("\n");
         sb.append("    topP: ").append(toIndentedString(topP)).append("\n");
         sb.append("    presencePenalty: ").append(toIndentedString(presencePenalty)).append("\n");
@@ -594,6 +676,7 @@ public class OpenAiTextOptions {
                                 "max_tokens",
                                 "effort",
                                 "reasoning_effort",
+                                "verbosity",
                                 "temperature",
                                 "top_p",
                                 "presence_penalty",
@@ -651,6 +734,18 @@ public class OpenAiTextOptions {
         if (jsonObj.get("reasoning_effort") != null
                 && !jsonObj.get("reasoning_effort").isJsonNull()) {
             ReasoningEffort.validateJsonElement(jsonObj.get("reasoning_effort"));
+        }
+        if ((jsonObj.get("verbosity") != null && !jsonObj.get("verbosity").isJsonNull())
+                && !jsonObj.get("verbosity").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `verbosity` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("verbosity").toString()));
+        }
+        // validate the optional field `verbosity`
+        if (jsonObj.get("verbosity") != null && !jsonObj.get("verbosity").isJsonNull()) {
+            VerbosityEnum.validateJsonElement(jsonObj.get("verbosity"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("stop_sequence") != null
