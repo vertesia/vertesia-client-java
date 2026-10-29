@@ -19,6 +19,7 @@ import io.vertesia.ApiException;
 import io.vertesia.ApiResponse;
 import io.vertesia.Configuration;
 import io.vertesia.Pair;
+import io.vertesia.model.CreateUserPayload;
 import io.vertesia.model.DeleteByIdResult;
 import io.vertesia.model.PrincipalIdentity;
 import io.vertesia.model.UpdateUserPayload;
@@ -64,6 +65,173 @@ public class UsersApi {
 
     public void setCustomBaseUrl(String customBaseUrl) {
         this.localCustomBaseUrl = customBaseUrl;
+    }
+
+    /**
+     * Build call for createUser
+     * @param createUserPayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> An existing user with this address, now a member of the account. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> The created user. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> The address is reserved, or belongs to a user another account provisioned. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Authorization attributes were given for a user who also belongs to another account, or the address matches more than one user. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createUserCall(
+            @jakarta.annotation.Nonnull CreateUserPayload createUserPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = createUserPayload;
+
+        // create path and map variables
+        String localVarPath = "/iam/users";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createUserValidateBeforeCall(
+            @jakarta.annotation.Nonnull CreateUserPayload createUserPayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'createUserPayload' is set
+        if (createUserPayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'createUserPayload' when calling createUser(Async)");
+        }
+
+        return createUserCall(createUserPayload, _callback);
+    }
+
+    /**
+     * Add a user to the current account
+     * Adds a user to the current account with the member role, without sending an invitation. When no user has the address, one is created; it can sign in through the account&#39;s identity providers. When one exists, it is added to the account and its profile is left unchanged. Project roles are granted separately, through access control entries. Requires an account administrator or a SCIM provisioning API key.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:user:manage&#x60;
+     * @param createUserPayload  (required)
+     * @return User
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> An existing user with this address, now a member of the account. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> The created user. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> The address is reserved, or belongs to a user another account provisioned. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Authorization attributes were given for a user who also belongs to another account, or the address matches more than one user. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public User createUser(@jakarta.annotation.Nonnull CreateUserPayload createUserPayload)
+            throws ApiException {
+        ApiResponse<User> localVarResp = createUserWithHttpInfo(createUserPayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Add a user to the current account
+     * Adds a user to the current account with the member role, without sending an invitation. When no user has the address, one is created; it can sign in through the account&#39;s identity providers. When one exists, it is added to the account and its profile is left unchanged. Project roles are granted separately, through access control entries. Requires an account administrator or a SCIM provisioning API key.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:user:manage&#x60;
+     * @param createUserPayload  (required)
+     * @return ApiResponse&lt;User&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> An existing user with this address, now a member of the account. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> The created user. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> The address is reserved, or belongs to a user another account provisioned. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Authorization attributes were given for a user who also belongs to another account, or the address matches more than one user. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<User> createUserWithHttpInfo(
+            @jakarta.annotation.Nonnull CreateUserPayload createUserPayload) throws ApiException {
+        okhttp3.Call localVarCall = createUserValidateBeforeCall(createUserPayload, null);
+        Type localVarReturnType = new TypeToken<User>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Add a user to the current account (asynchronously)
+     * Adds a user to the current account with the member role, without sending an invitation. When no user has the address, one is created; it can sign in through the account&#39;s identity providers. When one exists, it is added to the account and its profile is left unchanged. Project roles are granted separately, through access control entries. Requires an account administrator or a SCIM provisioning API key.  **Required permissions:** Any of &#x60;account:admin&#x60;, &#x60;account:user:manage&#x60;
+     * @param createUserPayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> An existing user with this address, now a member of the account. </td><td>  -  </td></tr>
+     * <tr><td> 201 </td><td> The created user. </td><td>  -  </td></tr>
+     * <tr><td> 403 </td><td> The address is reserved, or belongs to a user another account provisioned. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> Authorization attributes were given for a user who also belongs to another account, or the address matches more than one user. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createUserAsync(
+            @jakarta.annotation.Nonnull CreateUserPayload createUserPayload,
+            final ApiCallback<User> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = createUserValidateBeforeCall(createUserPayload, _callback);
+        Type localVarReturnType = new TypeToken<User>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
     }
 
     /**

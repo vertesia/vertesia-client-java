@@ -439,6 +439,7 @@ src/main/java/io/vertesia/model/CreateTablePayload.java
 src/main/java/io/vertesia/model/CreateTablesPayload.java
 src/main/java/io/vertesia/model/CreateTaskPayload.java
 src/main/java/io/vertesia/model/CreateUserGroupPayload.java
+src/main/java/io/vertesia/model/CreateUserPayload.java
 src/main/java/io/vertesia/model/CreateViewExperienceRequest.java
 src/main/java/io/vertesia/model/CreateWorkflowRulePayload.java
 src/main/java/io/vertesia/model/DSLActivityOptions.java
