@@ -74,6 +74,11 @@ public class ProjectConfiguration {
     @SerializedName(SERIALIZED_NAME_SYNC_CONTENT_PROPERTIES)
     @jakarta.annotation.Nullable private Boolean syncContentProperties;
 
+    public static final String SERIALIZED_NAME_SHARED_CONTENT_ENABLED = "shared_content_enabled";
+
+    @SerializedName(SERIALIZED_NAME_SHARED_CONTENT_ENABLED)
+    @jakarta.annotation.Nullable private Boolean sharedContentEnabled;
+
     public static final String SERIALIZED_NAME_EMBEDDINGS = "embeddings";
 
     @SerializedName(SERIALIZED_NAME_EMBEDDINGS)
@@ -260,6 +265,24 @@ public class ProjectConfiguration {
     public void setSyncContentProperties(
             @jakarta.annotation.Nullable Boolean syncContentProperties) {
         this.syncContentProperties = syncContentProperties;
+    }
+
+    public ProjectConfiguration sharedContentEnabled(
+            @jakarta.annotation.Nullable Boolean sharedContentEnabled) {
+        this.sharedContentEnabled = sharedContentEnabled;
+        return this;
+    }
+
+    /**
+     * Enable Shared Content for this project: sharing its documents and collections with other projects in the account, and browsing content they share. Defaults to false if not specified.
+     * @return sharedContentEnabled
+     */
+    @jakarta.annotation.Nullable public Boolean getSharedContentEnabled() {
+        return sharedContentEnabled;
+    }
+
+    public void setSharedContentEnabled(@jakarta.annotation.Nullable Boolean sharedContentEnabled) {
+        this.sharedContentEnabled = sharedContentEnabled;
     }
 
     public ProjectConfiguration embeddings(
@@ -524,6 +547,8 @@ public class ProjectConfiguration {
                 && Objects.equals(this.defaultVisibility, projectConfiguration.defaultVisibility)
                 && Objects.equals(
                         this.syncContentProperties, projectConfiguration.syncContentProperties)
+                && Objects.equals(
+                        this.sharedContentEnabled, projectConfiguration.sharedContentEnabled)
                 && Objects.equals(this.embeddings, projectConfiguration.embeddings)
                 && Objects.equals(this.datacenter, projectConfiguration.datacenter)
                 && Objects.equals(this.storageBucket, projectConfiguration.storageBucket)
@@ -560,6 +585,7 @@ public class ProjectConfiguration {
                 inference,
                 defaultVisibility,
                 syncContentProperties,
+                sharedContentEnabled,
                 embeddings,
                 datacenter,
                 storageBucket,
@@ -597,6 +623,9 @@ public class ProjectConfiguration {
                 .append("\n");
         sb.append("    syncContentProperties: ")
                 .append(toIndentedString(syncContentProperties))
+                .append("\n");
+        sb.append("    sharedContentEnabled: ")
+                .append(toIndentedString(sharedContentEnabled))
                 .append("\n");
         sb.append("    embeddings: ").append(toIndentedString(embeddings)).append("\n");
         sb.append("    datacenter: ").append(toIndentedString(datacenter)).append("\n");
@@ -643,6 +672,7 @@ public class ProjectConfiguration {
                                 "inference",
                                 "default_visibility",
                                 "sync_content_properties",
+                                "shared_content_enabled",
                                 "embeddings",
                                 "datacenter",
                                 "storage_bucket",
