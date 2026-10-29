@@ -552,11 +552,7 @@ src/main/java/io/vertesia/model/ForwardEmailRequest.java
 src/main/java/io/vertesia/model/ForwardEmailRequestAttachmentsInner.java
 src/main/java/io/vertesia/model/ForwardEmailRequestEmail.java
 src/main/java/io/vertesia/model/ForwardEmailResponse.java
-src/main/java/io/vertesia/model/GenerateInteractionPayload.java
 src/main/java/io/vertesia/model/GenerateTestDataPayload.java
-src/main/java/io/vertesia/model/GeneratedInteractionDefinition.java
-src/main/java/io/vertesia/model/GeneratedInteractionPromptSegment.java
-src/main/java/io/vertesia/model/GeneratedInteractionPromptTemplate.java
 src/main/java/io/vertesia/model/GenerationRunMetadata.java
 src/main/java/io/vertesia/model/GenericCommandResponse.java
 src/main/java/io/vertesia/model/GetFileUrlPayload.java
@@ -589,9 +585,6 @@ src/main/java/io/vertesia/model/ImportDataSource.java
 src/main/java/io/vertesia/model/ImportJob.java
 src/main/java/io/vertesia/model/ImportStatus.java
 src/main/java/io/vertesia/model/ImportTableData.java
-src/main/java/io/vertesia/model/ImprovePromptPayload.java
-src/main/java/io/vertesia/model/ImprovePromptPayloadConfig.java
-src/main/java/io/vertesia/model/ImprovePromptPayloadPromptInner.java
 src/main/java/io/vertesia/model/InCodeProcessDefinition.java
 src/main/java/io/vertesia/model/InCodePrompt.java
 src/main/java/io/vertesia/model/InCodeTypeDefinition.java
@@ -814,7 +807,6 @@ src/main/java/io/vertesia/model/PromoteDashboardVersionPayload.java
 src/main/java/io/vertesia/model/PromptCacheDiagnostic.java
 src/main/java/io/vertesia/model/PromptCacheMode.java
 src/main/java/io/vertesia/model/PromptCachePath.java
-src/main/java/io/vertesia/model/PromptImprovementResponse.java
 src/main/java/io/vertesia/model/PromptModalities.java
 src/main/java/io/vertesia/model/PromptRole.java
 src/main/java/io/vertesia/model/PromptSearchQuery.java

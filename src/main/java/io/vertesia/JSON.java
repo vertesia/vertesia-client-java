@@ -1802,16 +1802,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ForwardEmailResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.GenerateInteractionPayload.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.GenerateTestDataPayload.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.GeneratedInteractionDefinition.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.GeneratedInteractionPromptSegment.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.GeneratedInteractionPromptTemplate
-                        .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.GenerationRunMetadata.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -1865,12 +1856,6 @@ public class JSON {
                 new io.vertesia.model.ImportJob.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.ImportTableData.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.ImprovePromptPayload.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.ImprovePromptPayloadConfig.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.ImprovePromptPayloadPromptInner.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.InCodeProcessDefinition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -2248,8 +2233,6 @@ public class JSON {
                 new io.vertesia.model.PromoteDashboardVersionPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.PromptCacheDiagnostic.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(
-                new io.vertesia.model.PromptImprovementResponse.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.PromptModalities.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
