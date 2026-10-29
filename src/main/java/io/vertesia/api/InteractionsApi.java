@@ -510,7 +510,7 @@ public class InteractionsApi {
 
     /**
      * Delete an interaction
-     * Deletes an interaction from the current project. Pass ?cascade&#x3D;true to also delete every interaction that lists this one as its parent (forward-only — never deletes ancestors).  **Required permissions:** &#x60;interaction:delete&#x60;
+     * Deletes an interaction from the current project. Pass ?cascade&#x3D;true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks.  **Required permissions:** &#x60;interaction:delete&#x60;
      * @param interactionId  (required)
      * @return DeleteByIdResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -531,7 +531,7 @@ public class InteractionsApi {
 
     /**
      * Delete an interaction
-     * Deletes an interaction from the current project. Pass ?cascade&#x3D;true to also delete every interaction that lists this one as its parent (forward-only — never deletes ancestors).  **Required permissions:** &#x60;interaction:delete&#x60;
+     * Deletes an interaction from the current project. Pass ?cascade&#x3D;true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks.  **Required permissions:** &#x60;interaction:delete&#x60;
      * @param interactionId  (required)
      * @return ApiResponse&lt;DeleteByIdResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -553,7 +553,7 @@ public class InteractionsApi {
 
     /**
      * Delete an interaction (asynchronously)
-     * Deletes an interaction from the current project. Pass ?cascade&#x3D;true to also delete every interaction that lists this one as its parent (forward-only — never deletes ancestors).  **Required permissions:** &#x60;interaction:delete&#x60;
+     * Deletes an interaction from the current project. Pass ?cascade&#x3D;true on a draft to also delete its published versions. A cascade never deletes a version&#39;s draft, sibling versions, or forks.  **Required permissions:** &#x60;interaction:delete&#x60;
      * @param interactionId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
