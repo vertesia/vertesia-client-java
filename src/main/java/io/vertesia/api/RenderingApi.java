@@ -76,6 +76,7 @@ public class RenderingApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Started rendering workflow metadata. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The object_id does not name a content object the caller can read. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -161,6 +162,7 @@ public class RenderingApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Started rendering workflow metadata. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The object_id does not name a content object the caller can read. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -184,6 +186,7 @@ public class RenderingApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Started rendering workflow metadata. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The object_id does not name a content object the caller can read. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -209,6 +212,7 @@ public class RenderingApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Started rendering workflow metadata. </td><td>  -  </td></tr>
+     * <tr><td> 404 </td><td> The object_id does not name a content object the caller can read. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
