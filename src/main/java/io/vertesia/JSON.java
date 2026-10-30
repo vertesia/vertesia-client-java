@@ -2707,6 +2707,9 @@ public class JSON {
                 new io.vertesia.model.UpdateAppInstallationToolAllowlistPayload
                         .CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.UpdateAppInstallationToolPermissionsPayload
+                        .CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UpdateAppPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UpdateCollectionPayload.CustomTypeAdapterFactory());

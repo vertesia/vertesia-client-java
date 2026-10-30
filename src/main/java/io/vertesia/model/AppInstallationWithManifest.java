@@ -168,6 +168,12 @@ public class AppInstallationWithManifest {
     @SerializedName(SERIALIZED_NAME_TOOL_ALLOWLIST)
     @jakarta.annotation.Nullable private List<String> toolAllowlist = new ArrayList<>();
 
+    public static final String SERIALIZED_NAME_TOOLS_REQUIRING_APPROVAL =
+            "tools_requiring_approval";
+
+    @SerializedName(SERIALIZED_NAME_TOOLS_REQUIRING_APPROVAL)
+    @jakarta.annotation.Nullable private List<String> toolsRequiringApproval = new ArrayList<>();
+
     public static final String SERIALIZED_NAME_OAUTH_BINDINGS = "oauth_bindings";
 
     @SerializedName(SERIALIZED_NAME_OAUTH_BINDINGS)
@@ -507,6 +513,34 @@ public class AppInstallationWithManifest {
         this.toolAllowlist = toolAllowlist;
     }
 
+    public AppInstallationWithManifest toolsRequiringApproval(
+            @jakarta.annotation.Nullable List<String> toolsRequiringApproval) {
+        this.toolsRequiringApproval = toolsRequiringApproval;
+        return this;
+    }
+
+    public AppInstallationWithManifest addToolsRequiringApprovalItem(
+            String toolsRequiringApprovalItem) {
+        if (this.toolsRequiringApproval == null) {
+            this.toolsRequiringApproval = new ArrayList<>();
+        }
+        this.toolsRequiringApproval.add(toolsRequiringApprovalItem);
+        return this;
+    }
+
+    /**
+     * Admin-managed list of tool names from this installation that always require human approval before an agent runs them, regardless of the run&#39;s tool approval mode. When undefined, the default approval behavior applies.
+     * @return toolsRequiringApproval
+     */
+    @jakarta.annotation.Nullable public List<String> getToolsRequiringApproval() {
+        return toolsRequiringApproval;
+    }
+
+    public void setToolsRequiringApproval(
+            @jakarta.annotation.Nullable List<String> toolsRequiringApproval) {
+        this.toolsRequiringApproval = toolsRequiringApproval;
+    }
+
     public AppInstallationWithManifest oauthBindings(
             @jakarta.annotation.Nullable List<AppInstallationOAuthBinding> oauthBindings) {
         this.oauthBindings = oauthBindings;
@@ -735,6 +769,9 @@ public class AppInstallationWithManifest {
                 && Objects.equals(this.oauthClientId, appInstallationWithManifest.oauthClientId)
                 && Objects.equals(this.settings, appInstallationWithManifest.settings)
                 && Objects.equals(this.toolAllowlist, appInstallationWithManifest.toolAllowlist)
+                && Objects.equals(
+                        this.toolsRequiringApproval,
+                        appInstallationWithManifest.toolsRequiringApproval)
                 && Objects.equals(this.oauthBindings, appInstallationWithManifest.oauthBindings)
                 && Objects.equals(
                         this.providerBindings, appInstallationWithManifest.providerBindings)
@@ -775,6 +812,7 @@ public class AppInstallationWithManifest {
                 oauthClientId,
                 settings,
                 toolAllowlist,
+                toolsRequiringApproval,
                 oauthBindings,
                 providerBindings,
                 accessControl,
@@ -818,6 +856,9 @@ public class AppInstallationWithManifest {
         sb.append("    oauthClientId: ").append(toIndentedString(oauthClientId)).append("\n");
         sb.append("    settings: ").append(toIndentedString(settings)).append("\n");
         sb.append("    toolAllowlist: ").append(toIndentedString(toolAllowlist)).append("\n");
+        sb.append("    toolsRequiringApproval: ")
+                .append(toIndentedString(toolsRequiringApproval))
+                .append("\n");
         sb.append("    oauthBindings: ").append(toIndentedString(oauthBindings)).append("\n");
         sb.append("    providerBindings: ").append(toIndentedString(providerBindings)).append("\n");
         sb.append("    accessControl: ").append(toIndentedString(accessControl)).append("\n");
@@ -864,6 +905,7 @@ public class AppInstallationWithManifest {
                                 "oauth_client_id",
                                 "settings",
                                 "tool_allowlist",
+                                "tools_requiring_approval",
                                 "oauth_bindings",
                                 "provider_bindings",
                                 "access_control",
@@ -998,6 +1040,16 @@ public class AppInstallationWithManifest {
                             java.util.Locale.ROOT,
                             "Expected the field `tool_allowlist` to be an array in the JSON string but got `%s`",
                             jsonObj.get("tool_allowlist").toString()));
+        }
+        // ensure the optional json data is an array if present
+        if (jsonObj.get("tools_requiring_approval") != null
+                && !jsonObj.get("tools_requiring_approval").isJsonNull()
+                && !jsonObj.get("tools_requiring_approval").isJsonArray()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `tools_requiring_approval` to be an array in the JSON string but got `%s`",
+                            jsonObj.get("tools_requiring_approval").toString()));
         }
         if (jsonObj.get("oauth_bindings") != null && !jsonObj.get("oauth_bindings").isJsonNull()) {
             JsonArray jsonArrayoauthBindings = jsonObj.getAsJsonArray("oauth_bindings");

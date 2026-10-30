@@ -1100,6 +1100,7 @@ src/main/java/io/vertesia/model/UpdateAgentArtifactContentResponse.java
 src/main/java/io/vertesia/model/UpdateApiKeyPayload.java
 src/main/java/io/vertesia/model/UpdateAppInstallationOAuthApprovalPayload.java
 src/main/java/io/vertesia/model/UpdateAppInstallationToolAllowlistPayload.java
+src/main/java/io/vertesia/model/UpdateAppInstallationToolPermissionsPayload.java
 src/main/java/io/vertesia/model/UpdateAppPayload.java
 src/main/java/io/vertesia/model/UpdateCollectionPayload.java
 src/main/java/io/vertesia/model/UpdateContentObjectPayload.java
