@@ -101,6 +101,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -199,6 +200,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -224,6 +226,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -251,6 +254,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -461,6 +465,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -559,6 +564,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -584,6 +590,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -611,6 +618,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -4178,6 +4186,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -4276,6 +4285,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -4301,6 +4311,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -4328,6 +4339,7 @@ public class AgentRunsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> Workflow signal result. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The process run has ended and can no longer receive signals. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
