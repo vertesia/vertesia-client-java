@@ -269,6 +269,7 @@ public class InteractionsApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The created interaction. </td><td>  -  </td></tr>
      * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The endpoint derived from the name is already used by another interaction in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -355,6 +356,7 @@ public class InteractionsApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The created interaction. </td><td>  -  </td></tr>
      * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The endpoint derived from the name is already used by another interaction in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -379,6 +381,7 @@ public class InteractionsApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The created interaction. </td><td>  -  </td></tr>
      * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The endpoint derived from the name is already used by another interaction in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -405,6 +408,7 @@ public class InteractionsApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The created interaction. </td><td>  -  </td></tr>
      * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The endpoint derived from the name is already used by another interaction in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1673,6 +1677,7 @@ public class InteractionsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The forked draft interaction. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The endpoint derived from &#x60;newName&#x60; is already used in the target project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1761,7 +1766,7 @@ public class InteractionsApi {
 
     /**
      * Fork an interaction
-     * Creates a draft copy of an interaction, optionally for another accessible project and with prompt templates forked alongside it.  **Required permissions:** &#x60;interaction:write&#x60;
+     * Creates a draft copy of an interaction, optionally for another accessible project and with prompt templates forked alongside it. Without &#x60;newName&#x60;, a fork into another project keeps the source name; otherwise, or when that endpoint is taken, it gets the first of &#x60;&lt;name&gt; (fork)&#x60;, &#x60;&lt;name&gt; (fork 2)&#x60;, ... whose endpoint is free in the target project.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param interactionId  (required)
      * @param interactionForkPayload  (required)
      * @return Interaction
@@ -1771,6 +1776,7 @@ public class InteractionsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The forked draft interaction. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The endpoint derived from &#x60;newName&#x60; is already used in the target project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1786,7 +1792,7 @@ public class InteractionsApi {
 
     /**
      * Fork an interaction
-     * Creates a draft copy of an interaction, optionally for another accessible project and with prompt templates forked alongside it.  **Required permissions:** &#x60;interaction:write&#x60;
+     * Creates a draft copy of an interaction, optionally for another accessible project and with prompt templates forked alongside it. Without &#x60;newName&#x60;, a fork into another project keeps the source name; otherwise, or when that endpoint is taken, it gets the first of &#x60;&lt;name&gt; (fork)&#x60;, &#x60;&lt;name&gt; (fork 2)&#x60;, ... whose endpoint is free in the target project.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param interactionId  (required)
      * @param interactionForkPayload  (required)
      * @return ApiResponse&lt;Interaction&gt;
@@ -1796,6 +1802,7 @@ public class InteractionsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The forked draft interaction. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The endpoint derived from &#x60;newName&#x60; is already used in the target project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -1812,7 +1819,7 @@ public class InteractionsApi {
 
     /**
      * Fork an interaction (asynchronously)
-     * Creates a draft copy of an interaction, optionally for another accessible project and with prompt templates forked alongside it.  **Required permissions:** &#x60;interaction:write&#x60;
+     * Creates a draft copy of an interaction, optionally for another accessible project and with prompt templates forked alongside it. Without &#x60;newName&#x60;, a fork into another project keeps the source name; otherwise, or when that endpoint is taken, it gets the first of &#x60;&lt;name&gt; (fork)&#x60;, &#x60;&lt;name&gt; (fork 2)&#x60;, ... whose endpoint is free in the target project.  **Required permissions:** &#x60;interaction:write&#x60;
      * @param interactionId  (required)
      * @param interactionForkPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -1823,6 +1830,7 @@ public class InteractionsApi {
      * <caption>Response Details</caption>
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The forked draft interaction. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The endpoint derived from &#x60;newName&#x60; is already used in the target project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -5348,7 +5356,7 @@ public class InteractionsApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
      * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -5448,7 +5456,7 @@ public class InteractionsApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
      * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -5475,7 +5483,7 @@ public class InteractionsApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
      * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
@@ -5504,7 +5512,7 @@ public class InteractionsApi {
      * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
      * <tr><td> 200 </td><td> The updated interaction. </td><td>  -  </td></tr>
      * <tr><td> 400 </td><td> A prompt segment references a prompt template that is not in the project. </td><td>  -  </td></tr>
-     * <tr><td> 409 </td><td> The interaction was changed after the caller read it. </td><td>  -  </td></tr>
+     * <tr><td> 409 </td><td> The interaction was changed after the caller read it, or the requested endpoint is already used by another interaction in the project. </td><td>  -  </td></tr>
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
