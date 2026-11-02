@@ -41,6 +41,11 @@ public class RateLimitRequestResponse {
     @jakarta.annotation.Nonnull
     private BigDecimal delayMs;
 
+    public static final String SERIALIZED_NAME_RATE_LIMIT_GRANT = "rate_limit_grant";
+
+    @SerializedName(SERIALIZED_NAME_RATE_LIMIT_GRANT)
+    @jakarta.annotation.Nullable private String rateLimitGrant;
+
     public RateLimitRequestResponse() {}
 
     public RateLimitRequestResponse delayMs(@jakarta.annotation.Nonnull BigDecimal delayMs) {
@@ -61,6 +66,24 @@ public class RateLimitRequestResponse {
         this.delayMs = delayMs;
     }
 
+    public RateLimitRequestResponse rateLimitGrant(
+            @jakarta.annotation.Nullable String rateLimitGrant) {
+        this.rateLimitGrant = rateLimitGrant;
+        return this;
+    }
+
+    /**
+     * Opaque token for the slot this request holds: admitted when &#x60;delay_ms&#x60; is 0, otherwise queued until the caller asks again after the delay. Once admitted, send it back unchanged as &#x60;workflow.rate_limit_id&#x60; when executing, so completion releases exactly this slot. Absent when the request holds no slot.
+     * @return rateLimitGrant
+     */
+    @jakarta.annotation.Nullable public String getRateLimitGrant() {
+        return rateLimitGrant;
+    }
+
+    public void setRateLimitGrant(@jakarta.annotation.Nullable String rateLimitGrant) {
+        this.rateLimitGrant = rateLimitGrant;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -70,12 +93,13 @@ public class RateLimitRequestResponse {
             return false;
         }
         RateLimitRequestResponse rateLimitRequestResponse = (RateLimitRequestResponse) o;
-        return Objects.equals(this.delayMs, rateLimitRequestResponse.delayMs);
+        return Objects.equals(this.delayMs, rateLimitRequestResponse.delayMs)
+                && Objects.equals(this.rateLimitGrant, rateLimitRequestResponse.rateLimitGrant);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(delayMs);
+        return Objects.hash(delayMs, rateLimitGrant);
     }
 
     @Override
@@ -83,6 +107,7 @@ public class RateLimitRequestResponse {
         StringBuilder sb = new StringBuilder();
         sb.append("class RateLimitRequestResponse {\n");
         sb.append("    delayMs: ").append(toIndentedString(delayMs)).append("\n");
+        sb.append("    rateLimitGrant: ").append(toIndentedString(rateLimitGrant)).append("\n");
         sb.append("}");
         return sb.toString();
     }
@@ -100,7 +125,7 @@ public class RateLimitRequestResponse {
 
     static {
         // a set of all properties/fields (JSON key names)
-        openapiFields = new HashSet<String>(Arrays.asList("delay_ms"));
+        openapiFields = new HashSet<String>(Arrays.asList("delay_ms", "rate_limit_grant"));
 
         // a set of required properties/fields (JSON key names)
         openapiRequiredFields = new HashSet<String>(Arrays.asList("delay_ms"));
@@ -136,6 +161,15 @@ public class RateLimitRequestResponse {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        if ((jsonObj.get("rate_limit_grant") != null
+                        && !jsonObj.get("rate_limit_grant").isJsonNull())
+                && !jsonObj.get("rate_limit_grant").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `rate_limit_grant` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("rate_limit_grant").toString()));
+        }
     }
 
     public static class CustomTypeAdapterFactory implements TypeAdapterFactory {
