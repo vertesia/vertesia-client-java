@@ -271,6 +271,7 @@ public class UpdateViewExperienceRequest {
 
     /**
      * Get revision
+     * minimum: 1
      * @return revision
      */
     @jakarta.annotation.Nonnull

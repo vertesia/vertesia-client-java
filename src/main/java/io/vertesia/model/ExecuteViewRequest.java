@@ -217,6 +217,8 @@ public class ExecuteViewRequest {
 
     /**
      * Get offset
+     * minimum: 0
+     * maximum: 50000
      * @return offset
      */
     @jakarta.annotation.Nullable public BigDecimal getOffset() {
@@ -234,6 +236,8 @@ public class ExecuteViewRequest {
 
     /**
      * Get limit
+     * minimum: 1
+     * maximum: 200
      * @return limit
      */
     @jakarta.annotation.Nullable public BigDecimal getLimit() {

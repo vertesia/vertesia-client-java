@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * When creating from an uploaded file the content should be an URL to the uploaded file
+ * When creating from an uploaded file the content should be an URL to the uploaded file. &#x60;name&#x60; is required unless &#x60;content.name&#x60; or &#x60;content.source&#x60; is given; it then defaults to the content file name.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",

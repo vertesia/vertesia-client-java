@@ -77,8 +77,8 @@ public class ProcessesApi {
 
     /**
      * Build call for cancelProcessTestRun
-     * @param processId  (required)
-     * @param runId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -179,8 +179,8 @@ public class ProcessesApi {
     /**
      * Cancel process test run
      * **Required permissions:** &#x60;workflow:run&#x60;
-     * @param processId  (required)
-     * @param runId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @return ProcessTestRun
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -203,8 +203,8 @@ public class ProcessesApi {
     /**
      * Cancel process test run
      * **Required permissions:** &#x60;workflow:run&#x60;
-     * @param processId  (required)
-     * @param runId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;ProcessTestRun&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -227,8 +227,8 @@ public class ProcessesApi {
     /**
      * Cancel process test run (asynchronously)
      * **Required permissions:** &#x60;workflow:run&#x60;
-     * @param processId  (required)
-     * @param runId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -256,7 +256,7 @@ public class ProcessesApi {
 
     /**
      * Build call for cancelProcessTestRunById
-     * @param runId  (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -344,7 +344,7 @@ public class ProcessesApi {
     /**
      * Cancel a process test run by id
      * **Required permissions:** &#x60;workflow:run&#x60;
-     * @param runId  (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @return ProcessTestRun
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -365,7 +365,7 @@ public class ProcessesApi {
     /**
      * Cancel a process test run by id
      * **Required permissions:** &#x60;workflow:run&#x60;
-     * @param runId  (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;ProcessTestRun&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -387,7 +387,7 @@ public class ProcessesApi {
     /**
      * Cancel a process test run by id (asynchronously)
      * **Required permissions:** &#x60;workflow:run&#x60;
-     * @param runId  (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -578,7 +578,7 @@ public class ProcessesApi {
 
     /**
      * Build call for createProcessTestSuite
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param createProcessTestSuitePayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -677,7 +677,7 @@ public class ProcessesApi {
     /**
      * Create process test suite
      * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param createProcessTestSuitePayload  (required)
      * @return ProcessTestSuite
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -702,7 +702,7 @@ public class ProcessesApi {
     /**
      * Create process test suite
      * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param createProcessTestSuitePayload  (required)
      * @return ApiResponse&lt;ProcessTestSuite&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -729,7 +729,7 @@ public class ProcessesApi {
     /**
      * Create process test suite (asynchronously)
      * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param createProcessTestSuitePayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -759,7 +759,7 @@ public class ProcessesApi {
 
     /**
      * Build call for deleteProcessDefinition
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -847,7 +847,7 @@ public class ProcessesApi {
     /**
      * Delete a process definition
      * Deletes a process definition revision by id.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @return DeleteCountResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -869,7 +869,7 @@ public class ProcessesApi {
     /**
      * Delete a process definition
      * Deletes a process definition revision by id.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;DeleteCountResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -891,7 +891,7 @@ public class ProcessesApi {
     /**
      * Delete a process definition (asynchronously)
      * Deletes a process definition revision by id.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -917,7 +917,7 @@ public class ProcessesApi {
 
     /**
      * Build call for deleteProcessTestRun
-     * @param runId  (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1005,7 +1005,7 @@ public class ProcessesApi {
     /**
      * Delete a process test run
      * Deletes a process test run and its definition snapshot. A run that is still active is cancelled first. Test runs are disposable diagnostic records; this is how a CI client or a test fixture cleans up after itself.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param runId  (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @return DeleteCountResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1026,7 +1026,7 @@ public class ProcessesApi {
     /**
      * Delete a process test run
      * Deletes a process test run and its definition snapshot. A run that is still active is cancelled first. Test runs are disposable diagnostic records; this is how a CI client or a test fixture cleans up after itself.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param runId  (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;DeleteCountResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1048,7 +1048,7 @@ public class ProcessesApi {
     /**
      * Delete a process test run (asynchronously)
      * Deletes a process test run and its definition snapshot. A run that is still active is cancelled first. Test runs are disposable diagnostic records; this is how a CI client or a test fixture cleans up after itself.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param runId  (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1074,8 +1074,8 @@ public class ProcessesApi {
 
     /**
      * Build call for deleteProcessTestSuite
-     * @param processId  (required)
-     * @param suiteId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1176,8 +1176,8 @@ public class ProcessesApi {
     /**
      * Delete process test suite
      * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
-     * @param suiteId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
      * @return DeleteCountResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1201,8 +1201,8 @@ public class ProcessesApi {
     /**
      * Delete process test suite
      * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
-     * @param suiteId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;DeleteCountResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1227,8 +1227,8 @@ public class ProcessesApi {
     /**
      * Delete process test suite (asynchronously)
      * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
-     * @param suiteId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1256,7 +1256,7 @@ public class ProcessesApi {
 
     /**
      * Build call for getProcessDefinition
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1344,7 +1344,7 @@ public class ProcessesApi {
     /**
      * Retrieve a process definition
      * Retrieves a process definition by id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @return ProcessDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1365,7 +1365,7 @@ public class ProcessesApi {
     /**
      * Retrieve a process definition
      * Retrieves a process definition by id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;ProcessDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1387,7 +1387,7 @@ public class ProcessesApi {
     /**
      * Retrieve a process definition (asynchronously)
      * Retrieves a process definition by id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1413,8 +1413,8 @@ public class ProcessesApi {
 
     /**
      * Build call for getProcessTestRun
-     * @param processId  (required)
-     * @param runId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1515,8 +1515,8 @@ public class ProcessesApi {
     /**
      * Retrieve process test run
      * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
-     * @param runId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @return ProcessTestRun
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1538,8 +1538,8 @@ public class ProcessesApi {
     /**
      * Retrieve process test run
      * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
-     * @param runId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;ProcessTestRun&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1562,8 +1562,8 @@ public class ProcessesApi {
     /**
      * Retrieve process test run (asynchronously)
      * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
-     * @param runId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1591,7 +1591,7 @@ public class ProcessesApi {
 
     /**
      * Build call for getProcessTestRunById
-     * @param runId  (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1679,7 +1679,7 @@ public class ProcessesApi {
     /**
      * Retrieve a process test run by id
      * Retrieves any process test run by its own id, whatever it was started against. Runs against a stored process report staleness against the current head revision; runs against an in-code or inline definition are never stale, since no later revision exists to drift from.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param runId  (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @return ProcessTestRun
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1700,7 +1700,7 @@ public class ProcessesApi {
     /**
      * Retrieve a process test run by id
      * Retrieves any process test run by its own id, whatever it was started against. Runs against a stored process report staleness against the current head revision; runs against an in-code or inline definition are never stale, since no later revision exists to drift from.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param runId  (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;ProcessTestRun&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1722,7 +1722,7 @@ public class ProcessesApi {
     /**
      * Retrieve a process test run by id (asynchronously)
      * Retrieves any process test run by its own id, whatever it was started against. Runs against a stored process report staleness against the current head revision; runs against an in-code or inline definition are never stale, since no later revision exists to drift from.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param runId  (required)
+     * @param runId The process test run ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1747,7 +1747,7 @@ public class ProcessesApi {
 
     /**
      * Build call for listProcessDefinitionVersions
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1835,7 +1835,7 @@ public class ProcessesApi {
     /**
      * List process definition versions
      * Lists all revisions for the process definition revision bucket containing the requested process id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @return List&lt;ProcessDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1857,7 +1857,7 @@ public class ProcessesApi {
     /**
      * List process definition versions
      * Lists all revisions for the process definition revision bucket containing the requested process id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;List&lt;ProcessDefinition&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1880,7 +1880,7 @@ public class ProcessesApi {
     /**
      * List process definition versions (asynchronously)
      * Lists all revisions for the process definition revision bucket containing the requested process id.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2120,7 +2120,7 @@ public class ProcessesApi {
 
     /**
      * Build call for listProcessTestRuns
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param limit  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2217,7 +2217,7 @@ public class ProcessesApi {
     /**
      * List process test runs
      * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param limit  (optional)
      * @return List&lt;ProcessTestRun&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2242,7 +2242,7 @@ public class ProcessesApi {
     /**
      * List process test runs
      * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param limit  (optional)
      * @return ApiResponse&lt;List&lt;ProcessTestRun&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2267,7 +2267,7 @@ public class ProcessesApi {
     /**
      * List process test runs (asynchronously)
      * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param limit  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2296,7 +2296,7 @@ public class ProcessesApi {
 
     /**
      * Build call for listProcessTestSuites
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2384,7 +2384,7 @@ public class ProcessesApi {
     /**
      * List process test suites
      * Lists deterministic test suites attached to this process revision family.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @return List&lt;ProcessTestSuite&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2406,7 +2406,7 @@ public class ProcessesApi {
     /**
      * List process test suites
      * Lists deterministic test suites attached to this process revision family.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;List&lt;ProcessTestSuite&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2428,7 +2428,7 @@ public class ProcessesApi {
     /**
      * List process test suites (asynchronously)
      * Lists deterministic test suites attached to this process revision family.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2454,7 +2454,7 @@ public class ProcessesApi {
 
     /**
      * Build call for publishProcessDefinition
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param publishProcessDefinitionPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2557,7 +2557,7 @@ public class ProcessesApi {
     /**
      * Publish a process definition
      * Publishes the latest draft revision for a process definition, optionally attaching tags and a revision label. &#x60;confirmed&#x3D;true&#x60; is required, and the endpoint rejects non-head or non-draft revisions. With an &#x60;idempotency_key&#x60;, a repeat of the request that published the revision returns that revision instead of being rejected.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param publishProcessDefinitionPayload  (required)
      * @return ProcessDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2585,7 +2585,7 @@ public class ProcessesApi {
     /**
      * Publish a process definition
      * Publishes the latest draft revision for a process definition, optionally attaching tags and a revision label. &#x60;confirmed&#x3D;true&#x60; is required, and the endpoint rejects non-head or non-draft revisions. With an &#x60;idempotency_key&#x60;, a repeat of the request that published the revision returns that revision instead of being rejected.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param publishProcessDefinitionPayload  (required)
      * @return ApiResponse&lt;ProcessDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2615,7 +2615,7 @@ public class ProcessesApi {
     /**
      * Publish a process definition (asynchronously)
      * Publishes the latest draft revision for a process definition, optionally attaching tags and a revision label. &#x60;confirmed&#x3D;true&#x60; is required, and the endpoint rejects non-head or non-draft revisions. With an &#x60;idempotency_key&#x60;, a repeat of the request that published the revision returns that revision instead of being rejected.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param publishProcessDefinitionPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2648,7 +2648,7 @@ public class ProcessesApi {
 
     /**
      * Build call for revertProcessDefinition
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param revertProcessDefinitionPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2750,7 +2750,7 @@ public class ProcessesApi {
     /**
      * Revert a process definition
      * Creates or overwrites the latest draft revision from the requested process definition revision. If the current head is already a draft it is overwritten; otherwise a new draft head is created from the selected revision.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param revertProcessDefinitionPayload  (required)
      * @return ProcessDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2777,7 +2777,7 @@ public class ProcessesApi {
     /**
      * Revert a process definition
      * Creates or overwrites the latest draft revision from the requested process definition revision. If the current head is already a draft it is overwritten; otherwise a new draft head is created from the selected revision.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param revertProcessDefinitionPayload  (required)
      * @return ApiResponse&lt;ProcessDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2806,7 +2806,7 @@ public class ProcessesApi {
     /**
      * Revert a process definition (asynchronously)
      * Creates or overwrites the latest draft revision from the requested process definition revision. If the current head is already a draft it is overwritten; otherwise a new draft head is created from the selected revision.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param revertProcessDefinitionPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2838,7 +2838,7 @@ public class ProcessesApi {
 
     /**
      * Build call for startProcessTestRun
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param startProcessTestRunPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2937,7 +2937,7 @@ public class ProcessesApi {
     /**
      * Start process test run
      * Starts isolated deterministic scenarios against an explicit stored process revision.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param startProcessTestRunPayload  (required)
      * @return ProcessTestRun
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2962,7 +2962,7 @@ public class ProcessesApi {
     /**
      * Start process test run
      * Starts isolated deterministic scenarios against an explicit stored process revision.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param startProcessTestRunPayload  (required)
      * @return ApiResponse&lt;ProcessTestRun&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2988,7 +2988,7 @@ public class ProcessesApi {
     /**
      * Start process test run (asynchronously)
      * Starts isolated deterministic scenarios against an explicit stored process revision.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param startProcessTestRunPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3178,7 +3178,7 @@ public class ProcessesApi {
 
     /**
      * Build call for updateProcessDefinition
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param updateProcessDefinitionPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3280,7 +3280,7 @@ public class ProcessesApi {
     /**
      * Update a process definition
      * Updates the latest draft revision in place when the current head is a draft. Updating a published head forks a new latest draft revision while keeping the published revision immutable. The processId must identify the current head; non-head revisions are rejected with HTTP 400 and the response identifies the head to update.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param updateProcessDefinitionPayload  (required)
      * @return ProcessDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3307,7 +3307,7 @@ public class ProcessesApi {
     /**
      * Update a process definition
      * Updates the latest draft revision in place when the current head is a draft. Updating a published head forks a new latest draft revision while keeping the published revision immutable. The processId must identify the current head; non-head revisions are rejected with HTTP 400 and the response identifies the head to update.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param updateProcessDefinitionPayload  (required)
      * @return ApiResponse&lt;ProcessDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3336,7 +3336,7 @@ public class ProcessesApi {
     /**
      * Update a process definition (asynchronously)
      * Updates the latest draft revision in place when the current head is a draft. Updating a published head forks a new latest draft revision while keeping the published revision immutable. The processId must identify the current head; non-head revisions are rejected with HTTP 400 and the response identifies the head to update.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
      * @param updateProcessDefinitionPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3368,8 +3368,8 @@ public class ProcessesApi {
 
     /**
      * Build call for updateProcessTestSuite
-     * @param processId  (required)
-     * @param suiteId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
      * @param updateProcessTestSuitePayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3480,8 +3480,8 @@ public class ProcessesApi {
     /**
      * Update process test suite
      * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
-     * @param suiteId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
      * @param updateProcessTestSuitePayload  (required)
      * @return ProcessTestSuite
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3508,8 +3508,8 @@ public class ProcessesApi {
     /**
      * Update process test suite
      * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
-     * @param suiteId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
      * @param updateProcessTestSuitePayload  (required)
      * @return ApiResponse&lt;ProcessTestSuite&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3537,8 +3537,8 @@ public class ProcessesApi {
     /**
      * Update process test suite (asynchronously)
      * **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param processId  (required)
-     * @param suiteId  (required)
+     * @param processId The process definition ID, as 24 hexadecimal characters. (required)
+     * @param suiteId The process test suite ID, as 24 hexadecimal characters. (required)
      * @param updateProcessTestSuitePayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

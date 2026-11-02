@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * ComputeObjectFacetPayload
+ * Each facet &#x60;name&#x60; is an Elasticsearch aggregation name: non-empty, without &#x60;[&#x60;, &#x60;]&#x60; or &#x60;&gt;&#x60;, and not &#x60;total&#x60;.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",

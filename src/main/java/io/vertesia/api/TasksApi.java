@@ -70,7 +70,7 @@ public class TasksApi {
 
     /**
      * Build call for cancelTask
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -158,7 +158,7 @@ public class TasksApi {
     /**
      * Cancel a task
      * Cancels a pending or in-progress durable task.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @return Task
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -178,7 +178,7 @@ public class TasksApi {
     /**
      * Cancel a task
      * Cancels a pending or in-progress durable task.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;Task&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -200,7 +200,7 @@ public class TasksApi {
     /**
      * Cancel a task (asynchronously)
      * Cancels a pending or in-progress durable task.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -225,7 +225,7 @@ public class TasksApi {
 
     /**
      * Build call for completeTask
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param completeTaskPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -324,7 +324,7 @@ public class TasksApi {
     /**
      * Complete a task
      * Completes a durable task and, for agent ask tasks, signals the backing workflow with the submitted result. Process &#x60;human_task&#x60; nodes should be resumed through &#x60;POST /agents/{agentRunId}/answer-task&#x60; instead of this endpoint.
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param completeTaskPayload  (required)
      * @return Task
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -348,7 +348,7 @@ public class TasksApi {
     /**
      * Complete a task
      * Completes a durable task and, for agent ask tasks, signals the backing workflow with the submitted result. Process &#x60;human_task&#x60; nodes should be resumed through &#x60;POST /agents/{agentRunId}/answer-task&#x60; instead of this endpoint.
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param completeTaskPayload  (required)
      * @return ApiResponse&lt;Task&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -374,7 +374,7 @@ public class TasksApi {
     /**
      * Complete a task (asynchronously)
      * Completes a durable task and, for agent ask tasks, signals the backing workflow with the submitted result. Process &#x60;human_task&#x60; nodes should be resumed through &#x60;POST /agents/{agentRunId}/answer-task&#x60; instead of this endpoint.
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param completeTaskPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -558,7 +558,7 @@ public class TasksApi {
 
     /**
      * Build call for deleteTask
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -646,7 +646,7 @@ public class TasksApi {
     /**
      * Delete a task
      * Deletes a durable task by id.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @return DeleteCountResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -667,7 +667,7 @@ public class TasksApi {
     /**
      * Delete a task
      * Deletes a durable task by id.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;DeleteCountResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -689,7 +689,7 @@ public class TasksApi {
     /**
      * Delete a task (asynchronously)
      * Deletes a durable task by id.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -715,7 +715,7 @@ public class TasksApi {
 
     /**
      * Build call for getTask
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -803,7 +803,7 @@ public class TasksApi {
     /**
      * Retrieve a task
      * Retrieves a single durable task by id.
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @return Task
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -823,7 +823,7 @@ public class TasksApi {
     /**
      * Retrieve a task
      * Retrieves a single durable task by id.
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;Task&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -845,7 +845,7 @@ public class TasksApi {
     /**
      * Retrieve a task (asynchronously)
      * Retrieves a single durable task by id.
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1097,7 +1097,7 @@ public class TasksApi {
 
     /**
      * Build call for updateTask
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param updateTaskPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1196,7 +1196,7 @@ public class TasksApi {
     /**
      * Update a task
      * Updates a durable task, including assignment, fields, due date, and status.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param updateTaskPayload  (required)
      * @return Task
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1220,7 +1220,7 @@ public class TasksApi {
     /**
      * Update a task
      * Updates a durable task, including assignment, fields, due date, and status.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param updateTaskPayload  (required)
      * @return ApiResponse&lt;Task&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1245,7 +1245,7 @@ public class TasksApi {
     /**
      * Update a task (asynchronously)
      * Updates a durable task, including assignment, fields, due date, and status.  **Required permissions:** &#x60;task:manage&#x60;
-     * @param taskId  (required)
+     * @param taskId The task ID, as 24 hexadecimal characters. (required)
      * @param updateTaskPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

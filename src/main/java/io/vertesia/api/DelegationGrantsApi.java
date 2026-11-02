@@ -226,7 +226,7 @@ public class DelegationGrantsApi {
 
     /**
      * Build call for getDelegationGrant
-     * @param grantId  (required)
+     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -314,7 +314,7 @@ public class DelegationGrantsApi {
     /**
      * Retrieve a delegation grant
      * **Required permissions:** &#x60;account:read&#x60;
-     * @param grantId  (required)
+     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
      * @return DelegationGrant
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -335,7 +335,7 @@ public class DelegationGrantsApi {
     /**
      * Retrieve a delegation grant
      * **Required permissions:** &#x60;account:read&#x60;
-     * @param grantId  (required)
+     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;DelegationGrant&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -357,7 +357,7 @@ public class DelegationGrantsApi {
     /**
      * Retrieve a delegation grant (asynchronously)
      * **Required permissions:** &#x60;account:read&#x60;
-     * @param grantId  (required)
+     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -658,7 +658,7 @@ public class DelegationGrantsApi {
 
     /**
      * Build call for revokeDelegationGrant
-     * @param grantId  (required)
+     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -746,7 +746,7 @@ public class DelegationGrantsApi {
     /**
      * Revoke a standing delegation
      *
-     * @param grantId  (required)
+     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
      * @return DelegationGrant
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -767,7 +767,7 @@ public class DelegationGrantsApi {
     /**
      * Revoke a standing delegation
      *
-     * @param grantId  (required)
+     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;DelegationGrant&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -789,7 +789,7 @@ public class DelegationGrantsApi {
     /**
      * Revoke a standing delegation (asynchronously)
      *
-     * @param grantId  (required)
+     * @param grantId The delegation grant ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

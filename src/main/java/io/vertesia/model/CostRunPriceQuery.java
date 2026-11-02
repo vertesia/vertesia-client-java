@@ -29,7 +29,7 @@ import java.util.HashSet;
 import java.util.Objects;
 
 /**
- * CostRunPriceQuery
+ * Identifies the run to price by at least one of &#x60;run_id&#x60;, &#x60;agent_run_id&#x60;, &#x60;workflow_id&#x60; or &#x60;workflow_run_id&#x60;. An empty identifier counts as absent.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",

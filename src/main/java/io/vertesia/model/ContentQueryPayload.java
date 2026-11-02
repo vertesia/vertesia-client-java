@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * ContentQueryPayload
+ * Exactly one of &#x60;sql&#x60;, &#x60;esql&#x60; or &#x60;dsl&#x60;. An empty &#x60;sql&#x60; or &#x60;esql&#x60; counts as absent.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",

@@ -172,7 +172,8 @@ public class RegisterPendingAskRequest {
     }
 
     /**
-     * Get timeoutHours
+     * Hours before the question expires; more than 0. Defaults to 48.
+     * minimum: 0
      * @return timeoutHours
      */
     @jakarta.annotation.Nullable public BigDecimal getTimeoutHours() {

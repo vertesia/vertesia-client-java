@@ -46,6 +46,7 @@ import io.vertesia.model.AppToolCollection;
 import io.vertesia.model.AppVersionLaunchTarget;
 import io.vertesia.model.AppVersionRecord;
 import io.vertesia.model.CountResult;
+import io.vertesia.model.CreateAppRepoBranchRequest;
 import io.vertesia.model.CreateAppVersionLaunchRequest;
 import io.vertesia.model.CreateAppVersionLaunchResponse;
 import io.vertesia.model.DeleteAppVersionResponse;
@@ -115,7 +116,7 @@ public class AppsApi {
 
     /**
      * Build call for assignAppVersionAlias
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param alias  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -215,7 +216,7 @@ public class AppsApi {
     /**
      * Assign a deployment alias to an app version
      * Atomically assigns or moves one stable deployment alias to this immutable app version. This does not change the promoted version.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param alias  (required)
      * @return AppVersionRecord
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -238,7 +239,7 @@ public class AppsApi {
     /**
      * Assign a deployment alias to an app version
      * Atomically assigns or moves one stable deployment alias to this immutable app version. This does not change the promoted version.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param alias  (required)
      * @return ApiResponse&lt;AppVersionRecord&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -262,7 +263,7 @@ public class AppsApi {
     /**
      * Assign a deployment alias to an app version (asynchronously)
      * Atomically assigns or moves one stable deployment alias to this immutable app version. This does not change the promoted version.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param alias  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -601,6 +602,7 @@ public class AppsApi {
     /**
      * Build call for createAppRepoBranch
      * @param id  (required)
+     * @param createAppRepoBranchRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -614,7 +616,9 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call createAppRepoBranchCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull CreateAppRepoBranchRequest createAppRepoBranchRequest,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -629,7 +633,7 @@ public class AppsApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = createAppRepoBranchRequest;
 
         // create path and map variables
         String localVarPath =
@@ -648,7 +652,7 @@ public class AppsApi {
             localVarHeaderParams.put("Accept", localVarAccept);
         }
 
-        final String[] localVarContentTypes = {};
+        final String[] localVarContentTypes = {"application/json"};
         final String localVarContentType =
                 localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -672,7 +676,9 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createAppRepoBranchValidateBeforeCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull CreateAppRepoBranchRequest createAppRepoBranchRequest,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -680,13 +686,20 @@ public class AppsApi {
                     "Missing the required parameter 'id' when calling createAppRepoBranch(Async)");
         }
 
-        return createAppRepoBranchCall(id, _callback);
+        // verify the required parameter 'createAppRepoBranchRequest' is set
+        if (createAppRepoBranchRequest == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'createAppRepoBranchRequest' when calling createAppRepoBranch(Async)");
+        }
+
+        return createAppRepoBranchCall(id, createAppRepoBranchRequest, _callback);
     }
 
     /**
      * Create a branch in the app git repository
      * Creates a branch from an existing branch, tag, or commit without cloning the repository.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
+     * @param createAppRepoBranchRequest  (required)
      * @return AppRepoBranch
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -698,9 +711,12 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AppRepoBranch createAppRepoBranch(@jakarta.annotation.Nonnull String id)
+    public AppRepoBranch createAppRepoBranch(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull CreateAppRepoBranchRequest createAppRepoBranchRequest)
             throws ApiException {
-        ApiResponse<AppRepoBranch> localVarResp = createAppRepoBranchWithHttpInfo(id);
+        ApiResponse<AppRepoBranch> localVarResp =
+                createAppRepoBranchWithHttpInfo(id, createAppRepoBranchRequest);
         return localVarResp.getData();
     }
 
@@ -708,6 +724,7 @@ public class AppsApi {
      * Create a branch in the app git repository
      * Creates a branch from an existing branch, tag, or commit without cloning the repository.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
+     * @param createAppRepoBranchRequest  (required)
      * @return ApiResponse&lt;AppRepoBranch&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -720,8 +737,11 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppRepoBranch> createAppRepoBranchWithHttpInfo(
-            @jakarta.annotation.Nonnull String id) throws ApiException {
-        okhttp3.Call localVarCall = createAppRepoBranchValidateBeforeCall(id, null);
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull CreateAppRepoBranchRequest createAppRepoBranchRequest)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                createAppRepoBranchValidateBeforeCall(id, createAppRepoBranchRequest, null);
         Type localVarReturnType = new TypeToken<AppRepoBranch>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -730,6 +750,7 @@ public class AppsApi {
      * Create a branch in the app git repository (asynchronously)
      * Creates a branch from an existing branch, tag, or commit without cloning the repository.  **Required permissions:** &#x60;app:manage&#x60;
      * @param id  (required)
+     * @param createAppRepoBranchRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -743,10 +764,13 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call createAppRepoBranchAsync(
-            @jakarta.annotation.Nonnull String id, final ApiCallback<AppRepoBranch> _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull CreateAppRepoBranchRequest createAppRepoBranchRequest,
+            final ApiCallback<AppRepoBranch> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = createAppRepoBranchValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall =
+                createAppRepoBranchValidateBeforeCall(id, createAppRepoBranchRequest, _callback);
         Type localVarReturnType = new TypeToken<AppRepoBranch>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -754,7 +778,7 @@ public class AppsApi {
 
     /**
      * Build call for createAppVersionLaunch
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param createAppVersionLaunchRequest  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -851,7 +875,7 @@ public class AppsApi {
     /**
      * Create an advanced app version launch
      * Creates a short-lived launch selector for an immutable app version. Temporary settings override the selected project installation only for requests carrying that selector.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param createAppVersionLaunchRequest  (required)
      * @return CreateAppVersionLaunchResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -876,7 +900,7 @@ public class AppsApi {
     /**
      * Create an advanced app version launch
      * Creates a short-lived launch selector for an immutable app version. Temporary settings override the selected project installation only for requests carrying that selector.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param createAppVersionLaunchRequest  (required)
      * @return ApiResponse&lt;CreateAppVersionLaunchResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -902,7 +926,7 @@ public class AppsApi {
     /**
      * Create an advanced app version launch (asynchronously)
      * Creates a short-lived launch selector for an immutable app version. Temporary settings override the selected project installation only for requests carrying that selector.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param createAppVersionLaunchRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1085,7 +1109,7 @@ public class AppsApi {
 
     /**
      * Build call for deleteAppVersion
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1171,7 +1195,7 @@ public class AppsApi {
     /**
      * Delete an app version
      * Deletes an unpromoted, unaliased app version and its stored build artifacts.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @return DeleteAppVersionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1192,7 +1216,7 @@ public class AppsApi {
     /**
      * Delete an app version
      * Deletes an unpromoted, unaliased app version and its stored build artifacts.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;DeleteAppVersionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1214,7 +1238,7 @@ public class AppsApi {
     /**
      * Delete an app version (asynchronously)
      * Deletes an unpromoted, unaliased app version and its stored build artifacts.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1240,7 +1264,7 @@ public class AppsApi {
 
     /**
      * Build call for deleteInstallationMcpApiKey
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1342,7 +1366,7 @@ public class AppsApi {
     /**
      * Delete an installation MCP API key
      * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
      * @return McpApiKeyStatus
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1367,7 +1391,7 @@ public class AppsApi {
     /**
      * Delete an installation MCP API key
      * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
      * @return ApiResponse&lt;McpApiKeyStatus&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1393,7 +1417,7 @@ public class AppsApi {
     /**
      * Delete an installation MCP API key (asynchronously)
      * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2510,7 +2534,7 @@ public class AppsApi {
 
     /**
      * Build call for getAppInstallation
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2598,7 +2622,7 @@ public class AppsApi {
     /**
      * Retrieve an authorized app installation by ID
      *
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @return AppInstallationWithManifest
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2620,7 +2644,7 @@ public class AppsApi {
     /**
      * Retrieve an authorized app installation by ID
      *
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;AppInstallationWithManifest&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2642,7 +2666,7 @@ public class AppsApi {
     /**
      * Retrieve an authorized app installation by ID (asynchronously)
      *
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3642,6 +3666,8 @@ public class AppsApi {
     /**
      * Build call for getAppRepoFile
      * @param id  (required)
+     * @param path Path of the file, relative to the repository root. (required)
+     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3655,7 +3681,10 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getAppRepoFileCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String path,
+            @jakarta.annotation.Nullable String ref,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3682,6 +3711,14 @@ public class AppsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (path != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("path", path));
+        }
+
+        if (ref != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ref", ref));
+        }
 
         final String[] localVarAccepts = {"application/octet-stream", "application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -3713,7 +3750,10 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAppRepoFileValidateBeforeCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String path,
+            @jakarta.annotation.Nullable String ref,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -3721,13 +3761,21 @@ public class AppsApi {
                     "Missing the required parameter 'id' when calling getAppRepoFile(Async)");
         }
 
-        return getAppRepoFileCall(id, _callback);
+        // verify the required parameter 'path' is set
+        if (path == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'path' when calling getAppRepoFile(Async)");
+        }
+
+        return getAppRepoFileCall(id, path, ref, _callback);
     }
 
     /**
      * Read a file from the app git repository
      * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Served as an attachment to prevent active content rendering on the API origin.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
+     * @param path Path of the file, relative to the repository root. (required)
+     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
      * @return File
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3739,8 +3787,12 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public File getAppRepoFile(@jakarta.annotation.Nonnull String id) throws ApiException {
-        ApiResponse<File> localVarResp = getAppRepoFileWithHttpInfo(id);
+    public File getAppRepoFile(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String path,
+            @jakarta.annotation.Nullable String ref)
+            throws ApiException {
+        ApiResponse<File> localVarResp = getAppRepoFileWithHttpInfo(id, path, ref);
         return localVarResp.getData();
     }
 
@@ -3748,6 +3800,8 @@ public class AppsApi {
      * Read a file from the app git repository
      * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Served as an attachment to prevent active content rendering on the API origin.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
+     * @param path Path of the file, relative to the repository root. (required)
+     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
      * @return ApiResponse&lt;File&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3759,9 +3813,12 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public ApiResponse<File> getAppRepoFileWithHttpInfo(@jakarta.annotation.Nonnull String id)
+    public ApiResponse<File> getAppRepoFileWithHttpInfo(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String path,
+            @jakarta.annotation.Nullable String ref)
             throws ApiException {
-        okhttp3.Call localVarCall = getAppRepoFileValidateBeforeCall(id, null);
+        okhttp3.Call localVarCall = getAppRepoFileValidateBeforeCall(id, path, ref, null);
         Type localVarReturnType = new TypeToken<File>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3770,6 +3827,8 @@ public class AppsApi {
      * Read a file from the app git repository (asynchronously)
      * Returns the original bytes of a single file in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Served as an attachment to prevent active content rendering on the API origin.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
+     * @param path Path of the file, relative to the repository root. (required)
+     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3783,10 +3842,13 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getAppRepoFileAsync(
-            @jakarta.annotation.Nonnull String id, final ApiCallback<File> _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nonnull String path,
+            @jakarta.annotation.Nullable String ref,
+            final ApiCallback<File> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = getAppRepoFileValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall = getAppRepoFileValidateBeforeCall(id, path, ref, _callback);
         Type localVarReturnType = new TypeToken<File>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -3948,6 +4010,8 @@ public class AppsApi {
     /**
      * Build call for getAppRepoTree
      * @param id  (required)
+     * @param prefix Directory to list, relative to the repository root. Defaults to the root. (optional)
+     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3961,7 +4025,10 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getAppRepoTreeCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable String prefix,
+            @jakarta.annotation.Nullable String ref,
+            final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -3988,6 +4055,14 @@ public class AppsApi {
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (prefix != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("prefix", prefix));
+        }
+
+        if (ref != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ref", ref));
+        }
 
         final String[] localVarAccepts = {"application/json"};
         final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
@@ -4019,7 +4094,10 @@ public class AppsApi {
 
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getAppRepoTreeValidateBeforeCall(
-            @jakarta.annotation.Nonnull String id, final ApiCallback _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable String prefix,
+            @jakarta.annotation.Nullable String ref,
+            final ApiCallback _callback)
             throws ApiException {
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -4027,13 +4105,15 @@ public class AppsApi {
                     "Missing the required parameter 'id' when calling getAppRepoTree(Async)");
         }
 
-        return getAppRepoTreeCall(id, _callback);
+        return getAppRepoTreeCall(id, prefix, ref, _callback);
     }
 
     /**
      * List files in the app git repository
      * Lists files and directories under a prefix in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Used by the Build &gt; Design view to surface generated docs/.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
+     * @param prefix Directory to list, relative to the repository root. Defaults to the root. (optional)
+     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
      * @return AppRepoTree
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4045,8 +4125,12 @@ public class AppsApi {
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
      */
-    public AppRepoTree getAppRepoTree(@jakarta.annotation.Nonnull String id) throws ApiException {
-        ApiResponse<AppRepoTree> localVarResp = getAppRepoTreeWithHttpInfo(id);
+    public AppRepoTree getAppRepoTree(
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable String prefix,
+            @jakarta.annotation.Nullable String ref)
+            throws ApiException {
+        ApiResponse<AppRepoTree> localVarResp = getAppRepoTreeWithHttpInfo(id, prefix, ref);
         return localVarResp.getData();
     }
 
@@ -4054,6 +4138,8 @@ public class AppsApi {
      * List files in the app git repository
      * Lists files and directories under a prefix in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Used by the Build &gt; Design view to surface generated docs/.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
+     * @param prefix Directory to list, relative to the repository root. Defaults to the root. (optional)
+     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
      * @return ApiResponse&lt;AppRepoTree&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4066,8 +4152,11 @@ public class AppsApi {
      * </table>
      */
     public ApiResponse<AppRepoTree> getAppRepoTreeWithHttpInfo(
-            @jakarta.annotation.Nonnull String id) throws ApiException {
-        okhttp3.Call localVarCall = getAppRepoTreeValidateBeforeCall(id, null);
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable String prefix,
+            @jakarta.annotation.Nullable String ref)
+            throws ApiException {
+        okhttp3.Call localVarCall = getAppRepoTreeValidateBeforeCall(id, prefix, ref, null);
         Type localVarReturnType = new TypeToken<AppRepoTree>() {}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -4076,6 +4165,8 @@ public class AppsApi {
      * List files in the app git repository (asynchronously)
      * Lists files and directories under a prefix in the app&#39;s git repository at a ref (default branch when ref is omitted). Read-only — reads live from the git server without a clone. Used by the Build &gt; Design view to surface generated docs/.  **Required permissions:** &#x60;account:member&#x60;
      * @param id  (required)
+     * @param prefix Directory to list, relative to the repository root. Defaults to the root. (optional)
+     * @param ref Branch, tag or commit. Defaults to the default branch. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4089,10 +4180,13 @@ public class AppsApi {
      * </table>
      */
     public okhttp3.Call getAppRepoTreeAsync(
-            @jakarta.annotation.Nonnull String id, final ApiCallback<AppRepoTree> _callback)
+            @jakarta.annotation.Nonnull String id,
+            @jakarta.annotation.Nullable String prefix,
+            @jakarta.annotation.Nullable String ref,
+            final ApiCallback<AppRepoTree> _callback)
             throws ApiException {
 
-        okhttp3.Call localVarCall = getAppRepoTreeValidateBeforeCall(id, _callback);
+        okhttp3.Call localVarCall = getAppRepoTreeValidateBeforeCall(id, prefix, ref, _callback);
         Type localVarReturnType = new TypeToken<AppRepoTree>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -4280,7 +4374,7 @@ public class AppsApi {
 
     /**
      * Build call for getAppVersion
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4366,7 +4460,7 @@ public class AppsApi {
     /**
      * Get an app version
      * **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @return AppVersionRecord
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4387,7 +4481,7 @@ public class AppsApi {
     /**
      * Get an app version
      * **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;AppVersionRecord&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4409,7 +4503,7 @@ public class AppsApi {
     /**
      * Get an app version (asynchronously)
      * **Required permissions:** &#x60;account:member&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4434,7 +4528,7 @@ public class AppsApi {
 
     /**
      * Build call for getInstallationMcpApiKeyStatus
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -4536,7 +4630,7 @@ public class AppsApi {
     /**
      * Read an installation MCP API key status
      * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
      * @return McpApiKeyStatus
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4561,7 +4655,7 @@ public class AppsApi {
     /**
      * Read an installation MCP API key status
      * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
      * @return ApiResponse&lt;McpApiKeyStatus&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4587,7 +4681,7 @@ public class AppsApi {
     /**
      * Read an installation MCP API key status (asynchronously)
      * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5745,8 +5839,8 @@ public class AppsApi {
 
     /**
      * Build call for listAppInstallationProjects
-     * @param name App manifest name. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
-     * @param id App manifest id. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
+     * @param name App manifest name. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
+     * @param id App manifest id. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required; it wins over &#x60;name&#x60;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5836,8 +5930,8 @@ public class AppsApi {
     /**
      * List projects for an app installation
      * Lists projects where the given app is installed and accessible to the current principal.
-     * @param name App manifest name. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
-     * @param id App manifest id. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
+     * @param name App manifest name. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
+     * @param id App manifest id. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required; it wins over &#x60;name&#x60;. (optional)
      * @return List&lt;ProjectRef&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5860,8 +5954,8 @@ public class AppsApi {
     /**
      * List projects for an app installation
      * Lists projects where the given app is installed and accessible to the current principal.
-     * @param name App manifest name. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
-     * @param id App manifest id. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
+     * @param name App manifest name. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
+     * @param id App manifest id. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required; it wins over &#x60;name&#x60;. (optional)
      * @return ApiResponse&lt;List&lt;ProjectRef&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5884,8 +5978,8 @@ public class AppsApi {
     /**
      * List projects for an app installation (asynchronously)
      * Lists projects where the given app is installed and accessible to the current principal.
-     * @param name App manifest name. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
-     * @param id App manifest id. One of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
+     * @param name App manifest name. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required. (optional)
+     * @param id App manifest id. At least one of &#x60;name&#x60; or &#x60;id&#x60; is required; it wins over &#x60;name&#x60;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6051,7 +6145,7 @@ public class AppsApi {
 
     /**
      * Build call for listAppInstallationTools
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6139,7 +6233,7 @@ public class AppsApi {
     /**
      * List tools for an app installation
      * Lists tools exposed by an installed app.  **Required permissions:** &#x60;account:member&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @return List&lt;AppToolCollection&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6161,7 +6255,7 @@ public class AppsApi {
     /**
      * List tools for an app installation
      * Lists tools exposed by an installed app.  **Required permissions:** &#x60;account:member&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;List&lt;AppToolCollection&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6183,7 +6277,7 @@ public class AppsApi {
     /**
      * List tools for an app installation (asynchronously)
      * Lists tools exposed by an installed app.  **Required permissions:** &#x60;account:member&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6381,7 +6475,7 @@ public class AppsApi {
 
     /**
      * Build call for listAppVersionLaunchTargets
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6467,7 +6561,7 @@ public class AppsApi {
     /**
      * List projects available for an advanced app version launch
      * Returns projects in the current account that the caller can access and where this application is already installed.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @return List&lt;AppVersionLaunchTarget&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6489,7 +6583,7 @@ public class AppsApi {
     /**
      * List projects available for an advanced app version launch
      * Returns projects in the current account that the caller can access and where this application is already installed.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;List&lt;AppVersionLaunchTarget&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6511,7 +6605,7 @@ public class AppsApi {
     /**
      * List projects available for an advanced app version launch (asynchronously)
      * Returns projects in the current account that the caller can access and where this application is already installed.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6824,7 +6918,7 @@ public class AppsApi {
 
     /**
      * Build call for promoteAppVersion
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -6910,7 +7004,7 @@ public class AppsApi {
     /**
      * Promote an app version
      * **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @return PromoteAppVersionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6931,7 +7025,7 @@ public class AppsApi {
     /**
      * Promote an app version
      * **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;PromoteAppVersionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -6953,7 +7047,7 @@ public class AppsApi {
     /**
      * Promote an app version (asynchronously)
      * **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6979,7 +7073,7 @@ public class AppsApi {
 
     /**
      * Build call for rebuildAppVersion
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -7065,7 +7159,7 @@ public class AppsApi {
     /**
      * Rebuild an app version
      * Rebuilds a failed or expired, unpromoted app version in place from its recorded exact source commit and target.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @return StartAppBuildResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7086,7 +7180,7 @@ public class AppsApi {
     /**
      * Rebuild an app version
      * Rebuilds a failed or expired, unpromoted app version in place from its recorded exact source commit and target.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;StartAppBuildResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -7108,7 +7202,7 @@ public class AppsApi {
     /**
      * Rebuild an app version (asynchronously)
      * Rebuilds a failed or expired, unpromoted app version in place from its recorded exact source commit and target.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -7134,7 +7228,7 @@ public class AppsApi {
 
     /**
      * Build call for removeAppVersionAlias
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param alias  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -7235,7 +7329,7 @@ public class AppsApi {
     /**
      * Remove a deployment alias from an app version
      * Removes the alias only if it still points to this version, so a stale client cannot remove an alias that was reassigned elsewhere.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param alias  (required)
      * @return AppVersionRecord
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7259,7 +7353,7 @@ public class AppsApi {
     /**
      * Remove a deployment alias from an app version
      * Removes the alias only if it still points to this version, so a stale client cannot remove an alias that was reassigned elsewhere.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param alias  (required)
      * @return ApiResponse&lt;AppVersionRecord&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -7284,7 +7378,7 @@ public class AppsApi {
     /**
      * Remove a deployment alias from an app version (asynchronously)
      * Removes the alias only if it still points to this version, so a stale client cannot remove an alias that was reassigned elsewhere.  **Required permissions:** &#x60;app:manage&#x60;
-     * @param id  (required)
+     * @param id The app version ID, as 24 hexadecimal characters. (required)
      * @param alias  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -7313,7 +7407,7 @@ public class AppsApi {
 
     /**
      * Build call for setInstallationMcpApiKey
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
      * @param setMcpApiKeyRequest  (required)
      * @param _callback Callback for upload/download progress
@@ -7425,7 +7519,7 @@ public class AppsApi {
     /**
      * Set an installation MCP API key
      * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
      * @param setMcpApiKeyRequest  (required)
      * @return McpApiKeyStatus
@@ -7452,7 +7546,7 @@ public class AppsApi {
     /**
      * Set an installation MCP API key
      * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
      * @param setMcpApiKeyRequest  (required)
      * @return ApiResponse&lt;McpApiKeyStatus&gt;
@@ -7481,7 +7575,7 @@ public class AppsApi {
     /**
      * Set an installation MCP API key (asynchronously)
      * **Required permissions:** &#x60;app:manage&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param collectionId  (required)
      * @param setMcpApiKeyRequest  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -8387,7 +8481,7 @@ public class AppsApi {
 
     /**
      * Build call for uninstallApp
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -8475,7 +8569,7 @@ public class AppsApi {
     /**
      * Uninstall an app
      * Uninstalls an app from the current project and removes installation-scoped OAuth providers.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @return CountResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8496,7 +8590,7 @@ public class AppsApi {
     /**
      * Uninstall an app
      * Uninstalls an app from the current project and removes installation-scoped OAuth providers.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;CountResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -8518,7 +8612,7 @@ public class AppsApi {
     /**
      * Uninstall an app (asynchronously)
      * Uninstalls an app from the current project and removes installation-scoped OAuth providers.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -8721,7 +8815,7 @@ public class AppsApi {
 
     /**
      * Build call for updateAppInstallationOAuthApproval
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param updateAppInstallationOAuthApprovalPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -8825,7 +8919,7 @@ public class AppsApi {
     /**
      * Approve or revoke OAuth permissions for an app installation
      * **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param updateAppInstallationOAuthApprovalPayload  (required)
      * @return AppInstallationWithManifest
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8853,7 +8947,7 @@ public class AppsApi {
     /**
      * Approve or revoke OAuth permissions for an app installation
      * **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param updateAppInstallationOAuthApprovalPayload  (required)
      * @return ApiResponse&lt;AppInstallationWithManifest&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -8882,7 +8976,7 @@ public class AppsApi {
     /**
      * Approve or revoke OAuth permissions for an app installation (asynchronously)
      * **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param updateAppInstallationOAuthApprovalPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9095,7 +9189,7 @@ public class AppsApi {
 
     /**
      * Build call for updateAppInstallationToolAllowlist
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param updateAppInstallationToolAllowlistPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -9199,7 +9293,7 @@ public class AppsApi {
     /**
      * Update app installation tool allowlist
      * Updates the installation-scoped tool allowlist for an app installation.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param updateAppInstallationToolAllowlistPayload  (required)
      * @return AppInstallationWithManifest
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9227,7 +9321,7 @@ public class AppsApi {
     /**
      * Update app installation tool allowlist
      * Updates the installation-scoped tool allowlist for an app installation.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param updateAppInstallationToolAllowlistPayload  (required)
      * @return ApiResponse&lt;AppInstallationWithManifest&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9256,7 +9350,7 @@ public class AppsApi {
     /**
      * Update app installation tool allowlist (asynchronously)
      * Updates the installation-scoped tool allowlist for an app installation.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param updateAppInstallationToolAllowlistPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -9288,7 +9382,7 @@ public class AppsApi {
 
     /**
      * Build call for updateAppInstallationToolPermissions
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param updateAppInstallationToolPermissionsPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -9392,7 +9486,7 @@ public class AppsApi {
     /**
      * Update app installation tool permissions
      * Updates the tool allowlist and the tools that always require human approval of an app installation in one atomic write. Omitted fields are left unchanged.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param updateAppInstallationToolPermissionsPayload  (required)
      * @return AppInstallationWithManifest
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9420,7 +9514,7 @@ public class AppsApi {
     /**
      * Update app installation tool permissions
      * Updates the tool allowlist and the tools that always require human approval of an app installation in one atomic write. Omitted fields are left unchanged.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param updateAppInstallationToolPermissionsPayload  (required)
      * @return ApiResponse&lt;AppInstallationWithManifest&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -9450,7 +9544,7 @@ public class AppsApi {
     /**
      * Update app installation tool permissions (asynchronously)
      * Updates the tool allowlist and the tools that always require human approval of an app installation in one atomic write. Omitted fields are left unchanged.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param installId  (required)
+     * @param installId The app installation ID, as 24 hexadecimal characters. (required)
      * @param updateAppInstallationToolPermissionsPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

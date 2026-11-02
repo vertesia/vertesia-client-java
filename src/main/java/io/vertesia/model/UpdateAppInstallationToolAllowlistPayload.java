@@ -59,7 +59,7 @@ public class UpdateAppInstallationToolAllowlistPayload {
     }
 
     /**
-     * Get toolAllowlist
+     * Tool names agents may use. An empty list is refused: send null to remove the restriction.
      * @return toolAllowlist
      */
     @jakarta.annotation.Nullable public List<String> getToolAllowlist() {

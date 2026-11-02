@@ -224,6 +224,8 @@ public class PreviewViewExperienceRequest {
 
     /**
      * Get offset
+     * minimum: 0
+     * maximum: 50000
      * @return offset
      */
     @jakarta.annotation.Nullable public BigDecimal getOffset() {
@@ -241,6 +243,8 @@ public class PreviewViewExperienceRequest {
 
     /**
      * Get limit
+     * minimum: 1
+     * maximum: 200
      * @return limit
      */
     @jakarta.annotation.Nullable public BigDecimal getLimit() {

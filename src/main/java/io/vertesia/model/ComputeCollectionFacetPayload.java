@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * ComputeCollectionFacetPayload
+ * Each facet &#x60;name&#x60; is a Mongo field name: non-empty, without &#x60;.&#x60; or NUL, not starting with &#x60;$&#x60;, and not &#x60;total&#x60;. Each &#x60;field&#x60; is a dotted path of such names.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",

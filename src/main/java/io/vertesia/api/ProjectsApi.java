@@ -555,7 +555,7 @@ public class ProjectsApi {
     /**
      * Build call for getProjectAppProcess
      * @param projectId  (required)
-     * @param processId  (required)
+     * @param processId The app process, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -657,7 +657,7 @@ public class ProjectsApi {
      * Retrieve a project app process
      * Retrieves a process definition contributed by an installed app.
      * @param projectId  (required)
-     * @param processId  (required)
+     * @param processId The app process, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
      * @return InCodeProcessDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -682,7 +682,7 @@ public class ProjectsApi {
      * Retrieve a project app process
      * Retrieves a process definition contributed by an installed app.
      * @param projectId  (required)
-     * @param processId  (required)
+     * @param processId The app process, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
      * @return ApiResponse&lt;InCodeProcessDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -708,7 +708,7 @@ public class ProjectsApi {
      * Retrieve a project app process (asynchronously)
      * Retrieves a process definition contributed by an installed app.
      * @param projectId  (required)
-     * @param processId  (required)
+     * @param processId The app process, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -737,7 +737,7 @@ public class ProjectsApi {
     /**
      * Build call for getProjectAppTemplate
      * @param projectId  (required)
-     * @param templateId  (required)
+     * @param templateId The app rendering template, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -839,7 +839,7 @@ public class ProjectsApi {
      * Retrieve a project app template
      * Retrieves a rendering template contributed by an installed app.
      * @param projectId  (required)
-     * @param templateId  (required)
+     * @param templateId The app rendering template, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
      * @return RenderingTemplateDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -864,7 +864,7 @@ public class ProjectsApi {
      * Retrieve a project app template
      * Retrieves a rendering template contributed by an installed app.
      * @param projectId  (required)
-     * @param templateId  (required)
+     * @param templateId The app rendering template, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
      * @return ApiResponse&lt;RenderingTemplateDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -890,7 +890,7 @@ public class ProjectsApi {
      * Retrieve a project app template (asynchronously)
      * Retrieves a rendering template contributed by an installed app.
      * @param projectId  (required)
-     * @param templateId  (required)
+     * @param templateId The app rendering template, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -919,7 +919,7 @@ public class ProjectsApi {
     /**
      * Build call for getProjectAppType
      * @param projectId  (required)
-     * @param typeId  (required)
+     * @param typeId The app content type, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1021,7 +1021,7 @@ public class ProjectsApi {
      * Retrieve a project app content type
      * Retrieves a content type contributed by an installed app.
      * @param projectId  (required)
-     * @param typeId  (required)
+     * @param typeId The app content type, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
      * @return InCodeTypeDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1045,7 +1045,7 @@ public class ProjectsApi {
      * Retrieve a project app content type
      * Retrieves a content type contributed by an installed app.
      * @param projectId  (required)
-     * @param typeId  (required)
+     * @param typeId The app content type, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
      * @return ApiResponse&lt;InCodeTypeDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1069,7 +1069,7 @@ public class ProjectsApi {
      * Retrieve a project app content type (asynchronously)
      * Retrieves a content type contributed by an installed app.
      * @param projectId  (required)
-     * @param typeId  (required)
+     * @param typeId The app content type, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. Only the &#x60;app&#x60; prefix is checked as a format; a reference without an app name or local id is refused by the lookup, as forbidden or not found. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1098,7 +1098,7 @@ public class ProjectsApi {
     /**
      * Build call for getProjectAppView
      * @param projectId  (required)
-     * @param viewId  (required)
+     * @param viewId The app View, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1200,7 +1200,7 @@ public class ProjectsApi {
      * Retrieve a project app View
      * Retrieves a View Experience definition contributed by an installed app.
      * @param projectId  (required)
-     * @param viewId  (required)
+     * @param viewId The app View, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. (required)
      * @return InCodeViewDefinition
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1224,7 +1224,7 @@ public class ProjectsApi {
      * Retrieve a project app View
      * Retrieves a View Experience definition contributed by an installed app.
      * @param projectId  (required)
-     * @param viewId  (required)
+     * @param viewId The app View, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. (required)
      * @return ApiResponse&lt;InCodeViewDefinition&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1248,7 +1248,7 @@ public class ProjectsApi {
      * Retrieve a project app View (asynchronously)
      * Retrieves a View Experience definition contributed by an installed app.
      * @param projectId  (required)
-     * @param viewId  (required)
+     * @param viewId The app View, as &#x60;app:&lt;app name&gt;:&lt;local id&gt;&#x60;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

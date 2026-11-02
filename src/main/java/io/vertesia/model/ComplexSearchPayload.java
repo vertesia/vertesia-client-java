@@ -34,7 +34,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * ComplexSearchPayload
+ * Each facet &#x60;name&#x60; is an Elasticsearch aggregation name: non-empty, without &#x60;[&#x60;, &#x60;]&#x60; or &#x60;&gt;&#x60;, and not &#x60;total&#x60;.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -141,6 +141,7 @@ public class ComplexSearchPayload {
 
     /**
      * Get limit
+     * minimum: 0
      * @return limit
      */
     @jakarta.annotation.Nullable public BigDecimal getLimit() {
@@ -158,6 +159,7 @@ public class ComplexSearchPayload {
 
     /**
      * Get offset
+     * minimum: 0
      * @return offset
      */
     @jakarta.annotation.Nullable public BigDecimal getOffset() {

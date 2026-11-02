@@ -411,6 +411,7 @@ src/main/java/io/vertesia/model/CountResult.java
 src/main/java/io/vertesia/model/CreateAccountApiKeyPayload.java
 src/main/java/io/vertesia/model/CreateAgentRunPayload.java
 src/main/java/io/vertesia/model/CreateApiKeyPayload.java
+src/main/java/io/vertesia/model/CreateAppRepoBranchRequest.java
 src/main/java/io/vertesia/model/CreateAppVersionLaunchRequest.java
 src/main/java/io/vertesia/model/CreateAppVersionLaunchResponse.java
 src/main/java/io/vertesia/model/CreateCollectionPayload.java

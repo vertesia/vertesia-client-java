@@ -66,7 +66,7 @@ public class UpdateAppInstallationToolPermissionsPayload {
     }
 
     /**
-     * Tool names agents may use. Null removes the restriction; omit to leave the allowlist unchanged.
+     * Tool names agents may use, at least one. Null removes the restriction; omit to leave the allowlist unchanged.
      * @return toolAllowlist
      */
     @jakarta.annotation.Nullable public List<String> getToolAllowlist() {

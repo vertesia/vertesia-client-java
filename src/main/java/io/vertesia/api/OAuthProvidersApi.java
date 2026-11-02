@@ -72,7 +72,7 @@ public class OAuthProvidersApi {
 
     /**
      * Build call for authorizeOAuthProvider
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -158,7 +158,7 @@ public class OAuthProvidersApi {
     /**
      * Initiate OAuth provider authorization
      * Starts the OAuth 2.0 authorization flow for the current user.
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @return OAuthProviderAuthorizeResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -180,7 +180,7 @@ public class OAuthProvidersApi {
     /**
      * Initiate OAuth provider authorization
      * Starts the OAuth 2.0 authorization flow for the current user.
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;OAuthProviderAuthorizeResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -202,7 +202,7 @@ public class OAuthProvidersApi {
     /**
      * Initiate OAuth provider authorization (asynchronously)
      * Starts the OAuth 2.0 authorization flow for the current user.
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -228,7 +228,7 @@ public class OAuthProvidersApi {
 
     /**
      * Build call for connectOAuthProvider
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -314,7 +314,7 @@ public class OAuthProvidersApi {
     /**
      * Connect an OAuth provider
      * Tests and establishes a client credentials connection for an OAuth provider.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @return SuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -335,7 +335,7 @@ public class OAuthProvidersApi {
     /**
      * Connect an OAuth provider
      * Tests and establishes a client credentials connection for an OAuth provider.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;SuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -357,7 +357,7 @@ public class OAuthProvidersApi {
     /**
      * Connect an OAuth provider (asynchronously)
      * Tests and establishes a client credentials connection for an OAuth provider.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -542,7 +542,7 @@ public class OAuthProvidersApi {
 
     /**
      * Build call for deleteOAuthProvider
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -628,7 +628,7 @@ public class OAuthProvidersApi {
     /**
      * Delete an OAuth provider
      * Deletes an OAuth provider and associated secrets and tokens.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @return SuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -649,7 +649,7 @@ public class OAuthProvidersApi {
     /**
      * Delete an OAuth provider
      * Deletes an OAuth provider and associated secrets and tokens.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;SuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -671,7 +671,7 @@ public class OAuthProvidersApi {
     /**
      * Delete an OAuth provider (asynchronously)
      * Deletes an OAuth provider and associated secrets and tokens.  **Required permissions:** &#x60;project:admin&#x60;
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -696,7 +696,7 @@ public class OAuthProvidersApi {
 
     /**
      * Build call for disconnectOAuthProvider
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -782,7 +782,7 @@ public class OAuthProvidersApi {
     /**
      * Disconnect an OAuth provider
      * Revokes and deletes stored tokens for an OAuth provider.
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @return SuccessResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -803,7 +803,7 @@ public class OAuthProvidersApi {
     /**
      * Disconnect an OAuth provider
      * Revokes and deletes stored tokens for an OAuth provider.
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;SuccessResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -825,7 +825,7 @@ public class OAuthProvidersApi {
     /**
      * Disconnect an OAuth provider (asynchronously)
      * Revokes and deletes stored tokens for an OAuth provider.
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1011,7 +1011,7 @@ public class OAuthProvidersApi {
 
     /**
      * Build call for getOAuthProvider
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1097,7 +1097,7 @@ public class OAuthProvidersApi {
     /**
      * Retrieve an OAuth provider
      * Retrieves a single OAuth provider with sensitive client secret data redacted.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @return OAuthProvider
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1118,7 +1118,7 @@ public class OAuthProvidersApi {
     /**
      * Retrieve an OAuth provider
      * Retrieves a single OAuth provider with sensitive client secret data redacted.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;OAuthProvider&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1140,7 +1140,7 @@ public class OAuthProvidersApi {
     /**
      * Retrieve an OAuth provider (asynchronously)
      * Retrieves a single OAuth provider with sensitive client secret data redacted.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1165,7 +1165,7 @@ public class OAuthProvidersApi {
 
     /**
      * Build call for getOAuthProviderStatus
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1251,7 +1251,7 @@ public class OAuthProvidersApi {
     /**
      * Get OAuth provider status
      * Returns authentication status for the provider in the current project or user context.
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @return OAuthProviderAuthStatus
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1272,7 +1272,7 @@ public class OAuthProvidersApi {
     /**
      * Get OAuth provider status
      * Returns authentication status for the provider in the current project or user context.
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;OAuthProviderAuthStatus&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1294,7 +1294,7 @@ public class OAuthProvidersApi {
     /**
      * Get OAuth provider status (asynchronously)
      * Returns authentication status for the provider in the current project or user context.
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1612,7 +1612,7 @@ public class OAuthProvidersApi {
 
     /**
      * Build call for updateOAuthProvider
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param updateOAuthProviderPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1709,7 +1709,7 @@ public class OAuthProvidersApi {
     /**
      * Update an OAuth provider
      * Updates an existing OAuth provider.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param updateOAuthProviderPayload  (required)
      * @return OAuthProvider
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1734,7 +1734,7 @@ public class OAuthProvidersApi {
     /**
      * Update an OAuth provider
      * Updates an existing OAuth provider.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param updateOAuthProviderPayload  (required)
      * @return ApiResponse&lt;OAuthProvider&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1760,7 +1760,7 @@ public class OAuthProvidersApi {
     /**
      * Update an OAuth provider (asynchronously)
      * Updates an existing OAuth provider.  **Required permissions:** &#x60;project:settings_write&#x60;
-     * @param id  (required)
+     * @param id The OAuth provider ID, as 24 hexadecimal characters. (required)
      * @param updateOAuthProviderPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

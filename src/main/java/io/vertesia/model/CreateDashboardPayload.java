@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Payload for creating a new dashboard. Requires a data source and spec (Vega-Lite).
+ * Payload for creating a new dashboard. Requires a SQL data source, as &#x60;dataSource&#x60; or &#x60;query&#x60;, and a Vega-Lite spec.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -52,7 +52,7 @@ public class CreateDashboardPayload {
     public static final String SERIALIZED_NAME_DATA_SOURCE = "dataSource";
 
     @SerializedName(SERIALIZED_NAME_DATA_SOURCE)
-    @jakarta.annotation.Nullable private DashboardDataSource dataSource;
+    @jakarta.annotation.Nullable private DashboardSqlDataSource dataSource;
 
     public static final String SERIALIZED_NAME_QUERY = "query";
 
@@ -113,20 +113,20 @@ public class CreateDashboardPayload {
     }
 
     public CreateDashboardPayload dataSource(
-            @jakarta.annotation.Nullable DashboardDataSource dataSource) {
+            @jakarta.annotation.Nullable DashboardSqlDataSource dataSource) {
         this.dataSource = dataSource;
         return this;
     }
 
     /**
-     * Data source used to populate Vega &#x60;data.values&#x60;.
+     * SQL data source used to populate Vega &#x60;data.values&#x60;. Its query, limit and parameters are stored as the dashboard&#39;s own; a top-level &#x60;query&#x60;, &#x60;queryLimit&#x60; or &#x60;queryParameters&#x60; sent alongside takes precedence.
      * @return dataSource
      */
-    @jakarta.annotation.Nullable public DashboardDataSource getDataSource() {
+    @jakarta.annotation.Nullable public DashboardSqlDataSource getDataSource() {
         return dataSource;
     }
 
-    public void setDataSource(@jakarta.annotation.Nullable DashboardDataSource dataSource) {
+    public void setDataSource(@jakarta.annotation.Nullable DashboardSqlDataSource dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -388,7 +388,7 @@ public class CreateDashboardPayload {
         }
         // validate the optional field `dataSource`
         if (jsonObj.get("dataSource") != null && !jsonObj.get("dataSource").isJsonNull()) {
-            DashboardDataSource.validateJsonElement(jsonObj.get("dataSource"));
+            DashboardSqlDataSource.validateJsonElement(jsonObj.get("dataSource"));
         }
         if ((jsonObj.get("query") != null && !jsonObj.get("query").isJsonNull())
                 && !jsonObj.get("query").isJsonPrimitive()) {

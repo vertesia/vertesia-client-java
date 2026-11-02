@@ -1155,7 +1155,7 @@ public class ObjectsApi {
 
     /**
      * Build call for deleteContentObjectExport
-     * @param exportId  (required)
+     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1243,7 +1243,7 @@ public class ObjectsApi {
     /**
      * Delete a content object export
      * Deletes all files under a single content object export artifact folder in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param exportId  (required)
+     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
      * @return DeleteContentObjectExportResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1265,7 +1265,7 @@ public class ObjectsApi {
     /**
      * Delete a content object export
      * Deletes all files under a single content object export artifact folder in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param exportId  (required)
+     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;DeleteContentObjectExportResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1287,7 +1287,7 @@ public class ObjectsApi {
     /**
      * Delete a content object export (asynchronously)
      * Deletes all files under a single content object export artifact folder in the project bucket.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param exportId  (required)
+     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1631,8 +1631,8 @@ public class ObjectsApi {
 
     /**
      * Build call for getContentObjectExportDownloadUrl
-     * @param exportId  (required)
-     * @param role  (required)
+     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
+     * @param role The export file: its data or its manifest. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1733,8 +1733,8 @@ public class ObjectsApi {
     /**
      * Create a content object export download URL
      * Creates a signed download URL for a content object export data file or manifest sidecar.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param exportId  (required)
-     * @param role  (required)
+     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
+     * @param role The export file: its data or its manifest. (required)
      * @return GetFileUrlResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1757,8 +1757,8 @@ public class ObjectsApi {
     /**
      * Create a content object export download URL
      * Creates a signed download URL for a content object export data file or manifest sidecar.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param exportId  (required)
-     * @param role  (required)
+     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
+     * @param role The export file: its data or its manifest. (required)
      * @return ApiResponse&lt;GetFileUrlResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1782,8 +1782,8 @@ public class ObjectsApi {
     /**
      * Create a content object export download URL (asynchronously)
      * Creates a signed download URL for a content object export data file or manifest sidecar.  **Required permissions:** &#x60;content:superadmin&#x60;
-     * @param exportId  (required)
-     * @param role  (required)
+     * @param exportId The content object export ID, as 24 hexadecimal characters. (required)
+     * @param role The export file: its data or its manifest. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

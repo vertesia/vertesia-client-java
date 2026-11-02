@@ -91,7 +91,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for advanceProcessRun
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param advanceProcessPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -191,7 +191,7 @@ public class AgentRunsApi {
     /**
      * Advance a process run
      * Signals a process workflow to advance to an explicit target or continue from its current node. The engine still validates the requested target against the current node&#39;s declared user-triggered transitions and guards.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param advanceProcessPayload  (required)
      * @return SignalAgentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -217,7 +217,7 @@ public class AgentRunsApi {
     /**
      * Advance a process run
      * Signals a process workflow to advance to an explicit target or continue from its current node. The engine still validates the requested target against the current node&#39;s declared user-triggered transitions and guards.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param advanceProcessPayload  (required)
      * @return ApiResponse&lt;SignalAgentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -244,7 +244,7 @@ public class AgentRunsApi {
     /**
      * Advance a process run (asynchronously)
      * Signals a process workflow to advance to an explicit target or continue from its current node. The engine still validates the requested target against the current node&#39;s declared user-triggered transitions and guards.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param advanceProcessPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -274,7 +274,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for allocateAgentRunBudget
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param allocateAgentRunBudgetPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -373,7 +373,7 @@ public class AgentRunsApi {
     /**
      * Add token budget to a paused run
      * Adds token budget to a run paused because its budget ran out; the run resumes from where it stopped. Interactive agent runs pause when their budget runs out, and so do process runs managed by one; other runs end instead. The amount is added to the limit the run was granted, so usage past that limit is paid out of it. Sent to a run that is not paused yet, it is applied when the budget runs out.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param allocateAgentRunBudgetPayload  (required)
      * @return SignalAgentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -398,7 +398,7 @@ public class AgentRunsApi {
     /**
      * Add token budget to a paused run
      * Adds token budget to a run paused because its budget ran out; the run resumes from where it stopped. Interactive agent runs pause when their budget runs out, and so do process runs managed by one; other runs end instead. The amount is added to the limit the run was granted, so usage past that limit is paid out of it. Sent to a run that is not paused yet, it is applied when the budget runs out.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param allocateAgentRunBudgetPayload  (required)
      * @return ApiResponse&lt;SignalAgentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -425,7 +425,7 @@ public class AgentRunsApi {
     /**
      * Add token budget to a paused run (asynchronously)
      * Adds token budget to a run paused because its budget ran out; the run resumes from where it stopped. Interactive agent runs pause when their budget runs out, and so do process runs managed by one; other runs end instead. The amount is added to the limit the run was granted, so usage past that limit is paid out of it. Sent to a run that is not paused yet, it is applied when the budget runs out.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param allocateAgentRunBudgetPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -455,7 +455,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for answerProcessTask
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param answerProcessTaskPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -555,7 +555,7 @@ public class AgentRunsApi {
     /**
      * Answer a process task
      * Validates and signals a human task answer to the backing process workflow, resuming a run paused on a &#x60;human_task&#x60; node. The caller must be the task assignee or have &#x60;task:manage&#x60;.
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param answerProcessTaskPayload  (required)
      * @return SignalAgentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -581,7 +581,7 @@ public class AgentRunsApi {
     /**
      * Answer a process task
      * Validates and signals a human task answer to the backing process workflow, resuming a run paused on a &#x60;human_task&#x60; node. The caller must be the task assignee or have &#x60;task:manage&#x60;.
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param answerProcessTaskPayload  (required)
      * @return ApiResponse&lt;SignalAgentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -608,7 +608,7 @@ public class AgentRunsApi {
     /**
      * Answer a process task (asynchronously)
      * Validates and signals a human task answer to the backing process workflow, resuming a run paused on a &#x60;human_task&#x60; node. The caller must be the task assignee or have &#x60;task:manage&#x60;.
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param answerProcessTaskPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -794,7 +794,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for createAgentRunArtifactUploadUrl
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @param contentType  (optional)
      * @param _callback Callback for upload/download progress
@@ -904,7 +904,7 @@ public class AgentRunsApi {
     /**
      * Create an artifact upload URL
      * Creates a signed upload URL for writing an artifact into the agent run artifact namespace.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @param contentType  (optional)
      * @return AgentArtifactUrlResponse
@@ -931,7 +931,7 @@ public class AgentRunsApi {
     /**
      * Create an artifact upload URL
      * Creates a signed upload URL for writing an artifact into the agent run artifact namespace.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @param contentType  (optional)
      * @return ApiResponse&lt;AgentArtifactUrlResponse&gt;
@@ -960,7 +960,7 @@ public class AgentRunsApi {
     /**
      * Create an artifact upload URL (asynchronously)
      * Creates a signed upload URL for writing an artifact into the agent run artifact namespace.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @param contentType  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -992,7 +992,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for forkAgentRun
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1080,7 +1080,7 @@ public class AgentRunsApi {
     /**
      * Fork an agent run
      * Creates a new agent run from an existing run&#39;s interaction, input, configuration, artifacts, and conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @return AgentRun
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1101,7 +1101,7 @@ public class AgentRunsApi {
     /**
      * Fork an agent run
      * Creates a new agent run from an existing run&#39;s interaction, input, configuration, artifacts, and conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;AgentRun&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1123,7 +1123,7 @@ public class AgentRunsApi {
     /**
      * Fork an agent run (asynchronously)
      * Creates a new agent run from an existing run&#39;s interaction, input, configuration, artifacts, and conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1148,7 +1148,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for getAgentRun
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1236,7 +1236,7 @@ public class AgentRunsApi {
     /**
      * Retrieve an agent run
      * Retrieves a single agent run by stable agent run ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @return AgentRunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1257,7 +1257,7 @@ public class AgentRunsApi {
     /**
      * Retrieve an agent run
      * Retrieves a single agent run by stable agent run ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;AgentRunResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1279,7 +1279,7 @@ public class AgentRunsApi {
     /**
      * Retrieve an agent run (asynchronously)
      * Retrieves a single agent run by stable agent run ID.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1305,7 +1305,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for getAgentRunArtifact
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @param url  (optional)
      * @param disposition  (optional)
@@ -1430,7 +1430,7 @@ public class AgentRunsApi {
     /**
      * Get an agent run artifact
      * Returns a signed download URL as JSON when &#x60;url&#x3D;1&#x60; is supplied, and otherwise streams the artifact bytes as &#x60;application/octet-stream&#x60;. Prefer &#x60;url&#x3D;1&#x60; and download from the signed URL.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @param url  (optional)
      * @param disposition  (optional)
@@ -1462,7 +1462,7 @@ public class AgentRunsApi {
     /**
      * Get an agent run artifact
      * Returns a signed download URL as JSON when &#x60;url&#x3D;1&#x60; is supplied, and otherwise streams the artifact bytes as &#x60;application/octet-stream&#x60;. Prefer &#x60;url&#x3D;1&#x60; and download from the signed URL.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @param url  (optional)
      * @param disposition  (optional)
@@ -1496,7 +1496,7 @@ public class AgentRunsApi {
     /**
      * Get an agent run artifact (asynchronously)
      * Returns a signed download URL as JSON when &#x60;url&#x3D;1&#x60; is supplied, and otherwise streams the artifact bytes as &#x60;application/octet-stream&#x60;. Prefer &#x60;url&#x3D;1&#x60; and download from the signed URL.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @param url  (optional)
      * @param disposition  (optional)
@@ -1533,7 +1533,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for getAgentRunArtifactContent
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1636,7 +1636,7 @@ public class AgentRunsApi {
     /**
      * Read editable agent artifact content
      * Reads a text artifact and returns its blob generation token for conditional updates.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @return AgentArtifactContentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1661,7 +1661,7 @@ public class AgentRunsApi {
     /**
      * Read editable agent artifact content
      * Reads a text artifact and returns its blob generation token for conditional updates.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @return ApiResponse&lt;AgentArtifactContentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1687,7 +1687,7 @@ public class AgentRunsApi {
     /**
      * Read editable agent artifact content (asynchronously)
      * Reads a text artifact and returns its blob generation token for conditional updates.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1717,7 +1717,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for getAgentRunChildDetails
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param childWorkflowId  (required)
      * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
      * @param includeHistory  (optional)
@@ -1843,7 +1843,7 @@ public class AgentRunsApi {
     /**
      * Get child agent run details
      * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param childWorkflowId  (required)
      * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
      * @param includeHistory  (optional)
@@ -1875,7 +1875,7 @@ public class AgentRunsApi {
     /**
      * Get child agent run details
      * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param childWorkflowId  (required)
      * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
      * @param includeHistory  (optional)
@@ -1908,7 +1908,7 @@ public class AgentRunsApi {
     /**
      * Get child agent run details (asynchronously)
      * Fetches detailed workflow execution state for a child workflow of an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param childWorkflowId  (required)
      * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
      * @param includeHistory  (optional)
@@ -1949,7 +1949,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for getAgentRunDetails
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
      * @param includeHistory  (optional)
      * @param hydratePayloads  (optional)
@@ -2062,7 +2062,7 @@ public class AgentRunsApi {
     /**
      * Get agent run details
      * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
      * @param includeHistory  (optional)
      * @param hydratePayloads  (optional)
@@ -2091,7 +2091,7 @@ public class AgentRunsApi {
     /**
      * Get agent run details
      * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
      * @param includeHistory  (optional)
      * @param hydratePayloads  (optional)
@@ -2122,7 +2122,7 @@ public class AgentRunsApi {
     /**
      * Get agent run details (asynchronously)
      * Fetches detailed workflow execution state for an agent run, optionally including processed history.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param from Opaque history cursor from next_from; requires include_history. Invalid or expired cursors return a snapshot. (optional)
      * @param includeHistory  (optional)
      * @param hydratePayloads  (optional)
@@ -2156,7 +2156,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for getProcessRunContext
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2244,7 +2244,7 @@ public class AgentRunsApi {
     /**
      * Get process run context
      * Returns the current node and the current process context snapshot for a process run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @return ProcessContextResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2266,7 +2266,7 @@ public class AgentRunsApi {
     /**
      * Get process run context
      * Returns the current node and the current process context snapshot for a process run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;ProcessContextResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2288,7 +2288,7 @@ public class AgentRunsApi {
     /**
      * Get process run context (asynchronously)
      * Returns the current node and the current process context snapshot for a process run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2314,7 +2314,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for getProcessRunHistory
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2402,7 +2402,7 @@ public class AgentRunsApi {
     /**
      * Get process run history
      * Returns the hydrated node history for a process run, loading full history artifacts when available for long-running executions.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @return ProcessHistoryResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2424,7 +2424,7 @@ public class AgentRunsApi {
     /**
      * Get process run history
      * Returns the hydrated node history for a process run, loading full history artifacts when available for long-running executions.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;ProcessHistoryResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2446,7 +2446,7 @@ public class AgentRunsApi {
     /**
      * Get process run history (asynchronously)
      * Returns the hydrated node history for a process run, loading full history artifacts when available for long-running executions.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2472,7 +2472,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for listAgentRunArtifacts
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param visibility  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2569,7 +2569,7 @@ public class AgentRunsApi {
     /**
      * List agent run artifacts
      * Lists user-visible artifact paths for an agent run. Internal artifact files are excluded by default.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param visibility  (optional)
      * @return List&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2594,7 +2594,7 @@ public class AgentRunsApi {
     /**
      * List agent run artifacts
      * Lists user-visible artifact paths for an agent run. Internal artifact files are excluded by default.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param visibility  (optional)
      * @return ApiResponse&lt;List&lt;String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2620,7 +2620,7 @@ public class AgentRunsApi {
     /**
      * List agent run artifacts (asynchronously)
      * Lists user-visible artifact paths for an agent run. Internal artifact files are excluded by default.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param visibility  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2649,7 +2649,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for listAgentRunChildren
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2737,7 +2737,7 @@ public class AgentRunsApi {
     /**
      * List child agent runs
      * Lists child workflows or sub-agent executions associated with an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @return ListWorkflowRunsResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2759,7 +2759,7 @@ public class AgentRunsApi {
     /**
      * List child agent runs
      * Lists child workflows or sub-agent executions associated with an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;ListWorkflowRunsResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2781,7 +2781,7 @@ public class AgentRunsApi {
     /**
      * List child agent runs (asynchronously)
      * Lists child workflows or sub-agent executions associated with an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2807,7 +2807,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for listAgentRunUpdates
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param since  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2904,7 +2904,7 @@ public class AgentRunsApi {
     /**
      * List agent run updates
      * Returns stored compact messages for an agent run after an optional timestamp cursor.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param since  (optional)
      * @return AgentRunUpdatesResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2929,7 +2929,7 @@ public class AgentRunsApi {
     /**
      * List agent run updates
      * Returns stored compact messages for an agent run after an optional timestamp cursor.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param since  (optional)
      * @return ApiResponse&lt;AgentRunUpdatesResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2954,7 +2954,7 @@ public class AgentRunsApi {
     /**
      * List agent run updates (asynchronously)
      * Returns stored compact messages for an agent run after an optional timestamp cursor.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param since  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3463,7 +3463,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for postAgentRunUpdate
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param postAgentRunUpdatePayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3562,7 +3562,7 @@ public class AgentRunsApi {
     /**
      * Post an agent run update
      * Publishes a message or update into an agent run&#39;s workflow stream.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param postAgentRunUpdatePayload  (required)
      * @return PostAgentRunUpdateResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3587,7 +3587,7 @@ public class AgentRunsApi {
     /**
      * Post an agent run update
      * Publishes a message or update into an agent run&#39;s workflow stream.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param postAgentRunUpdatePayload  (required)
      * @return ApiResponse&lt;PostAgentRunUpdateResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3613,7 +3613,7 @@ public class AgentRunsApi {
     /**
      * Post an agent run update (asynchronously)
      * Publishes a message or update into an agent run&#39;s workflow stream.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param postAgentRunUpdatePayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3643,7 +3643,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for queryAgentRun
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param queryName  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3745,7 +3745,7 @@ public class AgentRunsApi {
     /**
      * Query an agent run
      * Runs a named query against an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param queryName  (required)
      * @return Object
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3769,7 +3769,7 @@ public class AgentRunsApi {
     /**
      * Query an agent run
      * Runs a named query against an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param queryName  (required)
      * @return ApiResponse&lt;Object&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3794,7 +3794,7 @@ public class AgentRunsApi {
     /**
      * Query an agent run (asynchronously)
      * Runs a named query against an agent run.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param queryName  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -3823,7 +3823,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for recordAgentRunFeedback
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param agentRunFeedbackPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -3922,7 +3922,7 @@ public class AgentRunsApi {
     /**
      * Rate an agent run
      * Records a thumbs up/down, an optional reason code and an optional comment against an agent run. One active rating per user and scope; a new rating replaces the previous one and a retried &#x60;feedback_id&#x60; is idempotent. The comment stays in the project; only its presence is exported.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param agentRunFeedbackPayload  (required)
      * @return AgentRunFeedbackResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3947,7 +3947,7 @@ public class AgentRunsApi {
     /**
      * Rate an agent run
      * Records a thumbs up/down, an optional reason code and an optional comment against an agent run. One active rating per user and scope; a new rating replaces the previous one and a retried &#x60;feedback_id&#x60; is idempotent. The comment stays in the project; only its presence is exported.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param agentRunFeedbackPayload  (required)
      * @return ApiResponse&lt;AgentRunFeedbackResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -3973,7 +3973,7 @@ public class AgentRunsApi {
     /**
      * Rate an agent run (asynchronously)
      * Records a thumbs up/down, an optional reason code and an optional comment against an agent run. One active rating per user and scope; a new rating replaces the previous one and a retried &#x60;feedback_id&#x60; is idempotent. The comment stays in the project; only its presence is exported.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param agentRunFeedbackPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4003,7 +4003,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for restartAgentRun
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param restartAgentRunPayload  (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -4096,7 +4096,7 @@ public class AgentRunsApi {
     /**
      * Restart an agent run
      * Restarts a stopped, failed, or completed agent run by launching a new workflow that loads the previous conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param restartAgentRunPayload  (optional)
      * @return AgentRun
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4121,7 +4121,7 @@ public class AgentRunsApi {
     /**
      * Restart an agent run
      * Restarts a stopped, failed, or completed agent run by launching a new workflow that loads the previous conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param restartAgentRunPayload  (optional)
      * @return ApiResponse&lt;AgentRun&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4147,7 +4147,7 @@ public class AgentRunsApi {
     /**
      * Restart an agent run (asynchronously)
      * Restarts a stopped, failed, or completed agent run by launching a new workflow that loads the previous conversation history.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param restartAgentRunPayload  (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4176,7 +4176,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for retryProcessNode
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param retryProcessNodePayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -4276,7 +4276,7 @@ public class AgentRunsApi {
     /**
      * Retry a process node
      * Signals a process workflow to retry the current node or a requested node, re-entering the node with the current process context.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param retryProcessNodePayload  (required)
      * @return SignalAgentResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4302,7 +4302,7 @@ public class AgentRunsApi {
     /**
      * Retry a process node
      * Signals a process workflow to retry the current node or a requested node, re-entering the node with the current process context.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param retryProcessNodePayload  (required)
      * @return ApiResponse&lt;SignalAgentResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -4329,7 +4329,7 @@ public class AgentRunsApi {
     /**
      * Retry a process node (asynchronously)
      * Signals a process workflow to retry the current node or a requested node, re-entering the node with the current process context.  **Required permissions:** &#x60;workflow:admin&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param retryProcessNodePayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -4735,7 +4735,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for signalAgentRun
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param signalName  (required)
      * @param requestBody  (optional)
      * @param _callback Callback for upload/download progress
@@ -4841,7 +4841,7 @@ public class AgentRunsApi {
     /**
      * Signal an agent run
      * Sends a named signal to an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param signalName  (required)
      * @param requestBody  (optional)
      * @return SignalAgentResponse
@@ -4869,7 +4869,7 @@ public class AgentRunsApi {
     /**
      * Signal an agent run
      * Sends a named signal to an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param signalName  (required)
      * @param requestBody  (optional)
      * @return ApiResponse&lt;SignalAgentResponse&gt;
@@ -4898,7 +4898,7 @@ public class AgentRunsApi {
     /**
      * Signal an agent run (asynchronously)
      * Sends a named signal to an agent run.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param signalName  (required)
      * @param requestBody  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -4930,7 +4930,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for streamAgentRun
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param since  (optional)
      * @param skipHistory  (optional)
      * @param _callback Callback for upload/download progress
@@ -5035,7 +5035,7 @@ public class AgentRunsApi {
     /**
      * Stream an agent run
      * Opens a Server-Sent Events stream for live and archived agent run messages.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param since  (optional)
      * @param skipHistory  (optional)
      * @return String
@@ -5062,7 +5062,7 @@ public class AgentRunsApi {
     /**
      * Stream an agent run
      * Opens a Server-Sent Events stream for live and archived agent run messages.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param since  (optional)
      * @param skipHistory  (optional)
      * @return ApiResponse&lt;String&gt;
@@ -5090,7 +5090,7 @@ public class AgentRunsApi {
     /**
      * Stream an agent run (asynchronously)
      * Opens a Server-Sent Events stream for live and archived agent run messages.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param since  (optional)
      * @param skipHistory  (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -5121,7 +5121,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for streamAgentRunDetails
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5209,7 +5209,7 @@ public class AgentRunsApi {
     /**
      * Stream agent run details
      * Streams Temporal history events for an agent run across continue-as-new workflow runs.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5230,7 +5230,7 @@ public class AgentRunsApi {
     /**
      * Stream agent run details
      * Streams Temporal history events for an agent run across continue-as-new workflow runs.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5252,7 +5252,7 @@ public class AgentRunsApi {
     /**
      * Stream agent run details (asynchronously)
      * Streams Temporal history events for an agent run across continue-as-new workflow runs.  **Required permissions:** Any of &#x60;agent_run:read&#x60;, &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5277,7 +5277,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for terminateAgentRun
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5365,7 +5365,7 @@ public class AgentRunsApi {
     /**
      * Terminate an agent run
      * Cancels the backing workflow, marks the agent run as cancelled, and schedules archival.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @return TerminateAgentRunResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5387,7 +5387,7 @@ public class AgentRunsApi {
     /**
      * Terminate an agent run
      * Cancels the backing workflow, marks the agent run as cancelled, and schedules archival.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;TerminateAgentRunResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5409,7 +5409,7 @@ public class AgentRunsApi {
     /**
      * Terminate an agent run (asynchronously)
      * Cancels the backing workflow, marks the agent run as cancelled, and schedules archival.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5435,7 +5435,7 @@ public class AgentRunsApi {
 
     /**
      * Build call for updateAgentRunArtifactContent
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @param updateAgentArtifactContentPayload  (required)
      * @param _callback Callback for upload/download progress
@@ -5549,7 +5549,7 @@ public class AgentRunsApi {
     /**
      * Update editable agent artifact content
      * Updates a text artifact only when its blob generation token still matches.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @param updateAgentArtifactContentPayload  (required)
      * @return UpdateAgentArtifactContentResponse
@@ -5578,7 +5578,7 @@ public class AgentRunsApi {
     /**
      * Update editable agent artifact content
      * Updates a text artifact only when its blob generation token still matches.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @param updateAgentArtifactContentPayload  (required)
      * @return ApiResponse&lt;UpdateAgentArtifactContentResponse&gt;
@@ -5609,7 +5609,7 @@ public class AgentRunsApi {
     /**
      * Update editable agent artifact content (asynchronously)
      * Updates a text artifact only when its blob generation token still matches.  **Required permissions:** &#x60;workflow:run&#x60;
-     * @param agentRunId  (required)
+     * @param agentRunId The agent run ID, as 24 hexadecimal characters. (required)
      * @param path  (required)
      * @param updateAgentArtifactContentPayload  (required)
      * @param _callback The callback to be executed when the API call finishes

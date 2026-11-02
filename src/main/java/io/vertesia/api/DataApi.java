@@ -106,7 +106,7 @@ public class DataApi {
 
     /**
      * Build call for archiveDashboardsBulk
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param requestBody  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -205,7 +205,7 @@ public class DataApi {
     /**
      * Archive dashboards in bulk
      * Archives multiple dashboards in one request.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param requestBody  (required)
      * @return DashboardBulkArchiveResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -230,7 +230,7 @@ public class DataApi {
     /**
      * Archive dashboards in bulk
      * Archives multiple dashboards in one request.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param requestBody  (required)
      * @return ApiResponse&lt;DashboardBulkArchiveResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -256,7 +256,7 @@ public class DataApi {
     /**
      * Archive dashboards in bulk (asynchronously)
      * Archives multiple dashboards in one request.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param requestBody  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -285,7 +285,7 @@ public class DataApi {
 
     /**
      * Build call for createDashboard
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param createDashboardPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -385,7 +385,7 @@ public class DataApi {
     /**
      * Create a dashboard
      * Creates a Vega-based dashboard linked to a data store.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param createDashboardPayload  (required)
      * @return Dashboard
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -411,7 +411,7 @@ public class DataApi {
     /**
      * Create a dashboard
      * Creates a Vega-based dashboard linked to a data store.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param createDashboardPayload  (required)
      * @return ApiResponse&lt;Dashboard&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -438,7 +438,7 @@ public class DataApi {
     /**
      * Create a dashboard (asynchronously)
      * Creates a Vega-based dashboard linked to a data store.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param createDashboardPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -468,8 +468,8 @@ public class DataApi {
 
     /**
      * Build call for createDashboardSnapshot
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param createDashboardSnapshotPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -582,8 +582,8 @@ public class DataApi {
     /**
      * Create a dashboard snapshot
      * Creates a named snapshot for the current dashboard version.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param createDashboardSnapshotPayload  (required)
      * @return DashboardVersionItem
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -611,8 +611,8 @@ public class DataApi {
     /**
      * Create a dashboard snapshot
      * Creates a named snapshot for the current dashboard version.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param createDashboardSnapshotPayload  (required)
      * @return ApiResponse&lt;DashboardVersionItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -641,8 +641,8 @@ public class DataApi {
     /**
      * Create a dashboard snapshot (asynchronously)
      * Creates a named snapshot for the current dashboard version.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param createDashboardSnapshotPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1350,8 +1350,8 @@ public class DataApi {
 
     /**
      * Build call for deleteDashboard
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1452,8 +1452,8 @@ public class DataApi {
     /**
      * Delete a dashboard
      * Archives a dashboard.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @return DashboardArchiveResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1477,8 +1477,8 @@ public class DataApi {
     /**
      * Delete a dashboard
      * Archives a dashboard.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;DashboardArchiveResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1502,8 +1502,8 @@ public class DataApi {
     /**
      * Delete a dashboard (asynchronously)
      * Archives a dashboard.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1531,7 +1531,7 @@ public class DataApi {
 
     /**
      * Build call for deleteDashboardsBulk
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param requestBody  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1630,7 +1630,7 @@ public class DataApi {
     /**
      * Delete dashboards in bulk
      * Permanently deletes multiple dashboards in one request.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param requestBody  (required)
      * @return DashboardBulkDeleteResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1655,7 +1655,7 @@ public class DataApi {
     /**
      * Delete dashboards in bulk
      * Permanently deletes multiple dashboards in one request.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param requestBody  (required)
      * @return ApiResponse&lt;DashboardBulkDeleteResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1681,7 +1681,7 @@ public class DataApi {
     /**
      * Delete dashboards in bulk (asynchronously)
      * Permanently deletes multiple dashboards in one request.  **Required permissions:** &#x60;content:delete&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param requestBody  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2049,8 +2049,8 @@ public class DataApi {
 
     /**
      * Build call for exportDashboard
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param exportDashboardPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2163,8 +2163,8 @@ public class DataApi {
     /**
      * Export a dashboard as an image
      * Starts rendering the saved dashboard to PNG with fresh query results, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60; or &#x60;failed&#x60;. Every export creates a new image, so earlier URLs keep showing what they were issued for. The dashboard&#39;s &#x60;last_rendered_at&#x60; is set once the image is uploaded.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param exportDashboardPayload  (required)
      * @return DashboardExport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2193,8 +2193,8 @@ public class DataApi {
     /**
      * Export a dashboard as an image
      * Starts rendering the saved dashboard to PNG with fresh query results, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60; or &#x60;failed&#x60;. Every export creates a new image, so earlier URLs keep showing what they were issued for. The dashboard&#39;s &#x60;last_rendered_at&#x60; is set once the image is uploaded.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param exportDashboardPayload  (required)
      * @return ApiResponse&lt;DashboardExport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2225,8 +2225,8 @@ public class DataApi {
     /**
      * Export a dashboard as an image (asynchronously)
      * Starts rendering the saved dashboard to PNG with fresh query results, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60; or &#x60;failed&#x60;. Every export creates a new image, so earlier URLs keep showing what they were issued for. The dashboard&#39;s &#x60;last_rendered_at&#x60; is set once the image is uploaded.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param exportDashboardPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2260,7 +2260,7 @@ public class DataApi {
 
     /**
      * Build call for exportDashboardPreview
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param exportDashboardPreviewPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2360,7 +2360,7 @@ public class DataApi {
     /**
      * Export an unsaved dashboard as an image
      * Starts rendering the rows of a SQL query with a Vega-Lite spec as a PNG, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60;, with a signed URL to the image, or &#x60;failed&#x60;, with the reason. Nothing is saved: use it to check a dashboard before creating it.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param exportDashboardPreviewPayload  (required)
      * @return DashboardExport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2386,7 +2386,7 @@ public class DataApi {
     /**
      * Export an unsaved dashboard as an image
      * Starts rendering the rows of a SQL query with a Vega-Lite spec as a PNG, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60;, with a signed URL to the image, or &#x60;failed&#x60;, with the reason. Nothing is saved: use it to check a dashboard before creating it.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param exportDashboardPreviewPayload  (required)
      * @return ApiResponse&lt;DashboardExport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2414,7 +2414,7 @@ public class DataApi {
     /**
      * Export an unsaved dashboard as an image (asynchronously)
      * Starts rendering the rows of a SQL query with a Vega-Lite spec as a PNG, and returns the &#x60;running&#x60; export. Poll GET /data/{storeId}/dashboards/exports/{exportId} until it is &#x60;completed&#x60;, with a signed URL to the image, or &#x60;failed&#x60;, with the reason. Nothing is saved: use it to check a dashboard before creating it.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param exportDashboardPreviewPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2445,8 +2445,8 @@ public class DataApi {
 
     /**
      * Build call for getDashboard
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2547,8 +2547,8 @@ public class DataApi {
     /**
      * Retrieve a dashboard
      * Retrieves a dashboard by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @return Dashboard
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2571,8 +2571,8 @@ public class DataApi {
     /**
      * Retrieve a dashboard
      * Retrieves a dashboard by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;Dashboard&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2596,8 +2596,8 @@ public class DataApi {
     /**
      * Retrieve a dashboard (asynchronously)
      * Retrieves a dashboard by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2624,7 +2624,7 @@ public class DataApi {
 
     /**
      * Build call for getDashboardExport
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param exportId  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2728,7 +2728,7 @@ public class DataApi {
     /**
      * Get a dashboard export
      * Returns the status of an export. A &#x60;completed&#x60; export carries a freshly signed URL to the image; a &#x60;failed&#x60; one carries the reason and whether starting it again may succeed.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param exportId  (required)
      * @return DashboardExport
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2754,7 +2754,7 @@ public class DataApi {
     /**
      * Get a dashboard export
      * Returns the status of an export. A &#x60;completed&#x60; export carries a freshly signed URL to the image; a &#x60;failed&#x60; one carries the reason and whether starting it again may succeed.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param exportId  (required)
      * @return ApiResponse&lt;DashboardExport&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2780,7 +2780,7 @@ public class DataApi {
     /**
      * Get a dashboard export (asynchronously)
      * Returns the status of an export. A &#x60;completed&#x60; export carries a freshly signed URL to the image; a &#x60;failed&#x60; one carries the reason and whether starting it again may succeed.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param exportId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2811,9 +2811,9 @@ public class DataApi {
 
     /**
      * Build call for getDashboardVersion
-     * @param storeId  (required)
-     * @param dashboardId  (required)
-     * @param versionId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2925,9 +2925,9 @@ public class DataApi {
     /**
      * Retrieve a dashboard version
      * Retrieves a specific dashboard version by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
-     * @param versionId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
      * @return DashboardVersion
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2952,9 +2952,9 @@ public class DataApi {
     /**
      * Retrieve a dashboard version
      * Retrieves a specific dashboard version by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
-     * @param versionId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;DashboardVersion&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2980,9 +2980,9 @@ public class DataApi {
     /**
      * Retrieve a dashboard version (asynchronously)
      * Retrieves a specific dashboard version by ID.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
-     * @param versionId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3167,7 +3167,7 @@ public class DataApi {
     /**
      * Build call for getDataStoreImportStatus
      * @param storeId  (required)
-     * @param importId  (required)
+     * @param importId The import job ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3269,7 +3269,7 @@ public class DataApi {
      * Get data store import status
      * Retrieves a previously created import job by ID.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @param importId  (required)
+     * @param importId The import job ID, as 24 hexadecimal characters. (required)
      * @return ImportJob
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3293,7 +3293,7 @@ public class DataApi {
      * Get data store import status
      * Retrieves a previously created import job by ID.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @param importId  (required)
+     * @param importId The import job ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;ImportJob&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3318,7 +3318,7 @@ public class DataApi {
      * Get data store import status (asynchronously)
      * Retrieves a previously created import job by ID.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @param importId  (required)
+     * @param importId The import job ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -3889,8 +3889,8 @@ public class DataApi {
 
     /**
      * Build call for listDashboardVersions
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -3991,8 +3991,8 @@ public class DataApi {
     /**
      * List dashboard versions
      * Lists versions and snapshots for a dashboard.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @return List&lt;DashboardVersionItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4016,8 +4016,8 @@ public class DataApi {
     /**
      * List dashboard versions
      * Lists versions and snapshots for a dashboard.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;List&lt;DashboardVersionItem&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4042,8 +4042,8 @@ public class DataApi {
     /**
      * List dashboard versions (asynchronously)
      * Lists versions and snapshots for a dashboard.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -4071,7 +4071,7 @@ public class DataApi {
 
     /**
      * Build call for listDashboards
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -4159,7 +4159,7 @@ public class DataApi {
     /**
      * List dashboards
      * Lists dashboards for a data store, optionally filtered by dashboard status.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @return List&lt;DashboardItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4180,7 +4180,7 @@ public class DataApi {
     /**
      * List dashboards
      * Lists dashboards for a data store, optionally filtered by dashboard status.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;List&lt;DashboardItem&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -4202,7 +4202,7 @@ public class DataApi {
     /**
      * List dashboards (asynchronously)
      * Lists dashboards for a data store, optionally filtered by dashboard status.  **Required permissions:** &#x60;content:read&#x60;
-     * @param storeId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -5051,9 +5051,9 @@ public class DataApi {
 
     /**
      * Build call for promoteDashboardVersion
-     * @param storeId  (required)
-     * @param dashboardId  (required)
-     * @param versionId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
      * @param promoteDashboardVersionPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -5177,9 +5177,9 @@ public class DataApi {
     /**
      * Promote a dashboard version
      * Promotes an existing dashboard version to become the current dashboard.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
-     * @param versionId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
      * @param promoteDashboardVersionPayload  (required)
      * @return Dashboard
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5208,9 +5208,9 @@ public class DataApi {
     /**
      * Promote a dashboard version
      * Promotes an existing dashboard version to become the current dashboard.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
-     * @param versionId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
      * @param promoteDashboardVersionPayload  (required)
      * @return ApiResponse&lt;Dashboard&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5240,9 +5240,9 @@ public class DataApi {
     /**
      * Promote a dashboard version (asynchronously)
      * Promotes an existing dashboard version to become the current dashboard.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
-     * @param versionId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
+     * @param versionId The dashboard version ID, as 24 hexadecimal characters. (required)
      * @param promoteDashboardVersionPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5632,7 +5632,7 @@ public class DataApi {
     /**
      * Build call for queryDataStoreVersion
      * @param storeId  (required)
-     * @param versionId  (required)
+     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
      * @param queryPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -5743,7 +5743,7 @@ public class DataApi {
      * Query a data store version
      * Executes a read-only SQL query against a specific data store version.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @param versionId  (required)
+     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
      * @param queryPayload  (required)
      * @return QueryResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5770,7 +5770,7 @@ public class DataApi {
      * Query a data store version
      * Executes a read-only SQL query against a specific data store version.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @param versionId  (required)
+     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
      * @param queryPayload  (required)
      * @return ApiResponse&lt;QueryResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -5798,7 +5798,7 @@ public class DataApi {
      * Query a data store version (asynchronously)
      * Executes a read-only SQL query against a specific data store version.  **Required permissions:** &#x60;content:read&#x60;
      * @param storeId  (required)
-     * @param versionId  (required)
+     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
      * @param queryPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -5830,7 +5830,7 @@ public class DataApi {
     /**
      * Build call for rollbackDataStoreVersion
      * @param storeId  (required)
-     * @param versionId  (required)
+     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -5932,7 +5932,7 @@ public class DataApi {
      * Rollback a data store version
      * Rolls a data store back to a previous version.  **Required permissions:** &#x60;content:write&#x60;
      * @param storeId  (required)
-     * @param versionId  (required)
+     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
      * @return DataStore
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5957,7 +5957,7 @@ public class DataApi {
      * Rollback a data store version
      * Rolls a data store back to a previous version.  **Required permissions:** &#x60;content:write&#x60;
      * @param storeId  (required)
-     * @param versionId  (required)
+     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
      * @return ApiResponse&lt;DataStore&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -5983,7 +5983,7 @@ public class DataApi {
      * Rollback a data store version (asynchronously)
      * Rolls a data store back to a previous version.  **Required permissions:** &#x60;content:write&#x60;
      * @param storeId  (required)
-     * @param versionId  (required)
+     * @param versionId The data store version ID, as 24 hexadecimal characters. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -6011,8 +6011,8 @@ public class DataApi {
 
     /**
      * Build call for setDashboardVersioning
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param dashboardVersioningPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -6123,8 +6123,8 @@ public class DataApi {
     /**
      * Set dashboard versioning
      * Enables or disables versioning for a dashboard.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param dashboardVersioningPayload  (required)
      * @return DashboardVersioningStatusResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6151,8 +6151,8 @@ public class DataApi {
     /**
      * Set dashboard versioning
      * Enables or disables versioning for a dashboard.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param dashboardVersioningPayload  (required)
      * @return ApiResponse&lt;DashboardVersioningStatusResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6180,8 +6180,8 @@ public class DataApi {
     /**
      * Set dashboard versioning (asynchronously)
      * Enables or disables versioning for a dashboard.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param dashboardVersioningPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -6212,8 +6212,8 @@ public class DataApi {
 
     /**
      * Build call for updateDashboard
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param updateDashboardPayload  (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -6324,8 +6324,8 @@ public class DataApi {
     /**
      * Update a dashboard
      * Updates a dashboard definition, query, or metadata.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param updateDashboardPayload  (required)
      * @return Dashboard
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6352,8 +6352,8 @@ public class DataApi {
     /**
      * Update a dashboard
      * Updates a dashboard definition, query, or metadata.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param updateDashboardPayload  (required)
      * @return ApiResponse&lt;Dashboard&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -6382,8 +6382,8 @@ public class DataApi {
     /**
      * Update a dashboard (asynchronously)
      * Updates a dashboard definition, query, or metadata.  **Required permissions:** &#x60;content:write&#x60;
-     * @param storeId  (required)
-     * @param dashboardId  (required)
+     * @param storeId The data store ID, as 24 hexadecimal characters. (required)
+     * @param dashboardId The dashboard ID, as 24 hexadecimal characters. (required)
      * @param updateDashboardPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

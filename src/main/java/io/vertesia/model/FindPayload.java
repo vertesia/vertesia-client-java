@@ -32,7 +32,7 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * FindPayload
+ * &#x60;query&#x60; is a Mongo filter. Its keys are dotted field paths or &#x60;$and&#x60;, &#x60;$or&#x60; and &#x60;$nor&#x60;, and a condition is a literal or uses the comparison operators, &#x60;$in&#x60;, &#x60;$nin&#x60;, &#x60;$all&#x60;, &#x60;$exists&#x60;, &#x60;$type&#x60;, &#x60;$size&#x60;, &#x60;$regex&#x60;, &#x60;$not&#x60; and &#x60;$elemMatch&#x60;.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",

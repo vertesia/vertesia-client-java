@@ -178,7 +178,7 @@ public class BulkOperationPayload {
     }
 
     /**
-     * The operation parameters.
+     * The operation parameters. &#x60;create&#x60; takes the objects to create as &#x60;objects&#x60;, 1 to 10000.
      * @return params
      */
     @jakarta.annotation.Nonnull

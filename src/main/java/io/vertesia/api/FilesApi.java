@@ -328,7 +328,7 @@ public class FilesApi {
 
     /**
      * Delete a file or file prefix
-     * Deletes a single file or, with &#x60;prefix&#x3D;true&#x60;, all files under the provided relative project path prefix.  **Required permissions:** Any of &#x60;content:write&#x60;, &#x60;content:delete&#x60;, &#x60;content:superadmin&#x60;
+     * Deletes a single file or, with &#x60;prefix&#x3D;true&#x60;, all files under the provided relative project path prefix. The path must contain at least one &#x60;/&#x60;, so a top-level object cannot be deleted; it may be sent percent-encoded (&#x60;cache%2Fthumb.png&#x60;) or with literal slashes.  **Required permissions:** Any of &#x60;content:write&#x60;, &#x60;content:delete&#x60;, &#x60;content:superadmin&#x60;
      * @param path  (required)
      * @param prefix  (optional)
      * @return DeleteFileResult
@@ -351,7 +351,7 @@ public class FilesApi {
 
     /**
      * Delete a file or file prefix
-     * Deletes a single file or, with &#x60;prefix&#x3D;true&#x60;, all files under the provided relative project path prefix.  **Required permissions:** Any of &#x60;content:write&#x60;, &#x60;content:delete&#x60;, &#x60;content:superadmin&#x60;
+     * Deletes a single file or, with &#x60;prefix&#x3D;true&#x60;, all files under the provided relative project path prefix. The path must contain at least one &#x60;/&#x60;, so a top-level object cannot be deleted; it may be sent percent-encoded (&#x60;cache%2Fthumb.png&#x60;) or with literal slashes.  **Required permissions:** Any of &#x60;content:write&#x60;, &#x60;content:delete&#x60;, &#x60;content:superadmin&#x60;
      * @param path  (required)
      * @param prefix  (optional)
      * @return ApiResponse&lt;DeleteFileResult&gt;
@@ -375,7 +375,7 @@ public class FilesApi {
 
     /**
      * Delete a file or file prefix (asynchronously)
-     * Deletes a single file or, with &#x60;prefix&#x3D;true&#x60;, all files under the provided relative project path prefix.  **Required permissions:** Any of &#x60;content:write&#x60;, &#x60;content:delete&#x60;, &#x60;content:superadmin&#x60;
+     * Deletes a single file or, with &#x60;prefix&#x3D;true&#x60;, all files under the provided relative project path prefix. The path must contain at least one &#x60;/&#x60;, so a top-level object cannot be deleted; it may be sent percent-encoded (&#x60;cache%2Fthumb.png&#x60;) or with literal slashes.  **Required permissions:** Any of &#x60;content:write&#x60;, &#x60;content:delete&#x60;, &#x60;content:superadmin&#x60;
      * @param path  (required)
      * @param prefix  (optional)
      * @param _callback The callback to be executed when the API call finishes
