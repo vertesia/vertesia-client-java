@@ -597,7 +597,7 @@ public class EventSubscription {
     }
 
     /**
-     * System subscription ID replaced by this stored subscription. Set only for tenant-specific system overrides created by migrations or platform code.
+     * System subscription ID fully replaced by this stored project subscription. Disabling the replacement keeps the default suppressed; deleting it restores the default.
      * @return overridesSystemSubscriptionId
      */
     @jakarta.annotation.Nullable public String getOverridesSystemSubscriptionId() {

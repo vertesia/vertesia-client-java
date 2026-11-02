@@ -30,7 +30,7 @@ import java.util.HashSet;
 import java.util.Objects;
 
 /**
- * ContentTypeIntakePolicyExtractionVerification
+ * Reserved verification configuration. Standard Intake currently implements grounding.review instead of this pass.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -67,7 +67,7 @@ public class ContentTypeIntakePolicyExtractionVerification {
     @jakarta.annotation.Nullable private Integer maxRetries;
 
     /**
-     * Gets or Sets onFail
+     * Reserved action for failed verification: flag or block. Not currently used by Standard Intake.
      */
     @JsonAdapter(OnFailEnum.Adapter.class)
     public enum OnFailEnum {
@@ -135,7 +135,7 @@ public class ContentTypeIntakePolicyExtractionVerification {
     }
 
     /**
-     * Get enabled
+     * Reserved verification switch. Standard Intake does not currently execute this verification pass; use grounding.review for implemented grounded-extraction review.
      * @return enabled
      */
     @jakarta.annotation.Nullable public Boolean getEnabled() {
@@ -153,7 +153,7 @@ public class ContentTypeIntakePolicyExtractionVerification {
     }
 
     /**
-     * Get model
+     * Reserved model name for the verification pass; not currently used by Standard Intake.
      * @return model
      */
     @jakarta.annotation.Nullable public String getModel() {
@@ -171,7 +171,7 @@ public class ContentTypeIntakePolicyExtractionVerification {
     }
 
     /**
-     * Get environment
+     * Reserved execution environment for the verification model; not currently used by Standard Intake.
      * @return environment
      */
     @jakarta.annotation.Nullable public String getEnvironment() {
@@ -189,7 +189,7 @@ public class ContentTypeIntakePolicyExtractionVerification {
     }
 
     /**
-     * Get materiality
+     * Reserved guidance describing which extraction discrepancies matter; not currently used by Standard Intake.
      * @return materiality
      */
     @jakarta.annotation.Nullable public String getMateriality() {
@@ -207,7 +207,7 @@ public class ContentTypeIntakePolicyExtractionVerification {
     }
 
     /**
-     * Get threshold
+     * Reserved verification score threshold between 0 and 1; not currently used by Standard Intake.
      * minimum: 0
      * maximum: 1
      * @return threshold
@@ -227,7 +227,7 @@ public class ContentTypeIntakePolicyExtractionVerification {
     }
 
     /**
-     * Get maxRetries
+     * Reserved verification retry limit; not currently used by Standard Intake.
      * minimum: 0
      * maximum: 2147483647
      * @return maxRetries
@@ -247,7 +247,7 @@ public class ContentTypeIntakePolicyExtractionVerification {
     }
 
     /**
-     * Get onFail
+     * Reserved action for failed verification: flag or block. Not currently used by Standard Intake.
      * @return onFail
      */
     @jakarta.annotation.Nullable public OnFailEnum getOnFail() {

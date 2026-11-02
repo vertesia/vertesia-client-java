@@ -71,7 +71,7 @@ public class ContentTypeIntakePolicyExtractionVision {
     }
 
     /**
-     * Get defaultDetail
+     * Default visual evidence detail: low, standard, or high. References a platform/project rendering profile; default standard.
      * @return defaultDetail
      */
     @jakarta.annotation.Nullable public IntakeVisionDetail getDefaultDetail() {
@@ -98,7 +98,7 @@ public class ContentTypeIntakePolicyExtractionVision {
     }
 
     /**
-     * Get allowedDetails
+     * Visual detail levels the evidence planner may choose. Omit to use the platform-supported levels.
      * @return allowedDetails
      */
     @jakarta.annotation.Nullable public List<IntakeVisionDetail> getAllowedDetails() {

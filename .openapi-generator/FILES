@@ -673,6 +673,8 @@ src/main/java/io/vertesia/model/InferenceProfileUsage.java
 src/main/java/io/vertesia/model/InferenceProfileUsageEntry.java
 src/main/java/io/vertesia/model/InheritedPropertyMetadata.java
 src/main/java/io/vertesia/model/InitialToolCall.java
+src/main/java/io/vertesia/model/IntakeMediaAnalysisOverride.java
+src/main/java/io/vertesia/model/IntakeMediaAnalysisOverrides.java
 src/main/java/io/vertesia/model/IntakePageScope.java
 src/main/java/io/vertesia/model/IntakeVisionDetail.java
 src/main/java/io/vertesia/model/IntakeVisionProfileSettingsMap.java
@@ -1037,6 +1039,10 @@ src/main/java/io/vertesia/model/StripeBillingDisabled.java
 src/main/java/io/vertesia/model/StripeBillingEnabled.java
 src/main/java/io/vertesia/model/StripeBillingStatusResponse.java
 src/main/java/io/vertesia/model/SubmitProcessTestRunPayload.java
+src/main/java/io/vertesia/model/SubscriptionWorkflowCatalog.java
+src/main/java/io/vertesia/model/SubscriptionWorkflowDefinition.java
+src/main/java/io/vertesia/model/SubscriptionWorkflowDefinitionSystemTargetsInner.java
+src/main/java/io/vertesia/model/SubscriptionWorkflowDefinitionTemplatesInner.java
 src/main/java/io/vertesia/model/SuccessResponse.java
 src/main/java/io/vertesia/model/SupervisedRunResponse.java
 src/main/java/io/vertesia/model/SupportedEmbeddingTypes.java

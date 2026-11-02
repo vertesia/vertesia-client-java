@@ -60,7 +60,7 @@ public class ContentTypeIntakePolicyIdentification {
     }
 
     /**
-     * Get guidance
+     * Describe when this content type should be selected. This is type-identification metadata, not a workflow parameter.
      * @return guidance
      */
     @jakarta.annotation.Nullable public String getGuidance() {
@@ -78,7 +78,7 @@ public class ContentTypeIntakePolicyIdentification {
     }
 
     /**
-     * Get distinguishFrom
+     * Explain how to distinguish this type from similar types to improve type selection.
      * @return distinguishFrom
      */
     @jakarta.annotation.Nullable public String getDistinguishFrom() {
@@ -104,7 +104,7 @@ public class ContentTypeIntakePolicyIdentification {
     }
 
     /**
-     * Get examples
+     * Representative examples or identifying characteristics that help the type selector recognize this type.
      * @return examples
      */
     @jakarta.annotation.Nullable public List<String> getExamples() {

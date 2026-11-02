@@ -43,7 +43,7 @@ public class ContentTypeIntakePolicyExtraction {
     @jakarta.annotation.Nullable private Boolean enabled;
 
     /**
-     * Gets or Sets source
+     * Evidence used for property extraction: text uses object text, vision uses page images, mixed uses both, and auto selects appropriate evidence for the source.
      */
     @JsonAdapter(SourceEnum.Adapter.class)
     public enum SourceEnum {
@@ -159,7 +159,7 @@ public class ContentTypeIntakePolicyExtraction {
     }
 
     /**
-     * Get enabled
+     * Extract structured properties using the content-type schema. False skips property extraction; omission inherits.
      * @return enabled
      */
     @jakarta.annotation.Nullable public Boolean getEnabled() {
@@ -177,7 +177,7 @@ public class ContentTypeIntakePolicyExtraction {
     }
 
     /**
-     * Get source
+     * Evidence used for property extraction: text uses object text, vision uses page images, mixed uses both, and auto selects appropriate evidence for the source.
      * @return source
      */
     @jakarta.annotation.Nullable public SourceEnum getSource() {
@@ -195,7 +195,7 @@ public class ContentTypeIntakePolicyExtraction {
     }
 
     /**
-     * Get instructions
+     * Additional instructions for extracting this type&#39;s properties, appended to the extraction prompt.
      * @return instructions
      */
     @jakarta.annotation.Nullable public String getInstructions() {
@@ -213,7 +213,7 @@ public class ContentTypeIntakePolicyExtraction {
     }
 
     /**
-     * Get interaction
+     * Property-extraction interaction ID or qualified name. The built-in default is sys:ExtractInformation; media-specific analysis may override it.
      * @return interaction
      */
     @jakarta.annotation.Nullable public String getInteraction() {
@@ -231,7 +231,7 @@ public class ContentTypeIntakePolicyExtraction {
     }
 
     /**
-     * Model execution config for the standard property-extraction interaction (sys:ExtractInformation). Lets extraction run on a different model/environment than the visual page conversion. When unset, extraction uses the run&#39;s model config or the project default model. (Grounded extraction is configured separately via grounding.config.)
+     * Model execution config for the standard property-extraction interaction (sys:ExtractInformation). Lets extraction run on a different model/environment than the visual page conversion. Subscription phase settings (including legacy run-wide config) override content-type settings, which override project policy defaults; omitted fields inherit. Unspecified routing uses interaction/project model defaults. Grounded extraction uses grounding.config.
      * @return config
      */
     @jakarta.annotation.Nullable public InteractionExecutionConfiguration getConfig() {

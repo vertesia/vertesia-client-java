@@ -32,14 +32,19 @@ import java.util.Map;
 import java.util.Objects;
 
 /**
- * Per-content-type policy for the standard intake workflows.
+ * Shared intake processing policy. Workflow parameters override content-type policy, which overrides project defaults. Omitted processing fields inherit from the next layer.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class ContentTypeIntakePolicy {
+    public static final String SERIALIZED_NAME_MEDIA_ANALYSIS = "media_analysis";
+
+    @SerializedName(SERIALIZED_NAME_MEDIA_ANALYSIS)
+    @jakarta.annotation.Nullable private IntakeMediaAnalysisOverrides mediaAnalysis;
+
     /**
-     * Intake orchestration mode for this type.
+     * Intake orchestration: programmatic runs the standard processing pipeline; agentic delegates processing to the intake agent. Omit to inherit; platform default programmatic.
      */
     @JsonAdapter(ModeEnum.Adapter.class)
     public enum ModeEnum {
@@ -201,13 +206,32 @@ public class ContentTypeIntakePolicy {
 
     public ContentTypeIntakePolicy() {}
 
+    public ContentTypeIntakePolicy mediaAnalysis(
+            @jakarta.annotation.Nullable IntakeMediaAnalysisOverrides mediaAnalysis) {
+        this.mediaAnalysis = mediaAnalysis;
+        return this;
+    }
+
+    /**
+     * Media analysis defaults. Subscription settings override the content type, which overrides project defaults.
+     * @return mediaAnalysis
+     */
+    @jakarta.annotation.Nullable public IntakeMediaAnalysisOverrides getMediaAnalysis() {
+        return mediaAnalysis;
+    }
+
+    public void setMediaAnalysis(
+            @jakarta.annotation.Nullable IntakeMediaAnalysisOverrides mediaAnalysis) {
+        this.mediaAnalysis = mediaAnalysis;
+    }
+
     public ContentTypeIntakePolicy mode(@jakarta.annotation.Nullable ModeEnum mode) {
         this.mode = mode;
         return this;
     }
 
     /**
-     * Intake orchestration mode for this type.
+     * Intake orchestration: programmatic runs the standard processing pipeline; agentic delegates processing to the intake agent. Omit to inherit; platform default programmatic.
      * @return mode
      */
     @jakarta.annotation.Nullable public ModeEnum getMode() {
@@ -318,7 +342,7 @@ public class ContentTypeIntakePolicy {
     }
 
     /**
-     * Per-type embedding switches. Unspecified values inherit the project policy.
+     * Embedding generation switches. Omitted fields inherit type/project policy; project embedding availability remains a hard limit.
      * @return embeddings
      */
     @jakarta.annotation.Nullable public EmbeddingTypeEnabledMap getEmbeddings() {
@@ -418,7 +442,8 @@ public class ContentTypeIntakePolicy {
             return false;
         }
         ContentTypeIntakePolicy contentTypeIntakePolicy = (ContentTypeIntakePolicy) o;
-        return Objects.equals(this.mode, contentTypeIntakePolicy.mode)
+        return Objects.equals(this.mediaAnalysis, contentTypeIntakePolicy.mediaAnalysis)
+                && Objects.equals(this.mode, contentTypeIntakePolicy.mode)
                 && Objects.equals(this.identification, contentTypeIntakePolicy.identification)
                 && Objects.equals(this.locate, contentTypeIntakePolicy.locate)
                 && Objects.equals(this.textConversion, contentTypeIntakePolicy.textConversion)
@@ -434,6 +459,7 @@ public class ContentTypeIntakePolicy {
     @Override
     public int hashCode() {
         return Objects.hash(
+                mediaAnalysis,
                 mode,
                 identification,
                 locate,
@@ -450,6 +476,7 @@ public class ContentTypeIntakePolicy {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class ContentTypeIntakePolicy {\n");
+        sb.append("    mediaAnalysis: ").append(toIndentedString(mediaAnalysis)).append("\n");
         sb.append("    mode: ").append(toIndentedString(mode)).append("\n");
         sb.append("    identification: ").append(toIndentedString(identification)).append("\n");
         sb.append("    locate: ").append(toIndentedString(locate)).append("\n");
@@ -484,6 +511,7 @@ public class ContentTypeIntakePolicy {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "media_analysis",
                                 "mode",
                                 "identification",
                                 "locate",
@@ -516,6 +544,10 @@ public class ContentTypeIntakePolicy {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the optional field `media_analysis`
+        if (jsonObj.get("media_analysis") != null && !jsonObj.get("media_analysis").isJsonNull()) {
+            IntakeMediaAnalysisOverrides.validateJsonElement(jsonObj.get("media_analysis"));
+        }
         if ((jsonObj.get("mode") != null && !jsonObj.get("mode").isJsonNull())
                 && !jsonObj.get("mode").isJsonPrimitive()) {
             throw new IllegalArgumentException(

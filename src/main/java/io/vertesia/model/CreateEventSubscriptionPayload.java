@@ -41,6 +41,12 @@ public class CreateEventSubscriptionPayload {
     @jakarta.annotation.Nonnull
     private String name;
 
+    public static final String SERIALIZED_NAME_OVERRIDES_SYSTEM_SUBSCRIPTION_ID =
+            "overrides_system_subscription_id";
+
+    @SerializedName(SERIALIZED_NAME_OVERRIDES_SYSTEM_SUBSCRIPTION_ID)
+    @jakarta.annotation.Nullable private String overridesSystemSubscriptionId;
+
     public static final String SERIALIZED_NAME_DESCRIPTION = "description";
 
     @SerializedName(SERIALIZED_NAME_DESCRIPTION)
@@ -152,6 +158,25 @@ public class CreateEventSubscriptionPayload {
 
     public void setName(@jakarta.annotation.Nonnull String name) {
         this.name = name;
+    }
+
+    public CreateEventSubscriptionPayload overridesSystemSubscriptionId(
+            @jakarta.annotation.Nullable String overridesSystemSubscriptionId) {
+        this.overridesSystemSubscriptionId = overridesSystemSubscriptionId;
+        return this;
+    }
+
+    /**
+     * Fully replace this code-defined system subscription in the current project. Only one replacement per system subscription is allowed. Disabling the replacement keeps the default suppressed; deleting it restores the default. Immutable after creation.
+     * @return overridesSystemSubscriptionId
+     */
+    @jakarta.annotation.Nullable public String getOverridesSystemSubscriptionId() {
+        return overridesSystemSubscriptionId;
+    }
+
+    public void setOverridesSystemSubscriptionId(
+            @jakarta.annotation.Nullable String overridesSystemSubscriptionId) {
+        this.overridesSystemSubscriptionId = overridesSystemSubscriptionId;
     }
 
     public CreateEventSubscriptionPayload description(
@@ -292,6 +317,9 @@ public class CreateEventSubscriptionPayload {
         CreateEventSubscriptionPayload createEventSubscriptionPayload =
                 (CreateEventSubscriptionPayload) o;
         return Objects.equals(this.name, createEventSubscriptionPayload.name)
+                && Objects.equals(
+                        this.overridesSystemSubscriptionId,
+                        createEventSubscriptionPayload.overridesSystemSubscriptionId)
                 && Objects.equals(this.description, createEventSubscriptionPayload.description)
                 && Objects.equals(this.scope, createEventSubscriptionPayload.scope)
                 && Objects.equals(this.filter, createEventSubscriptionPayload.filter)
@@ -303,7 +331,16 @@ public class CreateEventSubscriptionPayload {
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, description, scope, filter, target, runAsRole, enabled, priority);
+        return Objects.hash(
+                name,
+                overridesSystemSubscriptionId,
+                description,
+                scope,
+                filter,
+                target,
+                runAsRole,
+                enabled,
+                priority);
     }
 
     @Override
@@ -311,6 +348,9 @@ public class CreateEventSubscriptionPayload {
         StringBuilder sb = new StringBuilder();
         sb.append("class CreateEventSubscriptionPayload {\n");
         sb.append("    name: ").append(toIndentedString(name)).append("\n");
+        sb.append("    overridesSystemSubscriptionId: ")
+                .append(toIndentedString(overridesSystemSubscriptionId))
+                .append("\n");
         sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("    scope: ").append(toIndentedString(scope)).append("\n");
         sb.append("    filter: ").append(toIndentedString(filter)).append("\n");
@@ -339,6 +379,7 @@ public class CreateEventSubscriptionPayload {
                 new HashSet<String>(
                         Arrays.asList(
                                 "name",
+                                "overrides_system_subscription_id",
                                 "description",
                                 "scope",
                                 "filter",
@@ -388,6 +429,15 @@ public class CreateEventSubscriptionPayload {
                             java.util.Locale.ROOT,
                             "Expected the field `name` to be a primitive type in the JSON string but got `%s`",
                             jsonObj.get("name").toString()));
+        }
+        if ((jsonObj.get("overrides_system_subscription_id") != null
+                        && !jsonObj.get("overrides_system_subscription_id").isJsonNull())
+                && !jsonObj.get("overrides_system_subscription_id").isJsonPrimitive()) {
+            throw new IllegalArgumentException(
+                    String.format(
+                            java.util.Locale.ROOT,
+                            "Expected the field `overrides_system_subscription_id` to be a primitive type in the JSON string but got `%s`",
+                            jsonObj.get("overrides_system_subscription_id").toString()));
         }
         if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull())
                 && !jsonObj.get("description").isJsonPrimitive()) {

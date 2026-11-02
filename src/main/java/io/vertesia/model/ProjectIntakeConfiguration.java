@@ -124,7 +124,7 @@ public class ProjectIntakeConfiguration {
     }
 
     /**
-     * Project-level intake policy defaults. Same shape as the per-content-type policy; a type&#39;s &#x60;intake&#x60; block wins field-by-field over these defaults, which in turn win over the legacy flat fields below. &#x60;identification&#x60; is type-specific and ignored here.
+     * Project-level intake policy defaults. The same processing fields are used by workflow overrides and type policy. A type&#39;s &#x60;intake&#x60; block wins field-by-field over these defaults, which in turn win over the legacy flat fields below. &#x60;identification&#x60; is type-specific and ignored here.
      * @return defaultPolicy
      */
     @jakarta.annotation.Nullable public ContentTypeIntakePolicy getDefaultPolicy() {

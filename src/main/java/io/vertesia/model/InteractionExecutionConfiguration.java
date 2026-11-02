@@ -115,7 +115,7 @@ public class InteractionExecutionConfiguration {
     }
 
     /**
-     * Get id
+     * Optional configuration identifier. Normally omit this when overriding intake settings.
      * @return id
      */
     @jakarta.annotation.Nullable public String getId() {
@@ -169,7 +169,7 @@ public class InteractionExecutionConfiguration {
     }
 
     /**
-     * Get environment
+     * Execution environment ID for the selected model. Supply with model to replace inherited profile routing.
      * @return environment
      */
     @jakarta.annotation.Nullable public String getEnvironment() {
@@ -186,7 +186,7 @@ public class InteractionExecutionConfiguration {
     }
 
     /**
-     * Get model
+     * Model name within the execution environment. Changing model or profile drops inherited model options.
      * @return model
      */
     @jakarta.annotation.Nullable public String getModel() {
@@ -204,7 +204,7 @@ public class InteractionExecutionConfiguration {
     }
 
     /**
-     * Get doValidate
+     * Validate the interaction output against its result schema. Omit to inherit validation settings.
      * @return doValidate
      */
     @jakarta.annotation.Nullable public Boolean getDoValidate() {
@@ -222,7 +222,7 @@ public class InteractionExecutionConfiguration {
     }
 
     /**
-     * Get runData
+     * Run-data storage level: controls which execution inputs and outputs are retained. Omit to inherit.
      * @return runData
      */
     @jakarta.annotation.Nullable public RunDataStorageLevel getRunData() {
@@ -240,7 +240,7 @@ public class InteractionExecutionConfiguration {
     }
 
     /**
-     * Get configMode
+     * How configuration combines with the interaction configuration. Normally omit to use the default merge behavior.
      * @return configMode
      */
     @jakarta.annotation.Nullable public ConfigModes getConfigMode() {

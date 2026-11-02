@@ -57,7 +57,7 @@ public class EmbeddingTypeEnabledMap {
     }
 
     /**
-     * Get text
+     * Generate embeddings from object text. False disables this step; true still requires text embeddings to be enabled in the project.
      * @return text
      */
     @jakarta.annotation.Nullable public Boolean getText() {
@@ -74,7 +74,7 @@ public class EmbeddingTypeEnabledMap {
     }
 
     /**
-     * Get image
+     * Generate image embeddings when applicable. False disables this step; true still requires image embeddings to be enabled in the project.
      * @return image
      */
     @jakarta.annotation.Nullable public Boolean getImage() {
@@ -91,7 +91,7 @@ public class EmbeddingTypeEnabledMap {
     }
 
     /**
-     * Get properties
+     * Generate embeddings from extracted properties. False disables this step; true still requires property embeddings to be enabled in the project.
      * @return properties
      */
     @jakarta.annotation.Nullable public Boolean getProperties() {

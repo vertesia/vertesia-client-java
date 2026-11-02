@@ -43,7 +43,7 @@ public class ContentTypeIntakePolicyTextConversion {
     @jakarta.annotation.Nullable private Boolean enabled;
 
     /**
-     * Gets or Sets method
+     * Conversion strategy: basic uses mechanical extraction; llm uses visual conversion to Markdown; custom uses a supplied interaction. Standard Intake resolves auto to its platform semantic-conversion default.
      */
     @JsonAdapter(MethodEnum.Adapter.class)
     public enum MethodEnum {
@@ -117,7 +117,7 @@ public class ContentTypeIntakePolicyTextConversion {
     @jakarta.annotation.Nullable private String instructions;
 
     /**
-     * Gets or Sets outputFormat
+     * Output format requested from custom conversion. Visual llm conversion always produces Markdown.
      */
     @JsonAdapter(OutputFormatEnum.Adapter.class)
     public enum OutputFormatEnum {
@@ -205,7 +205,7 @@ public class ContentTypeIntakePolicyTextConversion {
     }
 
     /**
-     * Get enabled
+     * Run source-to-text conversion before extraction. False skips conversion; omission inherits the next policy layer.
      * @return enabled
      */
     @jakarta.annotation.Nullable public Boolean getEnabled() {
@@ -223,7 +223,7 @@ public class ContentTypeIntakePolicyTextConversion {
     }
 
     /**
-     * Get method
+     * Conversion strategy: basic uses mechanical extraction; llm uses visual conversion to Markdown; custom uses a supplied interaction. Standard Intake resolves auto to its platform semantic-conversion default.
      * @return method
      */
     @jakarta.annotation.Nullable public MethodEnum getMethod() {
@@ -260,7 +260,7 @@ public class ContentTypeIntakePolicyTextConversion {
     }
 
     /**
-     * Get instructions
+     * Additional conversion guidance, such as which sections to retain or how to describe tables and figures.
      * @return instructions
      */
     @jakarta.annotation.Nullable public String getInstructions() {
@@ -278,7 +278,7 @@ public class ContentTypeIntakePolicyTextConversion {
     }
 
     /**
-     * Get outputFormat
+     * Output format requested from custom conversion. Visual llm conversion always produces Markdown.
      * @return outputFormat
      */
     @jakarta.annotation.Nullable public OutputFormatEnum getOutputFormat() {
@@ -360,7 +360,7 @@ public class ContentTypeIntakePolicyTextConversion {
     }
 
     /**
-     * Model execution config for the page-conversion interaction (method &#39;llm&#39;/&#39;auto&#39; -&gt; sys:ConvertPageToMarkdown, method &#39;custom&#39; -&gt; the custom interaction). Lets the visual conversion run on a cheaper/faster model (e.g. a flash model) than extraction. When unset, conversion uses the run&#39;s model config or the project default model.
+     * Model execution config for the page-conversion interaction (method &#39;llm&#39;/&#39;auto&#39; -&gt; sys:ConvertPageToMarkdown, method &#39;custom&#39; -&gt; the custom interaction). Lets the visual conversion run on a cheaper/faster model than extraction. Fields inherit across policy layers: subscription phase settings (including legacy run-wide config) override content-type settings, which override project policy defaults. Unspecified routing uses interaction/project model defaults.
      * @return config
      */
     @jakarta.annotation.Nullable public InteractionExecutionConfiguration getConfig() {

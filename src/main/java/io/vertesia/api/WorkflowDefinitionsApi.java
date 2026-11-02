@@ -21,6 +21,7 @@ import io.vertesia.Configuration;
 import io.vertesia.Pair;
 import io.vertesia.model.DSLWorkflowDefinitionResponse;
 import io.vertesia.model.DeleteCountResult;
+import io.vertesia.model.SubscriptionWorkflowCatalog;
 import io.vertesia.model.UpdateWorkflowDefinitionPayload;
 import io.vertesia.model.WorkflowDefinitionPayload;
 import io.vertesia.model.WorkflowDefinitionRef;
@@ -540,6 +541,145 @@ public class WorkflowDefinitionsApi {
 
         okhttp3.Call localVarCall = getWorkflowDefinitionValidateBeforeCall(workflowId, _callback);
         Type localVarReturnType = new TypeToken<DSLWorkflowDefinitionResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listSubscriptionWorkflowCatalog
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Workflow variable schemas and templates. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listSubscriptionWorkflowCatalogCall(final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/workflows/subscription-catalog";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listSubscriptionWorkflowCatalogValidateBeforeCall(
+            final ApiCallback _callback) throws ApiException {
+        return listSubscriptionWorkflowCatalogCall(_callback);
+    }
+
+    /**
+     * List packaged workflows supported as event subscription targets
+     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * @return SubscriptionWorkflowCatalog
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Workflow variable schemas and templates. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public SubscriptionWorkflowCatalog listSubscriptionWorkflowCatalog() throws ApiException {
+        ApiResponse<SubscriptionWorkflowCatalog> localVarResp =
+                listSubscriptionWorkflowCatalogWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * List packaged workflows supported as event subscription targets
+     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * @return ApiResponse&lt;SubscriptionWorkflowCatalog&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Workflow variable schemas and templates. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<SubscriptionWorkflowCatalog> listSubscriptionWorkflowCatalogWithHttpInfo()
+            throws ApiException {
+        okhttp3.Call localVarCall = listSubscriptionWorkflowCatalogValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<SubscriptionWorkflowCatalog>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List packaged workflows supported as event subscription targets (asynchronously)
+     * **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Workflow variable schemas and templates. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listSubscriptionWorkflowCatalogAsync(
+            final ApiCallback<SubscriptionWorkflowCatalog> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listSubscriptionWorkflowCatalogValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<SubscriptionWorkflowCatalog>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -28,7 +28,7 @@ import java.util.HashSet;
 import java.util.Objects;
 
 /**
- * ContentTypeIntakePolicyTextConversionCustom
+ * Custom conversion target, used with method: custom. Set interaction; agent conversion is not implemented.
  */
 @jakarta.annotation.Generated(
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
@@ -53,7 +53,7 @@ public class ContentTypeIntakePolicyTextConversionCustom {
     }
 
     /**
-     * Get interaction
+     * Interaction ID or qualified name to use when method is custom.
      * @return interaction
      */
     @jakarta.annotation.Nullable public String getInteraction() {
@@ -71,7 +71,7 @@ public class ContentTypeIntakePolicyTextConversionCustom {
     }
 
     /**
-     * Get agent
+     * Reserved custom-agent conversion target. Standard Intake currently supports custom.interaction only.
      * @return agent
      */
     @jakarta.annotation.Nullable public String getAgent() {
