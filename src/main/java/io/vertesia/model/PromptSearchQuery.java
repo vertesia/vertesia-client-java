@@ -124,6 +124,7 @@ public class PromptSearchQuery {
     /**
      * Maximum number of prompts to return. Defaults to 100.
      * minimum: 0
+     * maximum: 9007199254740991
      * @return limit
      */
     @jakarta.annotation.Nullable public BigDecimal getLimit() {
@@ -142,6 +143,7 @@ public class PromptSearchQuery {
     /**
      * Number of prompts to skip.
      * minimum: 0
+     * maximum: 9007199254740991
      * @return offset
      */
     @jakarta.annotation.Nullable public BigDecimal getOffset() {

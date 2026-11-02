@@ -102,6 +102,7 @@ public class InteractionEndpointQuery {
     /**
      * Get limit
      * minimum: 0
+     * maximum: 9007199254740991
      * @return limit
      */
     @jakarta.annotation.Nullable public BigDecimal getLimit() {
@@ -120,6 +121,7 @@ public class InteractionEndpointQuery {
     /**
      * Get offset
      * minimum: 0
+     * maximum: 9007199254740991
      * @return offset
      */
     @jakarta.annotation.Nullable public BigDecimal getOffset() {
