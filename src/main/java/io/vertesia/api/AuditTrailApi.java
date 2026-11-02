@@ -22,6 +22,8 @@ import io.vertesia.Pair;
 import io.vertesia.model.AuditAction;
 import io.vertesia.model.AuditAdoptionQuery;
 import io.vertesia.model.AuditAdoptionResponse;
+import io.vertesia.model.AuditAggregationBatchQuery;
+import io.vertesia.model.AuditAggregationBatchResponse;
 import io.vertesia.model.AuditAggregationQuery;
 import io.vertesia.model.AuditAggregationResponse;
 import io.vertesia.model.AuditTrailResponse;
@@ -227,6 +229,167 @@ public class AuditTrailApi {
         okhttp3.Call localVarCall =
                 aggregateAuditTrailEventsValidateBeforeCall(auditAggregationQuery, _callback);
         Type localVarReturnType = new TypeToken<AuditAggregationResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for aggregateAuditTrailEventsBatch
+     * @param auditAggregationBatchQuery  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> One aggregation result per query, in order. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call aggregateAuditTrailEventsBatchCall(
+            @jakarta.annotation.Nonnull AuditAggregationBatchQuery auditAggregationBatchQuery,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = auditAggregationBatchQuery;
+
+        // create path and map variables
+        String localVarPath = "/audit-trail/aggregate/batch";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call aggregateAuditTrailEventsBatchValidateBeforeCall(
+            @jakarta.annotation.Nonnull AuditAggregationBatchQuery auditAggregationBatchQuery,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'auditAggregationBatchQuery' is set
+        if (auditAggregationBatchQuery == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'auditAggregationBatchQuery' when calling aggregateAuditTrailEventsBatch(Async)");
+        }
+
+        return aggregateAuditTrailEventsBatchCall(auditAggregationBatchQuery, _callback);
+    }
+
+    /**
+     * Run several audit trail aggregations
+     * Runs up to 12 aggregations in one request. Each result equals the result of the same query sent to the single aggregation endpoint, and results come back in request order. Queries that share a scope, time range and filter are computed in one pass over the audit events. Account and project scope are enforced from the authenticated request context, per query.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
+     * @param auditAggregationBatchQuery  (required)
+     * @return AuditAggregationBatchResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> One aggregation result per query, in order. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public AuditAggregationBatchResponse aggregateAuditTrailEventsBatch(
+            @jakarta.annotation.Nonnull AuditAggregationBatchQuery auditAggregationBatchQuery)
+            throws ApiException {
+        ApiResponse<AuditAggregationBatchResponse> localVarResp =
+                aggregateAuditTrailEventsBatchWithHttpInfo(auditAggregationBatchQuery);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Run several audit trail aggregations
+     * Runs up to 12 aggregations in one request. Each result equals the result of the same query sent to the single aggregation endpoint, and results come back in request order. Queries that share a scope, time range and filter are computed in one pass over the audit events. Account and project scope are enforced from the authenticated request context, per query.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
+     * @param auditAggregationBatchQuery  (required)
+     * @return ApiResponse&lt;AuditAggregationBatchResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> One aggregation result per query, in order. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<AuditAggregationBatchResponse> aggregateAuditTrailEventsBatchWithHttpInfo(
+            @jakarta.annotation.Nonnull AuditAggregationBatchQuery auditAggregationBatchQuery)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                aggregateAuditTrailEventsBatchValidateBeforeCall(auditAggregationBatchQuery, null);
+        Type localVarReturnType = new TypeToken<AuditAggregationBatchResponse>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Run several audit trail aggregations (asynchronously)
+     * Runs up to 12 aggregations in one request. Each result equals the result of the same query sent to the single aggregation endpoint, and results come back in request order. Queries that share a scope, time range and filter are computed in one pass over the audit events. Account and project scope are enforced from the authenticated request context, per query.  **Required permissions:** Any of &#x60;project:admin&#x60;, &#x60;account:admin&#x60;, &#x60;audit:read&#x60;
+     * @param auditAggregationBatchQuery  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> One aggregation result per query, in order. </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call aggregateAuditTrailEventsBatchAsync(
+            @jakarta.annotation.Nonnull AuditAggregationBatchQuery auditAggregationBatchQuery,
+            final ApiCallback<AuditAggregationBatchResponse> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                aggregateAuditTrailEventsBatchValidateBeforeCall(
+                        auditAggregationBatchQuery, _callback);
+        Type localVarReturnType = new TypeToken<AuditAggregationBatchResponse>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

@@ -246,6 +246,8 @@ src/main/java/io/vertesia/model/AuditAdoptionPeriod.java
 src/main/java/io/vertesia/model/AuditAdoptionProject.java
 src/main/java/io/vertesia/model/AuditAdoptionQuery.java
 src/main/java/io/vertesia/model/AuditAdoptionResponse.java
+src/main/java/io/vertesia/model/AuditAggregationBatchQuery.java
+src/main/java/io/vertesia/model/AuditAggregationBatchResponse.java
 src/main/java/io/vertesia/model/AuditAggregationDetailField.java
 src/main/java/io/vertesia/model/AuditAggregationDetailFilter.java
 src/main/java/io/vertesia/model/AuditAggregationDimension.java
