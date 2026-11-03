@@ -82,7 +82,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createWorkflowDefinitionCall(
             @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload,
             final ApiCallback _callback)
@@ -139,6 +141,7 @@ public class WorkflowDefinitionsApi {
                 _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createWorkflowDefinitionValidateBeforeCall(
             @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload,
@@ -155,7 +158,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Create a workflow definition
-     * Creates a new DSL workflow definition or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Creates a new DSL workflow definition or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param workflowDefinitionPayload  (required)
      * @return DSLWorkflowDefinitionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -167,7 +170,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public DSLWorkflowDefinitionResponse createWorkflowDefinition(
             @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload)
             throws ApiException {
@@ -178,7 +183,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Create a workflow definition
-     * Creates a new DSL workflow definition or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Creates a new DSL workflow definition or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param workflowDefinitionPayload  (required)
      * @return ApiResponse&lt;DSLWorkflowDefinitionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -190,7 +195,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<DSLWorkflowDefinitionResponse> createWorkflowDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload)
             throws ApiException {
@@ -202,7 +209,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Create a workflow definition (asynchronously)
-     * Creates a new DSL workflow definition or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Creates a new DSL workflow definition or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param workflowDefinitionPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -215,7 +222,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createWorkflowDefinitionAsync(
             @jakarta.annotation.Nonnull WorkflowDefinitionPayload workflowDefinitionPayload,
             final ApiCallback<DSLWorkflowDefinitionResponse> _callback)
@@ -242,7 +251,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteWorkflowDefinitionCall(
             @jakarta.annotation.Nonnull String workflowId, final ApiCallback _callback)
             throws ApiException {
@@ -302,6 +313,7 @@ public class WorkflowDefinitionsApi {
                 _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteWorkflowDefinitionValidateBeforeCall(
             @jakarta.annotation.Nonnull String workflowId, final ApiCallback _callback)
@@ -317,7 +329,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Delete a workflow definition
-     * Deletes a DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Deletes a DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
      * @return DeleteCountResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -329,7 +341,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public DeleteCountResult deleteWorkflowDefinition(@jakarta.annotation.Nonnull String workflowId)
             throws ApiException {
         ApiResponse<DeleteCountResult> localVarResp =
@@ -339,7 +353,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Delete a workflow definition
-     * Deletes a DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Deletes a DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
      * @return ApiResponse&lt;DeleteCountResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -351,7 +365,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<DeleteCountResult> deleteWorkflowDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId) throws ApiException {
         okhttp3.Call localVarCall = deleteWorkflowDefinitionValidateBeforeCall(workflowId, null);
@@ -361,7 +377,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Delete a workflow definition (asynchronously)
-     * Deletes a DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Deletes a DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -374,7 +390,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteWorkflowDefinitionAsync(
             @jakarta.annotation.Nonnull String workflowId,
             final ApiCallback<DeleteCountResult> _callback)
@@ -401,7 +419,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getWorkflowDefinitionCall(
             @jakarta.annotation.Nonnull String workflowId, final ApiCallback _callback)
             throws ApiException {
@@ -461,6 +481,7 @@ public class WorkflowDefinitionsApi {
                 _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWorkflowDefinitionValidateBeforeCall(
             @jakarta.annotation.Nonnull String workflowId, final ApiCallback _callback)
@@ -476,7 +497,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Retrieve a workflow definition
-     * Retrieves a DSL workflow definition by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Retrieves a DSL workflow definition by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
      * @return DSLWorkflowDefinitionResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -488,7 +509,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public DSLWorkflowDefinitionResponse getWorkflowDefinition(
             @jakarta.annotation.Nonnull String workflowId) throws ApiException {
         ApiResponse<DSLWorkflowDefinitionResponse> localVarResp =
@@ -498,7 +521,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Retrieve a workflow definition
-     * Retrieves a DSL workflow definition by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Retrieves a DSL workflow definition by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
      * @return ApiResponse&lt;DSLWorkflowDefinitionResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -510,7 +533,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<DSLWorkflowDefinitionResponse> getWorkflowDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId) throws ApiException {
         okhttp3.Call localVarCall = getWorkflowDefinitionValidateBeforeCall(workflowId, null);
@@ -520,7 +545,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Retrieve a workflow definition (asynchronously)
-     * Retrieves a DSL workflow definition by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Retrieves a DSL workflow definition by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -533,7 +558,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getWorkflowDefinitionAsync(
             @jakarta.annotation.Nonnull String workflowId,
             final ApiCallback<DSLWorkflowDefinitionResponse> _callback)
@@ -697,7 +724,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listWorkflowDefinitionsCall(final ApiCallback _callback)
             throws ApiException {
         String basePath = null;
@@ -752,6 +781,7 @@ public class WorkflowDefinitionsApi {
                 _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listWorkflowDefinitionsValidateBeforeCall(final ApiCallback _callback)
             throws ApiException {
@@ -760,7 +790,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * List workflow definitions
-     * Lists DSL workflow definitions in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Lists DSL workflow definitions in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @return List&lt;WorkflowDefinitionRef&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -771,7 +801,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public List<WorkflowDefinitionRef> listWorkflowDefinitions() throws ApiException {
         ApiResponse<List<WorkflowDefinitionRef>> localVarResp =
                 listWorkflowDefinitionsWithHttpInfo();
@@ -780,7 +812,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * List workflow definitions
-     * Lists DSL workflow definitions in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Lists DSL workflow definitions in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @return ApiResponse&lt;List&lt;WorkflowDefinitionRef&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -791,7 +823,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<List<WorkflowDefinitionRef>> listWorkflowDefinitionsWithHttpInfo()
             throws ApiException {
         okhttp3.Call localVarCall = listWorkflowDefinitionsValidateBeforeCall(null);
@@ -801,7 +835,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * List workflow definitions (asynchronously)
-     * Lists DSL workflow definitions in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Lists DSL workflow definitions in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -813,7 +847,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listWorkflowDefinitionsAsync(
             final ApiCallback<List<WorkflowDefinitionRef>> _callback) throws ApiException {
 
@@ -839,7 +875,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateWorkflowDefinitionCall(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull
@@ -902,6 +940,7 @@ public class WorkflowDefinitionsApi {
                 _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateWorkflowDefinitionValidateBeforeCall(
             @jakarta.annotation.Nonnull String workflowId,
@@ -926,7 +965,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Update a workflow definition
-     * Updates an existing DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Updates an existing DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
      * @param updateWorkflowDefinitionPayload  (required)
      * @return DSLWorkflowDefinitionResponse
@@ -940,7 +979,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public DSLWorkflowDefinitionResponse updateWorkflowDefinition(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull
@@ -953,7 +994,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Update a workflow definition
-     * Updates an existing DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Updates an existing DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
      * @param updateWorkflowDefinitionPayload  (required)
      * @return ApiResponse&lt;DSLWorkflowDefinitionResponse&gt;
@@ -967,7 +1008,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<DSLWorkflowDefinitionResponse> updateWorkflowDefinitionWithHttpInfo(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull
@@ -982,7 +1025,7 @@ public class WorkflowDefinitionsApi {
 
     /**
      * Update a workflow definition (asynchronously)
-     * Updates an existing DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow definitions are deprecated. Updates an existing DSL workflow definition.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param workflowId  (required)
      * @param updateWorkflowDefinitionPayload  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -997,7 +1040,9 @@ public class WorkflowDefinitionsApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateWorkflowDefinitionAsync(
             @jakarta.annotation.Nonnull String workflowId,
             @jakarta.annotation.Nonnull

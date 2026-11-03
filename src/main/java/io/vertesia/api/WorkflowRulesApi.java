@@ -81,7 +81,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createWorkflowRuleCall(
             @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
             final ApiCallback _callback)
@@ -138,6 +140,7 @@ public class WorkflowRulesApi {
                 _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call createWorkflowRuleValidateBeforeCall(
             @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
@@ -154,7 +157,7 @@ public class WorkflowRulesApi {
 
     /**
      * Create a workflow rule
-     * Creates a new workflow rule or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Creates a new workflow rule or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param createWorkflowRulePayload  (required)
      * @return WorkflowRule
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -166,7 +169,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public WorkflowRule createWorkflowRule(
             @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload)
             throws ApiException {
@@ -177,7 +182,7 @@ public class WorkflowRulesApi {
 
     /**
      * Create a workflow rule
-     * Creates a new workflow rule or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Creates a new workflow rule or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param createWorkflowRulePayload  (required)
      * @return ApiResponse&lt;WorkflowRule&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -189,7 +194,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<WorkflowRule> createWorkflowRuleWithHttpInfo(
             @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload)
             throws ApiException {
@@ -201,7 +208,7 @@ public class WorkflowRulesApi {
 
     /**
      * Create a workflow rule (asynchronously)
-     * Creates a new workflow rule or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Creates a new workflow rule or updates an existing one through the legacy upsert path.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param createWorkflowRulePayload  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -214,7 +221,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call createWorkflowRuleAsync(
             @jakarta.annotation.Nonnull CreateWorkflowRulePayload createWorkflowRulePayload,
             final ApiCallback<WorkflowRule> _callback)
@@ -241,7 +250,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteWorkflowRuleCall(
             @jakarta.annotation.Nonnull String ruleId, final ApiCallback _callback)
             throws ApiException {
@@ -301,6 +312,7 @@ public class WorkflowRulesApi {
                 _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call deleteWorkflowRuleValidateBeforeCall(
             @jakarta.annotation.Nonnull String ruleId, final ApiCallback _callback)
@@ -316,7 +328,7 @@ public class WorkflowRulesApi {
 
     /**
      * Delete a workflow rule
-     * Deletes a workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Deletes a workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @return DeleteCountResult
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -328,7 +340,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public DeleteCountResult deleteWorkflowRule(@jakarta.annotation.Nonnull String ruleId)
             throws ApiException {
         ApiResponse<DeleteCountResult> localVarResp = deleteWorkflowRuleWithHttpInfo(ruleId);
@@ -337,7 +351,7 @@ public class WorkflowRulesApi {
 
     /**
      * Delete a workflow rule
-     * Deletes a workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Deletes a workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @return ApiResponse&lt;DeleteCountResult&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -349,7 +363,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<DeleteCountResult> deleteWorkflowRuleWithHttpInfo(
             @jakarta.annotation.Nonnull String ruleId) throws ApiException {
         okhttp3.Call localVarCall = deleteWorkflowRuleValidateBeforeCall(ruleId, null);
@@ -359,7 +375,7 @@ public class WorkflowRulesApi {
 
     /**
      * Delete a workflow rule (asynchronously)
-     * Deletes a workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Deletes a workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -372,7 +388,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call deleteWorkflowRuleAsync(
             @jakarta.annotation.Nonnull String ruleId,
             final ApiCallback<DeleteCountResult> _callback)
@@ -398,7 +416,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getWorkflowRuleCall(
             @jakarta.annotation.Nonnull String ruleId, final ApiCallback _callback)
             throws ApiException {
@@ -458,6 +478,7 @@ public class WorkflowRulesApi {
                 _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call getWorkflowRuleValidateBeforeCall(
             @jakarta.annotation.Nonnull String ruleId, final ApiCallback _callback)
@@ -473,7 +494,7 @@ public class WorkflowRulesApi {
 
     /**
      * Retrieve a workflow rule
-     * Retrieves a workflow rule by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Retrieves a workflow rule by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @return WorkflowRule
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -485,7 +506,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public WorkflowRule getWorkflowRule(@jakarta.annotation.Nonnull String ruleId)
             throws ApiException {
         ApiResponse<WorkflowRule> localVarResp = getWorkflowRuleWithHttpInfo(ruleId);
@@ -494,7 +517,7 @@ public class WorkflowRulesApi {
 
     /**
      * Retrieve a workflow rule
-     * Retrieves a workflow rule by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Retrieves a workflow rule by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @return ApiResponse&lt;WorkflowRule&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -506,7 +529,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<WorkflowRule> getWorkflowRuleWithHttpInfo(
             @jakarta.annotation.Nonnull String ruleId) throws ApiException {
         okhttp3.Call localVarCall = getWorkflowRuleValidateBeforeCall(ruleId, null);
@@ -516,7 +541,7 @@ public class WorkflowRulesApi {
 
     /**
      * Retrieve a workflow rule (asynchronously)
-     * Retrieves a workflow rule by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Retrieves a workflow rule by ID.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -529,7 +554,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call getWorkflowRuleAsync(
             @jakarta.annotation.Nonnull String ruleId, final ApiCallback<WorkflowRule> _callback)
             throws ApiException {
@@ -553,7 +580,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listWorkflowRulesCall(final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
@@ -607,6 +636,7 @@ public class WorkflowRulesApi {
                 _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call listWorkflowRulesValidateBeforeCall(final ApiCallback _callback)
             throws ApiException {
@@ -615,7 +645,7 @@ public class WorkflowRulesApi {
 
     /**
      * List workflow rules
-     * Lists workflow rules available in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Lists workflow rules available in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @return List&lt;WorkflowRuleItem&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -626,7 +656,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public List<WorkflowRuleItem> listWorkflowRules() throws ApiException {
         ApiResponse<List<WorkflowRuleItem>> localVarResp = listWorkflowRulesWithHttpInfo();
         return localVarResp.getData();
@@ -634,7 +666,7 @@ public class WorkflowRulesApi {
 
     /**
      * List workflow rules
-     * Lists workflow rules available in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Lists workflow rules available in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @return ApiResponse&lt;List&lt;WorkflowRuleItem&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -645,7 +677,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<List<WorkflowRuleItem>> listWorkflowRulesWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = listWorkflowRulesValidateBeforeCall(null);
         Type localVarReturnType = new TypeToken<List<WorkflowRuleItem>>() {}.getType();
@@ -654,7 +688,7 @@ public class WorkflowRulesApi {
 
     /**
      * List workflow rules (asynchronously)
-     * Lists workflow rules available in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Lists workflow rules available in the current project.  **Required permissions:** Any of &#x60;workflow:read&#x60;, &#x60;workflow:admin&#x60;
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -666,7 +700,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call listWorkflowRulesAsync(final ApiCallback<List<WorkflowRuleItem>> _callback)
             throws ApiException {
 
@@ -692,7 +728,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateWorkflowRuleCall(
             @jakarta.annotation.Nonnull String ruleId,
             @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload,
@@ -754,6 +792,7 @@ public class WorkflowRulesApi {
                 _callback);
     }
 
+    @Deprecated
     @SuppressWarnings("rawtypes")
     private okhttp3.Call updateWorkflowRuleValidateBeforeCall(
             @jakarta.annotation.Nonnull String ruleId,
@@ -777,7 +816,7 @@ public class WorkflowRulesApi {
 
     /**
      * Update a workflow rule
-     * Updates an existing workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Updates an existing workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @param updateWorkflowRulePayload  (required)
      * @return WorkflowRule
@@ -791,7 +830,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public WorkflowRule updateWorkflowRule(
             @jakarta.annotation.Nonnull String ruleId,
             @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload)
@@ -803,7 +844,7 @@ public class WorkflowRulesApi {
 
     /**
      * Update a workflow rule
-     * Updates an existing workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Updates an existing workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @param updateWorkflowRulePayload  (required)
      * @return ApiResponse&lt;WorkflowRule&gt;
@@ -817,7 +858,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public ApiResponse<WorkflowRule> updateWorkflowRuleWithHttpInfo(
             @jakarta.annotation.Nonnull String ruleId,
             @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload)
@@ -830,7 +873,7 @@ public class WorkflowRulesApi {
 
     /**
      * Update a workflow rule (asynchronously)
-     * Updates an existing workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
+     * Workflow rules are deprecated; use event subscriptions instead. Updates an existing workflow rule.  **Required permissions:** &#x60;workflow:admin&#x60;
      * @param ruleId  (required)
      * @param updateWorkflowRulePayload  (required)
      * @param _callback The callback to be executed when the API call finishes
@@ -845,7 +888,9 @@ public class WorkflowRulesApi {
      * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
      * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
      * </table>
+     * @deprecated
      */
+    @Deprecated
     public okhttp3.Call updateWorkflowRuleAsync(
             @jakarta.annotation.Nonnull String ruleId,
             @jakarta.annotation.Nonnull UpdateWorkflowRulePayload updateWorkflowRulePayload,
