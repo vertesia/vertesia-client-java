@@ -21,6 +21,7 @@ import io.vertesia.Configuration;
 import io.vertesia.Pair;
 import io.vertesia.model.QuotaStandingResponse;
 import io.vertesia.model.QuotaTierResponse;
+import io.vertesia.model.WorkflowUsageStanding;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -332,6 +333,159 @@ public class QuotaApi {
 
         okhttp3.Call localVarCall = getQuotaTierValidateBeforeCall(_callback);
         Type localVarReturnType = new TypeToken<QuotaTierResponse>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for getWorkflowUsage
+     * @param workflowClass  (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getWorkflowUsageCall(
+            @jakarta.annotation.Nullable String workflowClass, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/workflows/usage";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (workflowClass != null) {
+            localVarQueryParams.addAll(
+                    localVarApiClient.parameterToPair("workflow_class", workflowClass));
+        }
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getWorkflowUsageValidateBeforeCall(
+            @jakarta.annotation.Nullable String workflowClass, final ApiCallback _callback)
+            throws ApiException {
+        return getWorkflowUsageCall(workflowClass, _callback);
+    }
+
+    /**
+     * Get workflow usage standing
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @param workflowClass  (optional)
+     * @return WorkflowUsageStanding
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public WorkflowUsageStanding getWorkflowUsage(@jakarta.annotation.Nullable String workflowClass)
+            throws ApiException {
+        ApiResponse<WorkflowUsageStanding> localVarResp =
+                getWorkflowUsageWithHttpInfo(workflowClass);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get workflow usage standing
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @param workflowClass  (optional)
+     * @return ApiResponse&lt;WorkflowUsageStanding&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<WorkflowUsageStanding> getWorkflowUsageWithHttpInfo(
+            @jakarta.annotation.Nullable String workflowClass) throws ApiException {
+        okhttp3.Call localVarCall = getWorkflowUsageValidateBeforeCall(workflowClass, null);
+        Type localVarReturnType = new TypeToken<WorkflowUsageStanding>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get workflow usage standing (asynchronously)
+     * **Required permissions:** &#x60;account:member&#x60;
+     * @param workflowClass  (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call getWorkflowUsageAsync(
+            @jakarta.annotation.Nullable String workflowClass,
+            final ApiCallback<WorkflowUsageStanding> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = getWorkflowUsageValidateBeforeCall(workflowClass, _callback);
+        Type localVarReturnType = new TypeToken<WorkflowUsageStanding>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

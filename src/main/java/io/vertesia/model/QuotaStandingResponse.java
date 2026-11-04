@@ -39,6 +39,11 @@ import java.util.Objects;
         value = "org.openapitools.codegen.languages.JavaClientCodegen",
         comments = "Generator version: 7.22.0")
 public class QuotaStandingResponse {
+    public static final String SERIALIZED_NAME_WORKFLOW_USAGE = "workflow_usage";
+
+    @SerializedName(SERIALIZED_NAME_WORKFLOW_USAGE)
+    @jakarta.annotation.Nullable private WorkflowUsageStanding workflowUsage;
+
     public static final String SERIALIZED_NAME_TENANT_ID = "tenant_id";
 
     @SerializedName(SERIALIZED_NAME_TENANT_ID)
@@ -82,6 +87,24 @@ public class QuotaStandingResponse {
     private QuotaStandingResponseLlm llm;
 
     public QuotaStandingResponse() {}
+
+    public QuotaStandingResponse workflowUsage(
+            @jakarta.annotation.Nullable WorkflowUsageStanding workflowUsage) {
+        this.workflowUsage = workflowUsage;
+        return this;
+    }
+
+    /**
+     * Get workflowUsage
+     * @return workflowUsage
+     */
+    @jakarta.annotation.Nullable public WorkflowUsageStanding getWorkflowUsage() {
+        return workflowUsage;
+    }
+
+    public void setWorkflowUsage(@jakarta.annotation.Nullable WorkflowUsageStanding workflowUsage) {
+        this.workflowUsage = workflowUsage;
+    }
 
     public QuotaStandingResponse tenantId(@jakarta.annotation.Nonnull String tenantId) {
         this.tenantId = tenantId;
@@ -272,7 +295,8 @@ public class QuotaStandingResponse {
             return false;
         }
         QuotaStandingResponse quotaStandingResponse = (QuotaStandingResponse) o;
-        return Objects.equals(this.tenantId, quotaStandingResponse.tenantId)
+        return Objects.equals(this.workflowUsage, quotaStandingResponse.workflowUsage)
+                && Objects.equals(this.tenantId, quotaStandingResponse.tenantId)
                 && Objects.equals(this.available, quotaStandingResponse.available)
                 && Objects.equals(this.baseTier, quotaStandingResponse.baseTier)
                 && Objects.equals(this.effectiveTier, quotaStandingResponse.effectiveTier)
@@ -286,6 +310,7 @@ public class QuotaStandingResponse {
     @Override
     public int hashCode() {
         return Objects.hash(
+                workflowUsage,
                 tenantId,
                 available,
                 baseTier,
@@ -300,6 +325,7 @@ public class QuotaStandingResponse {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("class QuotaStandingResponse {\n");
+        sb.append("    workflowUsage: ").append(toIndentedString(workflowUsage)).append("\n");
         sb.append("    tenantId: ").append(toIndentedString(tenantId)).append("\n");
         sb.append("    available: ").append(toIndentedString(available)).append("\n");
         sb.append("    baseTier: ").append(toIndentedString(baseTier)).append("\n");
@@ -330,6 +356,7 @@ public class QuotaStandingResponse {
         openapiFields =
                 new HashSet<String>(
                         Arrays.asList(
+                                "workflow_usage",
                                 "tenant_id",
                                 "available",
                                 "base_tier",
@@ -381,6 +408,10 @@ public class QuotaStandingResponse {
             }
         }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
+        // validate the optional field `workflow_usage`
+        if (jsonObj.get("workflow_usage") != null && !jsonObj.get("workflow_usage").isJsonNull()) {
+            WorkflowUsageStanding.validateJsonElement(jsonObj.get("workflow_usage"));
+        }
         if (!jsonObj.get("tenant_id").isJsonPrimitive()) {
             throw new IllegalArgumentException(
                     String.format(

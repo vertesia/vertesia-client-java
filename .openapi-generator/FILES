@@ -1263,4 +1263,10 @@ src/main/java/io/vertesia/model/WorkflowRunWithDetails.java
 src/main/java/io/vertesia/model/WorkflowSearchAttributeValueInner.java
 src/main/java/io/vertesia/model/WorkflowTask.java
 src/main/java/io/vertesia/model/WorkflowUpdatePublishResponse.java
+src/main/java/io/vertesia/model/WorkflowUsageClass.java
+src/main/java/io/vertesia/model/WorkflowUsageClassActualStarts.java
+src/main/java/io/vertesia/model/WorkflowUsageClassBacklog.java
+src/main/java/io/vertesia/model/WorkflowUsageClassOccupancy.java
+src/main/java/io/vertesia/model/WorkflowUsageClassStartWindow.java
+src/main/java/io/vertesia/model/WorkflowUsageStanding.java
 src/main/java/io/vertesia/model/XAIGrokImageOptions.java
