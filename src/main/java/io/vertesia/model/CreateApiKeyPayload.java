@@ -50,7 +50,7 @@ public class CreateApiKeyPayload {
 
     @SerializedName(SERIALIZED_NAME_ROLE)
     @jakarta.annotation.Nonnull
-    private SystemRoles role;
+    private AssignableRoleName role;
 
     public static final String SERIALIZED_NAME_TYPE = "type";
 
@@ -102,7 +102,7 @@ public class CreateApiKeyPayload {
         this.name = name;
     }
 
-    public CreateApiKeyPayload role(@jakarta.annotation.Nonnull SystemRoles role) {
+    public CreateApiKeyPayload role(@jakarta.annotation.Nonnull AssignableRoleName role) {
         this.role = role;
         return this;
     }
@@ -112,11 +112,11 @@ public class CreateApiKeyPayload {
      * @return role
      */
     @jakarta.annotation.Nonnull
-    public SystemRoles getRole() {
+    public AssignableRoleName getRole() {
         return role;
     }
 
-    public void setRole(@jakarta.annotation.Nonnull SystemRoles role) {
+    public void setRole(@jakarta.annotation.Nonnull AssignableRoleName role) {
         this.role = role;
     }
 
@@ -407,7 +407,7 @@ public class CreateApiKeyPayload {
                             jsonObj.get("name").toString()));
         }
         // validate the required field `role`
-        SystemRoles.validateJsonElement(jsonObj.get("role"));
+        AssignableRoleName.validateJsonElement(jsonObj.get("role"));
         // validate the optional field `type`
         if (jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) {
             ApiKeyTypes.validateJsonElement(jsonObj.get("type"));

@@ -44,7 +44,7 @@ public class UserInviteTokenData {
 
     @SerializedName(SERIALIZED_NAME_ROLE)
     @jakarta.annotation.Nonnull
-    private SystemRoles role;
+    private AssignableRoleName role;
 
     public static final String SERIALIZED_NAME_ACCOUNT = "account";
 
@@ -83,7 +83,7 @@ public class UserInviteTokenData {
         this.email = email;
     }
 
-    public UserInviteTokenData role(@jakarta.annotation.Nonnull SystemRoles role) {
+    public UserInviteTokenData role(@jakarta.annotation.Nonnull AssignableRoleName role) {
         this.role = role;
         return this;
     }
@@ -93,11 +93,11 @@ public class UserInviteTokenData {
      * @return role
      */
     @jakarta.annotation.Nonnull
-    public SystemRoles getRole() {
+    public AssignableRoleName getRole() {
         return role;
     }
 
-    public void setRole(@jakarta.annotation.Nonnull SystemRoles role) {
+    public void setRole(@jakarta.annotation.Nonnull AssignableRoleName role) {
         this.role = role;
     }
 
@@ -248,7 +248,7 @@ public class UserInviteTokenData {
                             jsonObj.get("email").toString()));
         }
         // validate the required field `role`
-        SystemRoles.validateJsonElement(jsonObj.get("role"));
+        AssignableRoleName.validateJsonElement(jsonObj.get("role"));
         // validate the required field `account`
         AccountRef.validateJsonElement(jsonObj.get("account"));
         // validate the optional field `project`

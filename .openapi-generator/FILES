@@ -229,6 +229,7 @@ src/main/java/io/vertesia/model/AppVersionUrls.java
 src/main/java/io/vertesia/model/AppWidgetInfo.java
 src/main/java/io/vertesia/model/AskUserWebhookConfiguration.java
 src/main/java/io/vertesia/model/AskUserWebhookConfigurationInput.java
+src/main/java/io/vertesia/model/AssignableRoleName.java
 src/main/java/io/vertesia/model/AsyncCompletionMode.java
 src/main/java/io/vertesia/model/AsyncCompletionOptions.java
 src/main/java/io/vertesia/model/AsyncConversationExecutionPayload.java
@@ -445,6 +446,7 @@ src/main/java/io/vertesia/model/CreateUserGroupPayload.java
 src/main/java/io/vertesia/model/CreateUserPayload.java
 src/main/java/io/vertesia/model/CreateViewExperienceRequest.java
 src/main/java/io/vertesia/model/CreateWorkflowRulePayload.java
+src/main/java/io/vertesia/model/CustomRoleDefinition.java
 src/main/java/io/vertesia/model/DSLActivityOptions.java
 src/main/java/io/vertesia/model/DSLActivitySpec.java
 src/main/java/io/vertesia/model/DSLActivityStep.java
@@ -1114,6 +1116,7 @@ src/main/java/io/vertesia/model/UpdateAppPayload.java
 src/main/java/io/vertesia/model/UpdateCollectionPayload.java
 src/main/java/io/vertesia/model/UpdateContentObjectPayload.java
 src/main/java/io/vertesia/model/UpdateContentObjectTypePayload.java
+src/main/java/io/vertesia/model/UpdateCustomRolePayload.java
 src/main/java/io/vertesia/model/UpdateDashboardPayload.java
 src/main/java/io/vertesia/model/UpdateEmailRouteRequest.java
 src/main/java/io/vertesia/model/UpdateEmailRouteResponse.java

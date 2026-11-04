@@ -47,7 +47,7 @@ public class UpdateApiKeyPayload {
     public static final String SERIALIZED_NAME_ROLE = "role";
 
     @SerializedName(SERIALIZED_NAME_ROLE)
-    @jakarta.annotation.Nullable private SystemRoles role;
+    @jakarta.annotation.Nullable private AssignableRoleName role;
 
     public static final String SERIALIZED_NAME_ENABLED = "enabled";
 
@@ -93,7 +93,7 @@ public class UpdateApiKeyPayload {
         this.name = name;
     }
 
-    public UpdateApiKeyPayload role(@jakarta.annotation.Nullable SystemRoles role) {
+    public UpdateApiKeyPayload role(@jakarta.annotation.Nullable AssignableRoleName role) {
         this.role = role;
         return this;
     }
@@ -102,11 +102,11 @@ public class UpdateApiKeyPayload {
      * Get role
      * @return role
      */
-    @jakarta.annotation.Nullable public SystemRoles getRole() {
+    @jakarta.annotation.Nullable public AssignableRoleName getRole() {
         return role;
     }
 
-    public void setRole(@jakarta.annotation.Nullable SystemRoles role) {
+    public void setRole(@jakarta.annotation.Nullable AssignableRoleName role) {
         this.role = role;
     }
 
@@ -366,7 +366,7 @@ public class UpdateApiKeyPayload {
         }
         // validate the optional field `role`
         if (jsonObj.get("role") != null && !jsonObj.get("role").isJsonNull()) {
-            SystemRoles.validateJsonElement(jsonObj.get("role"));
+            AssignableRoleName.validateJsonElement(jsonObj.get("role"));
         }
         // ensure the optional json data is an array if present
         if (jsonObj.get("compartments") != null

@@ -22,8 +22,11 @@ import io.vertesia.Pair;
 import io.vertesia.model.AccountApiKey;
 import io.vertesia.model.AccountApiKeyWithValue;
 import io.vertesia.model.CreateAccountApiKeyPayload;
+import io.vertesia.model.CustomRoleDefinition;
 import io.vertesia.model.DeleteOperationResult;
+import io.vertesia.model.Permission;
 import io.vertesia.model.UpdateAccountApiKeyPayload;
+import io.vertesia.model.UpdateCustomRolePayload;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -228,6 +231,159 @@ public class DefaultApi {
     }
 
     /**
+     * Build call for createCustomRole
+     * @param body  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createCustomRoleCall(
+            @jakarta.annotation.Nonnull CustomRoleDefinition body, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = body;
+
+        // create path and map variables
+        String localVarPath = "/account/roles";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "POST",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call createCustomRoleValidateBeforeCall(
+            @jakarta.annotation.Nonnull CustomRoleDefinition body, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'body' is set
+        if (body == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'body' when calling createCustomRole(Async)");
+        }
+
+        return createCustomRoleCall(body, _callback);
+    }
+
+    /**
+     * Create an account-local custom role
+     *
+     * @param body  (required)
+     * @return CustomRoleDefinition
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public CustomRoleDefinition createCustomRole(
+            @jakarta.annotation.Nonnull CustomRoleDefinition body) throws ApiException {
+        ApiResponse<CustomRoleDefinition> localVarResp = createCustomRoleWithHttpInfo(body);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Create an account-local custom role
+     *
+     * @param body  (required)
+     * @return ApiResponse&lt;CustomRoleDefinition&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<CustomRoleDefinition> createCustomRoleWithHttpInfo(
+            @jakarta.annotation.Nonnull CustomRoleDefinition body) throws ApiException {
+        okhttp3.Call localVarCall = createCustomRoleValidateBeforeCall(body, null);
+        Type localVarReturnType = new TypeToken<CustomRoleDefinition>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Create an account-local custom role (asynchronously)
+     *
+     * @param body  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call createCustomRoleAsync(
+            @jakarta.annotation.Nonnull CustomRoleDefinition body,
+            final ApiCallback<CustomRoleDefinition> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = createCustomRoleValidateBeforeCall(body, _callback);
+        Type localVarReturnType = new TypeToken<CustomRoleDefinition>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for deleteAccountApiKey
      * @param keyId  (required)
      * @param _callback Callback for upload/download progress
@@ -379,6 +535,163 @@ public class DefaultApi {
             throws ApiException {
 
         okhttp3.Call localVarCall = deleteAccountApiKeyValidateBeforeCall(keyId, _callback);
+        Type localVarReturnType = new TypeToken<DeleteOperationResult>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for deleteCustomRole
+     * @param name  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteCustomRoleCall(
+            @jakarta.annotation.Nonnull String name, final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath =
+                "/account/roles/{name}"
+                        .replace(
+                                "{" + "name" + "}",
+                                localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "DELETE",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call deleteCustomRoleValidateBeforeCall(
+            @jakarta.annotation.Nonnull String name, final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'name' when calling deleteCustomRole(Async)");
+        }
+
+        return deleteCustomRoleCall(name, _callback);
+    }
+
+    /**
+     * Delete a custom role that is neither assigned nor inherited
+     *
+     * @param name  (required)
+     * @return DeleteOperationResult
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public DeleteOperationResult deleteCustomRole(@jakarta.annotation.Nonnull String name)
+            throws ApiException {
+        ApiResponse<DeleteOperationResult> localVarResp = deleteCustomRoleWithHttpInfo(name);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Delete a custom role that is neither assigned nor inherited
+     *
+     * @param name  (required)
+     * @return ApiResponse&lt;DeleteOperationResult&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<DeleteOperationResult> deleteCustomRoleWithHttpInfo(
+            @jakarta.annotation.Nonnull String name) throws ApiException {
+        okhttp3.Call localVarCall = deleteCustomRoleValidateBeforeCall(name, null);
+        Type localVarReturnType = new TypeToken<DeleteOperationResult>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Delete a custom role that is neither assigned nor inherited (asynchronously)
+     *
+     * @param name  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call deleteCustomRoleAsync(
+            @jakarta.annotation.Nonnull String name,
+            final ApiCallback<DeleteOperationResult> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall = deleteCustomRoleValidateBeforeCall(name, _callback);
         Type localVarReturnType = new TypeToken<DeleteOperationResult>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -677,6 +990,281 @@ public class DefaultApi {
     }
 
     /**
+     * Build call for listCustomRolePermissions
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listCustomRolePermissionsCall(final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/account/roles/permissions";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCustomRolePermissionsValidateBeforeCall(final ApiCallback _callback)
+            throws ApiException {
+        return listCustomRolePermissionsCall(_callback);
+    }
+
+    /**
+     * List permissions available to custom roles
+     * **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
+     * @return List&lt;Permission&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public List<Permission> listCustomRolePermissions() throws ApiException {
+        ApiResponse<List<Permission>> localVarResp = listCustomRolePermissionsWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * List permissions available to custom roles
+     * **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
+     * @return ApiResponse&lt;List&lt;Permission&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<List<Permission>> listCustomRolePermissionsWithHttpInfo()
+            throws ApiException {
+        okhttp3.Call localVarCall = listCustomRolePermissionsValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<Permission>>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List permissions available to custom roles (asynchronously)
+     * **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listCustomRolePermissionsAsync(
+            final ApiCallback<List<Permission>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listCustomRolePermissionsValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<Permission>>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for listCustomRoles
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listCustomRolesCall(final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/account/roles";
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "GET",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call listCustomRolesValidateBeforeCall(final ApiCallback _callback)
+            throws ApiException {
+        return listCustomRolesCall(_callback);
+    }
+
+    /**
+     * List custom roles in the current account
+     * **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
+     * @return List&lt;CustomRoleDefinition&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public List<CustomRoleDefinition> listCustomRoles() throws ApiException {
+        ApiResponse<List<CustomRoleDefinition>> localVarResp = listCustomRolesWithHttpInfo();
+        return localVarResp.getData();
+    }
+
+    /**
+     * List custom roles in the current account
+     * **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
+     * @return ApiResponse&lt;List&lt;CustomRoleDefinition&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<List<CustomRoleDefinition>> listCustomRolesWithHttpInfo()
+            throws ApiException {
+        okhttp3.Call localVarCall = listCustomRolesValidateBeforeCall(null);
+        Type localVarReturnType = new TypeToken<List<CustomRoleDefinition>>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * List custom roles in the current account (asynchronously)
+     * **Required permissions:** Any of &#x60;account:member&#x60;, &#x60;account:read&#x60;
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call listCustomRolesAsync(
+            final ApiCallback<List<CustomRoleDefinition>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = listCustomRolesValidateBeforeCall(_callback);
+        Type localVarReturnType = new TypeToken<List<CustomRoleDefinition>>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
      * Build call for updateAccountApiKey
      * @param keyId  (required)
      * @param updateAccountApiKeyPayload  (required)
@@ -851,6 +1439,185 @@ public class DefaultApi {
         okhttp3.Call localVarCall =
                 updateAccountApiKeyValidateBeforeCall(keyId, updateAccountApiKeyPayload, _callback);
         Type localVarReturnType = new TypeToken<AccountApiKey>() {}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+
+    /**
+     * Build call for updateCustomRole
+     * @param name  (required)
+     * @param updateCustomRolePayload  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateCustomRoleCall(
+            @jakarta.annotation.Nonnull String name,
+            @jakarta.annotation.Nonnull UpdateCustomRolePayload updateCustomRolePayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {};
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null) {
+            basePath = localCustomBaseUrl;
+        } else if (localBasePaths.length > 0) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateCustomRolePayload;
+
+        // create path and map variables
+        String localVarPath =
+                "/account/roles/{name}"
+                        .replace(
+                                "{" + "name" + "}",
+                                localVarApiClient.escapeString(name.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {"application/json"};
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {"application/json"};
+        final String localVarContentType =
+                localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {"OAuth2", "bearerAuth"};
+        return localVarApiClient.buildCall(
+                basePath,
+                localVarPath,
+                "PUT",
+                localVarQueryParams,
+                localVarCollectionQueryParams,
+                localVarPostBody,
+                localVarHeaderParams,
+                localVarCookieParams,
+                localVarFormParams,
+                localVarAuthNames,
+                _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateCustomRoleValidateBeforeCall(
+            @jakarta.annotation.Nonnull String name,
+            @jakarta.annotation.Nonnull UpdateCustomRolePayload updateCustomRolePayload,
+            final ApiCallback _callback)
+            throws ApiException {
+        // verify the required parameter 'name' is set
+        if (name == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'name' when calling updateCustomRole(Async)");
+        }
+
+        // verify the required parameter 'updateCustomRolePayload' is set
+        if (updateCustomRolePayload == null) {
+            throw new ApiException(
+                    "Missing the required parameter 'updateCustomRolePayload' when calling updateCustomRole(Async)");
+        }
+
+        return updateCustomRoleCall(name, updateCustomRolePayload, _callback);
+    }
+
+    /**
+     * Update a custom role; changes apply to newly minted tokens
+     *
+     * @param name  (required)
+     * @param updateCustomRolePayload  (required)
+     * @return CustomRoleDefinition
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public CustomRoleDefinition updateCustomRole(
+            @jakarta.annotation.Nonnull String name,
+            @jakarta.annotation.Nonnull UpdateCustomRolePayload updateCustomRolePayload)
+            throws ApiException {
+        ApiResponse<CustomRoleDefinition> localVarResp =
+                updateCustomRoleWithHttpInfo(name, updateCustomRolePayload);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update a custom role; changes apply to newly minted tokens
+     *
+     * @param name  (required)
+     * @param updateCustomRolePayload  (required)
+     * @return ApiResponse&lt;CustomRoleDefinition&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public ApiResponse<CustomRoleDefinition> updateCustomRoleWithHttpInfo(
+            @jakarta.annotation.Nonnull String name,
+            @jakarta.annotation.Nonnull UpdateCustomRolePayload updateCustomRolePayload)
+            throws ApiException {
+        okhttp3.Call localVarCall =
+                updateCustomRoleValidateBeforeCall(name, updateCustomRolePayload, null);
+        Type localVarReturnType = new TypeToken<CustomRoleDefinition>() {}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update a custom role; changes apply to newly minted tokens (asynchronously)
+     *
+     * @param name  (required)
+     * @param updateCustomRolePayload  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     * <table border="1">
+     * <caption>Response Details</caption>
+     * <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+     * <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+     * <tr><td> 500 </td><td> Internal server error. </td><td>  -  </td></tr>
+     * <tr><td> 4XX </td><td> Client error. </td><td>  -  </td></tr>
+     * </table>
+     */
+    public okhttp3.Call updateCustomRoleAsync(
+            @jakarta.annotation.Nonnull String name,
+            @jakarta.annotation.Nonnull UpdateCustomRolePayload updateCustomRolePayload,
+            final ApiCallback<CustomRoleDefinition> _callback)
+            throws ApiException {
+
+        okhttp3.Call localVarCall =
+                updateCustomRoleValidateBeforeCall(name, updateCustomRolePayload, _callback);
+        Type localVarReturnType = new TypeToken<CustomRoleDefinition>() {}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

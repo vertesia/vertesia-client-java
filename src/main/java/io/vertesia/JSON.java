@@ -1196,6 +1196,8 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AskUserWebhookConfigurationInput.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.AssignableRoleName.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AsyncCompletionOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.AsyncConversationExecutionPayload.CustomTypeAdapterFactory());
@@ -1604,6 +1606,8 @@ public class JSON {
                 new io.vertesia.model.CreateViewExperienceRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.CreateWorkflowRulePayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.CustomRoleDefinition.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.DSLActivityOptions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
@@ -2737,6 +2741,8 @@ public class JSON {
                 new io.vertesia.model.UpdateContentObjectPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UpdateContentObjectTypePayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(
+                new io.vertesia.model.UpdateCustomRolePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
                 new io.vertesia.model.UpdateDashboardPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(
