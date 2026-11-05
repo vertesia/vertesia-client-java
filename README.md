@@ -28,8 +28,8 @@ VertesiaClient client = new VertesiaClient(new ClientOptions()
         .setRegion("us1")
         .setApiKey("sk-..."));
 
-var account = client.accounts.getCurrentAccount();
-var projects = client.projects.listProjects(null);
+var account = client.accounts.getCurrentAccount().execute();
+var projects = client.projects.listProjects().execute();
 ```
 
 `sk-` secret keys are exchanged through Vertesia STS and cached as bearer tokens. `pk-` keys are no longer supported. If you already have an issued bearer token, pass it directly:
@@ -76,16 +76,24 @@ VertesiaClient client = new VertesiaClient(new ClientOptions()
 The high-level client exposes generated API groups:
 
 ```java
-client.studio.projects.listProjects(null);
-client.store.objects.searchObjects(payload);
+client.studio.projects.listProjects().execute();
+client.store.objects.searchObjects(payload).execute();
 ```
 
 It also exposes convenience aliases when routing is unambiguous:
 
 ```java
-client.projects.listProjects(null);
-client.objects.searchObjects(payload);
+client.projects.listProjects().execute();
+client.objects.searchObjects(payload).execute();
 ```
+
+Each operation returns a request: pass required parameters to the method, set optional ones by name, and finish with `execute()`. Adding an optional parameter to an operation does not break existing callers.
+
+```java
+client.apps.deleteApp(appId).confirm(true).execute();
+```
+
+`executeWithHttpInfo()`, `executeAsync(callback)` and `buildCall(callback)` are available on every request.
 
 Generated model classes can be used directly:
 
@@ -108,10 +116,6 @@ scripts/regenerate.sh
 After any OpenAPI generation path, run `scripts/post_generate.sh` before
 testing or committing generated output. It is the shared post-generation hook
 used by local regeneration and the internal Studio sync workflow.
-
-The API template is customized under `templates/` so that adding an optional
-parameter to an operation keeps a required-parameters-only overload of its
-methods. See `templates/README.md`.
 
 The internal Studio workflow syncs generated Java source and `spec/` into this repository after the OpenAPI spec is validated on `main`. Hand-written client files, tests, workflows, README, LICENSE, NOTICE, `.env.example`, and generator config are protected by `.openapi-generator-ignore`.
 

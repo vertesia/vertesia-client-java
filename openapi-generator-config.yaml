@@ -1,8 +1,6 @@
 generatorName: java
 inputSpec: ./spec/vertesia-openapi.json
 outputDir: .
-# api.mustache is forked from the pinned generator version; see templates/README.md.
-templateDir: ./templates
 
 globalProperties:
   modelTests: "false"
@@ -32,6 +30,7 @@ additionalProperties:
   scmConnection: scm:git:https://github.com/vertesia/vertesia-client-java.git
   scmDeveloperConnection: scm:git:https://github.com/vertesia/vertesia-client-java.git
   scmUrl: https://github.com/vertesia/vertesia-client-java
-  implicitHeadersRegex: ^x-api-version$
+  # Request builders, so adding an optional parameter to an operation never changes a method signature.
+  useSingleRequestParameter: true
   licenseName: Apache-2.0
   licenseUrl: https://www.apache.org/licenses/LICENSE-2.0
