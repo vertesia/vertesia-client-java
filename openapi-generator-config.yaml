@@ -1,6 +1,8 @@
 generatorName: java
 inputSpec: ./spec/vertesia-openapi.json
 outputDir: .
+# api.mustache is forked from the pinned generator version; see templates/README.md.
+templateDir: ./templates
 
 globalProperties:
   modelTests: "false"

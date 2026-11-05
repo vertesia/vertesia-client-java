@@ -39,6 +39,8 @@ Normal hand-written changes may touch:
 - `pom.xml` for package metadata, dependencies, plugin settings, or release
   version updates
 - `openapi-generator-config.yaml` when changing generator configuration
+- `templates/` when changing generated code shape; keep each override a copy of
+  the pinned generator's template plus a marked block (see `templates/README.md`)
 - `scripts/`, especially generation compatibility and security patches
 - `.github/` workflow and repository automation files
 
