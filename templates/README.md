@@ -11,7 +11,7 @@ A copy of the built-in Java `okhttp-gson` API template from OpenAPI Generator
 between `BEGIN vertesia` and `END vertesia`, appended to each operation.
 
 For every operation with optional parameters, that block adds overloads of the
-synchronous, `WithHttpInfo` and `Async` methods that take only the required
+synchronous, `WithHttpInfo`, `Async` and `Call` methods that take only the required
 parameters and leave every optional parameter unset. The generator passes each
 optional parameter positionally, so without these overloads, adding an optional
 query parameter to an existing operation breaks every caller of that method at
@@ -25,7 +25,7 @@ When upgrading OpenAPI Generator, refresh the copy from the new version and
 re-apply the marked block:
 
 ```sh
-docker run --rm -v "$PWD/tmp-templates:/out" \
+docker run --rm --user "$(id -u):$(id -g)" -v "$PWD/tmp-templates:/out" \
   openapitools/openapi-generator-cli:<version> \
   author template -g java --library okhttp-gson -o /out
 ```

@@ -609,9 +609,27 @@ public class {{classname}} {
     {{! Adding an optional query parameter to an operation must not break callers compiled against the }}
     {{! previous signature. Each overload leaves every optional parameter unset. requiredParams also holds }}
     {{! implicit headers (implicitHeadersRegex), so read the required ones from allParams, which lists them first }}
-    {{! (sortParamsByRequiredFlag, on by default). }}
+    {{! (sortParamsByRequiredFlag, on by default). Gate on the hasOptionalParams boolean: a list section such as }}
+    {{! optionalParams.0 would push a parameter whose own isDeprecated and vendorExtensions shadow the operation's. }}
     {{^vendorExtensions.x-group-parameters}}
-    {{#optionalParams.0}}
+    {{#hasOptionalParams}}
+
+    /**
+     * Build call for {{operationId}} with every optional parameter left unset.{{#allParams}}{{#required}}
+     * @param {{paramName}} {{description}} (required){{/required}}{{/allParams}}
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     {{#isDeprecated}}
+     * @deprecated
+     {{/isDeprecated}}
+     */
+    {{#isDeprecated}}
+    @Deprecated
+    {{/isDeprecated}}
+    public okhttp3.Call {{operationId}}Call({{#allParams}}{{#required}}{{>nullable_var_annotations}} {{{dataType}}} {{paramName}}, {{/required}}{{/allParams}}final ApiCallback _callback) throws ApiException {
+        return {{operationId}}Call({{#allParams}}{{#required}}{{paramName}}{{/required}}{{^required}}null{{/required}}, {{/allParams}}_callback);
+    }
 
     /**
      * {{summary}}
@@ -664,7 +682,7 @@ public class {{classname}} {
     public okhttp3.Call {{operationId}}Async({{#allParams}}{{#required}}{{>nullable_var_annotations}} {{{dataType}}} {{paramName}}, {{/required}}{{/allParams}}final ApiCallback<{{{returnType}}}{{^returnType}}Void{{/returnType}}> _callback) throws ApiException {
         return {{operationId}}Async({{#allParams}}{{#required}}{{paramName}}{{/required}}{{^required}}null{{/required}}, {{/allParams}}_callback);
     }
-    {{/optionalParams.0}}
+    {{/hasOptionalParams}}
     {{/vendorExtensions.x-group-parameters}}
     {{! END vertesia: required-parameter overloads. }}
     {{/operation}}
